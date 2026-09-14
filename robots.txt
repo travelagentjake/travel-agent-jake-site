@@ -28,3 +28,5 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://travelagentjake.co.uk/sitemap.xml
+
+# auto-deploy test 2026-09-14T20:42:03Z
