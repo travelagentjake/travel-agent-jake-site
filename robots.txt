@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# AI / answer-engine crawlers: explicitly allowed so Travel Agent Jake
+# can be found and cited in AI search and chat answers.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://travelagentjake.co.uk/sitemap.xml

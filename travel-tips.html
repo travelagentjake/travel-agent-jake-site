@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-43FWMN7P14"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-43FWMN7P14');
+</script>
+<!-- GetYourGuide Analytics -->
+<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="EFDILG1"></script>
+<title>Travel Tips | Travel Agent Jake</title>
+<meta name="description" content="Honest travel tips and comparisons from Travel Agent Jake: eSIMs, packing, and the practical stuff nobody tells you until you're already there.">
+<link rel="canonical" href="https://travelagentjake.co.uk/travel-tips.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Travel Agent Jake">
+<meta property="og:title" content="Travel Tips | Travel Agent Jake">
+<meta property="og:description" content="Honest travel tips and comparisons from Travel Agent Jake: eSIMs, packing, and the practical stuff nobody tells you until you're already there.">
+<meta property="og:url" content="https://travelagentjake.co.uk/travel-tips.html">
+<meta property="og:image" content="https://travelagentjake.co.uk/images/pool-portrait.jpg">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Travel Tips | Travel Agent Jake">
+<meta name="twitter:description" content="Honest travel tips and comparisons from Travel Agent Jake: eSIMs, packing, and the practical stuff nobody tells you until you're already there.">
+<meta name="twitter:image" content="https://travelagentjake.co.uk/images/pool-portrait.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="images/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Travel Agent Jake",
+  "url": "https://travelagentjake.co.uk",
+  "logo": "https://travelagentjake.co.uk/images/logo.png",
+  "image": "https://travelagentjake.co.uk/images/pool-portrait.jpg",
+  "description": "Independent UK travel agent with 15+ years' experience, booking honest, no-pressure package holidays, family holidays and all-inclusive deals worldwide.",
+  "areaServed": {"@type": "Country", "name": "United Kingdom"},
+  "address": {"@type": "PostalAddress", "addressCountry": "GB"},
+  "telephone": "+447899290262",
+  "email": "enquiries@travelagentjake.com",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://instagram.com/travelagentjake",
+    "https://tiktok.com/@travelagentjake"
+  ],
+  "memberOf": {"@type": "Organization", "name": "ABTA", "url": "https://www.abta.com"}
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="logo-link" href="index.html"><img src="images/logo.png" alt="Travel Agent Jake"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">MENU</button>
+    <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="my-booking.html">My Booking</a>
+        <a href="about.html">About me</a>
+        <a href="travel-kit.html">Travel Kit</a>
+        <a href="travel-tips.html" class="active">Travel Tips</a>
+        <a href="destinations.html">Destinations</a>
+      <a class="btn btn-primary nav-cta" href="book.html">How to Book with Jake</a>
+    </nav>
+  </div>
+</header>
+
+<section class="theme-dark">
+  <div class="wrap">
+    <div class="eyebrow">Travel tips</div>
+    <h1>THE PRACTICAL STUFF, EXPLAINED PROPERLY</h1>
+    <p class="lead" style="margin-top:18px; max-width:60ch;">Honest comparisons and the practical advice nobody tells you until you're already there. No fluff, just what I'd tell you in person.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="finder-boxes">
+      <div class="finder-box">
+        <label for="tipsSearchInput" class="finder-label">Search</label>
+        <input type="text" id="tipsSearchInput" class="finder-input" placeholder="Try &quot;airport&quot; or &quot;eSIM&quot;" autocomplete="off">
+      </div>
+      <div class="finder-box">
+        <label for="tipsRequestInput" class="finder-label">What travel tip would you like to see next?</label>
+        <form name="tip-request" method="POST" data-netlify="true" netlify-honeypot="bot-field-tips" id="tipsRequestForm" class="finder-form">
+          <input type="hidden" name="form-name" value="tip-request">
+          <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field-tips"></label></p>
+          <div class="finder-row">
+            <input type="text" name="topic" id="tipsRequestInput" class="finder-input" placeholder="e.g. Best hand luggage for easyJet" required>
+            <button type="submit" class="btn btn-primary">Send idea</button>
+          </div>
+        </form>
+        <p id="tipsRequestThanks" class="finder-thanks" hidden>Thanks! I'll take a look and get something up if it's a good fit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var searchInput = document.getElementById('tipsSearchInput');
+  var grid = document.getElementById('tipsGrid');
+  var noResults = document.getElementById('tipsNoResults');
+  if (searchInput && grid) {
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.jake-card[data-search]'));
+    var comingSoon = grid.querySelector('.finder-coming-soon');
+    searchInput.addEventListener('input', function(){
+      var q = searchInput.value.trim().toLowerCase();
+      var matches = 0;
+      cards.forEach(function(c){
+        var show = !q || c.getAttribute('data-search').indexOf(q) !== -1;
+        c.style.display = show ? '' : 'none';
+        if (show) matches++;
+      });
+      if (comingSoon) comingSoon.style.display = q ? 'none' : '';
+      if (noResults) noResults.hidden = !(q && matches === 0);
+    });
+  }
+
+  var form = document.getElementById('tipsRequestForm');
+  var thanks = document.getElementById('tipsRequestThanks');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(form);
+      var encoded = [];
+      data.forEach(function(v, k){ encoded.push(encodeURIComponent(k) + '=' + encodeURIComponent(v)); });
+      fetch('/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: encoded.join('&')
+      }).then(function(){
+        form.hidden = true;
+        thanks.hidden = false;
+      }).catch(function(){
+        alert("Sorry, something went wrong sending that. Mind trying again in a moment?");
+      });
+    });
+  }
+});
+</script>
+
+<section class="theme-light">
+  <div class="wrap">
+    <div class="grid-3 equal-cards finder-grid" id="tipsGrid" style="margin-top:8px;">
+
+      <div class="jake-card" data-search="ees and etias explained what each system actually is, when etias is due and what it costs, the ees kiosk process and what happens if you say no, plus how it differs for families, disabilities and special assistance. border rules">
+        <img src="https://images.unsplash.com/photo-1503365194569-df4e1d04cec1?auto=format&fit=crop&w=800&h=500&q=80" alt="Travellers with luggage walking through an airport terminal" style="border-radius:6px; margin-bottom:14px; aspect-ratio:16/10; object-fit:cover;">
+        <p class="tip-card-meta">Border rules</p>
+        <h3 style="font-size:19px;">EES and ETIAS explained</h3>
+        <p>What each system actually is, when ETIAS is due and what it costs, the EES kiosk process and what happens if you say no, plus how it differs for families, disabilities and special assistance.</p>
+        <p><a class="body-copy" href="ees-etias-explained.html">Read more &rarr;</a></p>
+      </div>
+      <div class="jake-card" data-search="budget airline hand luggage sizes compared ryanair, easyjet, wizz air, vueling, jet2 and tui: free bag sizes, paid cabin bag sizes and what actually happens if yours doesn't fit. packing">
+        <img src="https://images.unsplash.com/photo-1584706655264-f55a47d9c6c0?auto=format&fit=crop&w=800&h=500&q=80" alt="Travellers with cabin bags waiting at an airport gate" style="border-radius:6px; margin-bottom:14px; aspect-ratio:16/10; object-fit:cover;">
+        <p class="tip-card-meta">Packing</p>
+        <h3 style="font-size:19px;">Budget airline hand luggage sizes compared</h3>
+        <p>Ryanair, easyJet, Wizz Air, Vueling, Jet2 and TUI: free bag sizes, paid cabin bag sizes and what actually happens if yours doesn't fit.</p>
+        <p><a class="body-copy" href="budget-airline-hand-luggage-sizes.html">Read more &rarr;</a></p>
+      </div>
+      <div class="jake-card" data-search="power banks on flights: the rules, the bans and buying a safe one what happened on the easyjet fire, the actual packing rules, which airlines now ban using them onboard, and how to buy one that won't let you down. flying safely">
+        <img src="https://images.unsplash.com/photo-1557767382-97b28f5488e7?auto=format&fit=crop&w=800&h=500&q=80" alt="Phone connected to a power bank charger" style="border-radius:6px; margin-bottom:14px; aspect-ratio:16/10; object-fit:cover;">
+        <p class="tip-card-meta">Flying safely</p>
+        <h3 style="font-size:19px;">Power banks on flights: the rules, the bans and buying a safe one</h3>
+        <p>What happened on the easyJet fire, the actual packing rules, which airlines now ban using them onboard, and how to buy one that won't let you down.</p>
+        <p><a class="body-copy" href="power-bank-flight-safety.html">Read more &rarr;</a></p>
+      </div>
+      <div class="jake-card" data-search="lgbtqia+ friendly holidays: where to go and where to take care the honest guide to gay scene hotspots, romantic getaways, group trips, pride events and the countries worth extra caution, legal versus lived reality explained properly. lgbtqia+ travel">
+        <img src="https://images.unsplash.com/photo-1561057160-ce83b1bd72f4?auto=format&fit=crop&w=800&h=500&q=80" alt="Crowd walking under a large rainbow flag at a Pride parade" style="border-radius:6px; margin-bottom:14px; aspect-ratio:16/10; object-fit:cover;">
+        <p class="tip-card-meta">LGBTQIA+ travel</p>
+        <h3 style="font-size:19px;">LGBTQIA+ friendly holidays: where to go and where to take care</h3>
+        <p>The honest guide to gay scene hotspots, romantic getaways, group trips, Pride events and the countries worth extra caution, legal versus lived reality explained properly.</p>
+        <p><a class="body-copy" href="lgbtq-friendly-holidays.html">Read more &rarr;</a></p>
+      </div>
+      <div class="jake-card" data-search="booking early vs booking late: what actually matters it's not really about saving money, it's about choice. plus a real example of what a direct debit plan looks like on a &pound;5,000 holiday. booking &amp; payments">
+        <img src="images/pool-portrait.jpg" alt="Jake on holiday beside a pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:16/10; object-fit:cover;">
+        <p class="tip-card-meta">Booking &amp; payments</p>
+        <h3 style="font-size:19px;">Booking early vs booking late: what actually matters</h3>
+        <p>It's not really about saving money, it's about choice. Plus a real example of what a direct debit plan looks like on a &pound;5,000 holiday.</p>
+        <p><a class="body-copy" href="booking-early-vs-late.html">Read more &rarr;</a></p>
+      </div>
+      <div class="jake-card" data-search="what to actually pack for a ski holiday the full packing list, on the slopes and off them, including the things people forget every single year. ski holidays">
+        <img src="images/ski.jpg" alt="Skier on a snowy mountain slope" style="border-radius:6px; margin-bottom:14px; aspect-ratio:16/10; object-fit:cover;">
+        <p class="tip-card-meta">Ski holidays</p>
+        <h3 style="font-size:19px;">What to actually pack for a ski holiday</h3>
+        <p>The full packing list, on the slopes and off them, including the things people forget every single year.</p>
+        <p><a class="body-copy" href="ski-holiday-packing-list.html">Read more &rarr;</a></p>
+      </div>
+      <div class="jake-card" data-search="the 3 best christmas market city breaks for 2026 budapest, vienna and prague compared: what the markets are like, what things cost, flight times and how to get into town. city breaks">
+        <img src="images/tips/christmas-markets.jpg" alt="Christmas market stalls lit up at night" style="border-radius:6px; margin-bottom:14px; aspect-ratio:16/10; object-fit:cover;">
+        <p class="tip-card-meta">City breaks</p>
+        <h3 style="font-size:19px;">The 3 best Christmas market city breaks for 2026</h3>
+        <p>Budapest, Vienna and Prague compared: what the markets are like, what things cost, flight times and how to get into town.</p>
+        <p><a class="body-copy" href="christmas-markets-budapest-vienna-prague.html">Read more &rarr;</a></p>
+      </div>
+      <div class="jake-card" data-search="breeze esim vs airalo: which one should you actually use? i compare pricing, coverage, the apps and the small print on both, so you're not gambling on data roaming with no signal on day one. esims">
+        <div style="display:flex; gap:6px; margin-bottom:14px;">
+          <img src="images/logo-breeze.png" alt="Breeze eSIM logo" style="width:44px; height:44px; border-radius:8px; border:2px solid var(--ink); background:var(--white); object-fit:contain; padding:4px;">
+          <img src="images/logo-airalo.jpg" alt="Airalo logo" style="width:44px; height:44px; border-radius:8px; border:2px solid var(--ink); background:var(--white); object-fit:contain; padding:4px;">
+        </div>
+        <p class="tip-card-meta">eSIMs</p>
+        <h3 style="font-size:19px;">Breeze eSIM vs Airalo: which one should you actually use?</h3>
+        <p>I compare pricing, coverage, the apps and the small print on both, so you're not gambling on data roaming with no signal on day one.</p>
+        <p><a class="body-copy" href="breeze-vs-airalo-esim.html">Read more &rarr;</a></p>
+      </div>
+
+      <div class="jake-card finder-coming-soon" style="opacity:0.55;">
+        <div class="tip-card-meta" style="margin-top:0;">Coming soon</div>
+        <h3 style="font-size:19px;">More travel tips on the way</h3>
+        <p>Packing lists, airport tricks, and the questions I get asked before every single trip. New tips get added here regularly.</p>
+      </div>
+
+    </div>
+    <p id="tipsNoResults" class="finder-no-results" hidden>No tips match that search yet, but pop it in the box above and I'll see what I can put together.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <div class="jake-card newsletter-card">
+      <h3>Sign up to travel news</h3>
+      <p style="max-width:52ch; margin:0 auto 20px;">Get travel updates direct to your inbox: news, offers, discounts and so much more, courtesy of Travel Agent Jake.</p>
+
+      <form id="jakeNewsletterForm" class="newsletter-form" method="POST" action="https://469d6a1c.sibforms.com/serve/MUIFAMcmuwqX-TvGFPiLc8X5nHNs-PyNB22bNJLaHaAO0ZaLwVnPVvTPd_6hxtOlaTewwRSBWuBCKubledBVtj1ZE8wxpDUP--xqOuWhe2SteRaYYgKiktFIHaAwKCSX75P76YGC8D_jHVW6dDrcK_1OD-m9ohUXVejyF-mhZ4JYroCzHYDBrL3cm1G7YsxCz_32sR1YI-h2zUyltQ==" target="jakeNewsletterFrame">
+        <label for="jakeNewsletterName" class="newsletter-label">First name</label>
+        <input id="jakeNewsletterName" class="newsletter-name-input" type="text" name="FIRSTNAME" placeholder="Your first name">
+        <label for="jakeNewsletterEmail" class="newsletter-label">Email address</label>
+        <div class="newsletter-row">
+          <input id="jakeNewsletterEmail" type="email" name="EMAIL" placeholder="you@example.com" required>
+          <button class="btn btn-primary" type="submit">Sign up</button>
+        </div>
+        <input type="text" name="email_address_check" value="" class="newsletter-honeypot" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="locale" value="en">
+        <input type="hidden" name="html_type" value="simple">
+        <p class="newsletter-fineprint">No spam, unsubscribe any time.</p>
+      </form>
+      <div id="jakeNewsletterSuccess" class="newsletter-success" hidden>You're on the list! Keep an eye on your inbox for travel news and offers.</div>
+      <iframe name="jakeNewsletterFrame" id="jakeNewsletterFrame" style="display:none;" title="newsletter"></iframe>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var form = document.getElementById('jakeNewsletterForm');
+  var success = document.getElementById('jakeNewsletterSuccess');
+  if (!form) return;
+  form.addEventListener('submit', function(){
+    setTimeout(function(){
+      form.hidden = true;
+      success.hidden = false;
+    }, 600);
+  });
+})();
+</script>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <h2>Got a trip in mind?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Tips are free, but I'd rather build your actual holiday. Message me and I'll put a plan together around you.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="jake-dash-yellow"></div>
+  <div class="wrap" style="padding-top:44px;">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-panel"><img src="images/logo.png" alt="Travel Agent Jake"></div>
+        <p>Independent UK travel agent, 15 years in the industry. ABTA protected family holidays, all-inclusive holidays and package holidays worldwide.</p>
+      </div>
+      <div>
+        <h4>EXPLORE</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="my-booking.html">My booking</a></li>
+          <li><a href="about.html">About me</a></li>
+          <li><a href="travel-kit.html">Travel kit</a></li>
+          <li><a href="travel-tips.html">Travel tips</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="ski-quiz.html">Ski resort quiz</a></li>
+          <li><a href="book.html">Book with Jake</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONTACT</h4>
+        <ul>
+          <li><a href="https://wa.me/447899290262">WhatsApp 07899 290262</a></li>
+          <li><a href="mailto:enquiries@travelagentjake.com">enquiries@travelagentjake.com</a></li>
+          <li><a href="mailto:bookings@travelagentjake.com">bookings@travelagentjake.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>FOLLOW</h4>
+        <ul>
+          <li><a href="https://instagram.com/travelagentjake" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://tiktok.com/@travelagentjake" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>Travel Agent Jake is part of Club Voyages, a Member of ABTA, membership number P8503 &amp; Y6784.</p>
+      <p>We are obliged to maintain a high standard of service to you by ABTA&rsquo;s Code of Conduct. We can also offer you ABTA&rsquo;s scheme for the resolution of disputes which is approved by the Chartered Trading Standards Institute. If we can&rsquo;t resolve your complaint, go to <a href="https://www.abta.com" target="_blank" rel="noopener">www.abta.com</a> to use ABTA&rsquo;s simple procedure. Further information on the Code and ABTA&rsquo;s assistance in resolving disputes can be found on <a href="https://www.abta.com" target="_blank" rel="noopener">www.abta.com</a>. We are a Member of ABTA which means you have the benefit of ABTA&rsquo;s assistance and Code of Conduct. We provide financial protection for your money when you buy a package holiday. If you buy other travel arrangements such as accommodation only this protection doesn&rsquo;t apply.</p>
+      <p>Club Voyages is not responsible for the content of third-party sites.</p>
+      <p>Travel Agent Jake is part of Club Voyages Ltd, which is as an agent for Hays Tour Operating Ltd, ATOL 10531</p>
+      <p>Please see our booking conditions for more information</p>
+      <p>All the flights and flight-inclusive holidays on this website are financially protected by the ATOL scheme. When you pay you will be supplied with an ATOL Certificate. Please ask for it and check to ensure that everything you booked (flights, hotels and other services) is listed on it. Please see our booking conditions for further information or for more information about financial protection and the ATOL Certificate go to: <a href="https://www.caa.co.uk" target="_blank" rel="noopener">www.caa.co.uk</a></p>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Travel Agent Jake. All rights reserved.</span>
+      <span>ABTA No. P8503</span>
+    </div>
+  </div>
+</footer>
+<script>
+  var t = document.getElementById('navToggle');
+  var n = document.getElementById('mainNav');
+  if (t) { t.addEventListener('click', function(){ n.classList.toggle('open'); }); }
+</script>
+</body>
+</html>

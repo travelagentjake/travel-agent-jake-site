@@ -1,0 +1,452 @@
+{
+  "Val Thorens, France": {
+    "piste_km": 150,
+    "runs_green": 11,
+    "runs_blue": 29,
+    "runs_red": 29,
+    "runs_black": 9,
+    "lifts": 29,
+    "altitude_top_m": 3230,
+    "altitude_base_m": 2300,
+    "things_to_do": [
+      "Aquamotion aquatic centre: slides, wave pool, spa and Nordic baths",
+      "La Bee toboggan/luge run and the illuminated ice grotto",
+      "Snowmobile safaris and dog-sledding excursions above the resort"
+    ],
+    "official_url": "https://www.valthorens.com/en/",
+    "best_for": "Snow-sure high-altitude skiing, groups of friends and lively apres-ski",
+    "note": "Figures are for the Val Thorens sector only; it also gives access to the wider Les 3 Vallées area (600km, 159 lifts, 1100-3230m)."
+  },
+  "Whistler Blackcomb, Canada": {
+    "piste_km": 200,
+    "runs_green": 40,
+    "runs_blue": 110,
+    "runs_red": 0,
+    "runs_black": 50,
+    "lifts": 37,
+    "altitude_top_m": 2284,
+    "altitude_base_m": 675,
+    "things_to_do": [
+      "Scandinave Spa Whistler outdoor hydrotherapy circuit",
+      "Vallea Lumina night-time light and sound forest walk",
+      "PEAK 2 PEAK Gondola ride between Whistler and Blackcomb summits, plus the Whistler Village Stroll for shopping and nightlife"
+    ],
+    "official_url": "https://www.whistlerblackcomb.com/",
+    "best_for": "Groups of friends, expert/off-piste skiers and anyone wanting North America's biggest resort",
+    "note": "North American resorts use green/blue/black (no red); black is combined 'black + double-black' terrain. Run counts are estimated from the published green 20% / blue 55% / black 25% terrain split (approx 200+ marked trails), not an official count."
+  },
+  "Sölden, Austria": {
+    "piste_km": 146,
+    "runs_green": 20,
+    "runs_blue": 30,
+    "runs_red": 22,
+    "runs_black": 3,
+    "lifts": 31,
+    "altitude_top_m": 3340,
+    "altitude_base_m": 1350,
+    "things_to_do": [
+      "007 Elements James Bond cinematic installation on the Gaislachkogl summit",
+      "Aqua Dome thermal spa and sauna world in nearby Längenfeld",
+      "Ice Q restaurant with panoramic glacier views (as seen in Spectre)"
+    ],
+    "official_url": "https://www.soelden.com/en/",
+    "best_for": "Confident intermediates, groups of friends and glacier skiing early/late season",
+    "note": "Sölden publishes piste length by colour in km only (green 76.4km/52%, blue 40.1km/28%, red 29.2km/20%, negligible black); run counts above are estimated from typical piste counts at this size of resort."
+  },
+  "Les Deux Alpes, France": {
+    "piste_km": 220,
+    "runs_green": 25,
+    "runs_blue": 25,
+    "runs_red": 30,
+    "runs_black": 15,
+    "lifts": 40,
+    "altitude_top_m": 3523,
+    "altitude_base_m": 1280,
+    "things_to_do": [
+      "Toboggan/luge run and the Diable au Coeur mountain-top restaurant zipline area",
+      "La Chalcedoine spa and wellness centre in the village",
+      "Summer glacier snowboard/freestyle park and the resort's lively main-street nightlife strip"
+    ],
+    "official_url": "https://www.les2alpes.com/en/",
+    "best_for": "Groups of friends, snowboarders/freestylers and nightlife-seekers",
+    "note": "Official split is published by km/percentage (green 65%, blue 18%, red/black combined 17%); run counts are approximate, splitting red/black using typical ratios for the resort."
+  },
+  "Bansko, Bulgaria": {
+    "piste_km": 75,
+    "runs_green": 8,
+    "runs_blue": 13,
+    "runs_red": 5,
+    "runs_black": 2,
+    "lifts": 14,
+    "altitude_top_m": 2560,
+    "altitude_base_m": 990,
+    "things_to_do": [
+      "Bansko's cobbled old town Pirin Street: bars, mehanas (taverns) and nightlife",
+      "Thermal mineral spa pools at nearby Banya village",
+      "Snowmobile tours and horse-drawn sleigh rides through the pine forests"
+    ],
+    "official_url": "https://www.banskoski.com/",
+    "best_for": "Budget-conscious groups, beginners and families",
+    "note": "Bulgarian resorts publish limited official difficulty breakdowns; figures approximate published km percentages (green 59%, blue 33%, red 8%) converted to indicative run counts."
+  },
+  "Chamonix, France": {
+    "piste_km": 151,
+    "runs_green": 16,
+    "runs_blue": 27,
+    "runs_red": 25,
+    "runs_black": 12,
+    "lifts": 49,
+    "altitude_top_m": 3842,
+    "altitude_base_m": 1035,
+    "things_to_do": [
+      "Aiguille du Midi cable car and the glass-floored 'Step into the Void' skywalk",
+      "Off-piste Vallée Blanche glacier descent with a mountain guide",
+      "Chamonix's Rue du Docteur Paccard: restaurants, bars and mountaineering shops"
+    ],
+    "official_url": "https://www.chamonix.com/",
+    "best_for": "Expert and off-piste/freeride skiers, mountaineers",
+    "note": "Chamonix is several linked but separate ski areas (Grands Montets, Brévent-Flégère, Le Tour/Balme, Les Houches) rather than one connected piste network; figures are combined totals across the valley."
+  },
+  "Verbier, Switzerland": {
+    "piste_km": 412,
+    "runs_green": 20,
+    "runs_blue": 55,
+    "runs_red": 45,
+    "runs_black": 12,
+    "lifts": 68,
+    "altitude_top_m": 3330,
+    "altitude_base_m": 1350,
+    "things_to_do": [
+      "Farinet Lounge/Farm Club apres-ski and nightlife scene",
+      "Freeride skiing off Mont-Fort and Mont-Gelé (birthplace of the Freeride World Tour)",
+      "Verbier Sport Plus wellness centre with pool, spa and ice rink"
+    ],
+    "official_url": "https://www.verbier.ch/en",
+    "best_for": "Expert/off-piste skiers and groups of friends who like nightlife",
+    "note": "Figures are for the full 4 Vallées area (Verbier/La Tzoumaz/Nendaz/Veysonnaz/Thyon); run counts are estimated from the published km percentages (green 26%, blue 49%, red 25%)."
+  },
+  "Niseko, Japan": {
+    "piste_km": 51,
+    "runs_green": 15,
+    "runs_blue": 13,
+    "runs_red": 6,
+    "runs_black": 4,
+    "lifts": 32,
+    "altitude_top_m": 1188,
+    "altitude_base_m": 255,
+    "things_to_do": [
+      "Onsen (hot spring) bathing, e.g. Yukoro Onsen or the resort's hotel onsens",
+      "Night skiing under floodlights across Grand Hirafu and Hanazono",
+      "Backcountry/tree-run powder skiing and Niseko Village's izakaya restaurant strip"
+    ],
+    "official_url": "https://www.niseko.ne.jp/en/",
+    "best_for": "Powder-hunters, groups of friends and Japanese-culture-curious couples",
+    "note": "Niseko United uses a simplified beginner/intermediate/advanced grading rather than the four-colour Alpine system; runs_red/runs_black are an approximate split of the published 'difficult' 20% terrain share, not an official count."
+  },
+  "Passo Tonale, Italy": {
+    "piste_km": 100,
+    "runs_green": 10,
+    "runs_blue": 25,
+    "runs_red": 20,
+    "runs_black": 5,
+    "lifts": 29,
+    "altitude_top_m": 3000,
+    "altitude_base_m": 1121,
+    "things_to_do": [
+      "Presena Glacier skiing and the Passo Tonale WWI open-air museum trail",
+      "Family-friendly toboggan run and snow-tubing park",
+      "Spa and wellness centre at one of the resort's hotels, plus the compact village's ski-in/ski-out nightlife strip"
+    ],
+    "official_url": "https://www.visittonale.com/en/",
+    "best_for": "Families and beginners/early intermediates",
+    "note": "Figures cover the combined Ponte di Legno-Tonale ski area; official difficulty split is published in km/percentage (green 24%, blue 60%, red/black combined 16%), run counts are indicative."
+  },
+  "Jasná (Nízke Tatry), Slovakia": {
+    "piste_km": 52,
+    "runs_green": 10,
+    "runs_blue": 12,
+    "runs_red": 8,
+    "runs_black": 1,
+    "lifts": 20,
+    "altitude_top_m": 2004,
+    "altitude_base_m": 943,
+    "things_to_do": [
+      "Aquapark Tatralandia water and thermal park in nearby Liptovský Mikuláš",
+      "Freeride zones and off-piste bowls beneath Chopok's summit",
+      "Demänovská Cave of Liberty ice/cave system and the resort's mountain-hut restaurants"
+    ],
+    "official_url": "https://www.jasna.sk/en",
+    "best_for": "Families and budget-conscious groups/beginners",
+    "note": "Slovak resorts typically report green/blue/red only (little/no black-graded terrain); figures approximate the published km percentages (green 48%, blue 37%, red 15%)."
+  },
+  "St Anton am Arlberg, Austria": {
+    "piste_km": 130,
+    "runs_green": 8,
+    "runs_blue": 25,
+    "runs_red": 35,
+    "runs_black": 12,
+    "lifts": 41,
+    "altitude_top_m": 2811,
+    "altitude_base_m": 1300,
+    "things_to_do": [
+      "MooserWirt and Krazy Kanguruh: Europe's most famous apres-ski bars",
+      "Off-piste ski touring and the legendary Valluga freeride terrain",
+      "Arlberg-well.com spa and wellness centre in the village"
+    ],
+    "official_url": "https://www.stantonamarlberg.com/en",
+    "best_for": "Expert/off-piste skiers and groups of friends who like a big apres-ski scene",
+    "note": "St Anton is one resort within the wider Arlberg lift network (St Anton/St Christoph/Stuben/Lech/Zürs, 305km/87 lifts combined); figures above are for the St Anton/St Christoph/Stuben sector only and are approximate."
+  },
+  "Mayrhofen, Austria": {
+    "piste_km": 139,
+    "runs_green": 12,
+    "runs_blue": 22,
+    "runs_red": 27,
+    "runs_black": 3,
+    "lifts": 58,
+    "altitude_top_m": 2500,
+    "altitude_base_m": 630,
+    "things_to_do": [
+      "The Harakiri piste: one of the steepest marked runs in the Alps (78% gradient)",
+      "Europahaus Mayrhofen spa, pool and wellness centre",
+      "Snowbombing festival atmosphere and the village's busy apres-ski bars"
+    ],
+    "official_url": "https://www.mayrhofen.at/en",
+    "best_for": "Groups of friends/apres-ski crowds and intermediates",
+    "note": "Green run count is estimated (not separately broken out in the source); blue/red/black counts and km are as published."
+  },
+  "Ischgl, Austria": {
+    "piste_km": 200,
+    "runs_green": 5,
+    "runs_blue": 14,
+    "runs_red": 42,
+    "runs_black": 13,
+    "lifts": 42,
+    "altitude_top_m": 2900,
+    "altitude_base_m": 1380,
+    "things_to_do": [
+      "Ischgl's famous season-opening/closing concerts and Kuhstall/Trofana Alm apres-ski bars",
+      "Cross-border 'ski to Samnaun' run into Switzerland for duty-free shopping",
+      "Silvretta Therme Ischgl spa and thermal baths"
+    ],
+    "official_url": "https://www.ischgl.com/en",
+    "best_for": "Intermediates, groups of friends and apres-ski/nightlife fans",
+    "note": "Green run count is an estimate (not separately broken out in the source); blue/red/black figures as published."
+  },
+  "Saalbach Hinterglemm, Austria": {
+    "piste_km": 200,
+    "runs_green": 6,
+    "runs_blue": 31,
+    "runs_red": 27,
+    "runs_black": 6,
+    "lifts": 52,
+    "altitude_top_m": 2020,
+    "altitude_base_m": 1000,
+    "things_to_do": [
+      "Ski Circus round trip linking Saalbach, Hinterglemm, Leogang and Fieberbrunn",
+      "Baumbar Lounge and the Saalbach 'apres-ski mile' nightlife strip",
+      "Alpine Coaster toboggan run and the Panorama Park scenic hiking/sledding trails"
+    ],
+    "official_url": "https://www.saalbach.com/en",
+    "best_for": "Groups of friends, intermediates and apres-ski/nightlife fans",
+    "note": "Green run count is an estimate; blue/red/black figures as published for the core Saalbach-Hinterglemm resort (the wider Skicircus with Leogang/Fieberbrunn totals around 270km/70 lifts)."
+  },
+  "Borovets, Bulgaria": {
+    "piste_km": 58,
+    "runs_green": 3,
+    "runs_blue": 11,
+    "runs_red": 9,
+    "runs_black": 4,
+    "lifts": 11,
+    "altitude_top_m": 2550,
+    "altitude_base_m": 1320,
+    "things_to_do": [
+      "Borovets' lively apres-ski strip of bars and clubs at the resort centre",
+      "Snowmobile safaris and quad-biking excursions in the Rila mountains",
+      "Horse-drawn sleigh rides through the pine forest to mountain hut restaurants"
+    ],
+    "official_url": "https://www.borovets-bg.com/",
+    "best_for": "Budget-conscious groups of friends and beginners/families",
+    "note": ""
+  },
+  "Courchevel, France": {
+    "piste_km": 150,
+    "runs_green": 27,
+    "runs_blue": 40,
+    "runs_red": 42,
+    "runs_black": 10,
+    "lifts": 67,
+    "altitude_top_m": 2740,
+    "altitude_base_m": 1300,
+    "things_to_do": [
+      "Luxury boutique shopping street in Courchevel 1850 (Rue de l'Eglise)",
+      "Aquamotion water park (shared with Val Thorens' network) and Courchevel's own spas/Michelin-starred restaurants",
+      "Ice rink, dog-sledding and paragliding above the resort"
+    ],
+    "official_url": "https://www.courchevel.com/en/",
+    "best_for": "Luxury travellers, families and couples wanting a five-star experience",
+    "note": ""
+  },
+  "Lech am Arlberg, Austria": {
+    "piste_km": 110,
+    "runs_green": 4,
+    "runs_blue": 42,
+    "runs_red": 40,
+    "runs_black": 18,
+    "lifts": 34,
+    "altitude_top_m": 2810,
+    "altitude_base_m": 1450,
+    "things_to_do": [
+      "Ski safari across the wider Arlberg lift network to Zürs and St Anton",
+      "Rud-Alpe and other gourmet mountain-hut restaurants (Lech is known for fine dining)",
+      "Vitaltherme spa in nearby Zürs/Lech village and upscale boutique shopping"
+    ],
+    "official_url": "https://www.lechzuers.com/en",
+    "best_for": "Couples, luxury travellers and confident intermediate/red-run skiers",
+    "note": "Red run count/km taken from source appears to include some Arlberg-wide double counting; treat km/counts as broadly indicative for the Lech-Zürs sector rather than exact."
+  },
+  "Cortina d'Ampezzo, Italy": {
+    "piste_km": 120,
+    "runs_green": 10,
+    "runs_blue": 42,
+    "runs_red": 19,
+    "runs_black": 8,
+    "lifts": 37,
+    "altitude_top_m": 2930,
+    "altitude_base_m": 1220,
+    "things_to_do": [
+      "Rifugio Lagazuoi and other iconic mountain-hut lunches with Dolomites views",
+      "Cortina's elegant Corso Italia: designer shopping and cafe culture",
+      "Natural ice rink (former 1956 Winter Olympics venue) and the Faloria cable car viewpoint"
+    ],
+    "official_url": "https://www.cortina.dolomiti.org/en",
+    "best_for": "Couples, luxury travellers and intermediates who enjoy scenery and dining",
+    "note": "Green run count is an estimate; the resort links into the wider Dolomiti Superski area (12 resorts, 1,200km) via the Tofana/Cristallo sectors."
+  },
+  "Alpbach, Austria": {
+    "piste_km": 145,
+    "runs_green": 5,
+    "runs_blue": 34,
+    "runs_red": 13,
+    "runs_black": 18,
+    "lifts": 14,
+    "altitude_top_m": 2030,
+    "altitude_base_m": 1000,
+    "things_to_do": [
+      "Alpbach's traditional chocolate-box village centre: widely rated one of Austria's prettiest",
+      "Toboggan/natural luge runs from the mountain restaurants back to the village",
+      "Alpbachtal Card activities including the local swimming/spa centre and ice rink"
+    ],
+    "official_url": "https://www.alpbachtal.at/en",
+    "best_for": "Families and beginners/early intermediates",
+    "note": "Alpbach is linked with the wider Wildschönau/Reith ski area (Ski Juwel, ~145km/47 lifts combined); the standalone Alpbach sector is around 45km/14 lifts, and green run count is an estimate as the source did not separately list green pistes."
+  },
+  "Pamporovo, Bulgaria": {
+    "piste_km": 37,
+    "runs_green": 5,
+    "runs_blue": 4,
+    "runs_red": 7,
+    "runs_black": 3,
+    "lifts": 14,
+    "altitude_top_m": 1931,
+    "altitude_base_m": 1620,
+    "things_to_do": [
+      "Wolf's Jaw (Vълчи зъб) rock formation and forest walking/sledging trails",
+      "Nearby Chepelare ski museum and the Perelik hotel spa/wellness centre",
+      "Snowmobile and horse-sledge excursions through the pine forest"
+    ],
+    "official_url": "https://www.pamporovo.bg/en/",
+    "best_for": "Families and beginners; a gentle, low-altitude resort",
+    "note": ""
+  },
+  "Kitzbühel, Austria": {
+    "piste_km": 158,
+    "runs_green": 10,
+    "runs_blue": 22,
+    "runs_red": 25,
+    "runs_black": 13,
+    "lifts": 30,
+    "altitude_top_m": 2000,
+    "altitude_base_m": 800,
+    "things_to_do": [
+      "The Streif: the world-famous Hahnenkamm downhill race course, skiable by strong intermediates when open",
+      "Kitzbühel's medieval old town: boutique shopping and cafe/bar culture",
+      "Aquarena Kitzbühel swimming and spa complex"
+    ],
+    "official_url": "https://www.kitzski.at/en",
+    "best_for": "Couples, groups of friends and confident intermediate skiers",
+    "note": "Green run count is an estimate (not separately broken out in the source)."
+  },
+  "Baqueira-Beret, Spain": {
+    "piste_km": 160,
+    "runs_green": 6,
+    "runs_blue": 36,
+    "runs_red": 29,
+    "runs_black": 7,
+    "lifts": 33,
+    "altitude_top_m": 2610,
+    "altitude_base_m": 1500,
+    "things_to_do": [
+      "Baqueira's renowned mountain-hut restaurants (a favourite of the Spanish royal family)",
+      "Aran Sky Spa wellness centre in the village",
+      "Off-piste and freeride bowls on the Bonaigua/Cap de Baqueira sectors"
+    ],
+    "official_url": "https://www.baqueira.es/en",
+    "best_for": "Groups of friends, intermediates and those wanting a Pyrenean/Spanish alternative to the Alps",
+    "note": ""
+  },
+  "Alta Badia, Italy": {
+    "piste_km": 130,
+    "runs_green": 8,
+    "runs_blue": 68,
+    "runs_red": 30,
+    "runs_black": 5,
+    "lifts": 52,
+    "altitude_top_m": 2750,
+    "altitude_base_m": 1324,
+    "things_to_do": [
+      "Sellaronda: ski the circuit around the Sella massif linking four valleys",
+      "Michelin-starred mountain restaurants (Alta Badia has the highest concentration of gourmet rifugios in the Dolomites)",
+      "Wellness/spa centres in Corvara and La Villa, plus horse-drawn sleigh rides"
+    ],
+    "official_url": "https://www.altabadia.org/en",
+    "best_for": "Families, couples and intermediates who enjoy fine dining and scenery",
+    "note": "Green run count is an estimate; Alta Badia links into the wider Dolomiti Superski area (12 resorts, 1,200km) via the Sella Ronda circuit."
+  },
+  "Serre Chevalier, France": {
+    "piste_km": 250,
+    "runs_green": 25,
+    "runs_blue": 32,
+    "runs_red": 42,
+    "runs_black": 15,
+    "lifts": 77,
+    "altitude_top_m": 2800,
+    "altitude_base_m": 1350,
+    "things_to_do": [
+      "Wood-fired mountain restaurants in the pine forests around Villeneuve/Monetier",
+      "Thermal spa (Grands Bains du Monêtier) at the base of the resort",
+      "Sledging/tobogganing runs and Le Bez/Villeneuve's traditional apres-ski bars"
+    ],
+    "official_url": "https://www.serre-chevalier.com/en/",
+    "best_for": "Families, intermediates and groups wanting varied, tree-lined skiing",
+    "note": ""
+  },
+  "Zakopane (Kasprowy Wierch / Bialka Tatrzanska area), Poland": {
+    "piste_km": 25,
+    "runs_green": 8,
+    "runs_blue": 8,
+    "runs_red": 3,
+    "runs_black": 2,
+    "lifts": 25,
+    "altitude_top_m": 1987,
+    "altitude_base_m": 704,
+    "things_to_do": [
+      "Zakopane's Krupówki Street: Poland's best-known mountain-resort promenade for shopping, bars and street food",
+      "Thermal baths at Chochołowskie Termy or Bukovina Terma near Bialka Tatrzanska",
+      "Kasprowy Wierch cable car to the summit for views into Slovakia, and horse-drawn sleigh rides in the Tatras"
+    ],
+    "official_url": "https://www.pkl.pl/en/kasprowy-wierch",
+    "best_for": "Beginners, families and budget-conscious groups (small, low-altitude ski areas)",
+    "note": "Zakopane's skiing is spread across several small, unconnected stations rather than one resort: Kasprowy Wierch (3.3km, mostly a long red/black run, 4 lifts, up to 1987m) and nearby Bialka Tatrzanska (21.3km, mostly green/blue, 21 lifts, up to 938m) are combined here as an approximate representative total; figures should be treated as indicative only."
+  }
+}
