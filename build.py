@@ -1099,7 +1099,7 @@ my_booking_body = """
 <section class="theme-light" style="padding-top:0;" id="dd-calculator">
   <div class="wrap">
     <h2>Set up your direct debit</h2>
-    <p style="margin-top:14px;">Work out your plan with the calculator below, then give me a call to finalise it. I'll take your bank details over the phone rather than online, work out the exact schedule with you, and get everything set up from there.</p>
+    <p style="margin-top:14px;">It's a two step process: work out your plan with the calculator below, then send me your details so I can get it set up. This works out your plan the same way our actual booking system does, but it's still an estimate, once you submit your details in step two I'll confirm the exact mandate details with you before anything is created.</p>
 
     <div class="dd-calculator" style="margin-top:24px;">
       <div class="accom-category" style="margin-bottom:18px;">Step 1: work out your plan</div>
@@ -1147,7 +1147,7 @@ my_booking_body = """
         </div>
       </div>
 
-      <div class="dd-status dd-status-wait" id="ddStatus">Fill in the fields above to see your payment plan, then give me a call to get it set up.</div>
+      <div class="dd-status dd-status-wait" id="ddStatus">Fill in the fields above to see your payment plan, then you'll be able to send us your details to get it set up.</div>
 
       <div class="dd-results" id="ddResults">
         <div class="dd-result-summary" id="ddResultSummary"></div>
@@ -1158,9 +1158,53 @@ my_booking_body = """
           </table>
         </div>
         <div class="dd-setup-btn-row">
-          <a class="btn btn-primary btn-block" href="tel:+447899290262">Call me on 07899 290262 to set this up</a>
+          <button type="button" class="btn btn-primary" id="ddShowSetupBtn">Step 2: send your details to set it up</button>
         </div>
-        <p class="dd-disclaimer">This is an estimated plan to help you budget, not the exact schedule. I never take bank details through this website, call me and I'll take your account details over the phone, work out the exact schedule with you in our booking system, and confirm everything before your direct debit mandate is actually created.</p>
+        <p class="dd-disclaimer">This is an estimated plan to help you budget, not the exact schedule. Once you submit your details below, I'll confirm the exact mandate details with you in our booking system before your direct debit is actually created.</p>
+      </div>
+
+      <form class="dd-setup-form" id="ddSetupForm" name="direct-debit-setup" method="POST" data-netlify="true" netlify-honeypot="dd-bot-field">
+        <input type="hidden" name="form-name" value="direct-debit-setup">
+        <p style="display:none;"><label>Don't fill this out if you're human: <input name="dd-bot-field"></label></p>
+
+        <div class="dd-setup-form-section-label">Your details</div>
+        <div class="dd-field-grid">
+          <div class="dd-field"><label for="ddName">Full name</label><input type="text" id="ddName" name="Name" required></div>
+          <div class="dd-field"><label for="ddEmail">Email address</label><input type="email" id="ddEmail" name="Email" required></div>
+          <div class="dd-field"><label for="ddPhone">Phone number</label><input type="tel" id="ddPhone" name="Phone" required></div>
+          <div class="dd-field"><label for="ddHayRefForm">HAY booking reference</label><input type="text" id="ddHayRefForm" name="HAY reference"></div>
+        </div>
+
+        <div class="dd-setup-form-section-label">Your payment plan</div>
+        <div class="dd-field-grid">
+          <div class="dd-field" style="grid-column:1 / -1;">
+            <label>Plan summary</label>
+            <div class="dd-field-readonly" id="ddSummaryDisplay"></div>
+            <input type="hidden" id="ddSummaryField" name="Plan summary">
+          </div>
+          <div class="dd-field">
+            <label>Outstanding balance</label>
+            <div class="dd-field-readonly" id="ddBalanceDisplay"></div>
+            <input type="hidden" id="ddBalanceField" name="Balance">
+          </div>
+        </div>
+
+        <div class="dd-setup-form-section-label">Bank account details</div>
+        <p class="dd-field-hint" style="margin-bottom:14px;">These are used to set up your direct debit mandate in our booking system, they're sent straight to Jake and are not stored on this website.</p>
+        <div class="dd-field-grid">
+          <div class="dd-field"><label for="ddAccName">Name on the account</label><input type="text" id="ddAccName" name="Account name" required></div>
+          <div class="dd-field"><label for="ddAccNumber">Account number</label><input type="text" id="ddAccNumber" name="Account number" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" required></div>
+          <div class="dd-field"><label for="ddSortCode">Sort code</label><input type="text" id="ddSortCode" name="Sort code" placeholder="00-00-00" required></div>
+        </div>
+
+        <div class="dd-setup-btn-row">
+          <button type="submit" class="btn btn-primary">Send my details to Jake</button>
+        </div>
+      </form>
+
+      <div class="dd-form-success" id="ddFormSuccess">
+        <h3>Thanks, that's with Jake now.</h3>
+        <p>I'll check everything over and confirm the exact mandate details with you before your direct debit is set up.</p>
       </div>
     </div>
   </div>
@@ -1173,7 +1217,7 @@ my_booking_body = """
       <li><span class="num">1</span><span><b>Your booking needs to be eligible.</b> Your travel date needs to be at least 18 weeks away for a direct debit to be an option.</span></li>
       <li><span class="num">2</span><span><b>Your first payment needs a bit of notice.</b> You choose which day of the month suits you, from the 1st to the 31st, and it needs to work out at more than two weeks from today. If the next one falls too soon, it automatically moves to the same day the following month instead.</span></li>
       <li><span class="num">3</span><span><b>Your final payment date is fixed.</b> Monthly plans always finish on or before 6 weeks before you travel, this is calculated automatically from your chosen payment day and can't be moved.</span></li>
-      <li><span class="num">4</span><span><b>This calculator gives you an estimate, not the exact schedule.</b> Nothing happens automatically from this page and no bank details are ever taken online. Give me a call and I'll work out the exact schedule with you, and confirm everything before your direct debit is actually created.</span></li>
+      <li><span class="num">4</span><span><b>This calculator gives you an estimate, not the exact schedule.</b> Nothing happens automatically from this page, once you submit your details in step two, I'll confirm the exact mandate details with you before your direct debit is actually created.</span></li>
     </ul>
   </div>
 </section>
@@ -1197,6 +1241,9 @@ my_booking_body = """
   var resultsEl = document.getElementById('ddResults');
   var summaryEl = document.getElementById('ddResultSummary');
   var scheduleBody = document.getElementById('ddScheduleBody');
+  var showSetupBtn = document.getElementById('ddShowSetupBtn');
+  var setupForm = document.getElementById('ddSetupForm');
+  var formSuccess = document.getElementById('ddFormSuccess');
 
   if (!travelDateEl) return;
 
@@ -1283,6 +1330,7 @@ my_booking_body = """
 
   function recalc(){
     resultsEl.classList.remove('visible');
+    setupForm.classList.remove('visible');
     lastValidPlan = null;
 
     var travelDate = parseDate(travelDateEl);
@@ -1386,6 +1434,37 @@ my_booking_body = """
   [travelDateEl, balanceEl, firstPaymentDayEl, fullPaymentDayEl].forEach(function(el){
     el.addEventListener('input', recalc);
     el.addEventListener('change', recalc);
+  });
+
+  showSetupBtn.addEventListener('click', function(){
+    if (!lastValidPlan) return;
+    document.getElementById('ddHayRefForm').value = document.getElementById('ddHayRef').value;
+    document.getElementById('ddSummaryField').value = lastValidPlan.summary;
+    document.getElementById('ddSummaryDisplay').textContent = lastValidPlan.summary;
+    document.getElementById('ddBalanceField').value = lastValidPlan.balance;
+    document.getElementById('ddBalanceDisplay').textContent = lastValidPlan.balance;
+    setupForm.classList.add('visible');
+    setupForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  setupForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = new FormData(setupForm);
+    var body = [];
+    data.forEach(function(value, key){
+      body.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+    });
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.join('&')
+    }).then(function(){
+      setupForm.classList.remove('visible');
+      formSuccess.classList.add('visible');
+      formSuccess.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }).catch(function(){
+      alert('Something went wrong sending your details, please try again or WhatsApp Jake directly.');
+    });
   });
 
 })();
@@ -5127,7 +5206,7 @@ privacy_body = """
     <div class="numbered-list" style="margin-top:20px; max-width:70ch;">
       <li><span class="num">1</span><span><b>Enquiries and messages.</b> If you get in touch by WhatsApp, email, or one of the "send idea" boxes on the Travel Tips and Destinations pages, we see whatever you choose to send us, such as your name, contact details and the details of your enquiry.</span></li>
       <li><span class="num">2</span><span><b>Newsletter sign ups.</b> If you sign up for travel news and offers, we collect your email address. This is stored and sent through Brevo, our email marketing platform, and you can unsubscribe at any time using the link in any email we send.</span></li>
-      <li><span class="num">3</span><span><b>Direct debit setup, for existing bookings.</b> The "My Booking" page has a calculator to estimate a payment plan for your balance. To actually set one up you call Jake directly, your bank account details are taken over the phone to set up your payment mandate with Club Voyages and Hays Tour Operating Ltd, never collected through this website.</span></li>
+      <li><span class="num">3</span><span><b>Direct debit setup, for existing bookings.</b> The "My Booking" page lets clients with an existing booking work out an estimated payment plan and send their details to set up a direct debit. That form collects your name, email, phone number, booking reference, and bank account name, account number and sort code. These details are sent straight to Jake to confirm and set up your payment mandate with Club Voyages and Hays Tour Operating Ltd, and are not stored on this website.</span></li>
       <li><span class="num">4</span><span><b>Automatic, technical information.</b> Like most websites, we use cookies and similar technology to understand how the site is used (Google Analytics), and, only on our destination guide and travel tips articles, to show advertising (Google AdSense). We also use a GetYourGuide widget on some destination guides, which can track referrals for activities booked through it. Where this needs your consent, such as personalised advertising, you will be asked for it.</span></li>
     </div>
 
