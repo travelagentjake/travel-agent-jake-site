@@ -1147,7 +1147,7 @@ my_booking_body = """
         <div class="dd-setup-btn-row">
           <button type="button" class="btn btn-primary" id="ddShowSetupBtn">Step 2: send your details to set it up</button>
         </div>
-        <p class="dd-disclaimer">Figures are indicative and the last payment may be adjusted slightly to account for rounding. Nothing is set up automatically, I'll confirm everything with you before your direct debit mandate is created.</p>
+        <p class="dd-disclaimer">This is an estimated plan to help you budget, not the exact schedule. Real payment dates and amounts are worked out in our booking system and can differ slightly from what's shown here. Nothing is set up automatically, I'll send you the exact schedule to check and agree before your direct debit mandate is actually created.</p>
       </div>
 
       <form class="dd-setup-form" id="ddSetupForm" name="direct-debit-setup" method="POST" data-netlify="true" netlify-honeypot="dd-bot-field">
@@ -1204,7 +1204,7 @@ my_booking_body = """
       <li><span class="num">1</span><span><b>Your booking needs to be eligible.</b> Your travel date needs to be at least 18 weeks away for a direct debit to be an option.</span></li>
       <li><span class="num">2</span><span><b>Your first payment needs a bit of notice.</b> Whichever date you choose, it needs to be at least 4 weeks from today so there's time to get everything set up.</span></li>
       <li><span class="num">3</span><span><b>Your final payment date is fixed.</b> Monthly plans always finish 6 weeks before you travel, this is calculated automatically and can't be moved.</span></li>
-      <li><span class="num">4</span><span><b>Nothing happens automatically from this page.</b> This calculator gives you an estimate. Once you click "Set up now", I'll check the details and get in touch to confirm everything before your direct debit is actually created.</span></li>
+      <li><span class="num">4</span><span><b>This calculator gives you an estimate, not the exact schedule.</b> Real payment dates can differ slightly once it's set up in our booking system. Nothing happens automatically from this page, once you click "Step 2: send your details to set it up", I'll send you the exact schedule to check and agree before your direct debit is actually created.</span></li>
     </ul>
   </div>
 </section>
@@ -1335,7 +1335,7 @@ my_booking_body = """
         rows.push({ label: 'Payment ' + (i + 1), date: payDate, amount: amount });
       }
 
-      setStatus('dd-status-ok', 'This booking is eligible for a direct debit. Here\\'s how your monthly plan would look.');
+      setStatus('dd-status-ok', 'This booking is eligible for a direct debit. Here\\'s an estimate of how your monthly plan could look.');
       summaryEl.innerHTML =
         '<div class="dd-result-tile"><b>' + instalments + '</b><span>Monthly payments</span></div>' +
         '<div class="dd-result-tile"><b>' + fmtMoney(baseAmount) + '</b><span>Per month (approx)</span></div>' +
@@ -1363,7 +1363,7 @@ my_booking_body = """
         return;
       }
 
-      setStatus('dd-status-ok', 'This booking is eligible for a direct debit. Here\\'s your single payment plan.');
+      setStatus('dd-status-ok', 'This booking is eligible for a direct debit. Here\\'s an estimate of your single payment plan.');
       summaryEl.innerHTML =
         '<div class="dd-result-tile"><b>1</b><span>Single payment</span></div>' +
         '<div class="dd-result-tile"><b>' + fmtMoney(balance) + '</b><span>Full balance</span></div>' +
