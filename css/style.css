@@ -628,6 +628,15 @@ footer.site-footer a:hover{color:var(--yellow);}
   .dest-card-img{width:110px; flex:none; margin-bottom:0; aspect-ratio:1/1;}
 }
 
+/* The "coming soon" card spans 2 of the 3 desktop columns. On mobile the grid
+   collapses to a single column (see .grid-3 above), and a span wider than the
+   available explicit columns forces the browser to add an implicit column,
+   breaking the single-column stack. Drop the span at the same breakpoint. */
+#destinationsGrid .finder-coming-soon{grid-column:span 2;}
+@media (max-width:860px){
+  #destinationsGrid .finder-coming-soon{grid-column:auto;}
+}
+
 /* ---------- Testimonials carousel ---------- */
 .testimonial-card{
   flex:0 0 250px; scroll-snap-align:start;

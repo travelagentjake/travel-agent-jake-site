@@ -1433,7 +1433,7 @@ destinations_body = f"""
     <div class="grid-3 equal-cards finder-grid" id="destinationsGrid" style="margin-top:8px;">
 {destination_cards_html}
 
-      <div class="jake-card finder-coming-soon" style="opacity:0.55; grid-column:span 2;">
+      <div class="jake-card finder-coming-soon" style="opacity:0.55;">
         <div class="tip-card-meta" style="margin-top:0;">Coming soon</div>
         <h3 style="font-size:19px;">More destination guides on the way</h3>
         <p>More destinations written up the same way. New guides get added here regularly.</p>
