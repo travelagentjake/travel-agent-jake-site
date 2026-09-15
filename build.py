@@ -244,6 +244,26 @@ def jake_tip(text, label="Jake's top tip"):
   <div class="jake-tip-body"><span class="jake-tip-label">{label}</span><p>{text}</p></div>
 </div>"""
 
+AD_CLIENT = "ca-pub-9766179130970138"
+
+def ad_slot():
+    """In-article AdSense ad unit ("Tips and Destination Guide Articles",
+    slot 4679022669). Defined once here and called from every article
+    template that should carry ads, so future changes only need editing
+    this one function.
+    """
+    return """<div style="margin:32px 0;">
+  <ins class="adsbygoogle"
+       style="display:block; text-align:center;"
+       data-ad-layout="in-article"
+       data-ad-format="fluid"
+       data-ad-client="ca-pub-9766179130970138"
+       data-ad-slot="4679022669"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>"""
+
 FOOTER = """<footer class="site-footer">
   <div class="jake-dash-yellow"></div>
   <div class="wrap" style="padding-top:44px;">
@@ -309,6 +329,7 @@ def page(title, description, active, body, og_image="images/pool-portrait.jpg", 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9766179130970138" crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-43FWMN7P14"></script>
 <script>
@@ -1553,6 +1574,7 @@ cyprus_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+    {ad_slot()}
     <h2>Weather by month</h2>
     <p style="margin-top:14px;">Paphos has a typically Mediterranean climate: hot, dry summers and mild, wetter winters. These are long-term averages, so treat them as a guide rather than a forecast for your specific dates.</p>
     <div class="weather-table-wrap">
@@ -1749,6 +1771,7 @@ cyprus_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Fancy Cyprus for yourself?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Cyprus, or somewhere else entirely, around what you're after.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -1863,6 +1886,7 @@ mexico_body = f"""
   <div class="wrap">
     <div class="grid-2-eq" style="align-items:start; gap:32px;">
       <div>
+    {ad_slot()}
         <h2>Best time to visit</h2>
         <p style="margin-top:14px;"><b>November to April</b> is the sweet spot: hurricane season is closed or closing, the sea is calmest, and there's little to no sargassum seaweed on the beaches. January and February are the driest and quietest of all. If you can, avoid <b>June to September</b>, when sargassum is at its heaviest (Tulum's open coastline gets hit hardest, Cancun's Hotel Zone and Cozumel tend to fare better) and hurricane season is live, though September and October can still work well for value if you keep an eye on the forecast and book flexible.</p>
       </div>
@@ -2090,6 +2114,7 @@ mexico_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Fancy Mexico for yourself?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to Cancun, Playa del Carmen or further down the Riviera Maya, whichever suits you best.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -2180,6 +2205,7 @@ maldives_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+    {ad_slot()}
     <h2>Atolls, islands &amp; house reefs</h2>
     <p style="margin-top:14px;">The Maldives is made up of natural coral atolls, ring-shaped clusters of reef and islands. Some resort islands sit right on the edge of a healthy natural reef that you can snorkel straight off the beach, known as the house reef. Others, particularly some of the newer or man-made islands, have little or no reef of their own, and you'd need a boat trip to see decent coral and marine life. If snorkelling matters to you, this is one of the most important things to check before booking, not something to assume comes as standard.</p>
     <p style="margin-top:14px;">Baa Atoll and Gaafu Alifu Atoll are both known for having some of the healthiest, most reliable house reefs in the country, Baa Atoll is even a UNESCO Biosphere Reserve. As a general rule, older, more established resort islands tend to have better reefs than islands that have been recently built up or reshaped.</p>
@@ -2351,6 +2377,7 @@ maldives_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Fancy the Maldives for yourself?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can find the right island for your budget and what you actually want out of the trip, honeymoon, family holiday or otherwise.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -2426,6 +2453,7 @@ disneyland_paris_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+    {ad_slot()}
     <h2>The new meal plans, explained</h2>
     <p style="margin-top:14px;">From 1 April 2027, Disneyland Paris is moving to a new, more flexible Meal Plan structure. You choose your breakfast style, how many meals a day, and one of four experience tiers, so it's worth understanding before you decide whether to bother at all.</p>
     <div class="weather-table-wrap">
@@ -2562,6 +2590,7 @@ disneyland_paris_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Fancy Disneyland Paris for yourself?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I'll match the right hotel, tickets and Meal Plan to your family and budget, and take the guesswork out of the extras.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -2634,6 +2663,7 @@ turkey_antalya_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+    {ad_slot()}
     <h2>Weather by month</h2>
     <p style="margin-top:14px;">Antalya has hot, dry summers and mild, wetter winters, with most resort hotels closing over the winter months. These are long-term averages, so treat them as a guide rather than a forecast for your specific dates.</p>
     <div class="weather-table-wrap">
@@ -2834,6 +2864,7 @@ turkey_antalya_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Fancy Turkey for yourself?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Turkey, or somewhere else entirely, around what you're after.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -3039,6 +3070,7 @@ esim_article_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+    {ad_slot()}
     <h2>What each one actually is</h2>
     <div class="grid-2-eq equal-cards" style="margin-top:28px;">
 
@@ -3148,6 +3180,7 @@ esim_article_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Ready to sort your eSIM?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Pick whichever suits your trip, both take a couple of minutes to set up before you fly.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -3314,6 +3347,7 @@ xmas_article_body = f"""
 <section class="theme-dark">
   <div class="wrap">
     <div class="eyebrow">Number 2</div>
+    {ad_slot()}
     <h2 style="margin-top:8px;">Vienna</h2>
     <p class="lead" style="margin-top:14px;">The classic, grand European Christmas market experience. Slightly pricier than Budapest and Prague, but the Rathausplatz market is genuinely one of the best in Europe.</p>
   </div>
@@ -3447,6 +3481,7 @@ xmas_article_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Fancy one of these for a Christmas break?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Flights, hotels and the whole trip, sorted properly. Message me and tell me which city's calling you.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -3531,6 +3566,7 @@ ski_packing_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+    {ad_slot()}
     <h2>On the slopes</h2>
     <p style="margin-top:14px;">Layering is the whole game. You want a system you can add to or strip back as the weather and your effort level change through the day.</p>
     <ul class="numbered-list" style="margin-top:28px;">
@@ -3590,6 +3626,7 @@ ski_packing_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Not sure which resort suits you?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Take my quick ski resort quiz and I'll match you to a resort based on what you actually want out of the trip.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -3651,6 +3688,7 @@ booking_early_late_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+    {ad_slot()}
     <h2>Booking late: a gamble, not a guarantee</h2>
     <p style="margin-top:14px;">Booking late can work out well if you're genuinely flexible: any flight time, any room type, maybe even any destination within a rough budget. Tour operators do sometimes drop prices to fill remaining seats and rooms closer to departure. But it's a gamble, not a guarantee, prices can just as easily hold firm or rise, especially for anything popular, and you'll have far fewer options to choose between by the time you're looking.</p>
     <p style="margin-top:14px;">If you don't mind what you end up with and you're comfortable with the uncertainty, booking late can pay off. Just don't book late expecting a cheap holiday as the outcome, expect a smaller, less certain pool of options instead.</p>
@@ -3693,6 +3731,7 @@ booking_early_late_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Know roughly when and what you want?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Book early, lock in the choice, and spread the cost with a direct debit if that helps. I'll talk you through the options either way.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -3776,6 +3815,7 @@ lgbtq_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+    {ad_slot()}
     <h2>Best for a romantic getaway</h2>
     <p style="margin-top:14px;">Somewhere the focus is on the two of you, not the nightlife.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
@@ -3931,6 +3971,7 @@ lgbtq_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Want a trip that's actually matched to you?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Whether it's a Pride weekend with friends, a quiet honeymoon or you're just not sure where's genuinely safe, message me and I'll talk it through properly.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -4010,6 +4051,7 @@ powerbank_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+    {ad_slot()}
     <h2>Airlines that ban using them onboard</h2>
     <p style="margin-top:14px;">Carrying a power bank and using one are two different things, and more airlines are now restricting the second even where the first is still fine. This list is growing quickly, so always check with your specific airline close to your flight date.</p>
     <div class="weather-table-wrap">
@@ -4046,6 +4088,7 @@ powerbank_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Got your packing list sorted?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">While you're at it, have a look at what else is worth packing and what isn't.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -4101,6 +4144,7 @@ hand_luggage_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+    {ad_slot()}
     <h2>Free bag vs paid cabin bag, by airline</h2>
     <div class="weather-table-wrap">
       <table class="weather-table">
@@ -4135,6 +4179,7 @@ hand_luggage_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Want help picking the right fare?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I'll work out whether the cheap fare plus a bag add-on actually beats the fare that includes one, before you book either.</p>
     <div class="btn-row" style="justify-content:center;">
@@ -4215,6 +4260,7 @@ ees_etias_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+    {ad_slot()}
     <h2>What is EES and what happens at the kiosk?</h2>
     <p style="margin-top:14px;">On your first trip into the Schengen area after EES fully applies to your crossing point, you'll register at a self-service kiosk in the arrivals area (or before you travel, at juxtaposed controls like Eurostar terminals or the Port of Dover). The kiosk scans your passport, then takes a facial photo and fingerprint scan. It takes around one to two minutes, and once it's done you cross via an e-gate or a manned booth as normal.</p>
     <p style="margin-top:14px;">On later trips within 3 years, you won't need to register again in full, you'll just scan your passport and confirm either a fingerprint or a photo to match your existing record.</p>
@@ -4282,6 +4328,7 @@ ees_etias_body = f"""
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
+    {ad_slot()}
     <h2>Got a trip to Europe coming up?</h2>
     <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I keep an eye on the EES and ETIAS timelines so you don't have to, message me if you want the current picture for your specific dates and destination.</p>
     <div class="btn-row" style="justify-content:center;">
