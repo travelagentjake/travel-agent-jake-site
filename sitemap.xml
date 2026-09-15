@@ -84,4 +84,8 @@
     <loc>https://travelagentjake.co.uk/ees-etias-explained.html</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://travelagentjake.co.uk/privacy-policy.html</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>

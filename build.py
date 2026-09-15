@@ -313,6 +313,7 @@ FOOTER = """<footer class="site-footer">
     <div class="footer-bottom">
       <span>&copy; 2026 Travel Agent Jake. All rights reserved.</span>
       <span>ABTA No. P8503</span>
+      <span><a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a></span>
     </div>
   </div>
 </footer>
@@ -4836,6 +4837,60 @@ with open(os.path.join(SITE, "ski-quiz.html"), "w", encoding="utf-8") as f:
 print("ski-quiz.html written")
 
 # ---------------- robots.txt ----------------
+# ---------------- PRIVACY POLICY ----------------
+privacy_body = """
+<section class="theme-bold">
+  <div class="wrap">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p class="lead" style="margin-top:18px; max-width:60ch;">What information this site collects, why, and how it is used. Last updated September 2026.</p>
+  </div>
+</section>
+
+<section class="theme-light">
+  <div class="wrap" style="max-width:78ch;">
+    <h2>Who we are</h2>
+    <p>This website, travelagentjake.co.uk, is run by Club Voyages Ltd, trading as Travel Agent Jake. Club Voyages is a Member of ABTA (membership number P8503 &amp; Y6784) and acts as an agent for Hays Tour Operating Ltd (ATOL 10531). For anything to do with this policy or your personal information, contact <a href="mailto:enquiries@travelagentjake.com">enquiries@travelagentjake.com</a>.</p>
+
+    <h2>Information we collect</h2>
+    <p>We only collect information you choose to give us, or that is gathered automatically as you browse. This includes:</p>
+    <div class="numbered-list" style="margin-top:20px; max-width:70ch;">
+      <li><span class="num">1</span><span><b>Enquiries and messages.</b> If you get in touch by WhatsApp, email, or one of the "send idea" boxes on the Travel Tips and Destinations pages, we see whatever you choose to send us, such as your name, contact details and the details of your enquiry.</span></li>
+      <li><span class="num">2</span><span><b>Newsletter sign ups.</b> If you sign up for travel news and offers, we collect your email address. This is stored and sent through Brevo, our email marketing platform, and you can unsubscribe at any time using the link in any email we send.</span></li>
+      <li><span class="num">3</span><span><b>Direct debit setup, for existing bookings.</b> The "My Booking" page lets clients with an existing booking set up a direct debit for their balance. That form collects your name, email, phone number, booking reference, and bank account name, account number and sort code. These details are sent straight to Jake to set up your payment mandate with Club Voyages and Hays Tour Operating Ltd, and are not stored on this website.</span></li>
+      <li><span class="num">4</span><span><b>Automatic, technical information.</b> Like most websites, we use cookies and similar technology to understand how the site is used (Google Analytics), and, only on our destination guide and travel tips articles, to show advertising (Google AdSense). We also use a GetYourGuide widget on some destination guides, which can track referrals for activities booked through it. Where this needs your consent, such as personalised advertising, you will be asked for it.</span></li>
+    </div>
+
+    <h2>Cookies and your choices</h2>
+    <p>When you first visit, you will be asked to make choices about cookies used for advertising. You can change your mind at any time using the privacy settings link available on the site. Turning cookies off does not stop the site working, though it may mean adverts shown to you are less relevant, or that we cannot tell you have been here before.</p>
+
+    <h2>How we use your information</h2>
+    <p>We use the information above to respond to enquiries, arrange and administer bookings and payments, send the newsletter to people who have asked for it, keep the site running and secure, understand which content is useful, and, on tips and destination guide articles only, show advertising to help fund the free content on this site.</p>
+
+    <h2>Who we share it with</h2>
+    <p>We do not sell your information. It is shared only where it is needed to do the things above: with Brevo for the newsletter, with Google for analytics and advertising, with GetYourGuide where you interact with their widget or links, with affiliate partners such as Airalo, Breeze and Vagari Bags if you click through to them (their own privacy policies then apply), and with Club Voyages and Hays Tour Operating Ltd where it is needed to arrange or administer your booking.</p>
+
+    <h2>How long we keep it</h2>
+    <p>We keep enquiry and booking information for as long as it is needed to deal with your enquiry or booking, and afterwards only as long as we are required to for accounting, ABTA or legal reasons. Newsletter addresses are kept until you unsubscribe.</p>
+
+    <h2>Your rights</h2>
+    <p>Under UK data protection law, you can ask to see the information we hold about you, ask us to correct or delete it, or object to how it is used. To do any of this, email <a href="mailto:enquiries@travelagentjake.com">enquiries@travelagentjake.com</a>. If you are not happy with how we have handled your information, you can also complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>We may update this policy from time to time as the site changes. The date at the top shows when it was last updated.</p>
+  </div>
+</section>
+"""
+
+with open(os.path.join(SITE, "privacy-policy.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Privacy Policy | Travel Agent Jake",
+        "How Travel Agent Jake collects, uses and protects your personal information, including cookies, advertising and newsletter sign ups.",
+        "privacy-policy.html",
+        privacy_body
+    ))
+print("privacy-policy.html written")
+
 ROBOTS = """User-agent: *
 Allow: /
 
@@ -4894,6 +4949,7 @@ SITEMAP_PAGES = [
     ("power-bank-flight-safety.html", "0.6"),
     ("budget-airline-hand-luggage-sizes.html", "0.6"),
     ("ees-etias-explained.html", "0.7"),
+    ("privacy-policy.html", "0.3"),
 ]
 sitemap_entries = "\n".join(
     f"""  <url>
