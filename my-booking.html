@@ -330,7 +330,7 @@
     }
 
     var finalDueDate = addDays(travelDate, -42);
-    fullPaymentHint.innerHTML = 'The day of the month you'd like to pay. Must work out on or before your balance due date of <b>' + fmtDate(finalDueDate) + '</b>, and more than two weeks from today.';
+    fullPaymentHint.innerHTML = "The day of the month you'd like to pay. Must work out on or before your balance due date of <b>" + fmtDate(finalDueDate) + "</b>, and more than two weeks from today.";
 
     if (mode === 'monthly'){
       var prefDay = parseInt(firstPaymentDayEl.value, 10);
