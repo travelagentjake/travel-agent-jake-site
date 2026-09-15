@@ -156,14 +156,20 @@
 
       <div class="dd-field-grid" style="margin-top:18px;">
         <div class="dd-field" id="ddFirstPaymentWrap">
-          <label for="ddFirstPayment">Your preferred first payment date</label>
-          <input type="date" id="ddFirstPayment">
-          <div class="dd-field-hint">Must be at least 4 weeks from today.</div>
+          <label for="ddFirstPaymentDay">Preferred payment day</label>
+          <select id="ddFirstPaymentDay">
+            <option value="">Choose a day</option>
+            <option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option><option value="5">5th</option><option value="6">6th</option><option value="7">7th</option><option value="8">8th</option><option value="9">9th</option><option value="10">10th</option><option value="11">11th</option><option value="12">12th</option><option value="13">13th</option><option value="14">14th</option><option value="15">15th</option><option value="16">16th</option><option value="17">17th</option><option value="18">18th</option><option value="19">19th</option><option value="20">20th</option><option value="21">21st</option><option value="22">22nd</option><option value="23">23rd</option><option value="24">24th</option><option value="25">25th</option><option value="26">26th</option><option value="27">27th</option><option value="28">28th</option><option value="29">29th</option><option value="30">30th</option><option value="31">31st</option>
+          </select>
+          <div class="dd-field-hint">The day of the month you'd like payments to come out on. We'll work out your actual first payment date below, it'll be more than two weeks away.</div>
         </div>
         <div class="dd-field" id="ddFullPaymentWrap" style="display:none;">
-          <label for="ddFullPaymentDate">Your preferred payment date</label>
-          <input type="date" id="ddFullPaymentDate">
-          <div class="dd-field-hint dd-field-hint-strong" id="ddFullPaymentHint">Must be at least 4 weeks from today, and on or before your balance due date.</div>
+          <label for="ddFullPaymentDay">Preferred payment day</label>
+          <select id="ddFullPaymentDay">
+            <option value="">Choose a day</option>
+            <option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option><option value="5">5th</option><option value="6">6th</option><option value="7">7th</option><option value="8">8th</option><option value="9">9th</option><option value="10">10th</option><option value="11">11th</option><option value="12">12th</option><option value="13">13th</option><option value="14">14th</option><option value="15">15th</option><option value="16">16th</option><option value="17">17th</option><option value="18">18th</option><option value="19">19th</option><option value="20">20th</option><option value="21">21st</option><option value="22">22nd</option><option value="23">23rd</option><option value="24">24th</option><option value="25">25th</option><option value="26">26th</option><option value="27">27th</option><option value="28">28th</option><option value="29">29th</option><option value="30">30th</option><option value="31">31st</option>
+          </select>
+          <div class="dd-field-hint dd-field-hint-strong" id="ddFullPaymentHint">The day of the month you'd like to pay. Must work out more than two weeks from today, and on or before your balance due date.</div>
         </div>
       </div>
 
@@ -191,8 +197,8 @@
     <h2>Direct debit, the important bits</h2>
     <ul class="numbered-list" style="margin-top:28px; max-width:70ch;">
       <li><span class="num">1</span><span><b>Your booking needs to be eligible.</b> Your travel date needs to be at least 18 weeks away for a direct debit to be an option.</span></li>
-      <li><span class="num">2</span><span><b>Your first payment needs a bit of notice.</b> Whichever date you choose, it needs to be at least 4 weeks from today so there's time to get everything set up.</span></li>
-      <li><span class="num">3</span><span><b>Your final payment date is fixed.</b> Monthly plans always finish 6 weeks before you travel, this is calculated automatically and can't be moved.</span></li>
+      <li><span class="num">2</span><span><b>Your first payment needs a bit of notice.</b> You choose which day of the month suits you, from the 1st to the 31st, and it needs to work out at more than two weeks from today. If the next one falls too soon, it automatically moves to the same day the following month instead.</span></li>
+      <li><span class="num">3</span><span><b>Your final payment date is fixed.</b> Monthly plans always finish on or before 6 weeks before you travel, this is calculated automatically from your chosen payment day and can't be moved.</span></li>
       <li><span class="num">4</span><span><b>This calculator gives you an estimate, not the exact schedule.</b> Nothing happens automatically from this page and no bank details are ever taken online. Give me a call and I'll work out the exact schedule with you, and confirm everything before your direct debit is actually created.</span></li>
     </ul>
   </div>
@@ -200,14 +206,14 @@
 
 <script>
 (function(){
-  var WEEK = 7 * 24 * 60 * 60 * 1000;
   var todayMidnight = new Date();
   todayMidnight.setHours(0,0,0,0);
+  var MIN_LEAD_DAYS = 14;
 
   var travelDateEl = document.getElementById('ddTravelDate');
   var balanceEl = document.getElementById('ddBalance');
-  var firstPaymentEl = document.getElementById('ddFirstPayment');
-  var fullPaymentEl = document.getElementById('ddFullPaymentDate');
+  var firstPaymentDayEl = document.getElementById('ddFirstPaymentDay');
+  var fullPaymentDayEl = document.getElementById('ddFullPaymentDay');
   var modeMonthlyBtn = document.getElementById('ddModeMonthly');
   var modeFullBtn = document.getElementById('ddModeFull');
   var firstPaymentWrap = document.getElementById('ddFirstPaymentWrap');
@@ -242,6 +248,48 @@
   function daysBetween(a, b){
     return Math.round((b.getTime() - a.getTime()) / (24*60*60*1000));
   }
+  function daysInMonth(y, m){
+    return new Date(y, m + 1, 0).getDate();
+  }
+  function monthDateClamped(y, m, day){
+    var yy = y + Math.floor(m / 12);
+    var mm = ((m % 12) + 12) % 12;
+    var dim = daysInMonth(yy, mm);
+    return new Date(yy, mm, Math.min(day, dim));
+  }
+  function isWeekend(d){
+    var wd = d.getDay();
+    return wd === 0 || wd === 6;
+  }
+  function rollToWorkingDay(d){
+    var r = new Date(d.getTime());
+    while (isWeekend(r)) r = addDays(r, 1);
+    return r;
+  }
+  function getOrdinalSuffix(n){
+    var rem100 = n % 100;
+    if (rem100 >= 11 && rem100 <= 13) return 'th';
+    switch (n % 10){
+      case 1: return 'st';
+      case 2: return 'nd';
+      case 3: return 'rd';
+      default: return 'th';
+    }
+  }
+  // The day a collection logically falls on, before any weekend adjustment.
+  // A day this month only counts if it works out more than two weeks away,
+  // otherwise it rolls to the same day next month instead.
+  function baseCollectionDate(prefDay){
+    var candidate = monthDateClamped(todayMidnight.getFullYear(), todayMidnight.getMonth(), prefDay);
+    if (daysBetween(todayMidnight, candidate) <= MIN_LEAD_DAYS){
+      candidate = monthDateClamped(todayMidnight.getFullYear(), todayMidnight.getMonth() + 1, prefDay);
+    }
+    return candidate;
+  }
+  function collectionDateForMonthOffset(baseDate, prefDay, offset){
+    var d = monthDateClamped(baseDate.getFullYear(), baseDate.getMonth() + offset, prefDay);
+    return rollToWorkingDay(d);
+  }
 
   function setStatus(cls, msg){
     statusEl.className = 'dd-status ' + cls;
@@ -266,65 +314,65 @@
     var travelDate = parseDate(travelDateEl);
     var balance = parseFloat(balanceEl.value);
 
+    var defaultFullHint = "The day of the month you'd like to pay. Must work out more than two weeks from today, and on or before your balance due date.";
+
     if (!travelDate || !balance || balance <= 0){
       setStatus('dd-status-wait', 'Fill in the fields above to see your payment plan.');
-      fullPaymentHint.textContent = 'Must be at least 4 weeks from today, and on or before your balance due date.';
-      fullPaymentEl.removeAttribute('min');
-      fullPaymentEl.removeAttribute('max');
+      fullPaymentHint.textContent = defaultFullHint;
       return;
     }
 
     var minEligibleTravel = addDays(todayMidnight, 18 * 7);
     if (travelDate < minEligibleTravel){
-      setStatus('dd-status-bad', 'This booking isn\'t eligible for a direct debit, your travel date needs to be at least 18 weeks away. A secure payment link would be the way to go instead.');
-      fullPaymentHint.textContent = 'Must be at least 4 weeks from today, and on or before your balance due date.';
-      fullPaymentEl.removeAttribute('min');
-      fullPaymentEl.removeAttribute('max');
+      setStatus('dd-status-bad', "This booking isn't eligible for a direct debit, your travel date needs to be at least 18 weeks away. A secure payment link would be the way to go instead.");
+      fullPaymentHint.textContent = defaultFullHint;
       return;
     }
 
     var finalDueDate = addDays(travelDate, -42);
-    var minFirstPayment = addDays(todayMidnight, 28);
-
-    fullPaymentHint.innerHTML = 'Must be on or before your balance due date of <b>' + fmtDate(finalDueDate) + '</b>, and at least 4 weeks from today.';
-    fullPaymentEl.min = minFirstPayment.toISOString().slice(0, 10);
-    fullPaymentEl.max = finalDueDate.toISOString().slice(0, 10);
+    fullPaymentHint.innerHTML = 'The day of the month you'd like to pay. Must work out on or before your balance due date of <b>' + fmtDate(finalDueDate) + '</b>, and more than two weeks from today.';
 
     if (mode === 'monthly'){
-      var firstPayment = parseDate(firstPaymentEl);
-      if (!firstPayment){
-        setStatus('dd-status-wait', 'Choose your preferred first payment date to see your plan.');
-        return;
-      }
-      if (firstPayment < minFirstPayment){
-        setStatus('dd-status-bad', 'Your first payment needs to be at least 4 weeks from today, the earliest date you can choose is ' + fmtDate(minFirstPayment) + '.');
-        return;
-      }
-      if (firstPayment >= finalDueDate){
-        setStatus('dd-status-bad', 'Your first payment date is too close to your balance due date (' + fmtDate(finalDueDate) + '). Try an earlier first payment date, or pay in full on one date instead.');
+      var prefDay = parseInt(firstPaymentDayEl.value, 10);
+      if (!prefDay){
+        setStatus('dd-status-wait', 'Choose your preferred payment day to see your plan.');
         return;
       }
 
-      var totalDays = daysBetween(firstPayment, finalDueDate);
-      var instalments = Math.max(1, Math.ceil(totalDays / 28));
-      var baseAmount = Math.floor((balance / instalments) * 100) / 100;
+      var baseDate = baseCollectionDate(prefDay);
+      var firstPayment = collectionDateForMonthOffset(baseDate, prefDay, 0);
+
+      if (firstPayment >= finalDueDate){
+        setStatus('dd-status-bad', 'That payment day works out too close to your balance due date (' + fmtDate(finalDueDate) + '). Try an earlier day of the month, or pay in full on one date instead.');
+        return;
+      }
+
       var rows = [];
+      var offset = 0;
+      var payDate = firstPayment;
+      while (payDate < finalDueDate){
+        rows.push({ date: payDate });
+        offset++;
+        payDate = collectionDateForMonthOffset(baseDate, prefDay, offset);
+      }
+      var instalments = rows.length;
+      var baseAmount = Math.floor((balance / instalments) * 100) / 100;
       var runningTotal = 0;
-      for (var i = 0; i < instalments; i++){
-        var payDate = addDays(firstPayment, i * 28);
+      rows.forEach(function(r, i){
         var amount = baseAmount;
         if (i === instalments - 1){
           amount = Math.round((balance - runningTotal) * 100) / 100;
         }
         runningTotal = Math.round((runningTotal + amount) * 100) / 100;
-        rows.push({ label: 'Payment ' + (i + 1), date: payDate, amount: amount });
-      }
+        r.label = 'Payment ' + (i + 1);
+        r.amount = amount;
+      });
 
-      setStatus('dd-status-ok', 'This booking is eligible for a direct debit. Here\'s an estimate of how your monthly plan could look.');
+      setStatus('dd-status-ok', "This booking is eligible for a direct debit. Here's an estimate of how your monthly plan could look, taken on the " + prefDay + getOrdinalSuffix(prefDay) + ' of each month where possible.');
       summaryEl.innerHTML =
         '<div class="dd-result-tile"><b>' + instalments + '</b><span>Monthly payments</span></div>' +
         '<div class="dd-result-tile"><b>' + fmtMoney(baseAmount) + '</b><span>Per month (approx)</span></div>' +
-        '<div class="dd-result-tile"><b>' + fmtDate(finalDueDate) + '</b><span>Final payment date</span></div>';
+        '<div class="dd-result-tile"><b>' + fmtDate(rows[rows.length-1].date) + '</b><span>Final payment date</span></div>';
       scheduleBody.innerHTML = rows.map(function(r){
         return '<tr><td>' + r.label + '</td><td>' + fmtDate(r.date) + '</td><td>' + fmtMoney(r.amount) + '</td></tr>';
       }).join('');
@@ -334,21 +382,20 @@
         balance: fmtMoney(balance)
       };
     } else {
-      var fullDate = parseDate(fullPaymentEl);
-      if (!fullDate){
-        setStatus('dd-status-wait', 'Choose your preferred payment date to see your plan.');
-        return;
-      }
-      if (fullDate < minFirstPayment){
-        setStatus('dd-status-bad', 'Your payment date needs to be at least 4 weeks from today, the earliest date you can choose is ' + fmtDate(minFirstPayment) + '.');
-        return;
-      }
-      if (fullDate > finalDueDate){
-        setStatus('dd-status-bad', 'Your payment date needs to be on or before your balance due date (' + fmtDate(finalDueDate) + ').');
+      var prefDayFull = parseInt(fullPaymentDayEl.value, 10);
+      if (!prefDayFull){
+        setStatus('dd-status-wait', 'Choose your preferred payment day to see your plan.');
         return;
       }
 
-      setStatus('dd-status-ok', 'This booking is eligible for a direct debit. Here\'s an estimate of your single payment plan.');
+      var fullDate = rollToWorkingDay(baseCollectionDate(prefDayFull));
+
+      if (fullDate > finalDueDate){
+        setStatus('dd-status-bad', 'That payment day works out after your balance due date (' + fmtDate(finalDueDate) + '). Try an earlier day of the month.');
+        return;
+      }
+
+      setStatus('dd-status-ok', "This booking is eligible for a direct debit. Here's an estimate of your single payment plan.");
       summaryEl.innerHTML =
         '<div class="dd-result-tile"><b>1</b><span>Single payment</span></div>' +
         '<div class="dd-result-tile"><b>' + fmtMoney(balance) + '</b><span>Full balance</span></div>' +
@@ -362,7 +409,7 @@
     }
   }
 
-  [travelDateEl, balanceEl, firstPaymentEl, fullPaymentEl].forEach(function(el){
+  [travelDateEl, balanceEl, firstPaymentDayEl, fullPaymentDayEl].forEach(function(el){
     el.addEventListener('input', recalc);
     el.addEventListener('change', recalc);
   });
