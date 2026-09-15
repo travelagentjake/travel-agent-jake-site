@@ -4,7 +4,7 @@ import urllib.parse
 import datetime
 from ski_quiz_data import QUESTIONS, PERSONAS, BUDGET_QUESTION
 
-SITE = "/home/claude/taj-site"
+SITE = os.path.dirname(os.path.abspath(__file__))
 BASE_URL = "https://travelagentjake.co.uk"
 TODAY_ISO = datetime.date.today().isoformat()
 
@@ -1435,6 +1435,13 @@ DESTINATION_POSTS = [
         "excerpt": "Onsite vs offsite hotels, the new meal plans, both parks and their best rides, character dining and Premier Access costs, everything for 2027 onwards.",
         "image": "images/destinations/disneyland-paris.jpg",
     },
+    {
+        "slug": "turkey-antalya.html",
+        "meta": "Turkey, Antalya Region",
+        "title": "The Antalya Region, Turkey",
+        "excerpt": "Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Turkey's Antalya coast.",
+        "image": "https://images.unsplash.com/photo-1610981896436-de6fe4f680b9?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -1625,6 +1632,9 @@ cyprus_body = f"""
     <p style="margin-top:14px;">A shortlist of the bookable tours and activities around Paphos and Latchi worth having on the radar, all four things Jake would actually recommend booking.</p>
     <div style="margin-top:22px;">
       <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="899780,712642,187266,218082"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/paphos-l426/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/paphos-l426/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do near Paphos &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1900,6 +1910,9 @@ mexico_body = f"""
     <p style="margin-top:14px;">The bookable tours and activities Jake would actually recommend for anyone based in Cancun itself.</p>
     <div style="margin-top:22px;">
       <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="34977,69067,923213,978199"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/cancun-l150/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/cancun-l150/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do near Cancun &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1910,6 +1923,9 @@ mexico_body = f"""
     <p style="margin-top:14px;">And the ones worth booking if you're based further down the coast, around Playa, Akumal or Tulum.</p>
     <div style="margin-top:22px;">
       <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="473418,430939,663722,26877"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/playa-del-carmen-l308/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/playa-del-carmen-l308/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do near Playa del Carmen &rarr;</a>
+      </div>
     </div>
     {jake_tip("Book cenotes and Chichen Itza tours for the morning wherever you can, both get hot, humid and busy with tour buses by early afternoon.")}
   </div>
@@ -2008,6 +2024,9 @@ mexico_body = f"""
     </div>
     <div style="margin-top:22px;">
       <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="978306,404040,433579,284542"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/cancun-l150/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/cancun-l150/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do near Cancun &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
@@ -2249,6 +2268,9 @@ maldives_body = f"""
     <p style="margin-top:22px;">Most of your time is spent on the resort itself, but the best resorts also run excursions off the island, snorkelling trips, dolphin cruises and sandbank picnics among them. Here's a shortlist of the kind of bookable extras worth having on the radar.</p>
     <div style="margin-top:22px;">
       <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="1115984,1102236,1255158,614694"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/male-l159176/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/male-l159176/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in the Maldives &rarr;</a>
+      </div>
     </div>
     {jake_tip("Most excursions are also bookable directly through your resort's activities desk once you arrive, it's just worth knowing you're not limited to whatever's in the resort brochure.")}
   </div>
@@ -2573,6 +2595,278 @@ with open(os.path.join(SITE, "disneyland-paris.html"), "w", encoding="utf-8") as
         extra_schema=DLP_SCHEMA
     ))
 print("disneyland-paris.html written")
+
+# ---------------- DESTINATION GUIDE: Turkey, Antalya Region ----------------
+turkey_antalya_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>THE ANTALYA REGION, TURKEY</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Turkey's Antalya coast.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about the Antalya region</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1610981896436-de6fe4f680b9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Antalya coastline in Turkey" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Antalya is Turkey's biggest package holiday coastline, and for good reason. You get reliable summer sun, some of the best value all-inclusive resorts in Europe, dramatic mountain scenery right behind the beaches, and genuinely interesting places to visit inland, from Roman ruins to waterfalls and white water rafting. The tricky part is picking an area, because Lara, Belek, Side and Alanya are all quite different holidays under the same Antalya banner.</p>
+    {jake_tip("Want golf, a quieter resort strip and the top end of Turkey's all-inclusive hotels? Base yourself in Belek. Want a lively town with plenty of bars and nightlife within walking distance? Alanya is the one to look at.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the classic package length here, and it's enough for a proper all-inclusive break with a couple of excursions built in. Ten to fourteen nights suits people who want to properly switch off, fit in more of the inland trips, and not feel like the holiday is over before it's begun.</p>
+    <p style="margin-top:14px;">It suits families well, with big resort pools, water parks and kids' clubs built into most of the 4-star and 5-star properties. It also works for couples wanting a lot of luxury for the price, and for groups of friends on a budget, particularly around Alanya where the nightlife and value both run high.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Antalya Airport (AYT) has some of the best direct UK links of any Mediterranean destination, with Jet2, TUI, easyJet and Wizz Air among the carriers flying from Gatwick, Luton, Stansted, Manchester, Birmingham, Bristol, Edinburgh, Glasgow and Newcastle, plus several smaller UK airports. Flight time is around 4 to 4.5 hours direct.</p>
+    <p style="margin-top:14px;">Transfer time from the airport varies a lot depending on which area you pick. Lara is the closest at around 20 minutes, Belek is around 35 to 40 minutes, Side and Kemer are about an hour, and Alanya is the outlier at over two hours. It's worth checking transfer time before you book, not just flight time.</p>
+    {jake_tip("If a short transfer matters to you, Lara and Belek are the easiest options. Alanya has the best nightlife on this coast, but budget for over two hours each way from the airport.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Antalya has hot, dry summers and mild, wetter winters, with most resort hotels closing over the winter months. These are long-term averages, so treat them as a guide rather than a forecast for your specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>12&deg;C</td><td>4&deg;C</td><td>18&deg;C</td><td>Wettest month, most hotels closed for winter</td></tr>
+          <tr><td>February</td><td>14&deg;C</td><td>4&deg;C</td><td>17&deg;C</td><td>Coolest sea temperature, still quiet and rainy</td></tr>
+          <tr><td>March</td><td>17&deg;C</td><td>6&deg;C</td><td>17&deg;C</td><td>Spring arriving, too cool to swim comfortably</td></tr>
+          <tr><td>April</td><td>21&deg;C</td><td>9&deg;C</td><td>18&deg;C</td><td>Warm days, resorts reopening, sea still cool</td></tr>
+          <tr><td>May</td><td>26&deg;C</td><td>14&deg;C</td><td>21&deg;C</td><td>Reliable sunshine, sea becomes swimmable, good value</td></tr>
+          <tr><td>June</td><td>32&deg;C</td><td>19&deg;C</td><td>25&deg;C</td><td>Hot and dry, peak season begins</td></tr>
+          <tr><td>July</td><td>36&deg;C</td><td>23&deg;C</td><td>28&deg;C</td><td>Very hot, virtually no rain, busiest month</td></tr>
+          <tr><td>August</td><td>36&deg;C</td><td>23&deg;C</td><td>29&deg;C</td><td>Hottest sea and busiest time to visit</td></tr>
+          <tr><td>September</td><td>31&deg;C</td><td>19&deg;C</td><td>27&deg;C</td><td>Still hot, sea at its warmest, crowds ease off</td></tr>
+          <tr><td>October</td><td>25&deg;C</td><td>14&deg;C</td><td>25&deg;C</td><td>Warm, sea still very swimmable, good value shoulder season</td></tr>
+          <tr><td>November</td><td>19&deg;C</td><td>9&deg;C</td><td>21&deg;C</td><td>Cooling fast, most all-inclusives start closing</td></tr>
+          <tr><td>December</td><td>14&deg;C</td><td>6&deg;C</td><td>19&deg;C</td><td>Wettest and coolest month, most hotels closed</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term monthly averages for the Antalya area.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">June to August is the hottest and busiest stretch, with temperatures regularly above 30&deg;C and the highest prices of the year. May and September to October are the best value months, with warm, swimmable sea, comfortable daytime heat and noticeably better prices on flights and hotels. November to March is effectively out of season for a beach holiday, since the sea drops too cold to swim and most all-inclusive hotels close for winter.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Antalya covers a long stretch of coastline, and the area you pick shapes the whole holiday more than almost anywhere else Jake sells.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1596093145026-f6af675846c7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Konyaalti beach, Antalya" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Lara &amp; Konyaalti</h3>
+        <p>The closest resorts to the airport and right next to Antalya city and the old town. Lara has a long sandy beach and big 5-star all-inclusives, while Konyaalti is more of a local, city-beach feel.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1668537901164-964d87c96976?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort pool and palm trees near Belek, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Belek</h3>
+        <p>Turkey's premier golf destination, with dozens of championship courses and the most upmarket resorts on this coast. Quieter and more polished than the other areas, with a sandy Blue Flag beach.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1636377688406-e0d0108eb882?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Harbour at Side, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Side</h3>
+        <p>A working small town built around ancient ruins, with a beach on either side of the old centre. Good for families and couples who want history and a genuine town alongside their beach time.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1725637043379-007c9ecab893?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="View over Alanya, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Alanya</h3>
+        <p>The liveliest and most budget-friendly resort on this coast, with a dramatic clifftop castle and Kleopatra Beach right in the centre. The furthest from the airport at over two hours each way.</p>
+      </div>
+    </div>
+    {jake_tip("First time in the region? Lara or Side give you the best balance of beach, things to do and an easy transfer. Save Belek for when you want to treat yourselves.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Dolmus minibuses run cheaply and frequently along the coast and between towns, and they're the classic budget way to get around once you're there, though services thin out to some of the quieter spots. Taxis are widely available and reasonably priced by UK standards, and Antalya city has a modern tram line linking the airport to the centre and the beaches.</p>
+    <p style="margin-top:14px;">Car hire gives you the most flexibility for exploring inland, towards the canyons and ancient ruins. Turkey drives on the right, and roads between the main resort areas are generally good dual carriageway.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;">A shortlist of the bookable tours and activities around the Antalya region worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="40023,302613,1156943,427276"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/antalya-l172/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/antalya-l172/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Antalya &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1627448449276-8c139d0790a6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Alaiye Kleopatra Hotel area, Alanya" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Alaiye Kleopatra Hotel, Alanya</h3>
+        <p>A well located, good value 4&#9733; all-inclusive directly across from Kleopatra Beach in Alanya town, an easy walk to the castle and the bars and shops along the front. Bookable through TUI and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1663574628942-185e70b69cff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Side Star Resort area, Side" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Side Star Resort, Side</h3>
+        <p>A beachfront 5&#9733; all-inclusive with direct beach access, three outdoor pools plus an indoor pool and waterslides, six restaurants and a strong kids' offer including a playroom, splash pad and adventure park. Bookable through Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best 5&#9733; all-inclusive</div>
+        <img src="https://images.unsplash.com/photo-1543489822-c49534f3271f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Lara Barut Collection area, Lara" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Lara Barut Collection, Lara</h3>
+        <p>A beachfront 5&#9733; Ultra All Inclusive on the Lara coast, with six pools including adults-only options, nine a la carte restaurants included in the rate, an aquapark and a full spa. Bookable through Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Maxx Royal Belek Golf Resort area, Belek" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Maxx Royal Belek Golf Resort, Belek</h3>
+        <p>A design led all-inclusive resort on its own private beach in Belek's golf district, with easy access to championship courses, multiple pools and fine dining. Bookable through TUI and Jet2holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond just the beach.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1585473568361-b289de1eaa6f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Duden Waterfalls, Antalya" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Duden Waterfalls</h3>
+        <p>Upper Duden sits inland in a park and cave setting, while Lower Duden falls straight off the cliffs into the Mediterranean near Lara. An easy half day trip either way.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1591814086124-b195c7964590?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Roman theatre at Aspendos, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Aspendos</h3>
+        <p>One of the best preserved Roman theatres anywhere in the world, still used today for the annual opera and ballet festival. Well worth the inland trip from any of the resort areas.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1654162115137-4f083a2ac627?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Kaleici, the old town of Antalya" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Kaleici Old Town</h3>
+        <p>Antalya's historic walled quarter, with Ottoman era houses, Hadrian's Gate, a working harbour and marina, and cobbled lanes of bars, shops and restaurants to wander through.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1753955101165-7e0f50a996b9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The ancient ruins of Perge, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Perge</h3>
+        <p>A well preserved Greco-Roman city a short drive from Antalya, with a Roman stadium, colonnaded streets and far fewer crowds than the better known sites.</p>
+      </div>
+    </div>
+    {jake_tip("Hire a car for at least a day if you can, or book an organised tour. The best inland sites, including Koprulu Canyon for white water rafting, aren't well served by public transport.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Turkey uses the Turkish Lira, so prices below are shown in pounds with the Lira equivalent alongside, based on averaged, crowd-sourced data and a rate of roughly &pound;1 to &#8378;65. Lira has been volatile in recent years, so treat these as a general guide for budgeting your spending money rather than an exact price list.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;7.70 (about &#8378;500)</td></tr>
+          <tr><td>Draft beer, half litre, bar or restaurant</td><td>&pound;2.30 (about &#8378;150)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;3.20 (about &#8378;207)</td></tr>
+          <tr><td>Soft drink, 330ml</td><td>&pound;1.35 (about &#8378;89)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.35 (about &#8378;23)</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;0.70 (about &#8378;46)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced averages via Numbeo, checked at time of writing. Lira to pound conversion is approximate and will move around.</p>
+    {jake_tip("Most all-inclusive resorts cover food and local drinks on-site, so your spending money is mostly for excursions, taxis and the odd meal out in town.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Turkish Lira (&#8378;)</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, two round pins, same as most of mainland Europe. UK plugs need an adapter</td></tr>
+          <tr><td>Language</td><td>Turkish, with English widely spoken in resort areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 4 to 4.5 hours direct</td></tr>
+          <tr><td>Time difference</td><td>2 hours ahead of the UK in summer, 3 hours ahead in UK winter</td></tr>
+          <tr><td>Driving</td><td>Right hand side, opposite to the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: engin akyurt, Bhumil Chheda, Ondrej Bocek, Marina T, silviannnm, Adel Salehi, Mick Haupt, Igor Sporynin, Cheesum Hoo, big.tiny.belly and Roberto Nickson via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <h2>Fancy Turkey for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Turkey, or somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+turkey_antalya_body = turkey_antalya_body.replace("::NEWSLETTER::", newsletter_section())
+
+TURKEY_ANTALYA_SCHEMA = article_and_faq_schema(
+    "The Antalya Region, Turkey: Jake's Destination Guide",
+    "Jake's honest guide to the Antalya region of Turkey: weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "turkey-antalya.html",
+    "https://images.unsplash.com/photo-1610981896436-de6fe4f680b9?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit the Antalya region of Turkey?", "June to August is the hottest and busiest stretch, with temperatures regularly above 30 degrees and the highest prices of the year. May and September to October offer warm, swimmable sea and noticeably better value, while November to March is too cold to swim and most all-inclusive hotels close for winter."),
+        ("Which area should I choose, Lara, Belek, Side or Alanya?", "Lara and Konyaalti are closest to the airport and suit a first trip or a mix of beach and city. Belek is the most upmarket, built around golf and quieter resorts. Side combines a genuine old town with the beach. Alanya has the liveliest nightlife and best value, but the longest transfer from the airport at over two hours."),
+        ("How far is the transfer from Antalya airport to my resort?", "It depends on the area. Lara is around 20 minutes, Belek around 35 to 40 minutes, Side and Kemer about an hour, and Alanya over two hours each way, so it's worth checking transfer time as well as flight time when choosing where to stay."),
+    ]
+)
+with open(os.path.join(SITE, "turkey-antalya.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "The Antalya Region, Turkey: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to the Antalya region of Turkey: weather by month, where to stay, things to do, recommended hotels and what things cost.",
+        "destinations.html",
+        turkey_antalya_body,
+        extra_schema=TURKEY_ANTALYA_SCHEMA
+    ))
+print("turkey-antalya.html written")
 
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
@@ -4534,6 +4828,7 @@ SITEMAP_PAGES = [
     ("cancun-riviera-maya-playa-del-carmen.html", "0.6"),
     ("maldives.html", "0.6"),
     ("disneyland-paris.html", "0.6"),
+    ("turkey-antalya.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
