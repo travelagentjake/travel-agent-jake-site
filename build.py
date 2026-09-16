@@ -446,6 +446,7 @@ home_body = """
       <div class="btn-row" style="margin-top:18px; flex-direction:column; align-items:flex-start; gap:10px;">
         <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
         <a class="btn" style="background:var(--white); color:var(--ink); border-color:var(--ink);" href="my-booking.html">My Booking</a>
+        <a class="btn" style="background:var(--yellow); color:var(--ink); border-color:var(--ink);" href="tui-summer-2028.html">TUI Summer 2028: Get Priority Access</a>
       </div>
     </div>
     <div>
@@ -5400,6 +5401,130 @@ with open(os.path.join(SITE, "privacy-policy.html"), "w", encoding="utf-8") as f
     ))
 print("privacy-policy.html written")
 
+# ---------------- TUI SUMMER 2028 PRIORITY ACCESS ----------------
+tui_2028_body = """
+<section class="theme-bold">
+  <div class="wrap">
+    <div class="eyebrow">TUI Summer 2028 Sale &middot; Prices live 15th October 2026</div>
+    <h1>GET PRIORITY ACCESS TO TUI'S SUMMER 2028 SALE</h1>
+    <p class="lead" style="margin-top:14px; max-width:70ch;">TUI's Summer 2028 prices go live on 15th October 2026, and the best hotels and flight times get booked within hours. Register your holiday details now so everything is ready to go, then book a priority appointment slot to get your holiday confirmed on launch day itself.</p>
+  </div>
+</section>
+
+<section class="theme-light">
+  <div class="wrap">
+    <div class="grid-3 equal-cards" style="gap:24px;">
+      <div class="jake-card">
+        <h3>No holding fee</h3>
+        <p>Registering costs nothing and holds nothing. It just means I have your details ready so we can move fast when prices land.</p>
+      </div>
+      <div class="jake-card">
+        <h3>Priority appointments</h3>
+        <p>Everyone who registers gets a link to book a launch day appointment. Priority for the best availability goes to those with an appointment booked.</p>
+      </div>
+      <div class="jake-card">
+        <h3>Everything ready to go</h3>
+        <p>Tell me your dates, hotel, airport and who's coming now, and I won't need to ask again when you're ready to book on the day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <div class="jake-card" style="max-width:640px; margin:0 auto;">
+      <h3>Register for TUI Summer 2028 priority access</h3>
+      <p style="margin-bottom:20px;">Fill this in with as much detail as you can for everyone travelling. The more I know now, the faster I can get your holiday booked on launch day. You'll also be added to my mailing list for general holiday updates.</p>
+      <div style="display:flex; justify-content:center;">
+        <iframe width="100%" height="1500" src="https://469d6a1c.sibforms.com/v2/serve/MUIFANlehzcINxtgnNWhzEbiLGxFIHs4EML9ZcrCV6B_xhZce7o93gPyxDBl9Sbu6lquqHUCorhqUvBjd1RNZX9JwPPwIgtI24kzjY027TA5MSelQ6Y-b-5Ctrxgbtj8Im6ub47rAEjl_2Rviqi4N4MejcwEv_bg0kKRUmN8Obq4AILDWEBq0oynRnT6I_INdZvRNOfQDXl8gegDaA==" frameborder="0" scrolling="auto" allowfullscreen style="display:block; margin-left:auto; margin-right:auto; max-width:100%;"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap">
+    <div class="eyebrow">How priority access works</div>
+    <h2>THREE STEPS TO GET YOUR SUMMER 2028 HOLIDAY BOOKED FIRST.</h2>
+    <div class="grid-3 equal-cards" style="margin-top:32px;">
+      <div class="jake-card" style="background:var(--ink); border-color:rgba(255,255,255,0.25);">
+        <div style="width:36px; height:36px; border-radius:50%; background:var(--yellow); color:var(--ink); display:flex; align-items:center; justify-content:center; font-family:'Archivo Black',sans-serif; margin-bottom:14px;">1</div>
+        <h3 style="color:var(--white); font-size:17px;">Register your details</h3>
+        <p style="color:rgba(255,255,255,0.8);">Fill in the form above with your dates, hotel, airport and everyone travelling. You'll be added to my mailing list for general holiday updates too.</p>
+      </div>
+      <div class="jake-card" style="background:var(--ink); border-color:rgba(255,255,255,0.25);">
+        <div style="width:36px; height:36px; border-radius:50%; background:var(--yellow); color:var(--ink); display:flex; align-items:center; justify-content:center; font-family:'Archivo Black',sans-serif; margin-bottom:14px;">2</div>
+        <h3 style="color:var(--white); font-size:17px;">Book your priority appointment</h3>
+        <p style="color:rgba(255,255,255,0.8);">You'll get an email straight away with a link to book an appointment slot. Priority for the best prices and availability goes to those with a slot booked.</p>
+      </div>
+      <div class="jake-card" style="background:var(--ink); border-color:rgba(255,255,255,0.25);">
+        <div style="width:36px; height:36px; border-radius:50%; background:var(--yellow); color:var(--ink); display:flex; align-items:center; justify-content:center; font-family:'Archivo Black',sans-serif; margin-bottom:14px;">3</div>
+        <h3 style="color:var(--white); font-size:17px;">Get booked on launch day</h3>
+        <p style="color:rgba(255,255,255,0.8);">On 15th October, we go through your options live on your appointment call and get your Summer 2028 holiday booked there and then.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light">
+  <div class="wrap">
+    <p style="max-width:70ch; margin:0 auto; text-align:center; font-size:14px; opacity:0.75;">Registering is free and you're under no obligation to book. If your plans change, just let me know. Prefer to talk it through first? <a class="body-copy" href="https://wa.me/447899290262" target="_blank" rel="noopener">Message me on WhatsApp</a>.</p>
+  </div>
+</section>
+"""
+
+with open(os.path.join(SITE, "tui-summer-2028.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "TUI Summer 2028 Sale: Priority Access | Travel Agent Jake",
+        "Register now for TUI's Summer 2028 sale (live 15th October 2026) and book a priority appointment to get your holiday confirmed on launch day.",
+        "tui-summer-2028.html",
+        tui_2028_body
+    ))
+print("tui-summer-2028.html written")
+
+tui_2028_thanks_body = """
+<section class="theme-bold">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow">You're on the list</div>
+    <h1>YOU'RE REGISTERED FOR TUI SUMMER 2028 PRIORITY ACCESS</h1>
+    <p class="lead" style="margin-top:14px; max-width:64ch; margin-left:auto; margin-right:auto;">Nice one. Your details are saved and ready to go. The single most important thing you can do now is book your priority appointment slot for launch day, 15th October 2026.</p>
+    <div class="btn-row" style="justify-content:center; margin-top:24px;">
+      <a class="btn btn-primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ268emmpHG2UtjWqce36HR6eptEqh0VpdKZ3lqUD-SvbuEIKYknsS1ixcuWwKcHLATPUDf8V_Yo?gv=true" target="_blank" rel="noopener">Book my priority appointment</a>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light">
+  <div class="wrap">
+    <div class="grid-3 equal-cards" style="gap:24px;">
+      <div class="jake-card">
+        <h3>Why book an appointment</h3>
+        <p>Priority for the best hotels, flight times and prices goes to those with an appointment booked. It's the single best thing you can do between now and launch day.</p>
+      </div>
+      <div class="jake-card">
+        <h3>Check your email</h3>
+        <p>A confirmation email is on its way to you now with this same appointment link, plus a reminder of what happens next.</p>
+      </div>
+      <div class="jake-card">
+        <h3>Questions before then</h3>
+        <p>Drop me a message on WhatsApp any time and I'll get back to you personally.</p>
+        <a class="btn btn-block" style="margin-top:8px;" href="https://wa.me/447899290262" target="_blank" rel="noopener">Message me on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+"""
+
+with open(os.path.join(SITE, "tui-summer-2028-thanks.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "You're Registered | TUI Summer 2028 | Travel Agent Jake",
+        "Thanks for registering for TUI Summer 2028 priority access. Book your priority appointment now to get your holiday confirmed on launch day.",
+        "tui-summer-2028.html",
+        tui_2028_thanks_body
+    ))
+print("tui-summer-2028-thanks.html written")
+
+
 ROBOTS = """User-agent: *
 Allow: /
 
@@ -5442,6 +5567,7 @@ SITEMAP_PAGES = [
     ("about.html", "0.8"),
     ("travel-kit.html", "0.7"),
     ("book.html", "0.9"),
+    ("tui-summer-2028.html", "0.9"),
     ("ski-quiz.html", "0.8"),
     ("destinations.html", "0.7"),
     ("cyprus-paphos-latchi.html", "0.6"),
