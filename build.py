@@ -5432,15 +5432,182 @@ tui_2028_body = """
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
-    <div class="jake-card" style="max-width:640px; margin:0 auto;">
+    <div class="jake-card" style="max-width:680px; margin:0 auto;">
       <h3>Register for TUI Summer 2028 priority access</h3>
       <p style="margin-bottom:20px;">Fill this in with as much detail as you can for everyone travelling. The more I know now, the faster I can get your holiday booked on launch day. You'll also be added to my mailing list for general holiday updates.</p>
-      <div style="display:flex; justify-content:center;">
-        <iframe width="100%" height="1500" src="https://469d6a1c.sibforms.com/v2/serve/MUIFANlehzcINxtgnNWhzEbiLGxFIHs4EML9ZcrCV6B_xhZce7o93gPyxDBl9Sbu6lquqHUCorhqUvBjd1RNZX9JwPPwIgtI24kzjY027TA5MSelQ6Y-b-5Ctrxgbtj8Im6ub47rAEjl_2Rviqi4N4MejcwEv_bg0kKRUmN8Obq4AILDWEBq0oynRnT6I_INdZvRNOfQDXl8gegDaA==" frameborder="0" scrolling="auto" allowfullscreen style="display:block; margin-left:auto; margin-right:auto; max-width:100%;"></iframe>
-      </div>
+
+      <form id="tuiForm" class="tui-form" novalidate>
+        <div class="tui-form-section-label">Lead traveller (that's you)</div>
+        <div class="tui-form-row two-col">
+          <label class="tui-field">
+            <span>First name</span>
+            <input type="text" name="FIRSTNAME" required autocomplete="given-name">
+          </label>
+          <label class="tui-field">
+            <span>Last name</span>
+            <input type="text" name="LASTNAME" required autocomplete="family-name">
+          </label>
+        </div>
+        <div class="tui-form-row two-col">
+          <label class="tui-field">
+            <span>Date of birth</span>
+            <input type="date" name="DOB" required autocomplete="bday">
+          </label>
+          <label class="tui-field">
+            <span>Mobile number</span>
+            <input type="tel" name="MOBILE" required autocomplete="tel">
+          </label>
+        </div>
+        <div class="tui-form-row two-col">
+          <label class="tui-field">
+            <span>Email address</span>
+            <input type="email" name="EMAIL" required autocomplete="email">
+          </label>
+          <label class="tui-field">
+            <span>Home address</span>
+            <input type="text" name="ADDRESS" required autocomplete="street-address" placeholder="Include postcode">
+          </label>
+        </div>
+
+        <div class="tui-form-section-label">Who's coming</div>
+        <div class="tui-form-row two-col">
+          <label class="tui-field">
+            <span>Number of adults</span>
+            <input type="number" name="ADULTS" min="1" step="1" value="2" required>
+          </label>
+          <label class="tui-field">
+            <span>Number of children</span>
+            <input type="number" name="CHILDREN" min="0" step="1" value="0" required id="tuiChildren">
+          </label>
+        </div>
+        <label class="tui-field" id="tuiChildAgesField">
+          <span>Children's ages</span>
+          <input type="text" name="CHILD_AGES" placeholder="e.g. 6, 9, 14">
+        </label>
+        <label class="tui-field">
+          <span>Names &amp; dates of birth of everyone else travelling</span>
+          <textarea name="OTHER_TRAVELLERS" rows="3" placeholder="One person per line, e.g.&#10;Jane Smith, 04/03/1990&#10;Tom Smith, 12/11/2015"></textarea>
+        </label>
+
+        <div class="tui-form-section-label">The holiday you want</div>
+        <div class="tui-form-row two-col">
+          <label class="tui-field">
+            <span>Departure airport</span>
+            <input type="text" name="DEPARTURE_AIRPORT" required placeholder="e.g. Manchester">
+          </label>
+          <label class="tui-field">
+            <span>Destination or hotel wanted</span>
+            <input type="text" name="DESTINATION_WANTED" required placeholder="e.g. Sani Beach, Kalamata">
+          </label>
+        </div>
+        <div class="tui-form-row two-col">
+          <label class="tui-field">
+            <span>Travel dates wanted</span>
+            <input type="text" name="TRAVEL_DATES" required placeholder="e.g. 14th-21st July 2028">
+          </label>
+          <label class="tui-field">
+            <span>Budget</span>
+            <input type="text" name="BUDGET" required placeholder="e.g. up to £3,500 for the family">
+          </label>
+        </div>
+        <label class="tui-field">
+          <span>Are you ready to pay a deposit on launch day?</span>
+          <select name="DEPOSIT_READY" required>
+            <option value="" disabled selected>Choose one</option>
+            <option value="Yes, ready to pay a deposit on launch day">Yes, ready to pay a deposit on launch day</option>
+            <option value="Yes, but might need a few days">Yes, but might need a few days</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </label>
+
+        <label class="tui-consent">
+          <input type="checkbox" name="consent" required>
+          <span>I'd like my confirmation email and occasional holiday updates from Travel Agent Jake. Unsubscribe any time.</span>
+        </label>
+
+        <div id="tuiFormError" class="tui-form-error" hidden></div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="tuiSubmitBtn">Register me for priority access</button>
+      </form>
     </div>
   </div>
 </section>
+
+<style>
+.tui-form{ display:flex; flex-direction:column; gap:14px; margin-top:8px; }
+.tui-form-section-label{ font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:0.05em; color:var(--blue); margin-top:10px; }
+.tui-form-section-label:first-child{ margin-top:0; }
+.tui-form-row.two-col{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:640px){ .tui-form-row.two-col{ grid-template-columns:1fr; } }
+.tui-field{ display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600; }
+.tui-field input, .tui-field select, .tui-field textarea{
+  font-family:inherit; font-size:15px; font-weight:400; padding:11px 13px;
+  border:2px solid var(--ink); border-radius:8px; background:var(--white); color:var(--ink);
+  width:100%; box-sizing:border-box;
+}
+.tui-field textarea{ resize:vertical; }
+.tui-consent{ display:flex; align-items:flex-start; gap:10px; font-size:13px; line-height:1.5; margin-top:6px; }
+.tui-consent input{ margin-top:3px; flex-shrink:0; width:18px; height:18px; }
+.tui-form-error{ background:#FDEDED; border:2px solid #D43F3F; border-radius:8px; padding:12px 14px; font-size:14px; }
+#tuiSubmitBtn{ margin-top:8px; }
+#tuiSubmitBtn:disabled{ opacity:0.6; cursor:default; }
+</style>
+
+<script>
+(function(){
+  var form = document.getElementById('tuiForm');
+  var childrenInput = document.getElementById('tuiChildren');
+  var childAgesField = document.getElementById('tuiChildAgesField');
+  var childAgesInput = childAgesField.querySelector('input');
+  var errorBox = document.getElementById('tuiFormError');
+  var submitBtn = document.getElementById('tuiSubmitBtn');
+
+  function syncChildAges(){
+    var need = parseInt(childrenInput.value, 10) > 0;
+    childAgesInput.required = need;
+  }
+  childrenInput.addEventListener('input', syncChildAges);
+  syncChildAges();
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorBox.hidden = true;
+
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+
+    var data = {};
+    Array.prototype.forEach.call(form.elements, function(el){
+      if(!el.name || el.type === 'submit') return;
+      if(el.type === 'checkbox'){ return; }
+      data[el.name] = el.value.trim();
+    });
+    data.ADULTS = parseInt(data.ADULTS, 10) || 1;
+    data.CHILDREN = parseInt(data.CHILDREN, 10) || 0;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Registering...';
+
+    fetch('/.netlify/functions/tui-register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(res){
+      if(!res.ok){ throw new Error('bad status'); }
+      return res.json();
+    }).then(function(){
+      window.location.href = 'tui-summer-2028-thanks.html';
+    }).catch(function(){
+      errorBox.textContent = "Sorry, something went wrong sending that. Please try again, or message Jake directly on WhatsApp and he'll register you manually.";
+      errorBox.hidden = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Register me for priority access';
+    });
+  });
+})();
+</script>
 
 <section class="theme-dark">
   <div class="wrap">
