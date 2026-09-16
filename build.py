@@ -5656,7 +5656,7 @@ tui_2028_thanks_body = """
     <h1>YOU'RE REGISTERED FOR TUI SUMMER 2028 PRIORITY ACCESS</h1>
     <p class="lead" style="margin-top:14px; max-width:64ch; margin-left:auto; margin-right:auto;">Nice one. Your details are saved and ready to go. The single most important thing you can do now is book your priority appointment slot for launch day, 15th October 2026.</p>
     <div class="btn-row" style="justify-content:center; margin-top:24px;">
-      <a class="btn btn-primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ268emmpHG2UtjWqce36HR6eptEqh0VpdKZ3lqUD-SvbuEIKYknsS1ixcuWwKcHLATPUDf8V_Yo?gv=true" target="_blank" rel="noopener">Book my priority appointment</a>
+      <a class="btn btn-primary" href="https://calendar.app.google/a6kTkgMPVGoXCQoo8" target="_blank" rel="noopener">Book my priority appointment</a>
     </div>
   </div>
 </section>
