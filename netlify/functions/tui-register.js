@@ -71,6 +71,7 @@ exports.handler = async function (event) {
     CHILDREN: Number.isFinite(children) && children >= 0 ? children : 0,
     CHILD_AGES: data.CHILD_AGES ? String(data.CHILD_AGES).trim() : "",
     OTHER_TRAVELLERS: data.OTHER_TRAVELLERS ? String(data.OTHER_TRAVELLERS).trim() : "",
+    ANYTHING_ELSE: data.ANYTHING_ELSE ? String(data.ANYTHING_ELSE).trim() : "",
     DEPARTURE_AIRPORT: String(data.DEPARTURE_AIRPORT).trim(),
     DESTINATION_WANTED: String(data.DESTINATION_WANTED).trim(),
     TRAVEL_DATES: String(data.TRAVEL_DATES).trim(),
