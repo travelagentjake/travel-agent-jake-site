@@ -3316,6 +3316,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1503365194569-df4e1d04cec1?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Travellers with luggage walking through an airport terminal",
     },
+    {
+        "slug": "flight-delay-cancellation-compensation.html",
+        "meta": "Consumer rights",
+        "title": "Flight delayed or cancelled? Here's what you're actually owed",
+        "excerpt": "The real UK261 compensation rules, why September's air traffic control failure didn't trigger a payout, and exactly what to do next time your flight lets you down.",
+        "image": "https://images.unsplash.com/photo-1786852448829-fc4277e70a5d?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Traveller looking up at an airport flight information board showing delays",
+    },
 ]
 
 def tip_card(post):
@@ -4724,6 +4732,158 @@ with open(os.path.join(SITE, "ees-etias-explained.html"), "w", encoding="utf-8")
     ))
 print("ees-etias-explained.html written")
 
+# ---------------- TRAVEL TIPS: Flight delay and cancellation compensation ----------------
+flight_rights_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>FLIGHT DELAYED OR CANCELLED?</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">A technical failure at UK air traffic control grounded and delayed well over a thousand flights across the country this September. Here's what you're actually entitled to when a flight lets you down, why the answer isn't the same every time, and what that specific meltdown means for anyone caught up in it.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1786852448829-fc4277e70a5d?auto=format&fit=crop&w=1600&h=700&q=80" alt="Traveller looking up at an airport flight information board showing delays" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">If your UK flight arrives more than 3 hours late, or gets cancelled, you may be entitled to cash compensation of &pound;220 to &pound;520 per person under UK261, the UK's own version of the old EU flight compensation rule. But that's only when the airline was actually responsible for what went wrong.</p>
+      <p style="margin-top:14px; margin-bottom:0;">If the cause was genuinely outside the airline's control, an air traffic control failure, extreme weather, an airport security incident, you keep the right to meals, hotel accommodation and a refund or a replacement flight while it's sorted. You just don't get the cash payout on top. Most people assume any bad day at the airport means an automatic payout, and that's exactly where the confusion starts.</p>
+    </div>
+    {jake_tip("Compensation is never paid automatically, you have to actually claim it from the airline yourself. It costs nothing to ask, so put in a claim even if you're not sure it'll be accepted and let the airline tell you no rather than assuming it on their behalf.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What you're actually entitled to</h2>
+    <p style="margin-top:14px;">These are the official UK261 compensation amounts from the Civil Aviation Authority, and they only kick in once your flight arrives more than 3 hours late at your destination, or is cancelled.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Under 1,500km</td><td>&pound;220 per person</td></tr>
+          <tr><td>1,500km to 3,500km</td><td>&pound;350 per person</td></tr>
+          <tr><td>Over 3,500km, arriving 3 to 4 hours late</td><td>&pound;260 per person</td></tr>
+          <tr><td>Over 3,500km, arriving more than 4 hours late</td><td>&pound;520 per person</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;">A few things worth knowing before you claim. Compensation has to be claimed directly from the airline first, most have an online form for this. Airlines don't have to pay out if they can show the delay was down to "extraordinary circumstances" outside their control, more on exactly what that covers below. And if the airline doesn't resolve your claim within 8 weeks, you can escalate it to an Alternative Dispute Resolution provider or the CAA's own Passenger Advice and Complaints Team.</p>
+    {jake_tip("Keep your boarding pass and any screenshots of the delay or cancellation showing on the departure board. You'll want proof of the actual delay length and the flight details when you come to claim.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>The catch almost everyone gets wrong</h2>
+    <p style="margin-top:14px;">"Extraordinary circumstances" is the get out clause that decides whether you get cash compensation or not, and it works differently depending on whose fault the disruption actually was.</p>
+    <img src="https://images.unsplash.com/photo-1642740390261-d197b19cfabb?auto=format&fit=crop&w=1600&h=700&q=80" alt="Air traffic control tower against the sky" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>A strike by the airline's own staff</b> (pilots, cabin crew, check-in staff, engineers employed by the airline) generally doesn't count as extraordinary circumstances. Compensation is usually still owed.</span></li>
+      <li><span class="num">2</span><span><b>A failure by a third party</b>, air traffic control, airport security, border control, or a baggage handling company, generally does count as extraordinary. You lose the cash compensation but keep every other right.</span></li>
+      <li><span class="num">3</span><span><b>Extreme weather, and genuine safety or security incidents,</b> almost always count as extraordinary too, for the same reason: it isn't something the airline caused or could have prevented.</span></li>
+      <li><span class="num">4</span><span><b>Whatever the cause, "duty of care" still applies.</b> Meals, refreshments, hotel accommodation if you're stuck overnight, and a choice of a full refund or being rerouted, these apply regardless of whose fault the disruption was.</span></li>
+    </ul>
+    {jake_tip("Don't rule out a claim just because you remember chaos in the news that day. Ask the airline what reason they've logged for your specific flight's delay or cancellation before assuming you're not owed anything.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What actually happened in September 2026</h2>
+    <p style="margin-top:14px;">On 8 and 9 September 2026, a technical failure at a NATS (National Air Traffic Services) facility caused mass disruption across UK airspace. NATS itself described it as a system failure rather than industrial action, and confirmed a fix had been implemented as the network gradually recovered.</p>
+    <img src="https://images.unsplash.com/photo-1784551127944-17cbd22066ae?auto=format&fit=crop&w=1600&h=700&q=80" alt="Passengers waiting in an airport lounge by large windows" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Heathrow, Gatwick, Manchester and Birmingham were the worst affected, with Stansted, Southend, London City, Edinburgh, the Isle of Man and Jersey also disrupted. Over 1,000 flights were cancelled on the first day alone, and by the following morning Heathrow was still showing well over 200 cancellations and hundreds more delays as the knock on effects continued into a second day. Ryanair alone reported more than 65,000 passengers affected across its own cancelled and delayed flights.</p>
+    <p style="margin-top:14px;">Because this was a technical failure at NATS, a third party outside any airline's control, it falls into the extraordinary circumstances bucket. That means no automatic cash compensation for most passengers caught up in it, but everyone affected still had the right to meals, hotel accommodation if they were stuck overnight, and a refund or a rebooked flight while it was sorted.</p>
+    {jake_tip("If you were caught up in the September NATS failure and an airline refused you meals or a hotel while you waited, that part isn't optional for them regardless of the cause, it's worth pushing back on with your booking reference to hand.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What to actually do if it happens to you</h2>
+    <img src="https://images.unsplash.com/photo-1730288278805-42d46b17438d?auto=format&fit=crop&w=1600&h=700&q=80" alt="Queue of travellers waiting at airport check-in counters" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Find out the reason given for the delay or cancellation.</b> Ask ground staff or check the airline's app, this is what decides which set of rights apply to you.</span></li>
+      <li><span class="num">2</span><span><b>Ask for meals, refreshments and a hotel</b> if you're delayed significantly or stuck overnight. Airlines have to provide this whatever caused the disruption, keep receipts if you end up paying for anything yourself.</span></li>
+      <li><span class="num">3</span><span><b>For a cancelled flight, you get a choice.</b> A full refund, or being rerouted to your destination, including on another airline if that's the only reasonable option. The airline has to offer both, not just whichever suits them.</span></li>
+      <li><span class="num">4</span><span><b>Claim compensation directly from the airline first.</b> Most have an online form for exactly this. Submit it even if you're not certain extraordinary circumstances applied, let them make that call rather than ruling yourself out.</span></li>
+      <li><span class="num">5</span><span><b>Escalate after 8 weeks</b> if the airline hasn't resolved your claim. An Alternative Dispute Resolution provider or the CAA's Passenger Advice and Complaints Team can take it from there.</span></li>
+    </ul>
+    {jake_tip("Keep everything, your boarding pass, any receipts for food or a hotel, and screenshots of the departure board. None of it costs anything to keep and it's exactly what you'll be asked for if you do end up claiming.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Does this affect a package holiday booked through me?</h2>
+    <p style="margin-top:14px;">Flight compensation claims work the same way whether you booked a flight on its own or as part of a package holiday, you claim directly from the airline either way, not from your travel agent or tour operator. What changes with a package holiday is everything around the flight. Your accommodation booking doesn't disappear because your outbound flight was delayed or cancelled, and as an ABTA and ATOL protected agent I'm able to help sort onward travel and keep the rest of your holiday on track while you deal with the airline side separately.</p>
+    {jake_tip("If a delay or cancellation is going to make you miss the start of your holiday, message me as soon as you know, the earlier I hear about it the more options there usually are for sorting transfers, accommodation and any knock on changes.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">How much compensation am I entitled to for a delayed or cancelled UK flight?</h3>
+      <p>Between &pound;220 and &pound;520 per person under UK261, depending on the distance of the flight and how late you arrive, but only once your flight is more than 3 hours late or cancelled, and only if the airline was responsible for the disruption.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do I get compensation for the September 2026 air traffic control failure?</h3>
+      <p>Not the cash payout. It was a technical failure at NATS, a third party outside any airline's control, so it counts as extraordinary circumstances. You were still entitled to meals, hotel accommodation and a refund or reroute while it was being sorted, just not the compensation on top.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What's the difference between a strike and an air traffic control failure for compensation purposes?</h3>
+      <p>A strike by the airline's own staff, pilots, cabin crew or check-in staff, generally doesn't count as extraordinary circumstances, so compensation is usually still owed. A failure by a third party like NATS, the airport or border control generally does count as extraordinary, which removes the cash compensation but not your other rights.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How do I actually claim?</h3>
+      <p>Contact the airline directly first, almost all of them have an online compensation claim form. If it isn't resolved within 8 weeks, escalate it to an Alternative Dispute Resolution provider or the CAA's Passenger Advice and Complaints Team.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Got a flight or a holiday coming up?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I keep an eye on this stuff so you don't have to, message me if a delay or cancellation has messed up your plans and I'll help sort what's next.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+flight_rights_body = flight_rights_body.replace("::NEWSLETTER::", newsletter_section())
+
+FLIGHT_RIGHTS_SCHEMA = article_and_faq_schema(
+    "Flight Delayed or Cancelled? UK261 Compensation Explained",
+    "The real UK261 flight delay and cancellation compensation rules, the extraordinary circumstances exemption explained properly, what the September 2026 UK air traffic control failure means for your rights, and exactly what to do next time a flight lets you down.",
+    "flight-delay-cancellation-compensation.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("How much compensation am I entitled to for a delayed or cancelled UK flight?", "Between \\u00a3220 and \\u00a3520 per person under UK261, depending on the distance of the flight and how late you arrive, but only once your flight is more than 3 hours late or cancelled, and only if the airline was responsible for the disruption."),
+        ("Do I get compensation for the September 2026 air traffic control failure?", "Not the cash payout. It was a technical failure at NATS, a third party outside any airline's control, so it counts as extraordinary circumstances. Affected passengers were still entitled to meals, hotel accommodation and a refund or reroute while it was being sorted, just not the compensation on top."),
+        ("What's the difference between a strike and an air traffic control failure for compensation purposes?", "A strike by the airline's own staff, pilots, cabin crew or check-in staff, generally doesn't count as extraordinary circumstances, so compensation is usually still owed. A failure by a third party like NATS, the airport or border control generally does count as extraordinary, which removes the cash compensation but not your other rights."),
+        ("How do I actually claim UK261 compensation?", "Contact the airline directly first, almost all of them have an online compensation claim form. If it isn't resolved within 8 weeks, escalate it to an Alternative Dispute Resolution provider or the CAA's Passenger Advice and Complaints Team."),
+    ]
+)
+
+with open(os.path.join(SITE, "flight-delay-cancellation-compensation.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Flight Delayed or Cancelled? UK261 Compensation Explained | Travel Agent Jake",
+        "The real UK261 flight delay and cancellation compensation rules, the extraordinary circumstances exemption explained properly, what the September 2026 UK air traffic control failure means for your rights, and exactly what to do next time a flight lets you down.",
+        "travel-tips.html",
+        flight_rights_body,
+        extra_schema=FLIGHT_RIGHTS_SCHEMA
+    ))
+print("flight-delay-cancellation-compensation.html written")
+
 # ---------------- SKI QUIZ ----------------
 QUIZ_DATA_JSON = json.dumps({"questions": QUESTIONS, "personas": PERSONAS, "budget_question": BUDGET_QUESTION})
 
@@ -5299,6 +5459,7 @@ SITEMAP_PAGES = [
     ("power-bank-flight-safety.html", "0.6"),
     ("budget-airline-hand-luggage-sizes.html", "0.6"),
     ("ees-etias-explained.html", "0.7"),
+    ("flight-delay-cancellation-compensation.html", "0.7"),
     ("privacy-policy.html", "0.3"),
 ]
 sitemap_entries = "\n".join(
