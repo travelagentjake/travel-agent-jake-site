@@ -60,7 +60,6 @@ NAV_ITEMS = [
     ("Home", "index.html"),
     ("My Booking", "my-booking.html"),
     ("About me", "about.html"),
-    ("Travel Kit", "travel-kit.html"),
     ("Travel Tips", "travel-tips.html"),
     ("Destinations", "destinations.html"),
 ]
@@ -285,7 +284,6 @@ FOOTER = """<footer class="site-footer">
           <li><a href="index.html">Home</a></li>
           <li><a href="my-booking.html">My booking</a></li>
           <li><a href="about.html">About me</a></li>
-          <li><a href="travel-kit.html">Travel kit</a></li>
           <li><a href="travel-tips.html">Travel tips</a></li>
           <li><a href="destinations.html">Destinations</a></li>
           <li><a href="ski-quiz.html">Ski resort quiz</a></li>
@@ -897,82 +895,6 @@ with open(os.path.join(SITE, "about.html"), "w", encoding="utf-8") as f:
     ))
 print("about.html written")
 
-# ---------------- TRAVEL KIT ----------------
-travel_kit_body = """
-<section class="theme-bold">
-  <div class="wrap">
-    <div class="eyebrow">My travel kit</div>
-    <h1>THE STUFF I ACTUALLY USE</h1>
-    <p class="lead" style="margin-top:18px; max-width:64ch;">eSIMs, travel bags, day trips and the useful links I send people before every trip. Some of these are affiliate links, so using them costs you nothing extra and helps keep this site going.</p>
-  </div>
-</section>
-
-<section class="theme-light">
-  <div class="wrap">
-    <h2>Affiliate links</h2>
-    <div class="grid-2-eq equal-cards" style="margin-top:28px; gap:24px;">
-
-      <div class="jake-card">
-        <div class="kit-icon-row"><img class="kit-icon" src="images/logo-gyg.png" alt="Get Your Guide logo"><h3>Get Your Guide App</h3></div>
-        <p>Boat trips, transfers, skip-the-queue tickets. Save 5% on your first purchase with code <b>TRAVELAGENTJAKE5</b>.</p>
-        <a class="btn btn-primary btn-block" href="https://gyg.me/travelagentjake-app" target="_blank" rel="noopener">Download the app</a>
-      </div>
-
-      <div class="jake-card">
-        <div class="kit-icon-row"><img class="kit-icon" src="images/logo-breeze.png" alt="Breeze eSIM logo"><h3>Breeze eSIM</h3></div>
-        <p>Save money on data roaming. Install before you fly, activate on landing.</p>
-        <a class="btn btn-primary btn-block" href="https://tidd.ly/4e6NPfU" target="_blank" rel="noopener">Get Breeze eSIM</a>
-      </div>
-
-      <div class="jake-card">
-        <div class="kit-icon-row"><img class="kit-icon" src="images/logo-airalo.jpg" alt="Airalo logo"><h3>Airalo eSIM</h3></div>
-        <p>Same idea, more country and regional plans. Handy for multi-centre trips in one go.</p>
-        <a class="btn btn-primary btn-block" href="https://airalo.pxf.io/c/7743453/1268485/15608" target="_blank" rel="noopener">Get Airalo eSIM</a>
-      </div>
-
-      <div class="jake-card">
-        <div class="kit-icon-row"><img class="kit-icon" src="images/logo-vagari.png" alt="Vagari Travel Bags logo"><h3>Vagari Travel Bags</h3></div>
-        <p>My recommended travel bags. Save 15% with code <b>TAJAKE15</b> at the checkout.</p>
-        <a class="btn btn-primary btn-block" href="https://vagaribags.com/" target="_blank" rel="noopener">Shop Vagari Bags</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-::NEWSLETTER::
-
-<section class="theme-light" style="padding-top:0;">
-  <div class="wrap">
-    <h2>Useful links</h2>
-    <div class="grid-3 equal-cards" style="margin-top:28px;">
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-tui.png" alt="TUI logo"><h3 style="font-size:16px;">TUI Build a Brochure</h3></div><a class="body-copy" href="https://brochures.tui.co.uk/bespoke-brochures/" target="_blank" rel="noopener">Visit &rarr;</a></div>
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-europa.png" alt="EU travel-europe logo"><h3 style="font-size:16px;">EES Status Check</h3></div><a class="body-copy" href="https://travel-europe.europa.eu/ees/check-how-long-you-can-stay" target="_blank" rel="noopener">Visit &rarr;</a></div>
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-electricalsafety.png" alt="Electrical Safety First logo"><h3 style="font-size:16px;">Travel Adapter Safety</h3></div><a class="body-copy" href="https://www.electricalsafetyfirst.org.uk/safety-advice/travel-advice/" target="_blank" rel="noopener">Visit &rarr;</a></div>
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-aena.png" alt="Aena logo"><h3 style="font-size:16px;">Spanish Hidden Disability Badge</h3></div><a class="body-copy" href="https://tramitesyreclamaciones.aena.es/distintivo_di/#/" target="_blank" rel="noopener">Visit &rarr;</a></div>
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-nhs.png" alt="NHS logo"><h3 style="font-size:16px;">Get Your GHIC Here</h3></div><a class="body-copy" href="https://www.nhs.uk/using-the-nhs/healthcare-abroad/apply-for-a-free-uk-global-health-insurance-card-ghic/" target="_blank" rel="noopener">Visit &rarr;</a></div>
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-tui.png" alt="TUI logo"><h3 style="font-size:16px;">Passport Validity Checker</h3></div><a class="body-copy" href="https://travelagentjake.bcns.link/XVa5LA" target="_blank" rel="noopener">Visit &rarr;</a></div>
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-etias.png" alt="ETIAS logo"><h3 style="font-size:16px;">ETIAS Website</h3></div><a class="body-copy" href="https://etias.com/" target="_blank" rel="noopener">Visit &rarr;</a></div>
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-europa.png" alt="EU travel-europe logo"><h3 style="font-size:16px;">EES Information</h3></div><a class="body-copy" href="https://travel-europe.europa.eu/en/ees" target="_blank" rel="noopener">Visit &rarr;</a></div>
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-govuk.png" alt="GOV.UK logo"><h3 style="font-size:16px;">FCDO Travel Advice</h3></div><a class="body-copy" href="https://www.gov.uk/foreign-travel-advice" target="_blank" rel="noopener">Visit &rarr;</a></div>
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-govuk.png" alt="GOV.UK logo"><h3 style="font-size:16px;">UAE Travel Advice</h3></div><a class="body-copy" href="https://www.gov.uk/foreign-travel-advice/united-arab-emirates" target="_blank" rel="noopener">Visit &rarr;</a></div>
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-abta.png" alt="ABTA logo"><h3 style="font-size:16px;">ABTA Member Search</h3></div><a class="body-copy" href="https://www.abta.com/abta-member-search" target="_blank" rel="noopener">Visit &rarr;</a></div>
-      <div class="jake-card"><div class="kit-icon-row"><img class="kit-icon" src="images/logo-caa.jpg" alt="CAA logo"><h3 style="font-size:16px;">Consumer Rights</h3></div><a class="body-copy" href="https://www.caa.co.uk/newsroom/news/consumer-travel-advice-summer-2026" target="_blank" rel="noopener">Visit &rarr;</a></div>
-    </div>
-    <p style="margin-top:32px; font-size:13px; opacity:0.7;">Disclosure: some links on this page are affiliate links. If you buy through them I may receive a small commission. It never changes the price you pay, and I only list things I've used myself.</p>
-  </div>
-</section>
-"""
-travel_kit_body = travel_kit_body.replace("::NEWSLETTER::", newsletter_section())
-
-with open(os.path.join(SITE, "travel-kit.html"), "w", encoding="utf-8") as f:
-    f.write(page(
-        "Travel Kit | Travel Agent Jake",
-        "eSIMs, travel bags, day trips and the useful travel links Jake actually uses and recommends.",
-        "travel-kit.html",
-        travel_kit_body
-    ))
-print("travel-kit.html written")
 
 # ---------------- BOOK ----------------
 book_body = """
@@ -6196,7 +6118,6 @@ SITEMAP_PAGES = [
     ("", "1.0"),
     ("my-booking.html", "0.8"),
     ("about.html", "0.8"),
-    ("travel-kit.html", "0.7"),
     ("book.html", "0.9"),
     ("tui-summer-2028.html", "0.9"),
     ("ski-quiz.html", "0.8"),
@@ -6252,7 +6173,7 @@ LLMS_TXT = """# Travel Agent Jake
 ## Pages
 - [Home](https://travelagentjake.co.uk/): overview, how to book, financial protection info
 - [About](https://travelagentjake.co.uk/about.html): Jake's background and 15 years in travel
-- [Travel Kit](https://travelagentjake.co.uk/travel-kit.html): recommended travel products and useful official links (eSIMs, passport/ETIAS checkers, GHIC, FCDO travel advice)
+- [Links](https://bio.travelagentjake.co.uk/): recommended travel products and useful official links (eSIMs, passport/ETIAS checkers, GHIC, FCDO travel advice)
 - [How to Book](https://travelagentjake.co.uk/book.html): the three ways to start booking a holiday with Jake
 - [Ski Resort Quiz](https://travelagentjake.co.uk/ski-quiz.html): a short quiz matching users to a ski resort persona (piste mileage, off-piste/powder, apres-ski/nightlife, relaxed/luxury, or food-focused) and a budget tier, with a full reference guide covering 25 named ski resorts including piste km, run counts by difficulty colour, lift counts, altitude, budget tier and things to do off the slopes
 - [Travel Tips](https://travelagentjake.co.uk/travel-tips.html): honest travel tips and comparisons, including a Breeze eSIM vs Airalo comparison, Christmas market city breaks, a ski holiday packing list, a guide to booking early vs booking late, an LGBTQIA+ friendly holidays guide, power bank flight safety rules, a budget airline hand luggage size comparison and a full guide to the EU's EES and ETIAS border systems
