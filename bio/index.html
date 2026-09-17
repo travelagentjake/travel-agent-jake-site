@@ -92,6 +92,45 @@
   </div>
 </section>
 
+<section class="theme-light" style="padding-top:0;">
+  <div class="bio-wrap">
+    <div class="jake-card newsletter-card">
+      <h3>Sign up to travel news</h3>
+      <p style="max-width:52ch; margin:0 auto 20px;">Get travel updates direct to your inbox: news, offers, discounts and so much more, courtesy of Travel Agent Jake.</p>
+
+      <form id="jakeNewsletterForm" class="newsletter-form" method="POST" action="https://469d6a1c.sibforms.com/serve/MUIFAMcmuwqX-TvGFPiLc8X5nHNs-PyNB22bNJLaHaAO0ZaLwVnPVvTPd_6hxtOlaTewwRSBWuBCKubledBVtj1ZE8wxpDUP--xqOuWhe2SteRaYYgKiktFIHaAwKCSX75P76YGC8D_jHVW6dDrcK_1OD-m9ohUXVejyF-mhZ4JYroCzHYDBrL3cm1G7YsxCz_32sR1YI-h2zUyltQ==" target="jakeNewsletterFrame">
+        <label for="jakeNewsletterName" class="newsletter-label">First name</label>
+        <input id="jakeNewsletterName" class="newsletter-name-input" type="text" name="FIRSTNAME" placeholder="Your first name">
+        <label for="jakeNewsletterEmail" class="newsletter-label">Email address</label>
+        <div class="newsletter-row">
+          <input id="jakeNewsletterEmail" type="email" name="EMAIL" placeholder="you@example.com" required>
+          <button class="btn btn-primary" type="submit">Sign up</button>
+        </div>
+        <input type="text" name="email_address_check" value="" class="newsletter-honeypot" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="locale" value="en">
+        <input type="hidden" name="html_type" value="simple">
+        <p class="newsletter-fineprint">No spam, unsubscribe any time.</p>
+      </form>
+      <div id="jakeNewsletterSuccess" class="newsletter-success" hidden>You&#39;re on the list! Keep an eye on your inbox for travel news and offers.</div>
+      <iframe name="jakeNewsletterFrame" id="jakeNewsletterFrame" style="display:none;" title="newsletter"></iframe>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var form = document.getElementById('jakeNewsletterForm');
+  var success = document.getElementById('jakeNewsletterSuccess');
+  if (!form) return;
+  form.addEventListener('submit', function(){
+    setTimeout(function(){
+      form.hidden = true;
+      success.hidden = false;
+    }, 600);
+  });
+})();
+</script>
+
 <section class="theme-light" style="padding:20px 0 48px;">
   <div class="bio-wrap">
     <h2 style="text-align:center; font-size:clamp(20px,5vw,26px);">My affiliate links</h2>
