@@ -1533,8 +1533,8 @@ DESTINATION_POSTS = [
         "slug": "turkey-bodrum.html",
         "meta": "Turkey, Bodrum Area",
         "title": "The Bodrum Area, Turkey",
-        "excerpt": "Bodrum town, Gumbet, Bitez, Turgutreis, Yalikavak, Gumusluk, Altinkum and Didim: weather by month, where to stay, things to do and what it actually costs.",
-        "image": "https://images.unsplash.com/photo-1760197045829-221c11482607?auto=format&fit=crop&w=1200&q=80",
+        "excerpt": "Bodrum town, Gumbet, Turgutreis, Yalikavak, Gundogan and Torba: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1687536257889-4e6b188bb8b7?auto=format&fit=crop&w=1200&q=80",
     },
 ]
 
@@ -3261,33 +3261,33 @@ turkey_bodrum_body = f"""
   <div class="wrap">
     <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
     <h1>THE BODRUM AREA, TURKEY</h1>
-    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Bodrum, Gumbet, Bitez, Turgutreis, Yalikavak, Gumusluk and the Altinkum and Didim side of the peninsula.</p>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Bodrum town, Gumbet, Turgutreis, Yalikavak, Gundogan and Torba.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>What Jake says about the Bodrum area</h2>
-    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1760197045829-221c11482607?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bodrum Castle on the harbour, Turkey" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Bodrum is the smartest corner of Turkey's Aegean coast, and it feels quite different to the bigger, brasher resorts further round the coastline. Whitewashed houses climb the hills above a crusader castle and twin harbours, the marina at Yalikavak is genuinely yacht set, and there's history everywhere you look, from the castle itself to the site of one of the Seven Wonders of the Ancient World. It's also a proper mixed bag of a destination. Gumbet gives you Bar Street and a lively beach scene, Bitez and Ortakent are calmer and greener, Turgutreis has its own big sandy beach and golden sunsets, and Altinkum and Didim further round the coast are firmly built for family holidays with three good beaches and a slower pace.</p>
-    {jake_tip("Want nightlife and easy walking distance to everything? Base yourself in Bodrum town or Gumbet. Want a quieter, more grown up trip with a village feel? Look at Bitez, Yalikavak or Gumusluk instead.")}
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1687536257889-4e6b188bb8b7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boats moored in a bay near Bodrum, Turkey" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Bodrum is the smarter, more polished end of Turkey's Aegean coast. It's where Bodrum Castle looks out over a proper working marina, where whitewashed hillside villages sit above beach clubs and yacht harbours, and where the resort towns spread right around the peninsula each have a genuinely different feel. It's a step up in price from Antalya or the Dalaman area, but you get boutique hotels, better restaurants and a much bigger sailing and yachting scene in return.</p>
+    {jake_tip("Want nightlife, shopping and a proper town to explore in the evenings? Base yourself in Bodrum town or Gumbet. Want a quieter, more upmarket trip built around beach clubs and marinas? Yalikavak or Golturkbuku suit that better, at a higher price.")}
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Trip length &amp; who it suits</h2>
-    <p style="margin-top:14px;">Seven nights is the standard package length here and works well for most first-time visitors, with enough time for a boat trip, a castle visit and plenty of beach time alongside it. Ten to fourteen nights suits people who want to explore further afield too, since Ephesus and Pamukkale are both doable as long day trips from this part of the coast.</p>
-    <p style="margin-top:14px;">Bodrum town and Gumbet suit couples and groups of friends who want nightlife and things on their doorstep. Bitez, Ortakent and Torba are calmer and greener, and popular with couples wanting a quieter base close to the action. Turgutreis, Altinkum and Didim are strongest for families, with bigger sandy beaches, kids' clubs and generally better value all-inclusive hotels. Yalikavak and Gumusluk sit at the upmarket end, built around yachting and boutique dining rather than big resort hotels.</p>
+    <p style="margin-top:14px;">Seven nights is the standard package length here, giving you enough time for a boat trip, an evening or two exploring Bodrum town, and proper beach time without feeling rushed. Ten to fourteen nights suits guests who want to combine a few different resort areas or take things at a slower pace.</p>
+    <p style="margin-top:14px;">It suits couples particularly well, especially in Bodrum town, Yalikavak and Golturkbuku where the restaurants, beach clubs and boat trips are strongest. Families are well catered for in Gumbet, Bitez and Turgutreis, where hotels tend to be larger, more built for all-inclusive stays and closer to sandy, gently shelving beaches. Bodrum also has a genuine LGBTQ+ friendly reputation by Turkish standards, particularly around Bodrum town.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Milas-Bodrum Airport (BJV) has direct flights from a wide spread of UK airports, with Jet2, TUI, easyJet and Turkish carriers among those flying from Gatwick, Manchester, Birmingham, Bristol, Edinburgh, Glasgow, Newcastle and several other regional airports. Flight time is around 4 to 4.5 hours direct depending on where you fly from.</p>
-    <p style="margin-top:14px;">Transfer time from the airport depends a lot on which part of the peninsula you're staying on, since the resorts are spread out along a genuinely large stretch of coast. Guvercinlik is closest at around 20 to 25 minutes, Torba around 30 to 35 minutes, Bodrum town and Gumbet around 35 to 45 minutes, Bitez around 40 to 45 minutes, Turgutreis around 55 to 65 minutes, Gumusluk and Yalikavak around 60 to 70 minutes, and Altinkum and Didim are the furthest out at around 1 hour 15 minutes to 1.5 hours, based on the airport's own published distances.</p>
-    {jake_tip("If a short transfer matters most, look at Guvercinlik, Torba or Bodrum town itself. If you're set on Altinkum or Didim for the beaches and family price points, just build the longer transfer into your expectations for arrival day.")}
+    <p style="margin-top:14px;">Milas-Bodrum Airport (BJV) has direct flights from a wide spread of UK airports. easyJet flies from Bristol, Liverpool, Gatwick, Luton and Manchester, Jet2 flies from Birmingham, Bristol, East Midlands, Edinburgh, Glasgow, Leeds Bradford, Liverpool, Stansted, Manchester and Newcastle, British Airways flies from Heathrow, and Ryanair flies from Stansted, alongside TUI's seasonal charter routes. Flight time is around 4 to 4.75 hours direct depending on where you fly from, shortest from London and the south.</p>
+    <p style="margin-top:14px;">The airport sits around 36km northeast of Bodrum town, roughly a 40 to 45 minute drive. From there, Torba is the closest resort area at around 35 to 40 minutes, Bodrum town and Gumbet are around 45 to 55 minutes, Bitez is similar to Gumbet, and Turgutreis, Yalikavak, Gundogan and Golturkbuku on the far side of the peninsula are further out, typically 70 to 85 minutes depending on traffic.</p>
+    {jake_tip("If a short transfer matters most, look at Torba. If you want the widest choice of restaurants and nightlife within walking distance, Bodrum town or Gumbet are worth the slightly longer ride from the airport.")}
   </div>
 </section>
 
@@ -3295,95 +3295,95 @@ turkey_bodrum_body = f"""
   <div class="wrap">
     {ad_slot()}
     <h2>Weather by month</h2>
-    <p style="margin-top:14px;">The Bodrum area has hot, dry summers and mild, wetter winters, with many all-inclusive hotels here operating a seasonal calendar rather than staying open year round. These are long-term averages for Bodrum itself, so treat them as a guide rather than a forecast for your specific dates.</p>
+    <p style="margin-top:14px;">Bodrum has hot, dry summers and mild, wetter winters, with the majority of all-inclusive hotels here operating a seasonal calendar rather than staying open year round. These are long-term averages (1991 to 2020) for Bodrum itself, so treat them as a guide rather than a forecast for your specific dates.</p>
     <div class="weather-table-wrap">
       <table class="weather-table">
         <thead>
           <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
         </thead>
         <tbody>
-          <tr><td>January</td><td>15&deg;C</td><td>8&deg;C</td><td>17.0&deg;C</td><td>Wettest and quietest month, most hotels closed for winter</td></tr>
-          <tr><td>February</td><td>15&deg;C</td><td>8&deg;C</td><td>16.5&deg;C</td><td>Still cool and quiet, coolest sea temperature</td></tr>
-          <tr><td>March</td><td>18&deg;C</td><td>10&deg;C</td><td>16.0&deg;C</td><td>Spring arriving, too cool to swim comfortably</td></tr>
-          <tr><td>April</td><td>21&deg;C</td><td>13&deg;C</td><td>17.0&deg;C</td><td>Warm days, hotels reopening for the season, sea still cool</td></tr>
-          <tr><td>May</td><td>26&deg;C</td><td>17&deg;C</td><td>19.0&deg;C</td><td>Reliable sunshine, sea becomes swimmable, good value shoulder month</td></tr>
-          <tr><td>June</td><td>31&deg;C</td><td>21&deg;C</td><td>22.0&deg;C</td><td>Hot and dry, peak season underway</td></tr>
-          <tr><td>July</td><td>34&deg;C</td><td>23&deg;C</td><td>23.5&deg;C</td><td>Very hot, virtually no rain, busiest and most expensive month</td></tr>
-          <tr><td>August</td><td>34&deg;C</td><td>23&deg;C</td><td>24.5&deg;C</td><td>Hottest sea temperature, still very busy</td></tr>
-          <tr><td>September</td><td>30&deg;C</td><td>20&deg;C</td><td>23.5&deg;C</td><td>Still hot, sea at its warmest, crowds ease off</td></tr>
-          <tr><td>October</td><td>26&deg;C</td><td>17&deg;C</td><td>21.5&deg;C</td><td>Warm, sea still swimmable, good value shoulder season</td></tr>
-          <tr><td>November</td><td>20&deg;C</td><td>13&deg;C</td><td>19.5&deg;C</td><td>Cooling fast, most all-inclusives closing for winter</td></tr>
-          <tr><td>December</td><td>17&deg;C</td><td>10&deg;C</td><td>17.5&deg;C</td><td>Wet and quiet, most hotels closed until spring</td></tr>
+          <tr><td>January</td><td>15.5&deg;C</td><td>8.5&deg;C</td><td>17.9&deg;C</td><td>Wettest and quietest month, many hotels closed for winter</td></tr>
+          <tr><td>February</td><td>16&deg;C</td><td>8.8&deg;C</td><td>17&deg;C</td><td>Still cool and quiet, coolest sea temperature</td></tr>
+          <tr><td>March</td><td>18.3&deg;C</td><td>10.3&deg;C</td><td>16.8&deg;C</td><td>Spring arriving, too cool to swim comfortably</td></tr>
+          <tr><td>April</td><td>21.7&deg;C</td><td>13.1&deg;C</td><td>17.4&deg;C</td><td>Warm days, hotels reopening for the season, sea still cool</td></tr>
+          <tr><td>May</td><td>26.6&deg;C</td><td>17.2&deg;C</td><td>19.9&deg;C</td><td>Reliable sunshine, sea becomes swimmable, good value shoulder month</td></tr>
+          <tr><td>June</td><td>32.1&deg;C</td><td>21.6&deg;C</td><td>22.9&deg;C</td><td>Hot and dry, peak season underway</td></tr>
+          <tr><td>July</td><td>35.2&deg;C</td><td>24.1&deg;C</td><td>24.7&deg;C</td><td>Very hot, virtually no rain, busiest and most expensive month</td></tr>
+          <tr><td>August</td><td>35.3&deg;C</td><td>24.4&deg;C</td><td>26&deg;C</td><td>Hottest month, still very busy</td></tr>
+          <tr><td>September</td><td>31.2&deg;C</td><td>21.2&deg;C</td><td>25.2&deg;C</td><td>Still hot, sea at its warmest, crowds ease off</td></tr>
+          <tr><td>October</td><td>26.4&deg;C</td><td>17.5&deg;C</td><td>23.1&deg;C</td><td>Warm, sea still swimmable, good value shoulder season</td></tr>
+          <tr><td>November</td><td>21.2&deg;C</td><td>13.3&deg;C</td><td>21.3&deg;C</td><td>Cooling fast, most all-inclusives closing for winter</td></tr>
+          <tr><td>December</td><td>17&deg;C</td><td>10.1&deg;C</td><td>19.4&deg;C</td><td>Wet and quiet, most hotels closed until spring</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term monthly averages for Bodrum itself. Altinkum and Didim, further round the coast, run a touch warmer in summer and the peninsula's western tip can be breezier year round.</p>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Air temperature figures are 1991 to 2020 long-term averages for Bodrum from Turkey's State Meteorological Service. The far side of the peninsula around Turgutreis and Yalikavak can run a touch breezier thanks to the meltemi wind that picks up most afternoons in summer.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Best time to visit</h2>
-    <p style="margin-top:14px;">May to October is the season most hotels here operate to. June to August is the hottest and busiest stretch, with temperatures regularly in the low to mid 30s and the highest prices of the year. Late April, May and September to October are the best value windows, with warm, swimmable sea, comfortable daytime heat and noticeably lower prices than peak summer. Winter is effectively out of season for a beach holiday, since the majority of all-inclusive hotels here close between roughly November and April.</p>
+    <p style="margin-top:14px;">May to October is the season most hotels here operate to. June to August is the hottest and busiest stretch, with temperatures regularly in the mid 30s and the highest prices of the year. Late April, May and September to October are the best value windows, with warm, swimmable sea, comfortable daytime heat and noticeably lower prices than peak summer. Winter is effectively out of season for a beach holiday, since most all-inclusive hotels here close between roughly November and April.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Where to stay</h2>
-    <p style="margin-top:14px;">The Bodrum peninsula covers a lot of ground, and the area you pick shapes the holiday more than the hotel does.</p>
+    <p style="margin-top:14px;">Bodrum wraps right around a peninsula, and which side you pick changes the holiday considerably.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
-        <img src="https://images.unsplash.com/photo-1583061386694-e364c84ba31d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of Bodrum town, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <img src="https://images.unsplash.com/photo-1760197045829-221c11482607?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bodrum Castle overlooking the harbour, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Bodrum town</h3>
-        <p>The peninsula's main hub, built around the castle and twin harbours, with a genuine old town, a big bazaar and the widest choice of restaurants and boat trips. Good for couples and groups who want history and nightlife within walking distance.</p>
+        <p>The peninsula's hub, built around a working marina and Bodrum Castle, with the widest choice of restaurants, bars and boat trips. Good for couples and groups who want a proper town on their doorstep rather than a purpose-built resort strip.</p>
       </div>
       <div class="jake-card">
-        <img src="https://images.unsplash.com/photo-1664118145742-f2ad1c09c10b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beach with clear blue water near Gumbet, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <img src="https://images.unsplash.com/photo-1779918531754-8465f9bf7d13?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beach umbrellas at sunset in Gumbet, Bodrum" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Gumbet</h3>
-        <p>A short dolmus ride from Bodrum town, with a lively Blue Flag beach, watersports and Bar Street for a night on the tiles. Suits couples and groups of friends after an energetic, sociable holiday.</p>
+        <p>A ten minute drive from Bodrum town, with a long sandy beach and a big choice of all-inclusive hotels. One of the liveliest spots on the peninsula after dark, and a solid pick for families and groups of friends.</p>
       </div>
       <div class="jake-card">
-        <img src="https://images.unsplash.com/photo-1476522590778-ce524105b925?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sandy beach and coastline near Turgutreis, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <img src="https://images.unsplash.com/photo-1659628905471-d93ffa4b85fe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of the coastline near Turgutreis, Bodrum" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Turgutreis</h3>
-        <p>The second biggest town on the peninsula, with its own long sandy beach, a big weekly market and some of the best sunsets on this coast. Good value and popular with families.</p>
+        <p>On the western tip of the peninsula, known for reliably strong sunsets and a busy Tuesday street market that draws visitors from right across Bodrum. A calmer, more local feeling base than Bodrum town or Gumbet.</p>
       </div>
       <div class="jake-card">
-        <img src="https://images.unsplash.com/photo-1727713682954-271a2135c375?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Yacht marina at Yalikavak, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:17px;">Yalikavak &amp; Gumusluk</h3>
-        <p>The upmarket, yachting end of the peninsula, built around Yalikavak's marina and boutique shops, with Gumusluk's laid back fish restaurants and sunset views a short drive away. Suits couples wanting a quieter, more polished trip.</p>
+        <img src="https://images.unsplash.com/photo-1727713682954-271a2135c375?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Marina at Yalikavak, Bodrum, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Yalikavak</h3>
+        <p>Home to the upmarket Yalikavak Marina, lined with designer boutiques, superyachts and some of the peninsula's best restaurants. Suits couples after a quieter, more polished trip, generally at a higher price point.</p>
       </div>
       <div class="jake-card">
-        <img src="https://images.unsplash.com/photo-1591078314943-85c674b3789b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boat on the water off the Bodrum peninsula, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:17px;">Bitez &amp; Torba</h3>
-        <p>Green, relaxed villages close to Bodrum town, known for olive groves, citrus trees and a calmer beach scene than Gumbet. A good middle ground for couples and families who still want easy access to the action.</p>
+        <img src="https://images.unsplash.com/photo-1727714193414-ee0df133cce6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boats moored near Gundogan, Bodrum, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Gundogan &amp; Golturkbuku</h3>
+        <p>Neighbouring bays on the northern side of the peninsula, with Golturkbuku in particular known for its beach clubs and a reputation as one of the more fashionable, higher spending corners of Bodrum.</p>
       </div>
       <div class="jake-card">
-        <img src="https://images.unsplash.com/photo-1759693501856-f3eca6ac5001?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beach resort with sun loungers, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:17px;">Altinkum &amp; Didim</h3>
-        <p>Firmly a family destination, further round the coast towards Kusadasi, with three good sandy beaches, waterparks and generally better value all-inclusive hotels than the Bodrum side. The trade off is a longer airport transfer.</p>
+        <img src="https://images.unsplash.com/photo-1659628905465-d679a6d7c38e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of the bay and houses near Torba, Bodrum" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Torba</h3>
+        <p>A quieter village just outside Bodrum town and the closest resort area to the airport, home to a handful of large all-inclusive hotels set right on the water. A good pick for families who want a short transfer and a calmer base.</p>
       </div>
     </div>
-    {jake_tip("First time in the area? Bodrum town or Bitez give you the best balance of things to do and an easier transfer. Save Altinkum and Didim for a family trip built around price and beach time rather than nightlife.")}
+    {jake_tip("First time in the region? Gumbet or Bodrum town give you the best balance of things to do and value. Save Yalikavak or Golturkbuku for a quieter, more upmarket return trip.")}
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting around</h2>
-    <p style="margin-top:14px;">Dolmus minibuses are the classic way to get around, running frequently between Bodrum town, Gumbet, Bitez, Turgutreis and most of the villages on the peninsula. Taxis are widely available and metered, and water taxis run along the coast from the marinas in season. For reaching Yalikavak, Gumusluk or Altinkum and Didim comfortably, or for exploring at your own pace, car hire gives you the most flexibility.</p>
-    <p style="margin-top:14px;">Turkey drives on the right, and the roads linking the resort areas are generally good, though narrow and winding in places on the western half of the peninsula.</p>
+    <p style="margin-top:14px;">Dolmus minibuses run frequently between Bodrum town and the surrounding resort areas, and are a cheap, easy way to get around if you're not planning to explore too far off the main routes. Taxis are widely available and metered, and water taxis run between the marinas in season. For reaching quieter villages and beaches on the far side of the peninsula, such as Gumusluk or Akyarlar, car hire gives you the most flexibility.</p>
+    <p style="margin-top:14px;">Turkey drives on the right, and the peninsula's roads are generally good, if narrow and winding in the hillside villages.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Things to do</h2>
-    <p style="margin-top:14px;">A shortlist of the bookable tours and activities around the Bodrum area worth having on the radar.</p>
+    <p style="margin-top:14px;">A shortlist of the bookable tours and activities around Bodrum worth having on the radar.</p>
     <div style="margin-top:22px;">
-      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="103136,629143,660502,65925"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/bodrum-l846/">GetYourGuide</a></span></div>
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="476452,711028,1401206,417374"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/bodrum-l846/">GetYourGuide</a></span></div>
       <div class="btn-row" style="margin-top:18px;">
-        <a class="btn btn-secondary" href="https://www.getyourguide.com/bodrum-l846/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in the Bodrum area &rarr;</a>
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/bodrum-l846/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Bodrum &rarr;</a>
       </div>
     </div>
   </div>
@@ -3396,27 +3396,27 @@ turkey_bodrum_body = f"""
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
-        <img src="https://images.unsplash.com/photo-1575671352780-eb673fc31aca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Poolside sun loungers, Bodrum" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:18px;">Bodrium Hotel &amp; You Spa, Bodrum town</h3>
-        <p>A tucked away, stylish hotel just outside Bodrum town centre with a large outdoor pool, an on-site spa with sauna and Turkish bath, and an a la carte restaurant serving Italian and Turkish dishes. Gumbet Beach and Bodrum Castle are both within easy walking distance. The operator doesn't publish an official star rating, so treat it as a well finished economy pick rather than a resort-style stay. Bookable through Jet2holidays and easyJet holidays on a bed and breakfast basis.</p>
+        <img src="https://images.unsplash.com/photo-1694683778210-a6518cd8af34?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hotel pool surrounded by palm trees, Bodrum" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Bodrum Holiday Resort &amp; Spa</h3>
+        <p>A spacious beachfront all-inclusive around 6km from Bodrum's shops and restaurants, with two outdoor pools including a children's section, an indoor pool, an aqua park with waterslides, three restaurants and six bars. A mini club, Turkish hammam, gym and tennis and basketball courts round it out. Bookable through Jet2holidays and easyJet holidays on an All Inclusive basis.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
-        <img src="https://images.unsplash.com/photo-1771227951669-85991c5ebaa4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers on a beach, Altinkum" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:18px;">Aquasis Deluxe Resort &amp; Spa, Altinkum</h3>
-        <p>A beachfront resort rated 4.5 stars by Jet2holidays, with a private beach, an on-site aqua park with nine water slides, heated pools for kids and adults, five a la carte restaurants covering Turkish, Italian and Mexican food, and a full kids' club with babysitting available. One of the strongest all-round family picks on this coast. Bookable through Jet2holidays and easyJet holidays.</p>
+        <img src="https://images.unsplash.com/photo-1738780154127-497b8d9dfb99?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort swimming pool with a waterslide" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Labranda TMT Bodrum Resort</h3>
+        <p>A large all-inclusive resort in Kumbahce, right in central Bodrum on the site of the ancient city of Halicarnassus, with multiple pools and water slides, direct beach access, eight dining venues including an all-day buffet and specialty Italian and Asian restaurants, plus a Turkish hammam and fitness centre across 328 rooms. Bookable through Jet2holidays and easyJet holidays.</p>
       </div>
       <div class="jake-card">
-        <div class="accom-category">Best 5&#9733; all-inclusive</div>
-        <img src="https://images.unsplash.com/photo-1759693501856-f3eca6ac5001?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beach resort with lounge chairs, Guvercinlik" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:18px;">Titanic Luxury Collection Bodrum, Guvercinlik</h3>
-        <p>A 5&#9733; all-inclusive resort close to the airport, rated by Jet2holidays as one of its Indulgent Escapes properties. Expect an on-site waterpark with a dedicated children's section, swim-up rooms, and a wide range of bars and restaurants. Genuinely well suited to families who want a proper resort holiday without a long transfer. Bookable through Jet2holidays and easyJet holidays.</p>
+        <div class="accom-category">Best 5&#9733; all-inclusive, adults only</div>
+        <img src="https://images.unsplash.com/photo-1663574628942-185e70b69cff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="All inclusive resort pool, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">TUI MAGIC LIFE Bodrum</h3>
+        <p>An adults only (16 plus) 5&#9733; all-inclusive on the coast around 6km from Bodrum town, with three pools including an infinity pool, direct beach access, five restaurants and five bars, a full spa with hammam, and watersports such as windsurfing, canoeing and stand up paddling included. Daily entertainment and a disco several nights a week. Bookable directly through TUI.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
-        <img src="https://images.unsplash.com/photo-1694350640430-47630cc8042e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Private beach and pool area, Bodrum" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:18px;">Caresse, A Luxury Collection Resort &amp; Spa, Bodrum town</h3>
-        <p>A tranquil, design led resort on Bodrum's edge with a private beach, a glistening outdoor pool, an extensive spa and a choice of restaurants spanning Asian and Mediterranean menus. Part of Marriott's Luxury Collection, and the pick for a couples trip built around genuine pampering. Bookable through easyJet holidays.</p>
+        <img src="https://images.unsplash.com/photo-1736618625396-571234ade4d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Infinity pool at sunset, luxury resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Caresse, a Luxury Collection Resort &amp; Spa</h3>
+        <p>An 84 room 5&#9733; resort in Bitez with a private white sand beach, indoor and outdoor pools including a sea view infinity pool, multiple dining venues from a beach club to a pizza bar, and the 1,600 square metre Spa Caresse. On the higher end of what Bodrum offers. Bookable through easyJet holidays.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -3429,50 +3429,50 @@ turkey_bodrum_body = f"""
     <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond just the beach.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
-        <img src="https://images.unsplash.com/photo-1760197045829-221c11482607?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bodrum Castle, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <img src="https://images.unsplash.com/photo-1760197045829-221c11482607?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bodrum Castle by the sea, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Bodrum Castle &amp; the Museum of Underwater Archaeology</h3>
-        <p>A crusader castle right on the harbour, built by the Knights Hospitaller in the 15th century, and now home to one of the world's leading underwater archaeology museums, with genuine shipwreck cargo on display. Bodrum's single unmissable sight.</p>
+        <p>Built by the Knights Hospitaller in the 15th century, the castle houses one of the largest ancient glass collections in the world and shipwreck finds including the Uluburun wreck. Parts of the museum have had extended renovation works in recent years, so it's worth checking current opening times locally before building a day around it.</p>
       </div>
       <div class="jake-card">
-        <img src="https://images.unsplash.com/photo-1591078314943-85c674b3789b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boat trip on the water near Bodrum, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <img src="https://images.unsplash.com/photo-1591814086124-b195c7964590?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Ancient theatre ruins, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Halicarnassus ruins &amp; the ancient theatre</h3>
+        <p>The Mausoleum at Halicarnassus, one of the Seven Wonders of the Ancient World and burial tomb of the Persian satrap Mausolus, stood here in the 4th century BC. The ruins are modest today but historically significant, and Bodrum's Roman era amphitheatre nearby is still occasionally used for concerts.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1591078314943-85c674b3789b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boat off the coast near Bodrum, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Orak Island boat trip</h3>
-        <p>A full day out on the water from Halikarnas harbour, calling at Red Bay and Orak Island itself, one of the most beautiful bays on this stretch of coast, with time to swim and snorkel in clear, sheltered water. Lunch on board is usually included.</p>
+        <p>A full day out on the water with swim stops at German Bay, Red Nose and Tavsan Burnu before time to relax on Orak Island itself, usually with a barbecue lunch and hotel pickup included.</p>
       </div>
       <div class="jake-card">
-        <img src="https://images.unsplash.com/photo-1729776989287-5817910c4fb6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Narrow street in Bodrum's old town, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:17px;">The Ancient Theatre of Halicarnassus &amp; the old town</h3>
-        <p>A Greek theatre dating from the 2nd century BC, still used for performances today, and a short walk from the site of the Mausoleum at Halicarnassus, once one of the Seven Wonders of the Ancient World. Combine it with a wander through the old town's narrow, bougainvillea-lined streets and the bazaar.</p>
-      </div>
-      <div class="jake-card">
-        <img src="https://images.unsplash.com/photo-1747391748872-4d57735f28fb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Traditional Turkish courtyard, Bodrum" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:17px;">A traditional Turkish hamam</h3>
-        <p>A proper bath house session, with a steam room, a full body scrub and an oil massage, usually finished off with Turkish tea. A good half day out on a rest day, and widely bookable with hotel pickup included.</p>
+        <img src="https://images.unsplash.com/photo-1567763080747-35963b554bbd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Turkish market stall with ceramics and decor" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bodrum marina, bazaar &amp; old town</h3>
+        <p>An evening stroll along the marina promenade past the yachts and gulets, then into the bazaar's narrow streets for leather goods, ceramics and jewellery. One of the best free things to do on the whole peninsula.</p>
       </div>
     </div>
-    {jake_tip("Both Ephesus and Pamukkale are sold as long day trips from Bodrum, roughly 3 to 4 hours each way, so they're a big day out rather than a quick excursion. Worth it if you've got 10 nights or more, less so on a standard week.")}
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Cost of living: what things actually cost</h2>
-    <p style="margin-top:14px;">Turkey uses the Turkish Lira, so prices below are shown in pounds with the Lira equivalent alongside, based on averaged, crowd-sourced data for Bodrum and a rate of roughly &pound;1 to &#8378;65. Lira has been volatile in recent years, so treat these as a general guide for budgeting your spending money rather than an exact price list.</p>
+    <p style="margin-top:14px;">Turkey uses the Turkish Lira, so prices below are shown in pounds with the Lira equivalent alongside, based on a rate of roughly &pound;1 to &#8378;64. Numbeo doesn't publish Bodrum specific data, so these are averaged from Izmir, the nearest major Turkish city with published figures, and Bodrum's resort prices can run a little higher in peak season. Lira has been volatile in recent years, so treat these as a general guide for budgeting your spending money rather than an exact price list.</p>
     <div class="weather-table-wrap">
       <table class="weather-table">
         <thead>
           <tr><th>Item</th><th>Typical price</th></tr>
         </thead>
         <tbody>
-          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;7.70 (about &#8378;500)</td></tr>
-          <tr><td>Draft beer, half litre, bar or restaurant</td><td>&pound;3.05 (about &#8378;200)</td></tr>
-          <tr><td>Cappuccino</td><td>&pound;2.65 (about &#8378;173)</td></tr>
-          <tr><td>Bottled water, small</td><td>&pound;0.60 (about &#8378;40)</td></tr>
-          <tr><td>Taxi, starting fare</td><td>&pound;2.30 (about &#8378;150)</td></tr>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;7.80 (about &#8378;500)</td></tr>
+          <tr><td>Draft beer, half litre, bar or restaurant</td><td>&pound;2.35 (about &#8378;150)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;2.80 (about &#8378;179)</td></tr>
+          <tr><td>Soft drink, 330ml</td><td>&pound;1.15 (about &#8378;72)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.40 (about &#8378;27)</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;2.75 (about &#8378;177)</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced averages via Numbeo for Bodrum, checked at time of writing. Lira to pound conversion is approximate and will move around, and prices further round the coast in Altinkum and Didim tend to run a little lower.</p>
-    {jake_tip("Most all-inclusive resorts cover food and local drinks on-site, so your spending money is mostly for boat trips, taxis and the odd meal out in Bodrum town or Yalikavak marina.")}
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced averages via Numbeo for Izmir, checked at time of writing. Lira to pound conversion is approximate and will move around, and Bodrum's marina towns such as Yalikavak and Golturkbuku tend to run noticeably more expensive than this for eating and drinking out.</p>
+    {jake_tip("Most all-inclusive resorts cover food and local drinks on-site, so your spending money is mostly for boat trips, taxis and the odd meal out in Bodrum town or one of the marina restaurants.")}
   </div>
 </section>
 
@@ -3486,7 +3486,7 @@ turkey_bodrum_body = f"""
           <tr><td>Currency</td><td>Turkish Lira (&#8378;)</td></tr>
           <tr><td>Plug type</td><td>Type C and F, two round pins, same as most of mainland Europe. UK plugs need an adapter, not a voltage converter</td></tr>
           <tr><td>Language</td><td>Turkish, with English widely spoken in resort areas</td></tr>
-          <tr><td>Flight time from the UK</td><td>About 4 to 4.5 hours direct</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 4 to 4.75 hours direct</td></tr>
           <tr><td>Time difference</td><td>2 hours ahead of the UK in summer, 3 hours ahead in UK winter</td></tr>
           <tr><td>Driving</td><td>Right hand side, opposite to the UK</td></tr>
         </tbody>
@@ -3497,7 +3497,7 @@ turkey_bodrum_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
-    <p style="font-size:12px; opacity:0.6;">Photos: Wlodzimierz Jaworski, Mert Kahveci, Tobias Jetter, Jason Briscoe, Georgii Eletskikh, Arno Senoner, Kyle Hinkson, Denis Volkov, Maria Lupan, Engin Yapici, Niloufar Mashhadi and Christian Hergesell via Unsplash.</p>
+    <p style="font-size:12px; opacity:0.6;">Photos: Joy, Wlodzimierz Jaworski, Onur Kurt, Encal Media, Georgii Eletskikh, Kaan Kosemen, Nata Kay, Dmytro Vynohradov, Igor Sporynin, Yuliia Sereda, Mick Haupt, Engin Yapici and Svetlana Gumerova via Unsplash.</p>
   </div>
 </section>
 
@@ -3519,24 +3519,25 @@ turkey_bodrum_body = turkey_bodrum_body.replace("::NEWSLETTER::", newsletter_sec
 
 TURKEY_BODRUM_SCHEMA = article_and_faq_schema(
     "The Bodrum Area, Turkey: Jake's Destination Guide",
-    "Jake's honest guide to the Bodrum area of Turkey: Bodrum town, Gumbet, Bitez, Turgutreis, Yalikavak, Gumusluk, Altinkum and Didim, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "Jake's honest guide to the Bodrum area of Turkey: Bodrum town, Gumbet, Turgutreis, Yalikavak, Gundogan and Torba, weather by month, where to stay, things to do, recommended hotels and what things cost.",
     "turkey-bodrum.html",
-    "https://images.unsplash.com/photo-1760197045829-221c11482607?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1687536257889-4e6b188bb8b7?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("What's the best time to visit the Bodrum area of Turkey?", "May to October is when most hotels here operate. June to August is the hottest and busiest stretch, with temperatures regularly in the low to mid 30s and the highest prices of the year. Late April, May and September to October offer warm, swimmable sea and noticeably better value, while winter is too cold to swim and most all-inclusive hotels close."),
-        ("Which area should I choose in the Bodrum area?", "Bodrum town and Gumbet suit couples and groups who want nightlife and history within walking distance. Bitez and Torba are calmer and greener. Turgutreis, Altinkum and Didim are strongest for families, with bigger beaches and better value. Yalikavak and Gumusluk are the upmarket, yachting end of the peninsula."),
-        ("How far is the transfer from Milas-Bodrum airport to my resort?", "It depends on the area. Guvercinlik is closest at around 20 to 25 minutes, Torba around 30 to 35 minutes, Bodrum town and Gumbet around 35 to 45 minutes, Turgutreis around 55 to 65 minutes, Yalikavak and Gumusluk around 60 to 70 minutes, and Altinkum and Didim are the furthest out at around 1 hour 15 minutes to 1.5 hours."),
+        ("What's the best time to visit Bodrum, Turkey?", "May to October is when most hotels here operate. June to August is the hottest and busiest stretch, with temperatures regularly in the mid 30s and the highest prices of the year. Late April, May and September to October offer warm, swimmable sea and noticeably better value, while winter is too cold to swim and most all-inclusive hotels close."),
+        ("Which area of Bodrum should I choose?", "Bodrum town has the widest choice of restaurants, bars and boat trips. Gumbet is ten minutes away with a long sandy beach and a big choice of all-inclusive hotels. Turgutreis and Torba are calmer, more local feeling bases. Yalikavak and Golturkbuku are the more upmarket, higher spending marina towns."),
+        ("How far is the transfer from Milas-Bodrum airport to my resort?", "It depends on the area. Torba is the closest at around 35 to 40 minutes, Bodrum town and Gumbet are around 45 to 55 minutes, and Turgutreis, Yalikavak, Gundogan and Golturkbuku on the far side of the peninsula are further out, typically 70 to 85 minutes depending on traffic."),
     ]
 )
 with open(os.path.join(SITE, "turkey-bodrum.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "The Bodrum Area, Turkey: Jake's Destination Guide | Travel Agent Jake",
-        "Jake's honest guide to the Bodrum area of Turkey: Bodrum town, Gumbet, Bitez, Turgutreis, Yalikavak, Gumusluk, Altinkum and Didim, weather by month, where to stay, things to do and what it actually costs.",
+        "Jake's honest guide to the Bodrum area of Turkey: Bodrum town, Gumbet, Turgutreis, Yalikavak, Gundogan and Torba, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         turkey_bodrum_body,
         extra_schema=TURKEY_BODRUM_SCHEMA
     ))
 print("turkey-bodrum.html written")
+
 
 
 # ---------------- TRAVEL TIPS (index) ----------------
