@@ -3325,6 +3325,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1786852448829-fc4277e70a5d?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Traveller looking up at an airport flight information board showing delays",
     },
+    {
+        "slug": "choosing-the-right-cruise-line.html",
+        "meta": "Cruises",
+        "title": "Choosing the right cruise line for you",
+        "excerpt": "Mainstream, premium or luxury, family or adults-only, ocean or river: the honest guide to matching the right cruise line to the holiday you actually want.",
+        "image": "https://images.unsplash.com/photo-1724597402406-f2904a5bee40?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Large cruise ship sailing across open ocean",
+    },
 ]
 
 def tip_card(post):
@@ -4885,6 +4893,166 @@ with open(os.path.join(SITE, "flight-delay-cancellation-compensation.html"), "w"
     ))
 print("flight-delay-cancellation-compensation.html written")
 
+# ---------------- TRAVEL TIPS: Choosing the right cruise line ----------------
+cruise_line_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>CHOOSING THE RIGHT CRUISE LINE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Royal Caribbean's newest ship carries up to 7,600 passengers. A river cruise up the Rhine carries around 190. Both are called "a cruise", and that's really the problem. Here's how to actually match the right line to the holiday you want, rather than picking whichever one your neighbour raves about.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>It's not really about the cruise line, it's about the holiday</h2>
+    <img src="https://images.unsplash.com/photo-1724597402406-f2904a5bee40?auto=format&fit=crop&w=1600&h=700&q=80" alt="Large cruise ship sailing across open ocean" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">"Which cruise line is best" is the wrong first question, because it depends entirely on what you actually want from the week. A mega-ship with a water park and fifteen restaurants is a brilliant holiday for one family and a nightmare for a couple wanting a quiet week at sea. A small, all-inclusive ship with no entertainment beyond a pianist is perfect for some people and would bore others rigid by day three. Work out the holiday first, and the right line usually becomes obvious.</p>
+    {jake_tip("Before you look at a single ship, answer three questions honestly. Who's coming with you, how busy do you want your days to be, and do you want everything included in the price or are you happy paying as you go. Everything else follows from those answers.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The three tiers, honestly explained</h2>
+    <p style="margin-top:14px;">Cruise lines roughly split into three tiers. The exact lines blur at the edges, but this is a genuinely useful starting point.</p>
+    <img src="https://images.unsplash.com/photo-1780294181694-101764de9031?auto=format&fit=crop&w=1600&h=700&q=80" alt="Large modern cruise ship sailing on blue ocean water" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Mainstream</td><td>Royal Caribbean, MSC, Norwegian, most Princess sailings. The biggest ships, the lowest starting fares, and the fare covers your cabin and the main dining room only, drinks, specialty dining, wifi and gratuities are all extra. High energy, lots going on, the most family friendly of the three.</td></tr>
+          <tr><td>Premium</td><td>Celebrity, Holland America, Oceania, and Cunard sits roughly here too. Mid sized ships, a step up in food and service, a calmer atmosphere with fewer children around, and somewhat more included as standard.</td></tr>
+          <tr><td>Luxury</td><td>Silversea, Regent Seven Seas, Seabourn. Small ships, high fares, but largely or fully all-inclusive, drinks, gratuities and often excursions are baked into the price, with a much higher staff to guest ratio.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    {jake_tip("Don't judge a line purely on the headline fare. A cheap mainstream cruise with drinks, specialty dining and wifi all added on can end up costing about the same as a premium line where more is included from the start, it's worth costing out what you'd actually add on before comparing.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Sailing from the UK without flying</h2>
+    <p style="margin-top:14px;">If flying isn't part of the plan, several lines sail from UK ports, mostly Southampton, and they're not interchangeable.</p>
+    <img src="https://images.unsplash.com/photo-1770488960100-6d528ce60b81?auto=format&fit=crop&w=1600&h=700&q=80" alt="Cruise ship docked at a pier" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>P&amp;O Cruises</b> is the biggest UK no-fly operator, with large modern ships, flagship Iona among the biggest afloat, aimed squarely at British holidaymakers of all ages.</span></li>
+      <li><span class="num">2</span><span><b>Cunard</b> sails the classic Queens, formal nights, traditional British elegance, and genuine transatlantic crossings to New York alongside cruises, sitting somewhere between premium and luxury.</span></li>
+      <li><span class="num">3</span><span><b>Fred Olsen Cruise Lines</b> runs deliberately smaller, mid sized ships with a traditional, calmer British feel, able to reach smaller ports the mega-ships can't.</span></li>
+      <li><span class="num">4</span><span><b>Ambassador Cruise Line</b> is the newest of the UK no-fly operators, smaller ships sailing from ports right around the country, not just Southampton, including Tilbury, Newcastle, Liverpool and Belfast.</span></li>
+      <li><span class="num">5</span><span><b>Marella Cruises</b>, part of TUI, sits at the more affordable, family friendly end, often sold as part of a package holiday rather than a standalone cruise.</span></li>
+      <li><span class="num">6</span><span><b>Saga Cruises</b> is strictly for the over 50s, all-inclusive by design, and consistently rated highly for service precisely because it knows exactly who its guests are.</span></li>
+    </ul>
+    {jake_tip("No-fly doesn't mean cheaper. You're paying for the convenience of driving to the port and starting the holiday from your own front door, which suits some people far more than the saving on flights ever would.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Who it's actually for: family, adults-only, or somewhere quieter</h2>
+    <img src="https://images.unsplash.com/photo-1579592672790-39239b6cbc31?auto=format&fit=crop&w=1600&h=700&q=80" alt="Passengers relaxing on lounge chairs by a cruise ship pool deck" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Disney Cruise Line and Royal Caribbean</b> are built around families, kids clubs, water parks and entertainment aimed squarely at children, brilliant if that's what you want and genuinely overwhelming if it isn't.</span></li>
+      <li><span class="num">2</span><span><b>Virgin Voyages</b> is strictly 18 and over, no children at all, positioned as an all-inclusive style adult holiday with a very different onboard feel to a family mega-ship.</span></li>
+      <li><span class="num">3</span><span><b>Saga Cruises</b> is exclusively for the over 50s, which tends to mean a calmer pace, more included as standard, and fellow passengers roughly in the same stage of life as you.</span></li>
+      <li><span class="num">4</span><span><b>Most premium and luxury lines</b> don't ban children outright but skew heavily towards couples and adult groups simply because of how they're priced and marketed, worth checking before you book if a quiet week is the whole point.</span></li>
+    </ul>
+    {jake_tip("If you're not sure which camp you fall into, tell me who's coming and what you want the days to actually feel like, I'll steer you away from a line that's wrong for your group rather than just the cheapest one going.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Does ship size actually matter to you?</h2>
+    <p style="margin-top:14px;">Royal Caribbean's Legend of the Seas, delivered in June 2026, carries around 5,600 passengers at double occupancy and up to 7,600 at full capacity, spread across nearly 2,800 cabins. It's currently sailing the western Mediterranean out of Barcelona and Rome for its debut summer season before heading to the Caribbean. That's one end of the scale.</p>
+    <img src="https://images.unsplash.com/photo-1780294560264-54fbaf3cd179?auto=format&fit=crop&w=1600&h=700&q=80" alt="Large cruise ship sailing at sunset" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A mega-ship like that gives you huge variety, multiple pools, water parks, a dozen restaurants, entertainment running all day, but also bigger crowds, longer waits to get on and off at port, and a ship too large to dock at some smaller, more characterful destinations. A mid sized ship, the kind Fred Olsen or Ambassador run, trades some of that variety for a calmer atmosphere, quicker embarkation, and access to ports the giants simply can't reach. Small ship and luxury lines go further still, fewer onboard venues, but genuine intimacy and destination focused itineraries with longer time in port.</p>
+    {jake_tip("If you've only ever pictured a mega-ship when you think of cruising, it's worth at least considering a mid sized or small ship line too, the pace of the actual holiday can end up completely different even on a similar itinerary.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Ocean cruise or river cruise, a genuinely different holiday</h2>
+    <img src="https://images.unsplash.com/photo-1779216396553-fe0c1bf15340?auto=format&fit=crop&w=1600&h=700&q=80" alt="River cruise boat sailing past historic European buildings" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">River cruising, on lines like Viking, APT and Riviera Travel, isn't really a smaller version of an ocean cruise, it's a different holiday entirely. Ships typically carry around 200 passengers rather than several thousand, there's no wave motion to worry about, and you usually dock right in a city centre rather than an out of town cruise terminal, so you can walk straight into the old town from the gangway. River lines also tend to include more as standard, shore excursions and house drinks with meals are often already in the price, where mainstream ocean lines charge extra for most of it.</p>
+    <p style="margin-top:14px;">What you give up is variety. A river ship has a handful of venues, not a dozen, and evening entertainment is a much smaller part of the experience than the destinations themselves. If the ports are the whole point of the holiday for you, that's not a downside at all.</p>
+    {jake_tip("River cruising suits people who've done a few ocean cruises already and want the destinations to take centre stage, it's rarely the right first cruise for someone who isn't sure they'll enjoy cruising at all.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The real cost of "all-inclusive"</h2>
+    <img src="https://images.unsplash.com/photo-1702830499141-a0634d87d6af?auto=format&fit=crop&w=1600&h=700&q=80" alt="Cruise ship balcony cabin with ocean view" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">On mainstream lines, your fare covers your cabin and the main dining room, everything else, gratuities, drinks packages, specialty restaurants and wifi, gets added to your onboard account separately, and it's almost always billed in US dollars even on a British owned ship, so it's worth building in a currency buffer rather than assuming the number on screen is the number you'll actually pay. Gratuities in particular are usually added automatically as a daily charge per person rather than something you choose to tip, so check what's already built into your fare before assuming it's extra.</p>
+    <p style="margin-top:14px;">Premium lines include a bit more as standard, and on genuine luxury and most river lines, drinks, gratuities and sometimes excursions are already in the headline price, which is exactly why the fare looks so much higher to begin with. Neither approach is better, it's just important to compare the real total cost rather than the number on the front of the brochure.</p>
+    {jake_tip("Always ask what's actually included before you compare two quotes side by side. A £200 difference in fare can easily be smaller than the gap in what you'd end up paying for drinks and gratuities across a week.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">What's the difference between a mainstream, premium and luxury cruise line?</h3>
+      <p>Roughly speaking, mainstream lines have the biggest ships, the lowest fares and charge extra for almost everything beyond your cabin and main dining. Premium lines are smaller, calmer and include a bit more as standard. Luxury lines are small ships with high fares that are largely or fully all-inclusive, drinks, gratuities and often excursions included.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Which UK cruise lines let me sail without flying?</h3>
+      <p>P&amp;O Cruises, Cunard, Fred Olsen Cruise Lines, Ambassador Cruise Line, Marella Cruises and Saga Cruises all sail regularly from UK ports, mainly Southampton, though Ambassador also uses ports including Tilbury, Newcastle, Liverpool and Belfast.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is a bigger ship better than a smaller one?</h3>
+      <p>Neither is objectively better, they're different experiences. Bigger ships give you more onboard variety but bigger crowds and less access to smaller ports. Smaller and mid sized ships are calmer, quicker to get on and off, and can reach more characterful destinations.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is a river cruise cheaper than an ocean cruise?</h3>
+      <p>Not usually, river cruises often cost more per person per day despite carrying far fewer passengers, largely because more is included as standard. It's a genuinely different style of holiday rather than a budget version of an ocean cruise.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Not sure which line is right for you?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">This is exactly the kind of thing an independent agent is useful for, tell me who's coming and what you actually want from the week and I'll match you to a line rather than just selling you whatever's cheapest.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+cruise_line_body = cruise_line_body.replace("::NEWSLETTER::", newsletter_section())
+
+CRUISE_LINE_SCHEMA = article_and_faq_schema(
+    "Choosing the Right Cruise Line for You",
+    "An honest guide to choosing a cruise line: mainstream vs premium vs luxury, UK no-fly options, family vs adults-only lines, ship size tradeoffs, ocean vs river cruising, and what's really included in the price.",
+    "choosing-the-right-cruise-line.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("What's the difference between a mainstream, premium and luxury cruise line?", "Roughly speaking, mainstream lines have the biggest ships, the lowest fares and charge extra for almost everything beyond your cabin and main dining. Premium lines are smaller, calmer and include a bit more as standard. Luxury lines are small ships with high fares that are largely or fully all-inclusive, drinks, gratuities and often excursions included."),
+        ("Which UK cruise lines let me sail without flying?", "P\\u0026O Cruises, Cunard, Fred Olsen Cruise Lines, Ambassador Cruise Line, Marella Cruises and Saga Cruises all sail regularly from UK ports, mainly Southampton, though Ambassador also uses ports including Tilbury, Newcastle, Liverpool and Belfast."),
+        ("Is a bigger cruise ship better than a smaller one?", "Neither is objectively better, they're different experiences. Bigger ships give you more onboard variety but bigger crowds and less access to smaller ports. Smaller and mid sized ships are calmer, quicker to get on and off, and can reach more characterful destinations."),
+        ("Is a river cruise cheaper than an ocean cruise?", "Not usually, river cruises often cost more per person per day despite carrying far fewer passengers, largely because more is included as standard. It's a genuinely different style of holiday rather than a budget version of an ocean cruise."),
+    ]
+)
+
+with open(os.path.join(SITE, "choosing-the-right-cruise-line.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Choosing the Right Cruise Line for You | Travel Agent Jake",
+        "An honest guide to choosing a cruise line: mainstream vs premium vs luxury, UK no-fly options, family vs adults-only lines, ship size tradeoffs, ocean vs river cruising, and what's really included in the price.",
+        "travel-tips.html",
+        cruise_line_body,
+        extra_schema=CRUISE_LINE_SCHEMA
+    ))
+print("choosing-the-right-cruise-line.html written")
+
 # ---------------- SKI QUIZ ----------------
 QUIZ_DATA_JSON = json.dumps({"questions": QUESTIONS, "personas": PERSONAS, "budget_question": BUDGET_QUESTION})
 
@@ -5758,6 +5926,7 @@ SITEMAP_PAGES = [
     ("budget-airline-hand-luggage-sizes.html", "0.6"),
     ("ees-etias-explained.html", "0.7"),
     ("flight-delay-cancellation-compensation.html", "0.7"),
+    ("choosing-the-right-cruise-line.html", "0.7"),
     ("privacy-policy.html", "0.3"),
 ]
 sitemap_entries = "\n".join(
