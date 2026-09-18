@@ -3835,6 +3835,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1724597402406-f2904a5bee40?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Large cruise ship sailing across open ocean",
     },
+    {
+        "slug": "100ml-liquid-rule-uk-airports.html",
+        "meta": "Airport security",
+        "title": "The 100ml liquid rule: which UK airports have actually dropped it",
+        "excerpt": "Heathrow, Gatwick and a handful of others now let you carry up to 2 litres through security. Manchester, Stansted and several more still don't. Here's exactly where things stand, and the catches nobody mentions.",
+        "image": "https://images.unsplash.com/photo-1687992176093-6417a93fa3d0?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Traveller walking through an airport departure hall with hand luggage",
+    },
 ]
 
 def tip_card(post):
@@ -6402,6 +6410,155 @@ with open(os.path.join(SITE, "robots.txt"), "w", encoding="utf-8") as f:
     f.write(ROBOTS)
 print("robots.txt written")
 
+# ---------------- TRAVEL TIPS: 100ml liquid rule, which UK airports have dropped it ----------------
+liquid_rule_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>THE 100ML LIQUID RULE: WHICH AIRPORTS HAVE ACTUALLY DROPPED IT</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Some of the UK's biggest airports quietly started letting passengers carry up to 2 litres of liquid through security a while back. Others still stop you at 100ml. Here's exactly where each major airport stands right now, and the catches that trip people up even when their own airport has the new rules.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1687992176093-6417a93fa3d0?auto=format&fit=crop&w=1600&h=700&q=80" alt="Traveller walking through an airport departure hall with hand luggage" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">Fly from Heathrow, Gatwick, Edinburgh, Birmingham, Bristol, or either Belfast airport, and you can currently carry liquids in containers up to 2 litres through security, with no need to bag them separately or take them out of your hand luggage.</p>
+      <p style="margin-top:14px; margin-bottom:0;">Fly from Manchester, Luton, Stansted, Liverpool, or Glasgow, and it's still the rule you already know: containers of 100ml or less, all fitting into a single clear resealable bag.</p>
+    </div>
+    {jake_tip("The rule now depends entirely on which airport you're flying from, not on you, your airline, or how big your bag is. Always check the specific airport rather than assuming, especially if you haven't flown in a while.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Which airports have the new rules, and which don't</h2>
+    <p style="margin-top:14px;">This is the current picture at the UK's busiest airports. It's changing airport by airport rather than all at once, so treat it as a starting point and confirm on your own airport's website close to your travel date.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Airport</th><th>Current liquid allowance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Heathrow</td><td>Up to 2 litres per container</td></tr>
+          <tr><td>Gatwick</td><td>Up to 2 litres per container</td></tr>
+          <tr><td>Edinburgh</td><td>Up to 2 litres per container</td></tr>
+          <tr><td>Birmingham</td><td>Up to 2 litres per container</td></tr>
+          <tr><td>Bristol</td><td>Up to 2 litres per container</td></tr>
+          <tr><td>Belfast International</td><td>Up to 2 litres per container</td></tr>
+          <tr><td>Belfast City</td><td>Up to 2 litres per container</td></tr>
+          <tr><td>Manchester</td><td>100ml rule still applies</td></tr>
+          <tr><td>Luton</td><td>100ml rule still applies</td></tr>
+          <tr><td>Stansted</td><td>100ml rule still applies</td></tr>
+          <tr><td>Liverpool</td><td>100ml rule still applies</td></tr>
+          <tr><td>Glasgow</td><td>100ml rule still applies</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Accurate as of when this was written. Smaller regional airports not listed here are generally still running the 100ml rule, and further airports are expected to move onto the 2-litre allowance over time as their own scanners are installed and approved.</p>
+    {jake_tip("If your airport isn't on the list above, assume the 100ml rule until you've checked otherwise. It's a much easier mistake to overpack a clear bag than to lose a bottle you were relying on.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Why it's happened so unevenly</h2>
+    <img src="https://images.unsplash.com/photo-1629308993023-bb7ca078abdc?auto=format&fit=crop&w=1600&h=700&q=80" alt="Travellers walking through a bright airport terminal" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The 100ml rule dates back to 2006, after a foiled plot to smuggle liquid explosives disguised as ordinary drinks onto transatlantic flights departing Heathrow. It's been standard at airports worldwide ever since, and for a long time there was no way around it.</p>
+    <p style="margin-top:14px;">New CT scanners, the same type used for hospital body scans, can now image the contents of a bag in 3D, which is detailed enough to clear liquids and laptops without removing them at all. Every UK airport was originally set a government deadline to have these installed. That deadline was pushed back in 2024 over concerns about the reliability of the rollout, and since then each airport has moved onto the new allowance at its own pace, as its own scanners are installed, tested, and formally approved, rather than on one fixed nationwide date. That's why the list above is patchy rather than complete, and why it's worth checking again even if you last flew a year or two ago.</p>
+    {jake_tip("Don't assume a huge airport automatically has the newest kit. Some of the country's busiest regional airports are still on the old rule while smaller ones have already moved across, it really does come down to each airport's own rollout, not its size.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The catches that trip people up, even at the good airports</h2>
+    <img src="https://images.unsplash.com/photo-1653795163859-9ee39ecc6d62?auto=format&fit=crop&w=1600&h=700&q=80" alt="Travellers walking through an airport concourse with luggage" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Vacuum flasks and insulated bottles still have to be emptied,</b> whichever airport you're at. The new scanners can't see through a double insulated wall, so a full flask gets pulled aside for extra checks regardless of the 2-litre allowance.</span></li>
+      <li><span class="num">2</span><span><b>Your return flight might not follow the same rules.</b> The 2-litre allowance only covers what you're permitted to carry through security at that specific airport. A large bottle bought abroad, or one you took through security outbound, can still be confiscated at your destination or transfer airport if it's still running the 100ml rule.</span></li>
+      <li><span class="num">3</span><span><b>Connecting through a different airport resets everything.</b> If your route involves changing planes somewhere still on the 100ml limit, whatever you're carrying needs to meet that airport's rules for the next leg, not the rules of wherever you first set off from.</span></li>
+      <li><span class="num">4</span><span><b>It isn't automatic or guaranteed, even with the new scanners installed.</b> Spot checks, staff discretion and the odd technical fault still happen, so you can still be asked to decant or bin something on the day at any airport.</span></li>
+    </ul>
+    {jake_tip("If any leg of your trip, outbound, connecting or the way home, touches an airport still on the 100ml rule, plan your whole trip around that one, not the most generous airport in the chain.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>How to actually pack, whichever airport you're flying from</h2>
+    <img src="https://images.unsplash.com/photo-1679466231026-7b632eb05b90?auto=format&fit=crop&w=1600&h=700&q=80" alt="Toiletries bag packed with travel size bottles for hand luggage" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Packing to the old 100ml rule still works everywhere. It's the one standard that's guaranteed to clear security at every UK airport, and at most airports abroad too, so it's still the safest default if you're not certain about every airport on your route.</p>
+    <p style="margin-top:14px;">If you are flying from one of the airports with the new 2-litre allowance and you know your return leg or connection goes through an airport still on the old rule, it's usually simplest to just pack to 100ml for the whole trip, rather than buying something abroad you then can't bring home.</p>
+    {jake_tip("If you do want to make the most of a 2-litre allowance on the way out, keep anything oversized to things you're happy to use up or bin before you fly home, rather than full new bottles you were planning to bring back.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Which UK airports currently allow liquids up to 2 litres through security?</h3>
+      <p>Heathrow, Gatwick, Edinburgh, Birmingham, Bristol, and both Belfast International and Belfast City currently allow containers up to 2 litres through security, with no need to bag them separately. This is being rolled out airport by airport rather than all at once, so it's worth checking your specific airport before you fly.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Which UK airports still enforce the old 100ml rule?</h3>
+      <p>Manchester, Luton, Stansted, Liverpool and Glasgow were still running the old 100ml limit, in a single clear resealable bag, at the time of writing. More airports are expected to move onto the new allowance over time as their own scanners are approved.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Can I bring liquids over 100ml home if I bought them abroad?</h3>
+      <p>Only if your return airport has adopted the new 2-litre rule too. If either your transfer airport or your arrival airport still enforces the 100ml limit, a larger bottle can be confiscated at that point, regardless of what you were allowed to carry when you set off.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Why did some airports get the new rules years before others?</h3>
+      <p>The change depends on each airport installing and getting formal approval for new CT scanners capable of imaging liquids in 3D. A 2024 government deadline for every UK airport to have this done was pushed back over concerns about the reliability of the rollout, so it's happened at each airport's own pace ever since rather than on one fixed date.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Flying soon and not sure what your airport allows?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I always flag anything like this that matters for your specific trip when I'm putting your holiday together. Message me if you want a hand double checking before you fly.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+liquid_rule_body = liquid_rule_body.replace("::NEWSLETTER::", newsletter_section())
+
+LIQUID_RULE_SCHEMA = article_and_faq_schema(
+    "The 100ml Liquid Rule: Which UK Airports Have Actually Dropped It",
+    "Which UK airports currently allow liquids up to 2 litres through airport security, which still enforce the old 100ml rule, why the rollout has happened unevenly, and the catches around return flights, connections and vacuum flasks that trip people up.",
+    "100ml-liquid-rule-uk-airports.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("Which UK airports currently allow liquids up to 2 litres through security?", "Heathrow, Gatwick, Edinburgh, Birmingham, Bristol, and both Belfast International and Belfast City currently allow containers up to 2 litres through security, with no need to bag them separately. This is being rolled out airport by airport rather than all at once, so it's worth checking your specific airport before you fly."),
+        ("Which UK airports still enforce the old 100ml rule?", "Manchester, Luton, Stansted, Liverpool and Glasgow were still running the old 100ml limit, in a single clear resealable bag, at the time of writing. More airports are expected to move onto the new allowance over time as their own scanners are approved."),
+        ("Can I bring liquids over 100ml home if I bought them abroad?", "Only if your return airport has adopted the new 2-litre rule too. If either your transfer airport or your arrival airport still enforces the 100ml limit, a larger bottle can be confiscated at that point, regardless of what you were allowed to carry when you set off."),
+        ("Why did some airports get the new rules years before others?", "The change depends on each airport installing and getting formal approval for new CT scanners capable of imaging liquids in 3D. A 2024 government deadline for every UK airport to have this done was pushed back over concerns about the reliability of the rollout, so it's happened at each airport's own pace ever since rather than on one fixed date."),
+    ]
+)
+
+with open(os.path.join(SITE, "100ml-liquid-rule-uk-airports.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "The 100ml Liquid Rule: Which UK Airports Have Actually Dropped It | Travel Agent Jake",
+        "Which UK airports currently allow liquids up to 2 litres through security, which still enforce the old 100ml rule, why the rollout has happened unevenly, and the catches around return flights, connections and vacuum flasks that trip people up.",
+        "travel-tips.html",
+        liquid_rule_body,
+        extra_schema=LIQUID_RULE_SCHEMA
+    ))
+print("100ml-liquid-rule-uk-airports.html written")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -6430,6 +6587,7 @@ SITEMAP_PAGES = [
     ("ees-etias-explained.html", "0.7"),
     ("flight-delay-cancellation-compensation.html", "0.7"),
     ("choosing-the-right-cruise-line.html", "0.7"),
+    ("100ml-liquid-rule-uk-airports.html", "0.7"),
     ("privacy-policy.html", "0.3"),
 ]
 sitemap_entries = "\n".join(
