@@ -1458,6 +1458,13 @@ DESTINATION_POSTS = [
         "excerpt": "Bodrum town, Gumbet, Turgutreis, Yalikavak, Gundogan and Torba: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1687536257889-4e6b188bb8b7?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "majorca.html",
+        "meta": "Majorca",
+        "title": "Majorca",
+        "excerpt": "Palma, Magaluf, Alcudia, Cala Millor, Cala d'Or and the northwest coast: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1516154182849-1a5f068beda5?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -3459,6 +3466,289 @@ with open(os.path.join(SITE, "turkey-bodrum.html"), "w", encoding="utf-8") as f:
         extra_schema=TURKEY_BODRUM_SCHEMA
     ))
 print("turkey-bodrum.html written")
+
+
+majorca_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>MAJORCA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Majorca, from Palma and Magaluf to Alcudia, Cala Millor, Cala d'Or and the northwest coast.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Majorca</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1516154182849-1a5f068beda5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of the port of Alcudia, Majorca" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Majorca is the biggest of the Balearics, and it's popular for a reason. It's the one Spanish island holiday that genuinely does everything well, lively strips like Magaluf for the party crowd, long family friendly beaches around Alcudia, whitewashed marina towns like Cala d'Or for couples, and a completely different, quieter side in the Tramuntana mountains around Soller. Flight times from the UK are some of the shortest of any package destination, which makes it an easy sell for a short break as well as a full week away.</p>
+    {jake_tip("First timers often default to Magaluf because it's the name they know, but tell me what you actually want from the trip first. A family after a calm week wants Alcudia, not Magaluf, and a couple after boutique hotels and quiet coves wants Cala d'Or or the northwest coast.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the standard package length, and it's enough time to properly settle into one area, fit in a boat trip or excursion, and still have plenty of beach days. Long weekends of three or four nights work well too, especially into Palma or Playa de Palma given how short the flight is and how close those areas sit to the airport. Ten to fourteen nights suits anyone wanting to combine a couple of different areas, for example a few nights in Palma followed by a week on the coast.</p>
+    <p style="margin-top:14px;">Majorca suits pretty much every type of traveller, which is part of its appeal. Families are especially well catered for around Alcudia, Playa de Muro and Cala Millor, where beaches are long, sandy and gently shelving and hotels are built with kids' clubs and pools in mind. Groups of friends after nightlife still gravitate to Magaluf, though the resort has worked hard in recent years to shift towards a more family friendly, upmarket image alongside its clubbing reputation. Couples tend to prefer Cala d'Or, Port de Soller or the smaller coves further from the main resorts, and Palma itself works well for a city break with a beach on the doorstep.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Palma de Mallorca Airport (PMI) is one of the best connected airports in the Mediterranean from the UK. easyJet, Jet2, TUI and British Airways all operate direct routes from a wide spread of UK airports, and Ryanair adds further options from regional airports too, so departure choice is rarely the problem here. Flight time is typically around 2 to 2.75 hours depending on where you fly from, among the shortest of any typical UK package holiday destination.</p>
+    <p style="margin-top:14px;">The airport sits just south east of Palma, and transfer times vary a lot depending on which coast you're heading to. Playa de Palma is the closest resort area at around 15 to 20 minutes, Magaluf and Palma Nova are around 25 to 30 minutes, Alcudia and Playa de Muro on the north coast are around 45 to 50 minutes, Port de Soller in the northwest is a similar 45 minutes or so via the Soller tunnel, Cala d'Or in the southeast is around 55 to 60 minutes, and Cala Millor and Cala Bona on the east coast are the furthest out at around 70 to 80 minutes.</p>
+    {jake_tip("Flying into Palma for a short city break? You can be checked into your hotel and out exploring the cathedral within half an hour of landing, which makes it a genuinely easy long weekend option.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Majorca has hot, dry summers and mild, wetter winters, and most all-inclusive hotels here work to a seasonal calendar rather than staying open year round. These figures are long-term climate averages for the island, so treat them as a guide rather than a forecast for your specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>14&deg;C</td><td>6&deg;C</td><td>15&deg;C</td><td>Coolest and wettest month, most all-inclusive hotels closed for winter</td></tr>
+          <tr><td>February</td><td>14&deg;C</td><td>6&deg;C</td><td>14&deg;C</td><td>Still cool and quiet, many hotels remain closed</td></tr>
+          <tr><td>March</td><td>16&deg;C</td><td>7&deg;C</td><td>14&deg;C</td><td>Spring arriving, too cool to swim comfortably</td></tr>
+          <tr><td>April</td><td>17&deg;C</td><td>9&deg;C</td><td>15&deg;C</td><td>Warming up, hotels starting to reopen for the season</td></tr>
+          <tr><td>May</td><td>21&deg;C</td><td>12&deg;C</td><td>18&deg;C</td><td>Reliable sunshine, sea starts to feel swimmable, good value month</td></tr>
+          <tr><td>June</td><td>25&deg;C</td><td>16&deg;C</td><td>22&deg;C</td><td>Warm and dry, peak season getting underway</td></tr>
+          <tr><td>July</td><td>29&deg;C</td><td>19&deg;C</td><td>25&deg;C</td><td>Hot and mostly dry, one of the busiest and priciest months</td></tr>
+          <tr><td>August</td><td>29&deg;C</td><td>20&deg;C</td><td>26&deg;C</td><td>Hottest month, sea at its warmest, extremely busy</td></tr>
+          <tr><td>September</td><td>26&deg;C</td><td>17&deg;C</td><td>25&deg;C</td><td>Still warm, sea lovely for swimming, crowds start easing</td></tr>
+          <tr><td>October</td><td>22&deg;C</td><td>14&deg;C</td><td>22&deg;C</td><td>Mild but wetter, good value shoulder season</td></tr>
+          <tr><td>November</td><td>18&deg;C</td><td>10&deg;C</td><td>19&deg;C</td><td>Cooling quickly, most all-inclusive hotels closing for winter</td></tr>
+          <tr><td>December</td><td>15&deg;C</td><td>8&deg;C</td><td>16&deg;C</td><td>Cool and quiet, most hotels closed until spring</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for the island, sourced via weather2travel.com. The Tramuntana mountains in the northwest run noticeably cooler than the coastal resorts, especially in the evenings.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">May to September is when the vast majority of hotels here operate. June to August is the hottest and busiest stretch, with temperatures regularly in the high twenties and the highest prices of the year, especially around the school summer holidays. May, June and September are the best value windows, with warm, swimmable sea, comfortable daytime heat and noticeably lower prices and crowds than peak summer. Winter is largely out of season for a beach holiday, since most all-inclusive hotels close between roughly November and April, though Palma itself works well as a year round city break destination.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Majorca is a big island, and each coast has a distinctly different character.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1772104831542-fe39f8c78c57?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cobbled street in Palma's old town, Majorca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Palma &amp; Playa de Palma</h3>
+        <p>The island's capital brings a proper old town, the cathedral, shopping and restaurants, and sits right next to Playa de Palma, a six kilometre stretch of sandy beach that's also the closest resort area to the airport. Good for a city break with a beach attached, or a first and last night either side of a week on the coast.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1612292046958-b64c12525e7f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beach at Magaluf, Majorca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Magaluf &amp; Palma Nova</h3>
+        <p>Neighbouring resorts on the west side of Palma Bay, with long sandy beaches, a big choice of hotels and the island's best known nightlife strip. Magaluf has invested heavily in recent years to broaden its appeal beyond stag and hen parties, and now sits alongside quieter, more family orientated Palma Nova next door.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1751914782942-3e09a6e85f1d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Long sandy beach at Alcudia, Majorca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Alcudia &amp; Playa de Muro</h3>
+        <p>The north coast's family favourite, built around a seven kilometre stretch of soft sand and calm, shallow water. Alcudia's walled old town adds some proper sightseeing to the mix, and the resort feels noticeably calmer and more geared towards families than the south coast.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1622070607265-d86216542060?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beach at Cala Millor, Majorca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Cala Millor &amp; Cala Bona</h3>
+        <p>A long sandy bay on the east coast with a well developed promenade, popular with both families and couples. It's further from the airport than the south or west coasts, but the beach and general standard of hotels here are among the best on the island.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1767045561413-dee34ebe9ade?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Marina at Cala d'Or, Majorca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Cala d'Or</h3>
+        <p>A whitewashed marina town on the southeast coast, built around a yacht harbour and a string of small, sheltered coves. It has a noticeably more upmarket, couples friendly feel than the bigger resorts, while still being family friendly and well set up for all-inclusive stays.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1691061671168-71d1602d568a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boats moored at Port de Soller, Majorca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Port de Soller &amp; the northwest</h3>
+        <p>Backed by the Serra de Tramuntana mountains, this side of the island trades big resort strips for a slower, more scenic pace, vintage trams, boutique hotels and some of the best hiking and cycling scenery in the Mediterranean. It suits couples and independent travellers more than a typical all-inclusive family week.</p>
+      </div>
+    </div>
+    {jake_tip("First time to Majorca and want to cover the classics? Alcudia gives you the best all round family mix. Want something a bit different from the usual package resort? Look at Cala d'Or or Port de Soller instead.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">TIB buses connect Palma to all the main resort towns and run reasonably frequently in season, and are a cheap way to get around if you're happy to work around a timetable. The vintage wooden train from Palma to Soller, running since 1912, is a proper day out in its own right and connects at Soller with the little tram down to Port de Soller. Taxis are metered and widely available. For exploring further afield, especially the Tramuntana mountains, hidden coves and hillside villages like Valldemossa and Deia, car hire gives you far more freedom than public transport.</p>
+    <p style="margin-top:14px;">Majorca drives on the right, and while the motorways connecting Palma to the main resort areas are excellent, mountain roads in the northwest are narrow and winding, so allow extra time if you're driving that side of the island.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;">A shortlist of the bookable tours and activities around Majorca worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="104426,112329,404400,153345"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/mallorca-l47/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/mallorca-l47/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Majorca &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1623718649591-311775a30c43?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort swimming pool with palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Globales Palmanova</h3>
+        <p>A straightforward, well located all-inclusive around 230m from Palma Nova's centre and 250m from the beach, with two outdoor pools including a children's pool, a kids' club, a playground, an adults only VIP terrace with hot tubs, and a buffet restaurant plus two bars. A solid, no-frills base for exploring the west coast. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1600011689032-8b628b8a8747?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort swimming pool near palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Club Mac Alcudia Resort &amp; Waterpark</h3>
+        <p>A large all-inclusive complex of three hotels on Alcudia's north coast, a seven minute walk from the beach, with eight outdoor pools, splash park, kids' and teens' clubs, three buffet restaurants and unlimited entry to the neighbouring Hidropark waterpark with its twenty water slides. One of the biggest family resorts on the island. Bookable through easyJet holidays and Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best adults only</div>
+        <img src="https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Adults only hotel pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">TUI BLUE Levante</h3>
+        <p>A 4&#9733; adults only (16 plus) hotel in Cala Bona on the east coast, with two pools including a heated indoor adults only pool, a spa with sauna and steam bath, two restaurants, a snack bar, live entertainment through the season, and beach access just metres away. Half board as standard. Bookable directly through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1783442619815-943376e2ac6c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Elegant cliffside infinity pool at twilight" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Hospes Maricel &amp; Spa</h3>
+        <p>A 5&#9733; boutique hotel in Cala Mayor converted from a 16th century mansion, with an outdoor freshwater pool, indoor pool, full spa, an &agrave; la carte restaurant and direct sea access via steps down to the water. One of the more genuinely special places to stay on the island. Bookable through Jet2holidays and easyJet holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond just the beach.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1692698746104-7f1465fbad9b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palma Cathedral, Majorca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Palma Cathedral &amp; the old town</h3>
+        <p>La Seu, Palma's Gothic cathedral, sits right on the seafront and is one of the most photographed buildings in Spain. The old town around it is made for wandering, with narrow lanes, courtyards and plenty of tapas bars to stop at along the way.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1516399880527-53ac841bf2d9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Serra de Tramuntana mountains, Majorca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Serra de Tramuntana &amp; the Soller train</h3>
+        <p>A UNESCO listed mountain range running the length of the northwest coast, best seen from the window of the vintage Palma to Soller train, which has run the same route since 1912. Hiking, cycling and simply driving the coastal roads are all popular ways to see it too.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1572249955867-42637a662836?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Underground lake inside a cave in Majorca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Caves of Drach</h3>
+        <p>Near Porto Cristo on the east coast, these underground caves hold one of the largest underground lakes in the world, and a short boat trip across it comes with a live classical music performance from musicians playing on the water. One of the most popular excursions on the island.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1602085336706-607b9f1d9420?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hillside village of Valldemossa, Majorca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Valldemossa</h3>
+        <p>A picture postcard hillside village in the Tramuntana, known for its stone houses, lavender covered balconies and the monastery where the composer Chopin and writer George Sand spent a winter together in 1838. Easily combined with a wider drive along the northwest coast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Majorca uses the Euro, so prices below are shown in pounds with the Euro equivalent alongside, based on a rate of roughly &pound;1 to &euro;1.16. These are crowd-sourced averages for Palma de Mallorca, and prices in the smaller resort towns can vary a bit either side of this depending on how touristy the spot is.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;14.20 (about &euro;16.50)</td></tr>
+          <tr><td>Draft beer, half litre, bar or restaurant</td><td>&pound;3.45 (about &euro;4.00)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;2.50 (about &euro;2.88)</td></tr>
+          <tr><td>Soft drink, 330ml</td><td>&pound;2.05 (about &euro;2.36)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;2.10 (about &euro;2.40)</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;3.85 (about &euro;4.45)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced averages via Numbeo for Palma de Mallorca, checked at time of writing. Euro to pound conversion is approximate and will move around, and the smaller marina towns such as Cala d'Or and Port de Soller tend to run a little more expensive than this for eating and drinking out.</p>
+    {jake_tip("Most all-inclusive resorts cover food and local drinks on-site, so your spending money is mostly for excursions, taxis and the odd meal out in Palma or one of the marina towns.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (&euro;)</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, two round pins, same as most of mainland Europe. UK plugs need an adapter, not a voltage converter</td></tr>
+          <tr><td>Language</td><td>Spanish and Catalan (Mallorqu&iacute;), with English widely spoken in resort areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 2 to 2.75 hours direct</td></tr>
+          <tr><td>Time difference</td><td>1 hour ahead of the UK year round</td></tr>
+          <tr><td>Driving</td><td>Right hand side, opposite to the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Farid Askerov, Felix, Tomas Eidsvold, Eveline Rossi, Buntes Licht, Nick Page, Alexis Presa, Markus Voetter, Viacheslav Poturaev, Cory Bjork, Franck Morisset, Arkady Lukashov, Wojciech Wyszkowski, Alev Takil and David Vives via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Majorca for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Spain, or somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+majorca_body = majorca_body.replace("::NEWSLETTER::", newsletter_section())
+
+MAJORCA_SCHEMA = article_and_faq_schema(
+    "Majorca: Jake's Destination Guide",
+    "Jake's honest guide to Majorca: Palma, Magaluf, Alcudia, Cala Millor, Cala d'Or and the northwest coast, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "majorca.html",
+    "https://images.unsplash.com/photo-1516154182849-1a5f068beda5?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Majorca?", "May to September is when most hotels here operate. June to August is the hottest and busiest stretch, with temperatures regularly in the high twenties and the highest prices of the year. May, June and September offer warm, swimmable sea and noticeably better value, while winter is too cold for most all-inclusive hotels, which close for the season."),
+        ("Which area of Majorca should I choose?", "Alcudia and Playa de Muro on the north coast are the strongest all round family pick, with long, calm, sandy beaches. Magaluf and Palma Nova on the west coast have the biggest nightlife scene. Cala Millor suits families and couples on the east coast, Cala d'Or is a quieter, more upmarket marina town in the southeast, and Port de Soller in the northwest suits couples after a scenic, slower paced trip."),
+        ("How long is the flight to Majorca, and how far is my hotel from the airport?", "Flight time from the UK is typically around 2 to 2.75 hours direct. Transfer times from Palma de Mallorca Airport vary by area, from around 15 to 20 minutes to Playa de Palma up to around 70 to 80 minutes to Cala Millor on the east coast."),
+    ]
+)
+with open(os.path.join(SITE, "majorca.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Majorca: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Majorca: Palma, Magaluf, Alcudia, Cala Millor, Cala d'Or and the northwest coast, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        majorca_body,
+        extra_schema=MAJORCA_SCHEMA
+    ))
+print("majorca.html written")
 
 
 
@@ -6129,6 +6419,7 @@ SITEMAP_PAGES = [
     ("turkey-antalya.html", "0.6"),
     ("turkey-dalaman.html", "0.6"),
     ("turkey-bodrum.html", "0.6"),
+    ("majorca.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
