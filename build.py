@@ -574,6 +574,34 @@ home_body = """
       <div class="carousel-row" id="testimonialsCarousel">
         <div class="testimonial-card">
           <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Booked our ski holiday in under 2 days</h3>
+          <p class="testimonial-quote">"Jake took less than 2 days to achieve what I had tried to over 2 weeks. He got us a great deal for skiing in half term, which came in under budget and looks ideal for us. His communication was excellent and his knowledge and passion was obvious. I would definitely recommend him to anyone needing help with booking a holiday. Thanks Jake!"</p>
+          <div class="testimonial-name">Ros</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Great service</h3>
+          <p class="testimonial-quote">"I contacted Jake after reviewing travel advisors on Instagram. I was nervous about using this route to book a holiday but was getting fed up of looking online. I had been trying to secure a three generational holiday with free child places, but each time I looked the prices started to rise and it was so frustrating. Working with Jake was so much easier. He was very professional, knowledgeable, and made the process so much easier. I will certainly be using Jake again for future bookings and highly recommend his services to others."</p>
+          <div class="testimonial-name">Janet</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Jake recently helped us book our DLP trip</h3>
+          <p class="testimonial-quote">"Jake recently helped us book our DLP trip, would definitely recommend. Very helpful! Thanks, Jake."</p>
+          <div class="testimonial-name">Charlie</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Trusted travel knowledge and booking process</h3>
+          <p class="testimonial-quote">"I started following Travel Agent Jake on socials as I find his posts really useful, so I then messaged him to quote on a package holiday and he responded so quickly, matching my price. He is great to deal with, super responsive and knows his stuff, sharing his knowledge of the places and even hotels I was looking at, which helped me decide on which for our family holiday. He is patient, as I was trying to coordinate with other family members before eventually booking, and the booking process was also quick and easy! Would definitely come back for future holidays!"</p>
+          <div class="testimonial-name">Louisa</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <h3>Jake was super friendly and quick</h3>
           <p class="testimonial-quote">"Jake was super friendly and quick. He got me quotes for a couple of holidays and answered any questions I had. I was more than happy to book through him and I will definitely use him in future. Thanks Jake"</p>
           <div class="testimonial-name">Jacqueline</div>
