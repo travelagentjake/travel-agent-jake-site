@@ -324,11 +324,16 @@
   }
   // The day a collection logically falls on, before any weekend adjustment.
   // A day this month only counts if it works out more than two weeks away,
-  // otherwise it rolls to the same day next month instead.
+  // otherwise it keeps rolling forward a month at a time until it does.
+  // (A single roll isn't always enough: if today is already past a day's
+  // "more than two weeks away" cutoff for THIS month, next month's version
+  // of an early day like the 1st or 2nd can still be inside two weeks too.)
   function baseCollectionDate(prefDay){
+    var monthOffset = 0;
     var candidate = monthDateClamped(todayMidnight.getFullYear(), todayMidnight.getMonth(), prefDay);
-    if (daysBetween(todayMidnight, candidate) <= MIN_LEAD_DAYS){
-      candidate = monthDateClamped(todayMidnight.getFullYear(), todayMidnight.getMonth() + 1, prefDay);
+    while (daysBetween(todayMidnight, candidate) <= MIN_LEAD_DAYS){
+      monthOffset++;
+      candidate = monthDateClamped(todayMidnight.getFullYear(), todayMidnight.getMonth() + monthOffset, prefDay);
     }
     return candidate;
   }
