@@ -7,14 +7,14 @@
 - ABTA number: P8503
 - Based in the UK, serves customers UK-wide (online/social-media led, not tied to one branch)
 - Contact: enquiries@travelagentjake.com, bookings@travelagentjake.com, WhatsApp 07899 290262
-- Booking routes: free holiday design call, WhatsApp, or the "Price Beat Challenge" (Jake will try to beat a like-for-like quote on a Jet2holidays, TUI or easyJet Holidays booking). See /book.html
+- Booking routes: free holiday design call or WhatsApp. See /book.html
 - Social: instagram.com/travelagentjake, tiktok.com/@travelagentjake
 
 ## Pages
 - [Home](https://travelagentjake.co.uk/): overview, how to book, financial protection info
 - [About](https://travelagentjake.co.uk/about.html): Jake's background and 15 years in travel
 - [Links](https://bio.travelagentjake.co.uk/): recommended travel products and useful official links (eSIMs, passport/ETIAS checkers, GHIC, FCDO travel advice)
-- [How to Book](https://travelagentjake.co.uk/book.html): the three ways to start booking a holiday with Jake
+- [How to Book](https://travelagentjake.co.uk/book.html): the two ways to start booking a holiday with Jake
 - [Ski Resort Quiz](https://travelagentjake.co.uk/ski-quiz.html): a short quiz matching users to a ski resort persona (piste mileage, off-piste/powder, apres-ski/nightlife, relaxed/luxury, or food-focused) and a budget tier, with a full reference guide covering 25 named ski resorts including piste km, run counts by difficulty colour, lift counts, altitude, budget tier and things to do off the slopes
 - [Travel Tips](https://travelagentjake.co.uk/travel-tips.html): honest travel tips and comparisons, including a Breeze eSIM vs Airalo comparison, Christmas market city breaks, a ski holiday packing list, a guide to booking early vs booking late, an LGBTQIA+ friendly holidays guide, power bank flight safety rules, a budget airline hand luggage size comparison and a full guide to the EU's EES and ETIAS border systems
 - [Destinations](https://travelagentjake.co.uk/destinations.html): destination guides covering weather, where to stay, things to do and costs, including Paphos and Latchi in Cyprus, Cancun/Riviera Maya/Playa del Carmen in Mexico, the Maldives and Disneyland Paris

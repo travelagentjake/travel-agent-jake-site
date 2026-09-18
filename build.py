@@ -841,8 +841,8 @@ about_body = """
     <div class="numbered-list" style="margin-top:28px; max-width:70ch;">
       <div style="margin-bottom:22px;"><h3 style="font-size:17px; margin-bottom:6px;">Is Travel Agent Jake ABTA protected?</h3><p style="margin:0;">Yes. Travel Agent Jake is an ABTA member (ABTA No. P8503), and package holidays booked through Jake are financially protected, so your money is covered if something goes wrong.</p></div>
       <div style="margin-bottom:22px;"><h3 style="font-size:17px; margin-bottom:6px;">What kind of holidays does Travel Agent Jake book?</h3><p style="margin:0;">All sorts, from family holidays and all-inclusive breaks to ski trips, city stays and long-haul adventures. There's no single niche; if it's a holiday, Jake can price it up.</p></div>
-      <div style="margin-bottom:22px;"><h3 style="font-size:17px; margin-bottom:6px;">Does it cost more to book through a travel agent?</h3><p style="margin:0;">No. There are no booking fees, and prices sit alongside what you'd find yourself, often better thanks to the Price Beat Challenge.</p></div>
-      <div style="margin-bottom:0;"><h3 style="font-size:17px; margin-bottom:6px;">How do I book a holiday with Travel Agent Jake?</h3><p style="margin:0;">There are three easy ways to get started: a free holiday design call, WhatsApp, or the Price Beat Challenge. See the "How to Book" page for details.</p></div>
+      <div style="margin-bottom:22px;"><h3 style="font-size:17px; margin-bottom:6px;">Does it cost more to book through a travel agent?</h3><p style="margin:0;">No. There are no booking fees, and prices sit alongside what you'd find yourself.</p></div>
+      <div style="margin-bottom:0;"><h3 style="font-size:17px; margin-bottom:6px;">How do I book a holiday with Travel Agent Jake?</h3><p style="margin:0;">There are two easy ways to get started: a free holiday design call or WhatsApp. See the "How to Book" page for details.</p></div>
     </div>
   </div>
 </section>
@@ -874,12 +874,12 @@ ABOUT_FAQ_SCHEMA = """<script type="application/ld+json">
     {
       "@type": "Question",
       "name": "Does it cost more to book through a travel agent?",
-      "acceptedAnswer": {"@type": "Answer", "text": "No. There are no booking fees, and prices sit alongside what you would find yourself, often better thanks to the Price Beat Challenge."}
+      "acceptedAnswer": {"@type": "Answer", "text": "No. There are no booking fees, and prices sit alongside what you would find yourself."}
     },
     {
       "@type": "Question",
       "name": "How do I book a holiday with Travel Agent Jake?",
-      "acceptedAnswer": {"@type": "Answer", "text": "There are three ways to get started: a free holiday design call, WhatsApp, or the Price Beat Challenge."}
+      "acceptedAnswer": {"@type": "Answer", "text": "There are two ways to get started: a free holiday design call or WhatsApp."}
     }
   ]
 }
@@ -901,14 +901,14 @@ book_body = """
 <section class="theme-bold">
   <div class="wrap">
     <div class="eyebrow">Book a holiday with Jake</div>
-    <h1>THREE WAYS TO GET STARTED. PICK WHICHEVER SUITS YOU.</h1>
+    <h1>TWO WAYS TO GET STARTED. PICK WHICHEVER SUITS YOU.</h1>
     <p class="lead" style="margin-top:18px; max-width:64ch;">However you like to plan, there's a way to book below.</p>
   </div>
 </section>
 
 <section class="theme-light">
   <div class="wrap">
-    <div class="grid-3 equal-cards" style="gap:24px;">
+    <div class="grid-2-eq equal-cards" style="gap:24px;">
 
       <div class="jake-card" style="border-color:var(--blue); border-width:3px; position:relative;">
         <div style="position:absolute; top:-16px; left:22px; background:var(--yellow); border:2px solid var(--ink); border-radius:999px; padding:5px 16px; font-family:'Archivo Black',sans-serif; font-size:12px; text-transform:uppercase;">Best option</div>
@@ -920,14 +920,8 @@ book_body = """
 
       <div class="jake-card">
         <h3>WhatsApp Me</h3>
-        <p>Got a quick question, already have dates in mind, or just prefer messaging? Drop me a WhatsApp and I'll get back to you personally.</p>
+        <p>Send me an overview of what you're looking for, or screenshots of holidays you've already seen, and I'll take it from there.</p>
         <a class="btn btn-primary btn-block" href="https://wa.me/447899290262" target="_blank" rel="noopener">Message me on WhatsApp</a>
-      </div>
-
-      <div class="jake-card">
-        <h3>Price Beat Challenge</h3>
-        <p>Seen a holiday with Jet2holidays, TUI or easyJet Holidays that you're about to book? Message me before you book it and I'll see if I can save you some money by booking it with me instead.</p>
-        <a class="btn btn-primary btn-block" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%27d%20like%20to%20try%20the%20Price%20Beat%20Challenge.%20Here%27s%20a%20screenshot%20of%20the%20holiday%20I%27ve%20found%3A" target="_blank" rel="noopener">Send me your screenshot</a>
       </div>
 
     </div>
@@ -962,7 +956,7 @@ book_body = """
 with open(os.path.join(SITE, "book.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "How to Book with Jake | Travel Agent Jake",
-        "Three ways to book a holiday with Travel Agent Jake: a free design call, WhatsApp, or the Price Beat Challenge.",
+        "Two ways to book a holiday with Travel Agent Jake: a free design call or WhatsApp.",
         "book.html",
         book_body
     ))
@@ -6458,14 +6452,14 @@ LLMS_TXT = """# Travel Agent Jake
 - ABTA number: P8503
 - Based in the UK, serves customers UK-wide (online/social-media led, not tied to one branch)
 - Contact: enquiries@travelagentjake.com, bookings@travelagentjake.com, WhatsApp 07899 290262
-- Booking routes: free holiday design call, WhatsApp, or the "Price Beat Challenge" (Jake will try to beat a like-for-like quote on a Jet2holidays, TUI or easyJet Holidays booking). See /book.html
+- Booking routes: free holiday design call or WhatsApp. See /book.html
 - Social: instagram.com/travelagentjake, tiktok.com/@travelagentjake
 
 ## Pages
 - [Home](https://travelagentjake.co.uk/): overview, how to book, financial protection info
 - [About](https://travelagentjake.co.uk/about.html): Jake's background and 15 years in travel
 - [Links](https://bio.travelagentjake.co.uk/): recommended travel products and useful official links (eSIMs, passport/ETIAS checkers, GHIC, FCDO travel advice)
-- [How to Book](https://travelagentjake.co.uk/book.html): the three ways to start booking a holiday with Jake
+- [How to Book](https://travelagentjake.co.uk/book.html): the two ways to start booking a holiday with Jake
 - [Ski Resort Quiz](https://travelagentjake.co.uk/ski-quiz.html): a short quiz matching users to a ski resort persona (piste mileage, off-piste/powder, apres-ski/nightlife, relaxed/luxury, or food-focused) and a budget tier, with a full reference guide covering 25 named ski resorts including piste km, run counts by difficulty colour, lift counts, altitude, budget tier and things to do off the slopes
 - [Travel Tips](https://travelagentjake.co.uk/travel-tips.html): honest travel tips and comparisons, including a Breeze eSIM vs Airalo comparison, Christmas market city breaks, a ski holiday packing list, a guide to booking early vs booking late, an LGBTQIA+ friendly holidays guide, power bank flight safety rules, a budget airline hand luggage size comparison and a full guide to the EU's EES and ETIAS border systems
 - [Destinations](https://travelagentjake.co.uk/destinations.html): destination guides covering weather, where to stay, things to do and costs, including Paphos and Latchi in Cyprus, Cancun/Riviera Maya/Playa del Carmen in Mexico, the Maldives and Disneyland Paris
