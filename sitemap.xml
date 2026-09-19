@@ -116,4 +116,12 @@
     <loc>https://travelagentjake.co.uk/privacy-policy.html</loc>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://travelagentjake.co.uk/booking-conditions.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://travelagentjake.co.uk/club-voyages-privacy-notice.html</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>
