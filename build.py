@@ -460,10 +460,8 @@ home_body = """
   var heroPhotos = [
     "images/infinity-pool.jpg",
     "images/hero/hero-pool.jpg",
-    "images/hero/hero-beach.jpg",
     "images/hero/hero-cruise.jpg",
     "images/hero/hero-airport.jpg",
-    "images/hero/hero-tropical.jpg",
     "images/hero/hero-disneyland.jpg",
     "images/hero/hero-disney-alien.jpg",
     "images/hero/hero-ski.jpg",
