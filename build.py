@@ -7344,6 +7344,211 @@ with open(os.path.join(SITE, "tui-summer-2028-thanks.html"), "w", encoding="utf-
 print("tui-summer-2028-thanks.html written")
 
 
+# ---------------- SKI SLOPE STARTERS (campaign landing page, not in nav) ----------------
+ski_body = """
+<section class="theme-bold">
+  <div class="wrap">
+    <div class="eyebrow">First-time skiers only &middot; 2027 dates</div>
+    <h1>NEVER SKIED BEFORE? THIS ONE'S BUILT FOR YOU.</h1>
+    <p class="lead" style="margin-top:18px; max-width:70ch;">Slope Starters is a beginner-only ski week with everything bundled into one price: flights, transfers, your hotel, breakfast and dinner, lessons, all your kit and a lift pass. You don't need to have skied before, you don't need your own gear, and you don't need to plan a thing. Just tell me who's coming and I'll take it from there.</p>
+    <div class="btn-row" style="margin-top:22px;">
+      <a class="btn btn-primary" href="::WA_HERO::" target="_blank" rel="noopener">WhatsApp me about Slope Starters</a>
+      <a class="btn" style="background:var(--white); color:var(--ink); border-color:var(--ink);" href="#resorts">See the 3 resorts</a>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1703080138499-f1f0dbc7da42?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Ski instructor teaching a beginner skier on a gentle slope" style="border-radius:6px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Why first-timers book this one</h2>
+    <div class="grid-3 equal-cards" style="gap:24px; margin-top:22px;">
+      <div class="jake-card">
+        <h3 style="font-size:17px;">One price, everything in it</h3>
+        <p>No separate flight search, no chasing ski hire shops, no working out lesson times yourself. Flights, hotel, food, lessons, kit and your lift pass all come as one simple package, so the only decision left is which week suits you.</p>
+      </div>
+      <div class="jake-card">
+        <h3 style="font-size:17px;">You're not the only beginner there</h3>
+        <p>Everyone on your ski school register is starting from zero too, so there's none of the awkwardness of holding up a group of regulars. Your instructor's whole job that week is turning nervous first-timers into skiers.</p>
+      </div>
+      <div class="jake-card">
+        <h3 style="font-size:17px;">A proper week away, not just a ski trip</h3>
+        <p>Welcome drinks with the group, evenings in the hotel bar, a dip in the pool or a spa session most hotels throw in. It's a full week away, skiing just happens to be what you do in the daytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What's actually included</h2>
+    <p style="margin-top:14px;">Here's everything that's bundled into your price, no surprises once you're out there.</p>
+    <div class="numbered-list" style="margin-top:20px; max-width:70ch;">
+      <li><span class="num">1</span><span>Return flights from a UK airport near you</span></li>
+      <li><span class="num">2</span><span>Transfers between the airport and your hotel, both ways</span></li>
+      <li><span class="num">3</span><span>7 nights in your hotel</span></li>
+      <li><span class="num">4</span><span>Breakfast and an evening meal every day</span></li>
+      <li><span class="num">5</span><span>Ski or snowboard lessons all week, whichever you fancy</span></li>
+      <li><span class="num">6</span><span>Full equipment hire: skis or snowboard, poles, boots and a helmet</span></li>
+      <li><span class="num">7</span><span>A 6-day lift pass, so you're covered for the whole week on the mountain</span></li>
+    </div>
+    <p style="margin-top:16px;">The only thing you'll need to sort yourself is ski clothing: jacket, salopettes, gloves and goggles. Message me if you want pointers on what to pack, I've got a few favourites I always recommend.</p>
+    <div class="jake-tip">
+      <div class="jake-tip-icon">!</div>
+      <div class="jake-tip-body"><span class="jake-tip-label">Jake's top tip</span><p>First time booking a ski holiday? The bit that catches most people out is clothing, everything else genuinely is included. Ask me and I'll talk you through exactly what you need.</p></div>
+    </div>
+    <div class="jake-card" style="max-width:560px; margin:24px auto 0;">
+      <h3 style="font-size:17px;">Got a question before you commit?</h3>
+      <a class="btn btn-primary btn-block" style="margin-top:10px;" href="::WA_INCLUDED::" target="_blank" rel="noopener">Ask me on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What your week actually looks like</h2>
+    <p style="margin-top:14px;">Day one starts with a flight out and a transfer straight to your hotel, where you'll meet the rest of your group over welcome drinks before you've even unpacked. Everyone in that room is in exactly the same boat as you, first time on skis or a board, so there's no pressure and no one comparing you to anyone who's done it before.</p>
+    <p style="margin-top:14px;">From day two you're straight into lessons with a proper instructor, in a small group, on the easiest slopes the resort has. By the middle of the week something clicks, you go from wobbling on flat snow to actually linking turns, and that feeling is the whole reason people come back and do this every year.</p>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1649421810290-8808f00beea6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Group of skiers on a gentle slope with mountain views" style="border-radius:6px; margin:6px 0 14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Afternoons and evenings are yours. Most of these hotels have a pool, a spa session included, or a lively bar for the evening, so you're not just eating dinner and going straight to bed. By the last day you'll be skiing runs you'd never have believed you could handle on day one, and you'll already be asking me about next year.</p>
+    <p style="margin-top:14px;">Sound like your kind of week? <a class="body-copy" href="::WA_STORY::" target="_blank" rel="noopener">Message me on WhatsApp</a> and I'll talk you through the three resorts below.</p>
+  </div>
+</section>
+
+<section class="theme-dark" id="resorts" style="padding-bottom:12px;">
+  <div class="wrap">
+    <h2 style="color:var(--white);">Pick your week</h2>
+    <p style="margin-top:14px; opacity:0.85; max-width:70ch;">There are three Slope Starters weeks running in January 2027, each in a different country with its own hotel. Dates are fixed for the whole group, so pick the one that works for you and I'll take care of the rest.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:36px;">
+  <div class="wrap">
+    <div class="jake-card" style="max-width:900px; margin:0 auto;">
+      <div class="accom-category">Passo Tonale, Italy</div>
+      <img src="https://images.unsplash.com/photo-1550503736-c1a2c9033c03?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Alpine village houses in the snow" style="border-radius:6px; margin:12px 0 14px; width:100%; aspect-ratio:16/9; object-fit:cover;">
+      <h2>Passo Tonale, Italy</h2>
+      <p style="opacity:0.75; margin-top:4px;">16 to 23 January 2027 &middot; from &pound;1,065pp &middot; Hotel Miramonti</p>
+      <p style="margin-top:14px;">Passo Tonale is about as beginner-friendly as the Alps get. The nursery slopes sit right by the village, so there's no messing about getting to your lesson, and once you're ready for more there's plenty of gentle terrain to explore, including an easy blue run up on the Presena glacier if you fancy bragging rights for skiing on a glacier in your first week. It's a proper high alpine pass too, so the scenery does a lot of the work for you.</p>
+      <p style="margin-top:14px;"><b>Your hotel: Hotel Miramonti.</b> Boots on, and you can be at the ski school meeting point in two minutes. Back at the hotel there's a pool and two included sessions in the wellness area (sauna, steam room and hot tub), plus a nightclub with karaoke a couple of nights a week if you fancy celebrating your first day on skis properly.</p>
+      <p style="margin-top:14px; font-size:14px; opacity:0.7;">Flights from: Birmingham, Bristol, London Gatwick, Glasgow, Manchester and London Stansted.</p>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-primary" href="::WA_PASSO::" target="_blank" rel="noopener">WhatsApp me about Passo Tonale</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <div class="jake-card" style="max-width:900px; margin:0 auto;">
+      <div class="accom-category">Soldeu, Andorra</div>
+      <img src="https://images.unsplash.com/photo-1635711517978-3b0ff0a53550?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Cable car climbing a snowy mountainside" style="border-radius:6px; margin:12px 0 14px; width:100%; aspect-ratio:16/9; object-fit:cover;">
+      <h2>Soldeu, Andorra</h2>
+      <p style="opacity:0.75; margin-top:4px;">24 to 31 January 2027 &middot; from &pound;1,172pp &middot; Sport Hotel</p>
+      <p style="margin-top:14px;">Soldeu is brilliant for first-timers because the beginner area sits high on the mountain, reached by gondola, so you get proper mountain views from your very first lesson rather than being stuck on a car park slope at the bottom. Later in the week there are plenty of easy blue runs to test your new skills on, and the town itself has a handful of relaxed bars with live music for the evenings.</p>
+      <p style="margin-top:14px;"><b>Your hotel: Sport Hotel.</b> One of the best located hotels in Soldeu, right opposite the gondola, so mornings are easy. It mixes mountain style with proper home comforts, and there's a five floor spa with pools and saunas. One session is included and you can add more if you want to make a real habit of it.</p>
+      <p style="margin-top:14px; font-size:14px; opacity:0.7;">Flights from: Bristol, Birmingham, Glasgow, London Gatwick and Manchester.</p>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-primary" href="::WA_SOLDEU::" target="_blank" rel="noopener">WhatsApp me about Soldeu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <div class="jake-card" style="max-width:900px; margin:0 auto;">
+      <div class="accom-category">St Johann in Tyrol, Austria</div>
+      <img src="https://images.unsplash.com/photo-1465220183275-1faa863377e3?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Snowy alpine mountains above a Tyrolean valley" style="border-radius:6px; margin:12px 0 14px; width:100%; aspect-ratio:16/9; object-fit:cover;">
+      <h2>St Johann in Tyrol, Austria</h2>
+      <p style="opacity:0.75; margin-top:4px;">9 to 16 January 2027 &middot; from &pound;1,279pp &middot; Hotel Park</p>
+      <p style="margin-top:14px;">St Johann has a huge 43km ski area with a genuinely big nursery slope and wide, gentle runs, so there's loads of room to find your feet without feeling in anyone's way. It's also one of the prettiest towns you'll ski in: wooden chalets, frescoed buildings and an onion-domed church in the middle, so it's worth having your camera charged.</p>
+      <p style="margin-top:14px;"><b>Your hotel: Hotel Park.</b> Modern, comfortable rooms and proper Austrian cooking in the wood-panelled dining room. There's live music in the hotel bar most weeks, and your stay includes entry to the public Panoramabad swimming pool in the village if you fancy a dip that isn't in the hotel pool.</p>
+      <p style="margin-top:14px; font-size:14px; opacity:0.7;">Flights from: Belfast, Birmingham, Bristol, East Midlands, London Gatwick, Glasgow, Manchester and Newcastle.</p>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-primary" href="::WA_AUSTRIA::" target="_blank" rel="noopener">WhatsApp me about St Johann in Tyrol</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Want to make it even more of an occasion?</h2>
+    <p style="margin-top:14px;">A couple of optional extras worth asking about when you book.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <h3 style="font-size:17px;">Igloo building</h3>
+        <p>Learn how to build your own snow shelter, a properly different way to spend an afternoon off the slopes.</p>
+      </div>
+      <div class="jake-card">
+        <h3 style="font-size:17px;">Snowmobiling</h3>
+        <p>Head out in pairs and get your speed fix away from the piste. Minimum ages apply.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:14px; opacity:0.7;">Ask me about adding either of these when you book.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Common questions from first-timers</h2>
+    <div class="jake-card" style="max-width:760px; margin:22px auto 0;">
+      <h3 style="font-size:17px;">I've genuinely never skied or snowboarded before, is this actually for me?</h3>
+      <p>Yes, that's exactly who it's built for. Every single person on the ski school register is a first-timer too, so there's no group of confident skiers to feel behind.</p>
+    </div>
+    <div class="jake-card" style="max-width:760px; margin:16px auto 0;">
+      <h3 style="font-size:17px;">My partner has skied before, can they still come with me?</h3>
+      <p>They can travel with you and stay in the same hotel, but Slope Starters lessons are for first-timers only, so they'd need their own ski pass and time on the mountain arranged separately. Message me and I'll talk you through the options.</p>
+    </div>
+    <div class="jake-card" style="max-width:760px; margin:16px auto 0;">
+      <h3 style="font-size:17px;">Can I choose skiing or snowboarding once I'm there?</h3>
+      <p>You pick when you book, but let me know if you're not sure and I can talk you through which tends to suit first-timers better.</p>
+    </div>
+    <div class="jake-card" style="max-width:760px; margin:16px auto 0;">
+      <h3 style="font-size:17px;">Is this covered if something goes wrong?</h3>
+      <p>Yes. These are ATOL protected package holidays, booked through Club Voyages. Full details are in our <a href="booking-conditions.html">booking conditions</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-bold">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow">Ready when you are</div>
+    <h2>BOOK YOUR FIRST WEEK ON SNOW</h2>
+    <p class="lead" style="margin-top:14px; max-width:64ch; margin-left:auto; margin-right:auto;">Numbers on each Slope Starters week are limited and dates are fixed, so the earlier you get in touch the better your choice of week. Message me on WhatsApp and I'll take you through availability, exact pricing for your group and get you booked in.</p>
+    <div class="btn-row" style="justify-content:center; margin-top:24px;">
+      <a class="btn btn-primary" href="::WA_FINAL::" target="_blank" rel="noopener">WhatsApp me to book</a>
+    </div>
+    <p style="max-width:70ch; margin:22px auto 0; text-align:center; font-size:13px; opacity:0.75;">Prices shown are per person based on two adults sharing and correct as of ::TODAY::, subject to change and availability. These are Crystal Ski Holidays packages, part of TUI Group, sold through Travel Agent Jake as part of Club Voyages. See our <a class="body-copy" href="booking-conditions.html">booking conditions</a> for full terms.</p>
+  </div>
+</section>
+"""
+ski_body = ski_body.replace("::WA_HERO::", "https://wa.me/447899290262?text=" + urllib.parse.quote("Hi Jake, I saw Slope Starters on your TikTok and I'd love to find out more about a first-time ski week."))
+ski_body = ski_body.replace("::WA_INCLUDED::", "https://wa.me/447899290262?text=" + urllib.parse.quote("Hi Jake, quick question about what's included on a Slope Starters ski week."))
+ski_body = ski_body.replace("::WA_STORY::", "https://wa.me/447899290262?text=" + urllib.parse.quote("Hi Jake, tell me more about Slope Starters, I've never skied before."))
+ski_body = ski_body.replace("::WA_PASSO::", "https://wa.me/447899290262?text=" + urllib.parse.quote("Hi Jake, I'm interested in the Slope Starters week in Passo Tonale, Italy. Can you tell me more?"))
+ski_body = ski_body.replace("::WA_SOLDEU::", "https://wa.me/447899290262?text=" + urllib.parse.quote("Hi Jake, I'm interested in the Slope Starters week in Soldeu, Andorra. Can you tell me more?"))
+ski_body = ski_body.replace("::WA_AUSTRIA::", "https://wa.me/447899290262?text=" + urllib.parse.quote("Hi Jake, I'm interested in the Slope Starters week in St Johann in Tyrol, Austria. Can you tell me more?"))
+ski_body = ski_body.replace("::WA_FINAL::", "https://wa.me/447899290262?text=" + urllib.parse.quote("Hi Jake, I'd like to book my first Slope Starters ski week. Can you help me get started?"))
+ski_body = ski_body.replace("::TODAY::", datetime.date.today().strftime("%d %B %Y"))
+
+with open(os.path.join(SITE, "ski-slope-starters.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Slope Starters: Your First Ski Holiday | Travel Agent Jake",
+        "Beginner-only ski weeks in Passo Tonale, Soldeu or Austria with flights, hotel, lessons, equipment and a lift pass all included. WhatsApp Jake to book your first time on snow.",
+        "ski-slope-starters.html",
+        ski_body
+    ))
+print("ski-slope-starters.html written")
+
+
 ROBOTS = """User-agent: *
 Allow: /
 
@@ -7562,6 +7767,7 @@ SITEMAP_PAGES = [
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
+    ("ski-slope-starters.html", "0.7"),
 ]
 sitemap_entries = "\n".join(
     f"""  <url>
