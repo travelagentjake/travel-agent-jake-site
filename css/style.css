@@ -771,3 +771,41 @@ footer.site-footer a:hover{color:var(--yellow);}
 .login-panel h3{color:var(--white); margin-bottom:8px;}
 .login-panel p{color:rgba(255,255,255,0.8); margin:0; max-width:52ch;}
 .login-panel .btn{flex:none;}
+
+/* ---------- Resort favourite badge ---------- */
+.resort-favourite-badge{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:'Archivo Black',sans-serif; font-size:12.5px; text-transform:uppercase; letter-spacing:0.03em;
+  background:var(--yellow); color:var(--ink); padding:6px 14px; border-radius:999px;
+  margin:0 0 14px 10px; vertical-align:middle;
+}
+
+/* ---------- Resort hotel photo carousel (flick-through) ---------- */
+.photo-carousel{position:relative; margin:12px 0 14px; border-radius:6px; overflow:hidden;}
+.photo-carousel-track{
+  display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none;
+}
+.photo-carousel-track::-webkit-scrollbar{display:none;}
+.photo-carousel-track img{
+  flex:0 0 100%; width:100%; aspect-ratio:16/9; object-fit:cover; scroll-snap-align:start;
+}
+.photo-carousel-arrow{
+  position:absolute; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  background:var(--white); border:2px solid var(--ink); color:var(--ink); font-size:18px; font-weight:800;
+  display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 2px 6px rgba(16,20,43,0.25);
+}
+.photo-carousel-prev{left:10px;}
+.photo-carousel-next{right:10px;}
+.photo-carousel-dots{
+  position:absolute; bottom:10px; left:0; right:0; display:flex; justify-content:center; gap:6px;
+}
+.photo-carousel-dot{
+  width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.6); border:1.5px solid var(--ink);
+  cursor:pointer; padding:0;
+}
+.photo-carousel-dot.active{background:var(--yellow);}
+@media (max-width:600px){
+  .photo-carousel-arrow{width:30px; height:30px; font-size:15px;}
+}
+
