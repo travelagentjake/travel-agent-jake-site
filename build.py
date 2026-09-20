@@ -1499,6 +1499,13 @@ DESTINATION_POSTS = [
         "excerpt": "Cala Galdana, Son Bou, Fornells, Ciutadella and Mahon: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1458628370679-1f7b2f6bd22b?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "tenerife.html",
+        "meta": "Tenerife",
+        "title": "Tenerife",
+        "excerpt": "Costa Adeje, Los Cristianos, Puerto de la Cruz and Mount Teide: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1558363819-03f41af0a94d?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -4067,6 +4074,286 @@ with open(os.path.join(SITE, "menorca.html"), "w", encoding="utf-8") as f:
         extra_schema=MENORCA_SCHEMA
     ))
 print("menorca.html written")
+
+
+tenerife_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>TENERIFE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Tenerife, from Costa Adeje and Los Cristianos in the developed south to Puerto de la Cruz and Mount Teide in the greener, wilder north.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Tenerife</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1558363819-03f41af0a94d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial skyview of Tenerife island, Canary Islands" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Tenerife is the biggest and busiest of the Canary Islands, and it's the one I get asked about more than any other winter sun destination. The reason is simple. It sits a couple of hundred miles off the coast of Africa, so the climate stays mild all year round, and unlike the Balearics, most hotels here never close for the season. That makes it one of the only proper package destinations you can genuinely book for February half term or the Christmas holidays.</p>
+    <p style="margin-top:14px;">The island really is two different holidays depending on where you stay. The south, around Costa Adeje, Los Cristianos and Playa de las Americas, is dry, sunny almost every day of the year and built up with big resort hotels, waterparks and nightlife. The north, around Puerto de la Cruz, is greener, more traditional and noticeably more Canarian in feel, with black sand beaches and banana plantations instead of high rise hotels. In between sits Mount Teide, Spain's highest peak and a UNESCO World Heritage Site, which dominates the skyline from almost everywhere on the island.</p>
+    {jake_tip("Tenerife is genuinely a year round destination in a way most of my other winter sun spots aren't. If you want guaranteed sunshine over Christmas or February half term without flying long haul, this is one of the few places in Europe that delivers it.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the standard package length and suits most first visits well. Because the flight is longer than the Balearics or mainland Spain, at around four to four and a half hours, short two or three night breaks are much less common here, and most people book a week or two to make the flight time worthwhile. Ten to fourteen nights works nicely if you want to split your stay between the lively south and the quieter north.</p>
+    <p style="margin-top:14px;">Families are extremely well catered for in the south, with Siam Park and Loro Parque both within easy reach of Costa Adeje and Playa de las Americas, plus a huge choice of hotels with kids' clubs and waterslides. Couples and older travellers often prefer Puerto de la Cruz or the quieter west coast around Los Gigantes for a slower pace, and walkers and nature fans come specifically for Teide National Park and the Anaga rural park in the northeast. It's a strong pick for a group after nightlife too, with Veronicas Strip in Playa de las Americas being the island's best known strip of bars and clubs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Tenerife has two airports, and which one you land at makes a real difference to your transfer time. Tenerife South Airport (TFS) is the main airport for UK holiday flights and the one almost all package holidays use, with easyJet, Jet2, TUI, Ryanair and British Airways all flying direct from a wide range of UK airports. Flight time is typically around four to four and a half hours depending on where you fly from.</p>
+    <p style="margin-top:14px;">From TFS, the main southern resorts of Costa Adeje, Los Cristianos and Playa de las Americas are close, at around 15 to 45 minutes by road. Golf del Sur and San Miguel de Abona are similarly quick. Puerto de la Cruz and the rest of the north coast are much further from TFS, at around 60 to 90 minutes, because the airport sits on the drier southern side of the island. Tenerife North Airport (TFN), near Santa Cruz, is used by far fewer UK flights but is the better option if a north coast stay is your priority, cutting that transfer down to around 15 to 35 minutes.</p>
+    {jake_tip("If you're booking a package to Costa Adeje, Los Cristianos or Playa de las Americas, you'll almost certainly fly into TFS and the transfer is short. Only worry about which airport you land at if you're heading to Puerto de la Cruz or the north coast specifically.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Tenerife has a mild, dry climate that barely changes through the year in the south, which is exactly why it works so well for winter sun. The north of the island is noticeably cooler and wetter at any time of year thanks to the trade winds and cloud that build up against Mount Teide. These figures are long-term climate averages for the island, so treat them as a guide rather than a forecast for your specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>18&deg;C</td><td>12&deg;C</td><td>20&deg;C</td><td>Mild and sunniest in the south, wettest month of the year on average</td></tr>
+          <tr><td>February</td><td>18&deg;C</td><td>12&deg;C</td><td>19&deg;C</td><td>Similar to January, still a reliable winter sun pick</td></tr>
+          <tr><td>March</td><td>20&deg;C</td><td>13&deg;C</td><td>19&deg;C</td><td>Warming up, good value shoulder month</td></tr>
+          <tr><td>April</td><td>20&deg;C</td><td>13&deg;C</td><td>19&deg;C</td><td>Pleasant and drier, popular for Easter holidays</td></tr>
+          <tr><td>May</td><td>21&deg;C</td><td>14&deg;C</td><td>20&deg;C</td><td>Reliable sunshine, sea starting to warm up nicely</td></tr>
+          <tr><td>June</td><td>23&deg;C</td><td>16&deg;C</td><td>21&deg;C</td><td>Warm and dry, peak season getting underway</td></tr>
+          <tr><td>July</td><td>25&deg;C</td><td>18&deg;C</td><td>22&deg;C</td><td>Hot and almost no rain, one of the busiest months</td></tr>
+          <tr><td>August</td><td>26&deg;C</td><td>19&deg;C</td><td>23&deg;C</td><td>Hottest month, extremely busy with Spanish school holidays too</td></tr>
+          <tr><td>September</td><td>25&deg;C</td><td>18&deg;C</td><td>24&deg;C</td><td>Still hot, sea at its warmest, crowds start easing</td></tr>
+          <tr><td>October</td><td>24&deg;C</td><td>17&deg;C</td><td>23&deg;C</td><td>Warm with a little more rain, good value month</td></tr>
+          <tr><td>November</td><td>21&deg;C</td><td>15&deg;C</td><td>22&deg;C</td><td>Mild but wetter, especially in the north</td></tr>
+          <tr><td>December</td><td>19&deg;C</td><td>13&deg;C</td><td>21&deg;C</td><td>Mild winter sun, popular over the Christmas holidays</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for the island, sourced via weather2travel.com.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">Tenerife is one of the few package destinations that genuinely works all year round, which is its biggest selling point. June to September is hottest and busiest, with temperatures in the mid to high twenties and the highest prices of the year, especially around the Spanish summer holidays in August. October, November, April and May are excellent value shoulder months with warm, reliable weather and noticeably lower prices. December to March is when Tenerife earns its reputation as a winter sun destination, with daytime temperatures still in the high teens while the rest of Europe is cold, though this is also when the island sees its most rain, mostly falling in short bursts rather than settling in for days.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Tenerife is a big island, and where you base yourself changes the holiday completely.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1655317175101-ce1895db8ace?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Coastline near Costa Adeje, Tenerife" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Costa Adeje</h3>
+        <p>The most upmarket resort area on the island, with a smart promenade, some of Tenerife's best hotels and beaches, and easy access to Siam Park. The obvious first choice for most couples and families wanting a straightforward, polished resort holiday.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1578784088143-c18da1a91336?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm-lined seafront in southern Tenerife" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Los Cristianos &amp; Playa de las Americas</h3>
+        <p>Los Cristianos is a working fishing harbour turned relaxed, good value resort with a lovely promenade, while neighbouring Playa de las Americas is livelier and brasher, home to the Veronicas Strip and the island's best known nightlife. Both sit right next to Costa Adeje, so it's easy to walk or bus between all three.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1677503590969-1c16fd0a0981?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Playa de San Telmo, Puerto de la Cruz, Tenerife" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Puerto de la Cruz</h3>
+        <p>A proper Canarian town on the north coast, greener and more traditional than the south, with black volcanic sand beaches, a lovely old quarter and Loro Parque on its doorstep. Suits couples, culture fans and anyone who's done the south before and wants to see the other side of the island.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1787423763143-ced7eb6f91b2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beach beneath the cliffs at Los Gigantes, Tenerife" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Los Gigantes &amp; Puerto de Santiago</h3>
+        <p>Set beneath the dramatic sea cliffs of the same name on the west coast, this is a quieter, more laid back pocket of the island, popular for whale and dolphin watching boat trips and as a base for driving up to Masca. Suits couples and anyone after a calmer, more scenic stay.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1613333046289-4cd8e6a6270e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Small coastal town on the south coast of Tenerife" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Golf del Sur &amp; San Miguel de Abona</h3>
+        <p>A quieter, more purpose built pocket of the south east, popular with golfers thanks to several courses nearby and generally a calmer, more grown up alternative to Playa de las Americas while still being close to the airport.</p>
+      </div>
+    </div>
+    {jake_tip("First time to Tenerife and want the classic mix of sun, pools and nightlife on your doorstep? Costa Adeje or Los Cristianos. Done that before and want to see a different side of the island? Puerto de la Cruz is a proper change of pace.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">TITSA buses run a genuinely good network covering the whole island, including a fast, frequent route between the south resorts, the airport and Santa Cruz. Taxis are metered and easy to find in resort areas. Tenerife is a big island though, roughly 50 miles from north to south, so if you want to explore Teide, Masca or the north coast independently, hiring a car for a day or two is by far the easiest way to do it, and roads are generally in good condition.</p>
+    <p style="margin-top:14px;">Tenerife drives on the right, and the main TF-1 and TF-5 motorways connect the south and north of the island quickly, though the roads up into Teide National Park and around Masca are narrow and winding, so allow more time than the distance alone suggests.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;">A shortlist of the bookable tours and activities around Tenerife worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="407436,407432,51783,819446"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/tenerife-l350/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/tenerife-l350/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Tenerife &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Lounge chairs by a pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Parque Del Sol</h3>
+        <p>A 3&#9733; apartment style hotel in Costa Adeje, a short walk from the beach and the Adeje coast's shops and restaurants, with two outdoor pools, sun terraces and self catering studios and apartments. A solid, no frills base for anyone happy to eat out and explore rather than stay all inclusive. Bookable through TUI and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1727994962758-ac74defe0bb9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Water slide next to a resort swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">HOVIMA La Pinta Beachfront Family Hotel</h3>
+        <p>A 4&#9733; beachfront hotel right on the seafront in Costa Adeje, with direct access to La Pinta beach, an outdoor pool with waterslides, a kids' club, mini golf and entertainment laid on throughout the day. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for the north coast</div>
+        <img src="https://images.unsplash.com/photo-1654363539422-76c4e6b93b3d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset by a hotel pool in Puerto de la Cruz, Tenerife" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">H10 Tenerife Playa</h3>
+        <p>A 4&#9733; hotel right on the black sand Playa Martianez in Puerto de la Cruz, with an outdoor pool, spa, gym and easy walking distance into the old town and Loro Parque. The pick for anyone basing themselves on the north coast rather than the south. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury &amp; adults only</div>
+        <img src="https://images.unsplash.com/photo-1769149255670-aa0ad6428dd6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort swimming pool overlooking the ocean and beach" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Royal Hideaway Corales Beach, Adults Only</h3>
+        <p>A 5&#9733; adults only hotel in La Caleta, Costa Adeje, with three infinity pools facing straight out to sea, several restaurants including a Michelin starred option, a large spa and direct access to a quiet stretch of coastline. One of the smartest addresses on the island. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond just the resort.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1551341900-ee1c29a24544?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Volcanic landscape of Teide National Park, Tenerife" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Mount Teide National Park</h3>
+        <p>Spain's highest peak at 3,715 metres and a UNESCO World Heritage Site, with a cable car running most of the way to the summit and genuinely otherworldly volcanic scenery. Book the cable car well ahead in peak season, and dress warmer than you'd expect, since it's noticeably cooler up here than at sea level.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1692728606110-963cb83e03c9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Mountain village of Masca, Tenerife" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Masca village</h3>
+        <p>A tiny village perched dramatically in a mountain gorge in the northwest, reached by one of the most spectacular, winding roads on the island. The Masca Gorge hike down to the sea is a well known but genuinely tough walk, best done with a guide or as a booked tour.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1709828238460-21fc7a22e0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Colourful buildings in La Laguna, Tenerife" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">La Laguna</h3>
+        <p>Tenerife's old capital and a UNESCO World Heritage Site in its own right, with a grid of cobbled streets lined with colourful colonial era buildings, a lively student population and some of the island's best tapas bars. A short drive or tram ride from Santa Cruz.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1655317175341-bf1d91326aac?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cliffs above the sea near Los Gigantes, Tenerife" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Los Gigantes cliffs</h3>
+        <p>Sheer sea cliffs rising up to 800 metres straight out of the Atlantic on the west coast, best appreciated from a boat trip out of the harbour, which also gives you one of the best chances on the island of spotting pilot whales and dolphins in their natural habitat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Tenerife uses the Euro, so prices below are shown in pounds with the Euro equivalent alongside, based on a rate of roughly &pound;1 to &euro;1.16. These are crowd-sourced averages for the island, and prices in resort areas geared towards tourists can run a little higher than this, especially in Costa Adeje.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;12.95 (about &euro;15.00)</td></tr>
+          <tr><td>Draft beer, half litre, bar or restaurant</td><td>&pound;1.80 (about &euro;2.10)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.70 (about &euro;2.00)</td></tr>
+          <tr><td>Soft drink, 330ml</td><td>&pound;1.20 (about &euro;1.40)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.80 (about &euro;0.92)</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;2.60 (about &euro;3.00)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced averages via Hikersbay for Tenerife, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Most all-inclusive resorts in the south cover food and local drinks on-site, so your spending money is mostly for excursions, taxis and the odd meal out in Puerto de la Cruz, La Laguna or Santa Cruz.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (&euro;)</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, two round pins, same as most of mainland Europe. UK plugs need an adapter, not a voltage converter</td></tr>
+          <tr><td>Language</td><td>Spanish, with English widely spoken in resort areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 4 to 4.5 hours direct</td></tr>
+          <tr><td>Time difference</td><td>None, Tenerife is on the same time as the UK year round</td></tr>
+          <tr><td>Driving</td><td>Right hand side, opposite to the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Wojciech Portnicki, Eugen Sacal&icirc;, Andreas M, Boris Busorgin, Sergio Guardiola Herrador, Bastian Pudill, Christian Lambert, Meg von Haartman, Estonia Incorporated, Long Chung, Joshua Humpfer, Nicole Arango Lang and Carolina Nichitin via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Tenerife for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Spain, or somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+tenerife_body = tenerife_body.replace("::NEWSLETTER::", newsletter_section())
+
+TENERIFE_SCHEMA = article_and_faq_schema(
+    "Tenerife: Jake's Destination Guide",
+    "Jake's honest guide to Tenerife: Costa Adeje, Los Cristianos, Puerto de la Cruz and Mount Teide, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "tenerife.html",
+    "https://images.unsplash.com/photo-1558363819-03f41af0a94d?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Tenerife?", "Tenerife works as a year round destination, which is its biggest draw. June to September is hottest and busiest, with the highest prices around the Spanish summer holidays. October, November, April and May are excellent value shoulder months with warm, reliable weather. December to March is when Tenerife earns its winter sun reputation, with daytime temperatures still in the high teens while the rest of Europe is cold, though this is also the wettest stretch of the year."),
+        ("Which area of Tenerife should I choose?", "Costa Adeje is the most upmarket resort area and the obvious first choice for couples and families wanting a polished resort holiday close to Siam Park. Los Cristianos and Playa de las Americas sit right next door and suit a livelier, more budget friendly stay with the island's best nightlife. Puerto de la Cruz on the north coast is greener and more traditionally Canarian, and suits anyone who's done the south before and wants a change of pace."),
+        ("How long is the flight to Tenerife, and which airport will I land at?", "Flight time from the UK is typically around 4 to 4.5 hours direct. Almost all UK package holidays land at Tenerife South Airport (TFS), which is close to the southern resorts of Costa Adeje, Los Cristianos and Playa de las Americas, at around 15 to 45 minutes away. If you're staying in Puerto de la Cruz or the north coast, that transfer from TFS stretches to around 60 to 90 minutes."),
+    ]
+)
+with open(os.path.join(SITE, "tenerife.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Tenerife: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Tenerife: Costa Adeje, Los Cristianos, Puerto de la Cruz and Mount Teide, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        tenerife_body,
+        extra_schema=TENERIFE_SCHEMA
+    ))
+print("tenerife.html written")
+
 
 
 # ---------------- TRAVEL TIPS (index) ----------------
@@ -7259,6 +7546,7 @@ SITEMAP_PAGES = [
     ("turkey-bodrum.html", "0.6"),
     ("majorca.html", "0.6"),
     ("menorca.html", "0.6"),
+    ("tenerife.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
