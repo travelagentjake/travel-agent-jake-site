@@ -4734,6 +4734,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1687992176093-6417a93fa3d0?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Traveller walking through an airport departure hall with hand luggage",
     },
+    {
+        "slug": "hidden-disability-travel-sunflower-lanyard.html",
+        "meta": "Accessibility",
+        "title": "Travelling with a hidden disability: the Sunflower lanyard and your rights",
+        "excerpt": "Which UK airports actually recognise the Sunflower lanyard, how to book assistance properly with your airline or tour operator, your consumer rights if it goes wrong, and practical tips for booking a holiday around a hidden disability.",
+        "image": "https://images.unsplash.com/photo-1532968899863-5b52ef155913?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "People walking through a sunlit airport terminal",
+    },
 ]
 
 def tip_card(post):
@@ -8110,6 +8118,175 @@ with open(os.path.join(SITE, "100ml-liquid-rule-uk-airports.html"), "w", encodin
 print("100ml-liquid-rule-uk-airports.html written")
 
 
+# ---------------- TRAVEL TIPS: Travelling with a hidden disability, the Sunflower lanyard and your rights ----------------
+hidden_disability_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>TRAVELLING WITH A HIDDEN DISABILITY: THE SUNFLOWER LANYARD AND YOUR RIGHTS</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">A lot of visitors have asked me about this, so here it is properly. What the Sunflower lanyard actually does, which UK airports genuinely recognise it, how to book assistance with your airline or tour operator so it actually gets sorted, what you are legally entitled to if it goes wrong, and how to think about booking accommodation with a hidden disability in mind.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What the Sunflower lanyard actually does</h2>
+    <img src="https://images.unsplash.com/photo-1532968899863-5b52ef155913?auto=format&fit=crop&w=1600&h=700&q=80" alt="People walking through a sunlit airport terminal" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The Hidden Disabilities Sunflower is a free, voluntary lanyard, and sometimes a matching pin or card, that quietly tells trained staff you might need a bit more time, patience or support. It does not say what your condition is, and you never have to explain it to anyone to get one. It covers things like autism, ADHD, chronic pain, anxiety, dementia, diabetes, hearing or sight loss, stoma or ostomy conditions and plenty more that are not visible from the outside.</p>
+    <p style="margin-top:14px;">It is worth being clear about what it is not. It is not a fast pass through security, and at most airports it will not get you into a priority lane on its own. What it actually buys you is staff who have been trained to notice it and respond calmly, patiently and without you having to explain yourself in a busy, loud environment.</p>
+    {jake_tip("Wearing the lanyard is entirely optional and reversible. You can pick one up on the day and only put it on for the bits of the journey you find hardest, security is the one most people mention, then take it off again afterwards.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Which UK airports actually recognise it</h2>
+    <img src="https://images.unsplash.com/photo-1698760000085-1b0af6df057e?auto=format&fit=crop&w=1600&h=700&q=80" alt="Traveller passing through an airport security checkpoint" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The good news is the scheme is now recognised at the vast majority of the UK's major airports, confirmed directly from each airport's own accessibility pages. It is not automatic everywhere though, so I would still check your specific airport if you have not flown from it before.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Airport</th><th>Recognises the Sunflower lanyard</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Heathrow</td><td>Yes</td></tr>
+          <tr><td>Gatwick</td><td>Yes</td></tr>
+          <tr><td>Manchester</td><td>Yes</td></tr>
+          <tr><td>Stansted</td><td>Yes</td></tr>
+          <tr><td>Luton</td><td>Yes</td></tr>
+          <tr><td>Birmingham</td><td>Yes</td></tr>
+          <tr><td>Bristol</td><td>Yes</td></tr>
+          <tr><td>East Midlands</td><td>Yes, alongside their own green lanyard scheme</td></tr>
+          <tr><td>Edinburgh</td><td>Yes</td></tr>
+          <tr><td>Glasgow</td><td>Yes</td></tr>
+          <tr><td>Liverpool John Lennon</td><td>Yes</td></tr>
+          <tr><td>Leeds Bradford</td><td>Yes</td></tr>
+          <tr><td>Cardiff</td><td>Yes</td></tr>
+          <tr><td>Aberdeen</td><td>Yes</td></tr>
+          <tr><td>Belfast International</td><td>Yes</td></tr>
+          <tr><td>Belfast City</td><td>Yes</td></tr>
+          <tr><td>Teesside International</td><td>Yes</td></tr>
+          <tr><td>London Southend</td><td>Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Confirmed directly against each airport's own accessibility pages. Newcastle and some smaller regional airports run their own hidden disability support without necessarily branding it &quot;Sunflower&quot; specifically, so if your airport is not on this list, check its own accessibility page rather than assuming either way.</p>
+    {jake_tip("Most UK airports give the lanyard out for free at their assistance desk or reception on the day, you do not need to order or pay for one in advance. A small number, including at least one Spanish airport network, also run their own similar badge scheme locally if you would rather sort something before you fly.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>How to actually book assistance properly</h2>
+    <img src="https://images.unsplash.com/photo-1730288278805-42d46b17438d?auto=format&fit=crop&w=1600&h=700&q=80" alt="Passengers queuing at airport check-in desks" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The lanyard is only one part of this. The part that actually gets you a wheelchair, a quieter route through the airport, priority boarding or an adapted seat is booking assistance properly with your airline, travel agent or tour operator, and the golden rule is to do it as early as possible rather than mentioning it at the gate.</p>
+    <p style="margin-top:14px;">As a general rule, the Civil Aviation Authority recommends requesting assistance when you book, or at least 48 hours before you fly, through your airline, travel agent or tour operator. But the exact timings can vary more than people expect, so it is worth checking the specifics with whoever you are flying or booking with:</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>General airport and flight assistance:</b> most airlines and tour operators, including Jet2holidays and TUI, ask for at least 48 hours notice. Glasgow Airport specifically mentions booking with your airline at least 36 hours ahead to guarantee hidden disability support throughout your journey, so treat 48 hours as the safe default and check if your airline asks for less.</span></li>
+      <li><span class="num">2</span><span><b>Adapted hotel rooms and adapted transfers:</b> if you need step free access, a walk in shower or an accessible transfer vehicle at your resort, Jet2holidays asks for at least 21 days notice, since these often have to be specifically allocated or arranged rather than assigned on the day.</span></li>
+      <li><span class="num">3</span><span><b>Medical clearance paperwork:</b> if your airline needs a fitness to fly form or similar from a GP for a specific condition, Jet2holidays' own guidance says this needs to be submitted between 30 days and 48 hours before you travel, so leave enough time to actually get an appointment.</span></li>
+      <li><span class="num">4</span><span><b>Get it in writing:</b> once you have booked assistance, ask for written confirmation of exactly what has been arranged, and keep it. It is the easiest way to sort out any mix up on the day, and it is what you will need if you ever have to complain afterwards.</span></li>
+    </ul>
+    {jake_tip("Tell me when you book, not just the airline. If I know upfront, I can flag it with the tour operator at the same time as I book your adapted room or transfer, rather than you having to chase it all up separately closer to departure.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Your rights if it does not go to plan</h2>
+    <img src="https://images.unsplash.com/photo-1721826054295-6daf6326d748?auto=format&fit=crop&w=1600&h=700&q=80" alt="Luggage carts lined up at an airport check-in area" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This is not just goodwill on the airline's part, it is UK law. Regulation (EC) No 1107/2006, retained in UK law after Brexit and backed by the Civil Aviation (Access to Air Travel for Disabled Persons and Persons with Reduced Mobility) Regulations 2007, sets out what you are actually entitled to when flying from a UK airport, or to one on a UK or EU airline.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>An airline cannot refuse to carry you because of a disability or reduced mobility.</b> They can only turn down a booking on genuine, specific safety grounds, and they are expected to make reasonable efforts to check whether that actually applies before doing so.</span></li>
+      <li><span class="num">2</span><span><b>Assistance has to be free.</b> It is paid for through a charge airports levy on every airline using them, spread across all passengers, not billed to you individually for asking.</span></li>
+      <li><span class="num">3</span><span><b>Lost or damaged mobility equipment should be compensated.</b> If a wheelchair or other mobility aid is lost or damaged during handling at the airport or on the aircraft, you are entitled to compensation under the applicable international, UK and airline liability rules.</span></li>
+      <li><span class="num">4</span><span><b>You can complain, and escalate it, if it goes wrong.</b> Raise it with the airline or airport straight away so they have the chance to fix it on the day. If that does not resolve it, follow their own formal complaints procedure, and if you are still unhappy you can take it to the Civil Aviation Authority.</span></li>
+    </ul>
+    {jake_tip("Keep hold of your written assistance confirmation, boarding passes and any messages with the airline if something goes wrong. It makes a complaint or a compensation claim for damaged equipment far quicker to sort out.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Booking a holiday or hotel with a hidden disability in mind</h2>
+    <img src="https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&w=1600&h=700&q=80" alt="Calm, quiet hotel room with plain white bedding" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Assistance at the airport is only half the trip. A few practical things make the accommodation and resort side of a holiday easier too, and most of it just comes down to telling the right person early rather than hoping it sorts itself out on arrival.</p>
+    <div class="jake-card" style="margin-top:18px;">
+      <p style="margin:0;"><b>Tell your travel agent or tour operator at the point of booking</b>, not just the airline. It means requests like a quiet room away from lifts and bars, or a room close to reception rather than at the far end of a resort, can actually be logged against your booking rather than requested on the day.</p>
+      <p style="margin-top:14px; margin-bottom:0;"><b>Repeat it to staff when you arrive.</b> Even after your provider knows, ABTA's own accessible travel guidance recommends mentioning it again to resort staff and hotel reception directly, since the person checking you in is not always the person who saw the original booking note.</p>
+      <p style="margin-top:14px; margin-bottom:0;"><b>Ask for familiarisation resources if they help.</b> Some airports and tour operators can provide maps, photos or short videos of the airport or resort in advance, which can take a lot of the anxiety out of an unfamiliar place before you even travel.</p>
+      <p style="margin-top:14px; margin-bottom:0;"><b>Carry documentation for anything time sensitive.</b> Prescriptions, a doctor's letter or medical information for conditions like diabetes or an ostomy can smooth things over quickly if you are asked about medication or equipment at security.</p>
+      <p style="margin-top:14px; margin-bottom:0;"><b>Declare pre-existing conditions to your travel insurer.</b> This is separate from airport assistance, but it matters just as much. Not declaring a relevant condition can affect whether a claim is valid if something goes wrong on the trip.</p>
+      <p style="margin-top:14px; margin-bottom:0;"><b>Ask about hotel and resort awareness directly.</b> Some hotel chains in popular package holiday destinations are increasingly Sunflower aware or run their own similar schemes, but this varies a lot by property, so it is always worth asking your rep or the hotel directly rather than assuming.</p>
+    </div>
+    {jake_tip("If you are flying to Spain, Aena's own disability assistance badge is a genuine alternative or addition to the Sunflower lanyard at Spanish airports specifically, and TUI can help you order one ahead of a Spanish holiday if that suits you better.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">What is the Sunflower lanyard, and do I have to explain my condition to get one?</h3>
+      <p>The Sunflower lanyard is a free, discreet way to let staff know you may need extra support or a little more time, without having to explain or prove your specific condition. It is entirely voluntary, and wearing one does not require you to disclose any details beyond simply being seen.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do all UK airports recognise the Sunflower lanyard?</h3>
+      <p>Most of the UK's major airports do, including Heathrow, Gatwick, Manchester, Stansted, Luton, Birmingham, Bristol, East Midlands, Edinburgh, Glasgow, Liverpool, Leeds Bradford, Cardiff, Aberdeen, Belfast International, Belfast City, Teesside International and London Southend. It is not automatically guaranteed everywhere though, especially at smaller regional airports, so it is worth checking your specific airport's own website if you have not flown from it before.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How far in advance should I book assistance for a flight or holiday?</h3>
+      <p>As a general rule, request assistance from your airline, travel agent or tour operator at least 48 hours before you fly. Some elements need much more notice though, Jet2holidays for example asks for at least 21 days for an adapted room or adapted transfer, so it is always worth asking as early as possible rather than leaving it until the week before.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What happens if assistance is not provided, or my mobility equipment is lost or damaged?</h3>
+      <p>Raise it with the airline or airport straight away so they have the chance to put it right on the day. If that does not resolve it, follow their formal complaints procedure, and if you are still unhappy you can escalate it to the Civil Aviation Authority. If a wheelchair or other mobility equipment is lost or damaged in the airport or on the aircraft, you are entitled to compensation under UK law.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Planning a holiday around a hidden disability?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I flag assistance requests and adapted room or transfer needs the moment I book your holiday, not as an afterthought. Message me and I will build it into your plan from the start.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+hidden_disability_body = hidden_disability_body.replace("::NEWSLETTER::", newsletter_section())
+
+HIDDEN_DISABILITY_SCHEMA = article_and_faq_schema(
+    "Travelling with a Hidden Disability: The Sunflower Lanyard and Your Rights",
+    "Which UK airports recognise the Hidden Disabilities Sunflower lanyard, how to book airline and airport assistance properly, your consumer rights under UK air passenger regulations, and practical tips for booking a holiday or accommodation around a hidden disability.",
+    "hidden-disability-travel-sunflower-lanyard.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("What is the Sunflower lanyard, and do I have to explain my condition to get one?", "The Sunflower lanyard is a free, discreet way to let staff know you may need extra support or a little more time, without having to explain or prove your specific condition. It is entirely voluntary, and wearing one does not require you to disclose any details beyond simply being seen."),
+        ("Do all UK airports recognise the Sunflower lanyard?", "Most of the UK's major airports do, including Heathrow, Gatwick, Manchester, Stansted, Luton, Birmingham, Bristol, East Midlands, Edinburgh, Glasgow, Liverpool, Leeds Bradford, Cardiff, Aberdeen, Belfast International, Belfast City, Teesside International and London Southend. It is not automatically guaranteed everywhere though, especially at smaller regional airports, so it is worth checking your specific airport's own website if you have not flown from it before."),
+        ("How far in advance should I book assistance for a flight or holiday?", "As a general rule, request assistance from your airline, travel agent or tour operator at least 48 hours before you fly. Some elements need much more notice though, Jet2holidays for example asks for at least 21 days for an adapted room or adapted transfer, so it is always worth asking as early as possible rather than leaving it until the week before."),
+        ("What happens if assistance is not provided, or my mobility equipment is lost or damaged?", "Raise it with the airline or airport straight away so they have the chance to put it right on the day. If that does not resolve it, follow their formal complaints procedure, and if you are still unhappy you can escalate it to the Civil Aviation Authority. If a wheelchair or other mobility equipment is lost or damaged in the airport or on the aircraft, you are entitled to compensation under UK law."),
+    ]
+)
+
+with open(os.path.join(SITE, "hidden-disability-travel-sunflower-lanyard.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Travelling with a Hidden Disability: The Sunflower Lanyard and Your Rights | Travel Agent Jake",
+        "Which UK airports recognise the Hidden Disabilities Sunflower lanyard, how to book airline and airport assistance properly, your consumer rights under UK air passenger regulations, and practical tips for booking a holiday or accommodation around a hidden disability.",
+        "travel-tips.html",
+        hidden_disability_body,
+        extra_schema=HIDDEN_DISABILITY_SCHEMA
+    ))
+print("hidden-disability-travel-sunflower-lanyard.html written")
+
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -8142,6 +8319,7 @@ SITEMAP_PAGES = [
     ("flight-delay-cancellation-compensation.html", "0.7"),
     ("choosing-the-right-cruise-line.html", "0.7"),
     ("100ml-liquid-rule-uk-airports.html", "0.7"),
+    ("hidden-disability-travel-sunflower-lanyard.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
