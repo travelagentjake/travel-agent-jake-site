@@ -1500,6 +1500,13 @@ DESTINATION_POSTS = [
         "image": "https://images.unsplash.com/photo-1458628370679-1f7b2f6bd22b?auto=format&fit=crop&w=1200&q=80",
     },
     {
+        "slug": "gran-canaria.html",
+        "meta": "Gran Canaria",
+        "title": "Gran Canaria",
+        "excerpt": "Maspalomas, Playa del Ingles, Puerto Rico, Puerto de Mogan and Las Palmas: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1589865807311-8dd817a572c4?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
         "slug": "tenerife.html",
         "meta": "Tenerife",
         "title": "Tenerife",
@@ -4353,6 +4360,285 @@ with open(os.path.join(SITE, "tenerife.html"), "w", encoding="utf-8") as f:
         extra_schema=TENERIFE_SCHEMA
     ))
 print("tenerife.html written")
+
+gran_canaria_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>GRAN CANARIA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Gran Canaria, from the dune backed south around Maspalomas and Playa del Ingles to the quieter fishing harbours of Puerto de Mogan and the capital, Las Palmas, in the north.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Gran Canaria</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1589865807311-8dd817a572c4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Maspalomas, Gran Canaria, Spain" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Gran Canaria gets called a miniature continent, and once you have driven across it you understand why. It is the third biggest of the Canary Islands, and inside one relatively small landmass you get golden desert style dunes, a mountainous, pine covered interior with its own microclimate, and a proper working capital city with a long sandy beach right in the middle of it. Most people know it for Maspalomas, where the famous dunes roll right down to the sea, but that is really only one side of the island.</p>
+    <p style="margin-top:14px;">Like Tenerife, Gran Canaria sits far enough south to stay mild all year round, so it works just as well for February half term as it does for a July family holiday. The south, around Maspalomas, Playa del Ingles and Puerto Rico, is where almost all UK package holidays are based, and it is dry, sunny and built up with resort hotels, waterparks and a big choice of restaurants and nightlife. Head north instead and the island turns green and mountainous, with Las Palmas offering city beaches and proper Canarian culture, and the interior around Tejeda and Roque Nublo giving you genuine hiking country only an hour or so from the beach.</p>
+    {jake_tip("Gran Canaria is one of the few places in Europe where you can genuinely combine a beach holiday with mountain scenery and a city break, all without changing island. If a client wants more than sun loungers, this is the Canary Island I point them to first.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the standard package length, and because the flight is a similar length to Tenerife, at around four to four and a half hours, short breaks of two or three nights are much less common. A week works well for a straightforward resort stay, while ten to fourteen nights gives you room to split time between the south coast and somewhere quieter, such as Puerto de Mogan or Las Palmas.</p>
+    <p style="margin-top:14px;">Families are extremely well catered for around Maspalomas and Playa del Ingles, with Aqualand Maspalomas, Palmitos Park and a wide choice of hotels with kids' clubs all close by. Couples often head for Puerto de Mogan or Puerto Rico for a calmer, more scenic stay, and walkers and hikers come specifically for the mountainous interior around Tejeda and Roque Nublo. Las Palmas suits anyone after a proper city beach and a stronger dose of local culture, and it is also a strong pick for a group after nightlife, with the Yumbo Centre in Playa del Ingles being the island's best known strip of bars and clubs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Gran Canaria has one airport, Gran Canaria Airport (LPA), on the east coast between Las Palmas and the southern resorts. easyJet, Jet2, TUI, Ryanair and British Airways all fly direct from a wide range of UK airports, with flight time typically around four to four and a half hours depending on where you fly from.</p>
+    <p style="margin-top:14px;">From LPA, Maspalomas and Playa del Ingles are around 25 minutes by road, and Puerto Rico is around 35 minutes. Puerto de Mogan, further along the south west coast, is around 50 minutes. Las Palmas, at the other end of the island, is the closest resort area to the airport at around 20 minutes.</p>
+    {jake_tip("If your client is booking Maspalomas, Playa del Ingles or Puerto Rico, the transfer is short and simple. Puerto de Mogan is further, so factor that into how much of the first evening you actually want to lose to a transfer.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Gran Canaria has a mild, dry climate that changes surprisingly little through the year in the south, which is exactly why it works so well as a winter sun destination. The north and the mountainous interior are noticeably cooler and wetter at any time of year. These figures are long-term climate averages for the island, so treat them as a guide rather than a forecast for your specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>21&deg;C</td><td>15&deg;C</td><td>19&deg;C</td><td>Mild and sunny in the south, the wettest month of the year on average</td></tr>
+          <tr><td>February</td><td>21&deg;C</td><td>15&deg;C</td><td>19&deg;C</td><td>Similar to January, still a reliable winter sun pick</td></tr>
+          <tr><td>March</td><td>22&deg;C</td><td>16&deg;C</td><td>19&deg;C</td><td>Warming up, a good value shoulder month</td></tr>
+          <tr><td>April</td><td>23&deg;C</td><td>17&deg;C</td><td>19&deg;C</td><td>Pleasant and drier, popular for Easter holidays</td></tr>
+          <tr><td>May</td><td>24&deg;C</td><td>18&deg;C</td><td>20&deg;C</td><td>Reliable sunshine, sea starting to warm up nicely</td></tr>
+          <tr><td>June</td><td>26&deg;C</td><td>19&deg;C</td><td>21&deg;C</td><td>Warm and dry, peak season getting underway</td></tr>
+          <tr><td>July</td><td>27&deg;C</td><td>21&deg;C</td><td>22&deg;C</td><td>Hot with almost no rain, one of the busiest months</td></tr>
+          <tr><td>August</td><td>28&deg;C</td><td>22&deg;C</td><td>23&deg;C</td><td>Hottest month, extremely busy with Spanish school holidays too</td></tr>
+          <tr><td>September</td><td>27&deg;C</td><td>22&deg;C</td><td>23&deg;C</td><td>Still hot, sea at its warmest, crowds start easing</td></tr>
+          <tr><td>October</td><td>26&deg;C</td><td>20&deg;C</td><td>23&deg;C</td><td>Warm with a little more rain, a good value month</td></tr>
+          <tr><td>November</td><td>24&deg;C</td><td>19&deg;C</td><td>22&deg;C</td><td>Mild but wetter, especially inland and in the north</td></tr>
+          <tr><td>December</td><td>22&deg;C</td><td>17&deg;C</td><td>21&deg;C</td><td>Mild winter sun, popular over the Christmas holidays</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for the island, sourced via climatestotravel.com and weather2travel.com.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">Gran Canaria works all year round, which is its biggest selling point alongside Tenerife. June to September is hottest and busiest, with temperatures in the mid to high twenties and the highest prices of the year, especially around the Spanish summer holidays in August. October, November, April and May are excellent value shoulder months with warm, reliable weather and noticeably lower prices. December to March is when the island earns its winter sun reputation, with daytime temperatures still in the low twenties while the rest of Europe is cold, though this is also when the south sees its most rain, mostly falling in short bursts rather than settling in for days.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Gran Canaria covers a lot of ground for its size, and where you base yourself changes the holiday considerably.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1722524740476-9baf606ecada?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Walkway towards the Maspalomas Dunes, Gran Canaria" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Maspalomas</h3>
+        <p>The island's best known resort, built around the famous dunes and a long sandy beach backed by a lighthouse. A smart, spread out area with a strong choice of hotels, golf courses and restaurants, and the natural first pick for couples and families wanting a polished base with plenty of space.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1496075205525-db0d47b67bb8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beach at Playa del Ingles, Gran Canaria" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Playa del Ingles</h3>
+        <p>Right next to Maspalomas and easy to combine on foot, this is the island's liveliest resort, home to the Yumbo Centre's bars and clubs plus Aqualand Maspalomas nearby. A good value, well connected base for groups, younger couples and anyone who wants nightlife on the doorstep.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1565066021936-08655d8ec3ab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Buildings beside the ocean at Puerto Rico, Gran Canaria" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Puerto Rico</h3>
+        <p>A purpose built resort set in a sheltered bay, with two calm, family friendly beaches and some of the island's most reliably sunny weather. Popular with families thanks to its gentle waters, and generally better value than Maspalomas for a similar standard of hotel.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1670238058331-6c7139fc2bed?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Harbour and waterfront buildings at Puerto de Mogan, Gran Canaria" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Puerto de Mogan</h3>
+        <p>Nicknamed Little Venice for its small canals and bridges, this working fishing harbour turned resort is the most laid back base on the south coast, with a Friday market and a genuinely pretty marina. Suits couples and anyone who has done the bigger resorts before and wants somewhere quieter.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1744641080641-6aa3dee47ff7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Historic architecture in Las Palmas de Gran Canaria" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Las Palmas</h3>
+        <p>The island's capital, with a three kilometre city beach, Las Canteras, that regularly ranks among the best urban beaches in Europe, plus the cobbled old town of Vegueta on its doorstep. Suits couples and culture fans after a proper city stay rather than a purpose built resort.</p>
+      </div>
+    </div>
+    {jake_tip("First time to Gran Canaria and want the classic mix of dunes, sun and choice on your doorstep? Maspalomas. Been before, or after somewhere quieter and more photogenic? Puerto de Mogan is a proper change of pace.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Global runs a comprehensive island wide bus network, including frequent services linking the southern resorts, the airport and Las Palmas. Taxis are metered and easy to find in resort areas. The island is around 30 miles across, but the interior roads climb quickly into the mountains, so if you want to explore Roque Nublo, Tejeda or the north coast independently, hiring a car for a day or two is by far the easiest way to do it.</p>
+    <p style="margin-top:14px;">Gran Canaria drives on the right, and the GC-1 and GC-2 motorways connect the south, the capital and the airport quickly, though the roads up into the interior around Tejeda and Artenara are narrow and winding, so allow more time than the distance alone suggests.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;">A shortlist of the bookable tours and activities around Gran Canaria worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="430098,258742,803446,202429"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/gran-canaria-l418/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/gran-canaria-l418/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Gran Canaria &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1594433575301-cf59b8ada6b1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Pool at a budget friendly apartment complex" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">El Palmar</h3>
+        <p>Budget friendly self catering apartments in Playa del Ingles, a short walk from the resort centre and the beach, with an outdoor pool, a children's pool area and a rooftop terrace. A solid, no frills base for anyone happy to eat out and explore rather than stay all inclusive. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1638297184082-bd7fe6081c82?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Family swimming pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Servatur Puerto Azul</h3>
+        <p>A hilltop hotel in Puerto Rico with five outdoor pools including a children's pool, a splash park, a kids' club and playroom, plus two adults only pools for some peace and quiet. A genuine all rounder for families who still want a bit of space to themselves. Bookable through Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for couples, adults only</div>
+        <img src="https://images.unsplash.com/photo-1597390871277-666712598c1d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Adults only hotel pool with sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Nayra, Adults Only</h3>
+        <p>A stylish adults only hotel in Playa del Ingles, close to the Yumbo Centre and within walking distance of the Maspalomas dunes and beach, with a pool, sun loungers, a wellness area with sauna, and a gym. A relaxed, grown up base for couples who still want to be near the action. Bookable through easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1783599677031-29a65dc9bce0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Large luxury resort pool complex" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Lopesan Costa Meloneras Resort &amp; Spa</h3>
+        <p>A five star resort in Meloneras, right on the coast next to Maspalomas, with a lake style infinity pool, an extensive spa with a Himalayan salt cave and flotation pool, a casino and several restaurants. One of the smartest, most complete addresses on the island. Bookable through TUI and Jet2holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond just the resort.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1650558745786-f1909b9b9f83?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Roque Nublo rock formation, Gran Canaria" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Roque Nublo</h3>
+        <p>An 80 metre volcanic rock standing in the middle of the island's mountainous interior, and one of Gran Canaria's most photographed sights. A moderate, well marked walk leads up to its base, with views stretching to Mount Teide on Tenerife on a clear day.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1678978894159-c3952c79d876?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Historic square in the Vegueta old town, Las Palmas" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Vegueta, Las Palmas</h3>
+        <p>The old town of the capital, founded in 1478 and full of cobbled streets, colonial era buildings and the Santa Ana Cathedral. Home to Casa de Colon, said to be where Columbus stayed before crossing the Atlantic, and some of the island's best local restaurants.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1775585386097-054d7d2adeb1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Dune buggy in the desert landscape near Maspalomas" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Maspalomas Dunes</h3>
+        <p>A protected nature reserve of golden dunes running right down to the beach, best explored on foot early or late in the day when the sand has cooled, or by booking one of the buggy tours that run through the surrounding countryside.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1758621709950-131718f67528?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees and gardens typical of Palmitos Park, Gran Canaria" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Palmitos Park</h3>
+        <p>A large botanical park inland from Maspalomas with palm gardens, a butterfly house, and dolphin and exotic bird shows. A reliable half day out for families, and one of the island's most popular attractions outside the resorts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Gran Canaria uses the Euro, so prices below are shown in pounds with the Euro equivalent alongside, based on a rate of roughly &pound;1 to &euro;1.16. These are crowd-sourced averages for the island, and prices in resort areas geared towards tourists can run a little higher than this, especially around Maspalomas.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;11.20 (about &euro;13.00)</td></tr>
+          <tr><td>Draft beer, half litre, bar or restaurant</td><td>&pound;1.80 (about &euro;2.10)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.65 (about &euro;1.90)</td></tr>
+          <tr><td>Soft drink, 330ml</td><td>&pound;1.20 (about &euro;1.40)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.85 (about &euro;0.97)</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;2.60 (about &euro;3.00)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced averages via Hikersbay for Gran Canaria, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Most all-inclusive resorts in the south cover food and local drinks on-site, so your spending money is mostly for excursions, taxis and the odd meal out in Puerto de Mogan, Las Palmas or the interior villages.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (&euro;)</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, two round pins, same as most of mainland Europe. UK plugs need an adapter, not a voltage converter</td></tr>
+          <tr><td>Language</td><td>Spanish, with English widely spoken in resort areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 4 to 4.5 hours direct</td></tr>
+          <tr><td>Time difference</td><td>None, Gran Canaria is on the same time as the UK year round</td></tr>
+          <tr><td>Driving</td><td>Right hand side, opposite to the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Visit Maspalomas, Linda Gerbec, Paul Pastourmatzis, Sonder Quest, Guillaume Didelet, Alex Robertson, Ben Guernsey, Lucas Derksen, Ricardo Cifuentes T., Riccardo Monteleone, Christian Lambert, Conny Schneider, Rokas Skeivys and McFollis via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Gran Canaria for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Spain, or somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+gran_canaria_body = gran_canaria_body.replace("::NEWSLETTER::", newsletter_section())
+
+GRAN_CANARIA_SCHEMA = article_and_faq_schema(
+    "Gran Canaria: Jake's Destination Guide",
+    "Jake's honest guide to Gran Canaria: Maspalomas, Playa del Ingles, Puerto Rico, Puerto de Mogan and Las Palmas, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "gran-canaria.html",
+    "https://images.unsplash.com/photo-1589865807311-8dd817a572c4?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Gran Canaria?", "Gran Canaria works as a year round destination, which is its biggest draw alongside Tenerife. June to September is hottest and busiest, with the highest prices around the Spanish summer holidays. October, November, April and May are excellent value shoulder months with warm, reliable weather. December to March is when the island earns its winter sun reputation, with daytime temperatures still in the low twenties while the rest of Europe is cold, though this is also the wettest stretch of the year in the south."),
+        ("Which area of Gran Canaria should I choose?", "Maspalomas is the island's best known resort and the obvious first choice for couples and families wanting a polished base near the famous dunes. Playa del Ingles sits right next door and suits a livelier, better value stay with the island's best nightlife. Puerto Rico is a good pick for families thanks to its calm, sheltered beaches, Puerto de Mogan suits couples after somewhere quieter and more scenic, and Las Palmas suits anyone who wants a proper city beach and stronger local culture."),
+        ("How long is the flight to Gran Canaria, and how far is my hotel from the airport?", "Flight time from the UK is typically around 4 to 4.5 hours direct. Gran Canaria Airport sits on the east coast, with Maspalomas and Playa del Ingles around 25 minutes away, Puerto Rico around 35 minutes, Puerto de Mogan around 50 minutes, and Las Palmas the closest at around 20 minutes."),
+    ]
+)
+with open(os.path.join(SITE, "gran-canaria.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Gran Canaria: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Gran Canaria: Maspalomas, Playa del Ingles, Puerto Rico, Puerto de Mogan and Las Palmas, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        gran_canaria_body,
+        extra_schema=GRAN_CANARIA_SCHEMA
+    ))
+print("gran-canaria.html written")
+
 
 
 
@@ -7843,6 +8129,7 @@ SITEMAP_PAGES = [
     ("majorca.html", "0.6"),
     ("menorca.html", "0.6"),
     ("tenerife.html", "0.6"),
+    ("gran-canaria.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
