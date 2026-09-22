@@ -1513,6 +1513,13 @@ DESTINATION_POSTS = [
         "excerpt": "Costa Adeje, Los Cristianos, Puerto de la Cruz and Mount Teide: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1558363819-03f41af0a94d?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "lanzarote.html",
+        "meta": "Lanzarote",
+        "title": "Lanzarote",
+        "excerpt": "Puerto del Carmen, Playa Blanca, Costa Teguise, Puerto Calero and Famara: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1594798272586-2dfec126bb3d?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -4638,6 +4645,285 @@ with open(os.path.join(SITE, "gran-canaria.html"), "w", encoding="utf-8") as f:
         extra_schema=GRAN_CANARIA_SCHEMA
     ))
 print("gran-canaria.html written")
+
+lanzarote_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>LANZAROTE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Lanzarote, from the original resort strip of Puerto del Carmen to the smarter harbour town of Playa Blanca and the volcanic landscapes in between.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Lanzarote</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1594798272586-2dfec126bb3d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of Lanzarote's volcanic landscape, Canary Islands" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Lanzarote is the one I recommend to clients who have already done Tenerife or Gran Canaria and want something with a bit more character. The whole island sits on a genuinely alien volcanic landscape, all black lava fields and cinder cones, and thanks to strict building rules championed by the artist Cesar Manrique, you will not find the tower block skylines that some of the other Canary Islands have. Lanzarote was declared a UNESCO Biosphere Reserve in 1993, and it shows, this still feels like a proper island rather than a strip of hotels.</p>
+    <p style="margin-top:14px;">That does not mean it is short on the basics. You still get warm winters, reliable beaches and a good choice of package hotels, it is just wrapped around some genuinely unusual scenery. Puerto del Carmen remains the biggest and busiest resort with the most bars and restaurants on your doorstep, Playa Blanca in the south has grown into a smarter, more upmarket base, and Costa Teguise on the east coast is a quieter, more spread out choice that is popular with families and watersports fans.</p>
+    {jake_tip("If a client wants sun loungers and nothing else, I will point them at Tenerife or Gran Canaria. If they want that plus somewhere that actually looks and feels different once they step outside the hotel, Lanzarote is the Canary Island I send them to.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the standard package length here, and because the flight is a similar length to Tenerife and Gran Canaria at around four to four and a half hours, short two or three night breaks are uncommon. Most people book a week or two, and ten to fourteen nights works well if you want to split your stay between a resort base and somewhere quieter.</p>
+    <p style="margin-top:14px;">Families are well looked after in Puerto del Carmen and Costa Teguise, both with a good choice of pool hotels and kids' clubs. Couples tend to prefer Playa Blanca or Puerto Calero for a calmer, more polished stay, and independent travellers, walkers and surfers are increasingly drawn to Famara on the northwest coast, which has a completely different, wilder feel to the main resorts. Lanzarote also suits anyone who likes to get out and explore, with Timanfaya National Park, the wine region of La Geria and Cesar Manrique's architecture all genuinely worth building a day or two around.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Lanzarote has one main airport, Lanzarote Airport (ACE), a few miles south of the capital, Arrecife, and close to most of the island's resorts. It is well served from the UK, with direct flights on easyJet, Jet2 and TUI among others, and flight time is typically around four to four and a half hours depending on where you fly from.</p>
+    <p style="margin-top:14px;">Transfer times from the airport are short compared to some of the other Canary Islands. Puerto del Carmen and Costa Teguise are both around 10 to 15 minutes away, and Puerto Calero, just along the coast from Puerto del Carmen, is a similarly quick run. Playa Blanca, in the south of the island, takes longer at around 30 to 40 minutes. Famara, on the northwest coast, is the furthest of the resorts covered here, so allow closer to 45 minutes.</p>
+    {jake_tip("Puerto del Carmen and Costa Teguise are the two resorts with the shortest transfer, which is worth knowing if you are booking a short notice deal and want to keep travel time to a minimum.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Lanzarote sits at the eastern edge of the Canary Islands, closest to the coast of Africa, which gives it a warm, dry climate that changes very little through the year. These figures are long-term climate averages for the island, so treat them as a guide rather than a forecast for your specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>20&deg;C</td><td>13&deg;C</td><td>19&deg;C</td><td>Mild winter sun, one of the wetter months of the year on average</td></tr>
+          <tr><td>February</td><td>20&deg;C</td><td>13&deg;C</td><td>18&deg;C</td><td>Similar to January, a reliable winter sun pick</td></tr>
+          <tr><td>March</td><td>21&deg;C</td><td>14&deg;C</td><td>18&deg;C</td><td>Warming up, good value shoulder month</td></tr>
+          <tr><td>April</td><td>22&deg;C</td><td>14&deg;C</td><td>18&deg;C</td><td>Pleasant and drier, popular for Easter holidays</td></tr>
+          <tr><td>May</td><td>23&deg;C</td><td>15&deg;C</td><td>19&deg;C</td><td>Reliable sunshine, sea starting to warm up</td></tr>
+          <tr><td>June</td><td>25&deg;C</td><td>17&deg;C</td><td>20&deg;C</td><td>Warm and dry, peak season getting underway</td></tr>
+          <tr><td>July</td><td>27&deg;C</td><td>19&deg;C</td><td>21&deg;C</td><td>Hot and almost no rain, one of the busiest months</td></tr>
+          <tr><td>August</td><td>28&deg;C</td><td>20&deg;C</td><td>22&deg;C</td><td>Hottest month, extremely busy with Spanish school holidays too</td></tr>
+          <tr><td>September</td><td>28&deg;C</td><td>20&deg;C</td><td>23&deg;C</td><td>Still hot, sea at its warmest, crowds start easing</td></tr>
+          <tr><td>October</td><td>25&deg;C</td><td>18&deg;C</td><td>22&deg;C</td><td>Warm with a little more rain, good value month</td></tr>
+          <tr><td>November</td><td>23&deg;C</td><td>16&deg;C</td><td>21&deg;C</td><td>Mild but wetter, especially later in the month</td></tr>
+          <tr><td>December</td><td>21&deg;C</td><td>14&deg;C</td><td>20&deg;C</td><td>Mild winter sun, popular over the Christmas holidays</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for the island, sourced via weather2travel.com.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">Lanzarote works as a year round destination in much the same way as Tenerife and Gran Canaria. June to September is hottest and busiest, with temperatures in the high twenties and the highest prices of the year, especially around the Spanish summer holidays in August. October, November, April and May are excellent value shoulder months with warm, reliable weather and noticeably lower prices. December to March is when Lanzarote earns its winter sun reputation, with daytime temperatures still in the low twenties while the rest of Europe is cold, though this is also when the island sees its most rain, mostly falling in short bursts rather than settling in for days.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Lanzarote's resorts are more spread out and have a lower rise feel than some of the other Canary Islands, and where you base yourself changes the holiday quite a bit.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1677494884114-49f927a04965?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Coastline near Puerto del Carmen, Lanzarote" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Puerto del Carmen</h3>
+        <p>The island's original and biggest resort, built along a long promenade beside Playa Grande and Playa de los Pocillos, with the widest choice of bars, restaurants and nightlife on Lanzarote. The obvious first choice for anyone wanting a straightforward, well established resort holiday close to the airport.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1599044259762-72838e281556?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Coastline at Playa Blanca, Lanzarote" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Playa Blanca</h3>
+        <p>Once a small fishing village in the south of the island, now a smarter, more upmarket resort with a proper old harbour and the Marina Rubicon development. Ferries run from here to Corralejo on neighbouring Fuerteventura, making it a good base for couples who fancy a day trip to another island.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1650625719304-9faf9d0eedca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Coastline at Costa Teguise, Lanzarote" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Costa Teguise</h3>
+        <p>A purpose built resort on the east coast, quieter and more spread out than Puerto del Carmen, with good beaches and a strong reputation for watersports, especially windsurfing at Playa de las Cucharas. A solid, family friendly alternative that is still close to the airport.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1709567063843-c0adc3820e60?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Marina at Puerto Calero, Lanzarote" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Puerto Calero</h3>
+        <p>A small, smart marina development just along the coast from Puerto del Carmen, built around a yacht harbour with a handful of good restaurants and a quieter, more boutique feel. Suits couples who want a calm base while still being a short drive from the bigger resort's amenities.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1650529196062-07770cb6c7b3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Famara beach beneath cliffs, Lanzarote" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Famara</h3>
+        <p>A laid back village beneath dramatic cliffs on the northwest coast, with a huge sweep of golden sand and Lanzarote's best surf. This is the wilder, more authentic side of the island rather than a package resort strip, and suits surfers, independent travellers and anyone road tripping around Lanzarote rather than staying put.</p>
+      </div>
+    </div>
+    {jake_tip("First time to Lanzarote and want the classic mix of pools, bars and an easy walk to the beach? Puerto del Carmen is the obvious start. Done that before and fancy somewhere quieter and more scenic? Playa Blanca or Puerto Calero are a proper step up in polish.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Lanzarote's Intercity bus network connects the main resorts with the capital, Arrecife, cheaply and reasonably frequently, and taxis are metered and easy to find in resort areas. That said, hiring a car for at least a day or two is genuinely worth it here, since some of the island's best attractions, Timanfaya National Park, the La Geria wine region, the volcanic caves in the north and Mirador del Rio, sit well outside the resorts and are not always practical to reach by bus.</p>
+    <p style="margin-top:14px;">Lanzarote drives on the right, and the main roads connecting the resorts and the capital are generally in good condition. Roads in the north of the island, especially around the volcanic caves and Mirador del Rio, are narrower and more winding, so allow a little extra time.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;">A shortlist of the bookable tours and activities around Lanzarote worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="28462,394542,401914,262927"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/lanzarote-l421/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/lanzarote-l421/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Lanzarote &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1569076635411-9b06466c06e7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Outdoor hotel pool under a clear sky" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Lanzarote Village</h3>
+        <p>A 4&#9733; hotel in Playa de los Pocillos, part of Puerto del Carmen, around 100 metres from the beach with an outdoor pool that includes a children's section and whirlpool, plus a bar and buffet restaurant. A solid, straightforward base close to the resort's shops and restaurants. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1673746214924-6ccd171a2c17?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Swimming pool surrounded by palm trees at a family resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">TUI BLUE Flamingo Beach</h3>
+        <p>An all-inclusive apartment resort in Playa Blanca, a short stroll from the beach, with three outdoor pools including a children's pool and splash pool, an indoor pool, and kids' clubs running six days a week for ages 0 to 17. Spacious one to three bedroom apartments with kitchenettes suit larger families well. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for Costa Teguise</div>
+        <img src="https://images.unsplash.com/photo-1682293850731-5c7094d4052b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort swimming pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Radisson Blu Resort, Lanzarote</h3>
+        <p>A 4&#9733; hotel right on the seafront in Costa Teguise, with several outdoor pools including an infinity pool, two heated pools, a spa with sauna and massage treatments, and an international buffet restaurant plus an a la carte Italian option. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury &amp; adults only</div>
+        <img src="https://images.unsplash.com/photo-1719221253506-57f70fadfd0d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of a resort infinity pool overlooking the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Barcelo Playa Blanca Royal Level, Adults Only</h3>
+        <p>A 4&#9733; adults only hotel right on the beachfront in Playa Blanca, near Marina Rubicon, with a large heated infinity pool, a full spa with a water circuit, sauna and Turkish bath, and several restaurants covering Canarian, Mediterranean and international menus. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond just the resort.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1574934282053-bf4d8c4b98ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Volcanic landscape of Timanfaya National Park, Lanzarote" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Timanfaya National Park</h3>
+        <p>A vast field of lava and cinder cones created by eruptions in the 1730s, explored on a guided coach route since walking off the marked paths is not allowed. El Diablo restaurant here famously grills food over the residual heat from magma just below the surface, a genuinely unusual touch.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1677494985765-fb583f3bed3e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Volcanic vineyards of La Geria, Lanzarote" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">La Geria wine region</h3>
+        <p>Vines grown individually in shallow pits dug into black volcanic gravel, each one protected by a small semicircular stone wall, an ingenious technique that traps overnight moisture in a place that barely sees rain. Several family run bodegas offer tastings of the local Malvasia Volcanica white wine.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1695458831099-e9b7998c9c85?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cesar Manrique inspired architecture and gardens, Lanzarote" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Cesar Manrique's legacy</h3>
+        <p>The artist and architect whose work shapes the whole island, best seen at the Fundacion Cesar Manrique, his former home built into volcanic bubbles in the lava rock, and the Jardin de Cactus, his final project, a cactus garden set inside an old quarry with over four thousand plants.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1597954276919-b31c167cecca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Jameos del Agua volcanic cave and pool, Lanzarote" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Jameos del Agua &amp; the north</h3>
+        <p>A collapsed volcanic tunnel turned into a striking cave complex with a natural pool, a concert auditorium and gardens, another Manrique project. Combine it with nearby Cueva de los Verdes, a longer stretch of the same lava tube, and Mirador del Rio, a clifftop viewpoint looking across to La Graciosa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Lanzarote uses the Euro, so prices below are shown in pounds with the Euro equivalent alongside, based on a rate of roughly &pound;1 to &euro;1.16. These are crowd-sourced averages for the island, and prices in resort areas geared towards tourists can run a little higher than this.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;11.20 (about &euro;13.00)</td></tr>
+          <tr><td>Draft beer, half litre, bar or restaurant</td><td>&pound;1.80 (about &euro;2.10)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.65 (about &euro;1.90)</td></tr>
+          <tr><td>Soft drink, 330ml</td><td>&pound;1.20 (about &euro;1.40)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.85 (about &euro;0.97)</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;2.60 (about &euro;3.00)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced averages via Hikersbay for Lanzarote, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Most all-inclusive resorts cover food and local drinks on-site, so your spending money is mostly for excursions like Timanfaya, car hire and the odd meal out in Puerto del Carmen or Playa Blanca.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (&euro;)</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, two round pins, same as most of mainland Europe. UK plugs need an adapter, not a voltage converter</td></tr>
+          <tr><td>Language</td><td>Spanish, with English widely spoken in resort areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 4 to 4.5 hours direct</td></tr>
+          <tr><td>Time difference</td><td>None, Lanzarote is on the same time as the UK year round</td></tr>
+          <tr><td>Driving</td><td>Right hand side, opposite to the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Alev Takil, Annamaria Kupo, Jorge Fernandez Salas, Andrea Huls Pareja, Sophie Dyson, Benjamin Knoll, Martin Woortman, Patrik Velich, Jordi Vich Navarro, Alex Kolodziej and JP Files via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Lanzarote for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Spain, or somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+lanzarote_body = lanzarote_body.replace("::NEWSLETTER::", newsletter_section())
+
+LANZAROTE_SCHEMA = article_and_faq_schema(
+    "Lanzarote: Jake's Destination Guide",
+    "Jake's honest guide to Lanzarote: Puerto del Carmen, Playa Blanca, Costa Teguise, Puerto Calero and Famara, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "lanzarote.html",
+    "https://images.unsplash.com/photo-1594798272586-2dfec126bb3d?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Lanzarote?", "Lanzarote works as a year round destination, much like Tenerife and Gran Canaria. June to September is hottest and busiest, with the highest prices around the Spanish summer holidays. October, November, April and May are excellent value shoulder months with warm, reliable weather. December to March is when the island earns its winter sun reputation, with daytime temperatures still in the low twenties while the rest of Europe is cold, though this is also the wettest stretch of the year."),
+        ("Which area of Lanzarote should I choose?", "Puerto del Carmen is the island's original and biggest resort, with the widest choice of bars and restaurants, and suits first time visitors well. Playa Blanca in the south has grown into a smarter, more upmarket base and suits couples, while Costa Teguise on the east coast is quieter and popular with families and watersports fans. Puerto Calero offers a small, boutique marina feel, and Famara on the northwest coast suits surfers and independent travellers after a wilder, less resort-like stay."),
+        ("How long is the flight to Lanzarote, and how far is my hotel from the airport?", "Flight time from the UK is typically around 4 to 4.5 hours direct. Lanzarote Airport sits close to most resorts, with Puerto del Carmen and Costa Teguise both around 10 to 15 minutes away. Playa Blanca in the south takes around 30 to 40 minutes, and Famara on the northwest coast is the furthest, at around 45 minutes."),
+    ]
+)
+with open(os.path.join(SITE, "lanzarote.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Lanzarote: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Lanzarote: Puerto del Carmen, Playa Blanca, Costa Teguise, Puerto Calero and Famara, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        lanzarote_body,
+        extra_schema=LANZAROTE_SCHEMA
+    ))
+print("lanzarote.html written")
+
 
 
 
@@ -8307,6 +8593,7 @@ SITEMAP_PAGES = [
     ("menorca.html", "0.6"),
     ("tenerife.html", "0.6"),
     ("gran-canaria.html", "0.6"),
+    ("lanzarote.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
