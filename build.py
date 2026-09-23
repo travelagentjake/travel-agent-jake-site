@@ -9113,19 +9113,21 @@ for widget_name, filename, page_title, heading, intro in BOOKING_WIDGET_PAGES:
 
 
 # search.html: the entry point to the booking flow (search -> results -> extras
-# -> basket). Jake wants this styled like a dedicated landing page with a bold
-# hero and a prominent search box, similar in spirit to how other agent sites
-# lead with their search tool, but in his own brand and "more exciting" per
-# his steer. Same placeholder treatment as the other three pages (noindex,
-# not in nav/sitemap) since the actual search widget from Jess hasn't arrived
-# yet, this is the surrounding page ready to receive it.
+# -> basket). Per Jake, this is specifically a Jet2holidays discount page to
+# start with (same Jet2holidays packages, cheaper through him as agent), with
+# a bold on-brand hero and a prominent search box placeholder. Also carries a
+# clear "can't find what you're after, WhatsApp me" section, since Jake was
+# explicit this must not read as a Jet2holidays-only site, he sells far more
+# and wants that stated plainly. Same placeholder treatment as the other
+# three pages (noindex, not in nav/sitemap) since the actual search widget
+# from Jess hasn't arrived yet, this is the surrounding page ready to receive it.
 search_body = f"""
 <section class="theme-bold home-hero">
   <div class="wrap grid-2">
     <div>
-      <div class="eyebrow">Search holidays</div>
-      <h1>SEARCH THE HOLIDAY, <span class="hl">I'LL SORT THE REST</span></h1>
-      <p class="lead" style="margin-top:14px;">Compare live prices across the operators I work with, then message me and I'll take it from there. No booking fees, no call centre, just me.</p>
+      <div class="eyebrow">Jet2holidays, discounted</div>
+      <h1>THE SAME JET2HOLIDAYS PACKAGE, <span class="hl">FOR LESS</span></h1>
+      <p class="lead" style="margin-top:14px;">Search Jet2holidays package prices here. Same flights, same hotels, same ATOL protection, just discounted because you're booking through me as your agent. No booking fees, ever.</p>
     </div>
     <div>
       <div class="jake-frame"><img src="images/infinity-pool.jpg" alt="Pool overlooking the sea on holiday"></div>
@@ -9137,12 +9139,23 @@ search_body = f"""
   <div class="wrap">
     <div class="jake-card" style="max-width:780px; margin:0 auto; text-align:center; border-color:var(--yellow); border-width:3px;">
       <div class="eyebrow" style="justify-content:center;">Coming soon</div>
-      <h2 style="font-size:22px;">HOLIDAY SEARCH LAUNCHING SOON</h2>
-      <p style="max-width:56ch; margin:10px auto 22px;">This is where you'll be able to search real time prices and availability, then carry your search straight through to booking. It's being built right now.</p>
+      <h2 style="font-size:22px;">JET2HOLIDAYS SEARCH LAUNCHING SOON</h2>
+      <p style="max-width:56ch; margin:10px auto 22px;">This is where you'll be able to search real time Jet2holidays prices and availability, then carry your search straight through to booking. It's being built right now.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn-primary" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%20couldn%27t%20find%20what%20I%20was%20after%20on%20the%20holiday%20search%20yet%2C%20can%20you%20help%20me%20find%20something%3F" target="_blank" rel="noopener">WhatsApp me your dates</a>
         <a class="btn btn-secondary" href="book.html">How to Book with Jake</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <h2>CAN'T FIND WHAT YOU'RE AFTER?</h2>
+    <p class="lead" style="max-width:60ch; margin:16px auto 28px;">This search only covers Jet2holidays for now, but that's far from all I sell. I also book TUI, easyJet holidays, cruises, long haul and tailor made holidays too. WhatsApp me your dates and where you fancy, and I'll find it regardless of who's selling it.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%27m%20looking%20for%20a%20holiday%20that%27s%20not%20Jet2holidays%2C%20can%20you%20help%20me%20find%20something%3F" target="_blank" rel="noopener">WhatsApp me any other holiday</a>
+      <a class="btn" style="background:var(--white); color:var(--ink); border-color:var(--ink);" href="book.html">How to Book with Jake</a>
     </div>
   </div>
 </section>
@@ -9160,13 +9173,13 @@ search_body = f"""
 
 with open(os.path.join(SITE, "search.html"), "w", encoding="utf-8") as f:
     f.write(page(
-        "Search Holidays | Travel Agent Jake",
-        "Search holidays with Travel Agent Jake. Real time prices are coming soon, message Jake on WhatsApp in the meantime and he'll find it for you.",
+        "Jet2holidays Discount Prices | Travel Agent Jake",
+        "Search Jet2holidays package holidays at a discount through Travel Agent Jake. Not after Jet2holidays? WhatsApp Jake, he books TUI, easyJet holidays, cruises and more too.",
         "search.html",
         search_body,
         noindex=True
     ))
-print("search.html written (placeholder hero + search box, not linked from nav/sitemap, noindex)")
+print("search.html written (Jet2holidays discount landing page placeholder, not linked from nav/sitemap, noindex)")
 
 
 # ---------------- sitemap.xml ----------------
