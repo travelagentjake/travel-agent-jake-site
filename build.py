@@ -1530,6 +1530,13 @@ DESTINATION_POSTS = [
         "excerpt": "Puerto del Carmen, Playa Blanca, Costa Teguise, Puerto Calero and Famara: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1594798272586-2dfec126bb3d?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "malta.html",
+        "meta": "Malta",
+        "title": "Malta",
+        "excerpt": "Valletta, Sliema, St Julian's, Qawra, Bugibba and Mellieha Bay: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1772567345928-702b3bb02134?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -4933,6 +4940,283 @@ with open(os.path.join(SITE, "lanzarote.html"), "w", encoding="utf-8") as f:
         extra_schema=LANZAROTE_SCHEMA
     ))
 print("lanzarote.html written")
+
+
+malta_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>MALTA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Malta, from the UNESCO capital Valletta and the nightlife of St Julian's to the family resorts of Qawra and Mellieha Bay and a day trip across to Gozo.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Malta</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1772567345928-702b3bb02134?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Valletta skyline and Grand Harbour, Malta" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Malta is the one I recommend to clients who tell me they want a beach holiday but also don't want to just sit by a pool for a week. It packs an enormous amount into a genuinely tiny island, over 7,000 years of history, a fortified capital that's a UNESCO World Heritage Site in its own right, film-set villages, and a proper night out in St Julian's if that's what you're after, all within a 20 to 40 minute drive of wherever you're staying. It's also one of the few package destinations where a short break makes just as much sense as a full week, since the flight is only around three hours.</p>
+    <p style="margin-top:14px;">Where it doesn't compete with somewhere like Majorca or the Canaries is beaches. Malta's coastline is mostly rocky coves and lidos rather than long stretches of golden sand, Mellieha Bay and Golden Bay are the exceptions, so I'm upfront with clients about that before they book. What you get in return is history, culture and a genuinely different holiday, plus Gozo and the Blue Lagoon just a short ferry or boat trip away.</p>
+    {jake_tip("If a client wants sunbeds and nothing else, I'll steer them towards the Canaries or Turkey. If they want history, a proper city to explore, and beach time on top, Malta is usually the answer.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Malta is one of the few places I'd happily book as a long weekend as well as a full week. The whole island is only around 27 kilometres end to end, the flight from the UK is roughly three hours, and the airport sits centrally, so a three or four night city-break style trip genuinely works. That said, seven nights is still the most common package length, and gives you proper time to explore Valletta, Mdina, Gozo and the smaller villages without rushing.</p>
+    <p style="margin-top:14px;">History and culture lovers get more out of Malta than almost anywhere else in the Mediterranean. Couples like the mix of a proper city break with beach time. Families tend to do well based in Qawra, Bugibba or Mellieha Bay, both with pool hotels and kids' clubs close by, and Popeye Village near Mellieha is a genuine hit with younger kids. It's less suited to anyone whose priority is miles of golden sand, since Malta's beaches are mostly small rocky coves rather than the long stretches you'll find in Turkey or the Canaries.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Malta has one airport, Malta International Airport (MLA), near Luqa towards the south of the island, and because Malta is so small it's genuinely close to every resort area. Direct flights run from a wide range of UK airports on easyJet, Ryanair, TUI and Jet2, with a flight time of around three to three and a half hours.</p>
+    <p style="margin-top:14px;">Transfer times are short by holiday standards. Valletta is around 20 to 25 minutes from the airport, Sliema and St Julian's around 25 to 30 minutes, Qawra, Bugibba and St Paul's Bay around 30 to 40 minutes, and Mellieha Bay in the north of the island is the furthest out at around 45 minutes to an hour, more if you hit traffic around Valletta or Sliema at peak times.</p>
+    {jake_tip("Malta's roads get properly congested around Sliema, St Julian's and Valletta at rush hour. If your transfer or taxi is booked for late afternoon, build in a bit of extra time.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Malta has one of the most reliable climates in the Mediterranean, with over 300 days of sunshine a year. These figures are long-term climate averages for the island, so treat them as a guide rather than a forecast for your specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>15&deg;C</td><td>9&deg;C</td><td>16&deg;C</td><td>Mild winter sun, one of the wetter and windier months</td></tr>
+          <tr><td>February</td><td>15&deg;C</td><td>9&deg;C</td><td>15&deg;C</td><td>Similar to January, good value for a city break</td></tr>
+          <tr><td>March</td><td>16&deg;C</td><td>10&deg;C</td><td>15&deg;C</td><td>Warming up, still cool enough for sightseeing without the heat</td></tr>
+          <tr><td>April</td><td>19&deg;C</td><td>12&deg;C</td><td>16&deg;C</td><td>Pleasant and drier, popular for Easter breaks</td></tr>
+          <tr><td>May</td><td>23&deg;C</td><td>15&deg;C</td><td>18&deg;C</td><td>Reliable sunshine, comfortable for exploring on foot</td></tr>
+          <tr><td>June</td><td>27&deg;C</td><td>19&deg;C</td><td>22&deg;C</td><td>Hot and dry, peak season getting underway</td></tr>
+          <tr><td>July</td><td>30&deg;C</td><td>21&deg;C</td><td>25&deg;C</td><td>Very hot with barely any rain, one of the busiest months</td></tr>
+          <tr><td>August</td><td>30&deg;C</td><td>22&deg;C</td><td>26&deg;C</td><td>Hottest month, extremely busy with Maltese and Italian holidaymakers too</td></tr>
+          <tr><td>September</td><td>28&deg;C</td><td>20&deg;C</td><td>26&deg;C</td><td>Still hot, sea at its warmest, crowds start easing</td></tr>
+          <tr><td>October</td><td>24&deg;C</td><td>17&deg;C</td><td>24&deg;C</td><td>Warm with a little more rain, excellent value month</td></tr>
+          <tr><td>November</td><td>20&deg;C</td><td>14&deg;C</td><td>21&deg;C</td><td>Mild but wetter, good for a city break to Valletta and Mdina</td></tr>
+          <tr><td>December</td><td>17&deg;C</td><td>11&deg;C</td><td>18&deg;C</td><td>Mild winter sun, wettest month of the year on average</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for the island, sourced via weather2travel.com.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">June to September is hottest and busiest, with July and August regularly hitting 30&deg;C and barely any rain, and this is when prices peak. May, June, September and October are excellent shoulder months, still warm with a sea that stays swimmable well into autumn since the Mediterranean cools down slowly. Winter, November to February, is mild rather than warm, typically 15 to 17&deg;C by day, and this is when Malta sees most of its rain, though it still beats a UK winter easily and suits a city-break style trip to Valletta and Mdina without the summer crowds or the heat.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Malta's resort areas are close together but have quite different characters, and where you base yourself changes the holiday.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1655224630263-440be4b06dbf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Waterfront promenade at Sliema, Malta, looking towards Valletta" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sliema &amp; St Julian's</h3>
+        <p>Malta's main hub for dining, shopping and nightlife, built along a long seafront promenade with views across the water to Valletta. St Julian's, and its Paceville district in particular, has the island's biggest concentration of bars and clubs. The obvious first choice for couples and anyone who wants a lively base close to everything.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1675773681680-a9394b4be9a6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Coastline at Qawra and St Paul's Bay, Malta" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Qawra, Bugibba &amp; St Paul's Bay</h3>
+        <p>The island's main package resort strip, built around a long stretch of coastline with the widest choice of hotels, lidos and family-friendly restaurants. Quieter and more low-key than St Julian's, and the obvious base for families wanting pools, kids' clubs and an easy walk to the seafront.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1582723099851-d1d4066bc434?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Mellieha Bay beach, Malta" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Mellieha Bay</h3>
+        <p>Home to Malta's largest sandy beach, in the north of the island, and a genuinely relaxed, family-friendly base away from the busier southern resorts. Popeye Village and the ferry over to Gozo are both close by. The trade-off is a longer transfer from the airport than the other resort areas.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1756641157225-4a6517e48973?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Panoramic view of Valletta's harbour and fortifications, Malta" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Valletta</h3>
+        <p>The UNESCO-listed capital itself, all Baroque churches, fortified bastions and narrow limestone streets. Fewer big resort hotels here than boutique and city hotels, so it suits couples and culture-focused travellers after a proper city break with the beach as a day trip rather than the main event.</p>
+      </div>
+    </div>
+    {jake_tip("First time to Malta and want an easy resort base with pools and a family feel? Qawra or Bugibba is the obvious start. Want it livelier, or you're a couple who'll use the nightlife? St Julian's. Want history on your doorstep? Base yourself in or near Valletta.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Malta Public Transport's bus network covers the whole island reasonably well and is cheap, especially with a tallinja card rather than paying cash on board. Taxis and ride-hailing apps like Bolt are widely available and inexpensive for short hops between resorts. Hiring a car gives you the most freedom, particularly for reaching Mdina, the prehistoric temples and the ferry to Gozo in your own time, though roads around Valletta, Sliema and St Julian's get busy and congested at peak times.</p>
+    <p style="margin-top:14px;">Malta drives on the left, the same as the UK, one of the few countries outside the Commonwealth to do so, a legacy of British rule that also explains why Malta uses the same UK-style three-pin plugs rather than the two-pin sockets found across most of the rest of Europe.</p>
+    <p style="margin-top:14px;">A ferry runs between Cirkewwa in the north of Malta and Mgarr on Gozo, taking around 25 minutes and operating around the clock, which makes a day trip to Gozo straightforward from almost any base on the mainland.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;">A shortlist of the bookable tours and activities around Malta worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="608758,130110,442937,196241"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/malta-l90/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/malta-l90/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Malta &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Seafront hotel pool area" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Qawra Palace Resort &amp; Spa</h3>
+        <p>A 4&#9733; seafront hotel in Qawra overlooking Salina Bay, with three outdoor pools including an adults-only infinity pool and a saltwater pool with a children's section, an indoor heated pool, a spa, and a kids' club for ages 5 to 10. A solid, straightforward base close to the resort strip's restaurants and shops. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">db Seabank Resort &amp; Spa</h3>
+        <p>A 4&#9733; superior all-inclusive resort right on Mellieha Bay, Malta's largest sandy beach, with five pools, kids' facilities and animation throughout the day, seven themed restaurants and a 24 hour fitness area. Over 500 rooms, so it suits families wanting everything on-site. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for couples &amp; adults only</div>
+        <img src="https://images.unsplash.com/photo-1623718649591-311775a30c43?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Adults only hotel pool with sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">H Hotel &amp; Spa, Adults Only</h3>
+        <p>A 4&#9733; boutique adults-only hotel in St Julian's, close to the seafront and the restaurants and bars of Spinola Bay, with a rooftop pool and spa. A smart, design-led choice for couples who want to be in the middle of things without the family resort feel. Bookable through TUI and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1526786220381-1d21eedf92bf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Luxury hotel pool deck overlooking the sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Corinthia St George's Bay</h3>
+        <p>A 5&#9733; hotel on its own private beach in St Julian's, with multiple pools, a large indoor and outdoor spa, several restaurants and bars, and watersports on-site. Malta's best known luxury address, and a genuine step up for anyone wanting a five-star base. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond just the resort.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1746036607449-02273d585a06?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Fortifications overlooking the sea in Valletta, Malta" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Valletta</h3>
+        <p>The fortified capital, and a UNESCO World Heritage Site in its own right, built by the Knights of St John in the 16th century. St John's Co-Cathedral is the standout sight, its plain exterior hiding an extraordinarily ornate Baroque interior and a Caravaggio painting, but the whole old town of narrow limestone streets and bastion walls rewards a slow wander.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1785178524235-90a4f46a0a4f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Narrow limestone alley in Mdina, Malta's Silent City" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Mdina, the Silent City</h3>
+        <p>Malta's former capital, a walled medieval and Baroque city on a hilltop with almost no cars allowed inside its gates, hence the nickname. Wander the quiet alleys, climb the bastion walls for views across the island, and combine it with neighbouring Rabat and St Paul's Catacombs underneath it.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1713722122973-bfa5e9ebca82?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boat in the clear turquoise water of the Blue Lagoon, Comino" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Blue Lagoon &amp; Comino</h3>
+        <p>A near-uninhabited islet between Malta and Gozo, home to the Blue Lagoon, a shallow inlet of genuinely Caribbean-looking turquoise water. Boat trips run from Sliema, Bugibba and elsewhere, and it's easily combined with a stop at Gozo's sea caves on the same trip.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1587974928552-4f4aac51b45d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Traditional colourful fishing boats at Marsaxlokk, Malta" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Marsaxlokk</h3>
+        <p>A working fishing village on the southeast coast, its harbour full of traditional, brightly painted luzzu boats. Best visited on a Sunday morning for the waterfront fish market, though it's a pleasant, low-key spot for lunch any day of the week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Malta uses the Euro, so prices below are shown in pounds with the Euro equivalent alongside, based on a rate of roughly &pound;1 to &euro;1.16. These are crowd-sourced averages for the island, and prices in resort areas geared towards tourists can run a little higher than this.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;12.95 (about &euro;15.00)</td></tr>
+          <tr><td>Draft beer, half litre, bar or restaurant</td><td>&pound;3.45 (about &euro;4.00)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;2.15 (about &euro;2.49)</td></tr>
+          <tr><td>Soft drink, 330ml</td><td>&pound;1.95 (about &euro;2.26)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;1.30 (about &euro;1.52)</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;4.30 (about &euro;5.00)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced averages via Numbeo for Malta, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Malta is one of the more affordable Mediterranean destinations for eating and drinking out, so it's worth budgeting some spending money for meals in Valletta or Marsaxlokk rather than sticking to your hotel's board basis every night.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (&euro;)</td></tr>
+          <tr><td>Plug type</td><td>Type G, the same three-pin plug as the UK, no adapter needed</td></tr>
+          <tr><td>Language</td><td>Maltese and English, both official, English is widely spoken everywhere</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 3 to 3.5 hours direct</td></tr>
+          <tr><td>Time difference</td><td>1 hour ahead of the UK year round</td></tr>
+          <tr><td>Driving</td><td>Left hand side, the same as the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Adam Hornyak, Spruce, Nejc Soklic, Marija R, Massimiliano Morosinotto, Sasha Kaunas, Fabio Fistarol, Cory Bjork, Marvin Meyer, Nandor Kelecsenyi, Danny Rienecker, Emmanuel Cassar and Calin Stan via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Malta for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of the Mediterranean, or somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+malta_body = malta_body.replace("::NEWSLETTER::", newsletter_section())
+
+MALTA_SCHEMA = article_and_faq_schema(
+    "Malta: Jake's Destination Guide",
+    "Jake's honest guide to Malta: Valletta, Sliema, St Julian's, Qawra, Bugibba and Mellieha Bay, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "malta.html",
+    "https://images.unsplash.com/photo-1772567345928-702b3bb02134?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Malta?", "June to September is hottest and busiest, with July and August regularly hitting 30 degrees C and barely any rain, and prices peak around this time. May, June, September and October are excellent shoulder months, still warm with a sea that stays swimmable well into autumn. Winter, November to February, is mild rather than warm, typically 15 to 17 degrees C by day, and sees most of the island's rain, but still suits a city break to Valletta and Mdina without the summer crowds."),
+        ("Which area of Malta should I choose?", "Sliema and St Julian's are the island's main hub for dining, shopping and nightlife, and suit couples wanting to be close to everything. Qawra, Bugibba and St Paul's Bay form the main package resort strip and suit families wanting pools and kids' clubs. Mellieha Bay in the north has Malta's largest sandy beach and a relaxed, family-friendly feel, though it's the furthest resort area from the airport. Valletta itself suits couples and culture-focused travellers after a proper city break."),
+        ("How long is the flight to Malta, and is hiring a car worth it?", "Flight time from the UK is typically around 3 to 3.5 hours direct. Malta's bus network, taxis and ride-hailing apps cover the island well and are inexpensive, so a car isn't essential if you're staying resort-based. Hiring a car for a day or two is worth considering if you want to reach Mdina, the prehistoric temples and the ferry to Gozo in your own time, though roads around Valletta, Sliema and St Julian's get busy at peak times."),
+    ]
+)
+with open(os.path.join(SITE, "malta.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Malta: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Malta: Valletta, Sliema, St Julian's, Qawra, Bugibba and Mellieha Bay, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        malta_body,
+        extra_schema=MALTA_SCHEMA
+    ))
+print("malta.html written")
+
+
 
 
 
@@ -8610,6 +8894,7 @@ SITEMAP_PAGES = [
     ("tenerife.html", "0.6"),
     ("gran-canaria.html", "0.6"),
     ("lanzarote.html", "0.6"),
+    ("malta.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
