@@ -9127,7 +9127,7 @@ search_body = f"""
     <div>
       <div class="eyebrow">Jet2holidays, discounted</div>
       <h1>THE SAME JET2HOLIDAYS PACKAGE, <span class="hl">FOR LESS</span></h1>
-      <p class="lead" style="margin-top:14px;">Search Jet2holidays package prices here. Same flights, same hotels, same ATOL protection, just discounted because you're booking through me as your agent. No booking fees, ever.</p>
+      <p class="lead" style="margin-top:14px;">Search Jet2holidays package prices here. Same flights, same hotels, same ATOL protection.</p>
     </div>
     <div>
       <div class="jake-frame"><img src="images/infinity-pool.jpg" alt="Pool overlooking the sea on holiday"></div>
