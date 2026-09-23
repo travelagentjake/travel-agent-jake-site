@@ -8255,6 +8255,12 @@ with open(os.path.join(SITE, "robots.txt"), "w", encoding="utf-8") as f:
     f.write(ROBOTS)
 print("robots.txt written")
 
+# ---------------- ads.txt (required by Google AdSense) ----------------
+ADS_TXT = "google.com, pub-9766179130970138, DIRECT, f08c47fec0942fa0\n"
+with open(os.path.join(SITE, "ads.txt"), "w", encoding="utf-8") as f:
+    f.write(ADS_TXT)
+print("ads.txt written")
+
 # ---------------- TRAVEL TIPS: 100ml liquid rule, which UK airports have dropped it ----------------
 liquid_rule_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
