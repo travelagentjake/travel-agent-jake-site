@@ -9112,6 +9112,63 @@ for widget_name, filename, page_title, heading, intro in BOOKING_WIDGET_PAGES:
     print(f"{filename} written (placeholder, not linked from nav/sitemap, noindex)")
 
 
+# search.html: the entry point to the booking flow (search -> results -> extras
+# -> basket). Jake wants this styled like a dedicated landing page with a bold
+# hero and a prominent search box, similar in spirit to how other agent sites
+# lead with their search tool, but in his own brand and "more exciting" per
+# his steer. Same placeholder treatment as the other three pages (noindex,
+# not in nav/sitemap) since the actual search widget from Jess hasn't arrived
+# yet, this is the surrounding page ready to receive it.
+search_body = f"""
+<section class="theme-bold home-hero">
+  <div class="wrap grid-2">
+    <div>
+      <div class="eyebrow">Search holidays</div>
+      <h1>SEARCH THE HOLIDAY, <span class="hl">I'LL SORT THE REST</span></h1>
+      <p class="lead" style="margin-top:14px;">Compare live prices across the operators I work with, then message me and I'll take it from there. No booking fees, no call centre, just me.</p>
+    </div>
+    <div>
+      <div class="jake-frame"><img src="images/infinity-pool.jpg" alt="Pool overlooking the sea on holiday"></div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light">
+  <div class="wrap">
+    <div class="jake-card" style="max-width:780px; margin:0 auto; text-align:center; border-color:var(--yellow); border-width:3px;">
+      <div class="eyebrow" style="justify-content:center;">Coming soon</div>
+      <h2 style="font-size:22px;">HOLIDAY SEARCH LAUNCHING SOON</h2>
+      <p style="max-width:56ch; margin:10px auto 22px;">This is where you'll be able to search real time prices and availability, then carry your search straight through to booking. It's being built right now.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%20couldn%27t%20find%20what%20I%20was%20after%20on%20the%20holiday%20search%20yet%2C%20can%20you%20help%20me%20find%20something%3F" target="_blank" rel="noopener">WhatsApp me your dates</a>
+        <a class="btn btn-secondary" href="book.html">How to Book with Jake</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <div class="grid-3 equal-cards" style="margin-top:8px;">
+      <div class="jake-card"><h3 style="font-size:17px;">Real support, not a call centre</h3><p>WhatsApp me directly, evenings included. You get the same person from your first message to landing back home.</p></div>
+      <div class="jake-card"><h3 style="font-size:17px;">ABTA &amp; ATOL protected</h3><p>Every package holiday I book is financially protected, so your money's safe if something goes wrong.</p></div>
+      <div class="jake-card"><h3 style="font-size:17px;">No extra cost</h3><p>There's no booking fee. My prices sit alongside what you'd find yourself, and often beat it.</p></div>
+    </div>
+  </div>
+</section>
+"""
+
+with open(os.path.join(SITE, "search.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Search Holidays | Travel Agent Jake",
+        "Search holidays with Travel Agent Jake. Real time prices are coming soon, message Jake on WhatsApp in the meantime and he'll find it for you.",
+        "search.html",
+        search_body,
+        noindex=True
+    ))
+print("search.html written (placeholder hero + search box, not linked from nav/sitemap, noindex)")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
