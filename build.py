@@ -198,20 +198,41 @@ document.addEventListener('DOMContentLoaded', function(){{
   var searchInput = document.getElementById('{kind}SearchInput');
   var grid = document.getElementById('{kind}Grid');
   var noResults = document.getElementById('{kind}NoResults');
-  if (searchInput && grid) {{
+  var showMoreBtn = document.getElementById('{kind}ShowMoreBtn');
+  var limit = 9;
+  var expanded = false;
+  if (grid) {{
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.jake-card[data-search]'));
     var comingSoon = grid.querySelector('.finder-coming-soon');
-    searchInput.addEventListener('input', function(){{
-      var q = searchInput.value.trim().toLowerCase();
+
+    function render(){{
+      var q = searchInput ? searchInput.value.trim().toLowerCase() : '';
       var matches = 0;
-      cards.forEach(function(c){{
-        var show = !q || c.getAttribute('data-search').indexOf(q) !== -1;
-        c.style.display = show ? '' : 'none';
-        if (show) matches++;
-      }});
-      if (comingSoon) comingSoon.style.display = q ? 'none' : '';
+      if (q) {{
+        cards.forEach(function(c){{
+          var show = c.getAttribute('data-search').indexOf(q) !== -1;
+          c.style.display = show ? '' : 'none';
+          if (show) matches++;
+        }});
+        if (comingSoon) comingSoon.style.display = 'none';
+        if (showMoreBtn) showMoreBtn.hidden = true;
+      }} else {{
+        cards.forEach(function(c, i){{
+          c.style.display = (expanded || i < limit) ? '' : 'none';
+        }});
+        matches = cards.length;
+        if (comingSoon) comingSoon.style.display = (expanded || cards.length <= limit) ? '' : 'none';
+        if (showMoreBtn) showMoreBtn.hidden = expanded || cards.length <= limit;
+      }}
       if (noResults) noResults.hidden = !(q && matches === 0);
+    }}
+
+    if (searchInput) searchInput.addEventListener('input', render);
+    if (showMoreBtn) showMoreBtn.addEventListener('click', function(){{
+      expanded = true;
+      render();
     }});
+    render();
   }}
 
   var form = document.getElementById('{kind}RequestForm');
@@ -1583,6 +1604,9 @@ destinations_body = f"""
         <p>More destinations written up the same way. New guides get added here regularly.</p>
       </div>
 
+    </div>
+    <div style="text-align:center; margin-top:28px;">
+      <button type="button" id="destinationsShowMoreBtn" class="btn btn-secondary" hidden>Show more destinations</button>
     </div>
     <p id="destinationsNoResults" class="finder-no-results" hidden>No guides match that search yet, but pop it in the box above and I'll see what I can put together.</p>
   </div>
@@ -5379,6 +5403,9 @@ travel_tips_body = f"""
         <p>Packing lists, airport tricks, and the questions I get asked before every single trip. New tips get added here regularly.</p>
       </div>
 
+    </div>
+    <div style="text-align:center; margin-top:28px;">
+      <button type="button" id="tipsShowMoreBtn" class="btn btn-secondary" hidden>Show more tips</button>
     </div>
     <p id="tipsNoResults" class="finder-no-results" hidden>No tips match that search yet, but pop it in the box above and I'll see what I can put together.</p>
   </div>
