@@ -361,8 +361,9 @@ FOOTER = """<footer class="site-footer">
   if (t) { t.addEventListener('click', function(){ n.classList.toggle('open'); }); }
 </script>"""
 
-def page(title, description, active, body, og_image="images/pool-portrait.jpg", extra_schema=""):
+def page(title, description, active, body, og_image="images/pool-portrait.jpg", extra_schema="", noindex=False):
     canonical = BASE_URL + "/" + ("" if active == "index.html" else active)
+    robots_meta = '<meta name="robots" content="noindex, nofollow">\n' if noindex else ""
     return f"""<!doctype html>
 <html lang="en-GB">
 <head>
@@ -382,7 +383,7 @@ def page(title, description, active, body, og_image="images/pool-portrait.jpg", 
 <script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="EFDILG1"></script>
 <title>{title}</title>
 <meta name="description" content="{description}">
-<link rel="canonical" href="{canonical}">
+{robots_meta}<link rel="canonical" href="{canonical}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Travel Agent Jake">
 <meta property="og:title" content="{title}">
@@ -9063,6 +9064,52 @@ with open(os.path.join(SITE, "travel-company-goes-bust-atol-abta-protection.html
     ))
 print("travel-company-goes-bust-atol-abta-protection.html written")
 
+
+
+# ---------------- BOOKING WIDGET PLACEHOLDER PAGES (Agendas Group) ----------------
+# Jess Speight (Agendas Group Ltd, account manager for the new holiday
+# search/booking widget) asked for three blank pages, named so their URLs
+# end /results, /extras and /basket (Netlify serves *.html at the
+# extension-less URL automatically, confirmed live on existing pages).
+# These are placeholders only: each has a clearly marked empty container
+# ready for Jess's widget embed code, and is marked noindex since there's
+# no real content yet. Built and committed locally per Jake's instruction,
+# not yet pushed live.
+def booking_widget_page(widget_name, heading, intro):
+    return f"""
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow">Holiday search</div>
+    <h1>{heading}</h1>
+    <p class="lead" style="margin:18px auto 0; max-width:60ch;">{intro}</p>
+  </div>
+</section>
+
+<section class="theme-light">
+  <div class="wrap">
+    <div id="agendas-{widget_name}-widget" data-agendas-widget="{widget_name}" style="min-height:320px; border:2px dashed var(--ink); border-radius:8px; opacity:0.6; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px 24px;">
+      <p style="max-width:44ch; margin:0;">Placeholder for the Agendas Group &quot;{widget_name}&quot; booking widget. Drop the embed code Jess provides into this container.</p>
+    </div>
+  </div>
+</section>
+"""
+
+BOOKING_WIDGET_PAGES = [
+    ("results", "results.html", "Search Results | Travel Agent Jake", "YOUR HOLIDAY SEARCH RESULTS", "Results from your holiday search will appear here once you've searched."),
+    ("extras", "extras.html", "Extras | Travel Agent Jake", "ADD SOME EXTRAS", "Add optional extras to your holiday before it goes in your basket."),
+    ("basket", "basket.html", "Your Basket | Travel Agent Jake", "YOUR BASKET", "Review your holiday before you book it."),
+]
+
+for widget_name, filename, page_title, heading, intro in BOOKING_WIDGET_PAGES:
+    with open(os.path.join(SITE, filename), "w", encoding="utf-8") as f:
+        f.write(page(
+            page_title,
+            "Part of the Travel Agent Jake holiday booking flow.",
+            filename,
+            booking_widget_page(widget_name, heading, intro),
+            noindex=True
+        ))
+    print(f"{filename} written (placeholder, not linked from nav/sitemap, noindex)")
 
 
 # ---------------- sitemap.xml ----------------
