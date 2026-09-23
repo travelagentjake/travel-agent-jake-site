@@ -252,12 +252,22 @@ DD_DAY_OPTIONS = "".join(f'<option value="{d}">{ordinal(d)}</option>' for d in r
 
 AD_CLIENT = "ca-pub-9766179130970138"
 
+# AdSense account is not yet approved to serve ads (rejected for "low-value
+# content" 22 Sept 2026 review, ads.txt fix applied, awaiting resubmission
+# once the site has more of a track record). Until then ad_slot() returns
+# nothing so pages don't carry empty reserved ad space. Flip this back to
+# True once the account is approved, no other changes needed, every call
+# site across the destination guides/tips articles picks it up automatically.
+ADS_ENABLED = False
+
 def ad_slot():
     """In-article AdSense ad unit ("Tips and Destination Guide Articles",
     slot 4679022669). Defined once here and called from every article
     template that should carry ads, so future changes only need editing
-    this one function.
+    this one function. Returns "" while ADS_ENABLED is False.
     """
+    if not ADS_ENABLED:
+        return ""
     return """<div style="margin:32px 0;">
   <ins class="adsbygoogle"
        style="display:block; text-align:center;"
