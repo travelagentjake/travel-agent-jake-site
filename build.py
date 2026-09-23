@@ -5322,6 +5322,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1532968899863-5b52ef155913?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "People walking through a sunlit airport terminal",
     },
+    {
+        "slug": "travel-company-goes-bust-atol-abta-protection.html",
+        "meta": "Financial protection",
+        "title": "What happens if your travel company goes bust? ATOL and ABTA explained",
+        "excerpt": "Several UK travel firms have stopped trading in 2026 alone. Here's what ATOL and ABTA protection actually cover, how to check yours before you book, and exactly what to do if it ever happens to you.",
+        "image": "https://images.unsplash.com/photo-1490430657723-4d607c1503fc?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Departure board at an airport showing flight information",
+    },
 ]
 
 def tip_card(post):
@@ -8871,6 +8879,163 @@ with open(os.path.join(SITE, "hidden-disability-travel-sunflower-lanyard.html"),
     ))
 print("hidden-disability-travel-sunflower-lanyard.html written")
 
+# ---------------- TRAVEL TIPS: What happens if your travel company goes bust, ATOL and ABTA explained ----------------
+atol_abta_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>WHAT HAPPENS IF YOUR TRAVEL COMPANY GOES BUST? ATOL AND ABTA EXPLAINED</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">A handful of UK travel companies have already stopped trading in 2026, from a long running Scottish agency to a family run Yorkshire coach operator. If you have ever wondered what actually happens to your money when that happens, here is the honest answer: what ATOL and ABTA protection really cover, why they are not the same thing, and exactly what to do if the company you paid ever closes its doors.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1490430657723-4d607c1503fc?auto=format&fit=crop&w=1600&h=700&q=80" alt="Departure board at an airport showing flight information" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">If your holiday includes a flight, it is ATOL protected by law, and the Civil Aviation Authority steps in to refund you or bring you home if the company fails. If it does not include a flight, coach, rail, cruise or accommodation only holidays, it should instead be protected through ABTA, usually by a bond, an insurance policy or a trust account held by the company you booked with.</p>
+      <p style="margin-top:14px; margin-bottom:0;">Either way, you are only protected if the company actually held that protection properly right up until it failed. Most of the UK travel firms that stopped trading this year had it working exactly as it should. At least one had already lost its ATOL certificate before it collapsed, which is exactly why checking your own booking documents matters more than trusting a company's name or how long it has been trading.</p>
+    </div>
+    {jake_tip("Do not assume a package holiday means everything is covered by one single scheme. The flight and the rest of your trip can genuinely sit under two different types of protection, so it is worth knowing which one applies to which part of your booking.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What has actually happened in 2026</h2>
+    <img src="https://images.unsplash.com/photo-1746020681437-bb0a721cf2fa?auto=format&fit=crop&w=1600&h=700&q=80" alt="Passengers walking through a busy airport terminal" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This is not a hypothetical worry. Several UK travel businesses have ceased trading this year alone, and how their customers were treated depended entirely on what protection was actually in place.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Company</th><th>What happened</th><th>Protection</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Simply Florida Travel (Glasgow)</td><td>Ceased trading January 2026</td><td>ATOL protected, affected customers entitled to full refunds</td></tr>
+          <tr><td>Frasers Travel (Scotland, trading 40 years)</td><td>Ceased trading 18 August 2026</td><td>ABTA member; flight inclusive bookings protected via each customer's underlying ATOL holding tour operator, non-flight bookings via ABTA bonding, Section 75 or chargeback</td></tr>
+          <tr><td>Gold Crest Holidays (West Yorkshire coach operator)</td><td>Ceased trading January 2026</td><td>Customers directed to claim refunds through ABTA</td></tr>
+          <tr><td>Regen Central Ltd (Hertfordshire)</td><td>Ceased trading January 2026</td><td>Had already lost its ATOL certificate before closing; holidays cancelled without refunds issued directly by the company</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Based on public reporting on each company's closure. If you booked with any of these specifically, go directly to the CAA for ATOL claims or to ABTA rather than relying on this summary, as the exact process can change as each case is handled.</p>
+    {jake_tip("The Regen Central case is the one worth paying attention to. A company can lose its ATOL certificate before it stops trading altogether, so the protection you had when you booked is not guaranteed to still be there by the time you fly. If you have not heard from a company in a while, or something about a booking feels off, it is worth checking its current ATOL status again rather than assuming nothing has changed.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>ATOL protection: what it actually covers</h2>
+    <img src="https://images.unsplash.com/photo-1655722724447-2d2a3071e7f8?auto=format&fit=crop&w=1600&h=700&q=80" alt="Passports with boarding passes tucked inside for a flight" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">ATOL, the Air Travel Organiser's Licensing scheme run by the Civil Aviation Authority, is a legal requirement for any UK package holiday that includes a flight. It is not optional and it is not a marketing badge, a company either holds a genuine ATOL or it should not be selling flight inclusive packages at all.</p>
+    <p style="margin-top:14px;">When you pay for a flight inclusive holiday, you should be given an ATOL Certificate. This is worth actually reading rather than filing away, because it lists the specific ATOL holder behind your booking, and that is not always the company you paid. Travel agents very commonly sell holidays on behalf of a separate tour operator that actually holds the ATOL, so the name that matters if something goes wrong might be one you have never directly dealt with.</p>
+    <p style="margin-top:14px;">If the ATOL holder on your certificate fails, the Air Travel Trust is the fund that steps in, covering refunds for holidays you have not yet taken and arranging repatriation if you are already abroad when it happens. You can check whether a company genuinely holds a current ATOL using the Check an ATOL tool at caa.co.uk before you book.</p>
+    {jake_tip("When you book a flight inclusive holiday with me, your ATOL Certificate will show Hays Tour Operating Ltd, ATOL 10531, since that is the ATOL that actually protects you, not my own business name. Always check the name on your certificate matches everything you have actually booked, flights, hotels and any other services included.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>ABTA protection: what it actually covers</h2>
+    <img src="https://images.unsplash.com/photo-1782952438288-7528ca318935?auto=format&fit=crop&w=1600&h=700&q=80" alt="Travellers with suitcases arriving at a station terminal" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">ABTA protection covers package holidays that do not include a flight, coach holidays, rail holidays, cruises and accommodation only packages bought as a single deal. Rather than one central government backed fund like ATOL, ABTA members protect customer money through a bond held with ABTA, a financial failure insurance policy, or a trust account, and your booking documents should say which one applies to you.</p>
+    <p style="margin-top:14px;">If your ABTA protected company fails, the claims process runs through whichever of those three methods it used, either directly with ABTA if it was bonded with them, with the named insurer if it used financial failure insurance, or otherwise via your card provider. It covers refunds if you have not travelled yet, and support getting home if your holiday is already underway when the company fails.</p>
+    <p style="margin-top:14px;">You can check a company's ABTA membership directly using the Member Search tool at abta.com. It only takes a minute, and it is a more reliable check than trusting an ABTA logo displayed on a website, since logos can be outdated or simply copied.</p>
+    {jake_tip("Travel Agent Jake is part of Club Voyages, an ABTA member, membership number P8503 and Y6784. If you ever want to double check that for yourself before booking, ABTA's own Member Search tool at abta.com will confirm it directly.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>How to actually get your money back</h2>
+    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1600&h=700&q=80" alt="Person paying for a booking online with a credit card" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Find your booking confirmation and ATOL Certificate first.</b> The ATOL Certificate names the actual ATOL holder, which may be a different company from the one you paid, so that is who you or the CAA will need to deal with for a flight inclusive booking.</span></li>
+      <li><span class="num">2</span><span><b>Go straight to the relevant scheme.</b> For an ATOL protected booking, contact the CAA directly or the named ATOL holder. For an ABTA protected booking, start a claim through ABTA itself, or with the named insurer if your documents point there instead.</span></li>
+      <li><span class="num">3</span><span><b>Check whether Section 75 applies.</b> If you paid any part of the cost, even a small deposit, on a UK credit card, and the total holiday cost was between &pound;100.01 and &pound;30,000, your card provider is jointly liable and you can claim the full amount back from them, not just the portion you put on the card.</span></li>
+      <li><span class="num">4</span><span><b>Try a chargeback if you paid by debit card.</b> This is not a legal right in the same way Section 75 is, it is a scheme run through Visa or Mastercard, but banks generally honour it. You need to raise it within 120 days of the payment, so do not sit on it.</span></li>
+      <li><span class="num">5</span><span><b>Do not assume standard travel insurance covers this.</b> Most policies only cover supplier or scheduled airline failure if you specifically added that cover when you bought the policy, so check the wording rather than assuming you are covered.</span></li>
+    </ul>
+    {jake_tip("If you are already abroad on an ATOL protected holiday when the company fails, repatriation should be arranged for you as part of the scheme, you should not need to book or pay for your own emergency flight home. Keep hold of any costs you do end up covering yourself though, in case you can claim them back afterwards.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>How to protect yourself before you even book</h2>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Ask for your ATOL Certificate or ABTA confirmation before you finish paying,</b> not after. It should list everything you have actually booked, not just the flight or just the hotel.</span></li>
+      <li><span class="num">2</span><span><b>Check the company yourself,</b> using the Check an ATOL tool at caa.co.uk or the Member Search tool at abta.com, rather than trusting a badge or logo on their own website.</span></li>
+      <li><span class="num">3</span><span><b>Pay at least part of the cost on a UK credit card if you can,</b> purely for the Section 75 backup. Even a deposit is enough to bring the whole cost under that protection if things go wrong later.</span></li>
+      <li><span class="num">4</span><span><b>Keep your booking confirmation, certificate and payment receipts somewhere separate from your phone,</b> such as printed or emailed to a second address, in case you need them quickly and a company has disappeared overnight.</span></li>
+    </ul>
+    {jake_tip("None of this is about being suspicious of every travel company you book with. It is about spending two minutes checking before you pay, so that if the worst does happen, you already know exactly who to contact and what you are entitled to.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">What is the actual difference between ATOL and ABTA protection?</h3>
+      <p>ATOL, run by the Civil Aviation Authority, is the mandatory scheme for any UK package holiday that includes a flight. ABTA covers everything else sold as a package, coach, rail, cruise or accommodation only holidays, through a bond, insurance policy or trust account held by the company. A single booking can include elements protected by both, if it has a flight plus other services bought together.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How do I check if a company is genuinely ATOL or ABTA protected?</h3>
+      <p>For ATOL, use the Check an ATOL tool at caa.co.uk and search the ATOL number shown on your booking confirmation or certificate. For ABTA, use the Member Search tool at abta.com and check the membership number matches who you are actually paying. Do not rely on a logo alone, as these can be outdated or simply copied onto a website.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">I paid by debit card, not credit card, am I still protected?</h3>
+      <p>Section 75 protection, which covers the full cost of a holiday even if you only paid a small deposit on a credit card, only applies to credit cards. If you paid by debit card, your bank may still offer a chargeback through the Visa or Mastercard scheme, but you need to raise it within 120 days of the payment, and it is a matter of the bank's discretion rather than a legal right in the same way Section 75 is.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What happens if my travel company collapses while I am already abroad?</h3>
+      <p>If your holiday included a flight and was ATOL protected, repatriation should be arranged for you, so you should not need to book or pay for your own way home. If it was not ATOL protected, contact your travel insurer straight away, and keep records of any costs you have to cover yourself in case you can claim them back later through ABTA or your card provider.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <h2>Want your money properly protected from the start?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Every holiday I put together is booked through Club Voyages, an ABTA member, and flight inclusive packages are sold as an agent for Hays Tour Operating Ltd, ATOL 10531. You will get your ATOL Certificate or ABTA confirmation as part of booking with me, and I always check it lists everything before it reaches you.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+atol_abta_body = atol_abta_body.replace("::NEWSLETTER::", newsletter_section())
+
+ATOL_ABTA_SCHEMA = article_and_faq_schema(
+    "What Happens If Your Travel Company Goes Bust? ATOL and ABTA Protection Explained",
+    "Which UK travel firms have stopped trading in 2026, what ATOL and ABTA protection actually cover, how to check before you book, and exactly what to do to get your money back if your travel company collapses.",
+    "travel-company-goes-bust-atol-abta-protection.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("What is the actual difference between ATOL and ABTA protection?", "ATOL, run by the Civil Aviation Authority, is the mandatory scheme for any UK package holiday that includes a flight. ABTA covers everything else sold as a package, coach, rail, cruise or accommodation only holidays, through a bond, insurance policy or trust account held by the company. A single booking can include elements protected by both, if it has a flight plus other services bought together."),
+        ("How do I check if a company is genuinely ATOL or ABTA protected?", "For ATOL, use the Check an ATOL tool at caa.co.uk and search the ATOL number shown on your booking confirmation or certificate. For ABTA, use the Member Search tool at abta.com and check the membership number matches who you are actually paying. Do not rely on a logo alone, as these can be outdated or simply copied onto a website."),
+        ("I paid by debit card, not credit card, am I still protected?", "Section 75 protection, which covers the full cost of a holiday even if you only paid a small deposit on a credit card, only applies to credit cards. If you paid by debit card, your bank may still offer a chargeback through the Visa or Mastercard scheme, but you need to raise it within 120 days of the payment, and it is a matter of the bank's discretion rather than a legal right in the same way Section 75 is."),
+        ("What happens if my travel company collapses while I am already abroad?", "If your holiday included a flight and was ATOL protected, repatriation should be arranged for you, so you should not need to book or pay for your own way home. If it was not ATOL protected, contact your travel insurer straight away, and keep records of any costs you have to cover yourself in case you can claim them back later through ABTA or your card provider."),
+    ]
+)
+
+with open(os.path.join(SITE, "travel-company-goes-bust-atol-abta-protection.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "What Happens If Your Travel Company Goes Bust? ATOL and ABTA Protection Explained | Travel Agent Jake",
+        "Which UK travel firms have stopped trading in 2026, what ATOL and ABTA protection actually cover, how to check before you book, and exactly what to do to get your money back if your travel company collapses.",
+        "travel-tips.html",
+        atol_abta_body,
+        extra_schema=ATOL_ABTA_SCHEMA
+    ))
+print("travel-company-goes-bust-atol-abta-protection.html written")
+
 
 
 # ---------------- sitemap.xml ----------------
@@ -8908,6 +9073,7 @@ SITEMAP_PAGES = [
     ("choosing-the-right-cruise-line.html", "0.7"),
     ("100ml-liquid-rule-uk-airports.html", "0.7"),
     ("hidden-disability-travel-sunflower-lanyard.html", "0.7"),
+    ("travel-company-goes-bust-atol-abta-protection.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
