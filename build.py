@@ -478,7 +478,6 @@ home_body = """
       <div class="btn-row" style="margin-top:18px; flex-direction:column; align-items:flex-start; gap:10px;">
         <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
         <a class="btn" style="background:var(--white); color:var(--ink); border-color:var(--ink);" href="my-booking.html">My Booking</a>
-        <a class="btn" style="background:var(--yellow); color:var(--ink); border-color:var(--ink);" href="tui-summer-2028.html">TUI Summer 2028: Get Priority Access</a>
       </div>
     </div>
     <div>
@@ -3855,7 +3854,6 @@ with open(os.path.join(SITE, "majorca.html"), "w", encoding="utf-8") as f:
 print("majorca.html written")
 
 
-
 menorca_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
   <div class="wrap">
@@ -5249,7 +5247,6 @@ with open(os.path.join(SITE, "malta.html"), "w", encoding="utf-8") as f:
 print("malta.html written")
 
 
-
 sorrento_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
   <div class="wrap">
@@ -5548,11 +5545,6 @@ with open(os.path.join(SITE, "italy-sorrento-amalfi-coast.html"), "w", encoding=
         extra_schema=SORRENTO_SCHEMA
     ))
 print("italy-sorrento-amalfi-coast.html written")
-
-
-
-
-
 
 
 # ---------------- TRAVEL TIPS (index) ----------------
@@ -8266,302 +8258,6 @@ with open(os.path.join(SITE, "club-voyages-privacy-notice.html"), "w", encoding=
 print("club-voyages-privacy-notice.html written")
 
 
-# ---------------- TUI SUMMER 2028 PRIORITY ACCESS ----------------
-tui_2028_body = """
-<section class="theme-bold">
-  <div class="wrap">
-    <div class="eyebrow">TUI Summer 2028 Sale &middot; Prices live 15th October 2026</div>
-    <h1>GET PRIORITY ACCESS TO TUI'S SUMMER 2028 SALE</h1>
-    <p class="lead" style="margin-top:14px; max-width:70ch;">TUI's Summer 2028 prices go live on 15th October 2026, and the best hotels and flight times get booked within hours. Register your holiday details now so everything is ready to go, then book a priority appointment slot to get your holiday confirmed on launch day itself.</p>
-  </div>
-</section>
-
-<section class="theme-light">
-  <div class="wrap">
-    <div class="grid-3 equal-cards" style="gap:24px;">
-      <div class="jake-card">
-        <h3>No holding fee</h3>
-        <p>Registering costs nothing and holds nothing. It just means I have your details ready so we can move fast when prices land.</p>
-      </div>
-      <div class="jake-card">
-        <h3>Priority appointments</h3>
-        <p>Everyone who registers gets a link to book a launch day appointment. Priority for the best availability goes to those with an appointment booked.</p>
-      </div>
-      <div class="jake-card">
-        <h3>Everything ready to go</h3>
-        <p>Tell me your dates, hotel, airport and who's coming now, and I won't need to ask again when you're ready to book on the day.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="theme-light" style="padding-top:0;">
-  <div class="wrap">
-    <div class="jake-card" style="max-width:680px; margin:0 auto;">
-      <h3>Register for TUI Summer 2028 priority access</h3>
-      <p style="margin-bottom:20px;">Fill this in with as much detail as you can for everyone travelling. The more I know now, the faster I can get your holiday booked on launch day. You'll also be added to my mailing list for general holiday updates.</p>
-
-      <form id="tuiForm" class="tui-form" novalidate>
-        <div class="tui-form-section-label">Lead traveller (that's you)</div>
-        <div class="tui-form-row two-col">
-          <label class="tui-field">
-            <span>First name</span>
-            <input type="text" name="FIRSTNAME" required autocomplete="given-name">
-          </label>
-          <label class="tui-field">
-            <span>Last name</span>
-            <input type="text" name="LASTNAME" required autocomplete="family-name">
-          </label>
-        </div>
-        <div class="tui-form-row two-col">
-          <label class="tui-field">
-            <span>Date of birth</span>
-            <input type="date" name="DOB" required autocomplete="bday">
-          </label>
-          <label class="tui-field">
-            <span>Mobile number</span>
-            <input type="tel" name="MOBILE" required autocomplete="tel">
-          </label>
-        </div>
-        <div class="tui-form-row two-col">
-          <label class="tui-field">
-            <span>Email address</span>
-            <input type="email" name="EMAIL" required autocomplete="email">
-          </label>
-          <label class="tui-field">
-            <span>Home address</span>
-            <input type="text" name="ADDRESS" required autocomplete="street-address" placeholder="Include postcode">
-          </label>
-        </div>
-
-        <div class="tui-form-section-label">Who's coming</div>
-        <div class="tui-form-row two-col">
-          <label class="tui-field">
-            <span>Number of adults</span>
-            <input type="number" name="ADULTS" min="1" step="1" value="2" required>
-          </label>
-          <label class="tui-field">
-            <span>Number of children</span>
-            <input type="number" name="CHILDREN" min="0" step="1" value="0" required id="tuiChildren">
-          </label>
-        </div>
-        <label class="tui-field" id="tuiChildAgesField">
-          <span>Children's ages</span>
-          <input type="text" name="CHILD_AGES" placeholder="e.g. 6, 9, 14">
-        </label>
-        <label class="tui-field">
-          <span>Names &amp; dates of birth of everyone else travelling</span>
-          <textarea name="OTHER_TRAVELLERS" rows="3" placeholder="One person per line, e.g.&#10;Jane Smith, 04/03/1990&#10;Tom Smith, 12/11/2015"></textarea>
-        </label>
-
-        <div class="tui-form-section-label">The holiday you want</div>
-        <div class="tui-form-row two-col">
-          <label class="tui-field">
-            <span>Departure airport</span>
-            <input type="text" name="DEPARTURE_AIRPORT" required placeholder="e.g. Manchester">
-          </label>
-          <label class="tui-field">
-            <span>Destination or hotel wanted</span>
-            <input type="text" name="DESTINATION_WANTED" required placeholder="e.g. Sani Beach, Kalamata">
-          </label>
-        </div>
-        <div class="tui-form-row two-col">
-          <label class="tui-field">
-            <span>Travel dates wanted</span>
-            <input type="text" name="TRAVEL_DATES" required placeholder="e.g. 14th-21st July 2028">
-          </label>
-          <label class="tui-field">
-            <span>Budget</span>
-            <input type="text" name="BUDGET" required placeholder="e.g. up to £3,500 for the family">
-          </label>
-        </div>
-        <label class="tui-field">
-          <span>Are you ready to pay a deposit on launch day?</span>
-          <select name="DEPOSIT_READY" required>
-            <option value="" disabled selected>Choose one</option>
-            <option value="Yes, ready to pay a deposit on launch day">Yes, ready to pay a deposit on launch day</option>
-            <option value="Yes, but might need a few days">Yes, but might need a few days</option>
-            <option value="Not sure yet">Not sure yet</option>
-          </select>
-        </label>
-
-        <label class="tui-field">
-          <span>Anything else you want me to know?</span>
-          <textarea name="ANYTHING_ELSE" rows="4" placeholder="Tell me everything you want, or anything else you need me to consider or be aware of, to make this holiday perfect."></textarea>
-        </label>
-
-        <label class="tui-consent">
-          <input type="checkbox" name="consent" required>
-          <span>I'd like my confirmation email and occasional holiday updates from Travel Agent Jake. Unsubscribe any time.</span>
-        </label>
-
-        <div id="tuiFormError" class="tui-form-error" hidden></div>
-
-        <button type="submit" class="btn btn-primary btn-block" id="tuiSubmitBtn">Register me for priority access</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<style>
-.tui-form{ display:flex; flex-direction:column; gap:14px; margin-top:8px; }
-.tui-form-section-label{ font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:0.05em; color:var(--blue); margin-top:10px; }
-.tui-form-section-label:first-child{ margin-top:0; }
-.tui-form-row.two-col{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-@media (max-width:640px){ .tui-form-row.two-col{ grid-template-columns:1fr; } }
-.tui-field{ display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600; }
-.tui-field input, .tui-field select, .tui-field textarea{
-  font-family:inherit; font-size:15px; font-weight:400; padding:11px 13px;
-  border:2px solid var(--ink); border-radius:8px; background:var(--white); color:var(--ink);
-  width:100%; box-sizing:border-box;
-}
-.tui-field textarea{ resize:vertical; }
-.tui-consent{ display:flex; align-items:flex-start; gap:10px; font-size:13px; line-height:1.5; margin-top:6px; }
-.tui-consent input{ margin-top:3px; flex-shrink:0; width:18px; height:18px; }
-.tui-form-error{ background:#FDEDED; border:2px solid #D43F3F; border-radius:8px; padding:12px 14px; font-size:14px; }
-#tuiSubmitBtn{ margin-top:8px; }
-#tuiSubmitBtn:disabled{ opacity:0.6; cursor:default; }
-</style>
-
-<script>
-(function(){
-  var form = document.getElementById('tuiForm');
-  var childrenInput = document.getElementById('tuiChildren');
-  var childAgesField = document.getElementById('tuiChildAgesField');
-  var childAgesInput = childAgesField.querySelector('input');
-  var errorBox = document.getElementById('tuiFormError');
-  var submitBtn = document.getElementById('tuiSubmitBtn');
-
-  function syncChildAges(){
-    var need = parseInt(childrenInput.value, 10) > 0;
-    childAgesInput.required = need;
-  }
-  childrenInput.addEventListener('input', syncChildAges);
-  syncChildAges();
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    errorBox.hidden = true;
-
-    if(!form.checkValidity()){
-      form.reportValidity();
-      return;
-    }
-
-    var data = {};
-    Array.prototype.forEach.call(form.elements, function(el){
-      if(!el.name || el.type === 'submit') return;
-      if(el.type === 'checkbox'){ return; }
-      data[el.name] = el.value.trim();
-    });
-    data.ADULTS = parseInt(data.ADULTS, 10) || 1;
-    data.CHILDREN = parseInt(data.CHILDREN, 10) || 0;
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Registering...';
-
-    fetch('/.netlify/functions/tui-register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    }).then(function(res){
-      if(!res.ok){ throw new Error('bad status'); }
-      return res.json();
-    }).then(function(){
-      window.location.href = 'tui-summer-2028-thanks.html';
-    }).catch(function(){
-      errorBox.textContent = "Sorry, something went wrong sending that. Please try again, or message Jake directly on WhatsApp and he'll register you manually.";
-      errorBox.hidden = false;
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Register me for priority access';
-    });
-  });
-})();
-</script>
-
-<section class="theme-dark">
-  <div class="wrap">
-    <div class="eyebrow">How priority access works</div>
-    <h2>THREE STEPS TO GET YOUR SUMMER 2028 HOLIDAY BOOKED FIRST.</h2>
-    <div class="grid-3 equal-cards" style="margin-top:32px;">
-      <div class="jake-card" style="background:var(--ink); border-color:rgba(255,255,255,0.25);">
-        <div style="width:36px; height:36px; border-radius:50%; background:var(--yellow); color:var(--ink); display:flex; align-items:center; justify-content:center; font-family:'Archivo Black',sans-serif; margin-bottom:14px;">1</div>
-        <h3 style="color:var(--white); font-size:17px;">Register your details</h3>
-        <p style="color:rgba(255,255,255,0.8);">Fill in the form above with your dates, hotel, airport and everyone travelling. You'll be added to my mailing list for general holiday updates too.</p>
-      </div>
-      <div class="jake-card" style="background:var(--ink); border-color:rgba(255,255,255,0.25);">
-        <div style="width:36px; height:36px; border-radius:50%; background:var(--yellow); color:var(--ink); display:flex; align-items:center; justify-content:center; font-family:'Archivo Black',sans-serif; margin-bottom:14px;">2</div>
-        <h3 style="color:var(--white); font-size:17px;">Book your priority appointment</h3>
-        <p style="color:rgba(255,255,255,0.8);">You'll get an email straight away with a link to book an appointment slot. Priority for the best prices and availability goes to those with a slot booked.</p>
-      </div>
-      <div class="jake-card" style="background:var(--ink); border-color:rgba(255,255,255,0.25);">
-        <div style="width:36px; height:36px; border-radius:50%; background:var(--yellow); color:var(--ink); display:flex; align-items:center; justify-content:center; font-family:'Archivo Black',sans-serif; margin-bottom:14px;">3</div>
-        <h3 style="color:var(--white); font-size:17px;">Get booked on launch day</h3>
-        <p style="color:rgba(255,255,255,0.8);">On 15th October, we go through your options live on your appointment call and get your Summer 2028 holiday booked there and then.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="theme-light">
-  <div class="wrap">
-    <p style="max-width:70ch; margin:0 auto; text-align:center; font-size:14px; opacity:0.75;">Registering is free and you're under no obligation to book. If your plans change, just let me know. Prefer to talk it through first? <a class="body-copy" href="https://wa.me/447899290262" target="_blank" rel="noopener">Message me on WhatsApp</a>.</p>
-  </div>
-</section>
-"""
-
-with open(os.path.join(SITE, "tui-summer-2028.html"), "w", encoding="utf-8") as f:
-    f.write(page(
-        "TUI Summer 2028 Sale: Priority Access | Travel Agent Jake",
-        "Register now for TUI's Summer 2028 sale (live 15th October 2026) and book a priority appointment to get your holiday confirmed on launch day.",
-        "tui-summer-2028.html",
-        tui_2028_body
-    ))
-print("tui-summer-2028.html written")
-
-tui_2028_thanks_body = """
-<section class="theme-bold">
-  <div class="wrap" style="text-align:center;">
-    <div class="eyebrow">You're on the list</div>
-    <h1>YOU'RE REGISTERED FOR TUI SUMMER 2028 PRIORITY ACCESS</h1>
-    <p class="lead" style="margin-top:14px; max-width:64ch; margin-left:auto; margin-right:auto;">Nice one. Your details are saved and ready to go. The single most important thing you can do now is book your priority appointment slot for launch day, 15th October 2026.</p>
-    <div class="btn-row" style="justify-content:center; margin-top:24px;">
-      <a class="btn btn-primary" href="https://calendar.app.google/a6kTkgMPVGoXCQoo8" target="_blank" rel="noopener">Book my priority appointment</a>
-    </div>
-  </div>
-</section>
-
-<section class="theme-light">
-  <div class="wrap">
-    <div class="grid-3 equal-cards" style="gap:24px;">
-      <div class="jake-card">
-        <h3>Why book an appointment</h3>
-        <p>Priority for the best hotels, flight times and prices goes to those with an appointment booked. It's the single best thing you can do between now and launch day.</p>
-      </div>
-      <div class="jake-card">
-        <h3>Check your email</h3>
-        <p>A confirmation email is on its way to you now with this same appointment link, plus a reminder of what happens next.</p>
-      </div>
-      <div class="jake-card">
-        <h3>Questions before then</h3>
-        <p>Drop me a message on WhatsApp any time and I'll get back to you personally.</p>
-        <a class="btn btn-block" style="margin-top:8px;" href="https://wa.me/447899290262" target="_blank" rel="noopener">Message me on WhatsApp</a>
-      </div>
-    </div>
-  </div>
-</section>
-"""
-
-with open(os.path.join(SITE, "tui-summer-2028-thanks.html"), "w", encoding="utf-8") as f:
-    f.write(page(
-        "You're Registered | TUI Summer 2028 | Travel Agent Jake",
-        "Thanks for registering for TUI Summer 2028 priority access. Book your priority appointment now to get your holiday confirmed on launch day.",
-        "tui-summer-2028.html",
-        tui_2028_thanks_body
-    ))
-print("tui-summer-2028-thanks.html written")
-
-
 # ---------------- SKI SLOPE STARTERS (campaign landing page, not in nav) ----------------
 ski_body = """
 <section class="theme-bold">
@@ -9373,7 +9069,6 @@ with open(os.path.join(SITE, "travel-company-goes-bust-atol-abta-protection.html
 print("travel-company-goes-bust-atol-abta-protection.html written")
 
 
-
 # ---------------- BOOKING WIDGET PLACEHOLDER PAGES (Agendas Group) ----------------
 # Jess Speight (Agendas Group Ltd, account manager for the new holiday
 # search/booking widget) asked for three blank pages, named so their URLs
@@ -9496,7 +9191,6 @@ SITEMAP_PAGES = [
     ("my-booking.html", "0.8"),
     ("about.html", "0.8"),
     ("book.html", "0.9"),
-    ("tui-summer-2028.html", "0.9"),
     ("ski-quiz.html", "0.8"),
     ("destinations.html", "0.7"),
     ("cyprus-paphos-latchi.html", "0.6"),
