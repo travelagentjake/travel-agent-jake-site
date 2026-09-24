@@ -1559,6 +1559,13 @@ DESTINATION_POSTS = [
         "excerpt": "Valletta, Sliema, St Julian's, Qawra, Bugibba and Mellieha Bay: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1772567345928-702b3bb02134?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "italy-sorrento-amalfi-coast.html",
+        "meta": "Italy, Sorrento & the Amalfi Coast",
+        "title": "Sorrento & the Amalfi Coast, Italy",
+        "excerpt": "Sorrento, Sant'Agnello, the Sorrentine Peninsula and the Amalfi Coast: weather by month, where to stay, things to do, multi centre options and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1592484149049-d3b6c5c64ca6?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -5240,6 +5247,307 @@ with open(os.path.join(SITE, "malta.html"), "w", encoding="utf-8") as f:
         extra_schema=MALTA_SCHEMA
     ))
 print("malta.html written")
+
+
+
+sorrento_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>SORRENTO &amp; THE AMALFI COAST, ITALY</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Sorrento, Sant'Agnello, the wider Sorrentine Peninsula and the cliffside towns of the Amalfi Coast, from Positano to Capri.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Sorrento &amp; the Amalfi Coast</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1592484149049-d3b6c5c64ca6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of Sorrento's Marina Grande harbour, Italy" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>This is the one I recommend to clients who want Italy without having to choose between history and a proper holiday feel. Sorrento sits on a clifftop above its own little harbour, surrounded by lemon groves, and it's close enough to Pompeii, Capri and the Amalfi Coast that you can build a whole week of day trips without ever changing hotel. It's also genuinely walkable, with Piazza Tasso and the old town a short stroll from most of the resort hotels, which isn't something I can say about a lot of Mediterranean destinations.</p>
+    <p style="margin-top:14px;">Where it's different from somewhere like Majorca or the Canaries is the style of holiday. Sorrento hotels are mostly bed and breakfast or half board rather than all inclusive, the beaches are small and often pebbly or on sunbathing platforms rather than long stretches of sand, and it suits people who want to be out exploring rather than parked by a pool all week. If a client wants to add on a couple of nights in Positano or Rome, I can build that as a proper multi centre trip too.</p>
+    {jake_tip("If a client's priority is a big pool, a lazy river and an all inclusive board basis, I'll steer them towards Turkey or the Canaries instead. Sorrento is for clients who want to eat well, explore constantly, and treat the hotel as a comfortable base rather than the main event.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the classic package length and gives you enough time for Pompeii, Capri, a proper look around Sorrento itself and at least one full day on the Amalfi Coast without feeling rushed. Four or five nights works well too, especially if it's the coastal half of a longer trip that also includes Rome, Naples or Florence. Ten to eleven nights lets you split your stay between Sorrento and Positano so you get both sides of this stretch of coast properly.</p>
+    <p style="margin-top:14px;">Couples and first time visitors to Italy tend to get the most out of Sorrento, and it also works well for families with older children who'll enjoy the boat trips, the ruins at Pompeii and the freedom to wander the old town. It's less suited to families with very young children who need a big pool and kids' club on site, since most Sorrento hotels are smaller and more traditional, and it's not the right fit for anyone who wants a lazy, all inclusive week without much moving around.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">The nearest airport is Naples International (NAP), with direct flights from a good spread of UK airports on easyJet, British Airways, Ryanair and Jet2, taking around two and a half to three hours. From Naples Airport it's roughly 45 minutes to an hour to Sorrento by road, longer at busy times, and most package holidays include a coach or private transfer as standard. An alternative some independent travellers use is the airport bus into Naples followed by the Circumvesuviana train to Sorrento, though this involves changing and isn't the easiest option with luggage.</p>
+    <p style="margin-top:14px;">If your trip includes Positano or another Amalfi Coast town, allow extra time again, the coast road is narrow, winding and can be very slow in peak summer traffic. Some transfers route via ferry from Naples or Sorrento instead, which can actually be quicker and more scenic than the road in high season.</p>
+    {jake_tip("Book transfers rather than trying to self drive the Amalfi Coast road in peak season if you can help it. It's a stunning drive but also a genuinely stressful one, with hairpin bends, coach traffic and very little parking once you arrive.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Sorrento has a mild, typically Mediterranean climate. These figures are long-term climate averages for the area, so treat them as a guide rather than a forecast for your specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>12&deg;C</td><td>5&deg;C</td><td>15&deg;C</td><td>Mild and quiet, many smaller hotels close for the season</td></tr>
+          <tr><td>February</td><td>12&deg;C</td><td>5&deg;C</td><td>14&deg;C</td><td>Similar to January, coldest stretch of the year</td></tr>
+          <tr><td>March</td><td>14&deg;C</td><td>6&deg;C</td><td>14&deg;C</td><td>Warming up, hotels start reopening for the new season</td></tr>
+          <tr><td>April</td><td>17&deg;C</td><td>9&deg;C</td><td>15&deg;C</td><td>Pleasant and popular for Easter, good for sightseeing</td></tr>
+          <tr><td>May</td><td>21&deg;C</td><td>13&deg;C</td><td>18&deg;C</td><td>Warm and green, sea still cool but comfortable for some</td></tr>
+          <tr><td>June</td><td>25&deg;C</td><td>16&deg;C</td><td>22&deg;C</td><td>Hot and dry, season in full swing</td></tr>
+          <tr><td>July</td><td>28&deg;C</td><td>18&deg;C</td><td>25&deg;C</td><td>Very hot, peak season, coast roads at their busiest</td></tr>
+          <tr><td>August</td><td>28&deg;C</td><td>19&deg;C</td><td>26&deg;C</td><td>Hottest and busiest month, many Italians on holiday too</td></tr>
+          <tr><td>September</td><td>25&deg;C</td><td>16&deg;C</td><td>24&deg;C</td><td>Still warm, sea at its warmest, noticeably quieter</td></tr>
+          <tr><td>October</td><td>21&deg;C</td><td>13&deg;C</td><td>22&deg;C</td><td>Mild, good value, sea still swimmable for the hardier</td></tr>
+          <tr><td>November</td><td>16&deg;C</td><td>9&deg;C</td><td>19&deg;C</td><td>Cooler and wetter, quieter still, some closures begin</td></tr>
+          <tr><td>December</td><td>12&deg;C</td><td>7&deg;C</td><td>17&deg;C</td><td>Mild by UK standards, but low season with many closures</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for the area, sourced via weather2travel.com.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">May, June and September are the sweet spot, warm and reliably sunny without the intensity or the crowds of high summer. July and August are hottest and busiest, with the Amalfi Coast road at its most congested and many Italians taking their own summer holidays around the 15th of August public holiday, known as Ferragosto. April and October are good value shoulder months, still pleasant for sightseeing even if the sea is a little cooler. Winter, November to March, is quiet and considerably cheaper, and Sorrento itself stays reasonably active year round, but many smaller hotels, restaurants and attractions along the Amalfi Coast, particularly in Positano, close down entirely for the season, so it isn't the time for a Positano based trip.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">This stretch of coast has quite different characters depending on where you base yourself, and it's worth choosing deliberately.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1679694576356-6806f425c6ad?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Piazza Tasso in the centre of Sorrento, Italy" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sorrento town centre</h3>
+        <p>The obvious first choice, built around Piazza Tasso and the pedestrianised Corso Italia, with the widest choice of restaurants, bars and shops all within walking distance. Most hotels here are a short walk from the clifftop and the lift or steps down to Marina Piccola. The best base for anyone without a car who wants everything on their doorstep.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1658988177065-c07b1abbc2bc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Marina Grande fishing harbour near Sant'Agnello, Sorrento" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sant'Agnello &amp; Piano di Sorrento</h3>
+        <p>Quieter residential towns immediately next to Sorrento, an easy walk or short bus ride from Piazza Tasso, with a more local, less touristy feel and generally better value hotels. A good compromise for anyone who wants easy access to Sorrento's centre without paying its prices.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1564826220555-39b9012d6f02?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rugged cliffside coastline near Massa Lubrense, Sorrentine Peninsula" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Vico Equense &amp; Massa Lubrense</h3>
+        <p>The quieter, wilder ends of the Sorrentine Peninsula, Vico Equense to the north with its own beaches and pizza reputation, Massa Lubrense to the south with dramatic clifftop views towards Capri. Both suit independent travellers with a hire car who want scenery and authenticity over nightlife, and neither is walkable into Sorrento itself.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1664565251448-db0491e6d4f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Positano on the Amalfi Coast, Italy" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Positano &amp; the Amalfi Coast</h3>
+        <p>The postcard version of this part of Italy, houses stacked up a cliff face above the sea, but also the most expensive and least practical base for a full week, with steep steps everywhere and limited parking. Best treated as a day trip from Sorrento, or as two or three nights added onto the end of a longer stay.</p>
+      </div>
+    </div>
+    {jake_tip("First time here and don't want to overthink it? Base yourself in Sorrento town centre. Want the same easy access for less money? Sant'Agnello. Want to actually stay on the Amalfi Coast itself? Do it as a short add on to a Sorrento based week rather than your only base.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">The Circumvesuviana train line connects Sorrento to Pompeii and Naples, and is the easiest way to reach both without a car. SITA buses run along the Amalfi Coast road from Sorrento through Positano to Amalfi and beyond, though they get extremely busy in summer and it's worth queuing early. A ferry service also runs from Sorrento to Positano, Amalfi and Capri, and is often a faster, more comfortable option than the coast road bus in peak season. Taxis are available but pricey for longer journeys, and hiring a car is only worth it if you're planning to explore the wider peninsula independently, since parking is scarce and the coast road itself is slow and nerve wracking to drive.</p>
+    <p style="margin-top:14px;">A boat trip to Capri is worth booking in advance in summer, as sailings fill up, and the crossing takes around 20 to 25 minutes from Marina Piccola in Sorrento.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Freshly baked Neapolitan pizza" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities around Sorrento worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="465920,396686,436573,657305"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/sorrento-l391/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/sorrento-l391/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Sorrento &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays. Worth knowing before you book: Sorrento hotels are almost always bed and breakfast or half board rather than all inclusive, quite different from Spain or the Canaries, so it's worth budgeting some spending money for eating out.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1586611292717-f828b167408c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Harbourside hotel terrace with sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Admiral</h3>
+        <p>A boutique hotel right on Marina Grande harbour in Sorrento centre, with a pool, a waterfront terrace and Mediterranean styled rooms. Independent sites rate it anywhere from three to four stars, so we'd simply call it a well located, well reviewed harbourside stay rather than force an exact rating. Bed and breakfast. Bookable through Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for a central base</div>
+        <img src="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rooftop hotel pool with sea view" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Plaza</h3>
+        <p>A 4&#9733; boutique hotel moments from Piazza Tasso, with a rooftop infinity pool and Skybar looking out over the rooftops towards the bay. Stylish, modern rooms and about as central as it gets in Sorrento. Bed and breakfast. Bookable through TUI and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families &amp; resort facilities</div>
+        <img src="https://images.unsplash.com/photo-1783442619815-943376e2ac6c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cliffside hotel with cascading pools at twilight" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hilton Sorrento Palace</h3>
+        <p>A large hotel set on the clifftop above Sorrento with several cascading outdoor pools, magnificent sea views over the bay, multiple restaurants and a spa. The scale and range of facilities make it the standout choice for families who want more to do on site than the smaller boutique hotels offer. Bed and breakfast. Bookable through Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1761926030252-cd3a0b86e352?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Luxury resort pool overlooking the sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Grand Hotel La Favorita</h3>
+        <p>A 5&#9733; hotel in the heart of Sorrento with sweeping sea views, a panoramic pool terrace and polished, contemporary interiors. The pick for a special occasion or a honeymoon without leaving Sorrento's centre behind. Bed and breakfast. Bookable through TUI.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Sorrento with the rest of Italy</h2>
+    <p style="margin-top:14px;">Sorrento pairs naturally with Italy's big cities, and I regularly build this as a multi centre trip rather than a single hotel stay, using real, bookable hotels in each place and travelling between them by Italy's fast train network or a private transfer. Here are three ways I'd put it together.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Colosseum in Rome at dawn" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Rome &amp; Sorrento</h3>
+        <p>Around 7 to 10 nights: 3 to 4 nights in Rome, then on to 4 to 6 nights in Sorrento. The classic first timer's combination, ancient history and the Vatican followed by coastal relaxation. Rome hotels such as H10 Roma Citta are bookable through Jet2holidays, alongside Sorrento hotels like Hotel Admiral or Hotel Plaza. Rome to Naples takes around an hour by fast train, with a short transfer on to Sorrento.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1530476219733-88085e45aa2c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Houses stacked on the hillside above the sea at Positano, Italy" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sorrento &amp; Positano</h3>
+        <p>Around 10 to 11 nights: split roughly in half between a Sorrento base and a Positano base, so you properly experience both sides of this coast rather than just day tripping into Positano. Positano hotels such as Hotel Conca D'Oro are bookable through Jet2holidays. Best attempted outside peak August traffic, given the coast road between the two.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1541370976299-4d24ebbc9077?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Florence's cathedral dome and skyline" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Rome, Florence &amp; Sorrento</h3>
+        <p>Around 10 to 12 nights: 3 nights in Rome, 3 in Florence, then 4 to 6 in Sorrento. A genuine best of Italy trip covering ancient history, Renaissance art and the coast, travelling between cities by Italy's fast trains, around an hour and a half between Rome and Florence. Florence hotels such as Grand Hotel Minerva are also bookable through Jet2holidays, alongside the same Rome and Sorrento options above.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate hotel bookings combined into one trip rather than a single packaged product, message Jake and he'll put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond just Sorrento itself.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1686252183235-67dfafa22f60?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The ancient ruins of Pompeii with Vesuvius behind" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Pompeii</h3>
+        <p>The remarkably preserved Roman city buried by Mount Vesuvius in AD 79, an easy Circumvesuviana train ride from Sorrento. Wandering the streets, houses and forum brings ancient Roman life to life in a way few other sites can match. Allow at least half a day, more if you're genuinely into the history.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1614683190215-9b8b07795661?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boat off the coast of Capri, Italy" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Capri</h3>
+        <p>A glamorous island a short boat ride from Sorrento, home to the Blue Grotto sea cave, the chic Piazzetta in Capri town, and a chairlift up Monte Solaro for sweeping views. Busy with day trippers in peak season, so an early boat over is worth it if you can manage it.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1583844056361-4418a8f2a985?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Positano illuminated at dusk on the Amalfi Coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Amalfi Coast drive</h3>
+        <p>The stretch of coast road linking Positano, Amalfi and Ravello is one of the most scenic drives in Europe, all hairpin bends and pastel coloured towns tumbling down to the sea. Best done by boat, organised tour or SITA bus rather than self driving if you can, since the road is narrow and the traffic can be relentless in summer.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1610641819167-e9f4f393a7fe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Mount Vesuvius seen across the Bay of Naples" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Mount Vesuvius &amp; Naples</h3>
+        <p>The volcano that destroyed Pompeii still looms over the bay, and a guided hike to its crater rim is a genuinely memorable half day out. Naples itself, a short train ride away, has its own atmosphere entirely, chaotic, characterful and home to the original Neapolitan pizza if you want to compare it to Sorrento's own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Italy uses the Euro, so prices below are shown in pounds with the Euro equivalent alongside, based on a rate of roughly &pound;1 to &euro;1.16. These are crowd-sourced averages for the Sorrento area, and prices right on the seafront or in Positano can run noticeably higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Pizza in a casual restaurant</td><td>&pound;5.15 (about &euro;6.00)</td></tr>
+          <tr><td>Casual lunch for two</td><td>&pound;18.10 (about &euro;21.00)</td></tr>
+          <tr><td>Sit-down dinner for two</td><td>&pound;37.05 (about &euro;43.00)</td></tr>
+          <tr><td>Cappuccino at a table with a view</td><td>&pound;5.15 (about &euro;6.00)</td></tr>
+          <tr><td>Bus or train ticket, single journey</td><td>&pound;3.60 (about &euro;4.20)</td></tr>
+          <tr><td>Ferry to Capri, round trip</td><td>&pound;30.15 (about &euro;35.00)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced averages for Sorrento via BudgetYourTrip, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("A coffee standing at the bar, the way most Italians drink it, is far cheaper than sitting at a table with table service. If you're watching the budget, drink your espresso standing up like a local.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (&euro;)</td></tr>
+          <tr><td>Plug type</td><td>Type C/F/L, a UK to EU adapter is needed</td></tr>
+          <tr><td>Language</td><td>Italian, English is widely spoken in hotels and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 2.5 to 3 hours direct to Naples</td></tr>
+          <tr><td>Time difference</td><td>1 hour ahead of the UK year round</td></tr>
+          <tr><td>Driving</td><td>Right hand side, an international permit isn't required for UK licence holders</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Nick Fewings, Yash Gothi, Casey Lovegrove, Brendan Chen, Chantal Lim, Daniel Perez, Aurelien Lemasson-Theobald, Yuliya Pankevich, Theo Maroulis, Wojciech Wyszkowski, Aleksandr Galichkin, Cole Ciarlello, Nicolo Salinetti, Sebastian Leonhardt, Fabio Fistarol, David Kohler, Sander Crombach and Ali Nuredini via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Sorrento for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Italy, add on Rome, Florence or the Amalfi Coast, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+sorrento_body = sorrento_body.replace("::NEWSLETTER::", newsletter_section())
+
+SORRENTO_SCHEMA = article_and_faq_schema(
+    "Sorrento & the Amalfi Coast: Jake's Destination Guide",
+    "Jake's honest guide to Sorrento and the Amalfi Coast, Italy: weather by month, where to stay, things to do, recommended hotels, multi centre options and what things cost.",
+    "italy-sorrento-amalfi-coast.html",
+    "https://images.unsplash.com/photo-1592484149049-d3b6c5c64ca6?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Sorrento and the Amalfi Coast?", "May, June and September are the sweet spot, warm and reliably sunny without the intensity or crowds of high summer. July and August are hottest and busiest, with the Amalfi Coast road at its most congested. April and October are good value shoulder months. Winter is quiet and cheaper, and Sorrento itself stays reasonably active year round, but many hotels and restaurants along the Amalfi Coast, especially in Positano, close for the season."),
+        ("Which area should I base myself in?", "Sorrento town centre is the easiest first choice, walkable to everything with the widest range of restaurants and hotels. Sant'Agnello and Piano di Sorrento sit right next door and offer better value with an easy walk or bus ride into the centre. Vico Equense and Massa Lubrense suit independent travellers with a car who want a quieter, wilder feel. Positano and the Amalfi Coast are beautiful but impractical as a full week base, and work better as a short add on to a Sorrento stay."),
+        ("How do I get from the airport to Sorrento, and is a car worth hiring?", "The nearest airport is Naples International, roughly 45 minutes to an hour from Sorrento by road, and most package holidays include a coach or private transfer. A car isn't necessary if you're staying resort based, since trains, SITA buses and ferries cover the area well, and the Amalfi Coast road itself is narrow, slow and best left to a transfer driver or a boat rather than self driving, especially in peak season."),
+    ]
+)
+with open(os.path.join(SITE, "italy-sorrento-amalfi-coast.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Sorrento & the Amalfi Coast: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Sorrento and the Amalfi Coast, Italy: weather by month, where to stay, things to do, recommended hotels, multi centre options and what things cost.",
+        "destinations.html",
+        sorrento_body,
+        extra_schema=SORRENTO_SCHEMA
+    ))
+print("italy-sorrento-amalfi-coast.html written")
 
 
 
@@ -9204,6 +9512,7 @@ SITEMAP_PAGES = [
     ("gran-canaria.html", "0.6"),
     ("lanzarote.html", "0.6"),
     ("malta.html", "0.6"),
+    ("italy-sorrento-amalfi-coast.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
