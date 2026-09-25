@@ -1565,6 +1565,13 @@ DESTINATION_POSTS = [
         "excerpt": "Sorrento, Sant'Agnello, the Sorrentine Peninsula and the Amalfi Coast: weather by month, where to stay, things to do, multi centre options and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1592484149049-d3b6c5c64ca6?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "corfu.html",
+        "meta": "Corfu",
+        "title": "Corfu",
+        "excerpt": "Corfu Town, Gouvia, Sidari, Paleokastritsa and Kavos: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1568057179114-b0829c8b8767?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -5546,6 +5553,285 @@ with open(os.path.join(SITE, "italy-sorrento-amalfi-coast.html"), "w", encoding=
     ))
 print("italy-sorrento-amalfi-coast.html written")
 
+corfu_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>CORFU</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Corfu, from Corfu Town's Venetian old streets to the resorts of the north coast and the wilder scenery of the west.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Corfu</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1568057179114-b0829c8b8767?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of Corfu's turquoise coastline and green hills" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Corfu is the greenest of the popular Greek islands, and it shows the moment you land, olive groves and cypress trees everywhere instead of the dry, scrubby landscape you get on Zante or Crete. It's also got more genuine history than most of its neighbours, Corfu Town is a proper UNESCO World Heritage old town with Venetian, French and British influences all layered on top of each other, so it suits clients who want a bit of culture alongside their beach week, not just the beach week.</p>
+    <p style="margin-top:14px;">It's a bigger, more spread out island than people expect too. Corfu Town and the airport sit roughly in the middle of the east coast, so depending where your hotel is you could have a fifteen minute transfer or the best part of an hour, and the island genuinely has several different personalities depending which coast you pick, calm and family friendly in the north east, lively and sandy in the north, dramatic and quiet in the west, and full on nightlife in Kavos down south.</p>
+    {jake_tip("Ask what a client actually wants from the holiday before picking an area. Corfu Town and Gouvia for culture and an easy transfer, Sidari or Roda for a classic family beach week, Paleokastritsa for scenery, Kavos for a big night out. Picking the wrong one is the easiest way to end up with an unhappy client here.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the standard package length and gives you enough time to properly explore one or two areas of the island, fit in a boat trip to Paxos and still have plenty of pool time. Ten or eleven nights works well if a client wants to split their stay between two areas, a beach resort in the north or west paired with a couple of nights in Corfu Town for the history and nightlife.</p>
+    <p style="margin-top:14px;">Corfu suits a genuinely wide range of travellers. Families do well here thanks to the mix of half board and all inclusive resorts with kids' clubs, particularly around Glyfada and the north coast. Couples and culture focused travellers are well served by Corfu Town and Kanoni. Kavos in the south remains Corfu's answer to the classic 18 to 30 party resort, while Paleokastritsa and the west coast suit anyone who wants scenery and a quieter pace over nightlife.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Corfu International Airport (CFU) sits just south of Corfu Town and takes direct flights from a wide spread of UK airports on easyJet, British Airways, TUI Airways, Jet2 and Ryanair, typically taking around 3 to 3.5 hours. Corfu is one of the more spread out Greek islands for transfer times, so it's worth checking how far a hotel actually is from the airport before booking. Corfu Town and Kanoni are a quick 10 to 15 minutes away, Gouvia, Dassia and Ipsos around 20 to 30 minutes, Paleokastritsa and Glyfada on the west coast around 30 to 40 minutes, and the north coast resorts of Sidari, Roda and Acharavi or Kavos in the south can be 45 minutes to an hour.</p>
+    {jake_tip("If a short transfer matters to a client, say so when booking. Corfu's north and south coast resorts are genuinely a lot further from the airport than Corfu Town or Gouvia, and that hour each way adds up over a week.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Corfu is greener and gets more rain than most Greek islands, which is exactly why it looks so lush. These figures are long-term climate averages for the area, so treat them as a guide rather than a forecast for specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>13&deg;C</td><td>4&deg;C</td><td>15&deg;C</td><td>Cool and wet, many smaller hotels closed for the season</td></tr>
+          <tr><td>February</td><td>13&deg;C</td><td>5&deg;C</td><td>15&deg;C</td><td>Similar to January, still quiet</td></tr>
+          <tr><td>March</td><td>16&deg;C</td><td>6&deg;C</td><td>15&deg;C</td><td>Warming up, hotels beginning to reopen</td></tr>
+          <tr><td>April</td><td>19&deg;C</td><td>9&deg;C</td><td>16&deg;C</td><td>Pleasant and green, good for sightseeing</td></tr>
+          <tr><td>May</td><td>23&deg;C</td><td>12&deg;C</td><td>19&deg;C</td><td>Warm and lush, sea still cool for some</td></tr>
+          <tr><td>June</td><td>28&deg;C</td><td>16&deg;C</td><td>22&deg;C</td><td>Hot and dry, season in full swing</td></tr>
+          <tr><td>July</td><td>31&deg;C</td><td>18&deg;C</td><td>24&deg;C</td><td>Very hot, peak season, driest month</td></tr>
+          <tr><td>August</td><td>31&deg;C</td><td>18&deg;C</td><td>25&deg;C</td><td>Hottest and busiest month</td></tr>
+          <tr><td>September</td><td>27&deg;C</td><td>16&deg;C</td><td>24&deg;C</td><td>Still warm, sea at its warmest, noticeably quieter</td></tr>
+          <tr><td>October</td><td>22&deg;C</td><td>13&deg;C</td><td>22&deg;C</td><td>Mild, rain returns, good value</td></tr>
+          <tr><td>November</td><td>18&deg;C</td><td>9&deg;C</td><td>19&deg;C</td><td>Cooler and wetter, quiet season begins</td></tr>
+          <tr><td>December</td><td>14&deg;C</td><td>6&deg;C</td><td>17&deg;C</td><td>Mild by UK standards, wettest month, many closures</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for the area, sourced via weather2travel.com.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">June to September is the classic package season, hot, dry and reliably sunny, with July and August the hottest and busiest months and the driest too. May and June are a lovely sweet spot, warm with the island's famous greenery still fresh from spring rain, and September stays warm with the sea at its warmest while resorts noticeably quieten down. April and October are good value shoulder months, cooler and wetter but fine for sightseeing rather than beach time. Winter, November to March, is Corfu's quiet season, mild by UK standards but considerably wetter than the rest of Greece, and many smaller hotels close entirely until spring.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Corfu is a genuinely varied island to base yourself on, from Venetian old town streets to quiet olive groves and lively package resort strips. Here's how the main areas differ.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1651436006266-9798cdb9d19f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cobblestone street in Corfu Old Town" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Corfu Town &amp; Kanoni</h3>
+        <p>The island's historic capital, a UNESCO World Heritage old town of Venetian era streets, the Liston arcade and two old fortresses, with Kanoni just to the south known for its view over Mouse Island. The best base for couples and culture focused travellers who want history, restaurants and nightlife within walking distance, and it's also the shortest transfer from the airport.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1712227832843-bafa50c6c975?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boats moored in a Corfu marina" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Gouvia, Dassia &amp; Ipsos</h3>
+        <p>A stretch of calmer, more low key resorts a short drive north of Corfu Town, with a marina at Gouvia, pebbly beaches and olive grove backdrops. Good value and a genuinely easy base for anyone who wants beach time without a long transfer or a full blown resort strip.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1602086037531-426d8fb559a6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of the Canal d'Amour rock formations at Sidari, Corfu" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sidari, Roda &amp; Acharavi</h3>
+        <p>Corfu's north coast, with some of the island's best sandy beaches, including the famous Canal d'Amour rock formations at Sidari. A lively, well established package resort strip with plenty of bars and restaurants, popular with families and younger groups alike.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1633013979521-3b87635855b3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bird's eye view of a beach and turquoise sea near Paleokastritsa, Corfu" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Paleokastritsa &amp; Glyfada</h3>
+        <p>The west coast at its most dramatic, cliffs, coves and turquoise water around Paleokastritsa's monastery, with Glyfada's long golden sand beach a little further south. Fewer big resort hotels than the north coast, and the better choice for scenery over nightlife, though a car helps given the winding roads.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1626096012166-cd3b0fe605a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hidden turquoise cove on the Corfu coastline" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Kavos</h3>
+        <p>Corfu's southern tip and its liveliest resort by some distance, a long sandy beach backed by bars, clubs and a young, mostly 18 to 30 crowd. Not the pick for a quiet family week, but the obvious choice if a big night out is part of the plan.</p>
+      </div>
+    </div>
+    {jake_tip("First time on Corfu and want it simple? Corfu Town or Gouvia give an easy, central base. Want more beach and a livelier strip? Sidari. Want to get away from resorts entirely? Paleokastritsa.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Corfu Town has a network of blue local buses, while green KTEL intercity buses connect the town to resorts right around the island, though services thin out considerably in the evenings and off season. Taxis are widely available but pricier for longer cross island journeys. Hiring a car is worth considering to properly explore Paleokastritsa, the Achilleion Palace and the quieter west coast, roads inland can be narrow and mountainous so it's worth taking it slowly. A full UK driving licence is all that's needed, an international permit isn't required.</p>
+    <p style="margin-top:14px;">Boat trips to Paxos and Antipaxos run from Corfu Town and several resorts through the summer season, and are worth booking ahead in peak months as popular sailings sell out.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1755378023215-fc3e98ce32f1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Narrow street in Corfu Old Town leading to the iconic church clock tower" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities around Corfu worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="268437,488804,648117,166244"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/corfu-l405/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/corfu-l405/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Corfu &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays. Board basis on Corfu is more mixed than on some islands, expect anything from bed and breakfast to all inclusive depending on the hotel, so check what's included when booking.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1666062669930-6bd4b5031867?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hotel pool surrounded by gardens" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Paradise Hotel Corfu</h3>
+        <p>A relaxed, family run 3&#9733; hotel set among olive and cypress groves just outside Gouvia, with panoramic views over the Ionian Sea and a short drive to the beach and Corfu Town. Recently renovated bedrooms and bathrooms, an outdoor pool with sun loungers, a poolside snack bar and gardens that make it feel more like a countryside retreat than a typical resort hotel. Bed and breakfast. Bookable through easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for a central, adults only base</div>
+        <img src="https://images.unsplash.com/photo-1745847085476-c4bf1deb2f16?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset over the sea viewed from a hotel pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Mon Repos Palace, Adults Only</h3>
+        <p>A 4&#9733; adults only hotel right on the Corfu Promenade at Garitsa Bay, a short walk from Corfu Town's Old Town and its Venetian streets, squares and museums. Rooms come with balconies and sea or land views, there's an outdoor freshwater pool and a lobby bar, and the beach itself sits just across the road. The pick for couples who want history and nightlife on their doorstep rather than a resort strip. Half board or bed and breakfast. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families &amp; resort facilities</div>
+        <img src="https://images.unsplash.com/photo-1574744918163-6cef6f4a31b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Child swimming in a resort pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Domes of Corfu, Autograph Collection</h3>
+        <p>A large beachfront resort on Glyfada's golden sand, with an adults only pool, a family pool, a children's splash pool, a proper kids' club for ages 4 to 11, a creche for ages 1 to 3 and a teens' chill out zone, so there's genuinely something for every age. Four restaurants and a spa round it out. A high end family resort, confirm current board basis when booking. Bookable through Jet2holidays and TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1736618625396-571234ade4d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset over a luxury hotel pool with lounge chairs" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Corfu Holiday Palace</h3>
+        <p>A large 5&#9733; resort set among pine trees on the Kanoni peninsula, with its own funicular down to the beach, an indoor pool alongside the outdoor saltwater pool, three restaurants spanning international, Italian and Japanese food, a spa and tennis courts. The views over Mouse Island and the lagoon from the clifftop position are some of the best on the island. Half board. Bookable through Jet2holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond the beach itself.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1621765836360-63166ba78637?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Achilleion Palace, Corfu" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Achilleion Palace</h3>
+        <p>Built in the 1890s for Empress Elisabeth of Austria, this Greek revival palace outside Gastouri is filled with statues of Achilles and offers sweeping views across the island. A popular half day out, often paired with Paleokastritsa on the same tour.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1725815091063-01002e3233e5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Inside the Paleokastritsa Monastery, Corfu" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Paleokastritsa &amp; the Blue Caves</h3>
+        <p>A dramatic stretch of coastline on the west coast, with a 13th century monastery perched above turquoise bays and boat trips out to sea caves you can swim into. One of the most photographed spots on the island, and worth the winding drive over from the east coast resorts.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1724227141394-1a70822a7049?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A view through the old streets of Corfu Old Town" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Corfu Old Town</h3>
+        <p>A UNESCO World Heritage old town of Venetian, French and British influenced streets, with the Liston arcade, two old fortresses and Saint Spyridon Church all within walking distance of each other. Best explored on foot with a coffee stop on the Liston.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1756761002018-b7ef3a2a83c6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sailboats docked at a harbour at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Paxos &amp; Antipaxos</h3>
+        <p>A full day boat trip south to Corfu's smaller neighbouring islands, known for clear turquoise water, sea caves and the harbour town of Gaios. A proper day out rather than a quick excursion, so it's worth booking one that includes plenty of swimming time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Greece uses the Euro, so prices below are shown in pounds with the Euro equivalent alongside, based on a rate of roughly &pound;1 to &euro;1.16. These are crowd-sourced averages for Corfu, and prices right on the seafront or in Corfu Town can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Gyro or souvlaki wrap</td><td>&pound;2.15 (about &euro;2.50)</td></tr>
+          <tr><td>Casual meal for one at a taverna</td><td>&pound;8.60 (about &euro;10.00)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;47.40 (about &euro;55.00)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;3.10 (about &euro;3.60)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;3.45 (about &euro;4.00)</td></tr>
+          <tr><td>Bus ticket, single journey</td><td>&pound;1.55 (about &euro;1.80)</td></tr>
+          <tr><td>Taxi, airport to Corfu Town</td><td>&pound;8.60 (about &euro;10.00)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages for Corfu via Numbeo and BudgetYourTrip, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Corfu Town's Liston arcade is beautiful but priced for the view. Walk a couple of streets back from the main tourist strip for the same Greek food at local prices.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (&euro;)</td></tr>
+          <tr><td>Plug type</td><td>Type C/F, a UK to EU adapter is needed</td></tr>
+          <tr><td>Language</td><td>Greek, English is widely spoken in hotels and resorts</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 3 to 3.5 hours direct</td></tr>
+          <tr><td>Time difference</td><td>2 hours ahead of the UK, year round</td></tr>
+          <tr><td>Driving</td><td>Right hand side, an international permit isn't required for UK licence holders</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Pascal Debrunner, Nguyen Minh, Zoe Jackson, Richard James, Illia Panasenko, Jim Niakaris, Damian Kamp, Kody Goodson, Travis Fish, Raj Rana, Yuliia Sereda, Bente Hagens, David Salamanca, Tamara Harhai and Anastasiia Zharova via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Corfu for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Corfu, help you pick between the beach resorts and Corfu Town, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+corfu_body = corfu_body.replace("::NEWSLETTER::", newsletter_section())
+
+CORFU_SCHEMA = article_and_faq_schema(
+    "Corfu: Jake's Destination Guide",
+    "Jake's honest guide to Corfu: Corfu Town, Gouvia, Sidari, Paleokastritsa, Glyfada and Kavos, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "corfu.html",
+    "https://images.unsplash.com/photo-1568057179114-b0829c8b8767?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Corfu?", "June to September is the classic package season, hot, dry and reliably sunny, with July and August the hottest, busiest and driest months. May, June and September are a good sweet spot, warm without the peak summer crowds, and Corfu's spring greenery is at its best in April and May thanks to rain earlier in the year. Winter, November to March, is mild by UK standards but considerably wetter than the rest of Greece, and many smaller hotels close for the season."),
+        ("Which area of Corfu should I choose?", "Corfu Town and Kanoni suit couples and culture focused travellers who want Venetian old town streets, restaurants and nightlife within walking distance. Gouvia, Dassia and Ipsos are calmer, good value resorts a short drive from town. Sidari, Roda and Acharavi on the north coast have some of the island's best sandy beaches and a lively, well established resort strip, popular with families. Paleokastritsa and Glyfada on the west coast offer the most dramatic scenery with fewer big resorts. Kavos in the south is Corfu's liveliest resort, aimed squarely at an 18 to 30 crowd."),
+        ("How do I get to Corfu, and is hiring a car worth it?", "Corfu International Airport takes direct flights from a wide range of UK airports, typically taking around 3 to 3.5 hours. Transfer times vary a lot depending on where you're staying, from 10 to 15 minutes for Corfu Town up to around an hour for the north or south coast resorts. A car isn't essential if you're staying resort based, since buses and taxis cover the island well, but it's worth considering if you want to properly explore Paleokastritsa, the Achilleion Palace and the quieter west coast in your own time. A full UK driving licence is all that's needed, an international permit isn't required."),
+    ]
+)
+with open(os.path.join(SITE, "corfu.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Corfu: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Corfu: Corfu Town, Gouvia, Sidari, Paleokastritsa, Glyfada and Kavos, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        corfu_body,
+        extra_schema=CORFU_SCHEMA
+    ))
+print("corfu.html written")
+
 
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
@@ -9207,6 +9493,7 @@ SITEMAP_PAGES = [
     ("lanzarote.html", "0.6"),
     ("malta.html", "0.6"),
     ("italy-sorrento-amalfi-coast.html", "0.6"),
+    ("corfu.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
