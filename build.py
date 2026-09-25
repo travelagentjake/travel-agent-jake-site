@@ -5941,6 +5941,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1490430657723-4d607c1503fc?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Departure board at an airport showing flight information",
     },
+    {
+        "slug": "autism-adhd-friendly-hotels-spain-turkey.html",
+        "meta": "Accessibility",
+        "title": "Hotels that actually support autism, ADHD and sensory needs",
+        "excerpt": "Verified sensory rooms, certified staff training and named accessibility programmes across Spain and Turkey, every hotel bookable through TUI, Jet2holidays or easyJet holidays. Plus why Greece isn't on the list yet.",
+        "image": "https://images.unsplash.com/photo-1723035092325-03ad613d3dae?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Child wearing noise cancelling headphones",
+    },
 ]
 
 def tip_card(post):
@@ -9354,6 +9362,211 @@ with open(os.path.join(SITE, "travel-company-goes-bust-atol-abta-protection.html
     ))
 print("travel-company-goes-bust-atol-abta-protection.html written")
 
+# ---------------- TRAVEL TIPS: Autism, ADHD and hidden disability friendly hotels in Spain and Turkey ----------------
+neurodivergent_hotels_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>HOTELS THAT ACTUALLY SUPPORT AUTISM, ADHD AND SENSORY NEEDS</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Not "family friendly" in the general sense, hotels with a genuine, documented programme for autistic guests, ADHD and sensory processing needs. Every hotel below has a real, named feature I could verify from the hotel's own site, the tour operator or a recognised accessibility body, and every single one is bookable through TUI, Jet2holidays or easyJet holidays.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <img src="https://images.unsplash.com/photo-1723035092325-03ad613d3dae?auto=format&amp;fit=crop&amp;w=1600&amp;h=700&amp;q=80" alt="Child wearing noise cancelling headphones" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>This isn't the same as "family friendly"</h2>
+    <p style="margin-top:14px;">I've already written about the Sunflower lanyard, airport assistance and your rights if you're travelling with a hidden disability, that's a separate guide and worth reading if it's airports and flights you're worried about. This one is about the accommodation itself, and specifically about autism, ADHD and sensory processing needs rather than physical or mobility access, which is its own subject with its own requirements.</p>
+    <p style="margin-top:14px;">A kids' club and a big pool don't automatically mean a hotel understands sensory overload, meltdowns, or a child who needs a predictable routine to cope with a new environment. A genuinely useful hotel for a neurodivergent family has something specific: a quiet space to retreat to, staff who've had real training rather than a five minute briefing, or a formal certification from a recognised body. That's the bar I've used for every hotel on this page.</p>
+    {jake_tip("If a hotel's own website doesn't specifically mention autism, ADHD, sensory rooms or a named accessibility certification, don't assume it has any of this in place just because it looks like a nice family resort. Ask directly, and get whatever's promised confirmed in writing before you travel.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>How I've put this list together</h2>
+    <p style="margin-top:14px;">Every hotel here has at least one specific, currently verifiable feature, a dedicated sensory room, a named accessibility certification, documented staff training, or all three, sourced directly from the hotel's own site, the tour operator, or the certifying body itself. I've deliberately left out hotels that only turn up on generic "autism friendly resort" blog lists with no verifiable detail behind the claim, and I haven't guessed at features based on a hotel simply looking family oriented. Where I couldn't verify something properly, I've left the hotel off rather than including it and hoping for the best. I'll say plainly further down where I couldn't find enough to include a whole country or board type, rather than padding the list out.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Spain: Gran Canaria</h2>
+    <img src="https://images.unsplash.com/photo-1656274274529-e1571992939e?auto=format&amp;fit=crop&amp;w=1600&amp;h=700&amp;q=80" alt="Resort swimming pool in the Canary Islands" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Gran Canaria has more genuinely verified hidden disability support than anywhere else on this list, across two completely separate programmes.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">TUI BLUE Sensory Rooms</div>
+        <h3 style="font-size:18px;">Bah&iacute;a Feliz, south Gran Canaria</h3>
+        <p>TUI's own hotel brand has built dedicated sensory rooms, low stimulation spaces with soft lighting and interactive sensory equipment, into a cluster of its Bah&iacute;a Feliz hotels: <b>TUI BLUE Playa Feliz</b>, <b>TUI BLUE Las Pitas</b> and <b>TUI BLUE Tres Vidas</b> (all self catering apartments) and <b>TUI BLUE Orqu&iacute;dea</b> (all-inclusive). All frontline staff across the TUI BLUE sensory room hotels have completed enhanced neurodiversity awareness training through a partnership with SENNIES, a specialist SEN childcare agency, and kids' clubs carry sensory bags with tactile, visual and auditory items. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Gloria Thalasso &amp; Hotels</div>
+        <h3 style="font-size:18px;">San Agust&iacute;n &amp; Amadores, south Gran Canaria</h3>
+        <p>Gloria Thalasso &amp; Hotels was recognised as the first hotel group in Europe to hold the Autism Friendly Club certification, covering <b>Gloria Palace San Agust&iacute;n Thalasso &amp; Hotel</b>, <b>Gloria Palace Amadores Thalasso &amp; Hotel</b> and <b>Gloria Palace Royal Hotel &amp; Spa</b>. All three offer a fast check-in protocol, pictogram signage and adapted menus, and visual guides to help prepare for the stay before arrival, with staff trained and aware of autism spectrum disorder. All Inclusive Plus, half board and bed and breakfast are all available. Bookable through Jet2holidays.</p>
+      </div>
+    </div>
+    {jake_tip("If a sensory room is the one thing that matters most, ask me to check current availability at the Bahía Feliz TUI BLUE hotels specifically, they're the only Gran Canaria properties with a dedicated room rather than a wider awareness programme.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Spain: Tenerife</h2>
+    <img src="https://images.unsplash.com/photo-1673206212440-797e0e40bd0b?auto=format&amp;fit=crop&amp;w=1600&amp;h=700&amp;q=80" alt="Aerial view of Costa Adeje, Tenerife" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Tenerife has the widest spread of verified options of any single island, across three different operators and three different price points.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Luxury</div>
+        <h3 style="font-size:18px;">GF Victoria</h3>
+        <p>A 5&#9733; hotel in Costa Adeje, certified Autism Friendly by Autism Friendly Club. Sensory kits are available at reception, over 75% of staff have completed specialist autism training, and the hotel provides anticipation guides, adapted maps and pictogram signage throughout, plus a pre-travel form so families can share sensory needs and preferences in advance. Half board or bed and breakfast. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">All-inclusive</div>
+        <h3 style="font-size:18px;">Paradise Park Fun Lifestyle Hotel</h3>
+        <p>A 4&#9733; all-inclusive hotel in Los Cristianos, named by Spain's own national tourist board among the country's leading examples of inclusive tourism, with a fast check-in protocol, pictogram signage, adapted menus and downloadable easy read guides, and staff trained and aware of autism spectrum disorder. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">KN Hotels</div>
+        <h3 style="font-size:18px;">KN Arenas del Mar &amp; KN Aparthotel Columbus</h3>
+        <p>KN Hotels runs its own autism friendly programme across several Tenerife properties, including <b>KN Arenas del Mar</b> in El M&eacute;dano and <b>KN Aparthotel Columbus</b> in Playa de las Am&eacute;ricas (self catering or all-inclusive), with a fast check-in protocol, pictogram menus and signage, easy read guides and staff trained and sensitised in autism spectrum disorder. Bookable through TUI and easyJet holidays.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Spain: Fuerteventura, Lanzarote &amp; Ibiza</h2>
+    <p style="margin-top:14px;">Beyond Gran Canaria and Tenerife, three more verified hotels spread across a third Canary island, a fourth, and the Balearics.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Fuerteventura</div>
+        <h3 style="font-size:18px;">KN Matas Blancas</h3>
+        <p>Costa Calma, part of the same KN Hotels autism friendly programme as the Tenerife properties above, with the same fast check-in, pictogram signage and ASD trained staff. All inclusive, half board or bed and breakfast. Bookable through Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Lanzarote</div>
+        <h3 style="font-size:18px;">Gloria &Iacute;zaro Club Hotel</h3>
+        <p>Puerto del Carmen, part of the same Autism Friendly Club certified Gloria Thalasso &amp; Hotels group covering the Gran Canaria hotels above. Self catering apartments. Bookable through Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Ibiza</div>
+        <h3 style="font-size:18px;">TUI BLUE Aura</h3>
+        <p>Port des Torrent, on Ibiza's west coast, and the very first hotel where TUI opened a dedicated sensory room, soothing lights, calming sounds and gentle textures, alongside neurodiversity trained staff. All-inclusive. Bookable through TUI.</p>
+      </div>
+    </div>
+    {jake_tip("Fuerteventura and Lanzarote rarely come up in autism friendly holiday searches at all, most families only ever hear about Gran Canaria and Tenerife. Worth knowing both islands have a genuinely verified option if either suits your dates or budget better.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Turkey: the Turkish Riviera</h2>
+    <img src="https://images.unsplash.com/photo-1659163272096-b85bcbdeb055?auto=format&amp;fit=crop&amp;w=1600&amp;h=700&amp;q=80" alt="Beach resort along the Turkish coastline" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Turkey's verified options are newer and, honestly, thinner than Spain's. TUI opened dedicated sensory rooms at two of its TUI BLUE hotels for the 2026 season, both all-inclusive, both on the Turkish Riviera.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Sarigerme Bay</div>
+        <h3 style="font-size:18px;">TUI BLUE Tropical</h3>
+        <p>On the Turkish Aegean coast near Dalaman, with a new sensory room for 2026, open access rooms, parent and baby sensory sessions for ages 0 to 2, and family activity sessions, plus the same neurodiversity trained staff as TUI's Spanish sensory room hotels. All-inclusive. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Side, Manavgat</div>
+        <h3 style="font-size:18px;">TUI BLUE Palm Garden</h3>
+        <p>On the Turkish Riviera near Antalya, with the same new 2026 sensory room, open access hours and staff training as TUI BLUE Tropical. All-inclusive. Bookable through TUI.</p>
+      </div>
+    </div>
+    {jake_tip("Both Turkey sensory rooms are brand new for 2026, so if a member of TUI's team can't yet tell you much about how they run day to day, that's genuinely because the programme has only just launched there, not a sign it isn't real. Ask for the SENNIES trained neurodiversity champion at the resort by name once you arrive.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Greece: I couldn't verify enough to include it yet</h2>
+    <p style="margin-top:14px;">I want to be straight with you about this rather than padding the list out. I looked hard for a Greek equivalent to Gloria Thalasso, GF Victoria or TUI's sensory rooms, a hotel or hotel group with a real, named autism or ADHD specific feature I could verify from the hotel's own site, a tour operator's accessibility pages, or a recognised certification body such as IBCCES or Autism Friendly Club. I couldn't find one. Several blogs list Greek hotels as "autism friendly" based on general family amenities like kids' pools or quiet corners, but that's not the same as a documented programme, and I'm not willing to put a hotel on this list on that basis given how much this specific piece of advice matters to the families reading it.</p>
+    <p style="margin-top:14px;">Several major operators of villas and hotels in Greece, including some in Rhodes, Crete and the Ionian islands, are worth checking again in future, and I'll add Greece properly the moment I can verify something real. If you're set on Greece and this kind of support matters to your holiday, message me directly and I'll ask the hotels themselves on your behalf rather than relying on marketing copy.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <img src="https://images.unsplash.com/photo-1776525433194-449b9a2c01ae?auto=format&amp;fit=crop&amp;w=1600&amp;h=700&amp;q=80" alt="Calm, softly lit room interior" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>How to actually book this support</h2>
+    <p style="margin-top:14px;">Having the right hotel is only half of it, the request still needs to reach the resort properly, and each operator handles it slightly differently.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>TUI</b> handles sensory room and SEN requests through its dedicated Assisted Travel team (0203 451 2688, or via Convo), not as an online tick box. Get in touch as soon as possible after booking, and no later than 48 hours before you travel, though earlier is always better for anything room or resort specific.</span></li>
+      <li><span class="num">2</span><span><b>Jet2holidays</b> has a dedicated Assisted Travel team (0333 006 8798, or WhatsApp) and lets you add requests through Manage My Booking without a phone call. General assistance needs 48 hours notice, but adapted rooms and transfers need at least 21 days, so don't leave a specific room request until the last minute.</span></li>
+      <li><span class="num">3</span><span><b>easyJet holidays</b> is part of the Hidden Disabilities Sunflower global network and handles hidden disability requests through its accessibility team. Contact them directly for anything hotel specific, such as a sensory room booking or SEN certified staff, rather than assuming it's noted automatically from a general accessibility flag.</span></li>
+    </ul>
+    {jake_tip("Whichever operator you book with, put the request in writing (email or the operator's own app, not just a phone call) and keep a copy. If anything's missed at the resort, having it in writing beforehand makes it far easier to sort out on the day, or to complain about afterwards if it isn't.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Is this the same as the Sunflower lanyard guide?</h3>
+      <p>No. That guide covers airport and airline assistance for any hidden disability, and your legal rights around it. This one is about accommodation specifically, and specifically about autism, ADHD and sensory processing needs rather than physical or mobility access.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How do I actually request this support when I book?</h3>
+      <p>Contact the operator's dedicated assisted travel or accessibility team directly rather than relying on a general accessibility tick box, TUI's Assisted Travel team, Jet2holidays' Assisted Travel team, or easyJet holidays' accessibility team, and get it in writing. Timeframes vary, so the earlier you ask, the better.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Are these hotels only suitable for children, or for autistic adults too?</h3>
+      <p>Most of the features described, sensory rooms, quiet spaces, staff training and pictogram signage, are designed to help any autistic or ADHD guest, not just children. A few of the hotels mentioned, including TUI BLUE Isla Cristina Palace style adults only concepts, are adults only by design, so check the age policy for the specific hotel you're considering.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What if the hotel I want isn't on this list?</h3>
+      <p>It might still be a good fit, I've only included hotels with a feature I could verify, not every hotel that could genuinely work for your family. Message me and I'll check what's actually documented for a specific hotel before you book, rather than relying on a review or a blog's say so.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <img src="https://images.unsplash.com/photo-1721840432289-d0041522103d?auto=format&amp;fit=crop&amp;w=1600&amp;h=700&amp;q=80" alt="Family walking along the beach at sunset" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Want help booking one of these?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Tell me who's coming and what matters most, a sensory room, a specific board type, a certain budget, and I'll take care of getting the right support requested properly, not just the room booked.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+neurodivergent_hotels_body = neurodivergent_hotels_body.replace("::NEWSLETTER::", newsletter_section())
+
+NEURODIVERGENT_HOTELS_SCHEMA = article_and_faq_schema(
+    "Hotels That Actually Support Autism, ADHD and Sensory Needs",
+    "Verified, bookable hotels in Spain and Turkey with genuine autism, ADHD and sensory support: sensory rooms, certified staff training and named accessibility programmes, all bookable through TUI, Jet2holidays or easyJet holidays.",
+    "autism-adhd-friendly-hotels-spain-turkey.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("Is this the same as the Sunflower lanyard guide?", "No. That guide covers airport and airline assistance for any hidden disability, and your legal rights around it. This one is about accommodation specifically, and specifically about autism, ADHD and sensory processing needs rather than physical or mobility access."),
+        ("How do I actually request this support when I book?", "Contact the operator's dedicated assisted travel or accessibility team directly rather than relying on a general accessibility tick box, TUI's Assisted Travel team, Jet2holidays' Assisted Travel team, or easyJet holidays' accessibility team, and get it in writing. Timeframes vary, so the earlier you ask, the better."),
+        ("Are these hotels only suitable for children, or for autistic adults too?", "Most of the features described, sensory rooms, quiet spaces, staff training and pictogram signage, are designed to help any autistic or ADHD guest, not just children. A few are adults only by design, so check the age policy for the specific hotel you're considering."),
+        ("What if the hotel I want isn't on this list?", "It might still be a good fit, only hotels with a verifiable feature were included, not every hotel that could genuinely work for your family. Message Jake and he'll check what's actually documented for a specific hotel before you book."),
+    ]
+)
+
+with open(os.path.join(SITE, "autism-adhd-friendly-hotels-spain-turkey.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Hotels That Actually Support Autism, ADHD and Sensory Needs | Travel Agent Jake",
+        "Verified, bookable hotels in Spain and Turkey with genuine autism, ADHD and sensory support: sensory rooms, certified staff training and named accessibility programmes, all bookable through TUI, Jet2holidays or easyJet holidays.",
+        "travel-tips.html",
+        neurodivergent_hotels_body,
+        extra_schema=NEURODIVERGENT_HOTELS_SCHEMA
+    ))
+print("autism-adhd-friendly-hotels-spain-turkey.html written")
+
+
 
 # ---------------- BOOKING WIDGET PLACEHOLDER PAGES (Agendas Group) ----------------
 # Jess Speight (Agendas Group Ltd, account manager for the new holiday
@@ -9508,6 +9721,7 @@ SITEMAP_PAGES = [
     ("100ml-liquid-rule-uk-airports.html", "0.7"),
     ("hidden-disability-travel-sunflower-lanyard.html", "0.7"),
     ("travel-company-goes-bust-atol-abta-protection.html", "0.7"),
+    ("autism-adhd-friendly-hotels-spain-turkey.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
