@@ -1572,6 +1572,13 @@ DESTINATION_POSTS = [
         "excerpt": "Corfu Town, Gouvia, Sidari, Paleokastritsa and Kavos: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1568057179114-b0829c8b8767?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "zante.html",
+        "meta": "Zante",
+        "title": "Zante",
+        "excerpt": "Laganas, Tsilivi, Alykes, Argassi, Vasilikos and Keri: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1756191631771-77d3d7435530?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -5832,6 +5839,285 @@ with open(os.path.join(SITE, "corfu.html"), "w", encoding="utf-8") as f:
     ))
 print("corfu.html written")
 
+zante_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>ZANTE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Zante, from the party strip of Laganas to the quiet olive groves of Keri and Vasilikos.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Zante</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1756191631771-77d3d7435530?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of shipwrecks on a sandy beach with turquoise water on Zante" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Zante, or Zakynthos if you want its proper Greek name, is one of those islands that gets pigeonholed as a lads and lasses party destination because of Laganas, and that's a shame because it sells the island short. Yes, Laganas is genuinely one of the liveliest 18 to 30 strips in Greece, but the rest of the island is almost the opposite, olive groves, quiet coves and some of the best loggerhead turtle spotting in the Mediterranean.</p>
+    <p style="margin-top:14px;">It's also home to Navagio, the shipwreck beach that ends up on pretty much every "most beautiful beaches in the world" list, and the Blue Caves up on the northern tip. Between the beach itself and the caves you've got two of Greece's most photographed spots on one island, which makes Zante an easy sell to clients who want a proper "wow" moment built into their holiday, not just a week by the pool.</p>
+    {jake_tip("Ask a client straight away whether they want lively or laid back before booking an area. Laganas and Kalamaki for nightlife, Tsilivi and Alykes for a classic family beach week, Argassi and Vasilikos for something calmer with the island's best beaches, Keri for proper away from it all. Get this wrong and you'll get a call within two days of them landing.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the standard package length and gives enough time for a boat trip to Navagio and the Blue Caves, a turtle spotting cruise in Laganas Bay, and still plenty of pool or beach time. Ten or eleven nights suits a client who wants to properly explore the quieter south and west of the island as well as fit in one livelier night out.</p>
+    <p style="margin-top:14px;">Zante covers a genuinely wide range of client types depending which area you pick. Younger groups and anyone after a big night out are well served by Laganas, which remains one of Greece's proper 18 to 30 resorts. Families do well in Tsilivi and Alykes, which have the fullest range of family hotels and gentle sandy beaches. Couples and anyone who wants scenery over nightlife are better placed in Argassi, Vasilikos or Keri.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Zakynthos International Airport (ZTH) sits a few miles south of Zante Town and takes direct flights from a wide spread of UK airports on Jet2, easyJet, British Airways (from Heathrow), Ryanair and Wizz Air, alongside package flights on TUI Airways, typically taking around 3 to 4 hours depending on departure airport. Many routes are seasonal, running through the summer months only. Transfer times vary a fair bit across the island, Kalamaki and Zante Town are the closest at around 10 minutes, Laganas and Argassi around 15 to 20 minutes, Tsilivi around 20 to 25 minutes, and Alykes or Alykanas can be 25 to 30 minutes.</p>
+    {jake_tip("Check exactly where a hotel sits before booking if a client wants a short transfer. Kalamaki and Zante Town are a genuinely quick hop from the airport, while Alykes and Alykanas are the best part of half an hour, which matters more than people expect after a delayed flight.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Zante gets the same warm, dry Ionian summer as its neighbouring islands, with a wetter winter than the Greek mainland further south. These figures are long-term climate averages for the area, so treat them as a guide rather than a forecast for specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>13&deg;C</td><td>10&deg;C</td><td>16&deg;C</td><td>Coolest and wettest month, many smaller hotels closed for the season</td></tr>
+          <tr><td>February</td><td>13&deg;C</td><td>10&deg;C</td><td>15&deg;C</td><td>Similar to January, still quiet</td></tr>
+          <tr><td>March</td><td>15&deg;C</td><td>12&deg;C</td><td>15&deg;C</td><td>Warming up, hotels beginning to reopen</td></tr>
+          <tr><td>April</td><td>17&deg;C</td><td>14&deg;C</td><td>16&deg;C</td><td>Pleasant for sightseeing, sea still cool</td></tr>
+          <tr><td>May</td><td>20&deg;C</td><td>17&deg;C</td><td>19&deg;C</td><td>Warm and green, good value before peak season</td></tr>
+          <tr><td>June</td><td>24&deg;C</td><td>21&deg;C</td><td>23&deg;C</td><td>Hot and dry, season in full swing</td></tr>
+          <tr><td>July</td><td>27&deg;C</td><td>24&deg;C</td><td>25&deg;C</td><td>Very hot, peak season, driest month</td></tr>
+          <tr><td>August</td><td>27&deg;C</td><td>24&deg;C</td><td>26&deg;C</td><td>Hottest sea temperature, very dry and busy</td></tr>
+          <tr><td>September</td><td>25&deg;C</td><td>22&deg;C</td><td>25&deg;C</td><td>Still warm, sea at its best, noticeably quieter</td></tr>
+          <tr><td>October</td><td>22&deg;C</td><td>19&deg;C</td><td>23&deg;C</td><td>Mild, rain returns, good value</td></tr>
+          <tr><td>November</td><td>18&deg;C</td><td>15&deg;C</td><td>21&deg;C</td><td>Cooler and wetter, quiet season begins</td></tr>
+          <tr><td>December</td><td>15&deg;C</td><td>12&deg;C</td><td>18&deg;C</td><td>Mild by UK standards, wettest month, many closures</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for the area, sourced via climate-data.org.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">June to September is the classic package season, hot, dry and reliably sunny, with July and August the hottest and busiest months. May and June are a lovely sweet spot, warm without peak summer crowds and with the island's greenery still fresh. September stays warm with the sea at its warmest of the year while resorts noticeably quieten down, making it a favourite with couples avoiding the school holidays. April and October are good value shoulder months, cooler and a bit wetter but fine for sightseeing over beach time. Winter, November to March, is Zante's quiet season, mild by UK standards but considerably wetter, and many smaller hotels close entirely until spring.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Zante is a genuinely varied island to base yourself on, from a full on party strip to quiet olive groves and traditional hilltop villages. Here's how the main areas differ.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1655374020803-ecfd0c834441?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Zante Town and harbour on the Zakynthos coastline" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Zante Town &amp; Bochali</h3>
+        <p>The island's capital and working harbour, with Venetian era architecture rebuilt after the 1953 earthquake, museums, churches and a hilltop old fortress at Bochali with sweeping views over the town. Not really a beach base, but a good pick for couples and culture minded travellers who want restaurants and history within walking distance, and it's one of the shortest transfers from the airport.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1778743724812-04f28680bfa2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Ocean view along the Laganas coastline in Zante" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Laganas &amp; Kalamaki</h3>
+        <p>Laganas is the island's biggest and liveliest resort by a wide margin, a long sandy beach backed by a strip of bars and clubs that makes it one of the few genuine 18 to 30 style resorts left in Greece. Kalamaki sits right next door and is noticeably calmer, a good alternative for families who still want to be close to Laganas without staying in the thick of it. Both sit within the Zakynthos National Marine Park, so beach access is managed to protect nesting turtles.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1635882390155-9a81f5993891?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boat near a rock formation along the Zakynthos coast, near Argassi and Vasilikos" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Argassi &amp; Vasilikos</h3>
+        <p>Argassi is a lively but more family friendly resort a short hop from Zante Town, with watersports and a decent choice of restaurants. Vasilikos, further south, is largely undeveloped, scattered accommodation among olive groves rather than a resort strip, with some of the island's best beaches including Banana Beach, Porto Zoro and Gerakas. The pick for couples and families who want beach quality over nightlife.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1758468773381-7fb6801c0474?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Green hills overlooking the calm blue sea near Tsilivi, Zante" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Tsilivi &amp; Alykes</h3>
+        <p>Tsilivi is one of the island's most built up and family oriented resorts, full tourist infrastructure, beach bars and a gentle sandy beach that's easy with young children. Alykes and neighbouring Alykanas, a little further north, offer a wide, soft sand beach and a slightly quieter pace with a similar range of family hotels and tavernas. Both are a genuine step up in transfer time from the airport compared with the south of the island.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1755613012075-d8c3b5a95cd6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Dramatic cliffs rising from the deep blue sea near Keri, Zante" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Keri</h3>
+        <p>The island's southwestern tip, split between a small beach strip and a traditional hilltop village near the Keri Caves and lighthouse. The quietest base on this list by some distance, with dramatic clifftop scenery rather than resort facilities, and the best sunset views on the island. Suits couples and anyone who wants Zante at its most authentic, less so anyone after nightlife or a big choice of restaurants.</p>
+      </div>
+    </div>
+    {jake_tip("First time on Zante and want it simple? Tsilivi or Alykes for an easy family base. Want the nightlife the island is known for? Laganas, but book Kalamaki instead if a client wants to be near it without being in it. Want to get away from resorts entirely? Keri or Vasilikos.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Green KTEL buses run from Zante Town to most of the main resorts, though services thin out considerably in the evenings and off season, and Laganas, Tsilivi and Alykes are the best served. Taxis are widely available but pricier for longer cross island trips, particularly out to Keri or the Navagio viewpoint. Hiring a car is worth considering for a client who wants to properly explore the west coast, the Navagio clifftop viewpoint and Keri's caves and lighthouse in their own time, roads inland can be narrow with some steep sections so it's worth taking it slowly. A full UK driving licence is all that's needed, an international permit isn't required.</p>
+    <p style="margin-top:14px;">Boat trips to Navagio, the Blue Caves and Marathonisi (Turtle Island) run from several points around the island through the summer season, and popular sailings are worth booking ahead in peak months.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1662553339913-68229924eea4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boat passing through a natural stone archway in the Blue Caves of Zakynthos" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities around Zante worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="836727,621728,252107,475757"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/zakynthos-l32286/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/zakynthos-l32286/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Zante &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays. Board basis on Zante is mixed, so always confirm what's included for your dates when booking.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Apartment style hotel pool in Greece" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Zante Plaza Hotel &amp; Apartments</h3>
+        <p>A 3&#9733; hotel and apartment complex right in the heart of Laganas, a short walk to the beach and the resort's bars and restaurants. Straightforward, well located and popular with groups and families who want to be in the middle of things without paying resort prices. All inclusive is the board basis listed by Jet2holidays, so check what's offered on your specific booking. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1648090272983-440e86555e8e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Child playing in a resort swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Princess Hotel Zante</h3>
+        <p>A family run 3&#9733; hotel in Tsilivi, around 350 metres from the resort centre and 850 metres from the beach, with an outdoor pool that includes a dedicated children's freshwater section, a pool bar and an a la carte restaurant serving international, British, Italian and Greek dishes. A relaxed, unpretentious choice for families, confirm current board basis when booking. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for a couples' escape</div>
+        <img src="https://images.unsplash.com/photo-1785762857881-fed944ea5209?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers and umbrellas beside a hotel pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Zante Maris Suites, Adults Only</h3>
+        <p>A small 5&#9733; adults only hotel (16+) in Tsilivi with a Mediterranean restaurant, a bar, an outdoor pool and a sun terrace, run on a half board or bed and breakfast basis. A quieter, more intimate alternative to the island's bigger resort hotels, note there's a separate sister hotel in the same area, TUI BLUE Zante Maris, so double check which one a client has booked. Bookable through Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1598924957326-0446ac30341e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees beside a luxury resort pool at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Lesante Blu Exclusive Beach Resort</h3>
+        <p>A 5&#9733; adults only resort in Tragaki and a member of Leading Hotels of the World, sold by Jet2holidays under its Indulgent Escapes collection. Half board or bed and breakfast, with the kind of design led, high end finish that suits a client celebrating something special rather than a standard package week. Bookable through TUI and Jet2holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond the beach itself.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1609879708172-b4028d395891?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of Navagio Shipwreck Beach on Zante" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Navagio (Shipwreck) Beach</h3>
+        <p>Zante's most famous view, a white pebble cove backed by sheer limestone cliffs with a rusting shipwreck on the sand. Seen either from the official clifftop viewpoint by car or coach, best early morning or evening to beat the crowds, or up close on a boat trip from Porto Vromi. Beach level access has been restricted at times due to cliff stabilisation work, so it's worth checking current access before promising a client they'll walk on the sand itself.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1548678967-f1aec58f6fb2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boat passing through the natural rock arches of the Blue Caves, Zakynthos" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Blue Caves</h3>
+        <p>Natural sea caves and arches near Cape Skinari on the northern tip, named for the bright blue light reflecting off the white seabed below. Visited by boat from Agios Nikolaos or Cape Skinari, usually paired with Navagio on the same trip, and best in the morning light. Most tours include a swimming or snorkelling stop in the caves themselves.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1762858578231-a9b23d6193c1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Loggerhead turtle swimming in clear blue water" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Marathonisi (Turtle Island)</h3>
+        <p>An uninhabited island in Laganas Bay, inside the Zakynthos National Marine Park, and one of the most important nesting grounds in the Mediterranean for loggerhead (caretta caretta) turtles. Visited on eco conscious glass bottomed or speedboat tours from Laganas and Agios Sostis, with early departures giving the best chance of a genuine turtle sighting.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1662553339966-7cda1023db1d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rocky cliffs along the Zakynthos coastline near Keri" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bochali &amp; Keri Caves</h3>
+        <p>Bochali, above Zante Town, has Venetian castle ruins and the island's best sunset viewpoint over the harbour, an easy add on for anyone based nearby. Down at Keri, sea caves and dramatic cliffs at the island's southwestern tip are reached by boat or kayak tour, with the Keri lighthouse itself a favourite spot for watching the sun go down over the Ionian.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Greece uses the Euro, so prices below are shown in pounds with the Euro equivalent alongside, based on a rate of roughly &pound;1 to &euro;1.16. These are crowd-sourced averages for Zante, and prices right on the Laganas or Zante Town seafront can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;21.55 (about &euro;25.00)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;43.10 (about &euro;50.00)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;3.60 (about &euro;4.17)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;3.45 (about &euro;4.00)</td></tr>
+          <tr><td>Bus ticket, single journey</td><td>&pound;1.30 (about &euro;1.50)</td></tr>
+          <tr><td>Taxi, airport to Zante Town</td><td>&pound;12.95 (about &euro;15.00)</td></tr>
+          <tr><td>Taxi, airport to Laganas</td><td>&pound;17.25 (about &euro;20.00)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages for Zakynthos via Numbeo, and transfer fares via published Zante taxi rate guides, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Laganas and the Zante Town seafront are priced for passing tourist trade. A short walk back from the main strip, or into Kalamaki instead of Laganas itself, gets the same Greek food for noticeably less.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (&euro;)</td></tr>
+          <tr><td>Plug type</td><td>Type C/F, a UK to EU adapter is needed</td></tr>
+          <tr><td>Language</td><td>Greek, English is widely spoken in hotels and resorts</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 3 to 4 hours direct, depending on departure airport</td></tr>
+          <tr><td>Time difference</td><td>2 hours ahead of the UK, year round</td></tr>
+          <tr><td>Driving</td><td>Right hand side, an international permit isn't required for UK licence holders</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Francesco Ungaro, Michael Pointner, YearOne, Max van den Oetelaar, Andreas Weilguny, Marc Snailum, 12photostory, Olena Pereiaslavets, paws and prints, Theo Maroulis, Abstral Official, engin akyurt, Kevin Doran and Florian Wehde via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Zante for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Zante, help you pick between the party strip and the quiet coves, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+zante_body = zante_body.replace("::NEWSLETTER::", newsletter_section())
+
+ZANTE_SCHEMA = article_and_faq_schema(
+    "Zante: Jake's Destination Guide",
+    "Jake's honest guide to Zante (Zakynthos): Laganas, Tsilivi, Alykes, Argassi, Vasilikos and Keri, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "zante.html",
+    "https://images.unsplash.com/photo-1756191631771-77d3d7435530?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Zante?", "June to September is the classic package season, hot, dry and reliably sunny, with July and August the hottest and busiest months. May, June and September are a good sweet spot, warm without the peak summer crowds, and September has the warmest sea of the year while resorts noticeably quieten down. Winter, November to March, is mild by UK standards but considerably wetter, and many smaller hotels close for the season."),
+        ("Which area of Zante should I choose?", "Laganas is the island's biggest and liveliest resort, one of the few genuine 18 to 30 style destinations left in Greece, with Kalamaki next door offering a calmer alternative close by. Tsilivi and Alykes have the widest choice of family hotels and gentle sandy beaches. Argassi and Vasilikos suit couples and families who want beach quality over nightlife, with Vasilikos largely undeveloped and home to some of the island's best beaches. Keri, on the southwestern tip, is the quietest base of all, best for scenery and sunsets rather than resort life."),
+        ("How do I get to Zante, and is hiring a car worth it?", "Zakynthos International Airport takes direct flights from a wide range of UK airports on Jet2, easyJet, British Airways, Ryanair and Wizz Air, alongside TUI package flights, typically taking around 3 to 4 hours. Transfer times vary across the island, from around 10 minutes for Kalamaki and Zante Town up to 25 to 30 minutes for Alykes or Alykanas. A car isn't essential if you're staying resort based, since buses and taxis cover the island reasonably well, but it's worth considering if you want to properly explore the Navagio viewpoint, the Blue Caves boat departure points and Keri's caves and lighthouse in your own time. A full UK driving licence is all that's needed, an international permit isn't required."),
+    ]
+)
+with open(os.path.join(SITE, "zante.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Zante: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Zante (Zakynthos): Laganas, Tsilivi, Alykes, Argassi, Vasilikos and Keri, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        zante_body,
+        extra_schema=ZANTE_SCHEMA
+    ))
+print("zante.html written")
+
 
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
@@ -9707,6 +9993,7 @@ SITEMAP_PAGES = [
     ("malta.html", "0.6"),
     ("italy-sorrento-amalfi-coast.html", "0.6"),
     ("corfu.html", "0.6"),
+    ("zante.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
