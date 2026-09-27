@@ -361,8 +361,9 @@ FOOTER = """<footer class="site-footer">
   if (t) { t.addEventListener('click', function(){ n.classList.toggle('open'); }); }
 </script>"""
 
-def page(title, description, active, body, og_image="images/pool-portrait.jpg", extra_schema="", noindex=False):
-    canonical = BASE_URL + "/" + ("" if active == "index.html" else active)
+def page(title, description, active, body, og_image="images/pool-portrait.jpg", extra_schema="", noindex=False, canonical_path=None):
+    canonical_active = canonical_path if canonical_path else active
+    canonical = BASE_URL + "/" + ("" if canonical_active == "index.html" else canonical_active)
     robots_meta = '<meta name="robots" content="noindex, nofollow">\n' if noindex else ""
     return f"""<!doctype html>
 <html lang="en-GB">
@@ -1928,7 +1929,8 @@ with open(os.path.join(SITE, "cyprus-paphos-latchi.html"), "w", encoding="utf-8"
         "Jake's honest guide to Paphos and Latchi in Cyprus: weather by month, where to stay, things to do, recommended hotels and what things cost.",
         "destinations.html",
         cyprus_body,
-        extra_schema=CYPRUS_SCHEMA
+        extra_schema=CYPRUS_SCHEMA,
+        canonical_path="cyprus-paphos-latchi.html"
     ))
 print("cyprus-paphos-latchi.html written")
 
@@ -2271,7 +2273,8 @@ with open(os.path.join(SITE, "cancun-riviera-maya-playa-del-carmen.html"), "w", 
         "Jake's honest guide to Mexico's Caribbean coast: which area suits you, weather by month, getting around, things to do and what things cost, covering Cancun, Playa del Carmen and the Riviera Maya.",
         "destinations.html",
         mexico_body,
-        extra_schema=MEXICO_SCHEMA
+        extra_schema=MEXICO_SCHEMA,
+        canonical_path="cancun-riviera-maya-playa-del-carmen.html"
     ))
 print("cancun-riviera-maya-playa-del-carmen.html written")
 
@@ -2534,7 +2537,8 @@ with open(os.path.join(SITE, "maldives.html"), "w", encoding="utf-8") as f:
         "Jake's honest guide to the Maldives: transfer options, atolls and house reefs, water villas vs beach bungalows, weather by month, recommended resorts and what it all costs.",
         "destinations.html",
         maldives_body,
-        extra_schema=MALDIVES_SCHEMA
+        extra_schema=MALDIVES_SCHEMA,
+        canonical_path="maldives.html"
     ))
 print("maldives.html written")
 
@@ -2747,7 +2751,8 @@ with open(os.path.join(SITE, "disneyland-paris.html"), "w", encoding="utf-8") as
         "Jake's honest guide to Disneyland Paris for 2027 onwards: onsite vs offsite hotels, the new meal plans, both parks and their best attractions, character dining and Premier Access costs.",
         "destinations.html",
         disneyland_paris_body,
-        extra_schema=DLP_SCHEMA
+        extra_schema=DLP_SCHEMA,
+        canonical_path="disneyland-paris.html"
     ))
 print("disneyland-paris.html written")
 
@@ -3021,7 +3026,8 @@ with open(os.path.join(SITE, "turkey-antalya.html"), "w", encoding="utf-8") as f
         "Jake's honest guide to the Antalya region of Turkey: weather by month, where to stay, things to do, recommended hotels and what things cost.",
         "destinations.html",
         turkey_antalya_body,
-        extra_schema=TURKEY_ANTALYA_SCHEMA
+        extra_schema=TURKEY_ANTALYA_SCHEMA,
+        canonical_path="turkey-antalya.html"
     ))
 print("turkey-antalya.html written")
 
@@ -3304,7 +3310,8 @@ with open(os.path.join(SITE, "turkey-dalaman.html"), "w", encoding="utf-8") as f
         "Jake's honest guide to the Dalaman area of Turkey: Marmaris, Icmeler, Fethiye, Oludeniz, Dalyan and Gocek, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         turkey_dalaman_body,
-        extra_schema=TURKEY_DALAMAN_SCHEMA
+        extra_schema=TURKEY_DALAMAN_SCHEMA,
+        canonical_path="turkey-dalaman.html"
     ))
 print("turkey-dalaman.html written")
 
@@ -3587,7 +3594,8 @@ with open(os.path.join(SITE, "turkey-bodrum.html"), "w", encoding="utf-8") as f:
         "Jake's honest guide to the Bodrum area of Turkey: Bodrum town, Gumbet, Turgutreis, Yalikavak, Gundogan and Torba, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         turkey_bodrum_body,
-        extra_schema=TURKEY_BODRUM_SCHEMA
+        extra_schema=TURKEY_BODRUM_SCHEMA,
+        canonical_path="turkey-bodrum.html"
     ))
 print("turkey-bodrum.html written")
 
@@ -3870,7 +3878,8 @@ with open(os.path.join(SITE, "majorca.html"), "w", encoding="utf-8") as f:
         "Jake's honest guide to Majorca: Palma, Magaluf, Alcudia, Cala Millor, Cala d'Or and the northwest coast, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         majorca_body,
-        extra_schema=MAJORCA_SCHEMA
+        extra_schema=MAJORCA_SCHEMA,
+        canonical_path="majorca.html"
     ))
 print("majorca.html written")
 
@@ -4153,7 +4162,8 @@ with open(os.path.join(SITE, "menorca.html"), "w", encoding="utf-8") as f:
         "Jake's honest guide to Menorca: Cala Galdana, Son Bou, Fornells, Ciutadella and Mahon, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         menorca_body,
-        extra_schema=MENORCA_SCHEMA
+        extra_schema=MENORCA_SCHEMA,
+        canonical_path="menorca.html"
     ))
 print("menorca.html written")
 
@@ -4432,7 +4442,8 @@ with open(os.path.join(SITE, "tenerife.html"), "w", encoding="utf-8") as f:
         "Jake's honest guide to Tenerife: Costa Adeje, Los Cristianos, Puerto de la Cruz and Mount Teide, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         tenerife_body,
-        extra_schema=TENERIFE_SCHEMA
+        extra_schema=TENERIFE_SCHEMA,
+        canonical_path="tenerife.html"
     ))
 print("tenerife.html written")
 
@@ -4710,7 +4721,8 @@ with open(os.path.join(SITE, "gran-canaria.html"), "w", encoding="utf-8") as f:
         "Jake's honest guide to Gran Canaria: Maspalomas, Playa del Ingles, Puerto Rico, Puerto de Mogan and Las Palmas, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         gran_canaria_body,
-        extra_schema=GRAN_CANARIA_SCHEMA
+        extra_schema=GRAN_CANARIA_SCHEMA,
+        canonical_path="gran-canaria.html"
     ))
 print("gran-canaria.html written")
 
@@ -4988,7 +5000,8 @@ with open(os.path.join(SITE, "lanzarote.html"), "w", encoding="utf-8") as f:
         "Jake's honest guide to Lanzarote: Puerto del Carmen, Playa Blanca, Costa Teguise, Puerto Calero and Famara, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         lanzarote_body,
-        extra_schema=LANZAROTE_SCHEMA
+        extra_schema=LANZAROTE_SCHEMA,
+        canonical_path="lanzarote.html"
     ))
 print("lanzarote.html written")
 
@@ -5263,7 +5276,8 @@ with open(os.path.join(SITE, "malta.html"), "w", encoding="utf-8") as f:
         "Jake's honest guide to Malta: Valletta, Sliema, St Julian's, Qawra, Bugibba and Mellieha Bay, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         malta_body,
-        extra_schema=MALTA_SCHEMA
+        extra_schema=MALTA_SCHEMA,
+        canonical_path="malta.html"
     ))
 print("malta.html written")
 
@@ -5563,7 +5577,8 @@ with open(os.path.join(SITE, "italy-sorrento-amalfi-coast.html"), "w", encoding=
         "Jake's honest guide to Sorrento and the Amalfi Coast, Italy: weather by month, where to stay, things to do, recommended hotels, multi centre options and what things cost.",
         "destinations.html",
         sorrento_body,
-        extra_schema=SORRENTO_SCHEMA
+        extra_schema=SORRENTO_SCHEMA,
+        canonical_path="italy-sorrento-amalfi-coast.html"
     ))
 print("italy-sorrento-amalfi-coast.html written")
 
@@ -5842,7 +5857,8 @@ with open(os.path.join(SITE, "corfu.html"), "w", encoding="utf-8") as f:
         "Jake's honest guide to Corfu: Corfu Town, Gouvia, Sidari, Paleokastritsa, Glyfada and Kavos, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         corfu_body,
-        extra_schema=CORFU_SCHEMA
+        extra_schema=CORFU_SCHEMA,
+        canonical_path="corfu.html"
     ))
 print("corfu.html written")
 
@@ -6121,7 +6137,8 @@ with open(os.path.join(SITE, "zante.html"), "w", encoding="utf-8") as f:
         "Jake's honest guide to Zante (Zakynthos): Laganas, Tsilivi, Alykes, Argassi, Vasilikos and Keri, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         zante_body,
-        extra_schema=ZANTE_SCHEMA
+        extra_schema=ZANTE_SCHEMA,
+        canonical_path="zante.html"
     ))
 print("zante.html written")
 
@@ -6396,7 +6413,8 @@ with open(os.path.join(SITE, "crete.html"), "w", encoding="utf-8") as f:
         "Jake's honest guide to Crete: Chania, Rethymno, Hersonissos, Malia, Agios Nikolaos and Elounda, weather by month, where to stay, things to do and what it actually costs.",
         "destinations.html",
         crete_body,
-        extra_schema=CRETE_SCHEMA
+        extra_schema=CRETE_SCHEMA,
+        canonical_path="crete.html"
     ))
 print("crete.html written")
 
@@ -6791,7 +6809,8 @@ with open(os.path.join(SITE, "breeze-vs-airalo-esim.html"), "w", encoding="utf-8
         "Jake compares Breeze eSIM and Airalo on price, coverage, apps and support to help you pick the right travel eSIM for your next trip.",
         "travel-tips.html",
         esim_article_body,
-        extra_schema=ESIM_FAQ_SCHEMA
+        extra_schema=ESIM_FAQ_SCHEMA,
+        canonical_path="breeze-vs-airalo-esim.html"
     ))
 print("breeze-vs-airalo-esim.html written")
 
@@ -7090,7 +7109,8 @@ with open(os.path.join(SITE, "christmas-markets-budapest-vienna-prague.html"), "
         "Jake ranks and compares Budapest, Vienna and Prague for a 2026 Christmas market city break: market details, prices, flight times, airport transfers and things to do beyond the markets.",
         "travel-tips.html",
         xmas_article_body,
-        extra_schema=XMAS_FAQ_SCHEMA
+        extra_schema=XMAS_FAQ_SCHEMA,
+        canonical_path="christmas-markets-budapest-vienna-prague.html"
     ))
 print("christmas-markets-budapest-vienna-prague.html written")
 
@@ -7211,7 +7231,8 @@ with open(os.path.join(SITE, "ski-holiday-packing-list.html"), "w", encoding="ut
         "Jake's full ski holiday packing list: what to wear on the slopes, what to bring for apres-ski evenings, and the documents and small extras people forget every year.",
         "travel-tips.html",
         ski_packing_body,
-        extra_schema=SKI_PACKING_SCHEMA
+        extra_schema=SKI_PACKING_SCHEMA,
+        canonical_path="ski-holiday-packing-list.html"
     ))
 print("ski-holiday-packing-list.html written")
 
@@ -7315,7 +7336,8 @@ with open(os.path.join(SITE, "booking-early-vs-late.html"), "w", encoding="utf-8
         "Jake explains what booking early and booking late actually get you (choice and convenience, not necessarily a cheaper price), plus a worked example of a direct debit payment plan on a £5,000 holiday.",
         "travel-tips.html",
         booking_early_late_body,
-        extra_schema=BOOKING_EARLY_LATE_SCHEMA
+        extra_schema=BOOKING_EARLY_LATE_SCHEMA,
+        canonical_path="booking-early-vs-late.html"
     ))
 print("booking-early-vs-late.html written")
 
@@ -7558,7 +7580,8 @@ with open(os.path.join(SITE, "lgbtq-friendly-holidays.html"), "w", encoding="utf
         "Jake's honest guide to LGBTQIA+ friendly holidays: gay scene hotspots, romantic getaways, group trips, Pride events, and the countries where the law and the lived reality don't quite match.",
         "travel-tips.html",
         lgbtq_body,
-        extra_schema=LGBTQ_SCHEMA
+        extra_schema=LGBTQ_SCHEMA,
+        canonical_path="lgbtq-friendly-holidays.html"
     ))
 print("lgbtq-friendly-holidays.html written")
 
@@ -7675,7 +7698,8 @@ with open(os.path.join(SITE, "power-bank-flight-safety.html"), "w", encoding="ut
         "What happened on the easyJet Malpensa power bank fire, the current CAA packing rules, which airlines ban using power banks onboard, and how to buy a safe one.",
         "travel-tips.html",
         powerbank_body,
-        extra_schema=POWERBANK_SCHEMA
+        extra_schema=POWERBANK_SCHEMA,
+        canonical_path="power-bank-flight-safety.html"
     ))
 print("power-bank-flight-safety.html written")
 
@@ -7766,7 +7790,8 @@ with open(os.path.join(SITE, "budget-airline-hand-luggage-sizes.html"), "w", enc
         "Ryanair, easyJet, Wizz Air, Vueling, Jet2, TUI and British Airways hand luggage sizes compared: free bag dimensions, paid cabin bag dimensions and what happens if yours doesn't fit.",
         "travel-tips.html",
         hand_luggage_body,
-        extra_schema=HAND_LUGGAGE_SCHEMA
+        extra_schema=HAND_LUGGAGE_SCHEMA,
+        canonical_path="budget-airline-hand-luggage-sizes.html"
     ))
 print("budget-airline-hand-luggage-sizes.html written")
 
@@ -7925,7 +7950,8 @@ with open(os.path.join(SITE, "ees-etias-explained.html"), "w", encoding="utf-8")
         "What EES and ETIAS actually are, when ETIAS is due, what it costs, the EES self-service kiosk process, what happens if you say no to a question, and how it differs for families, disabilities and special assistance.",
         "travel-tips.html",
         ees_etias_body,
-        extra_schema=EES_ETIAS_SCHEMA
+        extra_schema=EES_ETIAS_SCHEMA,
+        canonical_path="ees-etias-explained.html"
     ))
 print("ees-etias-explained.html written")
 
@@ -8077,7 +8103,8 @@ with open(os.path.join(SITE, "flight-delay-cancellation-compensation.html"), "w"
         "The real UK261 flight delay and cancellation compensation rules, the extraordinary circumstances exemption explained properly, what the September 2026 UK air traffic control failure means for your rights, and exactly what to do next time a flight lets you down.",
         "travel-tips.html",
         flight_rights_body,
-        extra_schema=FLIGHT_RIGHTS_SCHEMA
+        extra_schema=FLIGHT_RIGHTS_SCHEMA,
+        canonical_path="flight-delay-cancellation-compensation.html"
     ))
 print("flight-delay-cancellation-compensation.html written")
 
@@ -8237,7 +8264,8 @@ with open(os.path.join(SITE, "choosing-the-right-cruise-line.html"), "w", encodi
         "An honest guide to choosing a cruise line: mainstream vs premium vs luxury, UK no-fly options, family vs adults-only lines, ship size tradeoffs, ocean vs river cruising, and what's really included in the price.",
         "travel-tips.html",
         cruise_line_body,
-        extra_schema=CRUISE_LINE_SCHEMA
+        extra_schema=CRUISE_LINE_SCHEMA,
+        canonical_path="choosing-the-right-cruise-line.html"
     ))
 print("choosing-the-right-cruise-line.html written")
 
@@ -9602,7 +9630,8 @@ with open(os.path.join(SITE, "100ml-liquid-rule-uk-airports.html"), "w", encodin
         "Which UK airports currently allow liquids up to 2 litres through security, which still enforce the old 100ml rule, why the rollout has happened unevenly, and the catches around return flights, connections and vacuum flasks that trip people up.",
         "travel-tips.html",
         liquid_rule_body,
-        extra_schema=LIQUID_RULE_SCHEMA
+        extra_schema=LIQUID_RULE_SCHEMA,
+        canonical_path="100ml-liquid-rule-uk-airports.html"
     ))
 print("100ml-liquid-rule-uk-airports.html written")
 
@@ -9770,7 +9799,8 @@ with open(os.path.join(SITE, "hidden-disability-travel-sunflower-lanyard.html"),
         "Which UK airports recognise the Hidden Disabilities Sunflower lanyard, how to book airline and airport assistance properly, your consumer rights under UK air passenger regulations, and practical tips for booking a holiday or accommodation around a hidden disability.",
         "travel-tips.html",
         hidden_disability_body,
-        extra_schema=HIDDEN_DISABILITY_SCHEMA
+        extra_schema=HIDDEN_DISABILITY_SCHEMA,
+        canonical_path="hidden-disability-travel-sunflower-lanyard.html"
     ))
 print("hidden-disability-travel-sunflower-lanyard.html written")
 
@@ -9927,7 +9957,8 @@ with open(os.path.join(SITE, "travel-company-goes-bust-atol-abta-protection.html
         "Which UK travel firms have stopped trading in 2026, what ATOL and ABTA protection actually cover, how to check before you book, and exactly what to do to get your money back if your travel company collapses.",
         "travel-tips.html",
         atol_abta_body,
-        extra_schema=ATOL_ABTA_SCHEMA
+        extra_schema=ATOL_ABTA_SCHEMA,
+        canonical_path="travel-company-goes-bust-atol-abta-protection.html"
     ))
 print("travel-company-goes-bust-atol-abta-protection.html written")
 
@@ -10131,7 +10162,8 @@ with open(os.path.join(SITE, "autism-adhd-friendly-hotels-spain-turkey.html"), "
         "Verified, bookable hotels in Spain and Turkey with genuine autism, ADHD and sensory support: sensory rooms, certified staff training and named accessibility programmes, all bookable through TUI, Jet2holidays or easyJet holidays.",
         "travel-tips.html",
         neurodivergent_hotels_body,
-        extra_schema=NEURODIVERGENT_HOTELS_SCHEMA
+        extra_schema=NEURODIVERGENT_HOTELS_SCHEMA,
+        canonical_path="autism-adhd-friendly-hotels-spain-turkey.html"
     ))
 print("autism-adhd-friendly-hotels-spain-turkey.html written")
 
