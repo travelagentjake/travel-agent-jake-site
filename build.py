@@ -1579,6 +1579,13 @@ DESTINATION_POSTS = [
         "excerpt": "Laganas, Tsilivi, Alykes, Argassi, Vasilikos and Keri: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1756191631771-77d3d7435530?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "crete.html",
+        "meta": "Crete",
+        "title": "Crete",
+        "excerpt": "Chania, Rethymno, Hersonissos, Malia, Agios Nikolaos and Elounda: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1713722122973-bfa5e9ebca82?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -6118,6 +6125,282 @@ with open(os.path.join(SITE, "zante.html"), "w", encoding="utf-8") as f:
     ))
 print("zante.html written")
 
+crete_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>CRETE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Greece's largest island, from the Venetian harbour at Chania to the palm groves of Elounda.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Crete</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1713722122973-bfa5e9ebca82?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boat in the clear turquoise water of Balos Lagoon, Crete" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Crete gets booked as a straightforward beach holiday more often than any other Greek island I sell, and that undersells it a bit. It's the biggest island in Greece by a distance, which means it isn't really one destination, it's several. Chania and Rethymno have proper old towns with Venetian harbours and hundreds of years of history sat right next to the beach. Hersonissos and Malia are as lively as anywhere in Greece if that's what a client wants. Elounda and Agios Nikolaos in the east are quieter, greener and noticeably more upmarket.</p>
+    <p style="margin-top:14px;">It's also one of the few package destinations where the inland scenery is as much of a draw as the coast, gorges, mountain villages and some genuinely dramatic drives, alongside beaches like Balos and Elafonissi that wouldn't look out of place in the Caribbean.</p>
+    {jake_tip("Ask a client what they actually want before picking an airport and area. Chania and the west suit couples and culture lovers, Hersonissos and Malia suit families and groups after nightlife, and Elounda in the east suits anyone wanting a quieter, more luxury feeling week. Crete is too big to assume one area fits everyone.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the standard package length and works well for a resort based week with a couple of day trips built in. Because Crete is so large, ten, eleven or fourteen nights suits a client who wants to properly see both ends of the island, from the Venetian west to the quieter east, without feeling rushed.</p>
+    <p style="margin-top:14px;">It's a genuinely broad destination client wise. Hersonissos, Malia and Stalis are well suited to families and to groups wanting a livelier holiday. Chania, Rethymno and Elounda suit couples, older travellers and anyone who wants history and scenery alongside the beach. Agios Nikolaos and Elounda in particular are a strong pick for a more upmarket, quieter trip.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Crete has two international airports. Chania Airport (CHQ) serves the west of the island, and Heraklion Airport (HER) serves the centre and east, including Hersonissos, Malia, Agios Nikolaos and Elounda. Both take direct flights from a wide range of UK airports on Jet2, easyJet, TUI Airways, Ryanair and British Airways, typically taking around 4 hours from southern England and up to around 4 hours 30 minutes from northern England and Scotland. Most routes are seasonal, running through the spring to autumn months.</p>
+    <p style="margin-top:14px;">Transfer times vary a lot depending on where a client is staying. From Chania, Platanias and the nearby coast are around 20 to 30 minutes, while Rethymno is roughly an hour. From Heraklion, Hersonissos and Malia are around 25 to 35 minutes, while Agios Nikolaos and Elounda are closer to an hour to an hour and 15 minutes.</p>
+    {jake_tip("Always check which airport a hotel is closest to before booking flights separately from a package. Booking into Chania when a client's hotel is actually nearer Heraklion, or the other way round, can easily add well over an hour onto a transfer.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Crete has a long, hot, dry summer and a mild but noticeably wetter winter, with the west of the island generally getting a bit more rain than the east. These figures are long-term climate averages for the main resort coast around Heraklion, so treat them as a guide rather than a forecast for specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>13&deg;C</td><td>7&deg;C</td><td>16&deg;C</td><td>Coolest and wettest month, many smaller hotels closed for the season</td></tr>
+          <tr><td>February</td><td>14&deg;C</td><td>7&deg;C</td><td>16&deg;C</td><td>Similar to January, still quiet</td></tr>
+          <tr><td>March</td><td>17&deg;C</td><td>9&deg;C</td><td>16&deg;C</td><td>Warming up, hotels beginning to reopen</td></tr>
+          <tr><td>April</td><td>20&deg;C</td><td>11&deg;C</td><td>17&deg;C</td><td>Pleasant for sightseeing, sea still cool</td></tr>
+          <tr><td>May</td><td>25&deg;C</td><td>15&deg;C</td><td>20&deg;C</td><td>Warm and dry, good value before peak season</td></tr>
+          <tr><td>June</td><td>29&deg;C</td><td>19&deg;C</td><td>23&deg;C</td><td>Hot and dry, season in full swing</td></tr>
+          <tr><td>July</td><td>30&deg;C</td><td>22&deg;C</td><td>25&deg;C</td><td>Very hot, peak season, driest month</td></tr>
+          <tr><td>August</td><td>30&deg;C</td><td>22&deg;C</td><td>26&deg;C</td><td>Hottest month, very dry and busy</td></tr>
+          <tr><td>September</td><td>28&deg;C</td><td>19&deg;C</td><td>25&deg;C</td><td>Still warm, sea at its best, noticeably quieter</td></tr>
+          <tr><td>October</td><td>23&deg;C</td><td>16&deg;C</td><td>23&deg;C</td><td>Mild, rain returns, good value</td></tr>
+          <tr><td>November</td><td>19&deg;C</td><td>12&deg;C</td><td>21&deg;C</td><td>Cooler and wetter, quiet season begins</td></tr>
+          <tr><td>December</td><td>15&deg;C</td><td>9&deg;C</td><td>18&deg;C</td><td>Mild by UK standards, wettest month, many closures</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for the Heraklion area, sourced via climate-data.org.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">June to September is the classic package season, hot, dry and reliably sunny, with July and August the hottest, busiest and driest months. May, June and September are a good sweet spot, warm without the peak summer crowds, and Crete's spring greenery and wildflowers are at their best in April and May. Winter, November to March, is mild by UK standards but considerably wetter, especially in the west of the island, and many smaller hotels close for the season.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Crete is genuinely too big to sum up as one type of holiday. Here's how the main areas differ.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1617987750316-a032312da3eb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boats moored in Chania's Venetian harbour, Crete" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Chania &amp; Platanias</h3>
+        <p>Chania's old town, with its Venetian harbour, Egyptian lighthouse and narrow lanes of boutique hotels and tavernas, is one of the most attractive bases anywhere in Greece, though not really a beach resort in itself. Platanias and Agia Marina, a short drive along the coast, give a long sandy beach and a proper resort strip while staying close enough to dip into Chania for the evening. Suits couples, culture minded travellers and first timers to the island.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1702194857063-d2992555b6fc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Narrow old town street in Crete near Rethymno" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Rethymno &amp; Bali</h3>
+        <p>Rethymno sits roughly halfway between Crete's two airports and pairs a Venetian old town and long sandy beach right next to each other, a genuinely walkable combination of history and beach that few resorts manage. Bali, further east, is a smaller string of sheltered coves and tavernas that suits couples wanting somewhere quieter and more compact. Good for families and couples who want the old town and the beach without choosing between them.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1583004888437-1ece88cf6007?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hersonissos Beach on the north coast of Crete" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Hersonissos, Malia &amp; Stalis</h3>
+        <p>The island's main resort strip and the closest area to Heraklion Airport, with the biggest choice of hotels, water parks and family attractions on Crete. Hersonissos has the fullest range of family resorts, Stalis sits quietly between the two, and Malia is Crete's best known nightlife destination, with an 18 to 30 style strip that runs alongside its own quieter old town and long beach further out. The go to area for families and larger groups.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1577909927624-46239c787f4e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The island fortress of Spinalonga off the coast near Elounda, Crete" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Agios Nikolaos &amp; Elounda</h3>
+        <p>The quieter, more upmarket eastern end of the island. Agios Nikolaos is a walkable harbour town with restaurants, cafes and a small marina, built around a picturesque inland lake that connects to the sea. Elounda, just along the coast, is Crete's top luxury resort area, with five star hotels spread along a peaceful stretch of coastline looking out towards Spinalonga island. The pick for couples and anyone wanting a slower, more refined week.</p>
+      </div>
+    </div>
+    {jake_tip("First time on Crete and want it simple? Hersonissos for an easy family base close to Heraklion Airport. Want history and atmosphere alongside the beach? Chania or Rethymno. Want a quieter, more luxury feeling week? Elounda, but budget for a longer transfer from Heraklion.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">KTEL buses run along the main north coast road linking Chania, Rethymno, Heraklion, Hersonissos and Agios Nikolaos, and are a reasonably cheap way to move between resorts, though services thin out in the evenings and off season. Taxis are widely available in resorts but pricier for longer cross island journeys. Hiring a car is genuinely worth considering on Crete more than on most Greek islands, given how spread out the highlights are, Balos, Elafonissi, Samaria Gorge and the mountain villages are all a proper drive from most resorts and are far easier with your own transport. A full UK driving licence is all that's needed, an international permit isn't required.</p>
+    <p style="margin-top:14px;">Organised coach excursions and boat trips to most of the same places run from all the main resorts through the season, a good alternative for a client who'd rather not drive Crete's mountain roads themselves.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1782676445105-e84317f7def8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The red columns of the Palace of Knossos near Heraklion, Crete" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities around Crete worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="419482,175779,740920,412347"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/crete-l404/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/crete-l404/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Crete &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets and across the island, all available through TUI, Jet2holidays or easyJet holidays. Board basis varies by hotel, so always confirm what's included for your dates when booking.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1783937131483-2054b815bd68?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beachfront hotel pool and sunbeds" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Alia Beach Hotel</h3>
+        <p>A straightforward beachfront hotel perched right on Hersonissos Beach, around 10 minutes from Malia and 5 minutes from Stalis village. Outdoor pool, games room, bar and a seafront cafe restaurant, with air conditioned rooms and sea or garden view balconies. Neither operator lists a star rating for this one, so treat it as a solid, well located budget pick rather than a graded hotel. Bookable through Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1646843132559-9524d41d7980?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Children playing in a resort swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Creta Maris Resort</h3>
+        <p>A 5&#9733; beachfront resort in Hersonissos with 16 outdoor pools including 5 children's pools, plus an indoor pool and aqua park, 7 restaurants, 17 bars, kids and teens clubs and a dedicated adults only section. One of the most complete family resorts on the island, sold all inclusive. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for a couples' escape</div>
+        <img src="https://images.unsplash.com/photo-1563493653502-9e270be23596?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Quiet hotel pool with sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Phos Hotel</h3>
+        <p>A strictly adults only (16+) hotel in Platanias on the Chania coast, around 150m from the beach with a modern, minimal design, a freshwater pool, swim up rooms and a buffet restaurant, run on a bed and breakfast basis. A peaceful, design led alternative to Crete's bigger family resorts. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1736618625396-571234ade4d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset over a luxury resort pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Domes of Elounda, Autograph Collection</h3>
+        <p>A 5&#9733; hillside resort in Elounda, around 300m from the beach with views towards Spinalonga, 5 outdoor pools plus an indoor pool, 5 restaurants and 5 bars, a spa with pilates and yoga, and a dedicated adults only section alongside family friendly parts of the resort. Sold on a full board or half board basis. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond the beach itself.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1627308072164-61d3d9e3eb58?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of Balos Lagoon on Crete's northwest tip" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Balos Lagoon &amp; Gramvousa</h3>
+        <p>A shallow turquoise lagoon on Crete's northwest tip, backed by white sand and views across to the small island of Gramvousa. Reached by boat from Kissamos port, or by a rougher off road track for those driving themselves, and best visited earlier in the day before the crowds and heat build up. One of the most photographed spots on the island for good reason.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1717217426511-6c6cae5f8766?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Pink and white sand at Elafonissi Beach, Crete" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Elafonissi Beach</h3>
+        <p>A protected nature reserve in the southwest with shallow, warm lagoons and sand that takes on a genuine pink tinge from crushed shell fragments. A popular day trip from Chania and the west coast resorts, with organised coach trips running through the season for anyone who'd rather not tackle the mountain roads themselves.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1634678367697-aa921508357e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hikers crossing the Samaria Gorge, Crete" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Samaria Gorge</h3>
+        <p>One of the longest gorges in Europe, a full day hike of around 16km through the White Mountains National Park, finishing near the coastal village of Agia Roumeli. A proper walking boots and water kind of day out rather than a casual stroll, best suited to a reasonably fit client, and only open roughly May to October depending on conditions.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1637649983971-597acff319a5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The fortress island of Spinalonga near Agios Nikolaos, Crete" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Spinalonga &amp; Agios Nikolaos</h3>
+        <p>A Venetian sea fortress turned former leper colony on a small island just off Elounda, reached by boat from Agios Nikolaos, Elounda or Plaka, and combined on most tours with time in Agios Nikolaos itself around its picturesque inland lake and harbour. One of the most atmospheric half day trips on the island, and easy to reach from either Agios Nikolaos or Elounda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Greece uses the Euro, so prices below are shown in pounds with the Euro equivalent alongside, based on a rate of roughly &pound;1 to &euro;1.16. These are crowd-sourced averages for Heraklion, and prices right on a resort seafront can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;11.20 (about &euro;13.00)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;43.10 (about &euro;50.00)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;3.05 (about &euro;3.53)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;4.30 (about &euro;5.00)</td></tr>
+          <tr><td>Bus ticket, single journey</td><td>&pound;1.10 (about &euro;1.30)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;3.45 (about &euro;4.00)</td></tr>
+          <tr><td>Taxi, standard tariff per mile</td><td>&pound;1.40 (about &euro;1.61)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages for Heraklion via Numbeo, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Hersonissos and Malia's main strips are priced for passing tourist trade. A short walk back from the seafront, or eating in Stalis instead of Malia itself, gets the same Greek food for noticeably less.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (&euro;)</td></tr>
+          <tr><td>Plug type</td><td>Type C/F, a UK to EU adapter is needed</td></tr>
+          <tr><td>Language</td><td>Greek, English is widely spoken in hotels and resorts</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 4 to 4.5 hours direct, depending on departure airport</td></tr>
+          <tr><td>Time difference</td><td>2 hours ahead of the UK, year round</td></tr>
+          <tr><td>Driving</td><td>Right hand side, an international permit isn't required for UK licence holders</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Emmanuel Cassar, Marina T, Ben Grayland, Alex Mochalov, Joshua Kettle, Stefan Szankowski, Ignacio Correia, Tadeusz Zachwieja, Gunel, Evangelos Mpikakis, Pavel Gromov, Upgraded Points, Paulo Almeida and Yuliia Sereda via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Crete for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Crete, help you pick between the west, the resort strip and the quiet east, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+crete_body = crete_body.replace("::NEWSLETTER::", newsletter_section())
+
+CRETE_SCHEMA = article_and_faq_schema(
+    "Crete: Jake's Destination Guide",
+    "Jake's honest guide to Crete: Chania, Rethymno, Hersonissos, Malia, Agios Nikolaos and Elounda, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "crete.html",
+    "https://images.unsplash.com/photo-1713722122973-bfa5e9ebca82?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Crete?", "June to September is the classic package season, hot, dry and reliably sunny, with July and August the hottest, busiest and driest months. May, June and September are a good sweet spot, warm without the peak summer crowds, and spring (April and May) brings out the island's greenery and wildflowers. Winter, November to March, is mild by UK standards but considerably wetter, especially in the west, and many smaller hotels close for the season."),
+        ("Which area of Crete should I choose?", "Chania and Platanias in the west suit couples and culture lovers who want a Venetian old town alongside the beach. Rethymno and Bali, roughly in the middle of the island, combine an old town and long beach in one walkable spot. Hersonissos, Malia and Stalis, closest to Heraklion Airport, have the widest choice of family hotels and Crete's liveliest nightlife in Malia. Agios Nikolaos and Elounda in the east are quieter and more upmarket, with Elounda considered the island's top luxury resort area."),
+        ("How do I get to Crete, and is hiring a car worth it?", "Crete has two airports, Chania in the west and Heraklion in the centre and east, both taking direct flights from a wide range of UK airports on Jet2, easyJet, TUI Airways, Ryanair and British Airways, typically around 4 to 4.5 hours. Transfer times range from around 20 minutes for resorts close to either airport up to an hour or more for Elounda from Heraklion. Hiring a car is well worth considering on Crete given how spread out the highlights are, Balos, Elafonissi and Samaria Gorge are all a proper drive from most resorts and are far easier with your own transport. A full UK driving licence is all that's needed, an international permit isn't required."),
+    ]
+)
+with open(os.path.join(SITE, "crete.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Crete: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Crete: Chania, Rethymno, Hersonissos, Malia, Agios Nikolaos and Elounda, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        crete_body,
+        extra_schema=CRETE_SCHEMA
+    ))
+print("crete.html written")
+
+
 
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
@@ -9994,6 +10277,7 @@ SITEMAP_PAGES = [
     ("italy-sorrento-amalfi-coast.html", "0.6"),
     ("corfu.html", "0.6"),
     ("zante.html", "0.6"),
+    ("crete.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
