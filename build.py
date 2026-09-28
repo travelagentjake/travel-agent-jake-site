@@ -606,6 +606,62 @@ home_body = """
       <div class="carousel-row" id="testimonialsCarousel">
         <div class="testimonial-card">
           <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Jake is phenomenal</h3>
+          <p class="testimonial-quote">"Have followed Jake for a while on socials and for a really big holiday had got a few quotes but occurred to me would be good idea to reach out to Jake. SO glad we did. He ran with the brief , beat the quotes and exceeded expectations (incredible villa , best flight times, longer Disney ticket all for best price). Next level contact and support throughout quote and booking"</p>
+          <div class="testimonial-name">Amy</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Jake and I actually go back 10 years</h3>
+          <p class="testimonial-quote">"Jake and I actually go back 10 years! Because I wanted a bespoke trip to India with a guide and because I know Jake will be there for anything that I might need to know, it was a no brainer to use him. Jake is helping with all 3 holidays next year for me. A typical package 5 star to RAK, an India trip with tiger safari and a Canadian RV trip. He's brilliant. Quick to help and is there at the end of a message. I trust no one else as much!"</p>
+          <div class="testimonial-name">Liz</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>We will never use anyone else</h3>
+          <p class="testimonial-quote">"What an amazing experience! From making contact with Jake to the final booking, was the smoothest experience we've had. His knowledge is endless and advice was spot on. Nothing was too much trouble and every question answered with patience and understanding. I've recommended Jake to all my friends I was so impressed."</p>
+          <div class="testimonial-name">Carol</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Booking his first cruise</h3>
+          <p class="testimonial-quote">"I enquired with Jake about a cruise I saw via his social media, after messaging Jake and receiving more details of everything we made the decision to book. As it will be our first cruise we had some questions and Jake did not hesitate to reassure us and answer any and all questions we had. From start to finish Jake was amazing and I will definitely be booking with him again"</p>
+          <div class="testimonial-name">Daniel</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Jake is amazing</h3>
+          <p class="testimonial-quote">"Jake is amazing! I would not hesitate to book with Jake going forward. So knowledgeable and helpful. He knew exactly what we needed to book. I will be booking with Jake going forward. Thank you Jake. D"</p>
+          <div class="testimonial-name">Debbie</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Quick and easy, with a discount</h3>
+          <p class="testimonial-quote">"Jake was really helpful and responded quickly. Booked holiday which was really easy and with a discount."</p>
+          <div class="testimonial-name">Jo</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Quick and easy booking</h3>
+          <p class="testimonial-quote">"Super easy to book with Jake ,no hassle at all .Helpful service 😀"</p>
+          <div class="testimonial-name">Helen</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Great!</h3>
+          <p class="testimonial-quote">"Great service; really responsive, professional and helpful. Very user friendly. We'll definitely see how Jake can help again on future holidays!"</p>
+          <div class="testimonial-name">RT</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <h3>Booked our ski holiday in under 2 days</h3>
           <p class="testimonial-quote">"Jake took less than 2 days to achieve what I had tried to over 2 weeks. He got us a great deal for skiing in half term, which came in under budget and looks ideal for us. His communication was excellent and his knowledge and passion was obvious. I would definitely recommend him to anyone needing help with booking a holiday. Thanks Jake!"</p>
           <div class="testimonial-name">Ros</div>
