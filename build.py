@@ -10095,12 +10095,17 @@ neurodivergent_hotels_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Spain: Fuerteventura, Lanzarote &amp; Ibiza</h2>
-    <p style="margin-top:14px;">Beyond Gran Canaria and Tenerife, three more verified hotels spread across a third Canary island, a fourth, and the Balearics.</p>
-    <div class="grid-3 equal-cards" style="margin-top:22px;">
+    <p style="margin-top:14px;">Beyond Gran Canaria and Tenerife, four more verified hotels spread across a third Canary island, a fourth with two separate certified options, and the Balearics.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Fuerteventura</div>
         <h3 style="font-size:18px;">KN Matas Blancas</h3>
         <p>Costa Calma, part of the same KN Hotels autism friendly programme as the Tenerife properties above, with the same fast check-in, pictogram signage and ASD trained staff. All inclusive, half board or bed and breakfast. Bookable through Jet2holidays and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Lanzarote</div>
+        <h3 style="font-size:18px;">Radisson Blu Resort Lanzarote</h3>
+        <p>Costa Teguise, certified autism friendly by the Autism Friendly World initiative and endorsed by Spain's Asociaci&oacute;n Mi Hijo y Yo. Rooms adapted to reduce visual clutter with clearly labelled lighting and temperature controls, mealtimes pre-bookable in quieter restaurant sections, pictogram signage, pre-arrival visual guides, flexible low-noise check-in, and continuous staff training led by autism specialists. Half board or bed and breakfast. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Lanzarote</div>
@@ -10113,7 +10118,7 @@ neurodivergent_hotels_body = f"""
         <p>Port des Torrent, on Ibiza's west coast, and the very first hotel where TUI opened a dedicated sensory room, soothing lights, calming sounds and gentle textures, alongside neurodiversity trained staff. All-inclusive. Bookable through TUI.</p>
       </div>
     </div>
-    {jake_tip("Fuerteventura and Lanzarote rarely come up in autism friendly holiday searches at all, most families only ever hear about Gran Canaria and Tenerife. Worth knowing both islands have a genuinely verified option if either suits your dates or budget better.")}
+    {jake_tip("Lanzarote now has two genuinely certified options from two completely different organisations, Gloria's Autism Friendly Club certification and the Radisson Blu's Autism Friendly World certification, which is a good sign that more hotels across the Canaries are actively pursuing this rather than it being a one-off. Fuerteventura rarely comes up in these searches at all, worth knowing it has a solid verified option too.")}
   </div>
 </section>
 
@@ -10121,7 +10126,7 @@ neurodivergent_hotels_body = f"""
   <div class="wrap">
     <h2>Turkey: the Turkish Riviera</h2>
     <img src="https://images.unsplash.com/photo-1659163272096-b85bcbdeb055?auto=format&amp;fit=crop&amp;w=1600&amp;h=700&amp;q=80" alt="Beach resort along the Turkish coastline" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
-    <p style="margin-top:14px;">Turkey's verified options are newer and, honestly, thinner than Spain's. TUI opened dedicated sensory rooms at two of its TUI BLUE hotels for the 2026 season, both all-inclusive, both on the Turkish Riviera.</p>
+    <p style="margin-top:14px;">TUI opened dedicated sensory rooms at two of its TUI BLUE hotels for the 2026 season, both all-inclusive, both on the Turkish Riviera. I also checked Rixos, Kaya Palazzo, Titanic and Voyage's Belek hotels directly, none currently hold a named autism or ADHD specific certification, so I've kept this section to the two I could actually stand behind.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Sarigerme Bay</div>
@@ -10140,14 +10145,16 @@ neurodivergent_hotels_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
-    <h2>Greece: I couldn't verify enough to include it yet</h2>
-    <p style="margin-top:14px;">I want to be straight with you about this rather than padding the list out. I looked hard for a Greek equivalent to Gloria Thalasso, GF Victoria or TUI's sensory rooms, a hotel or hotel group with a real, named autism or ADHD specific feature I could verify from the hotel's own site, a tour operator's accessibility pages, or a recognised certification body such as IBCCES or Autism Friendly Club. I couldn't find one. Several blogs list Greek hotels as "autism friendly" based on general family amenities like kids' pools or quiet corners, but that's not the same as a documented programme, and I'm not willing to put a hotel on this list on that basis given how much this specific piece of advice matters to the families reading it.</p>
-    <p style="margin-top:14px;">Several major operators of villas and hotels in Greece, including some in Rhodes, Crete and the Ionian islands, are worth checking again in future, and I'll add Greece properly the moment I can verify something real. If you're set on Greece and this kind of support matters to your holiday, message me directly and I'll ask the hotels themselves on your behalf rather than relying on marketing copy.</p>
+    <h2>Greece: nothing verified yet, here's what I'll do instead</h2>
+    <p style="margin-top:14px;">Greece is the one gap in this guide, and I want to explain properly rather than just say I couldn't find anything. I checked Grecotel, Mitsis, Robinson Club, Porto Carras, Sani and Ikos Resorts directly, searched the IBCCES and Autism Friendly Club directories, and looked specifically for a Greek equivalent to the Radisson Blu's Autism Friendly World certification. None of Greece's major hotel groups currently hold a named, verifiable autism or ADHD specific accreditation, and I'm not willing to guess based on a hotel simply having a kids' pool or a quiet corner, not on a topic this important to the families reading it.</p>
+    <p style="margin-top:14px;">Here's what that means in practice if Greece is where you want to go. Message me before you book and I'll contact the specific hotel you're considering directly, in writing, and ask exactly what it can offer for autism, ADHD or sensory needs, staff training, quiet spaces, flexible dining, the lot, then tell you plainly what's genuinely on offer before you commit. That's not a lesser service than a list, if anything it's more thorough, because it's checked against your actual hotel rather than a general accreditation that may or may not cover the specific thing your family needs. New certifications are appearing in Spain all the time, Radisson Blu Lanzarote only achieved theirs in 2025, so I'm actively watching for the same to happen in Greece and will add it here the moment it does.</p>
+    {jake_tip("Don't rule Greece out because it's not on this list, plenty of hotels there genuinely could support your family well, it just means the legwork of checking happens hotel by hotel with me rather than from a published accreditation. Message me and I'll get it checked before you book, not after.")}
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
+
     <img src="https://images.unsplash.com/photo-1776525433194-449b9a2c01ae?auto=format&amp;fit=crop&amp;w=1600&amp;h=700&amp;q=80" alt="Calm, softly lit room interior" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
     <h2>How to actually book this support</h2>
     <p style="margin-top:14px;">Having the right hotel is only half of it, the request still needs to reach the resort properly, and each operator handles it slightly differently.</p>
@@ -10173,7 +10180,11 @@ neurodivergent_hotels_body = f"""
     </div>
     <div class="jake-card" style="margin-top:14px;">
       <h3 style="font-size:16px;">Are these hotels only suitable for children, or for autistic adults too?</h3>
-      <p>Most of the features described, sensory rooms, quiet spaces, staff training and pictogram signage, are designed to help any autistic or ADHD guest, not just children. A few of the hotels mentioned, including TUI BLUE Isla Cristina Palace style adults only concepts, are adults only by design, so check the age policy for the specific hotel you're considering.</p>
+      <p>Most of the features described, sensory rooms, quiet spaces, staff training and pictogram signage, are designed to help any autistic or ADHD guest, not just children. None of the hotels on this list are adults only, all of them cater for families, though it's always worth double checking the current age policy for the specific hotel you're considering.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Why isn't Greece on this list?</h3>
+      <p>Because I couldn't find a genuine, verifiable autism or ADHD specific hotel feature there, not through IBCCES, Autism Friendly Club, or any of Greece's major hotel groups directly. Rather than guess, message me before you book in Greece and I'll contact your chosen hotel directly to check what it can actually offer, which is more thorough than relying on a general accreditation anyway.</p>
     </div>
     <div class="jake-card" style="margin-top:14px;">
       <h3 style="font-size:16px;">What if the hotel I want isn't on this list?</h3>
