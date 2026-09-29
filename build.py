@@ -6876,6 +6876,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1723035092325-03ad613d3dae?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Child wearing noise cancelling headphones",
     },
+    {
+        "slug": "tourist-tax-europe-2026.html",
+        "meta": "Costs &amp; budgeting",
+        "title": "Tourist tax in Europe 2026: what you'll actually pay, and where",
+        "excerpt": "Amsterdam's accommodation costs have jumped, Barcelona has doubled its tax and Edinburgh has launched Scotland's first visitor levy. Exactly what you'll pay across Europe in 2026, region by region, and where you won't pay anything at all.",
+        "image": "https://images.unsplash.com/photo-1668777190463-a6acc22b65ae?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Suitcase full of banknotes representing holiday costs",
+    },
 ]
 
 def tip_card(post):
@@ -10518,6 +10526,202 @@ with open(os.path.join(SITE, "autism-adhd-friendly-hotels-spain-turkey.html"), "
     ))
 print("autism-adhd-friendly-hotels-spain-turkey.html written")
 
+tourist_tax_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>TOURIST TAX IN EUROPE 2026: WHAT YOU'LL ACTUALLY PAY, AND WHERE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Amsterdam's accommodation costs have jumped sharply, Barcelona has doubled its tourist tax, and Edinburgh has just launched Scotland's first visitor levy. Tourist tax catches a lot of holidaymakers out because it is rarely included in the price you see when you book. Here is exactly what you will actually pay across the destinations UK holidaymakers head to most in 2026, and just as importantly, where you will not pay anything at all.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1668777190463-a6acc22b65ae?auto=format&fit=crop&w=1600&h=700&q=80" alt="Suitcase full of banknotes representing holiday costs" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">Most tourist taxes in Europe are charged locally, per person and per night, and added to your hotel bill rather than included in your holiday price when you book. Rates vary hugely, from nothing at all in most of mainland Spain and the Canary Islands, to a combined tax burden of around a third on top of the room rate in Amsterdam. Prices below are given in euros, since that is the currency you will actually be charged in. At the time of writing, one pound is worth around 1.16 euros, but exchange rates move, so check the live rate closer to your travel date rather than relying on this figure.</p>
+    </div>
+    {jake_tip("Always check your booking confirmation or ask me directly whether tourist tax is included in your headline price or payable locally. On most package holidays I arrange, it is a local charge you pay to the hotel, not something built into the price you paid me, so it is worth budgeting for separately and keeping some local currency spare for it.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What has actually changed in 2026</h2>
+    <img src="https://images.unsplash.com/photo-1584003564911-a7a321c84e1c?auto=format&fit=crop&w=1600&h=700&q=80" alt="Bicycles on a bridge over an Amsterdam canal" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Three changes this year are worth knowing about before anything else. Amsterdam's national VAT rate on hotel accommodation rose from 9% to 21% on 1 January 2026, on top of the city's own 12.5% tourist tax on the room rate, taking the combined tax burden on an Amsterdam hotel stay to roughly a third on top of the pre tax price. Barcelona and the rest of Catalonia doubled their regional tourist tax from April 2026, with Barcelona's own city surcharge added on top of that. And Edinburgh launched a brand new 5% Visitor Levy on 24 July 2026, the first statutory tourist tax anywhere in Scotland.</p>
+    <p style="margin-top:14px;">None of this means every destination has got more expensive. Mainland Spain's most popular package holiday coastlines, the Costa del Sol, Costa Blanca and the Canary Islands, still charge no general tourist tax at all, and that has not changed.</p>
+    {jake_tip("If a destination's tourist tax has jumped and that changes your budget, it is always worth asking me whether a similar holiday somewhere without a tourist tax would suit you just as well. The Costa del Sol and the Canaries in particular still have none.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>At a glance</h2>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Destination</th><th>Typical charge</th><th>How it's charged</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Barcelona &amp; Catalonia</td><td>&euro;1.75 to &euro;15 per person, per night, depending on category and area</td><td>Added to your hotel bill</td></tr>
+          <tr><td>Balearic Islands (Majorca, Menorca, Ibiza, Formentera)</td><td>&euro;0.50 to &euro;4 per person, per night (half price from November to April)</td><td>Added to your hotel bill, under 16s exempt</td></tr>
+          <tr><td>Costa del Sol, Costa Blanca &amp; Canary Islands</td><td>No general tourist tax currently</td><td>N/A</td></tr>
+          <tr><td>Greece (accommodation)</td><td>&euro;2 to &euro;15 per room, per night, depending on category and season</td><td>Added to your hotel bill</td></tr>
+          <tr><td>Turkey</td><td>1% of your accommodation cost</td><td>Built into your hotel bill</td></tr>
+          <tr><td>Portugal (Lisbon &amp; Porto)</td><td>&euro;3 to &euro;4 per person, per night, capped at 7 nights</td><td>Added to your hotel bill</td></tr>
+          <tr><td>Venice day trips</td><td>&euro;5 booked ahead, &euro;10 on the day, specific dates only</td><td>Booked online in advance, or paid on the day</td></tr>
+          <tr><td>Paris (4 star and above)</td><td>&euro;8.45 to &euro;15.93 per person, per night</td><td>Added to your hotel bill</td></tr>
+          <tr><td>Amsterdam</td><td>12.5% of your room rate, plus 21% VAT</td><td>Included in the price you're quoted locally</td></tr>
+          <tr><td>Edinburgh</td><td>5% of your accommodation cost, capped at 5 nights</td><td>Added to your booking</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures reflect published rates for 2026 at the time of writing and can change, especially in destinations where rates are reviewed annually. Always check the current rate for your specific hotel and dates before you travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Spain: it depends entirely on where you're going</h2>
+    <img src="https://images.unsplash.com/photo-1507619579562-f2e10da1ec86?auto=format&fit=crop&w=1600&h=700&q=80" alt="Rooftop view across Barcelona" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Spain does not have one national tourist tax, it has several regional ones, and which one applies to your holiday depends entirely on where in Spain you are going. Barcelona and the wider Catalonia region charge the most. Since April 2026, Barcelona's own rate is &euro;7.00 per person per night at luxury hotels, &euro;3.40 at four star hotels and &euro;4.50 at tourist apartments, and the city council can add a further surcharge of up to &euro;8.00 per person per night on top of any of those, taking the maximum at a luxury hotel to around &euro;15.00 per person per night. Outside Barcelona, the rest of Catalonia charges less, from &euro;0.80 at hostels up to &euro;4.50 at five star hotels.</p>
+    <p style="margin-top:14px;">The Balearic Islands, Majorca, Menorca, Ibiza and Formentera, charge their own separate sustainable tourism tax. In high season, from May to October, that's &euro;4 per person per night at five star and luxury hotels, &euro;3 at four star, and &euro;2 to &euro;4 at apartments. In low season, November to April, all of those rates roughly quarter. Children under 16 are exempt entirely, and if you stay nine nights or more in the same hotel, the rate on those extra nights drops by half. A 10% VAT charge is added on top of the tax itself.</p>
+    <div class="jake-card" style="margin-top:18px;">
+      <p style="margin:0;"><b>The good news if you're heading to the Costa del Sol, Costa Blanca or the Canary Islands:</b> none of these currently charge a general tourist tax. Andalusia, home to the Costa del Sol and Marbella, has no such charge. The Valencia region, which covers the Costa Blanca and Benidorm, passed legislation allowing one but it is not yet actively being collected. And the Canary Islands, including Tenerife, Gran Canaria and Lanzarote, have no general accommodation tax either. Tenerife does charge a separate access fee for specific hiking trails inside Teide National Park, from &euro;6 to &euro;25 depending on the route, but that only applies if you book a permit to climb Teide itself, not to your hotel stay.</p>
+    </div>
+    {jake_tip("Don't assume a Spanish tourist tax rule applies everywhere in Spain just because you've read about Barcelona or Majorca. It genuinely is region by region, so check what applies to the specific area you're actually staying in, not Spain as a whole.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Greece</h2>
+    <img src="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?auto=format&fit=crop&w=1600&h=700&q=80" alt="Seafront tables in Mykonos, Greece" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Greece charges an overnight stay tax on accommodation across the country, added to your hotel bill rather than included in your holiday price. It scales with the category of accommodation and the time of year, from around &euro;2 to &euro;15 per room per night between November and March, and &euro;4 to &euro;15 per room per night between April and October, with higher category hotels charged more.</p>
+    <p style="margin-top:14px;">If your holiday includes a cruise stop in Greece rather than a hotel stay, there is a separate cruise passenger fee that applies per port. In high season, June to September, that's &euro;20 at Mykonos or Santorini, or &euro;5 at other ports. It drops through the shoulder and winter seasons. This one is specific to cruise passengers, so if you're on a standard package holiday staying in a hotel, it doesn't apply to you.</p>
+    {jake_tip("If you're comparing Greek island hotels on price, the overnight stay tax can genuinely change which one works out cheaper once you add it on, since it scales with the hotel's category. Worth factoring in before you book, not after.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Turkey</h2>
+    <img src="https://images.unsplash.com/photo-1582030826675-8b596001240a?auto=format&fit=crop&w=1600&h=700&q=80" alt="Antalya beach on Turkey's Turquoise Coast" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Turkey applies a national accommodation tax to hotels, resorts and apart hotels, built into what your hotel charges you locally rather than something you need to work out or pay separately. The rate was cut from 2% to 1% of the accommodation cost from 1 May 2026, and that reduced rate is currently set to run through to the end of December 2026. It's a percentage of your accommodation cost rather than a flat nightly fee, so it scales with what you're actually paying for your room or all inclusive package.</p>
+    {jake_tip("Because Turkey's accommodation tax is a percentage rather than a flat fee, it tends to be a smaller add on for lower cost resorts and a bit more noticeable at five star all inclusive properties. Either way it's genuinely modest compared with some of the per night flat charges elsewhere in this guide.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Portugal</h2>
+    <img src="https://images.unsplash.com/photo-1726524131121-41a7a86a2dfe?auto=format&fit=crop&w=1600&h=700&q=80" alt="Rooftop view across Lisbon, Portugal" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Most Portuguese municipalities that charge a tourist tax keep it modest, typically &euro;2 to &euro;4 per person per night, added to your hotel bill. Lisbon charges &euro;4 per person per night, capped once you've paid it for 7 nights, so a longer stay doesn't keep adding up indefinitely. Porto charges &euro;3 per person per night, with the same 7 night cap. The Algarve, the region most UK package holidays to Portugal actually head to, has historically kept rates at the lower end of that range or not charged one at all depending on the specific municipality, so it's worth checking the exact resort area you're booking rather than assuming a blanket Portugal wide rate.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Italy, France and the Netherlands: city stays add up fastest</h2>
+    <img src="https://images.unsplash.com/photo-1566984991763-91b985a3f9c2?auto=format&fit=crop&w=1600&h=700&q=80" alt="Gondola on a Venice canal" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Venice introduced a separate access fee for day trippers back in 2024, and in 2026 the scheme runs across 60 days between April and July, Fridays to Sundays, 8.30am to 4pm. It's &euro;5 if you book your entry online in advance, or &euro;10 if you turn up without a booking. This only applies to day visitors, if you're staying overnight in a Venice hotel you're exempt from this specific charge, though like other Italian cities Venice does charge its own separate nightly accommodation tax to hotel guests on top of your room rate.</p>
+    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&h=700&q=80" alt="The Eiffel Tower in Paris" loading="lazy" style="border-radius:6px; margin-top:22px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Paris charges its accommodation tax per person per night, scaled by hotel category. At the top end for 2026, that's &euro;15.93 at palace hotels, &euro;11.70 at five star, and &euro;8.45 at four star. Lower category hotels and budget stays are charged considerably less, since the whole point of Paris's system is that it scales with what you're paying for the room.</p>
+    <p style="margin-top:14px;">Amsterdam is the one to budget for properly. The city's own tourist tax is 12.5% of your room rate before VAT, and national VAT on hotel accommodation in the Netherlands rose from 9% to 21% on 1 January 2026. Combined, that takes the total tax burden on an Amsterdam hotel stay to roughly a third on top of the pre tax room rate, a genuinely significant jump from what UK travellers may remember paying on previous trips.</p>
+    {jake_tip("If Amsterdam's costs have crept up beyond your budget, it's still one of the best value short haul city breaks if you stay just outside the city centre and take the tram in, since the accommodation tax and VAT rise apply to where you're actually registered as staying.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Closer to home: Edinburgh's new Visitor Levy</h2>
+    <img src="https://images.unsplash.com/photo-1735919076575-7d852696c14c?auto=format&fit=crop&w=1600&h=700&q=80" alt="Edinburgh Castle and skyline at sunrise" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Manchester was technically first, with a &pound;1 a night charge on larger city centre hotels that hoteliers themselves voted in back in 2023 through a business improvement district scheme, and that charge is still running in 2026. Edinburgh's new levy is different, and arguably more significant. Launched on 24 July 2026, it's Scotland's first statutory Visitor Levy, set in law rather than run by the hotel industry, and it works much more like the percentage based taxes charged across the rest of Europe. It's 5% of your accommodation cost, applies to hotels, B&amp;Bs, hostels and holiday rentals including Airbnbs, and is capped at 5 consecutive nights per stay. It applies to any advance booking made since 1 October 2025 for a stay on or after the launch date, so if you booked an Edinburgh trip for later in 2026 some time ago, this charge may still apply to it.</p>
+    {jake_tip("If you're planning a UK break rather than heading abroad, don't assume tourist tax is only something that happens overseas. Edinburgh now charges one too, and it's worth budgeting for in exactly the same way as a European city break.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>How to budget for it without any surprises</h2>
+    <img src="https://images.unsplash.com/photo-1698740015626-3510d3904f54?auto=format&fit=crop&w=1600&h=700&q=80" alt="Packed suitcase ready for a European holiday" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Ask whether it's included in your quoted price or payable locally.</b> On the vast majority of package holidays, tourist tax is a local charge you pay to the hotel, not something built into what you pay your travel agent or tour operator.</span></li>
+      <li><span class="num">2</span><span><b>Keep some local currency spare, just in case.</b> Some hotels add it to your final bill and let you pay by card, others collect it in cash on arrival or departure, and it varies property by property rather than following one fixed rule.</span></li>
+      <li><span class="num">3</span><span><b>Check the age cut off for children if you're travelling as a family.</b> The Balearic Islands exempt under 16s entirely, and several other destinations reduce or waive it for younger children too, but the exact age varies by country, so check rather than assume.</span></li>
+      <li><span class="num">4</span><span><b>Don't confuse a national park access fee with a general hotel tax.</b> Tenerife is the clearest example, its Teide National Park hiking permits are a completely separate charge from any accommodation tax, and only apply if you actually book to climb the trails.</span></li>
+      <li><span class="num">5</span><span><b>Rates do change, sometimes annually.</b> Several of the destinations in this guide review their rates every year, so a figure that was accurate last summer may not be this summer. Check the current rate for your specific dates rather than relying on an old figure.</span></li>
+    </ul>
+    {jake_tip("If you're ever unsure what a destination charges, ask me before you book rather than after. I check the current rate for wherever I'm quoting you, so you're never caught out by a charge you didn't know was coming.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Do I pay tourist tax before I travel or when I arrive?</h3>
+      <p>Almost always locally, either added to your hotel bill or collected in cash on arrival or departure. It's rarely included in the price you pay when you book your holiday. Venice's day tripper fee is the exception, since that's booked and paid online in advance if you want the cheaper rate.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Are children exempt from tourist tax?</h3>
+      <p>It depends on the destination. The Balearic Islands exempt everyone under 16, Tenerife's separate Teide National Park fee is free for under 14s, and several other countries offer reduced or waived rates for younger children. There's no single rule across Europe, so check the specific destination.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does my package holiday price cover tourist tax?</h3>
+      <p>Usually not. Tourist tax is a local government charge collected at your destination, separate from what you pay your tour operator or travel agent, so it's worth budgeting for it as an extra rather than assuming it's already included.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Will the Costa del Sol, Costa Blanca or Canary Islands introduce a tourist tax soon?</h3>
+      <p>Andalusia and the Canary Islands currently have no general tourist tax and no confirmed plans to introduce one. The Valencia region, which covers the Costa Blanca and Benidorm, has passed legislation allowing a tax but is not yet actively collecting it. This is worth checking again closer to your travel date since it can change.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <h2>Want a holiday quote that's honest about the extras?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">When I price up a holiday for you, I'll flag any tourist tax you're likely to pay locally so it's never a surprise once you're there, not just the headline price.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+tourist_tax_body = tourist_tax_body.replace("::NEWSLETTER::", newsletter_section())
+
+TOURIST_TAX_SCHEMA = article_and_faq_schema(
+    "Tourist Tax in Europe 2026: What You'll Actually Pay, and Where",
+    "Amsterdam's accommodation costs have jumped, Barcelona has doubled its tax and Edinburgh has launched Scotland's first visitor levy. Exactly what UK holidaymakers will pay across Europe in 2026, region by region, and where you won't pay anything at all.",
+    "tourist-tax-europe-2026.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("Do I pay tourist tax before I travel or when I arrive?", "Almost always locally, either added to your hotel bill or collected in cash on arrival or departure. It's rarely included in the price you pay when you book your holiday. Venice's day tripper fee is the exception, since that's booked and paid online in advance if you want the cheaper rate."),
+        ("Are children exempt from tourist tax?", "It depends on the destination. The Balearic Islands exempt everyone under 16, Tenerife's separate Teide National Park fee is free for under 14s, and several other countries offer reduced or waived rates for younger children. There's no single rule across Europe, so check the specific destination."),
+        ("Does my package holiday price cover tourist tax?", "Usually not. Tourist tax is a local government charge collected at your destination, separate from what you pay your tour operator or travel agent, so it's worth budgeting for it as an extra rather than assuming it's already included."),
+        ("Will the Costa del Sol, Costa Blanca or Canary Islands introduce a tourist tax soon?", "Andalusia and the Canary Islands currently have no general tourist tax and no confirmed plans to introduce one. The Valencia region, which covers the Costa Blanca and Benidorm, has passed legislation allowing a tax but is not yet actively collecting it. This is worth checking again closer to your travel date since it can change."),
+    ]
+)
+
+with open(os.path.join(SITE, "tourist-tax-europe-2026.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Tourist Tax in Europe 2026: What You'll Actually Pay, and Where | Travel Agent Jake",
+        "Amsterdam's accommodation costs have jumped, Barcelona has doubled its tax and Edinburgh has launched Scotland's first visitor levy. Exactly what UK holidaymakers will pay across Europe in 2026, region by region.",
+        "travel-tips.html",
+        tourist_tax_body,
+        extra_schema=TOURIST_TAX_SCHEMA,
+        canonical_path="tourist-tax-europe-2026.html"
+    ))
+print("tourist-tax-europe-2026.html written")
+
+
 
 
 # ---------------- BOOKING WIDGET PLACEHOLDER PAGES (Agendas Group) ----------------
@@ -10677,6 +10881,7 @@ SITEMAP_PAGES = [
     ("hidden-disability-travel-sunflower-lanyard.html", "0.7"),
     ("travel-company-goes-bust-atol-abta-protection.html", "0.7"),
     ("autism-adhd-friendly-hotels-spain-turkey.html", "0.7"),
+    ("tourist-tax-europe-2026.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
