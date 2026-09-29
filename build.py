@@ -1643,6 +1643,13 @@ DESTINATION_POSTS = [
         "excerpt": "Chania, Rethymno, Hersonissos, Malia, Agios Nikolaos and Elounda: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1713722122973-bfa5e9ebca82?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "egypt-red-sea.html",
+        "meta": "Egypt, Red Sea",
+        "title": "The Red Sea, Egypt",
+        "excerpt": "Hurghada, El Gouna, Makadi Bay, Sahl Hasheesh and Sharm El Sheikh: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1708711973477-1373f8eb65db?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -6476,6 +6483,283 @@ print("crete.html written")
 
 
 
+egypt_red_sea_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>EGYPT'S RED SEA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Egypt's Red Sea coast, from Hurghada's beach promenade to El Gouna's car free lagoons and the coral reefs of Sharm El Sheikh.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Egypt's Red Sea</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1708711973477-1373f8eb65db?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Calm turquoise water and hills along Egypt's Red Sea coast" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Egypt's Red Sea coast is one of the most reliable year round sun destinations I sell. There's virtually no rain to plan around, the sea stays warm even in January, and prices go a long way compared with the Mediterranean. It's also a genuinely varied destination once you look past the flight. Hurghada itself is a proper working resort town with a long beachfront promenade, El Gouna a little further up the coast is a purpose built lagoon town that feels more like a boutique Mediterranean marina than mainland Egypt, and Sharm El Sheikh on the Sinai side flies into a completely different airport and is built almost entirely around some of the best shore diving and snorkelling anywhere in the world.</p>
+    <p style="margin-top:14px;">It's also becoming a proper mainstream package destination again rather than a specialist one. Jet2holidays only recently launched flights and holidays to Egypt from UK airports, joining TUI and easyJet holidays, so this is a newer addition to the big three operators rather than somewhere that's been sold this way for decades.</p>
+    {jake_tip("A week in Hurghada or Makadi Bay and a week diving in Sharm El Sheikh are genuinely different holidays, even though both get filed under 'Egypt'. Ask a client what they actually want, reef diving right off the beach, a lively resort strip, or somewhere quieter and more design led, before picking an area and an airport.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the standard package length and works well for a beach and pool week with a Luxor or desert excursion built in. Because the flight is a genuine 5 hours or so each way, 10 to 14 nights is also common and gives noticeably better value against the flight time itself, particularly for a client who dives or wants to properly settle in.</p>
+    <p style="margin-top:14px;">It suits a wide range of clients. Makadi Bay, Sahl Hasheesh and Hurghada's bigger resorts work well for families, thanks to water parks and all inclusive board across most hotels. El Gouna suits couples and repeat visitors who want a quieter, more boutique feel with genuine restaurants and nightlife of its own, rather than a resort strip. Sharm El Sheikh and Naama Bay are the pick for divers and snorkellers, since the reef often starts just off the beach at a lot of hotels rather than needing a boat trip.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Hurghada International Airport (HRG) serves the mainland Red Sea coast, Hurghada itself, El Gouna, Makadi Bay, Sahl Hasheesh and Soma Bay. Sharm El Sheikh International Airport (SSH), across the Gulf of Suez on the Sinai Peninsula, serves Sharm El Sheikh, Naama Bay and Sharks Bay, and is a separate airport with its own direct flights, not a transfer from Hurghada. Direct flights run from a range of UK airports on easyJet, TUI Airways and Jet2, taking around 5 hours 25 minutes from London and similar from most other UK departure points. Jet2's Egypt programme is genuinely new, having only recently launched flights and holidays to the country to sit alongside its long established TUI and easyJet competitors.</p>
+    {jake_tip("Entry requirements depend on exactly where a client is staying. Anyone visiting only Sharm El Sheikh, Naama Bay or Sharks Bay by air for under 15 days gets a free entry stamp on arrival with no visa needed, as long as they don't leave that Sinai resort area. Everyone else, including anyone staying on the Hurghada side of the coast (Hurghada, El Gouna, Makadi Bay, Sahl Hasheesh or Soma Bay) or adding on Luxor, Cairo or a Nile cruise, needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. Always confirm the current requirement for a client's specific plans before they travel.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">The Red Sea has a genuinely hot desert climate with next to no rainfall all year round, and a sea that stays warm even in the depths of a UK winter. These figures are long-term climate averages for Hurghada, and Sharm El Sheikh runs very slightly cooler and drier through the winter months.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>20&deg;C</td><td>13&deg;C</td><td>23&deg;C</td><td>Mild, sunny days, popular with winter sun seekers escaping the UK cold</td></tr>
+          <tr><td>February</td><td>22&deg;C</td><td>14&deg;C</td><td>23&deg;C</td><td>Similar to January, still a warm sea for the time of year</td></tr>
+          <tr><td>March</td><td>24&deg;C</td><td>17&deg;C</td><td>23&deg;C</td><td>Warming up nicely, comfortable for sightseeing and Luxor day trips</td></tr>
+          <tr><td>April</td><td>27&deg;C</td><td>19&deg;C</td><td>23&deg;C</td><td>Getting hot, a good balance before the full intensity of summer</td></tr>
+          <tr><td>May</td><td>31&deg;C</td><td>23&deg;C</td><td>25&deg;C</td><td>Hot and dry, sea warming up fast</td></tr>
+          <tr><td>June</td><td>33&deg;C</td><td>26&deg;C</td><td>26&deg;C</td><td>Very hot, low humidity, good diving conditions</td></tr>
+          <tr><td>July</td><td>34&deg;C</td><td>27&deg;C</td><td>28&deg;C</td><td>Scorching, one of the hottest package resort coasts anywhere</td></tr>
+          <tr><td>August</td><td>35&deg;C</td><td>27&deg;C</td><td>29&deg;C</td><td>Hottest month, best suited to strong heat tolerance</td></tr>
+          <tr><td>September</td><td>33&deg;C</td><td>25&deg;C</td><td>28&deg;C</td><td>Still very hot, sea at its warmest, crowds beginning to ease</td></tr>
+          <tr><td>October</td><td>30&deg;C</td><td>23&deg;C</td><td>28&deg;C</td><td>Hot by UK standards but more comfortable, a popular month</td></tr>
+          <tr><td>November</td><td>25&deg;C</td><td>19&deg;C</td><td>26&deg;C</td><td>Warm and pleasant, one of the best value months</td></tr>
+          <tr><td>December</td><td>22&deg;C</td><td>15&deg;C</td><td>25&deg;C</td><td>Mild winter sun, popular over the festive period</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for Hurghada, sourced via climate-data.org.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">The Red Sea is a genuine year round destination, there's essentially no rain to plan around at any time of year. December to March is the mildest window, warm enough for the beach and pool by day with cooler evenings, and a popular choice for older clients or anyone who finds high thirties uncomfortable. April, May, October and November are the sweet spot for most clients, hot enough for a proper beach holiday without the full intensity of summer. June to September is seriously hot, regularly into the mid thirties, and suits clients who genuinely love strong heat or who are there primarily to dive, since the sea stays warm and calm right through summer.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Four distinct areas across two airports, each with a different feel.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1618582240632-1937f4c91d7d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Dream Beach coastline in Hurghada, Egypt" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Hurghada &amp; Magawish</h3>
+        <p>The original Red Sea resort town and still the biggest concentration of hotels on this coast, from simple budget options to large all inclusive resorts. El Mamsha, the long beachfront promenade, has the area's restaurants, shops and nightlife, while Magawish to the south is a quieter, more self contained resort strip. Hurghada is also the closest base to the airport, which keeps transfer times short. Suits a wide range of budgets and a client who wants restaurants and nightlife within easy reach of the hotel.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1738935457539-936fdb320c51?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Calm lagoon waters at El Gouna, Egypt" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">El Gouna</h3>
+        <p>A purpose built lagoon town around 20 minutes north of Hurghada airport, laid out around a network of man-made lagoons and a marina, with tuk-tuks and golf buggies rather than cars doing most of the getting about in the centre. It has a genuinely different, more boutique Mediterranean feel to the rest of this coast, its own restaurants, bars and championship golf, and is well known among windsurfers and kitesurfers for its year round wind. Suits couples and repeat visitors after somewhere quieter and more design led than a typical resort strip.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1708694423464-0f5b19fb2444?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees beside the ocean at a Red Sea resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Makadi Bay, Sahl Hasheesh &amp; Soma Bay</h3>
+        <p>A string of purpose built resort bays south of Hurghada, each largely self contained with its own beach, gated grounds and, in most cases, a proper water park. Makadi Bay has the widest choice of family hotels, Sahl Hasheesh is a little more upmarket with a smart marina area, and Soma Bay is the quietest and most spread out of the three, popular for golf, kitesurfing and spa focused stays. All three sit further from the airport and from Hurghada's own restaurants and nightlife, so they suit a client happy to stay largely within the resort.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1681158077449-77f23f629f0d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boats moored along the coast at Sharm El Sheikh, Egypt" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sharm El Sheikh &amp; Naama Bay</h3>
+        <p>A different airport and a different coastline, on the Sinai Peninsula rather than the Egyptian mainland. Naama Bay is the liveliest part, a pedestrianised promenade of restaurants, bars and shops right behind the beach, while Sharks Bay and Ras Um Sid are quieter and better known for house reefs you can snorkel or dive straight off the shore. This is the pick for anyone whose holiday is really built around the reef rather than the resort.</p>
+      </div>
+    </div>
+    {jake_tip("First time on the Red Sea and want it simple? Hurghada for an easy, well connected base close to the airport. Want somewhere quieter and more boutique? El Gouna. Travelling with kids and want a proper water park on site? Makadi Bay or Sahl Hasheesh. Diving is the main reason for the trip? Sharm El Sheikh or Naama Bay, and remember it's a separate airport to Hurghada.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Transfers between the airport and the hotel are normally arranged as part of the package. Beyond that, taxis are widely available and inexpensive by UK standards, though it's worth agreeing the fare before getting in rather than assuming a meter will be used. El Gouna's own centre is largely car free, with tuk-tuks and a free internal bus covering the short distances between its lagoons. Organised coach excursions and privately arranged transfers are the normal way to reach Luxor, Cairo or the desert from any of the Red Sea resorts, given the distances involved, and a passenger ferry does run across the Red Sea between Hurghada and Sharm El Sheikh for anyone wanting to combine both coasts without flying home and back, though it's worth checking current schedules and crossing times before promising a client a specific journey time.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1651871756929-09d7bde4e97d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Colourful coral reef and fish in the Red Sea" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities around Hurghada worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="888318,1106644,455967,1219393"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/hurghada-l403/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/hurghada-l403/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Hurghada &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets and across the coast, all available through TUI, Jet2holidays or easyJet holidays. Board basis is overwhelmingly all inclusive on this coast, but always confirm what's included for your dates when booking.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers beside a resort pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Albatros Makadi Resort</h3>
+        <p>A large all inclusive beachfront resort in Makadi Bay with 18 outdoor pools, an aqua park with multiple waterslides, six buffet restaurants and seven bars. No star rating is listed by the operator, so treat it as a solid, feature-packed value pick rather than a graded hotel. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1605537964076-3cb0ea2ff329?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Swimming pool at a family resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Pickalbatros Dana Beach Resort</h3>
+        <p>A beachfront all inclusive resort in Hurghada with its own water park, several pools including dedicated children's sections, a playground, kids' club and a "Neverland" entertainment show included once per stay. Six buffet restaurants and eleven bars. A genuinely complete family resort. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for a design-led escape</div>
+        <img src="https://images.unsplash.com/photo-1629229370300-207a44ac54cd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees beside calm lagoon water" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Sheraton Miramar Resort El Gouna</h3>
+        <p>Designed by the American architect Michael Graves and inspired by Nubian architecture, this El Gouna hotel is arranged around its own private lagoons rather than a single beach, giving it a genuinely distinctive, low rise, colourful look you won't find anywhere else on this coast. A strong pick for a couple wanting somewhere design led rather than a standard resort block. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1645379033960-72d6cb488c0e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers on a quiet resort deck" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Four Seasons Resort Sharm El Sheikh</h3>
+        <p>A private beachfront resort in Sharks Bay with its own accessible house reef for snorkelling straight off the shore, five outdoor pools, eight restaurants and bars, and a dedicated kids' programme alongside its spa and tennis facilities. One of the highest rated hotels on this entire coast. Bookable through easyJet holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond the beach itself.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1632944398987-494eebe663be?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Painted hieroglyphic walls inside a tomb in the Valley of the Kings, Luxor" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Luxor: Valley of the Kings &amp; Karnak Temple</h3>
+        <p>A full day excursion from any Red Sea resort, usually by early flight or a long coach transfer, to the tombs of the Valley of the Kings including Tutankhamun's, and the vast temple complex at Karnak on the Nile's east bank. One of the genuinely essential add-ons for a first time visitor to Egypt, best tackled as an organised tour given the distance and the early start involved.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1539768942893-daf53e448371?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Camels beside the Pyramids of Giza near Cairo" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Cairo &amp; the Pyramids of Giza</h3>
+        <p>A long but genuinely bucket list day trip, usually by domestic flight from Hurghada or Sharm El Sheikh, taking in the Pyramids of Giza, the Sphinx and the Egyptian Museum in a single very full day. Worth being upfront with a client about the length of the day, it's typically 16 to 17 hours door to door, but it's the only realistic way to see Cairo from a Red Sea base without extending the whole trip.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1589308945435-38c3f99b3824?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Colourful coral reef near Ras Mohammed National Park, Sharm El Sheikh" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Ras Mohammed National Park &amp; Tiran Island</h3>
+        <p>Protected marine reserves reached by boat from Sharm El Sheikh, with some of the clearest water and healthiest reef on this whole coast, home to reef sharks, turtles and vivid coral walls. A snorkelling or diving day out rather than a beach day, and one of the main reasons serious divers pick Sharm El Sheikh over the Hurghada side of the Red Sea.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1702205780741-7a0ca07c3b9b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Camels resting in the desert mountains of the Sinai, Egypt" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Desert safari &amp; Bedouin dinner</h3>
+        <p>A half day or evening trip by quad bike or 4x4 into the desert behind the resorts, usually finishing with a Bedouin style camp dinner under the stars, sometimes with stargazing through a telescope. Run from every resort area on this coast in some form, and a good, easy add-on for a client who wants a taste of the desert without a full day out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Egypt uses the Egyptian Pound, so prices below are shown in pounds sterling with the Egyptian Pound equivalent alongside, based on a rate of roughly &pound;1 to E&pound;68.50. These are crowd-sourced averages for Hurghada, and prices right on a resort's own doorstep can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;3.00 (about E&pound;205)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;29.20 (about E&pound;2,000)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.40 (about E&pound;97)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;1.60 (about E&pound;109)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.13 (about E&pound;9)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;0.73 (about E&pound;50)</td></tr>
+          <tr><td>Taxi, per mile</td><td>&pound;0.24 (about E&pound;16.50)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages for Hurghada via Numbeo, checked at time of writing. Egyptian Pound to pound sterling conversion is approximate and moves around more than most currencies, so treat these as a guide rather than an exact figure.</p>
+    {jake_tip("Eating and drinking within a resort's own restaurants and bars costs noticeably more than a short taxi ride into town, which is true on this coast more than most given how cheap local prices genuinely are.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Egyptian Pound (E&pound;)</td></tr>
+          <tr><td>Plug type</td><td>Type C/F, a UK to EU style adapter is needed</td></tr>
+          <tr><td>Language</td><td>Arabic, English is widely spoken in hotels and resorts</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 5 hours 25 minutes direct, depending on departure airport</td></tr>
+          <tr><td>Time difference</td><td>2 hours ahead of the UK for most of the year. Egypt reintroduced its own daylight saving time for 2026, and since its clock change dates don't line up exactly with the UK's, the gap can briefly narrow or widen by an hour for a week or two either side of the changeovers</td></tr>
+          <tr><td>Entry requirements</td><td>Free Sinai-only entry stamp for Sharm El Sheikh, Naama Bay or Sharks Bay stays under 15 days; an e-visa or visa on arrival (around &pound;25 to &pound;30) is needed for the Hurghada side of the coast, or for any trip that includes Luxor, Cairo or a Nile cruise</td></tr>
+          <tr><td>Driving</td><td>Right hand side, though most visitors rely on transfers and taxis rather than hiring a car</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Michael Mitrakos, Vegan Oaz&iuml;s, Jametlene Reskp, Anastasiia Popova, Oksana, Pascal van de Vendel, Sasha Kaunas, Cauayan Island Resort, Karine Avetisyan, Dmitrii Zhodzishskii, Simon, Veronica Reverse and Ben White via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Egypt's Red Sea for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of the Red Sea, help you pick between Hurghada, El Gouna, Makadi Bay and Sharm El Sheikh, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+egypt_red_sea_body = egypt_red_sea_body.replace("::NEWSLETTER::", newsletter_section())
+
+EGYPT_RED_SEA_SCHEMA = article_and_faq_schema(
+    "Egypt's Red Sea: Jake's Destination Guide",
+    "Jake's honest guide to Egypt's Red Sea: Hurghada, El Gouna, Makadi Bay, Sahl Hasheesh, Soma Bay and Sharm El Sheikh, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "egypt-red-sea.html",
+    "https://images.unsplash.com/photo-1708711973477-1373f8eb65db?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Egypt's Red Sea?", "The Red Sea is a genuine year round destination since there's essentially no rain to plan around at any time of year. December to March is the mildest window, warm enough for the beach and pool by day with cooler evenings, and popular with older clients or anyone who finds high thirties uncomfortable. April, May, October and November are the sweet spot for most clients, hot enough for a proper beach holiday without the full intensity of summer. June to September is seriously hot, regularly into the mid thirties, and suits clients who love strong heat or who are there mainly to dive, since the sea stays warm and calm right through summer."),
+        ("Which area of Egypt's Red Sea should I choose?", "Hurghada and Magawish are the original resort area, close to the airport with a wide choice of hotels and a lively beachfront promenade. El Gouna, a little further north, is a purpose built lagoon town with a more boutique, car free feel, popular with couples and watersports fans. Makadi Bay, Sahl Hasheesh and Soma Bay are purpose built resort bays south of Hurghada, most with their own water parks, well suited to families. Sharm El Sheikh and Naama Bay sit on the Sinai Peninsula with their own separate airport, and are built around some of the best shore diving and snorkelling anywhere in the world."),
+        ("Do I need a visa for Egypt, and how do I get there?", "It depends on exactly where you're staying. Anyone visiting only Sharm El Sheikh, Naama Bay or Sharks Bay by air for under 15 days gets a free entry stamp on arrival with no visa needed, as long as they stay within that Sinai resort area. Everyone else, including anyone staying on the Hurghada side of the coast or adding on Luxor, Cairo or a Nile cruise, needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. Direct flights run from a range of UK airports on easyJet, TUI Airways and Jet2, taking around 5 hours 25 minutes to Hurghada, with Sharm El Sheikh served by its own separate direct flights rather than a transfer from Hurghada."),
+    ]
+)
+with open(os.path.join(SITE, "egypt-red-sea.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Egypt's Red Sea: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Egypt's Red Sea: Hurghada, El Gouna, Makadi Bay, Sahl Hasheesh, Soma Bay and Sharm El Sheikh, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        egypt_red_sea_body,
+        extra_schema=EGYPT_RED_SEA_SCHEMA,
+        canonical_path="egypt-red-sea.html"
+    ))
+print("egypt-red-sea.html written")
+
+
+
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
     {
@@ -10377,6 +10661,7 @@ SITEMAP_PAGES = [
     ("corfu.html", "0.6"),
     ("zante.html", "0.6"),
     ("crete.html", "0.6"),
+    ("egypt-red-sea.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
