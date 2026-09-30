@@ -1650,6 +1650,13 @@ DESTINATION_POSTS = [
         "excerpt": "Hurghada, El Gouna, Makadi Bay, Sahl Hasheesh and Sharm El Sheikh: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1708711973477-1373f8eb65db?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "luxor-valley-of-the-kings.html",
+        "meta": "Egypt, Luxor",
+        "title": "Luxor & the Valley of the Kings, Egypt",
+        "excerpt": "Karnak, the Valley of the Kings, hot air balloons and felucca sailing on the Nile: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1759212445830-848ce08cc0c5?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -6758,6 +6765,272 @@ with open(os.path.join(SITE, "egypt-red-sea.html"), "w", encoding="utf-8") as f:
     ))
 print("egypt-red-sea.html written")
 
+luxor_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>LUXOR &amp; THE VALLEY OF THE KINGS</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Luxor, home of Karnak, the Valley of the Kings and some of the most complete ancient monuments left standing anywhere in the world.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Luxor</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1675372802315-658db7652fd2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Statue of Ramesses II at Luxor Temple" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Luxor is a genuinely different kind of Egyptian holiday to the Red Sea coast, and I think it's one of the most underrated trips I sell. This isn't a beach and pool week, it's ancient Thebes itself, the site of Karnak, the Valley of the Kings and Luxor's own riverside temple, all built along a single stretch of the Nile that's been continuously inhabited for over 4,000 years. It's genuinely bucket list stuff, and once you've stood inside a painted tomb that's older than most countries, or watched the sun come up over the Valley of the Kings from a hot air balloon, you understand why people who've done it never stop talking about it.</p>
+    <p style="margin-top:14px;">It's also become properly easy to get to. TUI now flies here directly from Manchester and London Gatwick, and easyJet holidays has recently added its own direct route from Gatwick too, sitting alongside EgyptAir's year round service from Heathrow. That's a real change from a few years ago when Luxor was mostly sold as an add-on to a Red Sea stay or a Nile cruise rather than a destination in its own right.</p>
+    {jake_tip("Luxor is not a beach holiday, and it's worth being upfront with a client about that. It's history, temples and a proper dose of ancient Egypt, with the Nile itself as the backdrop rather than a pool. It suits a very different client to Hurghada or Sharm El Sheikh, even though they're both technically Egypt.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Three or four nights is enough to see Luxor's essential sights properly without rushing, and works well as a standalone city break given the flight time involved. A week gives a much more relaxed pace, room for both banks of the Nile, an early hot air balloon ride and a proper rest day by the hotel pool in between temples. Luxor is also commonly combined with a Nile river cruise, since most cruises between Luxor and Aswan start or finish right here, though that's very much its own kind of trip and worth planning separately.</p>
+    <p style="margin-top:14px;">It suits history minded clients and first time visitors to Egypt who want the genuinely essential sights, Karnak, the Valley of the Kings and Luxor Temple, without a two week itinerary. It's less suited to a client who wants a straightforward beach week, or to anyone who struggles with heat, given how extreme Luxor's summer temperatures get away from the coast.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Luxor International Airport (LXR) sits a short drive from the East Bank hotels and the town centre. TUI flies direct from Manchester and London Gatwick on a seasonal winter programme, broadly November to April, currently around two flights a week. easyJet holidays has recently launched its own direct seasonal route from London Gatwick too. EgyptAir also flies from London Heathrow year round, usually with a short stop in Cairo. Flight time is around 5 hours 30 minutes on the direct routes. Jet2holidays doesn't currently sell Luxor as a standalone holiday, its Egypt programme covers Hurghada and Sharm El Sheikh, with Luxor sold only as a day trip excursion from those Red Sea resorts.</p>
+    {jake_tip("Luxor sits outside the Sinai's free entry stamp zone, so unlike a short stay in Sharm El Sheikh, everyone visiting Luxor needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. Sort this before travelling or budget the time to queue for it on arrival, and always confirm the current requirement before a client flies.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Luxor sits well inland in the Nile Valley with a proper desert climate, which means next to no rain at any time of year, but none of the sea to soften the extremes either. Days get seriously hot for most of the year and nights can turn properly cold in winter, a genuine contrast to the milder, sea-moderated nights on the Red Sea coast.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>21&deg;C</td><td>7&deg;C</td><td>Warm sunny days, genuinely cold desert nights, pack a jumper for the evenings</td></tr>
+          <tr><td>February</td><td>24&deg;C</td><td>9&deg;C</td><td>Comfortable for sightseeing, still chilly after dark</td></tr>
+          <tr><td>March</td><td>29&deg;C</td><td>12&deg;C</td><td>Warming up quickly, one of the better months for full days of temple visits</td></tr>
+          <tr><td>April</td><td>34&deg;C</td><td>17&deg;C</td><td>Hot by midday, best tackled with early starts</td></tr>
+          <tr><td>May</td><td>38&deg;C</td><td>21&deg;C</td><td>Very hot, sightseeing best done at sunrise</td></tr>
+          <tr><td>June</td><td>40&deg;C</td><td>23&deg;C</td><td>Extremely hot, one of the hottest inhabited places in the world at this time of year</td></tr>
+          <tr><td>July</td><td>41&deg;C</td><td>24&deg;C</td><td>Peak heat, only for clients who genuinely tolerate very high temperatures</td></tr>
+          <tr><td>August</td><td>41&deg;C</td><td>24&deg;C</td><td>Similarly extreme, hotel pools and air conditioning become essential</td></tr>
+          <tr><td>September</td><td>38&deg;C</td><td>22&deg;C</td><td>Still very hot, beginning to ease slightly by the end of the month</td></tr>
+          <tr><td>October</td><td>34&deg;C</td><td>18&deg;C</td><td>Hot but manageable, a popular month to visit</td></tr>
+          <tr><td>November</td><td>28&deg;C</td><td>13&deg;C</td><td>One of the most comfortable months for full days of sightseeing</td></tr>
+          <tr><td>December</td><td>23&deg;C</td><td>9&deg;C</td><td>Mild days, cold nights, a popular winter sun and sightseeing month</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for Luxor, sourced via climate-data.org.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">November to March is Luxor's main season and the most comfortable time to be out at temples for a full day, mild enough by day with genuinely cold nights, so pack layers rather than just beachwear. March, April and October are a good middle ground, warm and generally still manageable if you plan sightseeing for the morning. May to September gets seriously extreme, regularly touching 40&deg;C or more, and while some clients still visit for an early hot air balloon ride or a river cruise with plenty of air conditioning, it's not the season for a packed itinerary of temples on foot.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Luxor splits into two very different halves either side of the Nile.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1761351108766-8ddf19b835ac?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Traditional sailboat on the Nile with the Luxor skyline at dusk" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">East Bank</h3>
+        <p>Luxor town itself and by far the biggest choice of hotels, restaurants and the Corniche promenade running along the river. Karnak Temple and Luxor Temple both sit on this side, so it's the easiest base for evening strolls, felucca rides and simply wandering into town. Suits most first time visitors and anyone who wants restaurants and a bit of life on their doorstep after a day of temples.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1667765912995-07c5b404888a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="View over the Theban hills on Luxor's West Bank at sunrise" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">West Bank</h3>
+        <p>The quieter, more rural side of the river, backed by the Theban hills, and home to the Valley of the Kings, Hatshepsut's Temple and Medinet Habu. Hotel choice is much smaller here and mostly smaller guesthouses rather than the big international names, but it puts you right on the doorstep of the tombs, handy for an early start before the heat and the coach parties arrive.</p>
+      </div>
+    </div>
+    {jake_tip("Most clients are best placed on the East Bank for the choice of hotels and restaurants, with a short taxi, motorboat or the public ferry across to the West Bank for a morning at the tombs. Book West Bank guesthouses only for a client who specifically wants to be right there at sunrise.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Airport transfers are normally arranged as part of the package. Within Luxor, taxis are cheap and widely available, though it's worth agreeing a fare before setting off. A public ferry crosses the Nile between the East and West Banks for a small fare and runs frequently, while private motorboats are a faster, slightly pricier alternative that most hotels or tour guides can arrange. Horse drawn caleche carriages are a traditional, if touristy, way to see the Corniche, and almost all of the major sites, Karnak, the Valley of the Kings, Hatshepsut's Temple, are usually visited as part of an organised tour or a private driver and guide, given how spread out they are and how much they benefit from proper Egyptological context.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1685616075808-04bb9db4ea1c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hot air balloons over the Valley of the Kings at sunrise" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities in Luxor worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="454032,453520,460620,592878"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/luxor-l109/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/luxor-l109/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Luxor &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks in Luxor, all available through TUI or easyJet holidays. Jet2holidays doesn't currently sell Luxor hotels. Board basis varies more here than on the Red Sea coast, so always confirm what's included for your dates when booking.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1664947333254-afb25ccd98d8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hotel pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Iberotel Luxor</h3>
+        <p>A central Nile-front hotel with the Theban hills as a backdrop across the river, an international buffet restaurant plus à la carte options, and a pool overlooking the water. No star rating is listed by the operator, so treat it as a solid, well located value pick rather than a graded hotel. Bookable through TUI and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1679522708482-2eeaaf6e98b4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort pool beside the Nile at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Jolie Ville Kings Island</h3>
+        <p>A five-star resort spread across its own private island on the Nile, set in 150 acres of gardens with three pools, a kids' club for ages 4 to 12, and its own launch service across to the mainland. The most complete family resort in Luxor by a distance. Bookable through TUI and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for history</div>
+        <img src="https://images.unsplash.com/photo-1679685301558-503443bc0c0f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The sun setting over the Nile at Luxor" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Sofitel Winter Palace Luxor</h3>
+        <p>An East Bank riverfront hotel that's been standing since the late 1800s, best known as the hotel where the discovery of Tutankhamun's tomb was formally announced in 1922. Tropical gardens, several restaurants and bars, and a genuine sense of occasion that no newer hotel in Luxor can match. Bookable through easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1679594384071-0e25b01f8aca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hotel terrace overlooking the Nile at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Steigenberger Nile Palace Luxor</h3>
+        <p>A five-star hotel in the heart of Luxor, just steps from the Nile, with sweeping river views from many rooms, three à la carte restaurants and its own spa. One of the higher end options right in the centre of town rather than out on the edges. Bookable through TUI and easyJet holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the essential sights beyond the hotel pool.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1677935405218-2f5bbc997c66?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Columns inside the Karnak Temple complex" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Karnak Temple Complex</h3>
+        <p>The largest religious complex ever built anywhere in the world, and genuinely staggering in scale, particularly the Great Hypostyle Hall with its 134 towering columns. Easily reached from East Bank hotels, and worth allowing at least half a day rather than rushing it.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1762945527140-4f45fcbf3c64?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Columns of Luxor Temple lit at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Luxor Temple</h3>
+        <p>Smaller than Karnak but right in the centre of town on the Nile's East Bank, and particularly striking after dark when it's floodlit. Easily combined with an evening stroll along the Corniche, and one of the few major sites you can genuinely walk to from an East Bank hotel.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1622962522220-0d9e0d29d62d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hieroglyphic carvings at Medinet Habu on Luxor's West Bank" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Colossi of Memnon &amp; Medinet Habu</h3>
+        <p>Two enormous seated statues of Amenhotep III sit right beside the West Bank road, an easy stop even for clients short on time, while Medinet Habu nearby is one of the best preserved and least crowded of the West Bank's mortuary temples.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1648139210431-f5a62bc3f126?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Inside a decorated tomb on Luxor's West Bank" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Tombs of the Nobles &amp; Deir el-Medina</h3>
+        <p>Away from the Valley of the Kings' bigger crowds, these smaller West Bank tombs and the workers' village of Deir el-Medina hold some of the most vividly coloured wall paintings in Luxor, a genuine highlight for anyone who wants more than the headline sites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Egypt uses the Egyptian Pound, so prices below are shown in pounds sterling with the Egyptian Pound equivalent alongside, based on a rate of roughly &pound;1 to E&pound;68.90. These are crowd-sourced averages for Luxor, and prices right on a hotel's own doorstep can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;2.90 (about E&pound;200)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;29.00 (about E&pound;2,000)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.00 (about E&pound;70)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;1.60 (about E&pound;109)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.13 (about E&pound;9)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;0.73 (about E&pound;50)</td></tr>
+          <tr><td>Taxi, per mile</td><td>&pound;0.24 (about E&pound;16.50)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages for Luxor via Numbeo, checked at time of writing. Egyptian Pound to pound sterling conversion is approximate and moves around more than most currencies, so treat these as a guide rather than an exact figure.</p>
+    {jake_tip("Agree a price with a caleche driver, felucca captain or unofficial guide before you get in or start, rather than after. It's standard practice in Luxor and avoids any awkward haggling once you're already committed.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Egyptian Pound (E&pound;)</td></tr>
+          <tr><td>Plug type</td><td>Type C/F, a UK to EU style adapter is needed</td></tr>
+          <tr><td>Language</td><td>Arabic, English is widely spoken in hotels and by guides</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 5 hours 30 minutes direct, depending on departure airport</td></tr>
+          <tr><td>Time difference</td><td>2 hours ahead of the UK for most of the year. Egypt reintroduced its own daylight saving time for 2026, and since its clock change dates don't line up exactly with the UK's, the gap can briefly narrow or widen by an hour for a week or two either side of the changeovers</td></tr>
+          <tr><td>Entry requirements</td><td>An Egyptian e-visa or visa on arrival (around &pound;25 to &pound;30) is needed for Luxor, since it falls outside the Sinai's free entry stamp zone</td></tr>
+          <tr><td>Driving</td><td>Right hand side, though almost all visitors rely on transfers, taxis and organised tours rather than hiring a car</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Sebastiano Musmeci, M Abnodey, Wendy Morris, Crankylama, Maud, Eslam Adel, 2H Media, Nakkeeran Raveendran, Valentin Karisch, Siddhesh Mangela and Michael Starkie via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Luxor for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around Luxor's temples and the Valley of the Kings, help you decide whether to add a Red Sea stay or a Nile cruise, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+luxor_body = luxor_body.replace("::NEWSLETTER::", newsletter_section())
+
+LUXOR_SCHEMA = article_and_faq_schema(
+    "Luxor & the Valley of the Kings: Jake's Destination Guide",
+    "Jake's honest guide to Luxor: Karnak, the Valley of the Kings, Luxor Temple and the West Bank, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "luxor-valley-of-the-kings.html",
+    "https://images.unsplash.com/photo-1759212445830-848ce08cc0c5?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Luxor?", "November to March is Luxor's main season and the most comfortable time for full days of sightseeing, mild by day with genuinely cold desert nights, so pack layers. March, April and October are a good middle ground. May to September gets seriously extreme, regularly touching 40&deg;C or more, and isn't the season for a packed itinerary of temples on foot, though some clients still visit for an early hot air balloon ride or a river cruise."),
+        ("Do I need a visa for Luxor, and how do I get there?", "Yes. Luxor sits outside the Sinai's free entry stamp zone, so everyone visiting needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. TUI flies direct from Manchester and London Gatwick on a seasonal winter programme, easyJet holidays has recently launched its own direct seasonal route from London Gatwick, and EgyptAir flies from London Heathrow year round, usually with a short stop in Cairo. Flight time is around 5 hours 30 minutes direct."),
+        ("Should I stay on the East Bank or West Bank in Luxor?", "The East Bank has by far the biggest choice of hotels, restaurants and the Corniche promenade, plus Karnak and Luxor Temple, so it suits most first time visitors. The West Bank is quieter and more rural, with a much smaller choice of guesthouses, but puts you right on the doorstep of the Valley of the Kings, Hatshepsut's Temple and Medinet Habu, handy for an early start before the heat and crowds arrive. Most clients are best placed on the East Bank with a short ferry or taxi across to the West Bank for tomb visits."),
+    ]
+)
+with open(os.path.join(SITE, "luxor-valley-of-the-kings.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Luxor & the Valley of the Kings: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Luxor: Karnak, the Valley of the Kings, Luxor Temple and the West Bank, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        luxor_body,
+        extra_schema=LUXOR_SCHEMA,
+        canonical_path="luxor-valley-of-the-kings.html"
+    ))
+print("luxor-valley-of-the-kings.html written")
+
+
 
 
 # ---------------- TRAVEL TIPS (index) ----------------
@@ -10866,6 +11139,7 @@ SITEMAP_PAGES = [
     ("zante.html", "0.6"),
     ("crete.html", "0.6"),
     ("egypt-red-sea.html", "0.6"),
+    ("luxor-valley-of-the-kings.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
