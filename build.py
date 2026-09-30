@@ -7156,6 +7156,13 @@ TIPS_POSTS = [
         "excerpt": "Amsterdam's accommodation costs have jumped, Barcelona has doubled its tax and Edinburgh has launched Scotland's first visitor levy. Exactly what you'll pay across Europe in 2026, region by region, and where you won't pay anything at all.",
         "image": "https://images.unsplash.com/photo-1668777190463-a6acc22b65ae?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Suitcase full of banknotes representing holiday costs",
+    },    {
+        "slug": "dynamic-currency-conversion-pay-in-pounds-abroad.html",
+        "meta": "Costs &amp; budgeting",
+        "title": "Pay in pounds or local currency? The card machine trick that's costing you money abroad",
+        "excerpt": "Card machines and cash machines abroad increasingly ask if you'd rather pay in pounds. It sounds helpful, but it almost never is. Here's exactly why, and what to press instead.",
+        "image": "https://images.unsplash.com/photo-1628527304948-06157ee3c8a6?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Person using a card payment terminal",
     },
 ]
 
@@ -10995,6 +11002,164 @@ with open(os.path.join(SITE, "tourist-tax-europe-2026.html"), "w", encoding="utf
 print("tourist-tax-europe-2026.html written")
 
 
+# ---------------- TRAVEL TIPS: Dynamic currency conversion, pay in pounds or local currency ----------------
+dcc_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>PAY IN POUNDS OR LOCAL CURRENCY? THE CARD MACHINE TRICK THAT'S COSTING YOU MONEY ABROAD</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Almost every card machine and cash machine abroad now asks the same question before your payment goes through: pay in pounds, or pay in the local currency. It looks like a convenience. It is usually the opposite. TUI warned UK holidaymakers about exactly this kind of hidden cost in September 2026, and Which? has been flagging the same trick on Ryanair's own checkout for years. Here is what is actually happening when you are asked to pay in pounds, why it costs you more, and exactly what to press instead.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1628527304948-06157ee3c8a6?auto=format&fit=crop&w=1600&h=700&q=80" alt="Person using a card payment terminal" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">If a card machine, a cash machine or an airline checkout ever asks whether you would like to pay in pounds instead of the local currency, always choose the local currency. Saying yes to pounds hands the currency conversion to the retailer, the cash machine operator or the airline rather than to Visa or Mastercard, and their exchange rate is reliably worse than the one your own card provider would give you. It is called dynamic currency conversion. It is legal and it is not a scam in the criminal sense, it is simply a worse deal dressed up as a helpful option.</p>
+    </div>
+    {jake_tip("The wording varies by country and by machine. Sometimes it is a straight choice of currency, sometimes it is phrased as a question like &quot;would you like to be charged in GBP&quot;. Whatever the wording, the rule is the same: choose the currency of the country you are actually standing in.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>How dynamic currency conversion actually works</h2>
+    <img src="https://images.unsplash.com/photo-1654263937079-f63a3ea4d48b?auto=format&fit=crop&w=1600&h=700&q=80" alt="A person holding a credit card in front of a payment machine abroad" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">When you spend abroad on a normal UK debit or credit card, the shop takes payment in the local currency and your own card provider converts it to pounds when the transaction settles, usually close to the real Visa or Mastercard exchange rate. Dynamic currency conversion flips that around. The retailer's payment terminal, the cash machine, or the airline's own payment system offers to do the currency conversion itself and show you the cost in pounds before you confirm.</p>
+    <p style="margin-top:14px;">On the surface that sounds useful, you know exactly what it costs in pounds before you pay. The problem is that the exchange rate is set by the retailer or their bank rather than by the card network, and it almost always includes a mark up on top of the real rate. HSBC, the Post Office and MoneySavingExpert all give the same underlying advice: whenever you are offered the choice, decline the pounds conversion and let your own card provider handle it instead, since their rate is consistently the better one.</p>
+    {jake_tip("A card machine or cash machine will sometimes display a warning that declining the pounds option could result in a worse rate. That warning is doing the opposite of what it claims, it exists to nudge you towards the option that makes the retailer or cash machine operator money, not you.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where you'll actually run into it</h2>
+    <img src="https://images.unsplash.com/photo-1778454288658-45ab209ec151?auto=format&fit=crop&w=1600&h=700&q=80" alt="Currency exchange kiosk sign" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This shows up in more places than most people expect, and not always as an obvious pop up question.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Where you'll see it</th><th>What to actually choose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Card machine in a shop, restaurant or hotel abroad</td><td>The local currency, even if pounds is offered first or suggested as easier</td></tr>
+          <tr><td>Cash machine withdrawal abroad</td><td>The local currency, or wording like &quot;without conversion&quot; rather than a &quot;guaranteed&quot; pounds rate</td></tr>
+          <tr><td>Booking a flight or holiday directly with an airline, Ryanair especially</td><td>Check for a currency selector before you reach payment and switch it away from pounds if it wasn't your choice</td></tr>
+          <tr><td>Buying from a foreign website</td><td>Whatever currency the site is actually priced in, not a pounds conversion offered at checkout</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;">Ryanair's own checkout has been the most consistently documented example. Which? first flagged the airline defaulting customers into paying in pounds rather than euros several years ago, and it is still something customers report having to actively switch off in 2026, so it's worth genuinely checking rather than assuming it has been fixed.</p>
+    <img src="https://images.unsplash.com/photo-1777402705447-24a16cb61cbd?auto=format&fit=crop&w=1600&h=700&q=80" alt="Cash machines by the coast at a holiday destination" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">TUI issued its own warning to UK holidaymakers in September 2026, urging people to sort their holiday money out before they reach the airport rather than relying on last minute currency exchange. Airport exchange kiosks are a related but separate trap to dynamic currency conversion, they're not a card machine asking you a question, they're simply where the walk up rates are consistently among the worst you'll find. It's worth already having some local cash or a fee free card sorted before you fly rather than queuing at an airport kiosk out of necessity.</p>
+    {jake_tip("If you're booking with a budget airline directly and the price flips to pounds without you choosing it, look for a currency selector, usually near the top of the page or tucked into your account settings, and switch it to euros or whatever the local currency is before you get to payment. It's a genuinely fiddly step some airlines make easy to miss.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>The card that makes this a non issue</h2>
+    <img src="https://images.unsplash.com/photo-1621280336935-ed7cae618aac?auto=format&fit=crop&w=1600&h=700&q=80" alt="Euro banknotes in various denominations" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">On top of dynamic currency conversion, most standard UK debit and credit cards also charge their own non sterling transaction fee for spending abroad, typically around 3% according to MoneySavingExpert. A handful of accounts remove that fee entirely, and Which? and MoneySavingExpert both currently list a similar short list of options.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Card</th><th>Type</th><th>What to know</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>First Direct 1st Account</td><td>Debit</td><td>No fees on spending or cash withdrawals abroad</td></tr>
+          <tr><td>Chase</td><td>Debit</td><td>No fees on spending or cash withdrawals abroad, can be opened alongside an existing bank account</td></tr>
+          <tr><td>Starling Bank</td><td>Debit</td><td>Fee free on purchases and cash withdrawals abroad</td></tr>
+          <tr><td>Monzo</td><td>Debit</td><td>Free purchases abroad, but a 3% fee applies on cash withdrawals over &pound;200 in a rolling 30 days unless it's your main account</td></tr>
+          <tr><td>Lloyds Ultra</td><td>Credit</td><td>No fee on overseas spending, plus Section 75 protection on purchases</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Based on Which? and MoneySavingExpert's own current comparisons. Banks do change fee structures, so it's worth checking the latest terms directly before applying rather than relying on this summary alone.</p>
+    <img src="https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&w=1600&h=700&q=80" alt="Wallet with bank cards for spending abroad" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    {jake_tip("None of this needs to be complicated. Even if you never open a new account, the single biggest saving is free: always choose to pay in the local currency, never the one your card is issued in. A fee free card on top of that is the icing, not the requirement.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What to actually do, step by step</h2>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>At a card machine in a shop, restaurant or hotel,</b> choose the local currency when asked, even if the machine suggests pounds is easier or shows a warning that declining might cost more. That warning is almost always the opposite of true.</span></li>
+      <li><span class="num">2</span><span><b>At a cash machine abroad,</b> look for wording like &quot;without conversion&quot; or the local currency's name, and decline any screen that offers you a &quot;guaranteed&quot; pounds rate before you take the cash out.</span></li>
+      <li><span class="num">3</span><span><b>When booking flights or holidays directly with an airline,</b> check for a currency selector before you reach payment, and switch it away from pounds if the price was originally shown to you in the local currency.</span></li>
+      <li><span class="num">4</span><span><b>Before you travel,</b> compare current fee free card options at Which? or MoneySavingExpert rather than assuming your everyday bank card is already one of them, since most standard cards still charge close to 3% on top of any dynamic currency conversion mark up.</span></li>
+      <li><span class="num">5</span><span><b>If you realise afterwards you were charged in pounds by mistake,</b> there's no formal right to reverse it after the fact in the way you can dispute an unauthorised payment. The real fix is catching it at the point of payment, which is exactly why knowing the rule in advance matters more than trying to fix it later.</span></li>
+    </ul>
+    {jake_tip("I tell clients the same thing before every trip. Whatever machine you're standing at, whatever currency it suggests first, the answer is always the currency of the country you're actually in. It's one sentence to remember and it's worth more than almost any other single piece of packing advice.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">What is dynamic currency conversion?</h3>
+      <p>Dynamic currency conversion is when a card machine, cash machine or online checkout abroad offers to charge you in pounds instead of the local currency. It sounds convenient because you see the cost in pounds before you pay, but the exchange rate is set by the retailer or their bank rather than by Visa or Mastercard, and it's almost always worse than the rate you'd get by paying in the local currency and letting your own card provider convert it.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Should I always say no to paying in pounds abroad?</h3>
+      <p>Yes. Whether you're in a shop, a restaurant, a hotel, at a cash machine, or booking a flight directly with an airline, choosing the local currency rather than pounds consistently works out cheaper, according to guidance from HSBC, the Post Office and MoneySavingExpert. There's no situation where paying in pounds abroad is the better choice.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does this happen at cash machines as well as card machines?</h3>
+      <p>Yes. Cash machines abroad frequently ask the same question before you withdraw money, sometimes worded as a &quot;guaranteed&quot; pounds rate. The advice is the same as at a card machine: choose the local currency, or look for wording like &quot;without conversion&quot; rather than accepting the pounds figure shown on screen.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Which UK cards avoid these fees altogether?</h3>
+      <p>Which? and MoneySavingExpert currently list First Direct's 1st Account, Chase and Starling Bank as debit cards with no fees on spending or cash withdrawals abroad, and Lloyds Ultra as a fee free credit card option. Monzo is free for purchases but applies a 3% fee on cash withdrawals over &pound;200 in a rolling 30 days unless it's your main account. Even with one of these cards, always choose to pay in the local currency rather than pounds, since a fee free card doesn't protect you from a bad dynamic currency conversion rate offered at the point of sale.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <h2>Want the rest of your holiday sorted just as easily?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Getting the currency question right is a two second decision once you know the rule. If you'd like the actual holiday built around you just as easily, message me and I'll take it from there.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+dcc_body = dcc_body.replace("::NEWSLETTER::", newsletter_section())
+
+DCC_SCHEMA = article_and_faq_schema(
+    "Pay in Pounds or Local Currency? The Card Machine Trick That's Costing You Money Abroad",
+    "How dynamic currency conversion works, why card machines and cash machines asking you to pay in pounds abroad cost you more, which UK cards avoid the fees altogether, and exactly what to choose instead.",
+    "dynamic-currency-conversion-pay-in-pounds-abroad.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("What is dynamic currency conversion?", "Dynamic currency conversion is when a card machine, cash machine or online checkout abroad offers to charge you in pounds instead of the local currency. It sounds convenient because you see the cost in pounds before you pay, but the exchange rate is set by the retailer or their bank rather than by Visa or Mastercard, and it's almost always worse than the rate you'd get by paying in the local currency and letting your own card provider convert it."),
+        ("Should I always say no to paying in pounds abroad?", "Yes. Whether you're in a shop, a restaurant, a hotel, at a cash machine, or booking a flight directly with an airline, choosing the local currency rather than pounds consistently works out cheaper, according to guidance from HSBC, the Post Office and MoneySavingExpert. There's no situation where paying in pounds abroad is the better choice."),
+        ("Does this happen at cash machines as well as card machines?", "Yes. Cash machines abroad frequently ask the same question before you withdraw money, sometimes worded as a guaranteed pounds rate. The advice is the same as at a card machine: choose the local currency, or look for wording like without conversion rather than accepting the pounds figure shown on screen."),
+        ("Which UK cards avoid these fees altogether?", "Which? and MoneySavingExpert currently list First Direct's 1st Account, Chase and Starling Bank as debit cards with no fees on spending or cash withdrawals abroad, and Lloyds Ultra as a fee free credit card option. Monzo is free for purchases but applies a 3% fee on cash withdrawals over &pound;200 in a rolling 30 days unless it's your main account. Even with one of these cards, always choose to pay in the local currency rather than pounds, since a fee free card doesn't protect you from a bad dynamic currency conversion rate offered at the point of sale."),
+    ]
+)
+
+with open(os.path.join(SITE, "dynamic-currency-conversion-pay-in-pounds-abroad.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Pay in Pounds or Local Currency? The Card Machine Trick That's Costing You Money Abroad | Travel Agent Jake",
+        "How dynamic currency conversion works, why card machines and cash machines asking you to pay in pounds abroad cost you more, which UK cards avoid the fees altogether, and exactly what to choose instead.",
+        "travel-tips.html",
+        dcc_body,
+        extra_schema=DCC_SCHEMA,
+        canonical_path="dynamic-currency-conversion-pay-in-pounds-abroad.html"
+    ))
+print("dynamic-currency-conversion-pay-in-pounds-abroad.html written")
+
 
 
 # ---------------- BOOKING WIDGET PLACEHOLDER PAGES (Agendas Group) ----------------
@@ -11156,6 +11321,7 @@ SITEMAP_PAGES = [
     ("travel-company-goes-bust-atol-abta-protection.html", "0.7"),
     ("autism-adhd-friendly-hotels-spain-turkey.html", "0.7"),
     ("tourist-tax-europe-2026.html", "0.7"),
+    ("dynamic-currency-conversion-pay-in-pounds-abroad.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
