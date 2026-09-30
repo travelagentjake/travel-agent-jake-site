@@ -11338,7 +11338,7 @@ def booking_widget_page(widget_name, heading, intro, widget_tag):
 </section>
 
 <section class="theme-light">
-  <div class="wrap">
+  <div style="width:100%; box-sizing:border-box; padding:0 16px;">
     <div id="agendas-{widget_name}-widget" data-agendas-widget="{widget_name}">
       {widget_tag}
     </div>
@@ -11397,7 +11397,7 @@ search_body = f"""
 </section>
 
 <section class="theme-light">
-  <div class="wrap">
+  <div style="width:100%; box-sizing:border-box; padding:0 16px;">
     <div class="jake-card" style="border-color:var(--yellow); border-width:3px;">
       <div class="eyebrow" style="justify-content:center;">Search Jet2holidays</div>
       <div id="agendas-search-widget" data-agendas-widget="search">
