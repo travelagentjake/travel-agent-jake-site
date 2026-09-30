@@ -11339,15 +11339,14 @@ def booking_widget_page(widget_name, heading, intro, widget_tag, cta=None):
     if cta:
         cta_label, cta_msg = cta
         cta_html = f"""
-    <div class="btn-row" style="justify-content:center; margin-top:20px;">
+    <div class="btn-row" style="justify-content:center; margin-top:12px;">
       <a class="btn btn-primary" href="https://wa.me/447899290262?text={cta_msg}" target="_blank" rel="noopener">{cta_label}</a>
     </div>"""
     return f"""
 <section class="theme-dark hero-compact">
   <div class="wrap" style="text-align:center;">
-    <div class="eyebrow">Holiday search</div>
-    <h1>{heading}</h1>
-    <p class="lead" style="margin:14px auto 0; max-width:60ch;">{intro}</p>{cta_html}
+    <h2 style="font-size:22px; margin:0 auto; max-width:48ch;">{heading}</h2>
+    <p class="lead" style="margin:8px auto 0; max-width:54ch; font-size:14.5px;">{intro}</p>{cta_html}
   </div>
 </section>
 
@@ -11370,7 +11369,7 @@ def booking_widget_page(widget_name, heading, intro, widget_tag, cta=None):
 # goes anywhere near live bookings.
 BOOKING_WIDGET_PAGES = [
     ("results", "results.html", "Search Results | Travel Agent Jake", "CAN'T FIND WHAT YOU'RE LOOKING FOR?", "WhatsApp me your dates and I'll track it down for you, Jet2holidays or otherwise.", '<tg-travel-results-v4 widgetid="19406" language="en" class="travelify-widget"></tg-travel-results-v4>', ("WhatsApp Jake", "Hi%20Jake%2C%20I%20couldn%27t%20find%20what%20I%20was%20after%20on%20the%20holiday%20search%2C%20can%20you%20help%20me%20find%20something%3F")),
-    ("extras", "extras.html", "Extras | Travel Agent Jake", "YOU'RE ALMOST THERE!", "Add extras, confirm passenger details and pay securely \u2014 your holiday's just a few clicks away.", '<tg-travel-extras-v4 widgetid="19403" language="en" class="travelify-widget"></tg-travel-extras-v4>', None),
+    ("extras", "extras.html", "Extras | Travel Agent Jake", "YOU'RE ALMOST THERE!", "Add extras, confirm passenger details and pay securely, your holiday's just a few clicks away.", '<tg-travel-extras-v4 widgetid="19403" language="en" class="travelify-widget"></tg-travel-extras-v4>', None),
     ("basket", "basket.html", "Your Basket | Travel Agent Jake", "CAN'T FIND WHAT YOU'RE LOOKING FOR?", "WhatsApp me if anything in your basket doesn't look right, I'll sort it.", '<tg-travel-basket-v4 widgetid="19405" language="en" class="travelify-widget"></tg-travel-basket-v4>', ("WhatsApp Jake", "Hi%20Jake%2C%20I%27ve%20got%20a%20question%20about%20my%20holiday%20basket%2C%20can%20you%20help%3F")),
 ]
 
