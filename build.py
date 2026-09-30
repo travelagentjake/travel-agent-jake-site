@@ -11398,7 +11398,7 @@ search_body = f"""
 
 <section class="theme-light">
   <div class="wrap">
-    <div class="jake-card" style="max-width:780px; margin:0 auto; border-color:var(--yellow); border-width:3px;">
+    <div class="jake-card" style="border-color:var(--yellow); border-width:3px;">
       <div class="eyebrow" style="justify-content:center;">Search Jet2holidays</div>
       <div id="agendas-search-widget" data-agendas-widget="search">
         <travel-searchbox-v3 widgetid="19407" language="en" class="travelify-widget"></travel-searchbox-v3>
