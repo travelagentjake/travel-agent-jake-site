@@ -11327,13 +11327,27 @@ WIDGET_ELEMENTS_SCRIPT = """<link rel="preconnect" href="https://static.travelif
 <script src="https://static.travelify.io/travelify-elements-v2.4.min.js" integrity="sha256-U5kp/mYRwwfvHho+736vE1wljn7URYGIqjMS9kiDa6E=" crossorigin="anonymous" defer="defer"></script>
 """
 
-def booking_widget_page(widget_name, heading, intro, widget_tag):
+def booking_widget_page(widget_name, heading, intro, widget_tag, cta=None):
+    # cta: optional (button_label, url_encoded_whatsapp_message) tuple. The
+    # hero on these pages sits above a Travelify widget whose own internal
+    # steps (e.g. extras -> passenger details -> payment) all render below
+    # this same static hero without reloading the page, so the copy here
+    # must read sensibly across every step of whichever widget is embedded,
+    # not just its first screen. Shrunk (hero-compact) per Jake's feedback
+    # that the full-size hero was pushing the actual widget content down.
+    cta_html = ""
+    if cta:
+        cta_label, cta_msg = cta
+        cta_html = f"""
+    <div class="btn-row" style="justify-content:center; margin-top:20px;">
+      <a class="btn btn-primary" href="https://wa.me/447899290262?text={cta_msg}" target="_blank" rel="noopener">{cta_label}</a>
+    </div>"""
     return f"""
-<section class="theme-dark">
+<section class="theme-dark hero-compact">
   <div class="wrap" style="text-align:center;">
     <div class="eyebrow">Holiday search</div>
     <h1>{heading}</h1>
-    <p class="lead" style="margin:18px auto 0; max-width:60ch;">{intro}</p>
+    <p class="lead" style="margin:14px auto 0; max-width:60ch;">{intro}</p>{cta_html}
   </div>
 </section>
 
@@ -11355,40 +11369,39 @@ def booking_widget_page(widget_name, heading, intro, widget_tag):
 # Takepayments, Telr, Trust Payments, Viva Payments, Worldpay) before this
 # goes anywhere near live bookings.
 BOOKING_WIDGET_PAGES = [
-    ("results", "results.html", "Search Results | Travel Agent Jake", "YOUR HOLIDAY SEARCH RESULTS", "Results from your holiday search will appear here once you've searched.", '<tg-travel-results-v4 widgetid="19406" language="en" class="travelify-widget"></tg-travel-results-v4>'),
-    ("extras", "extras.html", "Extras | Travel Agent Jake", "ADD SOME EXTRAS", "Add optional extras to your holiday before it goes in your basket.", '<tg-travel-extras-v4 widgetid="19403" language="en" class="travelify-widget"></tg-travel-extras-v4>'),
-    ("basket", "basket.html", "Your Basket | Travel Agent Jake", "YOUR BASKET", "Review your holiday before you book it.", '<tg-travel-basket-v4 widgetid="19405" language="en" class="travelify-widget"></tg-travel-basket-v4>'),
+    ("results", "results.html", "Search Results | Travel Agent Jake", "CAN'T FIND WHAT YOU'RE LOOKING FOR?", "WhatsApp me your dates and I'll track it down for you, Jet2holidays or otherwise.", '<tg-travel-results-v4 widgetid="19406" language="en" class="travelify-widget"></tg-travel-results-v4>', ("WhatsApp Jake", "Hi%20Jake%2C%20I%20couldn%27t%20find%20what%20I%20was%20after%20on%20the%20holiday%20search%2C%20can%20you%20help%20me%20find%20something%3F")),
+    ("extras", "extras.html", "Extras | Travel Agent Jake", "YOU'RE ALMOST THERE!", "Add extras, confirm passenger details and pay securely \u2014 your holiday's just a few clicks away.", '<tg-travel-extras-v4 widgetid="19403" language="en" class="travelify-widget"></tg-travel-extras-v4>', None),
+    ("basket", "basket.html", "Your Basket | Travel Agent Jake", "CAN'T FIND WHAT YOU'RE LOOKING FOR?", "WhatsApp me if anything in your basket doesn't look right, I'll sort it.", '<tg-travel-basket-v4 widgetid="19405" language="en" class="travelify-widget"></tg-travel-basket-v4>', ("WhatsApp Jake", "Hi%20Jake%2C%20I%27ve%20got%20a%20question%20about%20my%20holiday%20basket%2C%20can%20you%20help%3F")),
 ]
 
-for widget_name, filename, page_title, heading, intro, widget_tag in BOOKING_WIDGET_PAGES:
+for widget_name, filename, page_title, heading, intro, widget_tag, cta in BOOKING_WIDGET_PAGES:
     with open(os.path.join(SITE, filename), "w", encoding="utf-8") as f:
         f.write(page(
             page_title,
             "Part of the Travel Agent Jake holiday booking flow.",
             filename,
-            booking_widget_page(widget_name, heading, intro, widget_tag),
+            booking_widget_page(widget_name, heading, intro, widget_tag, cta),
             noindex=True,
             extra_head=WIDGET_ELEMENTS_SCRIPT
         ))
     print(f"{filename} written (Agendas Group widget installed for testing, not linked from nav/sitemap, noindex)")
 
 
-# search.html: the entry point to the booking flow (search -> results -> extras
-# -> basket). Per Jake, this is specifically a Jet2holidays discount page to
-# start with (same Jet2holidays packages, cheaper through him as agent), with
-# a bold on-brand hero and a prominent search box placeholder. Also carries a
-# clear "can't find what you're after, WhatsApp me" section, since Jake was
-# explicit this must not read as a Jet2holidays-only site, he sells far more
-# and wants that stated plainly. Same placeholder treatment as the other
-# three pages (noindex, not in nav/sitemap) since the actual search widget
-# from Jess hasn't arrived yet, this is the surrounding page ready to receive it.
-search_body = f"""
+# jet2holidays.html (was search.html): the entry point to the booking flow
+# (jet2holidays -> results -> extras -> basket), and per Jake's later
+# instruction (30 Sept 2026) also the landing page that will sit behind the
+# link in his bio once it's live. Built out as a full page in its own right:
+# search widget, live offers widget, reasons to book with Jake, his photo,
+# real reviews, and more than one mention that he sells far more than just
+# Jet2holidays. Still noindex and not in nav/sitemap until Jake says go live.
+jet2holidays_body = f"""
 <section class="theme-bold home-hero">
   <div class="wrap grid-2">
     <div>
       <div class="eyebrow">Jet2holidays, discounted</div>
       <h1>THE SAME JET2HOLIDAYS PACKAGE, <span class="hl">FOR LESS</span></h1>
       <p class="lead" style="margin-top:14px;">Search Jet2holidays package prices here. Same flights, same hotels, same ATOL protection.</p>
+      <p style="margin-top:14px; opacity:0.92;">Not after Jet2holidays? I book TUI, easyJet holidays, cruises and tailor made holidays too &mdash; <a class="body-copy" style="color:var(--white); text-decoration:underline;" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%27m%20looking%20for%20a%20holiday%20that%27s%20not%20Jet2holidays%2C%20can%20you%20help%20me%20find%20something%3F" target="_blank" rel="noopener">WhatsApp me what you're after</a>.</p>
     </div>
     <div>
       <div class="jake-frame"><img src="images/infinity-pool.jpg" alt="Pool overlooking the sea on holiday"></div>
@@ -11407,6 +11420,18 @@ search_body = f"""
   </div>
 </section>
 
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow">This week's offers</div>
+    <h2>Jet2holidays deals, live</h2>
+    <div style="margin-top:20px;">
+      <div id="agendas-offers-widget" data-agendas-widget="offers">
+        <travel-offers-v2 widgetid="19395" language="en" class="travelify-widget"></travel-offers-v2>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     <h2>CAN'T FIND WHAT YOU'RE AFTER?</h2>
@@ -11414,6 +11439,52 @@ search_body = f"""
     <div class="btn-row" style="justify-content:center;">
       <a class="btn btn-primary" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%27m%20looking%20for%20a%20holiday%20that%27s%20not%20Jet2holidays%2C%20can%20you%20help%20me%20find%20something%3F" target="_blank" rel="noopener">WhatsApp me any other holiday</a>
       <a class="btn" style="background:var(--white); color:var(--ink); border-color:var(--ink);" href="book.html">How to Book with Jake</a>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light">
+  <div class="wrap grid-2">
+    <div class="jake-frame"><img src="images/pool-portrait.jpg" alt="Jake, your independent travel agent"></div>
+    <div>
+      <div class="eyebrow">Hello, I'm Jake</div>
+      <h2 style="font-size:26px;">Reasons to book with me</h2>
+      <p style="margin-top:12px;">I've worked in travel since I was 17 &mdash; fifteen years on, I'm still just as obsessed with it. Whatever you book through me, whether it's this Jet2holidays deal or something else entirely, you get one person to deal with from your first message to the day you land back home.</p>
+      <p style="margin-top:14px; margin-bottom:0;">Cyprus is my favourite short haul, Mauritius my favourite long haul, and if you ask me about skiing I probably won't stop talking. I'd rather spend ten minutes finding you the right holiday than sell you whatever's easiest.</p>
+      <div class="btn-row" style="margin-top:22px;">
+        <a class="btn btn-secondary" href="about.html">More about me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow">What customers say</div>
+    <h2>Don't just take my word for it.</h2>
+    <p style="margin-top:14px; max-width:60ch;">Real reviews from real customers. <a class="body-copy" href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">See all reviews on Trustpilot &rarr;</a></p>
+    <div class="grid-3 equal-cards" style="margin-top:24px;">
+      <div class="testimonial-card" style="-webkit-line-clamp:unset;">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <h3>Jake is phenomenal</h3>
+        <p class="testimonial-quote" style="-webkit-line-clamp:unset;">"Have followed Jake for a while on socials and for a really big holiday had got a few quotes but occurred to me would be good idea to reach out to Jake. SO glad we did. He ran with the brief, beat the quotes and exceeded expectations."</p>
+        <div class="testimonial-name">Amy</div>
+        <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+      </div>
+      <div class="testimonial-card" style="-webkit-line-clamp:unset;">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <h3>I trust no one else as much</h3>
+        <p class="testimonial-quote" style="-webkit-line-clamp:unset;">"Jake and I actually go back 10 years! Because I know Jake will be there for anything I might need, it was a no brainer to use him. He's brilliant. Quick to help and there at the end of a message."</p>
+        <div class="testimonial-name">Liz</div>
+        <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+      </div>
+      <div class="testimonial-card" style="-webkit-line-clamp:unset;">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <h3>Smoothest experience we've had</h3>
+        <p class="testimonial-quote" style="-webkit-line-clamp:unset;">"What an amazing experience! From making contact with Jake to the final booking, was the smoothest experience we've had. His knowledge is endless and advice was spot on. I've recommended Jake to all my friends."</p>
+        <div class="testimonial-name">Carol</div>
+        <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+      </div>
     </div>
   </div>
 </section>
@@ -11429,16 +11500,91 @@ search_body = f"""
 </section>
 """
 
-with open(os.path.join(SITE, "search.html"), "w", encoding="utf-8") as f:
+with open(os.path.join(SITE, "jet2holidays.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "Jet2holidays Discount Prices | Travel Agent Jake",
-        "Search Jet2holidays package holidays at a discount through Travel Agent Jake. Not after Jet2holidays? WhatsApp Jake, he books TUI, easyJet holidays, cruises and more too.",
-        "search.html",
-        search_body,
+        "Search Jet2holidays package holidays at a discount through Travel Agent Jake. Real reviews, reasons to book with Jake, and WhatsApp help if you're after something other than Jet2holidays.",
+        "jet2holidays.html",
+        jet2holidays_body,
         noindex=True,
         extra_head=WIDGET_ELEMENTS_SCRIPT
     ))
-print("search.html written (Agendas Group search widget installed for testing, not linked from nav/sitemap, noindex)")
+print("jet2holidays.html written (full Jet2holidays landing page: search + offers widgets, reasons to book, reviews; not linked from nav/sitemap, noindex)")
+
+
+# ---------------- STANDALONE AIRPORT EXTRAS PAGE (existing customers) ----------------
+# Per Jake (30 Sept 2026): a page he can send directly to clients who've
+# ALREADY booked, just for adding airport extras (parking, bags, lounges
+# etc) before they travel. Uses the Travel Web Ref Lookup widget (confirmed
+# in Jake's Travelify portal) so a customer can pull up their booking by
+# reference, with the Extras widget underneath. NOTE: I haven't been able to
+# verify live whether the web-ref lookup widget actually feeds booking
+# context through to the extras widget automatically on the same page, or
+# whether it needs to redirect elsewhere - that needs testing live with a
+# real booking reference before this gets sent to any customers.
+airport_extras_body = f"""
+<section class="theme-dark hero-compact">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow">Already booked?</div>
+    <h1>ADD YOUR AIRPORT EXTRAS</h1>
+    <p class="lead" style="margin:14px auto 0; max-width:60ch;">Parking, bags, lounges and more &mdash; sorted before you travel, and cheaper than paying on the day.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <div class="grid-3 equal-cards" style="margin-top:8px;">
+      <div class="jake-card"><h3 style="font-size:17px;">Cheaper booked ahead</h3><p>Airport parking, lounges and baggage all cost more at the gate. Book now and pay the pre-booked price, not the on-the-day price.</p></div>
+      <div class="jake-card"><h3 style="font-size:17px;">One less thing to think about</h3><p>Sort your extras now so travel day is just about getting to the airport and enjoying the holiday.</p></div>
+      <div class="jake-card"><h3 style="font-size:17px;">Guaranteed, not gambled on</h3><p>Parking and lounge spaces sell out. Booking ahead means it's there waiting for you, not a risk on the day.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow" style="justify-content:center;">Find your booking</div>
+    <h2>Enter your booking reference</h2>
+    <p class="lead" style="max-width:56ch; margin:12px auto 0;">You'll find this on your booking confirmation. Enter it below to see the extras available for your holiday.</p>
+  </div>
+  <div style="width:100%; box-sizing:border-box; padding:24px 16px 0;">
+    <div class="jake-card" style="max-width:520px; margin:0 auto; border-color:var(--yellow); border-width:3px; text-align:center;">
+      <div id="agendas-webref-widget" data-agendas-widget="webref">
+        <travel-web-ref widgetid="19382" class="travelify-widget"></travel-web-ref>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light">
+  <div style="width:100%; box-sizing:border-box; padding:0 16px;">
+    <div id="agendas-extras-widget" data-agendas-widget="extras">
+      <tg-travel-extras-v4 widgetid="19403" language="en" class="travelify-widget"></tg-travel-extras-v4>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark hero-compact">
+  <div class="wrap" style="text-align:center;">
+    <h2 style="font-size:22px;">Can't find your booking or need a hand?</h2>
+    <p class="lead" style="max-width:56ch; margin:12px auto 20px;">WhatsApp me your booking reference and I'll sort your extras for you directly.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%27d%20like%20to%20add%20some%20extras%20to%20my%20booking%2C%20my%20reference%20is..." target="_blank" rel="noopener">WhatsApp Jake</a>
+    </div>
+  </div>
+</section>
+"""
+
+with open(os.path.join(SITE, "airport-extras.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Add Your Airport Extras | Travel Agent Jake",
+        "Already booked with Travel Agent Jake? Add airport parking, baggage, lounges and more before you travel, cheaper than booking on the day.",
+        "airport-extras.html",
+        airport_extras_body,
+        noindex=True,
+        extra_head=WIDGET_ELEMENTS_SCRIPT
+    ))
+print("airport-extras.html written (standalone airport extras page for existing customers, web-ref lookup + extras widget, not linked from nav/sitemap, noindex)")
 
 
 # ---------------- sitemap.xml ----------------
