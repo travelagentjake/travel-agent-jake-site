@@ -11401,7 +11401,7 @@ jet2holidays_body = """
       <div class="eyebrow">Jet2holidays, discounted</div>
       <h1>THE SAME JET2HOLIDAYS PACKAGE, <span class="hl">FOR LESS</span></h1>
       <p class="lead" style="margin-top:14px;">Search Jet2holidays package prices here. Same flights, same hotels, same ATOL protection.</p>
-      <p style="margin-top:14px; opacity:0.92;">Not after Jet2holidays? I book TUI, easyJet holidays, cruises and tailor made holidays too &mdash; <a class="body-copy" style="color:var(--white); text-decoration:underline;" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%27m%20looking%20for%20a%20holiday%20that%27s%20not%20Jet2holidays%2C%20can%20you%20help%20me%20find%20something%3F" target="_blank" rel="noopener">WhatsApp me what you're after</a>.</p>
+      <p style="margin-top:14px; opacity:0.92;">Not after Jet2holidays? I book TUI, easyJet holidays, cruises and tailor made holidays too, so <a class="body-copy" style="color:var(--white); text-decoration:underline;" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%27m%20looking%20for%20a%20holiday%20that%27s%20not%20Jet2holidays%2C%20can%20you%20help%20me%20find%20something%3F" target="_blank" rel="noopener">WhatsApp me what you're after</a>.</p>
     </div>
     <div>
       <div class="jake-frame"><img src="images/infinity-pool.jpg" alt="Pool overlooking the sea on holiday"></div>
@@ -11437,7 +11437,7 @@ jet2holidays_body = """
     <div>
       <div class="eyebrow">Hello, I'm Jake</div>
       <h2 style="font-size:26px;">Reasons to book with me</h2>
-      <p style="margin-top:12px;">I've worked in travel since I was 17 &mdash; fifteen years on, I'm still just as obsessed with it. Whatever you book through me, whether it's this Jet2holidays deal or something else entirely, you get one person to deal with from your first message to the day you land back home.</p>
+      <p style="margin-top:12px;">I've worked in travel since I was 17, and fifteen years on, I'm still just as obsessed with it. Whatever you book through me, whether it's this Jet2holidays deal or something else entirely, you get one person to deal with from your first message to the day you land back home.</p>
       <p style="margin-top:14px; margin-bottom:0;">Cyprus is my favourite short haul, Mauritius my favourite long haul, and if you ask me about skiing I probably won't stop talking. I'd rather spend ten minutes finding you the right holiday than sell you whatever's easiest.</p>
       <div class="btn-row" style="margin-top:22px;">
         <a class="btn btn-secondary" href="about.html">More about me</a>
@@ -11661,19 +11661,21 @@ print("jet2holidays.html written (full Jet2holidays landing page: search + offer
 # ---------------- STANDALONE AIRPORT EXTRAS PAGE (existing customers) ----------------
 # Per Jake (30 Sept 2026): a page he can send directly to clients who've
 # ALREADY booked, just for adding airport extras (parking, bags, lounges
-# etc) before they travel. Uses the Travel Web Ref Lookup widget (confirmed
-# in Jake's Travelify portal) so a customer can pull up their booking by
-# reference, with the Extras widget underneath. NOTE: I haven't been able to
-# verify live whether the web-ref lookup widget actually feeds booking
-# context through to the extras widget automatically on the same page, or
-# whether it needs to redirect elsewhere - that needs testing live with a
-# real booking reference before this gets sent to any customers.
-airport_extras_body = f"""
+# etc) before they travel. Originally tried the Travel Web Ref Lookup +
+# Extras widgets, but Jake confirmed live (1 Oct 2026) the Extras widget
+# errors with "your search session is missing" when it isn't preceded by
+# an actual search/results session in the same browser session, and he
+# doesn't use the Web Ref Lookup widget either. So there's currently no
+# working Travelify widget for a standalone "already booked, add extras"
+# self-serve flow; this page runs on WhatsApp instead, same as the rest of
+# the site's fallback pattern, until/unless Jess/Agendas Group confirm a
+# widget that can actually do this.
+airport_extras_body = """
 <section class="theme-dark hero-compact">
   <div class="wrap" style="text-align:center;">
     <div class="eyebrow">Already booked?</div>
     <h1>ADD YOUR AIRPORT EXTRAS</h1>
-    <p class="lead" style="margin:14px auto 0; max-width:60ch;">Parking, bags, lounges and more &mdash; sorted before you travel, and cheaper than paying on the day.</p>
+    <p class="lead" style="margin:14px auto 0; max-width:60ch;">Parking, bags, lounges and more, sorted before you travel and cheaper than paying on the day.</p>
   </div>
 </section>
 
@@ -11687,33 +11689,10 @@ airport_extras_body = f"""
   </div>
 </section>
 
-<section class="theme-light" style="padding-top:0;">
+<section class="theme-dark">
   <div class="wrap" style="text-align:center;">
-    <div class="eyebrow" style="justify-content:center;">Find your booking</div>
-    <h2>Enter your booking reference</h2>
-    <p class="lead" style="max-width:56ch; margin:12px auto 0;">You'll find this on your booking confirmation. Enter it below to see the extras available for your holiday.</p>
-  </div>
-  <div style="width:100%; box-sizing:border-box; padding:24px 16px 0;">
-    <div class="jake-card" style="max-width:520px; margin:0 auto; border-color:var(--yellow); border-width:3px; text-align:center;">
-      <div id="agendas-webref-widget" data-agendas-widget="webref">
-        <travel-web-ref widgetid="19382" class="travelify-widget"></travel-web-ref>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="theme-light">
-  <div style="width:100%; box-sizing:border-box; padding:0 16px;">
-    <div id="agendas-extras-widget" data-agendas-widget="extras">
-      <tg-travel-extras-v4 widgetid="19403" language="en" class="travelify-widget"></tg-travel-extras-v4>
-    </div>
-  </div>
-</section>
-
-<section class="theme-dark hero-compact">
-  <div class="wrap" style="text-align:center;">
-    <h2 style="font-size:22px;">Can't find your booking or need a hand?</h2>
-    <p class="lead" style="max-width:56ch; margin:12px auto 20px;">WhatsApp me your booking reference and I'll sort your extras for you directly.</p>
+    <h2>READY TO ADD YOUR EXTRAS?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">WhatsApp me your booking reference and what you're after (parking, bags, a lounge, insurance) and I'll sort it and confirm the price back to you directly.</p>
     <div class="btn-row" style="justify-content:center;">
       <a class="btn btn-primary" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%27d%20like%20to%20add%20some%20extras%20to%20my%20booking%2C%20my%20reference%20is..." target="_blank" rel="noopener">WhatsApp Jake</a>
     </div>
@@ -11727,8 +11706,7 @@ with open(os.path.join(SITE, "airport-extras.html"), "w", encoding="utf-8") as f
         "Already booked with Travel Agent Jake? Add airport parking, baggage, lounges and more before you travel, cheaper than booking on the day.",
         "airport-extras.html",
         airport_extras_body,
-        noindex=True,
-        extra_head=WIDGET_ELEMENTS_SCRIPT
+        noindex=True
     ))
 print("airport-extras.html written (standalone airport extras page for existing customers, web-ref lookup + extras widget, not linked from nav/sitemap, noindex)")
 
