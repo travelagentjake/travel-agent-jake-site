@@ -34,6 +34,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://static.travelify.io/" crossorigin />
+<link rel="preconnect" href="https://api.travelify.io/" crossorigin />
+<script src="https://static.travelify.io/travelify-elements-v2.4.min.js" integrity="sha256-U5kp/mYRwwfvHho+736vE1wljn7URYGIqjMS9kiDa6E=" crossorigin="anonymous" defer="defer"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -88,13 +91,10 @@
 
 <section class="theme-light">
   <div class="wrap">
-    <div class="jake-card" style="max-width:780px; margin:0 auto; text-align:center; border-color:var(--yellow); border-width:3px;">
-      <div class="eyebrow" style="justify-content:center;">Coming soon</div>
-      <h2 style="font-size:22px;">JET2HOLIDAYS SEARCH LAUNCHING SOON</h2>
-      <p style="max-width:56ch; margin:10px auto 22px;">This is where you'll be able to search real time Jet2holidays prices and availability, then carry your search straight through to booking. It's being built right now.</p>
-      <div class="btn-row" style="justify-content:center;">
-        <a class="btn btn-primary" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%20couldn%27t%20find%20what%20I%20was%20after%20on%20the%20holiday%20search%20yet%2C%20can%20you%20help%20me%20find%20something%3F" target="_blank" rel="noopener">WhatsApp me your dates</a>
-        <a class="btn btn-secondary" href="book.html">How to Book with Jake</a>
+    <div class="jake-card" style="max-width:780px; margin:0 auto; border-color:var(--yellow); border-width:3px;">
+      <div class="eyebrow" style="justify-content:center;">Search Jet2holidays</div>
+      <div id="agendas-search-widget" data-agendas-widget="search">
+        <travel-searchbox-v3 widgetid="19407" language="en" class="travelify-widget"></travel-searchbox-v3>
       </div>
     </div>
   </div>

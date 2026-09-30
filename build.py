@@ -361,7 +361,7 @@ FOOTER = """<footer class="site-footer">
   if (t) { t.addEventListener('click', function(){ n.classList.toggle('open'); }); }
 </script>"""
 
-def page(title, description, active, body, og_image="images/pool-portrait.jpg", extra_schema="", noindex=False, canonical_path=None):
+def page(title, description, active, body, og_image="images/pool-portrait.jpg", extra_schema="", noindex=False, canonical_path=None, extra_head=""):
     canonical_active = canonical_path if canonical_path else active
     canonical = BASE_URL + "/" + ("" if canonical_active == "index.html" else canonical_active)
     robots_meta = '<meta name="robots" content="noindex, nofollow">\n' if noindex else ""
@@ -400,7 +400,7 @@ def page(title, description, active, body, og_image="images/pool-portrait.jpg", 
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="images/logo.png">
-{SITE_SCHEMA}
+{extra_head}{SITE_SCHEMA}
 {extra_schema}
 </head>
 <body>
@@ -11317,7 +11317,17 @@ print("best-snow-sure-ski-resorts-december-january-february-march.html written")
 # ready for Jess's widget embed code, and is marked noindex since there's
 # no real content yet. Built and committed locally per Jake's instruction,
 # not yet pushed live.
-def booking_widget_page(widget_name, heading, intro):
+# Agendas Group / Travelify widget loader script. Confirmed directly in
+# Jake's Travelify admin portal (My Widgets > each widget's "Add to website"
+# panel, 30 Sept 2026): every widget's install panel gave this exact same
+# script, it only needs to load once per page no matter how many widgets
+# are on it.
+WIDGET_ELEMENTS_SCRIPT = """<link rel="preconnect" href="https://static.travelify.io/" crossorigin />
+<link rel="preconnect" href="https://api.travelify.io/" crossorigin />
+<script src="https://static.travelify.io/travelify-elements-v2.4.min.js" integrity="sha256-U5kp/mYRwwfvHho+736vE1wljn7URYGIqjMS9kiDa6E=" crossorigin="anonymous" defer="defer"></script>
+"""
+
+def booking_widget_page(widget_name, heading, intro, widget_tag):
     return f"""
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
@@ -11329,29 +11339,38 @@ def booking_widget_page(widget_name, heading, intro):
 
 <section class="theme-light">
   <div class="wrap">
-    <div id="agendas-{widget_name}-widget" data-agendas-widget="{widget_name}" style="min-height:320px; border:2px dashed var(--ink); border-radius:8px; opacity:0.6; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px 24px;">
-      <p style="max-width:44ch; margin:0;">Placeholder for the Agendas Group &quot;{widget_name}&quot; booking widget. Drop the embed code Jess provides into this container.</p>
+    <div id="agendas-{widget_name}-widget" data-agendas-widget="{widget_name}">
+      {widget_tag}
     </div>
   </div>
 </section>
 """
 
+# Widget IDs and tags confirmed live in Jake's Travelify portal (My Widgets),
+# matching exactly what Jess Speight (Agendas Group) emailed 16 Sept 2026:
+# results 19406, extras 19403, basket 19405. These are the "NEW (Beta)"
+# widgets. Note from the basket widget's own admin panel: not all payment
+# providers are migrated yet on Travel Basket NEW, confirm Jake's provider
+# is on their supported list (Stripe, AIBMS, DECTA, PPS, PayFast,
+# Takepayments, Telr, Trust Payments, Viva Payments, Worldpay) before this
+# goes anywhere near live bookings.
 BOOKING_WIDGET_PAGES = [
-    ("results", "results.html", "Search Results | Travel Agent Jake", "YOUR HOLIDAY SEARCH RESULTS", "Results from your holiday search will appear here once you've searched."),
-    ("extras", "extras.html", "Extras | Travel Agent Jake", "ADD SOME EXTRAS", "Add optional extras to your holiday before it goes in your basket."),
-    ("basket", "basket.html", "Your Basket | Travel Agent Jake", "YOUR BASKET", "Review your holiday before you book it."),
+    ("results", "results.html", "Search Results | Travel Agent Jake", "YOUR HOLIDAY SEARCH RESULTS", "Results from your holiday search will appear here once you've searched.", '<tg-travel-results-v4 widgetid="19406" language="en" class="travelify-widget"></tg-travel-results-v4>'),
+    ("extras", "extras.html", "Extras | Travel Agent Jake", "ADD SOME EXTRAS", "Add optional extras to your holiday before it goes in your basket.", '<tg-travel-extras-v4 widgetid="19403" language="en" class="travelify-widget"></tg-travel-extras-v4>'),
+    ("basket", "basket.html", "Your Basket | Travel Agent Jake", "YOUR BASKET", "Review your holiday before you book it.", '<tg-travel-basket-v4 widgetid="19405" language="en" class="travelify-widget"></tg-travel-basket-v4>'),
 ]
 
-for widget_name, filename, page_title, heading, intro in BOOKING_WIDGET_PAGES:
+for widget_name, filename, page_title, heading, intro, widget_tag in BOOKING_WIDGET_PAGES:
     with open(os.path.join(SITE, filename), "w", encoding="utf-8") as f:
         f.write(page(
             page_title,
             "Part of the Travel Agent Jake holiday booking flow.",
             filename,
-            booking_widget_page(widget_name, heading, intro),
-            noindex=True
+            booking_widget_page(widget_name, heading, intro, widget_tag),
+            noindex=True,
+            extra_head=WIDGET_ELEMENTS_SCRIPT
         ))
-    print(f"{filename} written (placeholder, not linked from nav/sitemap, noindex)")
+    print(f"{filename} written (Agendas Group widget installed for testing, not linked from nav/sitemap, noindex)")
 
 
 # search.html: the entry point to the booking flow (search -> results -> extras
@@ -11379,13 +11398,10 @@ search_body = f"""
 
 <section class="theme-light">
   <div class="wrap">
-    <div class="jake-card" style="max-width:780px; margin:0 auto; text-align:center; border-color:var(--yellow); border-width:3px;">
-      <div class="eyebrow" style="justify-content:center;">Coming soon</div>
-      <h2 style="font-size:22px;">JET2HOLIDAYS SEARCH LAUNCHING SOON</h2>
-      <p style="max-width:56ch; margin:10px auto 22px;">This is where you'll be able to search real time Jet2holidays prices and availability, then carry your search straight through to booking. It's being built right now.</p>
-      <div class="btn-row" style="justify-content:center;">
-        <a class="btn btn-primary" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%20couldn%27t%20find%20what%20I%20was%20after%20on%20the%20holiday%20search%20yet%2C%20can%20you%20help%20me%20find%20something%3F" target="_blank" rel="noopener">WhatsApp me your dates</a>
-        <a class="btn btn-secondary" href="book.html">How to Book with Jake</a>
+    <div class="jake-card" style="max-width:780px; margin:0 auto; border-color:var(--yellow); border-width:3px;">
+      <div class="eyebrow" style="justify-content:center;">Search Jet2holidays</div>
+      <div id="agendas-search-widget" data-agendas-widget="search">
+        <travel-searchbox-v3 widgetid="19407" language="en" class="travelify-widget"></travel-searchbox-v3>
       </div>
     </div>
   </div>
@@ -11419,9 +11435,10 @@ with open(os.path.join(SITE, "search.html"), "w", encoding="utf-8") as f:
         "Search Jet2holidays package holidays at a discount through Travel Agent Jake. Not after Jet2holidays? WhatsApp Jake, he books TUI, easyJet holidays, cruises and more too.",
         "search.html",
         search_body,
-        noindex=True
+        noindex=True,
+        extra_head=WIDGET_ELEMENTS_SCRIPT
     ))
-print("search.html written (Jet2holidays discount landing page placeholder, not linked from nav/sitemap, noindex)")
+print("search.html written (Agendas Group search widget installed for testing, not linked from nav/sitemap, noindex)")
 
 
 # ---------------- sitemap.xml ----------------

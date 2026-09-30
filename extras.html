@@ -34,6 +34,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://static.travelify.io/" crossorigin />
+<link rel="preconnect" href="https://api.travelify.io/" crossorigin />
+<script src="https://static.travelify.io/travelify-elements-v2.4.min.js" integrity="sha256-U5kp/mYRwwfvHho+736vE1wljn7URYGIqjMS9kiDa6E=" crossorigin="anonymous" defer="defer"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -83,8 +86,8 @@
 
 <section class="theme-light">
   <div class="wrap">
-    <div id="agendas-extras-widget" data-agendas-widget="extras" style="min-height:320px; border:2px dashed var(--ink); border-radius:8px; opacity:0.6; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px 24px;">
-      <p style="max-width:44ch; margin:0;">Placeholder for the Agendas Group &quot;extras&quot; booking widget. Drop the embed code Jess provides into this container.</p>
+    <div id="agendas-extras-widget" data-agendas-widget="extras">
+      <tg-travel-extras-v4 widgetid="19403" language="en" class="travelify-widget"></tg-travel-extras-v4>
     </div>
   </div>
 </section>
