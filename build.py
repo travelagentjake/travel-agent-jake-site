@@ -7163,6 +7163,13 @@ TIPS_POSTS = [
         "excerpt": "Card machines and cash machines abroad increasingly ask if you'd rather pay in pounds. It sounds helpful, but it almost never is. Here's exactly why, and what to press instead.",
         "image": "https://images.unsplash.com/photo-1628527304948-06157ee3c8a6?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Person using a card payment terminal",
+    },    {
+        "slug": "best-snow-sure-ski-resorts-december-january-february-march.html",
+        "meta": "Ski holidays",
+        "title": "The best snow sure ski resorts for December, January, February and March",
+        "excerpt": "Altitude and glacier terrain matter far more than luck when it comes to snow. Here's exactly which resorts to book for each month of the season, and why.",
+        "image": "https://images.unsplash.com/photo-1586752488885-6ce47fdfd874?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "The Matterhorn above Zermatt covered in snow",
     },
 ]
 
@@ -11161,6 +11168,145 @@ with open(os.path.join(SITE, "dynamic-currency-conversion-pay-in-pounds-abroad.h
 print("dynamic-currency-conversion-pay-in-pounds-abroad.html written")
 
 
+# ---------------- TRAVEL TIPS: Best snow sure ski resorts by month ----------------
+snowsure_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>THE BEST SNOW SURE SKI RESORTS FOR DECEMBER, JANUARY, FEBRUARY AND MARCH</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Every ski season, someone books a resort at 1,200m in December and wonders why the pistes look more like a mud track. Snow isn't really about luck, it's about altitude and terrain. Here's exactly which resorts to book for each part of the season, and the real reasons why they hold their snow when others don't.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Why altitude is what actually matters</h2>
+    <img src="https://images.unsplash.com/photo-1586752488885-6ce47fdfd874?auto=format&fit=crop&w=1600&h=700&q=80" alt="The Matterhorn above Zermatt covered in snow" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">No resort can literally promise snow every single day of the season, but two things make it as close to guaranteed as skiing gets: altitude and glacier terrain. A resort with skiing above 2,500m holds natural snow through far more of the season than one sitting at 1,200m, because it simply stays cold enough for longer. A resort with a genuine glacier goes further still, some of the ones below can be skied for most of the year regardless of how the season is going lower down.</p>
+      <p style="margin-top:14px; margin-bottom:0;">Every resort in this guide is picked for exactly that reason, altitude and terrain, not because it's the most famous or the easiest to get to. All of them are genuine Crystal Ski Holidays packages, a trading name of TUI UK Limited, which is the operator I book ski holidays through.</p>
+    </div>
+    {jake_tip("If you only remember one thing from this guide, make it this: check the resort's actual skiing altitude, not just the village altitude. A pretty village at 1,000m with skiing up to 2,800m can be a genuinely safe bet, while a village that looks high on a map but tops out at 2,000m can still have a thin season.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>The quick version, month by month</h2>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Best picks</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>December</td><td>Val Thorens, Tignes, Cervinia, Obergurgl</td><td>Highest and earliest opening resorts in the Alps, already reliably skiable well before Christmas</td></tr>
+          <tr><td>January &amp; February</td><td>Any of the above, plus Zermatt, Saas-Fee, Ischgl</td><td>Peak season is naturally the safest time to ski almost anywhere at altitude</td></tr>
+          <tr><td>March</td><td>Zermatt, Tignes, Val Thorens, Cervinia, Saas-Fee</td><td>Glacier and high altitude terrain holds proper snow into April and May, long after lower resorts turn slushy</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>December: the earliest and highest openers</h2>
+    <img src="https://images.unsplash.com/photo-1519659675643-e5885721661f?auto=format&fit=crop&w=1600&h=700&q=80" alt="Val Thorens ski resort covered in snow" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;"><b>Val Thorens, France.</b> Europe's highest resort at 2,300m, with skiing up to 3,200m across the Péclet and Chavière glaciers, part of the Three Valleys, the biggest linked ski area there is. Being this high means it's reliably skiable well before most of the Alps, typically from late November through to early May.</p>
+    <p style="margin-top:14px;"><b>Tignes, France.</b> Sitting at 1,850 to 2,100m and sharing the Espace Killy area with Val d'Isère, Tignes skis right up onto the Grande Motte glacier. It's one of the earliest opening resorts in the Alps and one of the last to close, again typically late November to early May.</p>
+    <p style="margin-top:14px;"><b>Cervinia, Italy.</b> Base altitude of 2,050m with slopes reaching 3,450m, and genuinely extensive glacial terrain. Cervinia usually opens earlier than almost anywhere else in Europe, from late October, and links at altitude towards Zermatt.</p>
+    <p style="margin-top:14px;"><b>Obergurgl, Austria.</b> One of the highest villages in the Alps at 1,930m. It isn't a glacier resort, but the altitude plus full snowmaking coverage makes it consistently reliable from mid-November, even in a lean start to the season elsewhere.</p>
+    <img src="https://images.unsplash.com/photo-1646677675683-1de0f4ff4b3f?auto=format&fit=crop&w=1600&h=700&q=80" alt="Snow covered alpine village" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    {jake_tip("If you're set on an early December trip, Val Thorens and Tignes are the two I'd trust most. Both are high enough that a quiet start to the season lower down the mountain genuinely doesn't affect them the way it would a resort at 1,200m.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>January and February: peak season, but these stand out</h2>
+    <img src="https://images.unsplash.com/photo-1482867996988-29ec3a0f1aac?auto=format&fit=crop&w=1600&h=700&q=80" alt="Cable car above the snow at sunset over the piste" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Peak season is naturally the safest time to ski almost anywhere at altitude, cold temperatures and regular snowfall do most of the work for you. Every resort mentioned above is at its best here too, but a few are worth calling out specifically for how consistently they perform even in a quieter snow year.</p>
+    <p style="margin-top:14px;"><b>Zermatt, Switzerland.</b> The village sits at around 1,620m, but skiing runs all the way up to the Klein Matterhorn at 3,883m via the Matterhorn Glacier Paradise, the highest point reachable by cable car anywhere in Europe. It's also home to the largest and highest summer ski area in Europe, which means the upper slopes are rarely short of snow even when a January has been unusually mild.</p>
+    <p style="margin-top:14px;"><b>Saas-Fee, Switzerland.</b> Base altitude of 1,800m with most of the terrain sitting between 2,500m and 3,500m, plus glacier skiing that runs for most of the year. The main season typically runs mid-December to late April.</p>
+    <p style="margin-top:14px;"><b>Ischgl, Austria.</b> The village itself is at 1,400m, lower than some of the others here, but more than 80% of its 238km of pistes sit above 2,000m, so the vast majority of the actual skiing stays well protected even when the valley floor looks patchy.</p>
+    {jake_tip("Peak season is when I get the fewest worried messages about snow, and it shows. If you're flexible on dates, January and February are genuinely the lowest risk months to book almost any resort on this list.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>March: the resorts that keep going</h2>
+    <img src="https://images.unsplash.com/photo-1516706443377-10e1c05a3346?auto=format&fit=crop&w=1600&h=700&q=80" alt="Cable car travelling above the snow on a glacier ski run" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">March is where altitude really earns its keep. Plenty of resorts at 1,200 to 1,500m start turning slushy by late February, especially on lower runs, while the high and glacial ones on this list keep proper skiing going well into spring.</p>
+    <p style="margin-top:14px;"><b>Zermatt</b> and <b>Saas-Fee</b> both ski on genuine glacier terrain that holds through to late April. <b>Tignes</b>' Grande Motte glacier and <b>Val Thorens</b>' high altitude do the same, both typically running to early May. <b>Cervinia</b> is right there with them, one of the latest closers in the Alps thanks to its own glacial terrain and the link towards Zermatt.</p>
+    {jake_tip("If you're chasing a March trip specifically because you've been burned by a slushy late season resort before, any of these five are a genuinely safer bet than picking on price or flight time alone.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">What actually makes a ski resort "snow sure"?</h3>
+      <p>Altitude and terrain, mainly. A resort with skiing above roughly 2,500m stays cold enough to hold natural snow through far more of the season than a lower one, and a genuine glacier extends that even further, sometimes to almost year round skiing on the upper slopes. Snowmaking helps too, but it's a backup, not a substitute for the resort actually being high enough and cold enough in the first place.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Which resorts are best for an early December ski trip?</h3>
+      <p>Val Thorens and Tignes in France are the two safest bets, both high altitude, glacier terrain, and typically open from late November. Cervinia in Italy usually opens even earlier, from late October, and Obergurgl in Austria is reliable from mid-November thanks to its altitude and full snowmaking coverage.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do I need to worry about snow in January and February?</h3>
+      <p>Generally no. Peak season is naturally the safest time to ski almost anywhere at altitude, since cold temperatures and regular snowfall do most of the work. Zermatt, Saas-Fee and Ischgl are particularly consistent performers even in a quieter snow year, but most high altitude resorts are a safe choice in these two months.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Which resorts hold their snow the longest into March?</h3>
+      <p>Zermatt and Saas-Fee in Switzerland both ski on genuine glacier terrain into late April. Tignes and Val Thorens in France typically run to early May thanks to their glaciers and high altitude. Cervinia in Italy is right there with them as one of the latest closing resorts in the Alps.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <h2>Want me to actually build this trip around you?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">All of the resorts above are genuine Crystal Ski Holidays packages, which I book on your behalf. Tell me your dates and who's coming and I'll put a plan together, or if it's your first time on snow, take a look at <a href="ski-slope-starters.html" style="color:inherit; text-decoration:underline;">Slope Starters</a>, a beginner only week I run in three resorts built for exactly that.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+snowsure_body = snowsure_body.replace("::NEWSLETTER::", newsletter_section())
+
+SNOWSURE_SCHEMA = article_and_faq_schema(
+    "The Best Snow Sure Ski Resorts for December, January, February and March",
+    "Which ski resorts genuinely hold reliable snow each month of the season, from early December openers to the glacier resorts that keep going into May, and why altitude matters more than luck.",
+    "best-snow-sure-ski-resorts-december-january-february-march.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("What actually makes a ski resort \"snow sure\"?", "Altitude and terrain, mainly. A resort with skiing above roughly 2,500m stays cold enough to hold natural snow through far more of the season than a lower one, and a genuine glacier extends that even further, sometimes to almost year round skiing on the upper slopes. Snowmaking helps too, but it's a backup, not a substitute for the resort actually being high enough and cold enough in the first place."),
+        ("Which resorts are best for an early December ski trip?", "Val Thorens and Tignes in France are the two safest bets, both high altitude, glacier terrain, and typically open from late November. Cervinia in Italy usually opens even earlier, from late October, and Obergurgl in Austria is reliable from mid-November thanks to its altitude and full snowmaking coverage."),
+        ("Do I need to worry about snow in January and February?", "Generally no. Peak season is naturally the safest time to ski almost anywhere at altitude, since cold temperatures and regular snowfall do most of the work. Zermatt, Saas-Fee and Ischgl are particularly consistent performers even in a quieter snow year, but most high altitude resorts are a safe choice in these two months."),
+        ("Which resorts hold their snow the longest into March?", "Zermatt and Saas-Fee in Switzerland both ski on genuine glacier terrain into late April. Tignes and Val Thorens in France typically run to early May thanks to their glaciers and high altitude. Cervinia in Italy is right there with them as one of the latest closing resorts in the Alps."),
+    ]
+)
+
+with open(os.path.join(SITE, "best-snow-sure-ski-resorts-december-january-february-march.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "The Best Snow Sure Ski Resorts for December, January, February and March | Travel Agent Jake",
+        "Which ski resorts genuinely hold reliable snow each month of the season, from early December openers to the glacier resorts that keep going into May, and why altitude matters more than luck.",
+        "travel-tips.html",
+        snowsure_body,
+        extra_schema=SNOWSURE_SCHEMA,
+        canonical_path="best-snow-sure-ski-resorts-december-january-february-march.html"
+    ))
+print("best-snow-sure-ski-resorts-december-january-february-march.html written")
+
+
 
 # ---------------- BOOKING WIDGET PLACEHOLDER PAGES (Agendas Group) ----------------
 # Jess Speight (Agendas Group Ltd, account manager for the new holiday
@@ -11322,6 +11468,7 @@ SITEMAP_PAGES = [
     ("autism-adhd-friendly-hotels-spain-turkey.html", "0.7"),
     ("tourist-tax-europe-2026.html", "0.7"),
     ("dynamic-currency-conversion-pay-in-pounds-abroad.html", "0.7"),
+    ("best-snow-sure-ski-resorts-december-january-february-march.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
