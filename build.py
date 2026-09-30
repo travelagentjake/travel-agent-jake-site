@@ -11657,59 +11657,6 @@ with open(os.path.join(SITE, "jet2holidays.html"), "w", encoding="utf-8") as f:
 print("jet2holidays.html written (full Jet2holidays landing page: search + offers widgets, reasons to book, reviews; not linked from nav/sitemap, noindex)")
 
 
-# ---------------- STANDALONE AIRPORT EXTRAS PAGE (existing customers) ----------------
-# Per Jake (30 Sept 2026): a page he can send directly to clients who've
-# ALREADY booked, just for adding airport extras (parking, bags, lounges
-# etc) before they travel. Originally tried the Travel Web Ref Lookup +
-# Extras widgets, but Jake confirmed live (1 Oct 2026) the Extras widget
-# errors with "your search session is missing" when it isn't preceded by
-# an actual search/results session in the same browser session, and he
-# doesn't use the Web Ref Lookup widget either. So there's currently no
-# working Travelify widget for a standalone "already booked, add extras"
-# self-serve flow; this page runs on WhatsApp instead, same as the rest of
-# the site's fallback pattern, until/unless Jess/Agendas Group confirm a
-# widget that can actually do this.
-airport_extras_body = """
-<section class="theme-dark hero-compact">
-  <div class="wrap" style="text-align:center;">
-    <div class="eyebrow">Already booked?</div>
-    <h1>ADD YOUR AIRPORT EXTRAS</h1>
-    <p class="lead" style="margin:14px auto 0; max-width:60ch;">Parking, bags, lounges and more, sorted before you travel and cheaper than paying on the day.</p>
-  </div>
-</section>
-
-<section class="theme-light" style="padding-top:0;">
-  <div class="wrap">
-    <div class="grid-3 equal-cards" style="margin-top:8px;">
-      <div class="jake-card"><h3 style="font-size:17px;">Cheaper booked ahead</h3><p>Airport parking, lounges and baggage all cost more at the gate. Book now and pay the pre-booked price, not the on-the-day price.</p></div>
-      <div class="jake-card"><h3 style="font-size:17px;">One less thing to think about</h3><p>Sort your extras now so travel day is just about getting to the airport and enjoying the holiday.</p></div>
-      <div class="jake-card"><h3 style="font-size:17px;">Guaranteed, not gambled on</h3><p>Parking and lounge spaces sell out. Booking ahead means it's there waiting for you, not a risk on the day.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="theme-dark">
-  <div class="wrap" style="text-align:center;">
-    <h2>READY TO ADD YOUR EXTRAS?</h2>
-    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">WhatsApp me your booking reference and what you're after (parking, bags, a lounge, insurance) and I'll sort it and confirm the price back to you directly.</p>
-    <div class="btn-row" style="justify-content:center;">
-      <a class="btn btn-primary" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%27d%20like%20to%20add%20some%20extras%20to%20my%20booking%2C%20my%20reference%20is..." target="_blank" rel="noopener">WhatsApp Jake</a>
-    </div>
-  </div>
-</section>
-"""
-
-with open(os.path.join(SITE, "airport-extras.html"), "w", encoding="utf-8") as f:
-    f.write(page(
-        "Add Your Airport Extras | Travel Agent Jake",
-        "Already booked with Travel Agent Jake? Add airport parking, baggage, lounges and more before you travel, cheaper than booking on the day.",
-        "airport-extras.html",
-        airport_extras_body,
-        noindex=True
-    ))
-print("airport-extras.html written (standalone airport extras page for existing customers, web-ref lookup + extras widget, not linked from nav/sitemap, noindex)")
-
-
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
