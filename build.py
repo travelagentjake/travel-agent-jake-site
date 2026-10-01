@@ -12072,6 +12072,7 @@ price_watch_body = """
 .pw-success{text-align:center;padding:10px 0;}
 .pw-fine{font-size:13px;color:#5b6478;margin-top:14px;}
 @media (max-width:700px){.pw-grid{grid-template-columns:1fr;}}
+@media (max-width:700px){.pw-hero{padding:26px 0 22px !important;}.pw-hero h1{font-size:30px !important;line-height:1.05 !important;margin:6px 0 0 !important;}.pw-hero .eyebrow{font-size:11px;letter-spacing:.14em;}.pw-hero .lead{font-size:15px !important;line-height:1.45 !important;margin-top:10px !important;}.pw-hero .btn-row{margin-top:14px !important;}.pw-hero .btn{padding:12px 18px;font-size:13px;}.pw-logos{margin-top:14px;gap:6px;}.pw-logos span{font-size:12px;padding:4px 10px;border-width:1.5px;}}
 </style>
 
 <section class="theme-dark pw-hero">
