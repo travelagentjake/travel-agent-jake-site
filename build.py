@@ -11731,21 +11731,21 @@ airport_extras_body = """
         <img class="dest-card-img" src="https://images.unsplash.com/photo-1772461355574-3fcd84c6016b?auto=format&fit=crop&w=1200&q=80" alt="Airport parking car park">
         <div class="dest-card-body">
           <h3 style="font-size:17px;">Airport parking</h3>
-          <p>A space booked and waiting close to the terminal, so there is no circling for one on the day you fly. Most options include a transfer straight to departures.</p>
+          <p>Prices climb the closer you get to departure, so booking ahead rather than paying on the day usually works out a lot cheaper. You also know your space is guaranteed before you even set off.</p>
         </div>
       </div>
       <div class="jake-card dest-card">
         <img class="dest-card-img" src="https://images.unsplash.com/photo-1692405245790-a9aba01a4fc3?auto=format&fit=crop&w=1200&q=80" alt="Airport lounge seating area">
         <div class="dest-card-body">
           <h3 style="font-size:17px;">Airport lounges</h3>
-          <p>A quieter space away from the main terminal, with food, drinks and WiFi included, away from the queues and the crowds before you board.</p>
+          <p>A quieter space away from the main terminal, with food, drinks and WiFi included in the price. Popular lounges fill up, so it is worth securing your spot ahead of time rather than hoping there is room on the day.</p>
         </div>
       </div>
       <div class="jake-card dest-card">
         <img class="dest-card-img" src="https://images.unsplash.com/photo-1647792855184-af42f1720b91?auto=format&fit=crop&w=1200&q=80" alt="Hotel bedroom at night">
         <div class="dest-card-body">
           <h3 style="font-size:17px;">Overnight hotels</h3>
-          <p>A room near the airport the night before an early flight or after a late landing, with some including parking for the duration of your trip.</p>
+          <p>A comfortable night close to the terminal before an early flight or after a late landing, so there is no rushing in the morning. Many options bundle in parking for the whole trip too, which can work out better value than booking separately.</p>
         </div>
       </div>
     </div>
