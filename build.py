@@ -1657,6 +1657,13 @@ DESTINATION_POSTS = [
         "excerpt": "Karnak, the Valley of the Kings, hot air balloons and felucca sailing on the Nile: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1759212445830-848ce08cc0c5?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "cairo-nile-river-cruise.html",
+        "meta": "Egypt, Cairo",
+        "title": "Cairo & a Nile River Cruise, Egypt",
+        "excerpt": "The Pyramids of Giza, the Grand Egyptian Museum and adding a Nile river cruise: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1600520611035-84157ad4084d?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -7032,6 +7039,306 @@ print("luxor-valley-of-the-kings.html written")
 
 
 
+cairo_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>CAIRO &amp; A NILE RIVER CRUISE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Cairo, home of the Pyramids of Giza, the new Grand Egyptian Museum and the start or end point of a Nile river cruise.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Cairo</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1600520611035-84157ad4084d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Pyramids of Giza under a clear blue sky" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Cairo is one of those cities that genuinely earns the word bucket list. You can stand at the foot of the Great Pyramid, the only one of the Seven Wonders of the Ancient World still standing, have lunch in the city, then be inside the Grand Egyptian Museum looking at Tutankhamun's treasures by the afternoon. The Grand Egyptian Museum finally opened properly in November 2025 after twenty years in the making, and it's a genuine game changer for the city, giving Cairo its own world class museum to match the Pyramids right on its doorstep.</p>
+    <p style="margin-top:14px;">Both TUI and easyJet holidays now sell proper package holidays to Cairo, flights, hotel and transfers all bundled together, which makes it a far easier sell than it used to be when this was mostly a tailor made or escorted tour booking. Add in a Nile river cruise, either before or after a few nights in the city, and you've got one of the most complete trips in Egypt in a single itinerary.</p>
+    {jake_tip("Cairo is not a beach holiday and I'm always upfront with clients about that. It's history, museums and a genuinely busy, chaotic, brilliant capital city, closer in spirit to a city break than a resort week. It suits a different client to Hurghada or Sharm El Sheikh, even though they're all technically Egypt.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Three or four nights is enough to cover Cairo's essential sights properly, the Pyramids of Giza, the Grand Egyptian Museum and a bit of the old city, without rushing. A week gives a much more relaxed pace and room to add Saqqara, Dahshur or Alexandria as a day trip. Cairo is also very commonly used as the start or end point of a Nile river cruise down to Luxor and Aswan, so many clients combine three or four nights in the city with a week long cruise either side.</p>
+    <p style="margin-top:14px;">It suits history minded clients, first time visitors to Egypt who want the genuinely essential sights without a two week itinerary, and anyone who enjoys a busy, full on capital city. It's less suited to a client who wants a straightforward beach week, or to anyone who finds heavy traffic, noise and crowds stressful, since Cairo is a huge, busy city of over 20 million people.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Cairo International Airport (CAI) is around 30 to 45 minutes from most hotels, depending on traffic and area. easyJet holidays flies from a wide range of UK airports including London Gatwick, Manchester, Luton, Liverpool, Bristol, Birmingham, Belfast, Edinburgh, Glasgow, Southend, Newcastle, Southampton, Leeds Bradford and Stansted. TUI sells package holidays to Cairo too, with flights from London Heathrow, Manchester and London Gatwick. Flight time is around 5 hours direct from London or Manchester. Jet2holidays does not currently sell Cairo as a destination, its Egypt programme covers Hurghada and Sharm El Sheikh only.</p>
+    {jake_tip("Cairo sits outside the Sinai's free entry stamp zone, so unlike a short stay in Sharm El Sheikh, everyone visiting Cairo needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. Sort this before travelling or budget the time to queue for it on arrival, and always confirm the current requirement before a client flies.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Cairo has a desert climate with next to no rainfall at any time of year. Winters are warm and pleasant by day with cooler evenings, while summers get seriously hot, though slightly less extreme than Luxor further south since Cairo sits closer to the Delta.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>19&deg;C</td><td>8&deg;C</td><td>Mild, sunny days, a jumper needed for the evenings</td></tr>
+          <tr><td>February</td><td>21&deg;C</td><td>9&deg;C</td><td>Comfortable for full days of sightseeing</td></tr>
+          <tr><td>March</td><td>25&deg;C</td><td>11&deg;C</td><td>Warming up, still a very manageable month for the Pyramids</td></tr>
+          <tr><td>April</td><td>29&deg;C</td><td>14&deg;C</td><td>Hot by afternoon, best tackled with an early start</td></tr>
+          <tr><td>May</td><td>33&deg;C</td><td>17&deg;C</td><td>Very hot, sightseeing best done in the morning</td></tr>
+          <tr><td>June</td><td>36&deg;C</td><td>20&deg;C</td><td>Seriously hot, air conditioning becomes essential</td></tr>
+          <tr><td>July</td><td>37&deg;C</td><td>21&deg;C</td><td>Peak heat, only for clients who tolerate very high temperatures</td></tr>
+          <tr><td>August</td><td>37&deg;C</td><td>22&deg;C</td><td>Similarly extreme, pools and shade matter more than itinerary</td></tr>
+          <tr><td>September</td><td>35&deg;C</td><td>20&deg;C</td><td>Still very warm, beginning to ease by the end of the month</td></tr>
+          <tr><td>October</td><td>30&deg;C</td><td>18&deg;C</td><td>Hot but manageable, a popular month to visit</td></tr>
+          <tr><td>November</td><td>26&deg;C</td><td>14&deg;C</td><td>One of the most comfortable months for sightseeing</td></tr>
+          <tr><td>December</td><td>21&deg;C</td><td>10&deg;C</td><td>Mild days, cool nights, a popular winter sun and sightseeing month</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for Cairo, sourced via climate-data.org.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">November to March is Cairo's main season and the most comfortable time for full days of sightseeing, mild by day with genuinely cool nights, so pack layers rather than just summer clothes. March, April and October are a good middle ground, warm but generally still manageable if mornings are used for the Pyramids and the Grand Egyptian Museum. May to September gets seriously hot, regularly into the mid to high thirties, and while the city is still very much open for business, it's not the season for a packed walking itinerary without plenty of breaks in air conditioning.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Cairo's hotels split broadly into a few distinct areas, each suiting a slightly different kind of trip.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1643667996984-fcc69743449d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Pyramids of Giza in the desert" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Giza</h3>
+        <p>Right on the doorstep of the Pyramids themselves, with several hotels offering genuine pyramid view rooms. The obvious choice for a client whose main priority is waking up to that view, though it's a longer drive into central Cairo for the museums and old city.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1626692880062-35c360fb6afc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Nile river running through Cairo with the city skyline behind" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Downtown &amp; Garden City</h3>
+        <p>Central, Nile front and walkable to the Egyptian Museum, Tahrir Square and a good spread of restaurants. The best base for a client who wants to feel like they're in the middle of the city rather than out on its edge, with the Pyramids a taxi or transfer away.</p>
+      </div>
+    </div>
+    {jake_tip("A first time client doing three or four nights is usually best placed in Downtown or Garden City for the choice of restaurants and easy access to the museums, with a half or full day trip out to Giza for the Pyramids. Only book a Giza hotel specifically if a client wants that pyramid view from their room, since it comes at the cost of being further from everything else.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Airport transfers are normally arranged as part of the package. Cairo's traffic is heavy and can be chaotic by UK standards, so a private transfer or an organised tour with its own driver is the easiest way to see the main sights without the stress of navigating it yourself. Taxis and ride hailing apps such as Uber and Careem are widely available and inexpensive, though it's worth agreeing a fare with a traditional taxi before setting off. The Cairo Metro is cheap, fast and a genuinely useful way to avoid surface traffic for journeys it covers, though most visitors see the main sights, Giza, Saqqara and the museums, as part of an organised tour or private driver given how spread out they are.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1595979904086-471704dc0e81?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The dome of a mosque in Islamic Cairo" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities in Cairo worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="851104,1453821,459032,281882"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/cairo-l92/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/cairo-l92/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Cairo &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks in Cairo, all available through TUI or easyJet holidays. Jet2holidays doesn't currently sell Cairo. Board basis varies quite a bit here, so always confirm what's included for your dates when booking.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1574864745093-5566c5be5855?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A pyramid in the Egyptian desert" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Mamlouk Pyramids Hotel</h3>
+        <p>A 4-star hotel in Giza, a short distance from the Pyramids plateau, with straightforward rooms and a pool. A solid, budget friendly base for a client whose main priority is being close to the Pyramids without paying for a view. Bookable through easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for pyramid views</div>
+        <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Pyramid of Khafre at Giza" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Steigenberger Pyramids Cairo Hotel</h3>
+        <p>Set right on the Giza plateau with rooms looking directly out at the Pyramids, a pool, and a short walk to the site entrance itself. No star rating is listed by the operator, so treat it as a well located pyramid view pick rather than a graded hotel. Bookable through easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best central &amp; Nile front</div>
+        <img src="https://images.unsplash.com/photo-1720400995876-506098f4c238?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Nile river with the Cairo skyline in the background" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Semiramis InterContinental Cairo</h3>
+        <p>A long-established five-star hotel right on the Nile in Garden City, walkable to Tahrir Square and the Egyptian Museum, with several restaurants and river view rooms. One of Cairo's best known central addresses. Bookable through TUI and easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1686109896248-1f9908ed7f6d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Nile river and Cairo skyline at dusk" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">The Nile Ritz-Carlton Cairo</h3>
+        <p>A five-star Nile front hotel in the heart of downtown Cairo, with Garden City and Tahrir Square both within walking distance, several restaurants, a spa and river view rooms. One of the higher end options right in the centre of the city. Bookable through TUI.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Adding a Nile river cruise</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1648139210543-da574312cda9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A felucca sailboat on the Nile at sunset" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>TUI River Cruises runs its own adult only ships on the Nile, including TUI Bahareya, a brand new ship launched for winter 2025/26, alongside its sister ship TUI Al Horeya. The standard itinerary is seven nights, sailing round trip from Luxor and calling at Edfu, Kom Ombo and Aswan, with onboard Egyptologists giving context at each stop. Packages start from around &pound;1,099 per person including flights from London or Manchester.</p>
+    <p style="margin-top:14px;">A cruise like this is very commonly combined with a few nights in Cairo either side, since most clients fly into Cairo first. TUI offers a Cruise and Stay option that bundles the two together, best arranged by speaking to Jake directly about dates and availability rather than booking the cruise and the Cairo hotel as two unconnected pieces. Jet2holidays and easyJet holidays don't currently sell a Nile river cruise product, this is a TUI exclusive within the three main operators Jake works with.</p>
+    {jake_tip("A Nile cruise is a genuinely different pace to a Cairo city break, unpacking once and watching the scenery change as the ship moves between Luxor and Aswan, with excursions included at each stop. It suits a client who wants both the history and a more relaxed, cruise style holiday in the same trip.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three ways to combine Cairo</h2>
+    <p style="margin-top:14px;">There's no single packaged multi centre holiday covering all of these from TUI, Jet2holidays or easyJet holidays, but Cairo combines very naturally with a few other parts of Egypt as two separately booked stays, or in the cruise's case, one bundled TUI product.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <h3 style="font-size:17px;">Cairo + Nile river cruise</h3>
+        <p>A few nights in Cairo for the Pyramids and the Grand Egyptian Museum, then straight onto a seven night TUI Nile cruise from Luxor to Aswan and back, booked as a single Cruise and Stay package through TUI. The most complete, best value way to see both the capital and ancient Egypt's temples in one trip.</p>
+      </div>
+      <div class="jake-card">
+        <h3 style="font-size:17px;">Cairo + Luxor</h3>
+        <p>Two separate stays, a few nights in Cairo followed by a short domestic flight down to Luxor for Karnak, the Valley of the Kings and Luxor Temple (see our separate Luxor guide). No formal multi centre package exists for this combination, so flights and hotels are booked as two connected but individually arranged legs.</p>
+      </div>
+      <div class="jake-card">
+        <h3 style="font-size:17px;">Cairo + the Red Sea</h3>
+        <p>History first, beach second. A few nights in Cairo followed by a domestic flight or coach transfer to a Red Sea resort such as Hurghada or El Gouna (see our separate Red Sea guide) for a proper pool and sea week afterwards. Again, this is two separately booked stays rather than one seamless package.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate hotel and flight bookings combined into one trip rather than a single packaged product, message Jake and he'll put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the essential sights beyond the hotel pool.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1559738933-d69ac3ff674b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A camel beside the Pyramids of Giza" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Pyramids of Giza &amp; the Sphinx</h3>
+        <p>The last of the Seven Wonders of the Ancient World still standing, and genuinely staggering up close. The Great Sphinx sits just beside the Pyramids, and a camel or horse ride across the plateau is a popular, if optional, way to see them from a distance too.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1678460425444-5ed6473f9334?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Ancient Egyptian artifacts on display inside the Grand Egyptian Museum" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Grand Egyptian Museum</h3>
+        <p>Officially opened in November 2025 after two decades in the making, this is now home to the world's largest collection of Pharaonic artefacts, including Tutankhamun's full treasure collection displayed together for the first time. A genuine must do, and worth allowing a full half day.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Mosque of Sultan Hassan near the Cairo Citadel" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Islamic Cairo &amp; the Citadel</h3>
+        <p>The Citadel of Saladin and the cluster of mosques and mausoleums around Sultan Hassan and Al-Rifai offer a completely different side of the city's history, medieval rather than Pharaonic, with some of the best skyline views in Cairo thrown in.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1710211288826-b7df3ab71588?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A narrow alley inside Khan el-Khalili bazaar" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Khan el-Khalili Bazaar</h3>
+        <p>A sprawling, centuries old market in the heart of Islamic Cairo, good for spices, lanterns, jewellery and plenty of haggling. Best visited with time to wander rather than rushed, and a good spot for an evening shisha and mint tea once the shopping's done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Egypt uses the Egyptian Pound, so prices below are shown in pounds sterling with the Egyptian Pound equivalent alongside, based on a rate of roughly &pound;1 to E&pound;68.90. These are crowd-sourced averages for Cairo, and prices right on a hotel's own doorstep in tourist areas can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;3.60 (about E&pound;250)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;21.80 (about E&pound;1,500)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.35 (about E&pound;92)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;1.13 (about E&pound;78)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.11 (about E&pound;8)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;0.29 (about E&pound;20)</td></tr>
+          <tr><td>Taxi, per mile</td><td>&pound;0.23 (about E&pound;16)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages for Cairo via Numbeo, checked at time of writing. Egyptian Pound to pound sterling conversion is approximate and moves around more than most currencies, so treat these as a guide rather than an exact figure.</p>
+    {jake_tip("Agree a price with a taxi driver, camel or horse handler at Giza, or a shop owner in Khan el-Khalili before you get in or start browsing, rather than after. It's standard practice in Cairo and avoids any awkward haggling once you're already committed.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Egyptian Pound (E&pound;)</td></tr>
+          <tr><td>Plug type</td><td>Type C/F, a UK to EU style adapter is needed</td></tr>
+          <tr><td>Language</td><td>Arabic, English is widely spoken in hotels and by guides</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 5 hours direct, depending on departure airport</td></tr>
+          <tr><td>Time difference</td><td>2 hours ahead of the UK for most of the year. Egypt reintroduced its own daylight saving time for 2026, and since its clock change dates don't line up exactly with the UK's, the gap can briefly narrow or widen by an hour for a week or two either side of the changeovers</td></tr>
+          <tr><td>Entry requirements</td><td>An Egyptian e-visa or visa on arrival (around &pound;25 to &pound;30) is needed for Cairo, since it falls outside the Sinai's free entry stamp zone</td></tr>
+          <tr><td>Driving</td><td>Right hand side, though almost all visitors rely on transfers, taxis and organised tours rather than hiring a car given Cairo's traffic</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Osama Elsayed, Andres Dallimonti, Abdelrhman Allam, Roaming Pictures, Alex Kotomanov, Ali Othman, Jeremy Bishop, Omar Adel, Michael Starkie, Rosario Janza, 2H Media and Omar Elsharawy via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Cairo for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around Cairo's Pyramids and the new Grand Egyptian Museum, help you decide whether to add a Nile cruise, Luxor or a Red Sea stay, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+cairo_body = cairo_body.replace("::NEWSLETTER::", newsletter_section())
+
+CAIRO_SCHEMA = article_and_faq_schema(
+    "Cairo & a Nile River Cruise: Jake's Destination Guide",
+    "Jake's honest guide to Cairo: the Pyramids of Giza, the Grand Egyptian Museum, Islamic Cairo and adding a Nile river cruise, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "cairo-nile-river-cruise.html",
+    "https://images.unsplash.com/photo-1600520611035-84157ad4084d?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Cairo?", "November to March is Cairo's main season and the most comfortable time for full days of sightseeing, mild by day with genuinely cool nights, so pack layers. March, April and October are a good middle ground. May to September gets seriously hot, regularly into the mid to high thirties, and isn't the season for a packed walking itinerary without plenty of breaks in air conditioning."),
+        ("Do I need a visa for Cairo, and how do I get there?", "Yes. Cairo sits outside the Sinai's free entry stamp zone, so everyone visiting needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. easyJet holidays flies from a wide range of UK airports and TUI sells package holidays to Cairo with flights from London Heathrow, Manchester and London Gatwick. Flight time is around 5 hours direct from London or Manchester. Jet2holidays doesn't currently sell Cairo."),
+        ("Can I combine Cairo with a Nile river cruise?", "Yes, this is one of the most popular ways to see Egypt. TUI River Cruises runs seven night round trip cruises from Luxor to Aswan and back on its own adult only ships, from around &pound;1,099 per person including flights, and offers a Cruise and Stay option that bundles a Cairo stay with the cruise. Jet2holidays and easyJet holidays don't currently sell a Nile cruise product, so this is arranged through TUI."),
+    ]
+)
+with open(os.path.join(SITE, "cairo-nile-river-cruise.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Cairo & a Nile River Cruise: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Cairo: the Pyramids of Giza, the Grand Egyptian Museum, Islamic Cairo and adding a Nile river cruise, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        cairo_body,
+        extra_schema=CAIRO_SCHEMA,
+        canonical_path="cairo-nile-river-cruise.html"
+    ))
+print("cairo-nile-river-cruise.html written")
+
+
+
+
 
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
@@ -11683,6 +11990,7 @@ SITEMAP_PAGES = [
     ("crete.html", "0.6"),
     ("egypt-red-sea.html", "0.6"),
     ("luxor-valley-of-the-kings.html", "0.6"),
+    ("cairo-nile-river-cruise.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
