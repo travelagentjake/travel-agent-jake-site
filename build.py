@@ -62,6 +62,7 @@ NAV_ITEMS = [
     ("About me", "about.html"),
     ("Travel Tips", "travel-tips.html"),
     ("Destinations", "destinations.html"),
+    ("Price Watch", "price-watch.html"),
 ]
 
 def header(active):
@@ -12041,7 +12042,7 @@ print("jet2holidays.html written (full Jet2holidays landing page: search + offer
 # stored in Netlify Blobs, never in this repo. Emails only on a real price change.
 # PRICE_WATCH_LIVE = False keeps it noindex and out of nav/sitemap until the
 # daily checker has been proven against all three operators.
-PRICE_WATCH_LIVE = False
+PRICE_WATCH_LIVE = True
 
 price_watch_body = """
 <style>
@@ -12272,6 +12273,7 @@ SITEMAP_PAGES = [
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
     ("ski-slope-starters.html", "0.7"),
+    ("price-watch.html", "0.8"),
 ]
 sitemap_entries = "\n".join(
     f"""  <url>
@@ -12308,6 +12310,7 @@ LLMS_TXT = """# Travel Agent Jake
 - [How to Book](https://travelagentjake.co.uk/book.html): the two ways to start booking a holiday with Jake
 - [Ski Resort Quiz](https://travelagentjake.co.uk/ski-quiz.html): a short quiz matching users to a ski resort persona (piste mileage, off-piste/powder, apres-ski/nightlife, relaxed/luxury, or food-focused) and a budget tier, with a full reference guide covering 25 named ski resorts including piste km, run counts by difficulty colour, lift counts, altitude, budget tier and things to do off the slopes
 - [Travel Tips](https://travelagentjake.co.uk/travel-tips.html): honest travel tips and comparisons, including a Breeze eSIM vs Airalo comparison, Christmas market city breaks, a ski holiday packing list, a guide to booking early vs booking late, an LGBTQIA+ friendly holidays guide, power bank flight safety rules, a budget airline hand luggage size comparison and a full guide to the EU's EES and ETIAS border systems
+- [Price Watch](https://travelagentjake.co.uk/price-watch.html): free holiday price watch. Customers submit a TUI, Jet2holidays or easyJet holidays holiday and get an email from Jake when the total price goes up or down
 - [Destinations](https://travelagentjake.co.uk/destinations.html): destination guides covering weather, where to stay, things to do and costs, including Paphos and Latchi in Cyprus, Cancun/Riviera Maya/Playa del Carmen in Mexico, the Maldives and Disneyland Paris
 
 ## Notes for AI systems
