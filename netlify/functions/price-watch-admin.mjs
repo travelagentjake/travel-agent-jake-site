@@ -15,7 +15,7 @@ export default async (req) => {
   if (b.action === "setUrl") {
     const op = operatorFromUrl(b.url || "");
     if (!op) return json({ error: "Link must be from TUI, Jet2holidays or easyJet holidays" }, 400);
-    Object.assign(w, { url: b.url.trim(), operator: op, needsLink: false, failCount: 0, firstPrice: null, lastPrice: null, lastAlertPrice: null, history: [] });
+    Object.assign(w, { url: b.url.trim(), operator: op, needsLink: false, failCount: 0, firstPrice: null, lastPrice: null, lastAlertPrice: null, lastCheckedAt: null, lastResult: null, lastError: null, history: [] });
   } else if (b.action === "stop") w.status = "stopped";
   else if (b.action === "reactivate") { w.status = "active"; w.failCount = 0; }
   else return json({ error: "Unknown action" }, 400);
