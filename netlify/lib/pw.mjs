@@ -81,7 +81,9 @@ export async function upsertContact(w) {
     PW_DEPART_MONTH: (w.departDate || "").slice(0, 7),
     PW_ACTIVE: true,
   };
-  if (w.phone) attributes.WHATSAPP = w.phone;
+  // MOBILE is a plain text field. WHATSAPP is a unique, strictly formatted
+  // Brevo field and a badly formatted or duplicate number rejects the whole contact.
+  if (w.phone) attributes.MOBILE = w.phone;
   if (w.marketing) attributes.OPT_IN = true;
   for (const k of Object.keys(attributes)) if (attributes[k] === undefined) delete attributes[k];
   return brevo("/contacts", { email: w.email, attributes, listIds, updateEnabled: true });

@@ -96,7 +96,7 @@ export default async (req) => {
   if (url) { const f = fromLink(url, operator); for (const [k, v] of Object.entries(f)) if (v && (!w[k] || w[k] === "0")) w[k] = clean(v, 120); }
   await saveWatch(w);
 
-  try { await upsertContact(w); } catch (e) { console.error("Brevo contact", e.message); }
+  try { await upsertContact(w); } catch (e) { console.error("Brevo contact", e.message); w.brevoError = String(e.message).slice(0, 300); await saveWatch(w); }
 
   if ((process.env.PW_NOTIFY_NEW || "on") !== "off") {
     try {
