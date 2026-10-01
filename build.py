@@ -11678,7 +11678,6 @@ BOOKING_WIDGET_PAGES = [
     ("results", "results.html", "Search Results | Travel Agent Jake", "CAN'T FIND WHAT YOU'RE LOOKING FOR?", "WhatsApp me your dates and I'll track it down for you, Jet2holidays or otherwise.", '<tg-travel-results-v4 widgetid="19406" language="en" class="travelify-widget"></tg-travel-results-v4>', ("WhatsApp Jake", "Hi%20Jake%2C%20I%20couldn%27t%20find%20what%20I%20was%20after%20on%20the%20holiday%20search%2C%20can%20you%20help%20me%20find%20something%3F")),
     ("extras", "extras.html", "Extras | Travel Agent Jake", "YOU'RE ALMOST THERE!", "Add extras, confirm passenger details and pay securely, your holiday's just a few clicks away.", '<tg-travel-extras-v4 widgetid="19403" language="en" class="travelify-widget"></tg-travel-extras-v4>', None),
     ("basket", "basket.html", "Your Basket | Travel Agent Jake", "CAN'T FIND WHAT YOU'RE LOOKING FOR?", "WhatsApp me if anything in your basket doesn't look right, I'll sort it.", '<tg-travel-basket-v4 widgetid="19405" language="en" class="travelify-widget"></tg-travel-basket-v4>', ("WhatsApp Jake", "Hi%20Jake%2C%20I%27ve%20got%20a%20question%20about%20my%20holiday%20basket%2C%20can%20you%20help%3F")),
-    ("airport-extras", "airport-extras.html", "Airport Extras | Travel Agent Jake", "SEARCH YOUR AIRPORT EXTRAS", "Add airport parking, lounges, fast track and more to your trip. Enter your flight details below and I will sort the rest.", '<travel-searchbox-v3 widgetid="19523" language="en" class="travelify-widget"></travel-searchbox-v3>', ("WhatsApp Jake", "Hi%20Jake%2C%20I%20need%20help%20with%20airport%20extras%20for%20my%20trip%2C%20can%20you%20help%3F")),
 ]
 
 for widget_name, filename, page_title, heading, intro, widget_tag, cta in BOOKING_WIDGET_PAGES:
@@ -11692,6 +11691,78 @@ for widget_name, filename, page_title, heading, intro, widget_tag, cta in BOOKIN
             extra_head=WIDGET_ELEMENTS_SCRIPT
         ))
     print(f"{filename} written (Agendas Group widget installed for testing, not linked from nav/sitemap, noindex)")
+
+
+# airport-extras.html: standalone self-serve entry point using the new
+# Airport Extras searchbox widget Jess Speight added 1 Oct 2026
+# (widgetid 19523, "TAJ New Searchbox (Airport Extras)"), restricted in its
+# own Travelify settings to a single search tab (Airport Extras: flying
+# from, flying to, dates, times, passengers) with its Results URL set to
+# /results, i.e. it feeds the existing results.html page and Results
+# widget, giving extras.html a real search session before it is reached
+# (the earlier version of this page, built 30 Sept with the Web Ref
+# Lookup + Extras widgets, errored with "your search session is missing"
+# and was removed; this is a different, working mechanism). Per Jake's
+# follow-up (1 Oct): no WhatsApp CTA here since it is self-serve, hero
+# copy doesn't frame it as Jake personally sorting it, and an info section
+# below the widget explains what each extra actually is (benefit implied
+# by the description, not spelled out as a sales pitch), with real photos.
+airport_extras_body = """
+<section class="theme-dark hero-compact">
+  <div class="wrap" style="text-align:center;">
+    <h2 style="font-size:22px; margin:0 auto; max-width:48ch;">SEARCH YOUR AIRPORT EXTRAS</h2>
+    <p class="lead" style="margin:8px auto 0; max-width:54ch; font-size:14.5px;">Add airport parking, lounges, overnight hotels and more to your trip. Enter your flight details below to see what is available.</p>
+  </div>
+</section>
+
+<section class="theme-light">
+  <div style="width:100%; box-sizing:border-box; padding:0 16px;">
+    <div id="agendas-airport-extras-widget" data-agendas-widget="airport-extras">
+      <travel-searchbox-v3 widgetid="19523" language="en" class="travelify-widget"></travel-searchbox-v3>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light">
+  <div class="wrap">
+    <h2 style="font-size:22px;">Airport extras explained</h2>
+    <div class="grid-3 equal-cards" style="margin-top:20px;">
+      <div class="jake-card dest-card">
+        <img class="dest-card-img" src="https://images.unsplash.com/photo-1772461355574-3fcd84c6016b?auto=format&fit=crop&w=1200&q=80" alt="Airport parking car park">
+        <div class="dest-card-body">
+          <h3 style="font-size:17px;">Airport parking</h3>
+          <p>A space booked and waiting close to the terminal, so there is no circling for one on the day you fly. Most options include a transfer straight to departures.</p>
+        </div>
+      </div>
+      <div class="jake-card dest-card">
+        <img class="dest-card-img" src="https://images.unsplash.com/photo-1692405245790-a9aba01a4fc3?auto=format&fit=crop&w=1200&q=80" alt="Airport lounge seating area">
+        <div class="dest-card-body">
+          <h3 style="font-size:17px;">Airport lounges</h3>
+          <p>A quieter space away from the main terminal, with food, drinks and WiFi included, away from the queues and the crowds before you board.</p>
+        </div>
+      </div>
+      <div class="jake-card dest-card">
+        <img class="dest-card-img" src="https://images.unsplash.com/photo-1647792855184-af42f1720b91?auto=format&fit=crop&w=1200&q=80" alt="Hotel bedroom at night">
+        <div class="dest-card-body">
+          <h3 style="font-size:17px;">Overnight hotels</h3>
+          <p>A room near the airport the night before an early flight or after a late landing, with some including parking for the duration of your trip.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+"""
+
+with open(os.path.join(SITE, "airport-extras.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Airport Extras | Travel Agent Jake",
+        "Search and add airport parking, lounges and overnight hotels to your trip with Travel Agent Jake.",
+        "airport-extras.html",
+        airport_extras_body,
+        noindex=True,
+        extra_head=WIDGET_ELEMENTS_SCRIPT
+    ))
+print("airport-extras.html written (Agendas Group widget installed for testing, not linked from nav/sitemap, noindex)")
 
 
 # jet2holidays.html (was search.html): the entry point to the booking flow
