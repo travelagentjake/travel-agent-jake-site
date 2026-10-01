@@ -104,7 +104,7 @@ export function emailShell(inner) {
   return `<!doctype html><html><body style="margin:0;background:#f2f5fb;font-family:Arial,Helvetica,sans-serif;color:#14213d;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f5fb;padding:24px 0;"><tr><td align="center">
 <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:14px;overflow:hidden;">
-<tr><td style="background:#004AAD;padding:22px 28px;"><img src="${SITE}/images/logo.png" alt="Travel Agent Jake" height="44" style="display:block;height:44px;"></td></tr>
+<tr><td style="background:#ffffff;padding:20px 28px;border-bottom:5px solid #FFD21F;"><img src="${SITE}/images/logo.png" alt="Travel Agent Jake" height="56" style="display:block;height:56px;"></td></tr>
 <tr><td style="padding:28px;font-size:16px;line-height:1.55;">${inner}</td></tr>
 <tr><td style="background:#004AAD;color:#ffffff;padding:18px 28px;font-size:12px;line-height:1.5;">Travel Agent Jake, ABTA P8503. Holidays booked with me are made through Club Voyages and are financially protected.<br>Prices are checked once a day on the tour operator's own website and can change at any time. Final prices are confirmed at the time of booking.</td></tr>
 </table></td></tr></table></body></html>`;
