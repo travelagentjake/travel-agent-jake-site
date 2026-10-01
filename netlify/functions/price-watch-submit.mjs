@@ -5,6 +5,28 @@ import { json, esc, randomId, operatorFromUrl, saveWatch, upsertContact, sendEma
 
 const clean = (v, max = 200) => String(v ?? "").trim().slice(0, max);
 
+// Fill in trend fields from the operator link when the customer left them blank.
+const BOARD = { AI: "All Inclusive", HB: "Half Board", FB: "Full Board", BB: "Bed and Breakfast", SC: "Self Catering", RO: "Room Only" };
+function fromLink(url, operator) {
+  const o = {};
+  try {
+    const u = new URL(url); const q = u.searchParams;
+    const dmy = (v) => { const m = /^(\d{2})-(\d{2})-(\d{4})$/.exec(v || ""); return m ? `${m[3]}-${m[2]}-${m[1]}` : ""; };
+    if (operator === "jet2") {
+      o.departDate = dmy(q.get("date")); o.nights = q.get("duration") || "";
+      const occ = /^r(\d+)c?([\d_]*)/.exec(q.get("occupancy") || ""); if (occ) { o.adults = occ[1]; const kids = occ[2] ? occ[2].split("_").filter(Boolean) : []; o.children = String(kids.length); o.childAges = kids.join(", "); }
+      const parts = u.pathname.split("/").filter(Boolean); o.hotel = (parts.at(-1) || "").replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()); o.destination = (parts.at(-2) || "").replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    } else if (operator === "tui") {
+      o.departDate = dmy(q.get("when")); o.nights = q.get("duration") && q.get("duration").length <= 2 ? q.get("duration") : "";
+      o.adults = q.get("noOfAdults") || ""; o.children = q.get("noOfChildren") || ""; o.childAges = (q.get("childrenAge") || "").replace(/,/g, ", ");
+      o.airport = q.getAll("airports[]").join(", "); o.board = BOARD[q.get("bb")] || "";
+    } else if (operator === "easyjet") {
+      o.departDate = q.get("startDate") || q.get("departureDate") || ""; o.nights = q.get("nights") || q.get("duration") || "";
+    }
+  } catch {}
+  return o;
+}
+
 export default async (req) => {
   if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
   let b;
@@ -71,6 +93,7 @@ export default async (req) => {
     alertsSent: 0,
     history: [],
   };
+  if (url) { const f = fromLink(url, operator); for (const [k, v] of Object.entries(f)) if (v && (!w[k] || w[k] === "0")) w[k] = clean(v, 120); }
   await saveWatch(w);
 
   try { await upsertContact(w); } catch (e) { console.error("Brevo contact", e.message); }
