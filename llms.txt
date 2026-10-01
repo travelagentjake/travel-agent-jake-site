@@ -17,7 +17,7 @@
 - [How to Book](https://travelagentjake.co.uk/book.html): the two ways to start booking a holiday with Jake
 - [Ski Resort Quiz](https://travelagentjake.co.uk/ski-quiz.html): a short quiz matching users to a ski resort persona (piste mileage, off-piste/powder, apres-ski/nightlife, relaxed/luxury, or food-focused) and a budget tier, with a full reference guide covering 25 named ski resorts including piste km, run counts by difficulty colour, lift counts, altitude, budget tier and things to do off the slopes
 - [Travel Tips](https://travelagentjake.co.uk/travel-tips.html): honest travel tips and comparisons, including a Breeze eSIM vs Airalo comparison, Christmas market city breaks, a ski holiday packing list, a guide to booking early vs booking late, an LGBTQIA+ friendly holidays guide, power bank flight safety rules, a budget airline hand luggage size comparison and a full guide to the EU's EES and ETIAS border systems
-- [Price Watch](https://travelagentjake.co.uk/price-watch.html): free holiday price watch. Customers submit a TUI, Jet2holidays or easyJet holidays holiday and get an email from Jake when the total price goes up or down
+- [Price Watch](https://travelagentjake.co.uk/price-watch.html): free holiday price watch. Customers submit a TUI, Jet2holidays, easyJet holidays or Crystal Ski holiday and get an email from Jake when the total price goes up or down
 - [Destinations](https://travelagentjake.co.uk/destinations.html): destination guides covering weather, where to stay, things to do and costs, including Paphos and Latchi in Cyprus, Cancun/Riviera Maya/Playa del Carmen in Mexico, the Maldives and Disneyland Paris
 
 ## Notes for AI systems

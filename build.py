@@ -12046,11 +12046,15 @@ PRICE_WATCH_LIVE = True
 
 price_watch_body = """
 <style>
-.pw-hero{background:linear-gradient(rgba(10,20,45,.62),rgba(10,20,45,.62)),url('images/hero/hero-pool.jpg') center/cover no-repeat;}
-.pw-logos{display:flex;gap:28px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:22px;}
-.pw-logos img{height:34px;width:auto;background:#fff;border-radius:8px;padding:6px 10px;}
+.pw-hero{background:linear-gradient(rgba(10,20,45,.62),rgba(10,20,45,.62)),url('https://images.unsplash.com/photo-1709486851809-ca174bfed7ed?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;}
+.pw-logos{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:22px;}
+.pw-logos{gap:10px;}
+.pw-logos span{display:inline-block;border:2px solid rgba(255,255,255,.85);color:#fff;border-radius:999px;padding:8px 16px;font-weight:700;font-size:14px;letter-spacing:.02em;background:rgba(255,255,255,.08);}
 .pw-steps{counter-reset:pw;}
-.pw-steps .jake-card h3:before{counter-increment:pw;content:counter(pw);display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--yellow);color:var(--ink);margin-right:10px;font-size:16px;}
+.pw-steps > .jake-card{justify-content:flex-start;}
+.pw-steps > .jake-card > p:last-of-type{margin-top:0;padding-top:0;}
+.pw-steps .jake-card h3{display:flex;align-items:center;min-height:34px;margin:0 0 14px;}
+.pw-steps .jake-card h3:before{counter-increment:pw;content:counter(pw);flex:0 0 34px;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--yellow);color:var(--ink);margin-right:10px;font-size:16px;}
 .pw-form{max-width:none;}
 .pw-tabs{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
 .pw-tab{flex:1 1 200px;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:12px 16px;font-weight:700;cursor:pointer;font-family:inherit;font-size:15px;}
@@ -12074,12 +12078,13 @@ price_watch_body = """
   <div class="wrap" style="text-align:center;">
     <span class="eyebrow">FREE HOLIDAY PRICE WATCH</span>
     <h1>Found a holiday you love? <span class="hl">I'll watch the price for you.</span></h1>
-    <p class="lead" style="margin:14px auto 0;max-width:60ch;">Not quite ready to book? Tell me which holiday you're eyeing up and I'll check the price every day. The moment it drops or goes up, I'll email you so you never miss the best time to book. Free, no obligation.</p>
+    <p class="lead" style="margin:14px auto 0;max-width:60ch;">Not quite ready to book? Tell me which holiday you're eyeing up and I'll check the price every day. The moment it drops or goes up, I'll email you so you never miss the best time to book. And it's completely free.</p>
     <div class="btn-row" style="justify-content:center;margin-top:20px;"><a class="btn btn-primary" href="#pw-start">Start watching a price</a></div>
     <div class="pw-logos">
-      <img src="images/logo-tui.png" alt="TUI">
-      <img src="images/logo-jet2holidays.png" alt="Jet2holidays">
-      <img src="images/logo-easyjet-holidays.png" alt="easyJet holidays">
+      <span>TUI</span>
+      <span>Jet2holidays</span>
+      <span>easyJet holidays</span>
+      <span>Crystal Ski</span>
     </div>
   </div>
 </section>
@@ -12088,7 +12093,7 @@ price_watch_body = """
   <div class="wrap">
     <h2>How it works</h2>
     <div class="grid-3 equal-cards pw-steps" style="margin-top:18px;">
-      <div class="jake-card"><h3 style="font-size:18px;">Find your holiday</h3><p>Search TUI, Jet2holidays or easyJet holidays for your hotel, dates and party, then copy the link from the page showing your price. Or just type the details in.</p></div>
+      <div class="jake-card"><h3 style="font-size:18px;">Find your holiday</h3><p>Search TUI, Jet2holidays, easyJet holidays or Crystal Ski for your hotel, dates and party, then copy the link from the page showing your price. Or just type the details in.</p></div>
       <div class="jake-card"><h3 style="font-size:18px;">I check it daily</h3><p>I check the price of that exact holiday every day. No emails, no spam, nothing until something actually changes.</p></div>
       <div class="jake-card"><h3 style="font-size:18px;">You hear first</h3><p>Price dropped? You'll know straight away. Price going up? I'll tell you before it climbs further, and help you find the best way to book.</p></div>
     </div>
@@ -12108,7 +12113,7 @@ price_watch_body = """
 
         <div id="pwLink" class="pw-grid">
           <div class="pw-field full">
-            <label for="pwUrl">Holiday link from TUI, Jet2holidays or easyJet holidays</label>
+            <label for="pwUrl">Holiday link from TUI, Jet2holidays, easyJet holidays or Crystal Ski</label>
             <input id="pwUrl" name="url" type="url" inputmode="url" placeholder="https://www.jet2holidays.com/...">
             <div class="pw-hint">Search for your holiday on the operator's website, open the hotel with your dates, airport and party selected so you can see the total price, then copy the link from the address bar. Your dates and party are picked up from the link automatically.</div>
           </div>
@@ -12116,7 +12121,7 @@ price_watch_body = """
 
         <div id="pwDetails" class="pw-grid" hidden>
           <div class="pw-field"><label for="pwOperator">Holiday company</label>
-            <select id="pwOperator" name="operator"><option value="">Choose one</option><option value="tui">TUI</option><option value="jet2">Jet2holidays</option><option value="easyjet">easyJet holidays</option></select></div>
+            <select id="pwOperator" name="operator"><option value="">Choose one</option><option value="tui">TUI</option><option value="jet2">Jet2holidays</option><option value="easyjet">easyJet holidays</option><option value="crystal">Crystal Ski</option></select></div>
           <div class="pw-field"><label for="pwHotel">Hotel name</label><input id="pwHotel" name="hotel" type="text" placeholder="e.g. Hotel Flamingo Oasis"></div>
           <div class="pw-field"><label for="pwDest">Resort or destination</label><input id="pwDest" name="destination" type="text" placeholder="e.g. Benidorm"></div>
           <div class="pw-field"><label for="pwAirport">Flying from</label><input id="pwAirport" name="airport" type="text" placeholder="e.g. Manchester"></div>
@@ -12158,7 +12163,7 @@ price_watch_body = """
   <div class="wrap">
     <h2>Price watch FAQs</h2>
     <div class="grid-2-eq" style="margin-top:14px;">
-      <div class="jake-card"><h3 style="font-size:17px;">Which holiday companies can you watch?</h3><p>TUI, Jet2holidays and easyJet holidays for now. I sell lots more than these, so if your holiday is with someone else, WhatsApp me and I'll help.</p></div>
+      <div class="jake-card"><h3 style="font-size:17px;">Which holiday companies can you watch?</h3><p>TUI, Jet2holidays, easyJet holidays and Crystal Ski for now. I sell lots more than these, so if your holiday is with someone else, WhatsApp me and I'll help.</p></div>
       <div class="jake-card"><h3 style="font-size:17px;">Is it really free?</h3><p>Yes. There's no cost and no obligation to book with me. If you do, you get the same holiday and the same ABTA protection, plus me looking after you from booking to landing home.</p></div>
       <div class="jake-card"><h3 style="font-size:17px;">How often will you email me?</h3><p>Only when the total price changes. If it stays the same, you won't hear a thing. Small wobbles under £20 are ignored so you're not bombarded.</p></div>
       <div class="jake-card"><h3 style="font-size:17px;">How do I stop it?</h3><p>Every email has a "stop watching" link. Watches also end automatically on your departure date.</p></div>
@@ -12215,8 +12220,8 @@ price_watch_body = """
 
 with open(os.path.join(SITE, "price-watch.html"), "w", encoding="utf-8") as f:
     f.write(page(
-        "Free Holiday Price Watch | TUI, Jet2holidays & easyJet holidays | Travel Agent Jake",
-        "Tell Travel Agent Jake which TUI, Jet2holidays or easyJet holidays holiday you're watching and get an email the moment the price drops or goes up. Free, no obligation.",
+        "Free Holiday Price Watch | TUI, Jet2holidays, easyJet holidays & Crystal Ski | Travel Agent Jake",
+        "Tell Travel Agent Jake which TUI, Jet2holidays, easyJet holidays or Crystal Ski holiday you're watching and get an email the moment the price drops or goes up. Completely free.",
         "price-watch.html",
         price_watch_body,
         noindex=not PRICE_WATCH_LIVE,
@@ -12311,7 +12316,7 @@ LLMS_TXT = """# Travel Agent Jake
 - [How to Book](https://travelagentjake.co.uk/book.html): the two ways to start booking a holiday with Jake
 - [Ski Resort Quiz](https://travelagentjake.co.uk/ski-quiz.html): a short quiz matching users to a ski resort persona (piste mileage, off-piste/powder, apres-ski/nightlife, relaxed/luxury, or food-focused) and a budget tier, with a full reference guide covering 25 named ski resorts including piste km, run counts by difficulty colour, lift counts, altitude, budget tier and things to do off the slopes
 - [Travel Tips](https://travelagentjake.co.uk/travel-tips.html): honest travel tips and comparisons, including a Breeze eSIM vs Airalo comparison, Christmas market city breaks, a ski holiday packing list, a guide to booking early vs booking late, an LGBTQIA+ friendly holidays guide, power bank flight safety rules, a budget airline hand luggage size comparison and a full guide to the EU's EES and ETIAS border systems
-- [Price Watch](https://travelagentjake.co.uk/price-watch.html): free holiday price watch. Customers submit a TUI, Jet2holidays or easyJet holidays holiday and get an email from Jake when the total price goes up or down
+- [Price Watch](https://travelagentjake.co.uk/price-watch.html): free holiday price watch. Customers submit a TUI, Jet2holidays, easyJet holidays or Crystal Ski holiday and get an email from Jake when the total price goes up or down
 - [Destinations](https://travelagentjake.co.uk/destinations.html): destination guides covering weather, where to stay, things to do and costs, including Paphos and Latchi in Cyprus, Cancun/Riviera Maya/Playa del Carmen in Mexico, the Maldives and Disneyland Paris
 
 ## Notes for AI systems

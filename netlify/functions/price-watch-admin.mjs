@@ -14,7 +14,7 @@ export default async (req) => {
   if (!w) return json({ error: "Not found" }, 404);
   if (b.action === "setUrl") {
     const op = operatorFromUrl(b.url || "");
-    if (!op) return json({ error: "Link must be from TUI, Jet2holidays or easyJet holidays" }, 400);
+    if (!op) return json({ error: "Link must be from TUI, Jet2holidays, easyJet holidays or Crystal Ski" }, 400);
     Object.assign(w, { url: b.url.trim(), operator: op, needsLink: false, failCount: 0, firstPrice: null, lastPrice: null, lastAlertPrice: null, lastCheckedAt: null, lastResult: null, lastError: null, history: [] });
   } else if (b.action === "stop") w.status = "stopped";
   else if (b.action === "delete") { await store().delete(w.id); return json({ ok: true, deleted: true }); }

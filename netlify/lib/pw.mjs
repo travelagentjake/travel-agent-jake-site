@@ -9,6 +9,7 @@ export const OPERATORS = {
   tui: { name: "TUI", hosts: ["tui.co.uk"] },
   jet2: { name: "Jet2holidays", hosts: ["jet2holidays.com"] },
   easyjet: { name: "easyJet holidays", hosts: ["easyjet.com"] },
+  crystal: { name: "Crystal Ski", hosts: ["crystalski.co.uk"] },
 };
 // Smallest change in the TOTAL holiday price that triggers an email.
 export const MIN_CHANGE_GBP = Number(process.env.PW_MIN_CHANGE_GBP || 20);

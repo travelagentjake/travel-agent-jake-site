@@ -16,7 +16,7 @@ function fromLink(url, operator) {
       o.departDate = dmy(q.get("date")); o.nights = q.get("duration") || "";
       const occ = /^r(\d+)c?([\d_]*)/.exec(q.get("occupancy") || ""); if (occ) { o.adults = occ[1]; const kids = occ[2] ? occ[2].split("_").filter(Boolean) : []; o.children = String(kids.length); o.childAges = kids.join(", "); }
       const parts = u.pathname.split("/").filter(Boolean); o.hotel = (parts.at(-1) || "").replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()); o.destination = (parts.at(-2) || "").replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-    } else if (operator === "tui") {
+    } else if (operator === "tui" || operator === "crystal") {
       o.departDate = dmy(q.get("when")); o.nights = q.get("duration") && q.get("duration").length <= 2 ? q.get("duration") : "";
       o.adults = q.get("noOfAdults") || ""; o.children = q.get("noOfChildren") || ""; o.childAges = (q.get("childrenAge") || "").replace(/,/g, ", ");
       o.airport = q.getAll("airports[]").join(", "); o.board = BOARD[q.get("bb")] || "";
@@ -43,9 +43,9 @@ export default async (req) => {
   let operator = clean(b.operator, 20);
   if (url) {
     operator = operatorFromUrl(url);
-    if (!operator) return json({ error: "That link isn't from TUI, Jet2holidays or easyJet holidays. Please paste the link from one of those three sites, or use the 'enter details' option instead." }, 400);
+    if (!operator) return json({ error: "That link isn't from TUI, Jet2holidays, easyJet holidays or Crystal Ski. Please paste the link from one of those sites, or use the 'enter details' option instead." }, 400);
   } else if (!OPERATORS[operator]) {
-    return json({ error: "Please choose TUI, Jet2holidays or easyJet holidays." }, 400);
+    return json({ error: "Please choose TUI, Jet2holidays, easyJet holidays or Crystal Ski." }, 400);
   }
 
   const departDate = clean(b.departDate, 10);
