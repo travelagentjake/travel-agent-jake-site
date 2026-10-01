@@ -12057,6 +12057,7 @@ price_watch_body = """
 .pw-tab[aria-selected="true"]{background:var(--blue);color:#fff;}
 .pw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px;}
 .pw-grid .full{grid-column:1/-1;}
+.pw-grid[hidden],.pw-field[hidden]{display:none !important;}
 .pw-field label{display:block;font-weight:700;font-size:14px;margin-bottom:6px;}
 .pw-field input,.pw-field select,.pw-field textarea{width:100%;box-sizing:border-box;padding:12px 14px;border:2px solid #d5dbea;border-radius:10px;font:inherit;font-size:16px;background:#fff;color:var(--ink);}
 .pw-field input:focus,.pw-field select:focus,.pw-field textarea:focus{outline:none;border-color:var(--blue);}
@@ -12109,7 +12110,7 @@ price_watch_body = """
           <div class="pw-field full">
             <label for="pwUrl">Holiday link from TUI, Jet2holidays or easyJet holidays</label>
             <input id="pwUrl" name="url" type="url" inputmode="url" placeholder="https://www.jet2holidays.com/...">
-            <div class="pw-hint">Search for your holiday on the operator's website, open the hotel with your dates, airport and party selected so you can see the total price, then copy the link from the address bar.</div>
+            <div class="pw-hint">Search for your holiday on the operator's website, open the hotel with your dates, airport and party selected so you can see the total price, then copy the link from the address bar. Your dates and party are picked up from the link automatically.</div>
           </div>
         </div>
 
@@ -12122,14 +12123,14 @@ price_watch_body = """
           <div class="pw-field"><label for="pwBoard">Board basis</label>
             <select id="pwBoard" name="board"><option value="">Choose one</option><option>All Inclusive</option><option>Half Board</option><option>Bed and Breakfast</option><option>Self Catering</option><option>Room Only</option><option>Full Board</option></select></div>
           <div class="pw-field"><label for="pwBudget">Budget for the whole party (optional)</label><input id="pwBudget" name="budget" type="text" placeholder="e.g. £2,500"></div>
-        </div>
-
-        <div class="pw-grid" style="margin-top:14px;">
           <div class="pw-field"><label for="pwDate">Departure date</label><input id="pwDate" name="departDate" type="date"></div>
           <div class="pw-field"><label for="pwNights">Nights</label><input id="pwNights" name="nights" type="number" min="1" max="60" placeholder="7"></div>
           <div class="pw-field"><label for="pwAdults">Adults</label><input id="pwAdults" name="adults" type="number" min="1" max="12" value="2"></div>
           <div class="pw-field"><label for="pwChildren">Children</label><input id="pwChildren" name="children" type="number" min="0" max="10" value="0"></div>
           <div class="pw-field full" id="pwAgesWrap" hidden><label for="pwAges">Children's ages on return</label><input id="pwAges" name="childAges" type="text" placeholder="e.g. 4, 9"></div>
+        </div>
+
+        <div class="pw-grid" style="margin-top:14px;">
           <div class="pw-field"><label for="pwName">First name</label><input id="pwName" name="firstName" type="text" autocomplete="given-name" required></div>
           <div class="pw-field"><label for="pwEmail">Email address</label><input id="pwEmail" name="email" type="email" autocomplete="email" required></div>
           <div class="pw-field"><label for="pwPhone">Mobile (optional, for WhatsApp)</label><input id="pwPhone" name="phone" type="tel" autocomplete="tel"></div>
@@ -12186,7 +12187,7 @@ price_watch_body = """
     var fd=new FormData(form), data={};
     fd.forEach(function(v,k){ data[k]=v; });
     data.alertsConsent=!!form.alertsConsent.checked; data.marketingConsent=!!form.marketingConsent.checked;
-    if(mode==='link'){ ['operator','hotel','destination','airport','board','budget'].forEach(function(k){delete data[k];}); if(!data.url){ return showErr('Please paste the holiday link, or switch to "Enter the details instead".'); } }
+    if(mode==='link'){ ['operator','hotel','destination','airport','board','budget','departDate','nights','adults','children','childAges'].forEach(function(k){delete data[k];}); if(!data.url){ return showErr('Please paste the holiday link, or switch to "Enter the details instead".'); } }
     else { delete data.url; if(!data.operator||!data.hotel||!data.departDate){ return showErr('Please choose the holiday company and add the hotel and departure date.'); } }
     if(!data.firstName||!data.email){ return showErr('Please add your first name and email address.'); }
     if(!data.alertsConsent){ return showErr('Please tick the first box so I can email you when the price changes.'); }
