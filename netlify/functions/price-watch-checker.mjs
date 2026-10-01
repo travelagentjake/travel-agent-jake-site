@@ -32,7 +32,7 @@ function priceEmail(w, oldP, newP) {
 <p>I've been keeping an eye on the price of your holiday and it has <strong>gone up by ${gbp(diff)}</strong>.</p>
 <p style="font-size:20px;margin:18px 0;"><span style="color:#6b7280;">${gbp(oldP)}</span> &nbsp;→&nbsp; <strong style="color:#004AAD;">${gbp(newP)}</strong> total</p>
 <p>${hol}</p>
-<p>If these dates matter to you, it's worth acting before the price moves again. Message me and I'll check what's available right now, including nearby dates, other airports or similar hotels that could bring the price back down. I can also tell you about low deposit options so you can secure it today.</p>
+<p>If these dates matter to you, it's worth acting before the price moves again. Message me and I'll check what's available right now, including nearby dates, other airports or similar hotels that could bring the price back down.</p>
 <p>${button(wa, "WhatsApp me")}${w.url ? button(w.url, "View the holiday", "#004AAD", "#ffffff") : ""}</p>`;
   const foot = `<p style="font-size:13px;color:#6b7280;margin-top:22px;">You're getting this because you asked me to watch this holiday's price on travelagentjake.co.uk. I'll only email when the price changes. <a href="${stopLink(w)}" style="color:#6b7280;">Stop watching this holiday</a>.</p>`;
   return { subject, html: emailShell(body + foot) };
