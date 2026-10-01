@@ -1,0 +1,9 @@
+{
+  "name": "travel-agent-jake-site",
+  "private": true,
+  "type": "module",
+  "description": "Static site plus Netlify Functions for the Price Watch tool",
+  "dependencies": {
+    "@netlify/blobs": "^11.1.3"
+  }
+}

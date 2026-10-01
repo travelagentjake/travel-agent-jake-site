@@ -12035,6 +12035,193 @@ with open(os.path.join(SITE, "jet2holidays.html"), "w", encoding="utf-8") as f:
 print("jet2holidays.html written (full Jet2holidays landing page: search + offers widgets, reasons to book, reviews; not linked from nav/sitemap, noindex)")
 
 
+# ---------------- PRICE WATCH (price-watch.html + price-watch-admin.html) ----------------
+# Customers ask Jake to watch the price of a TUI / Jet2holidays / easyJet
+# holidays holiday. Data goes to Netlify Functions (netlify/functions/price-watch-*.mjs),
+# stored in Netlify Blobs, never in this repo. Emails only on a real price change.
+# PRICE_WATCH_LIVE = False keeps it noindex and out of nav/sitemap until the
+# daily checker has been proven against all three operators.
+PRICE_WATCH_LIVE = False
+
+price_watch_body = """
+<style>
+.pw-hero{background:linear-gradient(rgba(10,20,45,.62),rgba(10,20,45,.62)),url('images/hero/hero-pool.jpg') center/cover no-repeat;}
+.pw-logos{display:flex;gap:28px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:22px;}
+.pw-logos img{height:34px;width:auto;background:#fff;border-radius:8px;padding:6px 10px;}
+.pw-steps{counter-reset:pw;}
+.pw-steps .jake-card h3:before{counter-increment:pw;content:counter(pw);display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--yellow);color:var(--ink);margin-right:10px;font-size:16px;}
+.pw-form{max-width:none;}
+.pw-tabs{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
+.pw-tab{flex:1 1 200px;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:12px 16px;font-weight:700;cursor:pointer;font-family:inherit;font-size:15px;}
+.pw-tab[aria-selected="true"]{background:var(--blue);color:#fff;}
+.pw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px;}
+.pw-grid .full{grid-column:1/-1;}
+.pw-field label{display:block;font-weight:700;font-size:14px;margin-bottom:6px;}
+.pw-field input,.pw-field select,.pw-field textarea{width:100%;box-sizing:border-box;padding:12px 14px;border:2px solid #d5dbea;border-radius:10px;font:inherit;font-size:16px;background:#fff;color:var(--ink);}
+.pw-field input:focus,.pw-field select:focus,.pw-field textarea:focus{outline:none;border-color:var(--blue);}
+.pw-hint{font-size:13px;color:#5b6478;margin-top:5px;}
+.pw-check{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:15px;}
+.pw-check input{width:20px;height:20px;margin-top:2px;flex:0 0 auto;}
+.pw-error{background:#fde8ea;color:#8a1020;border-radius:10px;padding:12px 14px;margin-top:14px;}
+.pw-success{text-align:center;padding:10px 0;}
+.pw-fine{font-size:13px;color:#5b6478;margin-top:14px;}
+@media (max-width:700px){.pw-grid{grid-template-columns:1fr;}}
+</style>
+
+<section class="theme-dark pw-hero">
+  <div class="wrap" style="text-align:center;">
+    <span class="eyebrow">FREE HOLIDAY PRICE WATCH</span>
+    <h1>Found a holiday you love? <span class="hl">I'll watch the price for you.</span></h1>
+    <p class="lead" style="margin:14px auto 0;max-width:60ch;">Not quite ready to book? Tell me which holiday you're eyeing up and I'll check the price every day. The moment it drops or goes up, I'll email you so you never miss the best time to book. Free, no obligation.</p>
+    <div class="btn-row" style="justify-content:center;margin-top:20px;"><a class="btn btn-primary" href="#pw-start">Start watching a price</a></div>
+    <div class="pw-logos">
+      <img src="images/logo-tui.png" alt="TUI">
+      <img src="images/logo-jet2holidays.png" alt="Jet2holidays">
+      <img src="images/logo-easyjet-holidays.png" alt="easyJet holidays">
+    </div>
+  </div>
+</section>
+
+<section class="theme-light">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <div class="grid-3 equal-cards pw-steps" style="margin-top:18px;">
+      <div class="jake-card"><h3 style="font-size:18px;">Find your holiday</h3><p>Search TUI, Jet2holidays or easyJet holidays for your hotel, dates and party, then copy the link from the page showing your price. Or just type the details in.</p></div>
+      <div class="jake-card"><h3 style="font-size:18px;">I check it daily</h3><p>I check the price of that exact holiday every day. No emails, no spam, nothing until something actually changes.</p></div>
+      <div class="jake-card"><h3 style="font-size:18px;">You hear first</h3><p>Price dropped? You'll know straight away. Price going up? I'll tell you before it climbs further, and help you find the best way to book.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" id="pw-start" style="padding-top:0;">
+  <div class="wrap">
+    <div class="jake-card" style="padding:28px;">
+      <h2 style="margin-top:0;">Start your price watch</h2>
+      <div id="pwFull" class="pw-error" hidden>My price watch is full right now. <a href="https://wa.me/447899290262?text=Hi%20Jake%2C%20can%20you%20keep%20an%20eye%20on%20a%20holiday%20price%20for%20me%3F">WhatsApp me</a> and I'll keep an eye on it for you personally.</div>
+      <form id="pwForm" class="pw-form" novalidate>
+        <div class="pw-tabs" role="tablist">
+          <button type="button" class="pw-tab" role="tab" aria-selected="true" data-mode="link">Paste the holiday link</button>
+          <button type="button" class="pw-tab" role="tab" aria-selected="false" data-mode="details">Enter the details instead</button>
+        </div>
+
+        <div id="pwLink" class="pw-grid">
+          <div class="pw-field full">
+            <label for="pwUrl">Holiday link from TUI, Jet2holidays or easyJet holidays</label>
+            <input id="pwUrl" name="url" type="url" inputmode="url" placeholder="https://www.jet2holidays.com/...">
+            <div class="pw-hint">Search for your holiday on the operator's website, open the hotel with your dates, airport and party selected so you can see the total price, then copy the link from the address bar.</div>
+          </div>
+        </div>
+
+        <div id="pwDetails" class="pw-grid" hidden>
+          <div class="pw-field"><label for="pwOperator">Holiday company</label>
+            <select id="pwOperator" name="operator"><option value="">Choose one</option><option value="tui">TUI</option><option value="jet2">Jet2holidays</option><option value="easyjet">easyJet holidays</option></select></div>
+          <div class="pw-field"><label for="pwHotel">Hotel name</label><input id="pwHotel" name="hotel" type="text" placeholder="e.g. Hotel Flamingo Oasis"></div>
+          <div class="pw-field"><label for="pwDest">Resort or destination</label><input id="pwDest" name="destination" type="text" placeholder="e.g. Benidorm"></div>
+          <div class="pw-field"><label for="pwAirport">Flying from</label><input id="pwAirport" name="airport" type="text" placeholder="e.g. Manchester"></div>
+          <div class="pw-field"><label for="pwBoard">Board basis</label>
+            <select id="pwBoard" name="board"><option value="">Choose one</option><option>All Inclusive</option><option>Half Board</option><option>Bed and Breakfast</option><option>Self Catering</option><option>Room Only</option><option>Full Board</option></select></div>
+          <div class="pw-field"><label for="pwBudget">Budget for the whole party (optional)</label><input id="pwBudget" name="budget" type="text" placeholder="e.g. £2,500"></div>
+        </div>
+
+        <div class="pw-grid" style="margin-top:14px;">
+          <div class="pw-field"><label for="pwDate">Departure date</label><input id="pwDate" name="departDate" type="date"></div>
+          <div class="pw-field"><label for="pwNights">Nights</label><input id="pwNights" name="nights" type="number" min="1" max="60" placeholder="7"></div>
+          <div class="pw-field"><label for="pwAdults">Adults</label><input id="pwAdults" name="adults" type="number" min="1" max="12" value="2"></div>
+          <div class="pw-field"><label for="pwChildren">Children</label><input id="pwChildren" name="children" type="number" min="0" max="10" value="0"></div>
+          <div class="pw-field full" id="pwAgesWrap" hidden><label for="pwAges">Children's ages on return</label><input id="pwAges" name="childAges" type="text" placeholder="e.g. 4, 9"></div>
+          <div class="pw-field"><label for="pwName">First name</label><input id="pwName" name="firstName" type="text" autocomplete="given-name" required></div>
+          <div class="pw-field"><label for="pwEmail">Email address</label><input id="pwEmail" name="email" type="email" autocomplete="email" required></div>
+          <div class="pw-field"><label for="pwPhone">Mobile (optional, for WhatsApp)</label><input id="pwPhone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="pw-field"><label for="pwNotes">Anything else? (optional)</label><input id="pwNotes" name="notes" type="text" placeholder="e.g. need a family room, flexible on dates"></div>
+        </div>
+        <input type="text" name="website" class="newsletter-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <label class="pw-check"><input type="checkbox" name="alertsConsent" required> <span>Email me when the price of this holiday changes. <strong>(Required)</strong></span></label>
+        <label class="pw-check"><input type="checkbox" name="marketingConsent"> <span>Also send me Jake's exclusive deals, offers and travel news. Unsubscribe any time.</span></label>
+
+        <div id="pwError" class="pw-error" hidden></div>
+        <div class="btn-row" style="margin-top:20px;"><button class="btn btn-primary" type="submit" id="pwSubmit">Watch this price</button></div>
+        <p class="pw-fine">Prices are checked once a day on the holiday company's own website and are for guidance only. Final prices are confirmed when you book. Your details are used to run your price watch and, if you tick the second box, to send you offers. See the <a href="club-voyages-privacy-notice.html">privacy notice</a>. Every alert email has a link to stop watching.</p>
+      </form>
+      <div id="pwSuccess" class="pw-success" hidden>
+        <h3>You're all set, <span id="pwSuccessName"></span>!</h3>
+        <p id="pwSuccessMsg">I'm now watching this holiday's price. You'll only hear from me when it changes.</p>
+        <div class="btn-row" style="justify-content:center;"><a class="btn btn-primary" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%27ve%20just%20set%20up%20a%20price%20watch%20and%20I%27d%20love%20some%20help%20with%20my%20holiday" target="_blank" rel="noopener">Ready to book? WhatsApp me</a><button class="btn" type="button" id="pwAnother" style="border:2px solid var(--blue);">Watch another holiday</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Price watch FAQs</h2>
+    <div class="grid-2-eq" style="margin-top:14px;">
+      <div class="jake-card"><h3 style="font-size:17px;">Which holiday companies can you watch?</h3><p>TUI, Jet2holidays and easyJet holidays for now. I sell lots more than these, so if your holiday is with someone else, WhatsApp me and I'll help.</p></div>
+      <div class="jake-card"><h3 style="font-size:17px;">Is it really free?</h3><p>Yes. There's no cost and no obligation to book with me. If you do, you get the same holiday and the same ABTA protection, plus me looking after you from booking to landing home.</p></div>
+      <div class="jake-card"><h3 style="font-size:17px;">How often will you email me?</h3><p>Only when the total price changes. If it stays the same, you won't hear a thing. Small wobbles under £20 are ignored so you're not bombarded.</p></div>
+      <div class="jake-card"><h3 style="font-size:17px;">How do I stop it?</h3><p>Every email has a "stop watching" link. Watches also end automatically on your departure date.</p></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var form=document.getElementById('pwForm'); if(!form) return;
+  var mode='link';
+  var tabs=form.querySelectorAll('.pw-tab');
+  var linkBox=document.getElementById('pwLink'), detBox=document.getElementById('pwDetails');
+  tabs.forEach(function(t){ t.addEventListener('click',function(){
+    mode=t.getAttribute('data-mode');
+    tabs.forEach(function(x){x.setAttribute('aria-selected', x===t?'true':'false');});
+    linkBox.hidden = mode!=='link'; detBox.hidden = mode!=='details';
+  });});
+  var kids=document.getElementById('pwChildren'), agesWrap=document.getElementById('pwAgesWrap');
+  kids.addEventListener('input',function(){ agesWrap.hidden = !(Number(kids.value)>0); });
+  var d=document.getElementById('pwDate'); var t=new Date(); t.setDate(t.getDate()+1); d.min=t.toISOString().slice(0,10);
+  var err=document.getElementById('pwError'), btn=document.getElementById('pwSubmit');
+  function showErr(m){ err.textContent=m; err.hidden=false; }
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true;
+    var fd=new FormData(form), data={};
+    fd.forEach(function(v,k){ data[k]=v; });
+    data.alertsConsent=!!form.alertsConsent.checked; data.marketingConsent=!!form.marketingConsent.checked;
+    if(mode==='link'){ ['operator','hotel','destination','airport','board','budget'].forEach(function(k){delete data[k];}); if(!data.url){ return showErr('Please paste the holiday link, or switch to "Enter the details instead".'); } }
+    else { delete data.url; if(!data.operator||!data.hotel||!data.departDate){ return showErr('Please choose the holiday company and add the hotel and departure date.'); } }
+    if(!data.firstName||!data.email){ return showErr('Please add your first name and email address.'); }
+    if(!data.alertsConsent){ return showErr('Please tick the first box so I can email you when the price changes.'); }
+    btn.disabled=true; btn.textContent='Saving...';
+    fetch('/api/price-watch',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){ return r.json().then(function(j){ return {s:r.status,j:j}; }); })
+      .then(function(res){
+        btn.disabled=false; btn.textContent='Watch this price';
+        if(res.j && res.j.full){ document.getElementById('pwFull').hidden=false; form.hidden=true; return; }
+        if(!res.j || !res.j.ok){ return showErr((res.j&&res.j.error)||'Something went wrong, please try again.'); }
+        document.getElementById('pwSuccessName').textContent=data.firstName;
+        if(res.j.needsLink){ document.getElementById('pwSuccessMsg').textContent="Thanks! I'll find this exact holiday and start watching its price. You'll only hear from me when it changes."; }
+        form.hidden=true; document.getElementById('pwSuccess').hidden=false;
+        if(window.gtag){ gtag('event','price_watch_signup',{mode:mode,marketing:data.marketingConsent}); }
+      })
+      .catch(function(){ btn.disabled=false; btn.textContent='Watch this price'; showErr('Something went wrong, please try again.'); });
+  });
+  document.getElementById('pwAnother').addEventListener('click',function(){
+    ['url','hotel','destination','notes','departDate','nights'].forEach(function(k){ if(form[k]) form[k].value=''; });
+    form.hidden=false; document.getElementById('pwSuccess').hidden=true;
+  });
+})();
+</script>
+"""
+
+with open(os.path.join(SITE, "price-watch.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Free Holiday Price Watch | TUI, Jet2holidays & easyJet holidays | Travel Agent Jake",
+        "Tell Travel Agent Jake which TUI, Jet2holidays or easyJet holidays holiday you're watching and get an email the moment the price drops or goes up. Free, no obligation.",
+        "price-watch.html",
+        price_watch_body,
+        noindex=not PRICE_WATCH_LIVE,
+        canonical_path="price-watch.html"
+    ))
+print("price-watch.html written" + ("" if PRICE_WATCH_LIVE else " (noindex, not in nav/sitemap until the checker is proven)"))
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),

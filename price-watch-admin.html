@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Price Watch Admin | Travel Agent Jake</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#004AAD;--yellow:#FFD21F;--ink:#14213d;--pale:#eef3fb;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:Archivo,Arial,sans-serif;background:var(--pale);color:var(--ink);}
+header{background:var(--blue);color:#fff;padding:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+header img{height:36px;} header h1{font-size:20px;margin:0;flex:1;}
+main{padding:16px;max-width:1300px;margin:0 auto;}
+.card{background:#fff;border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;}
+.stat b{display:block;font-size:28px;color:var(--blue);}
+.trends{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.bar{display:flex;align-items:center;gap:8px;font-size:14px;margin:5px 0;}
+.bar span:first-child{flex:0 0 46%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.bar i{display:block;height:10px;background:var(--blue);border-radius:5px;}
+.bar em{font-style:normal;color:#5b6478;}
+input,button,select{font:inherit;padding:9px 12px;border-radius:8px;border:2px solid #d5dbea;}
+button{background:var(--yellow);border-color:var(--yellow);font-weight:700;cursor:pointer;}
+button.ghost{background:#fff;border-color:var(--blue);color:var(--blue);}
+table{width:100%;border-collapse:collapse;font-size:13.5px;}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid #e4e8f2;vertical-align:top;}
+th{position:sticky;top:0;background:#fff;}
+.scroll{overflow-x:auto;}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#e4e8f2;}
+.pill.active{background:#dff5e3;color:#11632b;} .pill.needs{background:#fff3c4;color:#7a5b00;} .pill.fail{background:#fde8ea;color:#8a1020;}
+.up{color:#b00020;} .down{color:#11632b;}
+h2{margin:0 0 10px;font-size:17px;}
+</style>
+</head>
+<body>
+<header><img src="images/logo.png" alt=""><h1>Price Watch admin</h1>
+  <input id="key" type="password" placeholder="Admin key"><button id="load">Load</button></header>
+<main>
+  <div id="msg" class="card" hidden></div>
+  <div id="app" hidden>
+    <div class="card stats" id="stats"></div>
+    <div class="card"><h2>What people are watching (trends)</h2><div class="trends" id="trends"></div></div>
+    <div class="card">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px;">
+        <h2 style="flex:1;margin:0;">All watches</h2>
+        <select id="filter"><option value="all">All</option><option value="active">Active</option><option value="needs">Needs a link</option><option value="fail">Check failing</option><option value="optin">Marketing opt in</option><option value="ended">Stopped or expired</option></select>
+        <button class="ghost" id="csv">Download CSV</button>
+      </div>
+      <div class="scroll"><table><thead><tr><th>Added</th><th>Customer</th><th>Holiday</th><th>Party</th><th>Price</th><th>Status</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+    </div>
+  </div>
+</main>
+<script>
+var KEY='', DATA=[];
+var OPS={tui:'TUI',jet2:'Jet2holidays',easyjet:'easyJet holidays'};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function gbp(n){return n==null?'':'£'+Number(n).toLocaleString('en-GB');}
+function msg(t){var m=document.getElementById('msg');m.textContent=t;m.hidden=!t;}
+try{KEY=sessionStorage.getItem('pwkey')||'';}catch(e){}
+document.getElementById('key').value=KEY;
+function api(method,body){return fetch('/api/price-watch-admin',{method:method,headers:{'x-admin-key':KEY,'content-type':'application/json'},body:body?JSON.stringify(body):undefined}).then(function(r){return r.json();});}
+function load(){
+  KEY=document.getElementById('key').value.trim(); try{sessionStorage.setItem('pwkey',KEY);}catch(e){}
+  msg('Loading...');
+  api('GET').then(function(j){ if(j.error){msg(j.error);return;} msg(''); DATA=j.watches||[]; render(); }).catch(function(){msg('Could not load.');});
+}
+document.getElementById('load').onclick=load;
+document.getElementById('filter').onchange=render;
+function count(arr,fn){var m={};arr.forEach(function(w){var k=fn(w);if(k)m[k]=(m[k]||0)+1;});return Object.entries(m).sort(function(a,b){return b[1]-a[1];}).slice(0,8);}
+function bars(title,list){var max=list.length?list[0][1]:1;return '<div><h2>'+esc(title)+'</h2>'+(list.length?list.map(function(x){return '<div class="bar"><span title="'+esc(x[0])+'">'+esc(x[0])+'</span><i style="width:'+Math.max(6,x[1]/max*45)+'%"></i><em>'+x[1]+'</em></div>';}).join(''):'<p style="color:#5b6478">No data yet</p>')+'</div>';}
+function month(d){if(!d)return '';var x=new Date(d+'T12:00:00');return x.toLocaleDateString('en-GB',{month:'short',year:'numeric'});}
+function party(w){var a=Number(w.adults)||0,c=Number(w.children)||0;if(c>0)return 'Family ('+a+'+'+c+')';if(a===1)return 'Solo';if(a===2)return 'Couple';return 'Group of '+a;}
+function status(w){if(w.status!=='active')return w.status;if(w.needsLink)return 'needs';if(w.failCount>0)return 'fail';return 'active';}
+function render(){
+  document.getElementById('app').hidden=false;
+  var act=DATA.filter(function(w){return w.status==='active';});
+  var alerts=DATA.reduce(function(s,w){return s+(w.alertsSent||0);},0);
+  var opt=DATA.filter(function(w){return w.marketing;}).length;
+  document.getElementById('stats').innerHTML=[['Total sign ups',DATA.length],['Active watches',act.length],['Need a link',DATA.filter(function(w){return w.status==='active'&&w.needsLink;}).length],['Marketing opt ins',opt+(DATA.length?' ('+Math.round(opt/DATA.length*100)+'%)':'')],['Alerts sent',alerts],['Unique emails',new Set(DATA.map(function(w){return w.email;})).size]].map(function(s){return '<div class="stat"><b>'+s[1]+'</b>'+s[0]+'</div>';}).join('');
+  document.getElementById('trends').innerHTML=[
+    bars('Destinations',count(DATA,function(w){return w.destination||w.hotel;})),
+    bars('Operators',count(DATA,function(w){return OPS[w.operator];})),
+    bars('Departure months',count(DATA,function(w){return month(w.departDate);})),
+    bars('Board basis',count(DATA,function(w){return w.board;})),
+    bars('Party type',count(DATA,party)),
+    bars('Flying from',count(DATA,function(w){return w.airport;}))
+  ].join('');
+  var f=document.getElementById('filter').value;
+  var rows=DATA.filter(function(w){var s=status(w);if(f==='all')return true;if(f==='optin')return w.marketing;if(f==='ended')return w.status!=='active';if(f==='active')return w.status==='active';return s===f;});
+  document.getElementById('rows').innerHTML=rows.map(function(w){
+    var s=status(w), change='';
+    if(w.firstPrice!=null&&w.lastPrice!=null&&w.lastPrice!==w.firstPrice){var d=w.lastPrice-w.firstPrice;change=' <span class="'+(d>0?'up':'down')+'">('+(d>0?'+':'-')+gbp(Math.abs(d))+')</span>';}
+    var hol=[w.hotel,w.destination,OPS[w.operator],w.departDate&&new Date(w.departDate+'T12:00:00').toLocaleDateString('en-GB'),w.nights&&w.nights+'n',w.board,w.airport].filter(Boolean).map(esc).join(', ');
+    var link=w.url?' <a href="'+esc(w.url)+'" target="_blank" rel="noopener">link</a>':'';
+    var act='';
+    if(w.status==='active'){act+=(w.needsLink?'<input placeholder="Paste operator link" data-url="'+w.id+'" style="width:190px"> <button data-set="'+w.id+'">Save</button> ':'')+'<button class="ghost" data-stop="'+w.id+'">Stop</button>';}
+    else act='<button class="ghost" data-re="'+w.id+'">Reactivate</button>';
+    return '<tr><td>'+esc((w.createdAt||'').slice(0,10))+'</td><td>'+esc(w.firstName)+'<br><a href="mailto:'+esc(w.email)+'">'+esc(w.email)+'</a>'+(w.phone?'<br>'+esc(w.phone):'')+(w.marketing?'<br><span class="pill active">opted in</span>':'')+'</td><td>'+hol+link+(w.notes?'<br><em>'+esc(w.notes)+'</em>':'')+(w.lastError?'<br><span class="up">'+esc(w.lastError)+'</span>':'')+'</td><td>'+esc(party(w))+(w.childAges?'<br>ages '+esc(w.childAges):'')+'</td><td>'+gbp(w.lastPrice)+change+(w.lastCheckedAt?'<br><small>'+esc(w.lastCheckedAt.slice(0,10))+'</small>':'')+'</td><td><span class="pill '+s+'">'+(s==='needs'?'needs link':s==='fail'?'check failing':s)+'</span></td><td>'+act+'</td></tr>';
+  }).join('');
+}
+document.getElementById('rows').addEventListener('click',function(e){
+  var t=e.target, id;
+  if((id=t.getAttribute('data-stop'))){ api('POST',{action:'stop',id:id}).then(load); }
+  else if((id=t.getAttribute('data-re'))){ api('POST',{action:'reactivate',id:id}).then(load); }
+  else if((id=t.getAttribute('data-set'))){ var u=document.querySelector('[data-url="'+id+'"]').value; api('POST',{action:'setUrl',id:id,url:u}).then(function(j){ if(j.error) alert(j.error); load(); }); }
+});
+document.getElementById('csv').onclick=function(){
+  var cols=['createdAt','status','firstName','email','phone','marketing','operator','hotel','destination','airport','departDate','nights','board','adults','children','childAges','budget','firstPrice','lastPrice','alertsSent','url','notes'];
+  var csv=[cols.join(',')].concat(DATA.map(function(w){return cols.map(function(c){var v=w[c]==null?'':String(w[c]);return '"'+v.replace(/"/g,'""')+'"';}).join(',');})).join('\n');
+  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='price-watch-'+new Date().toISOString().slice(0,10)+'.csv';a.click();
+};
+if(KEY) load();
+</script>
+</body>
+</html>
