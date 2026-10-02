@@ -7754,6 +7754,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1586752488885-6ce47fdfd874?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "The Matterhorn above Zermatt covered in snow",
     },
+    {
+        "slug": "lost-delayed-luggage-compensation-rights.html",
+        "meta": "Baggage &amp; luggage",
+        "title": "Lost or delayed luggage? Here's what you're actually entitled to",
+        "excerpt": "The real compensation limits under the Montreal Convention, the deadlines that catch people out, and exactly how to claim your money back if your bag doesn't turn up.",
+        "image": "https://images.unsplash.com/photo-1702411739431-0b6874405792?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Luggage carousel at an airport baggage claim with a departures screen above it",
+    },
 ]
 
 def tip_card(post):
@@ -11891,6 +11899,152 @@ print("best-snow-sure-ski-resorts-december-january-february-march.html written")
 
 
 
+# ---------------- TRAVEL TIPS: Lost or delayed luggage, compensation and claims ----------------
+luggage_rights_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>LOST OR DELAYED LUGGAGE: WHAT YOU'RE ACTUALLY ENTITLED TO</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Your case doesn't turn up on the carousel, or it does but the handle's been ripped off. SITA's most recent industry figures put global baggage mishandling at around 5 bags for every 1,000 passengers in 2025, a genuine improvement on the year before, but still enough that it happens on nearly every flight you've ever been on. Here's exactly what you're entitled to under the rules that actually apply, the deadlines that catch people out, and how to actually get your money back.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1702411739431-0b6874405792?auto=format&fit=crop&w=1600&h=700&q=80" alt="Luggage carousel at an airport baggage claim with a departures screen above it" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">If your bag is lost, delayed or damaged on an international flight, the airline's liability is capped under an international rule called the Montreal Convention, at 1,288 Special Drawing Rights per passenger for the whole journey. The UK's Civil Aviation Authority puts that at a realistic maximum of around &pound;1,000, and in practice you'll usually get paid less than that, since what you receive is based on the proven value of what was actually lost or damaged, not a flat payout.</p>
+      <p style="margin-top:14px; margin-bottom:0;">You have to report the problem immediately at the airport and get a Property Irregularity Report before you leave, and there are hard deadlines for claiming afterwards: 7 days for damage, 21 days for a delay, both counted from when you actually got your bag back.</p>
+    </div>
+    {jake_tip("None of this is the same as the ATOL or ABTA protection I talk about elsewhere on the site. That covers your money if the company you booked with goes bust. This is a completely separate thing, the airline's liability for your actual physical bag, and it applies whoever you booked your flight through.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What you're actually entitled to</h2>
+    <img src="https://images.unsplash.com/photo-1762965119363-af950b523dca?auto=format&fit=crop&w=1600&h=700&q=80" alt="Suitcases moving along an airport baggage conveyor belt" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The rules are the same whether your bag never turns up at all, turns up days later, or turns up damaged. The table below covers all three.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Situation</th><th>Deadline to claim</th><th>What you can expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Damaged baggage</td><td>Report before leaving the airport, written claim within 7 days of getting your bag back</td><td>Repair or replacement, the airline's choice, based on the proven value of the bag</td></tr>
+          <tr><td>Delayed baggage</td><td>Report before leaving the airport (get a Property Irregularity Report), written claim within 21 days of getting it back</td><td>Reasonable, receipted essentials bought while you were without it, such as clothing and toiletries</td></tr>
+          <tr><td>Lost baggage</td><td>Usually confirmed as lost after around 21 days, claim as above</td><td>Compensation based on the proven value of the contents, capped at the Montreal Convention limit, around &pound;1,000 in the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures based on the Civil Aviation Authority's own published guidance for UK air passengers. Individual airlines can be more generous, but cannot offer less than this baseline.</p>
+    {jake_tip("Keep every receipt for anything you buy because your bag hasn't turned up, even something as small as a toothbrush. Airlines can't impose their own arbitrary daily limit on reasonable, documented expenses, so don't assume a receipted shop is too much to claim.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What it doesn't cover</h2>
+    <p style="margin-top:14px;">The Montreal Convention limit is specifically for the bag and its contents. What it doesn't automatically cover is what airlines call consequential loss, the knock on cost of not having your bag. If your suitcase with your diving gear in it didn't arrive and you missed a prepaid excursion as a result, that's a genuinely common situation, but it isn't something you'll be compensated for as standard. You'd generally need to pursue that separately, and it can mean small claims court if the airline won't budge.</p>
+    <p style="margin-top:14px; margin-bottom:0;">This is exactly where travel insurance tends to do more than the airline will, so it's worth checking your own policy's wording for what it actually covers beyond the bag itself.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>How to actually claim</h2>
+    <img src="https://images.unsplash.com/photo-1683581589510-8e526b6dca89?auto=format&fit=crop&w=1600&h=700&q=80" alt="Empty airport baggage claim area with carousels" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Report it before you leave the airport.</b> Get a Property Irregularity Report from the airline's baggage desk. This is the reference everything else depends on, and most airlines won't investigate a claim without one.</span></li>
+      <li><span class="num">2</span><span><b>Know who to claim from.</b> If your whole journey, including any connecting flights, was on one ticket, claim from the airline that operated the final flight into your destination. If you booked separate tickets with different airlines, each one is only responsible for your bag while it was actually in their care.</span></li>
+      <li><span class="num">3</span><span><b>Keep photographic proof.</b> Photograph the bag itself, any damage, and ideally what was inside it before you ever got to the airport.</span></li>
+      <li><span class="num">4</span><span><b>Submit your written claim within the deadline.</b> 7 days for damage, 21 days for a delay, both counted from when you actually got your bag back.</span></li>
+      <li><span class="num">5</span><span><b>Check your travel insurance too.</b> Many policies cover baggage delay and loss at a higher limit than the airline's, though usually with an excess of around &pound;40 and their own separate claim deadline. You can't claim the same loss twice, but insurance can often top up what the airline's liability cap won't cover.</span></li>
+    </ul>
+    {jake_tip("If you're on a package holiday I've booked for you and this happens, message me on WhatsApp as soon as it does. I can't make the claim for you, it has to go to the airline directly, but I can help you work out exactly who to contact and what you should be asking for.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Before you even travel: how to protect yourself</h2>
+    <img src="https://images.unsplash.com/photo-1526857240824-92be52581d9b?auto=format&fit=crop&w=1600&h=700&q=80" alt="Clothes and shoes packed neatly into an open suitcase" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Photograph your bag and its more valuable contents before you leave home.</b> It sounds excessive until you actually need to prove what was inside it.</span></li>
+      <li><span class="num">2</span><span><b>Pack medication, chargers, valuables and at least one change of clothes in your hand luggage,</b> not your hold bag, in case it doesn't arrive with you.</span></li>
+      <li><span class="num">3</span><span><b>Keep receipts for anything expensive packed in your hold luggage.</b> You'll need to prove the value of anything you claim for later.</span></li>
+      <li><span class="num">4</span><span><b>Consider a luggage tracker such as an Apple AirTag.</b> These are fine to pack in hold luggage, since the battery inside is a tiny coin cell, well under the lithium limits that apply to power banks (see my <a href="power-bank-flight-safety.html">guide to power bank flight safety rules</a> for that difference). A tracker won't stop a bag going missing, but it tells you, and potentially the airline, exactly where it ended up.</span></li>
+    </ul>
+    {jake_tip("None of this guarantees your bag will never go missing, nothing really can. It just means that if it does, you're not starting from nothing when it comes to proving what you lost.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">How much can I actually claim for lost or damaged luggage?</h3>
+      <p>On an international flight, the airline's liability is capped under the Montreal Convention at 1,288 Special Drawing Rights per passenger, which the UK's Civil Aviation Authority puts at a realistic maximum of around &pound;1,000. What you're actually paid depends on the proven value of what was lost or damaged, with depreciation applied for the item's age, so in practice most claims are paid out well below that maximum.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What's the time limit for making a claim?</h3>
+      <p>Report the problem at the airport before you leave and get a Property Irregularity Report. After that, you have 7 days from receiving your bag to make a written claim for damage, or 21 days from receiving it to claim for a delay.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">I had a connecting flight with two different airlines, who do I claim from?</h3>
+      <p>If your whole journey was booked as one ticket, claim from whichever airline operated the final flight into your destination. If you booked separate tickets with different airlines, each one is only responsible for your bag while it was actually in their care, so you may need to establish exactly where things went wrong first.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does travel insurance cover more than the airline will?</h3>
+      <p>Often, yes. Many policies cover baggage delay and loss at a higher limit than the Montreal Convention cap, and can sometimes cover losses the airline won't, such as a missed prepaid excursion. Most policies carry their own excess, often around &pound;40, and their own claim deadline, so check the wording rather than assuming it's covered. You can't claim the same loss from both the airline and your insurer, but insurance can often top up what the airline's cap leaves short.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <h2>Want one less thing to worry about on your next trip?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Every holiday I book goes through reputable, properly protected operators, and if your bag is ever delayed or lost on a trip I've arranged, I'm always on WhatsApp to help you work out exactly who to contact and what you're owed, even though the claim itself has to go to the airline directly.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+luggage_rights_body = luggage_rights_body.replace("::NEWSLETTER::", newsletter_section())
+
+LUGGAGE_RIGHTS_SCHEMA = article_and_faq_schema(
+    "Lost or Delayed Luggage: What You're Actually Entitled To",
+    "The real compensation limits under the Montreal Convention, the deadlines that catch people out, and exactly how to claim your money back if your bag is lost, delayed or damaged on a flight.",
+    "lost-delayed-luggage-compensation-rights.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("How much can I actually claim for lost or damaged luggage?", "On an international flight, the airline's liability is capped under the Montreal Convention at 1,288 Special Drawing Rights per passenger, which the UK's Civil Aviation Authority puts at a realistic maximum of around £1,000. What you're actually paid depends on the proven value of what was lost or damaged, with depreciation applied for the item's age, so in practice most claims are paid out well below that maximum."),
+        ("What's the time limit for making a claim?", "Report the problem at the airport before you leave and get a Property Irregularity Report. After that, you have 7 days from receiving your bag to make a written claim for damage, or 21 days from receiving it to claim for a delay."),
+        ("I had a connecting flight with two different airlines, who do I claim from?", "If your whole journey was booked as one ticket, claim from whichever airline operated the final flight into your destination. If you booked separate tickets with different airlines, each one is only responsible for your bag while it was actually in their care, so you may need to establish exactly where things went wrong first."),
+        ("Does travel insurance cover more than the airline will?", "Often, yes. Many policies cover baggage delay and loss at a higher limit than the Montreal Convention cap, and can sometimes cover losses the airline won't, such as a missed prepaid excursion. Most policies carry their own excess, often around £40, and their own claim deadline, so check the wording rather than assuming it's covered. You can't claim the same loss from both the airline and your insurer, but insurance can often top up what the airline's cap leaves short."),
+    ]
+)
+
+with open(os.path.join(SITE, "lost-delayed-luggage-compensation-rights.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Lost or Delayed Luggage? What You're Actually Entitled To | Travel Agent Jake",
+        "The real compensation limits under the Montreal Convention, the deadlines that catch people out, and exactly how to claim your money back if your bag is lost, delayed or damaged on a flight.",
+        "travel-tips.html",
+        luggage_rights_body,
+        extra_schema=LUGGAGE_RIGHTS_SCHEMA,
+        canonical_path="lost-delayed-luggage-compensation-rights.html"
+    ))
+print("lost-delayed-luggage-compensation-rights.html written")
+
+
+
 # ---------------- BOOKING WIDGET PLACEHOLDER PAGES (Agendas Group) ----------------
 # Jess Speight (Agendas Group Ltd, account manager for the new holiday
 # search/booking widget) asked for three blank pages, named so their URLs
@@ -12534,6 +12688,7 @@ SITEMAP_PAGES = [
     ("tourist-tax-europe-2026.html", "0.7"),
     ("dynamic-currency-conversion-pay-in-pounds-abroad.html", "0.7"),
     ("best-snow-sure-ski-resorts-december-january-february-march.html", "0.7"),
+    ("lost-delayed-luggage-compensation-rights.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
