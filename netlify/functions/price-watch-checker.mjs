@@ -81,6 +81,7 @@ export default async (req) => {
 
   const price = Math.round(Number(r.price) * 100) / 100;
   if (!(price > 50 && price < 200000)) return json({ error: "Implausible price" }, 400);
+  if (r.hotel && !w.hotel) w.hotel = String(r.hotel).slice(0, 120);
   w.failCount = 0;
   w.lastResult = "ok";
   w.lastError = null;

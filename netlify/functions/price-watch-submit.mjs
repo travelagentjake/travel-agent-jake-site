@@ -39,7 +39,9 @@ export default async (req) => {
   if (!firstName) return json({ error: "Please enter your first name." }, 400);
   if (!b.alertsConsent) return json({ error: "Please tick the box so I can email you about price changes." }, 400);
 
-  const url = clean(b.url, 2000);
+  // Share sheets often paste "Look at this holiday https://..." so pull out the first link.
+  const url = ((clean(b.url, 2000).match(/https?:\/\/\S+/i) || [""])[0]);
+  if (!url) return json({ error: "Please paste the link to your holiday from TUI, Jet2holidays, easyJet holidays or Crystal Ski." }, 400);
   let operator = clean(b.operator, 20);
   if (url) {
     operator = operatorFromUrl(url);

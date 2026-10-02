@@ -1665,6 +1665,13 @@ DESTINATION_POSTS = [
         "excerpt": "The Pyramids of Giza, the Grand Egyptian Museum and adding a Nile river cruise: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1600520611035-84157ad4084d?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "tunisia.html",
+        "meta": "Tunisia",
+        "title": "Tunisia",
+        "excerpt": "Hammamet, Djerba and Sousse: weather by month, where to stay, things to do and what it actually costs, a full guide to Tunisia's resorts.",
+        "image": "https://images.unsplash.com/photo-1607869861980-da5f9b8b4969?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -7339,6 +7346,275 @@ print("cairo-nile-river-cruise.html written")
 
 
 
+tunisia_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>TUNISIA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to one of the Mediterranean's best value winter sun and all inclusive destinations.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Tunisia</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1607869861980-da5f9b8b4969?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The blue and white village of Sidi Bou Said overlooking the Gulf of Tunis" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Tunisia is genuinely having a moment with UK operators right now. TUI and easyJet holidays have both been building their programmes back up over the last couple of years, and Jet2holidays is launching flights and holidays to Tunisia for the first time in years, starting Summer 2027, alongside new routes to Hurghada and Sharm El Sheikh. That's a strong signal that the big three UK operators see this as a destination worth investing in again, which is good news for choice and value.</p>
+    <p style="margin-top:14px;">What clients usually fall in love with is the price. All inclusive weeks in Tunisia regularly undercut the same standard of hotel in Spain, Turkey or Greece, and you still get genuinely warm winters, a proper beach, and a totally different feel, part Mediterranean resort, part North Africa, with Roman ruins, a Sahara desert day trip and a medina all within reach of the pool.</p>
+    {jake_tip("Tunisia is not the destination for a client who wants a lively nightlife strip. It's a Muslim majority country, alcohol is available in the international hotels and resorts but it's a different, much more relaxed vibe than somewhere like Magaluf. I'm always upfront about that when I'm matching a client to it.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the standard length and gives a proper week to relax, with enough time to add on a Sahara day trip or a visit to Carthage and Sidi Bou Said without feeling rushed. Few clients go shorter than five nights given the flight time, while ten to fourteen nights works well for winter sun clients who want real value out of the flight.</p>
+    <p style="margin-top:14px;">It suits families after a reliable, good value all inclusive week, with large pools and kids clubs at the bigger resorts. It suits couples who want an affordable, less crowded alternative to the usual Spanish or Greek resorts, and it suits winter sun seekers who want genuine warmth without a long haul flight. It's less suited to a client who specifically wants a boozy nightlife strip, or anyone who can't manage the three plus hour flight for a short midweek break.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Most of Tunisia's resorts, Hammamet, Yasmine Hammamet, Port el Kantaoui, Sousse, Monastir, Skanes and Mahdia, are served by Enfidha International Airport (NBE), also known as Enfidha Hammamet. Djerba has its own airport, Djerba Zarzis International (DJE), further south. TUI and easyJet holidays both currently fly to Enfidha from a wide range of UK airports including Birmingham, Bristol, East Midlands, Glasgow, London Gatwick, London Luton, London Stansted, Manchester and Newcastle, and easyJet holidays also flies direct to Djerba from Manchester and London Luton. Jet2holidays is launching flights and holidays to Tunisia for Summer 2027, flying to Enfidha from Birmingham, East Midlands, Leeds Bradford, London Stansted and Manchester, bookable now for travel from May 2027 onwards.</p>
+    <p style="margin-top:14px;">Flight time is around 3 hours 15 minutes from London and the south of England, a little longer from Scotland and Northern Ireland, and a touch longer again to Djerba.</p>
+    {jake_tip("Jet2holidays' Tunisia programme doesn't start flying until Summer 2027, so if a client wants to travel sooner than that, TUI or easyJet holidays are the two operators who can get them there right now. Always double check which operator a client's dates and hotel actually fall under before quoting.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Tunisia has a Mediterranean climate on the coast, hot dry summers and mild, wetter winters. Figures below are for Hammamet, representative of the main mainland resort areas. Djerba, further south, runs slightly milder and drier through the winter months.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>15&deg;C</td><td>8&deg;C</td><td>Mild, sunny days, a jumper needed for the evenings</td></tr>
+          <tr><td>February</td><td>15&deg;C</td><td>8&deg;C</td><td>Similar to January, still comfortable for sightseeing</td></tr>
+          <tr><td>March</td><td>18&deg;C</td><td>9&deg;C</td><td>Warming up nicely, a good month for day trips</td></tr>
+          <tr><td>April</td><td>21&deg;C</td><td>11&deg;C</td><td>Pleasant and increasingly warm, popular for Easter breaks</td></tr>
+          <tr><td>May</td><td>24&deg;C</td><td>14&deg;C</td><td>Warm, pool season begins in earnest</td></tr>
+          <tr><td>June</td><td>28&deg;C</td><td>18&deg;C</td><td>Hot, the sea is warm enough for swimming</td></tr>
+          <tr><td>July</td><td>32&deg;C</td><td>21&deg;C</td><td>Peak heat, best enjoyed by the pool or the beach</td></tr>
+          <tr><td>August</td><td>32&deg;C</td><td>22&deg;C</td><td>Similarly hot, the busiest month of the year</td></tr>
+          <tr><td>September</td><td>29&deg;C</td><td>20&deg;C</td><td>Still very warm, the sea is at its warmest</td></tr>
+          <tr><td>October</td><td>24&deg;C</td><td>15&deg;C</td><td>Warm and sunny, one of the best value months</td></tr>
+          <tr><td>November</td><td>20&deg;C</td><td>12&deg;C</td><td>Mild by day, cool evenings, good value winter sun</td></tr>
+          <tr><td>December</td><td>17&deg;C</td><td>9&deg;C</td><td>Mild days, cool nights, quiet and good value</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for Hammamet, sourced via weather-atlas.com. Sea temperature peaks at around 26 to 28&deg;C in Djerba between July and September.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">April to June and September to October are the sweet spot, warm and sunny without the full force of midsummer heat, and generally better value than peak school holiday weeks. July and August are the hottest months, regularly into the low thirties, and also the busiest and most expensive, so only worth it for clients who specifically want that intensity of heat. November to March is Tunisia's winter sun season, mild by day with genuinely cool evenings, popular with clients chasing guaranteed sunshine and lower prices outside the UK summer. Djerba in particular holds its warmth a little better through the winter than the mainland resorts.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Tunisia's resorts split into two main areas, each with a distinctly different feel.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1633936478473-e75c1252cccf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A beach in the Hammamet area of Tunisia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Hammamet, Yasmine Hammamet, Sousse &amp; Port el Kantaoui</h3>
+        <p>The main mainland resort belt around Enfidha airport, with by far the biggest choice of hotels, from budget friendly all inclusive right up to five star. Port el Kantaoui is a purpose built marina resort, while Sousse next door has a proper UNESCO listed old town. This is also where Jet2holidays' new programme lands from Summer 2027.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1745999739867-06d3ae08d476?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A colourful doorway in Houmt Souk, Djerba" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Djerba</h3>
+        <p>An island off Tunisia's south coast with its own airport, a more laid back pace and a stronger North African feel than the mainland resorts. Known for its thalasso and spa hotels, milder winters, and the colourful old market town of Houmt Souk. Served by easyJet holidays direct, and by TUI via Enfidha connections.</p>
+      </div>
+    </div>
+    {jake_tip("For a first timer who wants the biggest hotel choice and the shortest transfer, Hammamet or Port el Kantaoui is the easier sell. For a client who's done Spain and Turkey before and wants something that feels a bit different, with a spa focus and a slower pace, Djerba is the one to steer them towards.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Airport transfers are normally included as part of the package. Taxis are cheap and metered, it's worth asking the driver to use the meter rather than agreeing a flat fare where possible. Most clients see Carthage, Sidi Bou Said, Sousse's medina and Sahara desert excursions as organised day trips booked through the resort or a local operator, since distances between sights can be significant and public transport (louages, the shared intercity taxis) isn't really set up for tourists. Djerba is small enough that taxis and organised tours comfortably cover everything on the island.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1588017571031-356e08526b59?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sahara desert dunes in southern Tunisia" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="580179,1179248,261072,814115"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/hammamet-l303/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/hammamet-l303/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Tunisia &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across the two main resort areas. Jet2holidays' Tunisia hotels, including Hotel Samira Club and The Mirage Resort &amp; Spa Hammamet below, are bookable now but only for travel from Summer 2027 onwards, since that's when its Tunisia flights begin. TUI and easyJet holidays can get clients there sooner.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1659094238582-fee5d5b03fca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A beach lined with umbrellas and sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Samira Club, Hammamet</h3>
+        <p>A straightforward, good value all inclusive hotel right on the beach, with a large pool area, aqua park and a children's section. No official star rating is published, so treat it as a solid budget friendly family pick rather than a graded hotel. Bookable through Jet2holidays, for Summer 2027 travel.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1753301673873-2c8a76206286?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A beach with palm trees in Tunisia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">The Mirage Resort &amp; Spa Hammamet, Yasmine Hammamet</h3>
+        <p>A large beachfront all inclusive resort around 2.6km from the Yasmine Hammamet centre, with three outdoor pools plus an indoor pool, five bars, three restaurants, a kids' club and a spa. A strong choice for families wanting plenty of facilities on site. Bookable through Jet2holidays, for Summer 2027 travel.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best adults only &amp; luxury</div>
+        <img src="https://images.unsplash.com/photo-1779449592917-d12076a8210f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">TUI BLUE Palm Beach Palace, Djerba</h3>
+        <p>A five star, adults only (16+) all inclusive hotel on Djerba's longest sandy beach, with a private beach section and a prime spot in Houmt Souk. The standout luxury, couples only pick on the island. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for spa &amp; thalasso</div>
+        <img src="https://images.unsplash.com/photo-1779617442298-d912b57a841c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A hotel swimming pool with white buildings behind" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Radisson Blu Palace Resort &amp; Thalasso Djerba, Mezraia</h3>
+        <p>A beachfront hotel a few steps from the Mediterranean in Mezraia, Djerba, with a Mediterranean buffet restaurant, two a la carte restaurants and a full thalasso spa. A well rounded pick for a client who wants a genuine spa break alongside the beach. Bookable through both TUI and easyJet holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the sights worth building into an itinerary beyond the hotel pool.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1653173449794-09b4ec96a17f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of the harbour at Sidi Bou Said" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sidi Bou Said</h3>
+        <p>A clifftop village of blue and white houses overlooking the Gulf of Tunis, full of cafes, artists and sweeping sea views. Usually combined with Carthage as a half or full day trip from the Hammamet area or Tunis.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1770712857881-2133f72fcab7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The ancient ruins of Carthage beside the sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Carthage</h3>
+        <p>The ruins of the ancient Phoenician and Roman city, a UNESCO World Heritage Site, including the Antonine Baths and the Byrsa Hill archaeological park. One of North Africa's most important ancient sites, and genuinely impressive even for clients who aren't usually into ruins.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1605196770063-336ca4c970ed?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The medina of Sousse, Tunisia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Medina of Sousse</h3>
+        <p>A UNESCO listed old town right next to Port el Kantaoui, with a 9th century Ribat fortress, narrow souk streets and city walls that are among the best preserved in Tunisia. An easy half day out from any of the mainland resorts.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1696533066487-086e5bf7e2e2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sand dunes in the Tunisian Sahara" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">A Sahara desert excursion</h3>
+        <p>Multi day trips run from the coast down to Douz and Tozeur on the edge of the Sahara, taking in dunes, camel rides and the troglodyte Berber village of Matmata, used as a filming location for the original Star Wars films. A proper change of scene from the beach, best booked as an organised excursion given the distances involved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Tunisia uses the Tunisian Dinar, so prices below are shown in pounds sterling with the Dinar equivalent alongside, based on a rate of roughly &pound;1 to 3.95 TND. These are crowd-sourced averages for Hammamet, and prices right on a hotel's own doorstep in tourist areas can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;2.53 (about 10.00 TND)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;15.20 (about 60.00 TND)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;0.54 (about 2.14 TND)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;1.20 (about 4.75 TND)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.20 (about 0.77 TND)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;0.23 (about 0.90 TND)</td></tr>
+          <tr><td>Taxi, per mile</td><td>&pound;0.41 (about 1.61 TND)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages for Hammamet via Numbeo, checked at time of writing. Dinar to pound sterling conversion is approximate and moves around, so treat these as a guide rather than an exact figure.</p>
+    {jake_tip("The Tunisian Dinar is a closed currency, you can't buy it before you travel or take it out of the country afterwards, so budget to exchange cash on arrival and spend or change back any leftover dinars before heading home. Cards are widely accepted in hotels and larger shops, but cash is still king in local restaurants, cafes and the souks.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Tunisian Dinar (TND), a closed currency that can't be bought before you travel</td></tr>
+          <tr><td>Plug type</td><td>Type C/E, a UK to EU style adapter is needed</td></tr>
+          <tr><td>Language</td><td>Arabic is the official language, French is widely spoken, and English is common in hotels and resorts</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 3 hours 15 minutes to Enfidha, a little longer to Djerba, depending on departure airport</td></tr>
+          <tr><td>Time difference</td><td>Tunisia stays on the same time year round and doesn't change its clocks, so it's 1 hour ahead of the UK in winter and level with the UK during British Summer Time</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders don't need a visa for stays of up to 90 days, a passport valid for the length of the stay is all that's needed</td></tr>
+          <tr><td>Driving</td><td>Right hand side, though almost all visitors rely on transfers, taxis and organised tours rather than hiring a car</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Noelle Guirola, Carnet de Voyage d'Alex, Halima Bouchouicha, Ondrej Bocek, Karim Ben Van, Albina Andreeva, Margo Evardson, Amal Bourkhis, JR Harris and ALI via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Tunisia for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around Hammamet's all inclusive hotels, help you decide whether Djerba's spa hotels or the mainland suits you better, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+tunisia_body = tunisia_body.replace("::NEWSLETTER::", newsletter_section())
+
+TUNISIA_SCHEMA = article_and_faq_schema(
+    "Tunisia: Jake's Destination Guide",
+    "Jake's honest guide to Tunisia: Hammamet, Djerba and Sousse, weather by month, where to stay, things to do, recommended hotels and what it actually costs.",
+    "tunisia.html",
+    "https://images.unsplash.com/photo-1607869861980-da5f9b8b4969?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operators fly to Tunisia?", "TUI and easyJet holidays both currently fly to Tunisia, mainly into Enfidha International Airport for the mainland resorts, with easyJet holidays also flying direct to Djerba. Jet2holidays is launching flights and holidays to Tunisia for the first time in years for Summer 2027, bookable now for travel from May 2027 onwards."),
+        ("What's the best time to visit Tunisia?", "April to June and September to October are the sweet spot, warm and sunny without the full force of midsummer heat. July and August are the hottest and busiest months, regularly into the low thirties. November to March is Tunisia's mild winter sun season, popular for its lower prices and guaranteed sunshine despite cooler evenings."),
+        ("Do I need a visa for Tunisia?", "No. UK passport holders don't need a visa for stays of up to 90 days, you just need a passport that's valid for the length of your stay."),
+    ]
+)
+with open(os.path.join(SITE, "tunisia.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Tunisia: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Tunisia: Hammamet, Djerba and Sousse, weather by month, where to stay, things to do, recommended hotels and what it actually costs.",
+        "destinations.html",
+        tunisia_body,
+        extra_schema=TUNISIA_SCHEMA,
+        canonical_path="tunisia.html"
+    ))
+print("tunisia.html written")
+
+
+
+
 
 
 # ---------------- TRAVEL TIPS (index) ----------------
@@ -12065,6 +12341,10 @@ price_watch_body = """
 .pw-field label{display:block;font-weight:700;font-size:14px;margin-bottom:6px;}
 .pw-field input,.pw-field select,.pw-field textarea{width:100%;box-sizing:border-box;padding:12px 14px;border:2px solid #d5dbea;border-radius:10px;font:inherit;font-size:16px;background:#fff;color:var(--ink);}
 .pw-field input:focus,.pw-field select:focus,.pw-field textarea:focus{outline:none;border-color:var(--blue);}
+.pw-how{background:var(--pale-blue,#eef3fb);border-radius:12px;padding:16px 18px;margin-bottom:16px;}
+.pw-how-title{font-weight:700;margin:0 0 8px;}
+.pw-how ol{margin:0;padding-left:20px;}
+.pw-how li{margin:4px 0;}
 .pw-hint{font-size:13px;color:#5b6478;margin-top:5px;}
 .pw-check{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:15px;}
 .pw-check input{width:20px;height:20px;margin-top:2px;flex:0 0 auto;}
@@ -12094,7 +12374,7 @@ price_watch_body = """
   <div class="wrap">
     <h2>How it works</h2>
     <div class="grid-3 equal-cards pw-steps" style="margin-top:18px;">
-      <div class="jake-card"><h3 style="font-size:18px;">Find your holiday</h3><p>Search TUI, Jet2holidays, easyJet holidays or Crystal Ski for your hotel, dates and party, then copy the link from the page showing your price. Or just type the details in.</p></div>
+      <div class="jake-card"><h3 style="font-size:18px;">Find your holiday</h3><p>Search TUI, Jet2holidays, easyJet holidays or Crystal Ski for your hotel, dates and party, then copy the link from the page showing your price.</p></div>
       <div class="jake-card"><h3 style="font-size:18px;">I check it daily</h3><p>I check the price of that exact holiday every day. No emails, no spam, nothing until something actually changes.</p></div>
       <div class="jake-card"><h3 style="font-size:18px;">You hear first</h3><p>Price dropped? You'll know straight away. Price going up? I'll tell you before it climbs further, and help you find the best way to book.</p></div>
     </div>
@@ -12107,40 +12387,28 @@ price_watch_body = """
       <h2 style="margin-top:0;">Start your price watch</h2>
       <div id="pwFull" class="pw-error" hidden>My price watch is full right now. <a href="https://wa.me/447899290262?text=Hi%20Jake%2C%20can%20you%20keep%20an%20eye%20on%20a%20holiday%20price%20for%20me%3F">WhatsApp me</a> and I'll keep an eye on it for you personally.</div>
       <form id="pwForm" class="pw-form" novalidate>
-        <div class="pw-tabs" role="tablist">
-          <button type="button" class="pw-tab" role="tab" aria-selected="true" data-mode="link">Paste the holiday link</button>
-          <button type="button" class="pw-tab" role="tab" aria-selected="false" data-mode="details">Enter the details instead</button>
+        <div class="pw-how">
+          <p class="pw-how-title">How to get your holiday link</p>
+          <ol>
+            <li>Go to <strong>TUI</strong>, <strong>Jet2holidays</strong>, <strong>easyJet holidays</strong> or <strong>Crystal Ski</strong> and search with your airport, dates and party.</li>
+            <li>Tap the hotel you want so you can see its <strong>total price</strong>.</li>
+            <li>Copy the link. On a phone, tap the address bar or the share button and choose <strong>Copy</strong>.</li>
+            <li>Paste it in the box below.</li>
+          </ol>
         </div>
-
-        <div id="pwLink" class="pw-grid">
+        <div class="pw-grid">
           <div class="pw-field full">
-            <label for="pwUrl">Holiday link from TUI, Jet2holidays, easyJet holidays or Crystal Ski</label>
-            <input id="pwUrl" name="url" type="url" inputmode="url" placeholder="https://www.jet2holidays.com/...">
-            <div class="pw-hint">Search for your holiday on the operator's website, open the hotel with your dates, airport and party selected so you can see the total price, then copy the link from the address bar. Your dates and party are picked up from the link automatically.</div>
+            <label for="pwUrl">Paste your holiday link</label>
+            <input id="pwUrl" name="url" type="url" inputmode="url" placeholder="https://www.jet2holidays.com/..." required>
+            <div class="pw-hint">Your hotel, dates and party are picked up from the link automatically.</div>
           </div>
-        </div>
-
-        <div id="pwDetails" class="pw-grid" hidden>
-          <div class="pw-field"><label for="pwOperator">Holiday company</label>
-            <select id="pwOperator" name="operator"><option value="">Choose one</option><option value="tui">TUI</option><option value="jet2">Jet2holidays</option><option value="easyjet">easyJet holidays</option><option value="crystal">Crystal Ski</option></select></div>
-          <div class="pw-field"><label for="pwHotel">Hotel name</label><input id="pwHotel" name="hotel" type="text" placeholder="e.g. Hotel Flamingo Oasis"></div>
-          <div class="pw-field"><label for="pwDest">Resort or destination</label><input id="pwDest" name="destination" type="text" placeholder="e.g. Benidorm"></div>
-          <div class="pw-field"><label for="pwAirport">Flying from</label><input id="pwAirport" name="airport" type="text" placeholder="e.g. Manchester"></div>
-          <div class="pw-field"><label for="pwBoard">Board basis</label>
-            <select id="pwBoard" name="board"><option value="">Choose one</option><option>All Inclusive</option><option>Half Board</option><option>Bed and Breakfast</option><option>Self Catering</option><option>Room Only</option><option>Full Board</option></select></div>
-          <div class="pw-field"><label for="pwBudget">Budget for the whole party (optional)</label><input id="pwBudget" name="budget" type="text" placeholder="e.g. £2,500"></div>
-          <div class="pw-field"><label for="pwDate">Departure date</label><input id="pwDate" name="departDate" type="date"></div>
-          <div class="pw-field"><label for="pwNights">Nights</label><input id="pwNights" name="nights" type="number" min="1" max="60" placeholder="7"></div>
-          <div class="pw-field"><label for="pwAdults">Adults</label><input id="pwAdults" name="adults" type="number" min="1" max="12" value="2"></div>
-          <div class="pw-field"><label for="pwChildren">Children</label><input id="pwChildren" name="children" type="number" min="0" max="10" value="0"></div>
-          <div class="pw-field full" id="pwAgesWrap" hidden><label for="pwAges">Children's ages on return</label><input id="pwAges" name="childAges" type="text" placeholder="e.g. 4, 9"></div>
         </div>
 
         <div class="pw-grid" style="margin-top:14px;">
           <div class="pw-field"><label for="pwName">First name</label><input id="pwName" name="firstName" type="text" autocomplete="given-name" required></div>
           <div class="pw-field"><label for="pwEmail">Email address</label><input id="pwEmail" name="email" type="email" autocomplete="email" required></div>
           <div class="pw-field"><label for="pwPhone">Mobile (optional, for WhatsApp)</label><input id="pwPhone" name="phone" type="tel" autocomplete="tel"></div>
-          <div class="pw-field"><label for="pwNotes">Anything else? (optional)</label><input id="pwNotes" name="notes" type="text" placeholder="e.g. need a family room, flexible on dates"></div>
+          <div class="pw-field"><label for="pwNotes">Anything else? (optional)</label><input id="pwNotes" name="notes" type="text" placeholder="e.g. flexible on dates, celebrating a birthday"></div>
         </div>
         <input type="text" name="website" class="newsletter-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
 
@@ -12176,16 +12444,6 @@ price_watch_body = """
 (function(){
   var form=document.getElementById('pwForm'); if(!form) return;
   var mode='link';
-  var tabs=form.querySelectorAll('.pw-tab');
-  var linkBox=document.getElementById('pwLink'), detBox=document.getElementById('pwDetails');
-  tabs.forEach(function(t){ t.addEventListener('click',function(){
-    mode=t.getAttribute('data-mode');
-    tabs.forEach(function(x){x.setAttribute('aria-selected', x===t?'true':'false');});
-    linkBox.hidden = mode!=='link'; detBox.hidden = mode!=='details';
-  });});
-  var kids=document.getElementById('pwChildren'), agesWrap=document.getElementById('pwAgesWrap');
-  kids.addEventListener('input',function(){ agesWrap.hidden = !(Number(kids.value)>0); });
-  var d=document.getElementById('pwDate'); var t=new Date(); t.setDate(t.getDate()+1); d.min=t.toISOString().slice(0,10);
   var err=document.getElementById('pwError'), btn=document.getElementById('pwSubmit');
   function showErr(m){ err.textContent=m; err.hidden=false; }
   form.addEventListener('submit',function(e){
@@ -12193,8 +12451,9 @@ price_watch_body = """
     var fd=new FormData(form), data={};
     fd.forEach(function(v,k){ data[k]=v; });
     data.alertsConsent=!!form.alertsConsent.checked; data.marketingConsent=!!form.marketingConsent.checked;
-    if(mode==='link'){ ['operator','hotel','destination','airport','board','budget','departDate','nights','adults','children','childAges'].forEach(function(k){delete data[k];}); if(!data.url){ return showErr('Please paste the holiday link, or switch to "Enter the details instead".'); } }
-    else { delete data.url; if(!data.operator||!data.hotel||!data.departDate){ return showErr('Please choose the holiday company and add the hotel and departure date.'); } }
+    data.url=((data.url||'').match(/https?:\/\/\S+/i)||[''])[0];
+    if(!data.url){ return showErr('Please paste the link to your holiday.'); }
+    if(!/(^|\.)(tui\.co\.uk|jet2holidays\.com|easyjet\.com|crystalski\.co\.uk)(\/|$|\?)/i.test((data.url.match(/^https?:\/\/([^\/?#]+)/i)||[])[1]||'')){ return showErr('That link needs to be from TUI, Jet2holidays, easyJet holidays or Crystal Ski. Open your holiday on their website and copy the link from there.'); }
     if(!data.firstName||!data.email){ return showErr('Please add your first name and email address.'); }
     if(!data.alertsConsent){ return showErr('Please tick the first box so I can email you when the price changes.'); }
     btn.disabled=true; btn.textContent='Saving...';
@@ -12205,14 +12464,13 @@ price_watch_body = """
         if(res.j && res.j.full){ document.getElementById('pwFull').hidden=false; form.hidden=true; return; }
         if(!res.j || !res.j.ok){ return showErr((res.j&&res.j.error)||'Something went wrong, please try again.'); }
         document.getElementById('pwSuccessName').textContent=data.firstName;
-        if(res.j.needsLink){ document.getElementById('pwSuccessMsg').textContent="Thanks! I'll find this exact holiday and start watching its price. You'll only hear from me when it changes."; }
         form.hidden=true; document.getElementById('pwSuccess').hidden=false;
         if(window.gtag){ gtag('event','price_watch_signup',{mode:mode,marketing:data.marketingConsent}); }
       })
       .catch(function(){ btn.disabled=false; btn.textContent='Watch this price'; showErr('Something went wrong, please try again.'); });
   });
   document.getElementById('pwAnother').addEventListener('click',function(){
-    ['url','hotel','destination','notes','departDate','nights'].forEach(function(k){ if(form[k]) form[k].value=''; });
+    ['url','notes'].forEach(function(k){ if(form[k]) form[k].value=''; });
     form.hidden=false; document.getElementById('pwSuccess').hidden=true;
   });
 })();
@@ -12258,6 +12516,7 @@ SITEMAP_PAGES = [
     ("egypt-red-sea.html", "0.6"),
     ("luxor-valley-of-the-kings.html", "0.6"),
     ("cairo-nile-river-cruise.html", "0.6"),
+    ("tunisia.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
