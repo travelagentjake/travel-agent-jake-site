@@ -1671,6 +1671,13 @@ DESTINATION_POSTS = [
         "excerpt": "Hammamet, Djerba and Sousse: weather by month, where to stay, things to do and what it actually costs, a full guide to Tunisia's resorts.",
         "image": "https://images.unsplash.com/photo-1607869861980-da5f9b8b4969?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "jamaica.html",
+        "meta": "Jamaica",
+        "title": "Jamaica",
+        "excerpt": "Montego Bay, Negril, Ocho Rios and Runaway Bay: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1733596679766-3d8f63b30a75?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -7612,6 +7619,274 @@ with open(os.path.join(SITE, "tunisia.html"), "w", encoding="utf-8") as f:
 print("tunisia.html written")
 
 
+jamaica_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>JAMAICA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to one of the Caribbean's most iconic islands.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Jamaica</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1733596679766-3d8f63b30a75?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees silhouetted against a Jamaican sunset" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Jamaica is the one long haul island most clients already have an idea about before they've even booked, reggae, Bob Marley, jerk chicken, Dunn's River Falls, Usain Bolt. What surprises a lot of first timers is just how good the all inclusive resorts are. TUI is currently the only one of the three operators I sell who flies there, direct to Montego Bay, so if a client wants Jamaica, TUI is who we're booking with.</p>
+    <p style="margin-top:14px;">It's a proper once in a while trip rather than a quick week away, the flight alone is around 9 hours, so clients tend to go bigger on nights to make the most of it. The pay off is a huge range of resorts, from genuinely excellent adults only luxury to big family friendly all inclusive complexes, real waterfalls and rainforest a short drive from the beach, and a culture and music scene that's completely its own.</p>
+    {jake_tip("Jamaica isn't a destination I'd steer a client towards if they only want seven nights or if their budget is really tight. The flight time means it suits a proper two week holiday best, and it sits at a higher price point than Spain, Turkey or even most of the rest of the Caribbean I sell. Set that expectation early and clients are far happier with the quote.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Ten to fourteen nights is the sweet spot, enough to properly unwind after a 9 hour flight and make the most of an all inclusive stay. Some clients do manage a week, but given the flight time it's rarely the best value option. Honeymooners and couples are especially well suited to Jamaica, the island has one of the best selections of adults only all inclusive resorts anywhere in the Caribbean. Families are well catered for too, particularly around Montego Bay and Runaway Bay, with large resorts built around kids clubs and water parks. It's less suited to a client who wants a short midweek break, or anyone who can't manage the flight time and the 5 to 6 hour time difference.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Almost all UK package holidays to Jamaica fly into Sangster International Airport (MBJ) at Montego Bay, on the island's north coast. TUI flies direct to Montego Bay from Birmingham, London Gatwick and Manchester, with a flight time of around 9 to 10 hours. Neither Jet2holidays nor easyJet holidays currently fly to Jamaica or anywhere else in the Caribbean, their long haul programmes simply don't extend that far yet, so TUI is the one to book with for this destination right now.</p>
+    {jake_tip("Because it's such a long flight, I always ask clients whether they'd rather fly out in the morning or overnight, TUI runs a mix of both depending on the route and time of year. Book early where possible too, fares and the best rooms at the more popular adults only resorts go first, especially for school holiday dates.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Jamaica has a tropical climate, warm and humid all year with little seasonal variation in temperature. Figures below are for Montego Bay, representative of the main north coast resort areas.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>27&deg;C</td><td>20&deg;C</td><td>Warm and mostly dry, one of the most popular months to travel</td></tr>
+          <tr><td>February</td><td>28&deg;C</td><td>20&deg;C</td><td>Similarly warm and dry, reliably sunny</td></tr>
+          <tr><td>March</td><td>29&deg;C</td><td>21&deg;C</td><td>Warm with low rainfall, a great all round month</td></tr>
+          <tr><td>April</td><td>29&deg;C</td><td>21&deg;C</td><td>Warming further, good value before the summer rush</td></tr>
+          <tr><td>May</td><td>30&deg;C</td><td>22&deg;C</td><td>The wettest month, short sharp downpours but still plenty of sun</td></tr>
+          <tr><td>June</td><td>30&deg;C</td><td>23&deg;C</td><td>Hot and humid, the Atlantic hurricane season begins</td></tr>
+          <tr><td>July</td><td>31&deg;C</td><td>24&deg;C</td><td>Peak heat, hurricane season continues through to November</td></tr>
+          <tr><td>August</td><td>31&deg;C</td><td>24&deg;C</td><td>Very hot and humid, within the more active part of hurricane season</td></tr>
+          <tr><td>September</td><td>30&deg;C</td><td>24&deg;C</td><td>Hot with a second rainfall peak, usually the quietest and best value month</td></tr>
+          <tr><td>October</td><td>29&deg;C</td><td>23&deg;C</td><td>Still warm, hurricane season begins easing off towards the end of the month</td></tr>
+          <tr><td>November</td><td>28&deg;C</td><td>22&deg;C</td><td>Warm and drier again, hurricane season ends on the 30th</td></tr>
+          <tr><td>December</td><td>27&deg;C</td><td>21&deg;C</td><td>Warm and dry, the start of the busy winter season</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for Montego Bay, sourced via climate-data.org. Sea temperature stays warm year round, roughly 27 to 30&deg;C.</p>
+    {jake_tip("The Atlantic hurricane season officially runs 1 June to 30 November, with late August through October the highest risk window. It doesn't mean a trip in those months will be ruined, direct hits on Jamaica are relatively rare, but I always make sure clients travelling then have proper travel insurance in place and understand how it works alongside ATOL protection.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">December to April is Jamaica's dry season and the most popular time to visit, warm, sunny and with the lowest chance of rain, but also the busiest and most expensive, especially over Christmas and February half term. May, June and November are good value shoulder months with decent weather and smaller crowds. July to October sits within hurricane season and brings more rain, particularly in the afternoons, but also the best prices of the year, September especially tends to be the quietest month on the island.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Jamaica's package resorts are concentrated along the north coast, in two main clusters either side of Sangster International Airport.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1587332843658-741fe464ee3d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees along the Jamaican coastline near Montego Bay" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Montego Bay &amp; Negril</h3>
+        <p>Montego Bay is Jamaica's main resort hub and where the airport sits, with the island's biggest choice of hotels, from Rose Hall's all inclusive resorts to boutique adults only properties. An hour or so further along the coast, Negril is laid back and bohemian, built around the famous seven mile stretch of Seven Mile Beach and known for its clifftop bars and sunset views.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1589289640436-e2b919b9cabf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A quiet bay on Jamaica's north coast near Ocho Rios" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Ocho Rios &amp; Runaway Bay</h3>
+        <p>Ocho Rios, around ninety minutes east of the airport, is Jamaica's adventure base, home to Dunn's River Falls and a regular cruise ship stop, with a wide range of resorts dotted along the coast. Runaway Bay, just beyond it, is quieter still, best known for its large all inclusive resort complexes and a slightly slower pace.</p>
+      </div>
+    </div>
+    {jake_tip("For a first timer who wants the shortest transfer and the biggest hotel choice, Montego Bay is the easier sell. For a couple who want a slower, more romantic pace and don't mind an extra hour on the transfer, Negril or Ocho Rios usually go down better, especially for a honeymoon.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Airport transfers are normally included as part of the package, and given how spread out the resort areas are, most clients stick to transfers, licensed taxis (look for the red JUTA number plates) and organised excursions booked through the resort rather than public transport. Jamaica drives on the left, the same as the UK, but self drive isn't something I'd generally recommend, the roads can be narrow, poorly lit at night and unfamiliar, so a pre-booked transfer or taxi is the easier and safer option for almost every client.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1593663452881-19587647872a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A waterfall in the Jamaican rainforest" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="806612,850530,685732,893865"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/montego-bay-l238/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/montego-bay-l238/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Jamaica &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across Jamaica's main resort areas. TUI is currently the only one of the three operators I sell who flies to Jamaica, so all four of these are booked through TUI.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1661532732965-a0db2403c6ab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A beach resort on the Jamaican coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Riu Negril, Negril</h3>
+        <p>A large, good value all inclusive resort right on Negril's Seven Mile Beach, with several pools, a kids' club and a full entertainment programme. TUI doesn't publish a star rating for it, but it's one of the better known and most reviewed all inclusive options on this stretch of coast, a solid pick for a family or a couple who want a reliable, lively resort without the top end price tag. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1704715888620-9bd3005878f0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool surrounded by palm trees in Jamaica" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Bahia Principe Explore Jamaica, Runaway Bay</h3>
+        <p>Part of the large Bahia Principe Grand Jamaica complex in Runaway Bay, this all inclusive resort is TUI's own family-friendly pick in the complex, with multiple pools, a kids' club and a long stretch of beach. A strong choice for families wanting plenty of space and facilities on site. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best adults only &amp; luxury</div>
+        <img src="https://images.unsplash.com/photo-1708631000754-94f8ba81dbf8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A luxury pool overlooking the sea in Jamaica" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Royalton Chic Jamaica Paradise Cove, Runaway Bay</h3>
+        <p>One of the newest resorts on this stretch of coast, an adults only all inclusive under Marriott's Autograph Collection, with a sleek, modern design and a strong spa and dining offering. The standout luxury, couples only pick covered in this guide. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for couples &amp; honeymoons</div>
+        <img src="https://images.unsplash.com/photo-1557188969-16b469a5b6c2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees silhouetted at sunset over the Caribbean sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Couples Tower Isle, Ocho Rios</h3>
+        <p>One of the long standing Couples resorts in Ocho Rios, adults only and all inclusive, independently rated around four star by third party hotel guides, with a private island just offshore reached by regular shuttle boat. A genuinely romantic pick that's popular with honeymooners. Bookable through TUI.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the sights worth building into an itinerary beyond the hotel pool.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1558031096-21eb8c643d39?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Visitors climbing the terraced rocks of Dunn's River Falls" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Dunn's River Falls</h3>
+        <p>Jamaica's most famous natural attraction, a series of terraced waterfalls near Ocho Rios that visitors climb hand in hand with a guide, straight into the sea at the bottom. Usually booked as a half day organised excursion from any of the north coast resorts.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1530225232034-97cd4439bbe7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A calm river running through Jamaican rainforest" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Blue Hole &amp; bamboo rafting</h3>
+        <p>A series of cool blue mineral pools and small waterfalls in the hills above Ocho Rios, popular for rope swings and cliff jumps, often combined with a gentle bamboo raft ride down the Martha Brae or Rio Grande river, usually with a Red Stripe in hand.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1530225029356-e301a685e6b1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Seven Mile Beach in Negril, Jamaica" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Seven Mile Beach &amp; Rick's Cafe, Negril</h3>
+        <p>Negril's long, powder white beach is one of the best in the Caribbean, and Rick's Cafe at its southern end is the island's best known spot for a sunset drink, cliff diving included, for anyone brave enough to jump.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1601754691759-717b75bf002f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A beach near Montego Bay, Jamaica" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bob Marley's Nine Mile</h3>
+        <p>The birthplace and final resting place of Bob Marley, in the hills of St Ann, usually visited as a guided day trip from Montego Bay or Ocho Rios. A genuinely moving stop for any fan of reggae music, with mausoleum tours led by Rastafarian guides.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Jamaica uses the Jamaican Dollar, so prices below are shown in pounds sterling with the Jamaican Dollar equivalent alongside, based on a rate of roughly &pound;1 to 209 JMD. These are crowd-sourced averages for Montego Bay, and prices right on a resort's own doorstep in tourist areas can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;8.37 (about J$1,750)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;57.38 (about J$12,000)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;4.03 (about J$844)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;1.67 (about J$350)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.54 (about J$113)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;0.72 (about J$150)</td></tr>
+          <tr><td>Taxi, per mile</td><td>&pound;3.85 (about J$805)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages for Montego Bay via Numbeo, checked at time of writing. Jamaican Dollar to pound sterling conversion is approximate and moves around, so treat these as a guide rather than an exact figure.</p>
+    {jake_tip("Most clients on an all inclusive stay don't need much spending money beyond tips, drinks on excursions and souvenirs. US dollars are widely accepted alongside Jamaican Dollars in resorts and tourist areas, so there's no need to change a large amount of cash before travelling, cards are fine for most things too.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Jamaican Dollar (JMD), with US dollars widely accepted in resorts and tourist areas</td></tr>
+          <tr><td>Plug type</td><td>Type A/B, the same as the US. A UK to US style adapter is needed, and the voltage is 110V rather than the UK's 230V, so check appliances before plugging in directly</td></tr>
+          <tr><td>Language</td><td>English is the official language, Jamaican Patois is also widely spoken</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 9 to 10 hours direct to Montego Bay</td></tr>
+          <tr><td>Time difference</td><td>Jamaica stays on the same time year round and doesn't change its clocks, so it's 5 hours behind the UK in winter and 6 hours behind during British Summer Time</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders don't need a visa for stays of up to 180 days, a passport valid for the length of the stay is all that's needed</td></tr>
+          <tr><td>Driving</td><td>Left hand side, the same as the UK, though almost all visitors rely on transfers, taxis and organised tours rather than hiring a car</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Clay LeConey, E Mens, Kenrick Baksh, Paul Mathew, Staicy Androose, Rock Staar, Kemoi Brown, Meg von Haartman, Thomas Chizzali, Brian Yurasits, Alexander John, Lakeisha Bennett and Andy ngucaj via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Jamaica for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around Montego Bay's resort choice, help you pick between an adults only stay in Runaway Bay or Ocho Rios and a family resort nearer the airport, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+jamaica_body = jamaica_body.replace("::NEWSLETTER::", newsletter_section())
+
+JAMAICA_SCHEMA = article_and_faq_schema(
+    "Jamaica: Jake's Destination Guide",
+    "Jake's honest guide to Jamaica: Montego Bay, Negril, Ocho Rios and Runaway Bay, weather by month, where to stay, things to do and what it actually costs.",
+    "jamaica.html",
+    "https://images.unsplash.com/photo-1733596679766-3d8f63b30a75?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator flies to Jamaica?", "TUI is currently the only one of the three operators Jake sells (TUI, Jet2holidays and easyJet holidays) who flies to Jamaica, with direct flights to Montego Bay's Sangster International Airport from Birmingham, London Gatwick and Manchester. Neither Jet2holidays nor easyJet holidays currently fly to the Caribbean."),
+        ("How long is the flight to Jamaica?", "Around 9 to 10 hours direct from the UK to Montego Bay, depending on the departure airport and winds."),
+        ("What's the best time to visit Jamaica?", "December to April is the dry season and the most popular time to visit, though also the busiest and most expensive. May, June and November are good value shoulder months, while July to October sits within the Atlantic hurricane season, bringing more rain but also the best prices of the year."),
+        ("Do I need a visa for Jamaica?", "No. UK passport holders don't need a visa for stays of up to 180 days, you just need a passport that's valid for the length of your stay."),
+    ]
+)
+with open(os.path.join(SITE, "jamaica.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Jamaica: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Jamaica: Montego Bay, Negril, Ocho Rios and Runaway Bay, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        jamaica_body,
+        extra_schema=JAMAICA_SCHEMA,
+        canonical_path="jamaica.html"
+    ))
+print("jamaica.html written")
+
+
+
 
 
 
@@ -12670,6 +12945,7 @@ SITEMAP_PAGES = [
     ("luxor-valley-of-the-kings.html", "0.6"),
     ("cairo-nile-river-cruise.html", "0.6"),
     ("tunisia.html", "0.6"),
+    ("jamaica.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
