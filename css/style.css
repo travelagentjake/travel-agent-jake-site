@@ -811,3 +811,18 @@ footer.site-footer a:hover{color:var(--yellow);}
   .photo-carousel-arrow{width:30px; height:30px; font-size:15px;}
 }
 
+/* ---------- About page: blog style story rows ---------- */
+.story-row{display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:center;}
+.story-row + .story-row{margin-top:64px;}
+.story-row > *{min-width:0;}
+.story-row.img-right{grid-template-columns:1.1fr 0.9fr;}
+.story-row.img-right > .jake-frame, .story-row.img-right > .jake-frame-blue{order:2;}
+.story-text p{margin:0 0 14px;}
+.story-text p:last-child{margin-bottom:0;}
+.story-h{font-size:clamp(24px, 3vw, 32px); margin:0 0 14px;}
+.story-intro{font-size:18px;}
+@media (max-width:860px){
+  .story-row, .story-row.img-right{grid-template-columns:1fr; gap:24px;}
+  .story-row + .story-row{margin-top:44px;}
+  .story-row.img-right > .jake-frame, .story-row.img-right > .jake-frame-blue{order:0;}
+}
