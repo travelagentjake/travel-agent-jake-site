@@ -475,7 +475,7 @@ home_body = """
     <div>
       <div class="eyebrow">15+ years in travel &middot; ABTA Protected</div>
       <h1>HOLIDAYS BOOKED BY SOMEONE WHO <span class="hl">ACTUALLY GOES</span></h1>
-      <p class="lead" style="margin-top:14px;">I'm Jake, an independent UK travel agent. I've been in travel since I was 17, and I still get properly excited about it. Whether it's a family holiday, an all-inclusive break or a full package holiday, tell me who's coming, roughly when, and what you want out of it, and I'll do the digging, the comparing and the paperwork, then send you something worth getting excited about.</p>
+      <p class="lead" style="margin-top:14px;">I'm Jake, an independent UK travel agent. I've been in travel since I was 16, and I still get properly excited about it. Whether it's a family holiday, an all-inclusive break or a full package holiday, tell me who's coming, roughly when, and what you want out of it, and I'll do the digging, the comparing and the paperwork, then send you something worth getting excited about.</p>
       <div class="btn-row" style="margin-top:18px; flex-direction:column; align-items:flex-start; gap:10px;">
         <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
         <a class="btn" style="background:var(--white); color:var(--ink); border-color:var(--ink);" href="my-booking.html">My Booking</a>
@@ -904,16 +904,21 @@ about_body = """
     <div class="jake-frame"><img src="images/pool-portrait.jpg" alt="Jake on holiday"></div>
     <div>
       <div class="eyebrow">Hello, I'm Jake</div>
-      <p>I've worked in travel since I was 17. It's not just a job to me, it's a passion, and I love sharing that with everyone I speak to. Fifteen years on, I'm still at it.</p>
-      <p style="margin-bottom:0;">Cyprus is my favourite short haul destination, Mauritius my favourite long haul, and skiing is the best activity holiday going.</p>
-      <div class="fact-grid">
-        <div class="fact-tile"><span class="fact-num">15+</span><span class="fact-label">Years in travel</span></div>
-        <div class="fact-tile"><span class="fact-num">17</span><span class="fact-label">Age I started in travel</span></div>
-        <div class="fact-tile"><span class="fact-num">Cyprus</span><span class="fact-label">Favourite short haul</span></div>
-        <div class="fact-tile"><span class="fact-num">Mauritius</span><span class="fact-label">Favourite long haul</span></div>
-        <div class="fact-tile"><span class="fact-num">Skiing</span><span class="fact-label">Best activity holiday</span></div>
-        <div class="fact-tile"><span class="fact-num">ABTA</span><span class="fact-label">Fully protected</span></div>
-      </div>
+      <p><b>I'm Jake, a travel expert by name and a travel addict by nature!</b></p>
+      <p>My career in travel started at 16, when I began working part time at Thomas Cook while studying travel and tourism at college. I loved it so much that I went full time as soon as I left, and after five years I got the chance to become a store manager at TUI. Then I stepped away from the industry for a while to try something different, but nothing else came close. That's what pushed me to go self employed as an independent travel agent, so I could get back to what I love: helping people make amazing memories with their families while seeing the world.</p>
+      <p>Travel wasn't a big part of my childhood, but that changed with my first holiday to Turkey at 14. I was hooked straight away. I've now been to over 34 countries, and Mauritius is still my favourite, with its beautiful beaches, incredible food and culture, and so much to discover off the beaten track. I'm also an avid skier, and Italy is where I love to do it most. The food is incredible, and an Italian hot chocolate just hits differently when you're looking out over snowy mountains.</p>
+      <p>I work with over 400 suppliers, so whatever kind of holiday you have in mind, I can make it happen. From classic beach breaks and around the world cruises to perfectly tailored multi-centres and even private jet charters, if you can imagine it, I can build the holiday to match.</p>
+      <p style="margin-bottom:0;">I'm really looking forward to sharing that passion with you. <a href="https://wa.me/447899290262" target="_blank" rel="noopener">Drop me a WhatsApp message</a> and let's start planning your perfect getaway.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="fact-grid">
+      <div class="fact-tile"><span class="fact-num">15+</span><span class="fact-label">Years in travel</span></div>
+      <div class="fact-tile"><span class="fact-num">16</span><span class="fact-label">Age I started in travel</span></div>
+      <div class="fact-tile"><span class="fact-num">Cyprus</span><span class="fact-label">Favourite short haul</span></div>
+      <div class="fact-tile"><span class="fact-num">Mauritius</span><span class="fact-label">Favourite long haul</span></div>
+      <div class="fact-tile"><span class="fact-num">Skiing</span><span class="fact-label">Best activity holiday</span></div>
+      <div class="fact-tile"><span class="fact-num">ABTA</span><span class="fact-label">Fully protected</span></div>
     </div>
   </div>
 </section>
@@ -12520,7 +12525,7 @@ jet2holidays_body = """
     <div>
       <div class="eyebrow">Hello, I'm Jake</div>
       <h2 style="font-size:26px;">Reasons to book with me</h2>
-      <p style="margin-top:12px;">I've worked in travel since I was 17, and fifteen years on, I'm still just as obsessed with it. Whatever you book through me, whether it's this Jet2holidays deal or something else entirely, you get one person to deal with from your first message to the day you land back home.</p>
+      <p style="margin-top:12px;">I've worked in travel since I was 16, and fifteen years on, I'm still just as obsessed with it. Whatever you book through me, whether it's this Jet2holidays deal or something else entirely, you get one person to deal with from your first message to the day you land back home.</p>
       <p style="margin-top:14px; margin-bottom:0;">Cyprus is my favourite short haul, Mauritius my favourite long haul, and if you ask me about skiing I probably won't stop talking. I'd rather spend ten minutes finding you the right holiday than sell you whatever's easiest.</p>
       <div class="btn-row" style="margin-top:22px;">
         <a class="btn btn-secondary" href="about.html">More about me</a>
