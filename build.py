@@ -8347,6 +8347,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1702411739431-0b6874405792?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Luggage carousel at an airport baggage claim with a departures screen above it",
     },
+    {
+        "slug": "package-holiday-compensation-rights.html",
+        "meta": "Consumer rights",
+        "title": "Your package holiday didn't match what you booked? Here's what you can claim",
+        "excerpt": "An overbooked pool, building work never mentioned, or a downgraded room: package holidays come with real legal protection most people never use. Here's exactly what you're entitled to claim, and how.",
+        "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Swimming pool at a holiday resort",
+    },
 ]
 
 def tip_card(post):
@@ -12630,6 +12638,171 @@ print("lost-delayed-luggage-compensation-rights.html written")
 
 
 
+# ---------------- TRAVEL TIPS: Package holiday didn't match what you booked, compensation rights ----------------
+pkg_rights_atol_tip = "This is a completely different thing to ATOL and ABTA protecting your money if a travel company goes bust, which I've <a href=\"travel-company-goes-bust-atol-abta-protection.html\">written about separately</a>. This is about your legal rights when the company is still trading, but the holiday itself wasn't what you were promised."
+package_rights_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>YOUR HOLIDAY DIDN'T MATCH WHAT YOU BOOKED?</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Nobody plans for it, but it happens more often than you'd think. You land, get to your room, and it doesn't match what you paid for. The pool's shut for building work nobody mentioned when you booked. The sea view room looks out over a car park. The kids' club you booked the holiday around isn't actually running. If this happens on a package holiday, you have real legal protection to claim money back, and most people never use it. Here's exactly what you're entitled to, what you're not, and how to actually claim it.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&h=700&q=80" alt="Swimming pool at a holiday resort" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">If you book a package holiday, at least two different travel services such as a flight and a hotel, bought together for one inclusive price from one company, that company is legally responsible for every part of it performing as described. This comes from the Package Travel and Linked Travel Arrangements Regulations 2018, and it applies even when the thing that actually went wrong was technically the hotel's fault, not the company you booked with. The organiser you paid is still the one on the hook.</p>
+      <p style="margin-top:14px; margin-bottom:0;">If what you get genuinely doesn't match what you paid for, you can claim a price reduction for the difference in value, and in more serious cases, compensation for loss of enjoyment on top. You can also claim back reasonable, receipted expenses you had to pay because of the problem.</p>
+    </div>
+    {jake_tip(pkg_rights_atol_tip)}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What actually counts as a package holiday</h2>
+    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&h=700&q=80" alt="Person signing a travel booking confirmation" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Not every holiday with a flight and a hotel attached gets the same protection. ABTA sets out three categories, and which one you're in decides what rights you actually have.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Type of booking</th><th>How it works</th><th>What protection you get</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Package holiday</td><td>Two or more travel services (flight, hotel, car hire, or a significant tour or excursion) bought together for one inclusive price from one trader, or selected and paid for during a single visit to that trader's site or shop</td><td>Full legal responsibility. The organiser is on the hook for the whole holiday performing as described</td></tr>
+          <tr><td>Linked travel arrangement</td><td>Two or more services bought separately, but within 24 hours of each other via a targeted link or offer from the first company</td><td>Financial protection only if the company fails. No legal responsibility for how the holiday itself actually goes</td></tr>
+          <tr><td>Completely separate bookings</td><td>You book your flight with one company and your hotel with a totally unconnected one, with no link between the two at all</td><td>No package protection of either kind. Each company is only responsible for what you booked with them directly</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;">Most people don't realise which category they're in until something goes wrong. Check your booking confirmation, a genuine package will usually say so clearly, or ask whoever you booked with directly if you're not sure.</p>
+    {jake_tip("Every package holiday I put together for a client is exactly that, a package, protected under these regulations. It's a big part of why I always confirm everything as one combined price rather than quoting a flight and a hotel as two separate things.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What you can actually claim for</h2>
+    <img src="https://images.unsplash.com/photo-1706561611610-2ebe309993f2?auto=format&fit=crop&w=1600&h=700&q=80" alt="Aerial view of a resort swimming pool and beach" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The Package Travel Regulations cover the whole holiday, not just the flight. Here's what a genuine shortfall between what you booked and what you got can actually entitle you to.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>A price reduction</b> when a specific, paid for element doesn't match its description. Booked a sea view room and got one facing a car park, paid for a junior suite and got a standard room, that's the difference in value between what you paid for and what you actually received.</span></li>
+      <li><span class="num">2</span><span><b>A bigger reduction, or compensation for loss of enjoyment,</b> when facilities central to the holiday aren't available. A pool, spa or kids' club closed for building work that was never mentioned when you booked is a genuinely common example, and the longer it affects your stay, the stronger the claim.</span></li>
+      <li><span class="num">3</span><span><b>Compensation for loss of enjoyment or distress</b> in more serious cases, where the problem was significant enough to spoil a meaningful part of the trip. There's no strict formula for the amount, each case is judged on how much it genuinely affected you, but it has to be reasonable and backed up by evidence.</span></li>
+      <li><span class="num">4</span><span><b>Reasonable, receipted expenses</b> you had to pay out of pocket because of the problem, extra meals, transport, or anything else the failure caused you to spend money on.</span></li>
+    </ul>
+    {jake_tip("Photograph everything as it actually was, not just what went wrong. A photo of the closed pool is useful, but so is a photo of the brochure or booking confirmation showing what you were promised in the first place.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What you can't claim for</h2>
+    <p style="margin-top:14px;">This protection has limits, and it's worth knowing them before you complain, since an unrealistic claim tends to get nowhere. Weather is the big one. As MoneySavingExpert puts it bluntly, "there's little that can be done about the weather," and that's genuinely true, a washed out week isn't a breach of anything the operator promised. The same goes for matters genuinely outside the organiser's control, and simply not enjoying the holiday as much as you'd hoped despite everything actually being as described.</p>
+    <p style="margin-top:14px; margin-bottom:0;">The test throughout is whether what you were promised is what you got, not whether you had a good time. A hotel can match its description perfectly and still not suit you, that isn't something the regulations can fix.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>How to actually complain and claim</h2>
+    <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1600&h=700&q=80" alt="Person writing a formal letter of complaint" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Report it immediately, while you're still there.</b> Tell the rep, hotel manager or tour operator's local desk straight away and ask for it to be logged in writing if possible. A problem reported at the time, and given a genuine chance to be fixed, carries far more weight than one only raised after you're home.</span></li>
+      <li><span class="num">2</span><span><b>Document everything.</b> Photos, videos, dates, the names of anyone you spoke to, and every receipt for anything you had to buy because of the problem.</span></li>
+      <li><span class="num">3</span><span><b>Write to the company within 28 days of getting home.</b> A full written account of what went wrong with your evidence attached. This is the tour operator's own recommended timeframe, and the sooner you send it the better.</span></li>
+      <li><span class="num">4</span><span><b>If you booked through an ABTA member and can't resolve it directly,</b> ABTA's Alternative Dispute Resolution service can step in. It's free, government approved, and typically takes up to around 50 days.</span></li>
+      <li><span class="num">5</span><span><b>If that still doesn't resolve it, ABTA's Arbitration Scheme gives a binding decision.</b> A &pound;150 registration fee covers claims up to &pound;25,000, the arbitrator's decision is final, and any award has to be paid within 28 days.</span></li>
+      <li><span class="num">6</span><span><b>Or go to the small claims court instead.</b> In England and Wales this covers claims up to &pound;10,000. Scotland and Northern Ireland have their own equivalent small claims procedures.</span></li>
+    </ul>
+    {jake_tip("You can't claim the same loss twice through two different routes, so pick ABTA's process or the small claims court, not both at once. ABTA's route is usually faster and free or low cost to start, so it's worth trying first if you booked through a member.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>A law change worth knowing about, even though it isn't here yet</h2>
+    <img src="https://images.unsplash.com/photo-1558353913-cd60ddd2c00f?auto=format&fit=crop&w=1600&h=700&q=80" alt="The Houses of Parliament in London under blue skies" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The Package Travel and Linked Travel Arrangements (Amendment) Regulations 2026 have been laid in Parliament and are due to come into force on 6 April 2027. Nothing changes for a holiday you book now, the 2018 rules above still apply in full until then, but it's worth knowing what's coming.</p>
+    <p style="margin-top:14px; margin-bottom:0;">The amendment removes the "linked travel arrangement" category altogether, along with its separate, weaker set of protections. At the same time, it closes a loophole the other way: if a single trader lets you separately select and pay for each part of your trip during one visit to their site or shop, that will count as a full package with full protection, rather than the weaker linked arrangement it might be treated as today.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Does this apply if I've booked your holiday?</h2>
+    <p style="margin-top:14px;">Every package holiday I put together for a client is booked as a genuine package, protected by every part of what's above. If something about your holiday doesn't match what we agreed, message me on WhatsApp and I'll help you raise it with the right people and build the kind of paper trail you'd need if it ever has to go further, though the claim itself has to go to whichever company actually held the contract with you.</p>
+    {jake_tip("The earlier you tell me about a problem while you're still away, the more I can usually do to help get it sorted on the spot, rather than fought over after you're home.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">What's the difference between a package holiday and separate bookings?</h3>
+      <p>A package holiday is two or more travel services, such as a flight and a hotel, bought together for one inclusive price, or selected and paid for in one visit to the same trader. That gets full legal protection. A "linked travel arrangement," two services booked separately within 24 hours via a targeted offer, only gets financial protection if the company fails. Completely separate, unconnected bookings get no package protection of either kind.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What can I actually claim if my package holiday doesn't match what I booked?</h3>
+      <p>A price reduction for the difference in value between what you paid for and what you got, compensation for loss of enjoyment in more serious cases, and reasonable, receipted expenses you had to pay because of the problem. You can't claim for bad weather or for simply not enjoying a holiday that otherwise matched what was promised.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How long do I have to complain after I get home?</h3>
+      <p>Report the problem immediately while you're still there, then put it in writing to the company within 28 days of returning home. That 28 day window is the tour operator's own recommended practice, and the sooner you send it the stronger your position.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What happens if the company won't resolve my complaint?</h3>
+      <p>If you booked through an ABTA member, their free Alternative Dispute Resolution service is the first step, followed by ABTA's binding Arbitration Scheme if needed, a &pound;150 registration fee for claims up to &pound;25,000. Otherwise, the small claims court covers claims up to &pound;10,000 in England and Wales, with Scotland and Northern Ireland running their own equivalent procedures.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Did your holiday not match what you were promised?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I'm always on WhatsApp if a package holiday I've booked for you doesn't match what we agreed, I'll help you raise it properly and give you the best chance of getting it resolved.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+package_rights_body = package_rights_body.replace("::NEWSLETTER::", newsletter_section())
+
+PACKAGE_RIGHTS_SCHEMA = article_and_faq_schema(
+    "Your Package Holiday Didn't Match What You Booked? Here's What You Can Claim",
+    "Overbooked pools, building work and downgraded rooms are covered by real UK law. Exactly what you can claim under the Package Travel Regulations, what you can't, and how ABTA arbitration and small claims actually work.",
+    "package-holiday-compensation-rights.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("What's the difference between a package holiday and separate bookings?", "A package holiday is two or more travel services, such as a flight and a hotel, bought together for one inclusive price, or selected and paid for in one visit to the same trader. That gets full legal protection. A \\u201clinked travel arrangement,\\u201d two services booked separately within 24 hours via a targeted offer, only gets financial protection if the company fails. Completely separate, unconnected bookings get no package protection of either kind."),
+        ("What can I actually claim if my package holiday doesn't match what I booked?", "A price reduction for the difference in value between what you paid for and what you got, compensation for loss of enjoyment in more serious cases, and reasonable, receipted expenses you had to pay because of the problem. You can't claim for bad weather or for simply not enjoying a holiday that otherwise matched what was promised."),
+        ("How long do I have to complain after I get home?", "Report the problem immediately while you're still there, then put it in writing to the company within 28 days of returning home. That 28 day window is the tour operator's own recommended practice, and the sooner you send it the stronger your position."),
+        ("What happens if the company won't resolve my complaint?", "If you booked through an ABTA member, their free Alternative Dispute Resolution service is the first step, followed by ABTA's binding Arbitration Scheme if needed, a \\u00a3150 registration fee for claims up to \\u00a325,000. Otherwise, the small claims court covers claims up to \\u00a310,000 in England and Wales, with Scotland and Northern Ireland running their own equivalent procedures."),
+    ]
+)
+
+with open(os.path.join(SITE, "package-holiday-compensation-rights.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Package Holiday Didn't Match What You Booked? Here's What You Can Claim | Travel Agent Jake",
+        "Overbooked pools, building work and downgraded rooms are covered by real UK law. Exactly what you can claim under the Package Travel Regulations, what you can't, and how ABTA arbitration and small claims actually work.",
+        "travel-tips.html",
+        package_rights_body,
+        extra_schema=PACKAGE_RIGHTS_SCHEMA,
+        canonical_path="package-holiday-compensation-rights.html"
+    ))
+print("package-holiday-compensation-rights.html written")
+
 # ---------------- BOOKING WIDGET PLACEHOLDER PAGES (Agendas Group) ----------------
 # Jess Speight (Agendas Group Ltd, account manager for the new holiday
 # search/booking widget) asked for three blank pages, named so their URLs
@@ -13283,6 +13456,7 @@ SITEMAP_PAGES = [
     ("dynamic-currency-conversion-pay-in-pounds-abroad.html", "0.7"),
     ("best-snow-sure-ski-resorts-december-january-february-march.html", "0.7"),
     ("lost-delayed-luggage-compensation-rights.html", "0.7"),
+    ("package-holiday-compensation-rights.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
