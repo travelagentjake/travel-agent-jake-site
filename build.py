@@ -1706,6 +1706,13 @@ DESTINATION_POSTS = [
         "excerpt": "Montego Bay, Negril, Ocho Rios and Runaway Bay: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1733596679766-3d8f63b30a75?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "barbados.html",
+        "meta": "Barbados",
+        "title": "Barbados",
+        "excerpt": "The Platinum Coast, St Lawrence Gap and Bridgetown: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1636728163078-59ea0afb7665?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -7919,6 +7926,274 @@ print("jamaica.html written")
 
 
 
+
+barbados_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>BARBADOS</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to the most easterly island in the Caribbean.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Barbados</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1636728163078-59ea0afb7665?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Turquoise waves breaking on a sandy Barbados beach" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Barbados is the Caribbean island I get asked about most after Jamaica, and for good reason. It's safe, sophisticated, friendly and genuinely different from one coast to the next, glamorous all inclusive resorts along the west coast, a lively capital in Bridgetown, and a wild, dramatic coastline on the east side that most tourists never see. TUI is currently the only one of the three operators I sell who flies there, with direct flights from London Gatwick, Birmingham and Manchester, mainly running through the winter and spring.</p>
+    <p style="margin-top:14px;">It sits right at the eastern edge of the Caribbean, outside the main hurricane belt that affects islands further north and west, so clients worried about storm season often feel reassured once I explain that. The island is also small enough to get around easily on a day trip or two, but still has enough variety, rum distilleries, surf beaches, botanical gardens, to fill a full two week stay without ever feeling repetitive.</p>
+    {jake_tip("Barbados attracts a slightly older, more sophisticated crowd than some of the other Caribbean islands I sell, it's long been popular with the British upper class and has a reputation to match. That makes it a brilliant pick for couples, honeymooners and clients who want a smart, polished holiday rather than a big lively resort scene, though there are still plenty of family friendly options on the south coast.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Ten to fourteen nights is the sweet spot, enough to make the long flight worthwhile and properly settle into resort life. As with the rest of the Caribbean I sell, it's rarely the best value as a one week trip given the flight time. Couples and honeymooners are particularly well suited to Barbados, especially along the glamorous west coast, while families tend to do better on the livelier, better value south coast around St Lawrence Gap and Hastings. It's less suited to anyone who can't manage an 8 to 9 hour flight or wants a short midweek break.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Barbados' only airport, Grantley Adams International (BGI), sits on the south coast a short drive from most of the island's resorts. TUI flies direct from London Gatwick, Birmingham and Manchester, with a flight time of around 8 to 9 hours, though routes and frequency vary by season, with the fullest programme running through the winter and spring months. Neither Jet2holidays nor easyJet holidays currently fly to Barbados or anywhere else in the Caribbean, so TUI is the one to book with for this destination right now.</p>
+    {jake_tip("Because TUI's Barbados routes are seasonal rather than year round, I always check live availability for a client's exact dates before quoting, especially outside the winter and spring window. Book early for the popular Christmas, February half term and Easter departures, seats and the best rooms go quickly.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Barbados has a tropical climate, warm all year with fairly little seasonal variation in temperature. Figures below are for Bridgetown, representative of the island as a whole.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>26&deg;C</td><td>24&deg;C</td><td>Driest month of the year, one of the most popular to visit</td></tr>
+          <tr><td>February</td><td>26&deg;C</td><td>24&deg;C</td><td>Still dry and sunny, reliably good weather</td></tr>
+          <tr><td>March</td><td>27&deg;C</td><td>24&deg;C</td><td>Warm with low rainfall, a great all round month</td></tr>
+          <tr><td>April</td><td>27&deg;C</td><td>25&deg;C</td><td>Warming up, good value before the summer rush</td></tr>
+          <tr><td>May</td><td>28&deg;C</td><td>26&deg;C</td><td>Rainfall starts to pick up, still mostly sunny</td></tr>
+          <tr><td>June</td><td>28&deg;C</td><td>26&deg;C</td><td>Hotter and more humid, the Atlantic hurricane season begins</td></tr>
+          <tr><td>July</td><td>28&deg;C</td><td>26&deg;C</td><td>Peak heat, rain showers more frequent, Crop Over festival season begins</td></tr>
+          <tr><td>August</td><td>28&deg;C</td><td>26&deg;C</td><td>Hot and humid, Crop Over's Grand Kadooment carnival finale</td></tr>
+          <tr><td>September</td><td>28&deg;C</td><td>26&deg;C</td><td>Hot with regular showers, usually quieter and better value</td></tr>
+          <tr><td>October</td><td>28&deg;C</td><td>26&deg;C</td><td>The wettest month of the year, though showers are often short and sharp</td></tr>
+          <tr><td>November</td><td>27&deg;C</td><td>26&deg;C</td><td>Rain starts easing off, hurricane season ends on the 30th</td></tr>
+          <tr><td>December</td><td>27&deg;C</td><td>25&deg;C</td><td>Drying out again, the start of the busy winter season</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for Bridgetown, sourced via climate-data.org. Sea temperature stays warm year round, roughly 26 to 29&deg;C.</p>
+    {jake_tip("Barbados sits at the southeastern edge of the Caribbean, outside the main Atlantic hurricane belt, so it's generally far less exposed to direct hits than islands further north, such as Jamaica or the Bahamas. The official hurricane season still runs 1 June to 30 November and I always make sure clients travelling then have solid travel insurance in place, but it shouldn't put anyone off booking.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">December to April is Barbados' dry season and by far the most popular time to visit, warm, sunny and with the least rainfall, though also the busiest and most expensive, especially over Christmas and February half term. Barbados' biggest annual event, the Crop Over festival, runs through July and August, a huge calendar of parties, parades and a carnival style Grand Kadooment finale, brilliant if a client wants to be part of it, worth avoiding if they'd rather a quieter trip. May, June and November are good value shoulder months with decent weather and smaller crowds, while the wetter months from July to October bring more frequent showers but also the best prices of the year.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Barbados' resorts cluster along two quite different coasts, with the calm, clear Caribbean Sea on the west and a livelier strip further south.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1772064901543-fb4a5d9f4736?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort pool with palm trees at sunset on Barbados' west coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Platinum Coast (St James &amp; St Peter)</h3>
+        <p>Barbados' most glamorous stretch of coast, running along the calm Caribbean side of the island, home to the island's grandest resorts, private villas and the best known beach clubs. This is where I'd point a couple or a honeymooner towards for the most polished, upscale stay, with calm, clear water and a noticeably quieter pace than the south.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1598924957326-0446ac30341e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees along the water on Barbados' south coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The South Coast (St Lawrence Gap, Hastings &amp; Worthing)</h3>
+        <p>Livelier and better value than the west coast, with a long strip of bars and restaurants around St Lawrence Gap and a wide choice of more affordable hotels around Hastings and Worthing. This is the area I'd steer families and anyone on a tighter budget towards, still right on the beach but with far more choice at a lower price point.</p>
+      </div>
+    </div>
+    {jake_tip("For a client who wants the full Barbados experience without picking a side, a hire car or a few taxi rides make it easy to spend an evening in St Lawrence Gap even while staying on the west coast, the island is small enough that nothing is ever more than 30 to 40 minutes away.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Airport transfers are usually included as part of the package. Barbados drives on the left, the same as the UK, and the roads are generally in good condition, so self drive is a realistic option here in a way it isn't on every Caribbean island, a reputable local or international hire company is easy to book for anyone who wants the freedom to explore the east coast and the interior independently. For clients who'd rather not drive, licensed taxis and organised tours cover everywhere worth seeing.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1605287587113-c079c74dcc3f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rocky coastline and clear sea in Barbados" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities worth having on the radar. The wild, wave battered east coast around Bathsheba, popular with surfers and known locally as the Soup Bowl, is a dramatic half day trip even for guests staying on the calmer west side.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="430983,137693,202576,175572"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/barbados-l169066/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/barbados-l169066/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Barbados &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across Barbados' west and south coasts. TUI is currently the only one of the three operators I sell who flies to Barbados, so all four of these are booked through TUI.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1636728156938-4458ed4c5f66?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A quiet stretch of beach on Barbados' south coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Coconut Court Beach Hotel, Hastings</h3>
+        <p>A family run, beachfront hotel on the south coast, not all inclusive but with a strong value for money reputation and a genuinely good stretch of beach on its doorstep. TUI doesn't publish a star rating for it, but it's consistently one of the better reviewed options on this stretch of coast for anyone who doesn't need a full all inclusive package. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1713500292472-15f041b333d4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool with sun loungers at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Sugar Bay Barbados, Hastings</h3>
+        <p>One of TUI's own top rated all inclusive picks on the south coast, with a large beachfront pool, a kids' club and a full entertainment programme. A reliable, lively choice for a family wanting everything included without the top end price tag. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1762254794468-1fb6fa893f73?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An infinity pool overlooking the sea at dusk" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Colony Club, a Luxury Collection Resort, St James</h3>
+        <p>A long standing, elegant resort on the Platinum Coast, part of Marriott's Luxury Collection and carrying TUI's own luxury designation. Set in tropical gardens around a series of lagoon style pools, it's the kind of polished, old school Caribbean glamour Barbados is known for. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best adults only &amp; honeymoons</div>
+        <img src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees silhouetted against a golden sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">The House, An Autograph Collection All Inclusive Hotel, Adults Only, St James</h3>
+        <p>A small, boutique, adults only all inclusive resort on the Platinum Coast, part of Marriott's Autograph Collection, with personalised service and a genuinely romantic, intimate feel. One of the standout honeymoon picks covered in this guide. Bookable through TUI.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the sights worth building into an itinerary beyond the hotel pool.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1633847016928-5d76a4e083f2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A row of colourful chattel houses in Barbados" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bridgetown &amp; the chattel houses</h3>
+        <p>Barbados' capital and a UNESCO World Heritage Site for its well preserved Garrison and colonial architecture, worth an afternoon for the historic Parliament Buildings, the lively Cheapside Market and the colourful wooden chattel houses dotted across the island.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1518467166778-b88f373ffec7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A sea turtle swimming in clear Caribbean water" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Swimming with turtles at Carlisle Bay</h3>
+        <p>Carlisle Bay, just south of Bridgetown, is one of the best spots on the island to swim with hawksbill turtles, usually booked as a short boat trip combined with a shipwreck snorkel.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1691418159287-525468af1acc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rum barrels at a Caribbean distillery" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Mount Gay Rum &amp; the island's distilleries</h3>
+        <p>Mount Gay claims to be the world's oldest rum producer, and its visitor centre near Bridgetown runs tours and tastings explaining how it's made. St Nicholas Abbey, a seventeenth century plantation house in the north of the island, runs its own distillery tour alongside a heritage steam railway.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1769610352818-cf8fa29ccf9a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A catamaran sailing on turquoise Caribbean water" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Catamaran trips along the west coast</h3>
+        <p>A relaxed way to see Barbados from the water, usually combining snorkelling over a shipwreck or two with a stop to swim alongside turtles, and often a rum punch or two on the sail back in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Barbados uses the Barbados Dollar, which is pegged to the US Dollar at a fixed rate and widely quoted alongside it in shops and restaurants. Prices below are shown in pounds sterling with the Barbados Dollar equivalent alongside, based on a rate of roughly &pound;1 to 2.65 BBD. These are crowd-sourced averages for Bridgetown, and prices right on a resort's own doorstep in tourist areas can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;15.09 (about Bds$40)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;52.08 (about Bds$138)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;4.28 (about Bds$11.33)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;1.89 (about Bds$5)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;1.13 (about Bds$3)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;5.66 (about Bds$15)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages for Bridgetown via Numbeo, checked at time of writing. Barbados Dollar to pound sterling conversion is approximate and moves around with the US Dollar peg, so treat these as a guide rather than an exact figure.</p>
+    {jake_tip("Most clients on an all inclusive stay don't need much spending money beyond tips, drinks on excursions and souvenirs. US Dollars are widely accepted alongside Barbados Dollars almost everywhere, and cards are fine for most things too, so there's no need to change a large amount of cash before travelling.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Barbados Dollar (BBD), pegged to the US Dollar at a fixed rate, with US Dollars also widely accepted in resorts and tourist areas</td></tr>
+          <tr><td>Plug type</td><td>Type A/B, the same as the US. A UK to US style adapter is needed, and the voltage is 115V rather than the UK's 230V, so check appliances before plugging in directly</td></tr>
+          <tr><td>Language</td><td>English is the official language, spoken locally with a distinctive Bajan accent and dialect</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 8 to 9 hours direct, though TUI's routes are seasonal, mainly running through the winter and spring</td></tr>
+          <tr><td>Time difference</td><td>Barbados stays on the same time year round and doesn't change its clocks, so it's 4 hours behind the UK in winter and 5 hours behind during British Summer Time</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders don't need a visa for stays of up to 6 months, a passport valid for the length of the stay is all that's needed</td></tr>
+          <tr><td>Driving</td><td>Left hand side, the same as the UK, and generally good enough road conditions that self drive is a realistic option alongside transfers and taxis</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Tom Jur, Jeffrey Eisen, Kevin Doran, JR Harris, Milin John, Tommaso Ubezio, Prometey Sanchez Noskov, Kris-Mikael Krister, Yash Mannepalli, Flo Plouch and Jeremy Bishop via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Barbados for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around the Platinum Coast's most glamorous resorts, find better value on the lively south coast, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+barbados_body = barbados_body.replace("::NEWSLETTER::", newsletter_section())
+
+BARBADOS_SCHEMA = article_and_faq_schema(
+    "Barbados: Jake's Destination Guide",
+    "Jake's honest guide to Barbados: the Platinum Coast, St Lawrence Gap and Bridgetown, weather by month, where to stay, things to do and what it actually costs.",
+    "barbados.html",
+    "https://images.unsplash.com/photo-1636728163078-59ea0afb7665?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator flies to Barbados?", "TUI is currently the only one of the three operators Jake sells (TUI, Jet2holidays and easyJet holidays) who flies to Barbados, with direct flights to Grantley Adams International Airport from London Gatwick, Birmingham and Manchester, mainly running through the winter and spring. Neither Jet2holidays nor easyJet holidays currently fly to the Caribbean."),
+        ("How long is the flight to Barbados?", "Around 8 to 9 hours direct from the UK, depending on the departure airport and winds."),
+        ("What's the best time to visit Barbados?", "December to April is the dry season and the most popular time to visit, though also the busiest and most expensive. Barbados' Crop Over festival runs through July and August with a big calendar of events. May, June and November are good value shoulder months, while July to October brings more rain but also the best prices of the year."),
+        ("Is Barbados at risk from hurricanes?", "Barbados sits at the southeastern edge of the Caribbean, outside the main Atlantic hurricane belt, so it's generally far less exposed to direct hits than islands further north and west. The official hurricane season still runs from 1 June to 30 November, so proper travel insurance is still sensible for a trip during those months."),
+        ("Do I need a visa for Barbados?", "No. UK passport holders don't need a visa for stays of up to 6 months, you just need a passport that's valid for the length of your stay."),
+    ]
+)
+with open(os.path.join(SITE, "barbados.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Barbados: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Barbados: the Platinum Coast, St Lawrence Gap and Bridgetown, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        barbados_body,
+        extra_schema=BARBADOS_SCHEMA,
+        canonical_path="barbados.html"
+    ))
+print("barbados.html written")
+
+
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
     {
@@ -12974,6 +13249,7 @@ SITEMAP_PAGES = [
     ("cairo-nile-river-cruise.html", "0.6"),
     ("tunisia.html", "0.6"),
     ("jamaica.html", "0.6"),
+    ("barbados.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
