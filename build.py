@@ -17,7 +17,7 @@ def article_and_faq_schema(headline, description, slug, image, faqs=None):
             "headline": headline,
             "description": description,
             "url": f"{BASE_URL}/{slug}",
-            "image": f"{BASE_URL}/{image}",
+            "image": image if image.startswith("http") else f"{BASE_URL}/{image}",
             "dateModified": TODAY_ISO,
             "author": {"@type": "Person", "name": "Jake", "jobTitle": "Independent Travel Agent"},
             "publisher": {"@type": "Organization", "name": "Travel Agent Jake", "logo": {"@type": "ImageObject", "url": f"{BASE_URL}/images/logo.png"}},
