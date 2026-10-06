@@ -105,6 +105,7 @@ export default async (req) => {
   try { await getStore({ name: "enquiries", consistency: "strong" }).setJSON(q.id, q); } catch (e) { console.error("Blob save", e.message); }
 
   const party = `${adults} adult${adults === 1 ? "" : "s"}` + (children ? `, ${children} child${children === 1 ? "" : "ren"} (ages ${ages.join(", ")})` : "");
+  const agesText = ages.map((a, i) => `Child ${i + 1}: ${a}`).join(", ");
   const when = [nice(departDate) && `from ${nice(departDate)}`, q.dateFlex, q.dateNotes].filter(Boolean).join(", ");
 
   const hello = pre
@@ -116,10 +117,12 @@ export default async (req) => {
 <p style="margin:0 0 16px;">${waBtn}${btn("mailto:" + esc(email), "Email them")}</p>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e6eaf3;border-radius:10px;">
 ${row("Email", email)}${row("Mobile", phone)}
-${row("Holiday type", q.holidayType)}${row("Departure month", q.month)}${row("Destination", q.destination)}${row("Hotel in mind", q.hotel)}${row("Dates", when)}${row("Nights", q.nights)}
-${row("Flying from", airports.join(", "))}${row("Travelling", party)}
-${row("Accommodation", q.accommodation)}${row("Minimum stars", q.stars)}${row("Board basis", q.board)}
-${row("Budget", q.budget)}${row("Ready to pay a deposit", q.deposit)}${row("Looking to book", q.whenBook)}${row("Anything else", q.notes)}${row("Heard about Jake via", q.source)}
+${row(pre ? "What type of holiday are you after?" : "Type of holiday", q.holidayType)}${row("Which month would you like to depart?", q.month)}${row("Where would you like to go?", q.destination)}${row("Have you got a particular hotel in mind?", q.hotel)}
+${row("Preferred departure date", nice(departDate))}${row("How flexible are your dates?", q.dateFlex)}${row("Date notes", q.dateNotes)}${row("How many nights?", q.nights)}
+${row("Which airports can you fly from?", airports.join(", "))}${row("Adults", String(adults))}${row("Children", String(children))}${row("Child ages", agesText)}
+${row("Type of accommodation", q.accommodation)}${row("Minimum star rating", q.stars)}${row("Board basis", q.board)}
+${row(pre ? "What is your total budget for everyone?" : "Budget for the whole holiday", q.budget)}${row("Will you be ready to pay a deposit when 2028 launches?", q.deposit)}${row("When are you looking to book?", q.whenBook)}
+${row(pre ? "Anything else I should know?" : "Anything else?", q.notes)}${row(pre ? "How did you find me?" : "How did you hear about me?", q.source)}
 ${row("Marketing opt in", q.marketing ? "Yes" : "No")}
 </table>
 <p style="margin:16px 0 0;">${btn(SITE + "/enquiries-admin.html", "Open enquiries dashboard")}</p>
@@ -154,7 +157,7 @@ ${row("Marketing opt in", q.marketing ? "Yes" : "No")}
 <p style="margin:0 0 14px;">${pre ? "Thanks for pre-registering. You're on my list for 2028, and I'll message you personally on WhatsApp as soon as 2028 holidays are released so you're first in line for the best prices and availability." : "Thanks for sending your enquiry over. I've got everything I need to start putting some real options together for you, and I'll be in touch personally."}</p>
 <p style="margin:0 0 6px;"><strong>Here's what you told me:</strong></p>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e6eaf3;border-radius:10px;margin-bottom:16px;">
-${row("Destination", q.destination || q.holidayType)}${row("Departure month", q.month)}${row("Dates", when)}${row("Nights", q.nights)}${row("Travelling", party)}${row("Flying from", airports.join(", "))}${row("Budget", q.budget)}
+${row("Where would you like to go?", q.destination || q.holidayType)}${row("Which month would you like to depart?", q.month)}${row("Preferred departure date", nice(departDate))}${row("How flexible are your dates?", q.dateFlex)}${row("Date notes", q.dateNotes)}${row("How many nights?", q.nights)}${row("Travelling", party)}${row("Flying from", airports.join(", "))}${row("Budget", q.budget)}
 </table>
 <p style="margin:0 0 14px;">If anything changes, or you've seen a holiday you like the look of, just reply to this email or message me on WhatsApp.</p>
 <p style="margin:0 0 14px;">${btn(waLink("Hi Jake, I've just sent a holiday enquiry through your website."), "Message me on WhatsApp")}</p>

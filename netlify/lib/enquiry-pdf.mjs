@@ -120,6 +120,7 @@ export async function buildEnquiryPdf(q, logoPng) {
     y -= 4;
   };
 
+  const agesText = (q.childAges || []).map((a, i) => `Child ${i + 1}: ${a}`).join(", ");
   const party = `${q.adults || 1} adult${Number(q.adults) === 1 ? "" : "s"}` + (Number(q.children) ? `, ${q.children} child${Number(q.children) === 1 ? "" : "ren"}` : "");
   const ages = (q.childAges || []).map((a, i) => `Child ${i + 1}: ${/^\d+$/.test(a) ? a + " yrs" : a}`).join("   ");
   const when = [nice(q.departDate) && `from ${nice(q.departDate)}`, q.dateFlex, q.dateNotes].filter(Boolean).join(", ");
@@ -132,33 +133,36 @@ export async function buildEnquiryPdf(q, logoPng) {
 
   section("The holiday");
   grid([
-    ["Type of holiday", q.holidayType],
-    [pre ? "Departure month" : "Destination", pre ? q.month : q.destination],
-    pre ? ["Destination", q.destination] : ["Dates", when],
-    pre ? ["Dates", when] : ["Nights", q.nights],
-    pre ? ["Nights", q.nights] : ["Flying from", (q.airports || []).join(", ")],
-    pre ? ["Flying from", (q.airports || []).join(", ")] : ["", ""],
-    pre ? ["Hotel in mind", q.hotel] : ["", ""],
+    [pre ? "What type of holiday are you after?" : "Type of holiday", q.holidayType],
+    ["Which month would you like to depart?", q.month],
+    ["Where would you like to go?", q.destination],
+    ["Hotel in mind", q.hotel],
+    ["Preferred departure date", nice(q.departDate)],
+    ["How flexible are your dates?", q.dateFlex],
+    ["Date notes", q.dateNotes],
+    ["How many nights?", q.nights],
+    ["Which airports can you fly from?", (q.airports || []).join(", ")],
   ]);
 
   section("Who's travelling");
   grid([
-    ["Party", party],
-    ["Children's ages", ages],
+    ["Adults", String(q.adults || 1)],
+    ["Children", String(q.children || 0)],
+    ["Child ages", agesText],
   ]);
 
   section(pre ? "Board and budget" : "Stay and budget");
   grid([
-    ["Accommodation", q.accommodation],
-    ["Minimum stars", q.stars],
+    ["Type of accommodation", q.accommodation],
+    ["Minimum star rating", q.stars],
     ["Board basis", q.board],
-    ["Budget (total)", q.budget],
-    [pre ? "Ready to pay a deposit" : "Looking to book", pre ? q.deposit : q.whenBook],
-    ["Heard about Jake via", q.source],
+    [pre ? "Total budget for everyone" : "Budget for the whole holiday", q.budget],
+    [pre ? "Ready to pay a deposit when 2028 launches?" : "When are you looking to book?", pre ? q.deposit : q.whenBook],
+    [pre ? "How did you find me?" : "How did you hear about me?", q.source],
   ]);
 
   // notes box
-  section("Anything else");
+  section(pre ? "Anything else I should know?" : "Anything else?");
   const noteLines = wrap(reg, 10.5, q.notes || "Nothing added.", W - 2 * M - 20);
   const maxLines = Math.max(2, Math.floor((y - 176) / 14));
   const shown = noteLines.slice(0, maxLines);
