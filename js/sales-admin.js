@@ -71,6 +71,7 @@
     '.sd-det summary::-webkit-details-marker{display:none}.sd-det summary::after{content:"+";font-size:20px;line-height:1}.sd-det[open] summary::after{content:"\\2212"}',
     '.sd-detbody{padding:2px 16px 12px;border-top:1px solid #e6eaf3}',
     '.sd-cols.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}',
+    '.sd-choice{display:grid;gap:8px;margin-top:12px}.sd-choice label{display:flex;gap:10px;align-items:center;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;font-weight:700;cursor:pointer}.sd-choice input{width:20px;height:20px}',
     '.sd-n{display:inline-block;width:22px;color:#6b7190}',
     '.sd-trow{display:grid;grid-template-columns:1fr auto;gap:10px 14px;align-items:start}',
     '.sd-check{display:inline-flex;gap:8px;align-items:center;font-weight:700;cursor:pointer;padding:0 6px}.sd-check input{width:20px;height:20px}',
@@ -82,7 +83,7 @@
   var HOLIDAY_TYPES = ['Summer Beach Package', 'Winter Beach Package', 'Ski', 'Ocean Cruise', 'River Cruise', 'Tailor Made', 'Expedition Cruise', 'Touring and Adventure', 'ATOL Packaged', 'Rail Holiday', 'City Break', 'Disney Holiday', 'Theme Park Holiday', 'Special Interest Holiday'];
   var EXTRAS = ['Car Parking', 'Insurance', 'Airport Lounge', 'Security Fast Track', 'Car Hire', 'Attraction Tickets', 'Airport Hotel', 'Excursions'];
 
-  var S = { all: null, view: 'home', loading: false, error: '', setup: false, bq: '', bf: 'active', bs: 'booked', open: {}, inc: {}, det: {}, year: null, vf: 'avail', form: null, busy: false, at: null };
+  var S = { all: null, view: 'home', loading: false, error: '', setup: false, bq: '', bf: 'active', bs: 'booked', open: {}, inc: {}, det: {}, cancel: null, year: null, vf: 'avail', form: null, busy: false, at: null };
   var root, getKey, toast;
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -100,6 +101,7 @@
       .then(function (r) {
         return r.json().catch(function () { return {}; }).then(function (j) {
           if (r.status === 401) throw new Error('Admin key not recognised. Lock and unlock again.');
+          if (j.error === 'Not allowed' || (j.error || '').indexOf('Not allowed') === 0) throw new Error('Your Google bridge needs its newest version published before this works.');
           if (j.error === 'not_configured') { var e = new Error('setup'); e.setup = true; throw e; }
           if (!j.ok) throw new Error(j.error === 'timeout' ? 'Google took too long. Tap Refresh to see if it went through.' : j.error === 'bridge_unreachable' ? (j.detail || 'Could not reach your sales app.') : (j.error || 'Something went wrong'));
           return j.data;
@@ -174,9 +176,12 @@
     return t;
   }
 
+  function allBookings() { return (S.all.bookings || []).concat(S.all.travelled || []); }
+  function findBook(row) { return findBy(allBookings(), 'row', row); }
   function bookingMatches(b) {
-    if (S.bf === 'active' && b.cancelled) return false;
-    if (S.bf === 'cancelled' && !b.cancelled) return false;
+    if (S.bf === 'active' && (b.cancelled || b.travelled)) return false;
+    if (S.bf === 'travelled' && (!b.travelled || b.cancelled)) return false;
+    if (S.bf === 'cancelled' && !(b.cancelled || b.cancelComm)) return false;
     var q = S.bq.trim().toLowerCase();
     if (!q) return true;
     return [b.customerName, b.bookingRef, b.destination, b.supplier, b.customerEmail, b.customerPhone, b.accommodation].join(' ').toLowerCase().indexOf(q) >= 0;
@@ -187,19 +192,20 @@
   }
   function bookingCard(b) {
     var id = String(b.row), o = S.open[id];
-    var d = [['Email', b.customerEmail], ['Mobile', b.customerPhone], ['Date of birth', b.customerDob], ['Holiday type', b.holidayType], ['Flying from', b.flyingFrom], ['Sailing from', b.sailingFrom], ['Rail from', b.railFrom], ['Accommodation', b.accommodation], ['Board basis', b.boardBasis], ['Extras', b.extras], ['Discount', b.discount ? money(b.discount, 2) : ''], ['Gross commission', b.grossCommission ? money(b.grossCommission, 2) : ''], ['Net commission', money(b.netCommission, 2)], ['Margin', pc(b.marginPct)]].filter(function (r) { return r[1]; });
-    return '<article class="sd-card' + (b.cancelled ? ' cancelled' : '') + '"><div class="sd-row"><div><h4 class="sd-name">' + esc(b.customerName) + '</h4><div class="sd-sub">' + esc(b.bookingRef) + ' &middot; ' + esc([b.destination, b.supplier].filter(Boolean).join(' &middot; ').replace(/&middot;/g, '|')).replace(/\|/g, '&middot;') + '</div></div>' + (b.cancelled ? '<span class="sd-badge bad">Cancelled</span>' : '') + '</div>'
+    var d = [['Email', b.customerEmail], ['Mobile', b.customerPhone], ['Date of birth', b.customerDob], ['Holiday type', b.holidayType], ['Flying from', b.flyingFrom], ['Sailing from', b.sailingFrom], ['Rail from', b.railFrom], ['Accommodation', b.accommodation], ['Board basis', b.boardBasis], ['Extras', b.extras], ['Discount', b.discount ? money(b.discount, 2) : ''], ['Gross commission', b.grossCommission ? money(b.grossCommission, 2) : ''], ['Net commission', money(b.netCommission, 2)], ['Margin', pc(b.marginPct)], b.cancelComm && b.cancelComm.original ? ['Before cancellation', 'Commission ' + money(b.cancelComm.original.grossCommission, 2) + ', holiday cost ' + money(b.cancelComm.original.grossHolidayCost)] : ['', '']].filter(function (r) { return r[1]; });
+    return '<article class="sd-card' + (b.cancelled ? ' cancelled' : '') + '"><div class="sd-row"><div><h4 class="sd-name">' + esc(b.customerName) + '</h4><div class="sd-sub">' + esc(b.bookingRef) + ' &middot; ' + esc([b.destination, b.supplier].filter(Boolean).join(' &middot; ').replace(/&middot;/g, '|')).replace(/\|/g, '&middot;') + '</div></div>' + (b.cancelled ? '<span class="sd-badge bad">Cancelled</span>' : b.cancelComm ? '<span class="sd-badge warn">Cancelled, commission only</span>' : b.travelled ? '<span class="sd-badge ok">Travelled</span>' : '') + '</div>'
       + '<div class="sd-chips"><div class="sd-chip">Departs<b>' + esc(b.departureLabel || 'TBC') + '</b></div><div class="sd-chip">Returns<b>' + esc(b.returnLabel || 'TBC') + '</b></div><div class="sd-chip">Party<b>' + (b.adults || 0) + 'A' + (b.children ? ' ' + b.children + 'C' : '') + '</b></div><div class="sd-chip">Holiday cost<b>' + money(b.grossHolidayCost) + '</b></div><div class="sd-chip">My commission<b>' + money(b.myTotalCommission, 2) + '</b></div>' + (b.balanceDueDate ? '<div class="sd-chip">Balance ' + esc(b.balanceDueLabel) + '<b>' + (b.balanceDueAmount !== '' ? money(b.balanceDueAmount, 2) : 'TBC') + '</b></div>' : '') + '</div>'
       + payRow(b, b.payment1) + payRow(b, b.payment2)
       + '<div class="sd-actions">' + (b.whatsappUrl ? '<a class="ea-btn wa" target="_blank" rel="noopener" href="' + esc(b.whatsappUrl) + '">WhatsApp</a>' : '') + (b.customerEmail ? '<a class="ea-btn" href="mailto:' + esc(b.customerEmail) + '">Email</a>' : '') + (b.customerPhone ? '<a class="ea-btn" href="tel:' + esc(tel(b.customerPhone)) + '">Call</a>' : '')
-      + '<button class="ea-btn" type="button" data-a="bk-toggle" data-row="' + id + '">' + (o ? 'Hide details' : 'Show details') + '</button><button class="ea-btn" type="button" data-a="bk-edit" data-row="' + id + '">Edit</button><button class="ea-btn danger" type="button" data-a="bk-cancel" data-row="' + id + '">' + (b.cancelled ? 'Restore' : 'Cancel booking') + '</button></div>'
+      + '<button class="ea-btn" type="button" data-a="bk-toggle" data-row="' + id + '">' + (o ? 'Hide details' : 'Show details') + '</button><button class="ea-btn" type="button" data-a="bk-edit" data-row="' + id + '">Edit</button>' + (b.travelled && !b.cancelled ? '' : b.cancelComm ? '<button class="ea-btn danger" type="button" data-a="bk-undo-cc" data-row="' + id + '">Undo cancellation</button>' : '<button class="ea-btn danger" type="button" data-a="bk-cancel" data-row="' + id + '">' + (b.cancelled ? 'Restore' : 'Cancel booking') + '</button>') + '</div>'
       + (o ? '<div class="sd-detail">' + d.map(function (r) { return '<div><small>' + esc(r[0]) + '</small>' + esc(r[1]) + '</div>'; }).join('') + '</div>' : '') + '</article>';
   }
   function vBookings() {
-    var list = S.all.bookings.filter(bookingMatches);
-    if (S.bs === 'depart') list = list.slice().sort(function (a, b) { return (a.departureDate || '9999').localeCompare(b.departureDate || '9999'); });
-    var t = '<div class="ea-tools"><input id="sdBq" type="search" placeholder="Search name, ref, destination, supplier" value="' + esc(S.bq) + '"><select id="sdBf"><option value="active"' + (S.bf === 'active' ? ' selected' : '') + '>Active</option><option value="cancelled"' + (S.bf === 'cancelled' ? ' selected' : '') + '>Cancelled</option><option value="all"' + (S.bf === 'all' ? ' selected' : '') + '>All</option></select><select id="sdBs"><option value="booked"' + (S.bs === 'booked' ? ' selected' : '') + '>Newest booked</option><option value="depart"' + (S.bs === 'depart' ? ' selected' : '') + '>Departing soonest</option></select><button class="ea-btn wa" type="button" data-a="bk-add">+ Add booking</button></div>';
-    t += '<p class="sd-sub" style="margin:-6px 0 12px">' + list.length + ' booking' + (list.length === 1 ? '' : 's') + '. Trips that have already finished are hidden.</p>';
+    var list = allBookings().filter(bookingMatches);
+    if (S.bf === 'travelled') list = list.slice().sort(function (a, b) { return (b.departureDate || '').localeCompare(a.departureDate || ''); });
+    if (S.bs === 'depart' && S.bf !== 'travelled') list = list.slice().sort(function (a, b) { return (a.departureDate || '9999').localeCompare(b.departureDate || '9999'); });
+    var t = '<div class="ea-tools"><input id="sdBq" type="search" placeholder="Search name, ref, destination, supplier" value="' + esc(S.bq) + '"><select id="sdBf"><option value="active"' + (S.bf === 'active' ? ' selected' : '') + '>Active</option><option value="travelled"' + (S.bf === 'travelled' ? ' selected' : '') + '>Travelled</option><option value="cancelled"' + (S.bf === 'cancelled' ? ' selected' : '') + '>Cancelled</option><option value="all"' + (S.bf === 'all' ? ' selected' : '') + '>All</option></select><select id="sdBs"><option value="booked"' + (S.bs === 'booked' ? ' selected' : '') + '>Newest booked</option><option value="depart"' + (S.bs === 'depart' ? ' selected' : '') + '>Departing soonest</option></select><button class="ea-btn wa" type="button" data-a="bk-add">+ Add booking</button></div>';
+    t += '<p class="sd-sub" style="margin:-6px 0 12px">' + list.length + ' booking' + (list.length === 1 ? '' : 's') + (S.bf === 'active' ? '. Once a trip has finished it moves to Travelled.' : S.bf === 'travelled' ? '. Newest trips first.' : '') + '</p>';
     return t + (list.length ? list.map(bookingCard).join('') : '<div class="ea-empty">No bookings match.</div>');
   }
 
@@ -275,6 +281,19 @@
   function fv(o, k) { return o && o[k] != null ? o[k] : ''; }
   function dl(id, arr) { return '<datalist id="' + id + '">' + (arr || []).map(function (v) { return '<option value="' + esc(v) + '">'; }).join('') + '</datalist>'; }
   function inp(label, name, v, type, extra) { return '<div' + (extra && extra.full ? ' class="full"' : '') + '><label>' + esc(label) + '<input name="' + name + '" type="' + (type || 'text') + '" value="' + esc(v) + '"' + (extra && extra.list ? ' list="' + extra.list + '" autocomplete="off"' : '') + (extra && extra.step ? ' step="' + extra.step + '"' : '') + '></label></div>'; }
+  function cancelModal() {
+    var c = S.cancel, b = findBook(c.row) || {}, due = parseFloat(c.due), ok = c.mode === 'no' || (c.mode === 'yes' && due >= 0);
+    var share = isNaN(due) ? 0 : due * 0.7;
+    return '<div class="sd-modal"><div><h3 class="sd-name" style="font-size:22px">Cancel this booking?</h3>'
+      + '<p class="sd-sub" style="font-size:15px">' + esc(b.customerName) + ' &middot; ' + esc(b.bookingRef) + (b.destination ? ' &middot; ' + esc(b.destination) : '') + '</p>'
+      + '<div class="sd-note"><b>Is any commission still due on this cancellation?</b><br>You earn commission on cancellation charges, so tell me now and I will change this booking to match.</div>'
+      + '<div class="sd-choice"><label><input type="radio" name="cc" value="no"' + (c.mode === 'no' ? ' checked' : '') + '> No, nothing more is due</label><label><input type="radio" name="cc" value="yes"' + (c.mode === 'yes' ? ' checked' : '') + '> Yes, I am still due commission</label></div>'
+      + (c.mode === 'yes' ? '<div class="sd-form" style="margin-top:14px"><div class="full"><label>Commission due on the cancellation (the full amount, before your 70% share)<input id="sdCDue" type="number" step="0.01" min="0" inputmode="decimal" value="' + esc(c.due) + '" placeholder="e.g. 85.00"></label></div>'
+        + '<div class="full"><label>Cancellation charge paid by the customer (optional, keeps your sales honest)<input id="sdCCharge" type="number" step="0.01" min="0" inputmode="decimal" value="' + esc(c.charge) + '" placeholder="e.g. 600.00"></label></div></div>'
+        + '<p class="sd-sub" id="sdCPrev" style="font-size:14px;margin-top:10px">Your share (70%): <b>' + money(share, 2) + '</b>. This booking\'s commission changes from ' + money(b.grossCommission, 2) + ' to ' + money(isNaN(due) ? 0 : due, 2) + ' and your income and payouts update to match. Payments you have already ticked as received stay ticked.</p>' : '')
+      + (c.mode === 'no' ? '<p class="sd-sub" style="font-size:14px;margin-top:10px">The booking is marked cancelled and removed from your sales and commission, the same as before.</p>' : '')
+      + '<div class="sd-actions" style="margin-top:16px"><button class="ea-btn danger" type="button" data-a="cancel-go"' + (ok ? '' : ' disabled') + '>' + (c.mode === 'yes' ? 'Cancel and update commission' : 'Cancel booking') + '</button><button class="ea-btn" type="button" data-a="cancel-close">Keep the booking</button></div></div></div>';
+  }
   function bookingForm() {
     var f = S.form, b = f.b || {}, a = S.all, ex = String(b.extras || '').split(',').map(function (s) { return s.trim(); });
     return '<div class="sd-modal"><div><h3 class="sd-name" style="font-size:22px">' + (f.row ? 'Edit booking' : 'Add booking') + '</h3>'
@@ -305,6 +324,7 @@
       var fn = { home: vHome, bookings: vBookings, income: vIncome, stats: vStats, vouchers: vVouchers, recon: vRecon }[S.view];
       try { h += fn(); } catch (e) { h += '<div class="sd-note">Could not draw this screen: ' + esc(e.message) + '</div>'; }
       if (S.form) h += bookingForm();
+      if (S.cancel) h += cancelModal();
     }
     var sy = window.pageYOffset;
     root.innerHTML = h;
@@ -317,7 +337,7 @@
     var o = {}, fd = new FormData(form); fd.forEach(function (v, k) { if (k !== 'extra') o[k] = v; });
     o.extras = fd.getAll('extra'); return o;
   }
-  function setPaidLocal(key, v) { var a = S.all; (a.bookings || []).forEach(function (b) { [b.payment1, b.payment2].forEach(function (p) { if (p && p.key === key) p.paid = v; }); }); (a.income.months || []).forEach(function (m) { m.bookings.forEach(function (l) { if (l.key === key) l.paid = v; }); }); }
+  function setPaidLocal(key, v) { var a = S.all; (a.bookings || []).concat(a.travelled || []).forEach(function (b) { [b.payment1, b.payment2].forEach(function (p) { if (p && p.key === key) p.paid = v; }); }); (a.income.months || []).forEach(function (m) { m.bookings.forEach(function (l) { if (l.key === key) l.paid = v; }); }); }
   function resize(file) {
     return new Promise(function (res, rej) {
       var img = new Image(), url = URL.createObjectURL(file);
@@ -334,12 +354,23 @@
     else if (a === 'refresh') { load(false).then(function () { toast('Refreshed'); }); }
     else if (a === 'bk-toggle') { S.open[el.dataset.row] = !S.open[el.dataset.row]; render(); }
     else if (a === 'bk-add') { S.form = { row: 0, b: {} }; render(); }
-    else if (a === 'bk-edit') { S.form = { row: Number(el.dataset.row), b: findBy(S.all.bookings, 'row', el.dataset.row) || {} }; render(); }
+    else if (a === 'bk-edit') { S.form = { row: Number(el.dataset.row), b: findBook(el.dataset.row) || {} }; render(); }
     else if (a === 'form-close') { S.form = null; render(); }
     else if (a === 'bk-cancel') {
-      var b = findBy(S.all.bookings, 'row', el.dataset.row); if (!b) return;
-      if (!b.cancelled && el.dataset.armed !== '1') { el.dataset.armed = '1'; el.textContent = 'Tap again to cancel'; el.classList.add('armed'); setTimeout(function () { if (el.isConnected) { el.dataset.armed = ''; el.textContent = 'Cancel booking'; el.classList.remove('armed'); } }, 3500); return; }
-      act('webapp_setBookingCancelled', [b.row, !b.cancelled], b.cancelled ? 'Booking restored' : 'Booking cancelled').catch(function () { });
+      var b = findBook(el.dataset.row); if (!b) return;
+      if (b.cancelled) { act('webapp_setBookingCancelled', [b.row, false], 'Booking restored').catch(function () { }); return; }
+      S.cancel = { row: b.row, mode: '', due: '', charge: '' }; render();
+    }
+    else if (a === 'cancel-close') { S.cancel = null; render(); }
+    else if (a === 'cancel-go') {
+      var c = S.cancel; if (!c || el.disabled) return;
+      var call = c.mode === 'yes' ? act('webapp_cancelWithCommission', [c.row, parseFloat(c.due), parseFloat(c.charge) || 0], 'Booking cancelled, commission updated') : act('webapp_setBookingCancelled', [c.row, true], 'Booking cancelled');
+      call.then(function () { S.cancel = null; render(); }).catch(function () { });
+    }
+    else if (a === 'bk-undo-cc') {
+      var u = findBook(el.dataset.row); if (!u) return;
+      if (el.dataset.armed !== '1') { el.dataset.armed = '1'; el.textContent = 'Tap again to undo'; el.classList.add('armed'); setTimeout(function () { if (el.isConnected) { el.dataset.armed = ''; el.textContent = 'Undo cancellation'; el.classList.remove('armed'); } }, 3500); return; }
+      act('webapp_undoCancelCommission', [u.row], 'Cancellation undone, original commission restored').catch(function () { });
     }
     else if (a === 'inc-toggle') { if (e.target.closest('.sd-line')) return; S.inc[el.dataset.i] = !S.inc[el.dataset.i]; render(); }
     else if (a === 'copy') { var txt = el.dataset.code; (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(function () { toast('Copied'); }, function () { toast('Could not copy'); }); }
@@ -350,11 +381,20 @@
     var t = e.target, a = t.dataset && t.dataset.a;
     if (a === 'paid') { var v = t.checked; setPaidLocal(t.dataset.key, v); act('webapp_setCommissionPaid', [t.dataset.key, v], v ? 'Marked as received' : 'Marked as not received').catch(function () { setPaidLocal(t.dataset.key, !v); render(); }); return; }
     if (a === 'pretravel') { var d = t.checked; (S.all.travellingSoon || []).forEach(function (s) { if (s.bookingRef === t.dataset.ref) s.done = d; }); act('webapp_setPreTravelCheckDone', [t.dataset.ref, d], d ? 'Checked in' : 'Unticked').catch(function () { }); return; }
+    if (t.name === 'cc' && S.cancel) { S.cancel.mode = t.value; render(); return; }
     if (t.id === 'sdBf') { S.bf = t.value; render(); } else if (t.id === 'sdBs') { S.bs = t.value; render(); } else if (t.id === 'sdVf') { S.vf = t.value; render(); } else if (t.id === 'sdYear') { S.year = Number(t.value); render(); }
     else if (t.id === 'sdPhoto' && t.files[0]) { toast('Reading the voucher photo...'); resize(t.files[0]).then(function (b64) { return act('webapp_addJet2CodeFromPhoto', [b64, 'image/jpeg'], 'Voucher added'); }).catch(function (er) { toast(er.message); }); }
     else if (t.id === 'sdRecon' && t.files[0]) { var f = t.files[0]; toast('Checking the statement...'); f.text().then(function (txt) { return act('webapp_processReconciliationCsv', [txt], 'Statement checked'); }).catch(function () { }); }
   }
-  function onInput(e) { var id = e.target.id; if (id === 'sdBq') { S.bq = e.target.value; render(); } }
+  function onInput(e) { var id = e.target.id;
+    if (id === 'sdCDue' || id === 'sdCCharge') {
+      if (!S.cancel) return; if (id === 'sdCDue') S.cancel.due = e.target.value; else S.cancel.charge = e.target.value;
+      var v = parseFloat(S.cancel.due), go = root.querySelector('[data-a=cancel-go]'), pv = document.getElementById('sdCPrev'), b = findBook(S.cancel.row) || {};
+      if (go) go.disabled = !(v >= 0);
+      if (pv) pv.innerHTML = 'Your share (70%): <b>' + money(isNaN(v) ? 0 : v * 0.7, 2) + '</b>. This booking\'s commission changes from ' + money(b.grossCommission, 2) + ' to ' + money(isNaN(v) ? 0 : v, 2) + ' and your income and payouts update to match. Payments you have already ticked as received stay ticked.';
+      return;
+    }
+    if (id === 'sdBq') { S.bq = e.target.value; render(); } }
   function onSubmit(e) {
     e.preventDefault();
     if (e.target.id === 'sdForm') {

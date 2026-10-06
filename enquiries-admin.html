@@ -260,7 +260,7 @@
   var salesLoaded=false;
   function loadSales(cb){
     if(window.TAJSales){cb();return;}
-    var sc=document.createElement('script');sc.src='/js/sales-admin.js?v=2';sc.onload=cb;sc.onerror=function(){toast('Could not load the sales screens');};document.head.appendChild(sc);
+    var sc=document.createElement('script');sc.src='/js/sales-admin.js?v=3';sc.onload=cb;sc.onerror=function(){toast('Could not load the sales screens');};document.head.appendChild(sc);
   }
   function tab(t){
     Array.prototype.forEach.call(document.querySelectorAll('.ea-tab'),function(b){b.setAttribute('aria-selected',b.dataset.tab===t);});

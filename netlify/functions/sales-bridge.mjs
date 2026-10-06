@@ -19,6 +19,8 @@ const ALLOW = new Set([
   "webapp_addJet2CodeFromPhoto",
   "webapp_processReconciliationCsv",
   "webapp_rerunReconciliation",
+  "webapp_cancelWithCommission",
+  "webapp_undoCancelCommission",
 ]);
 
 export default async (req) => {
