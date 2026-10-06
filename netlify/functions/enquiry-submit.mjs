@@ -5,22 +5,10 @@
 // customer ticks the marketing box.
 import { getStore } from "@netlify/blobs";
 import { json, esc, SITE, waLink, jakeEmail } from "../lib/pw.mjs";
+import { SENDER, brevo, loadLogo, pdfName, b64, sendToPrinter } from "../lib/enquiry-lib.mjs";
+import { buildEnquiryPdf } from "../lib/enquiry-pdf.mjs";
 
 const clean = (v, max = 300) => String(v ?? "").replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "").trim().slice(0, max);
-const SENDER = () => process.env.PW_SENDER_EMAIL || "jake@travelagentjake.co.uk";
-
-async function brevo(path, body) {
-  const key = process.env.BREVO_API_KEY;
-  if (!key) throw new Error("BREVO_API_KEY not set");
-  const r = await fetch("https://api.brevo.com/v3" + path, {
-    method: "POST",
-    headers: { "api-key": key, "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(body),
-  });
-  if (!r.ok && r.status !== 204) throw new Error(`Brevo ${path} ${r.status}: ${await r.text()}`);
-  return r.status === 204 ? null : r.json().catch(() => null);
-}
-
 const shell = (inner) => `<!doctype html><html><body style="margin:0;background:#f2f5fb;font-family:Arial,Helvetica,sans-serif;color:#14213d;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f5fb;padding:24px 0;"><tr><td align="center">
 <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:14px;overflow:hidden;">
@@ -86,6 +74,8 @@ export default async (req) => {
 
   const q = {
     kind,
+    status: "new",
+    adminNotes: "",
     id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
     createdAt: new Date().toISOString(),
     firstName, lastName, email, phone,
@@ -133,12 +123,17 @@ ${row("Accommodation", q.accommodation)}${row("Minimum stars", q.stars)}${row("B
 ${row("Budget", q.budget)}${row("Ready to pay a deposit", q.deposit)}${row("Looking to book", q.whenBook)}${row("Anything else", q.notes)}${row("Heard about Jake via", q.source)}
 ${row("Marketing opt in", q.marketing ? "Yes" : "No")}
 </table>
-<p style="margin:16px 0 0;font-size:13px;color:#5b6478;">Hit reply to answer them directly by email.</p>`);
+<p style="margin:16px 0 0;">${btn(SITE + "/enquiries-admin.html", "Open enquiries dashboard")}</p>
+<p style="margin:10px 0 0;font-size:13px;color:#5b6478;">Hit reply to answer them directly by email. A printable copy of this enquiry is attached.</p>`);
+
+  let pdfBytes = null;
+  try { pdfBytes = await buildEnquiryPdf(q, await loadLogo()); } catch (e) { console.error("PDF build failed", e.message); }
 
   try {
     await brevo("/smtp/email", {
       sender: { name: "Travel Agent Jake Website", email: SENDER() },
       to: [{ email: jakeEmail() }],
+      ...(pdfBytes ? { attachment: [{ name: pdfName(q), content: b64(pdfBytes) }] } : {}),
       replyTo: { email, name: `${firstName} ${lastName}` },
       subject: `${pre ? "New 2028 pre-registration" : "New holiday enquiry"}: ${firstName} ${lastName}${q.destination ? ", " + q.destination.slice(0, 60) : ""}`,
       htmlContent: jakeHtml,
@@ -147,6 +142,11 @@ ${row("Marketing opt in", q.marketing ? "Yes" : "No")}
   } catch (e) {
     console.error("Notify Jake failed", e.message, JSON.stringify(q));
     return json({ error: "Sorry, something went wrong sending your enquiry. Please WhatsApp me instead and I'll sort it straight away." }, 502);
+  }
+
+  // Auto print: email the PDF to Jake's printer (HP ePrint).
+  if (pdfBytes) {
+    try { await sendToPrinter(q, pdfBytes); } catch (e) { console.error("Printer email failed", e.message); }
   }
 
   // Confirmation to the customer.
