@@ -1,9 +1,9 @@
 // Jake-only API for the enquiries dashboard (/enquiries-admin.html), behind env PW_ADMIN_KEY (header x-admin-key).
 //   GET  -> all enquiries, newest first
-//   POST { action: "update", id, status?, adminNotes? } | { action: "pdf", id } | { action: "reprint", id } | { action: "delete", id }
+//   POST { action: "update", id, status?, adminNotes? } | { action: "pdf", id } | { action: "delete", id }
 import { getStore } from "@netlify/blobs";
 import { json } from "../lib/pw.mjs";
-import { loadLogo, pdfName, b64, sendToPrinter } from "../lib/enquiry-lib.mjs";
+import { loadLogo, pdfName, b64 } from "../lib/enquiry-lib.mjs";
 import { buildEnquiryPdf } from "../lib/enquiry-pdf.mjs";
 
 const STATUSES = ["new", "contacted", "quoted", "done", "closed"];
@@ -37,13 +37,6 @@ export default async (req) => {
   if (b.action === "pdf") {
     const bytes = await buildEnquiryPdf(q, await loadLogo());
     return json({ ok: true, name: pdfName(q), pdf: b64(bytes) });
-  }
-  if (b.action === "reprint") {
-    try {
-      const bytes = await buildEnquiryPdf(q, await loadLogo());
-      const sent = await sendToPrinter(q, bytes);
-      return json({ ok: true, sent });
-    } catch (e) { return json({ error: e.message }, 500); }
   }
   if (b.action === "delete") { await s.delete(q.id); return json({ ok: true, deleted: true }); }
   return json({ error: "Unknown action" }, 400);

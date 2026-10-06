@@ -5,7 +5,7 @@
 // customer ticks the marketing box.
 import { getStore } from "@netlify/blobs";
 import { json, esc, SITE, waLink, jakeEmail } from "../lib/pw.mjs";
-import { SENDER, brevo, loadLogo, pdfName, b64, sendToPrinter } from "../lib/enquiry-lib.mjs";
+import { SENDER, brevo, loadLogo, pdfName, b64 } from "../lib/enquiry-lib.mjs";
 import { buildEnquiryPdf } from "../lib/enquiry-pdf.mjs";
 
 const clean = (v, max = 300) => String(v ?? "").replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "").trim().slice(0, max);
@@ -142,11 +142,6 @@ ${row("Marketing opt in", q.marketing ? "Yes" : "No")}
   } catch (e) {
     console.error("Notify Jake failed", e.message, JSON.stringify(q));
     return json({ error: "Sorry, something went wrong sending your enquiry. Please WhatsApp me instead and I'll sort it straight away." }, 502);
-  }
-
-  // Auto print: email the PDF to Jake's printer (HP ePrint).
-  if (pdfBytes) {
-    try { await sendToPrinter(q, pdfBytes); } catch (e) { console.error("Printer email failed", e.message); }
   }
 
   // Confirmation to the customer.

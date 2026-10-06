@@ -1,5 +1,5 @@
 // Builds the A4 "customer enquiry sheet" PDF used for the email attachment,
-// the auto-print email and the dashboard download. Pure JS (pdf-lib), no files.
+// and the dashboard download. Pure JS (pdf-lib), no files.
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 
 const BLUE = rgb(0x0b / 255, 0x4c / 255, 0xc4 / 255);

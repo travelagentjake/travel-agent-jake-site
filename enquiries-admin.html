@@ -219,7 +219,6 @@
       +'<a class="ea-btn" href="tel:'+esc(String(q.phone||'').replace(/[^\d+]/g,''))+'">Call</a>'
       +'<button class="ea-btn" type="button" data-act="toggle">'+(open[q.id]?'Hide details':'Show details')+'</button>'
       +'<button class="ea-btn" type="button" data-act="pdf">Download PDF</button>'
-      +'<button class="ea-btn" type="button" data-act="reprint">Print again</button>'
       +'<button class="ea-btn danger" type="button" data-act="delete">Delete</button></div>'
       +'<div class="ea-detail"'+(open[q.id]?'':' hidden')+'>'+detail(q)+'</div>'
       +'<div class="ea-ctl"><select data-act="status" aria-label="Status">'+STATUSES.map(function(x){return '<option value="'+x[0]+'"'+(x[0]===s?' selected':'')+'>'+x[1]+'</option>';}).join('')+'</select>'
@@ -238,7 +237,6 @@
     var c=b.closest('.ea-card'); if(!c)return; var q=find(c.dataset.id); if(!q)return; var act=b.dataset.act;
     if(act==='toggle'){open[q.id]=!open[q.id];render();}
     else if(act==='pdf'){b.disabled=true;api('POST',{action:'pdf',id:q.id}).then(function(r){b.disabled=false;if(r.j&&r.j.ok)dlPdf(r.j.name,r.j.pdf);else toast('Could not make the PDF');});}
-    else if(act==='reprint'){b.disabled=true;api('POST',{action:'reprint',id:q.id}).then(function(r){b.disabled=false;toast(r.j&&r.j.ok?(r.j.sent?'Sent to your printer':'Printing is switched off'):'Could not send to printer');});}
     else if(act==='delete'){
       if(b.dataset.armed!=='1'){b.dataset.armed='1';b.textContent='Tap again to delete';b.classList.add('armed');setTimeout(function(){if(b.isConnected){b.dataset.armed='';b.textContent='Delete';b.classList.remove('armed');}},3500);return;}
       api('POST',{action:'delete',id:q.id}).then(function(r){if(r.j&&r.j.ok){data=data.filter(function(x){return x.id!==q.id;});render();toast('Deleted');}else toast('Could not delete');});
