@@ -1727,6 +1727,13 @@ DESTINATION_POSTS = [
         "excerpt": "The Platinum Coast, St Lawrence Gap and Bridgetown: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1636728163078-59ea0afb7665?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "st-lucia.html",
+        "meta": "St Lucia",
+        "title": "St Lucia",
+        "excerpt": "Rodney Bay, Soufriere and the Pitons: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1706645616928-1902d9a6b929?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -8207,6 +8214,272 @@ with open(os.path.join(SITE, "barbados.html"), "w", encoding="utf-8") as f:
     ))
 print("barbados.html written")
 
+st_lucia_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>ST LUCIA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to one of the most dramatic islands in the Caribbean.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about St Lucia</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1706645616928-1902d9a6b929?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A scenic view of the Pitons rising above the sea in St Lucia" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>St Lucia is the Caribbean island I send people to when they want more than just a beach. The twin volcanic peaks of the Pitons are the postcard image, and they're every bit as dramatic in person, rising straight out of the sea above Soufriere. But the island is just as well known for honeymoons and weddings, with a glamorous reputation that goes back decades. TUI is the operator I use for St Lucia, packaging the hotel with your flights, though it's worth knowing upfront that TUI stopped flying its own aircraft on this route in 2025. Your flight is now with a partner airline, usually British Airways, which flies daily direct from Gatwick, with TUI still handling the holiday package and the hotel side exactly as before.</p>
+    <p style="margin-top:14px;">Compared with flatter islands like Barbados or Antigua, St Lucia is hilly and genuinely lush, rainforest covers much of the interior, and that makes it brilliant for anyone who wants to get out and do things rather than just lie by the pool. It's also one of the easiest islands to combine a relaxed beach stay in the north with something properly scenic a short drive south.</p>
+    {jake_tip("I always ask whether a client wants a lively base or a quiet one before picking an area. Rodney Bay in the north has the restaurants, bars and nightlife, while Soufriere in the south sits right beneath the Pitons with a much slower pace. Plenty of clients end up doing a few nights of each rather than choosing just one.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Ten to fourteen nights works best for St Lucia, long enough to justify the flight time and properly unwind. It's a brilliant choice for couples and honeymooners, especially around Soufriere and the Pitons, and just as strong for families who want an all inclusive base with a bit more scenery than the average beach resort, Vieux Fort in the south has the island's best family set up. It suits anyone keen on hiking, boat trips and genuinely dramatic scenery rather than a flat, easy to navigate island. It's less suited to anyone who struggles with hills, since St Lucia's interior and much of its coast road is noticeably steeper than islands like Barbados or Antigua.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">St Lucia has two airports. Most package holidays use Hewanorra International Airport (UVF) in the south near Vieux Fort, while George F. L. Charles Airport (SLU) near Castries in the north mainly handles smaller regional flights. TUI packages St Lucia holidays with a flight time of around 8 to 9 hours from the UK, but since TUI retired its own aircraft from this route in 2025, the flight itself now runs with a partner airline, usually British Airways, which flies direct from London Gatwick most days of the week. Neither Jet2holidays nor easyJet holidays currently fly to St Lucia or anywhere else in the Caribbean, so TUI remains the one to book with here.</p>
+    {jake_tip("Because the flight on a TUI St Lucia package is now with a partner airline rather than TUI's own aircraft, I always double check the exact flight details and baggage allowance for a client's specific dates before confirming anything, the routing can vary more than it used to.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">St Lucia has a tropical climate, warm all year with a clear wet and dry season. Figures below are for Castries, representative of the island as a whole.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>27&deg;C</td><td>24&deg;C</td><td>Dry, sunny and one of the most popular months to visit</td></tr>
+          <tr><td>February</td><td>27&deg;C</td><td>24&deg;C</td><td>Still dry with low rainfall, reliably good weather</td></tr>
+          <tr><td>March</td><td>28&deg;C</td><td>24&deg;C</td><td>Warm and dry, a great all round month</td></tr>
+          <tr><td>April</td><td>28&deg;C</td><td>24&deg;C</td><td>Warming up, good value before the summer rush</td></tr>
+          <tr><td>May</td><td>29&deg;C</td><td>25&deg;C</td><td>Rainfall starts to pick up, still mostly sunny</td></tr>
+          <tr><td>June</td><td>29&deg;C</td><td>25&deg;C</td><td>Hotter and more humid, the Atlantic hurricane season begins</td></tr>
+          <tr><td>July</td><td>29&deg;C</td><td>25&deg;C</td><td>Peak heat, showers more frequent, Saint Lucia Carnival season</td></tr>
+          <tr><td>August</td><td>29&deg;C</td><td>25&deg;C</td><td>Hot and humid, the wettest part of the year begins</td></tr>
+          <tr><td>September</td><td>29&deg;C</td><td>26&deg;C</td><td>Hot with regular showers, usually quieter and better value</td></tr>
+          <tr><td>October</td><td>29&deg;C</td><td>25&deg;C</td><td>One of the wettest months, though showers are often short and sharp</td></tr>
+          <tr><td>November</td><td>28&deg;C</td><td>25&deg;C</td><td>Rain starts easing off, hurricane season ends on the 30th</td></tr>
+          <tr><td>December</td><td>28&deg;C</td><td>24&deg;C</td><td>Drying out again, the start of the busy winter season</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for Castries, sourced via climate-data.org. Sea temperature stays warm year round, roughly 26 to 29&deg;C.</p>
+    {jake_tip("The Atlantic hurricane season runs 1 June to 30 November, so I always make sure clients travelling then have solid travel insurance in place. St Lucia isn't hit anywhere near as often as islands further north such as the Bahamas, but it's still sensible cover to have.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">December to April is St Lucia's dry season and the most popular time to visit, warm, sunny and with the least rainfall, though also the busiest and most expensive, especially over Christmas and February half term. Saint Lucia's biggest annual event, Carnival, runs through July with parades, soca and calypso competitions and a huge street party, brilliant if a client wants to be part of it. May, June and November are good value shoulder months with decent weather and smaller crowds, while the wetter months from July to October bring more frequent showers but also the best prices of the year.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">St Lucia's two main holiday areas sit at opposite ends of the island, with a very different pace to each.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1710634660307-332b97414891?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A sandy beach lined with palm trees near Rodney Bay, St Lucia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Rodney Bay &amp; Gros Islet (the north)</h3>
+        <p>St Lucia's liveliest holiday hub, with a mile long beach, a marina full of restaurants and bars, and the best choice of nightlife on the island. This is where I'd point families and anyone who wants plenty to do within walking distance of their hotel, with Pigeon Island and the Friday night Gros Islet street party both close by.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1605288132419-1aa5e25475b2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hillside houses overlooking the water near the Pitons, St Lucia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Soufriere &amp; the Pitons (the south)</h3>
+        <p>St Lucia at its most dramatic, with hotels tucked into the hillside beneath the Pitons, close to the sulphur springs, rainforest and botanical gardens. This is the area I'd steer couples and honeymooners towards for the scenery alone, though it's quieter and more remote than the north, with fewer restaurants outside the hotels themselves.</p>
+      </div>
+    </div>
+    {jake_tip("The drive between Rodney Bay and Soufriere takes around an hour and a half on a winding coast road, so I usually suggest clients pick one base and treat the other area as a day trip, rather than trying to split a short stay between the two.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Airport transfers are usually included as part of the package, and from Hewanorra in the south it's a fair drive up to Rodney Bay, worth knowing when booking. St Lucia drives on the left, the same as the UK, but the roads are hillier and more winding than on flatter islands, so most clients stick to transfers, taxis and organised tours rather than self drive. For anyone who does want a hire car, a reputable local or international company is easy to book, just allow extra time for the terrain.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1763402084814-e6a988900ba2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A catamaran sailing in clear turquoise water near a Caribbean beach" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities worth having on the radar. St Lucia's volcanic interior means the usual Caribbean boat trips sit alongside rainforest zip lining, a drive in volcano and a proper mud bath, not something every island can offer.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="649172,21213,633031,184046"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/saint-lucia-l169165/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/saint-lucia-l169165/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in St Lucia &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across St Lucia's north and south coasts. TUI is the operator I use for St Lucia, so all four of these are booked through TUI.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1732817207228-7d53fec17f97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A swimming pool surrounded by palm trees at a Caribbean hotel" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Bay Gardens Hotel, Rodney Bay</h3>
+        <p>A relaxed, good value hotel right in the heart of Rodney Bay, not all inclusive but close to the marina's restaurants and bars, with its own pool and gardens. A solid pick for anyone who wants to be in the thick of things without paying resort prices. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1790271975495-441d22f6af56?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool with a bridge at a Caribbean beach resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Coconut Bay Beach Resort &amp; Spa, Vieux Fort</h3>
+        <p>A large all inclusive resort right by Hewanorra airport, with its own waterpark, a strong kids' club and a genuinely good stretch of beach. The easiest, most convenient family base on the island given how close it sits to the airport. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1760564019141-abe33455ce02?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An infinity pool overlooking the turquoise ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">BodyHoliday, Cap Estate</h3>
+        <p>A wellness focused luxury all inclusive resort in the north of the island, with daily yoga, an extensive spa and a full programme of included activities. One of the more unusual, genuinely different luxury options I sell anywhere in the Caribbean. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best adults only &amp; honeymoons</div>
+        <img src="https://images.unsplash.com/photo-1760564019062-7e7efdf4cc1d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="People swimming in an infinity pool overlooking the ocean at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hideaway at Royalton St Lucia, Smugglers Cove</h3>
+        <p>An adults only all inclusive resort in the north, part of Marriott's Autograph Collection, with a quieter, more intimate feel than its sister resort next door. A strong honeymoon pick for couples who want a polished, all inclusive base close to Rodney Bay. Bookable through TUI.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the sights worth building into an itinerary beyond the hotel pool.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1691515894155-6c4df29d5177?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A palm tree on a headland overlooking the sea near Pigeon Island, St Lucia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Pigeon Island National Landmark</h3>
+        <p>A small former island, now joined to the mainland by a causeway, just off Rodney Bay. Easy walking trails lead up to old fort ruins with brilliant views back across the bay, and there's a decent beach at the bottom for a swim afterwards.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1535530992830-e25d07cfa780?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Steaming volcanic water among rocks at a sulphur springs site" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sulphur Springs &amp; the drive in volcano</h3>
+        <p>Billed as the world's only drive in volcano, this is a short walk around steaming, bubbling volcanic pools near Soufriere, usually combined with a warm mud bath said to be good for the skin. A quick, slightly odd, genuinely memorable stop.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1534531409543-069f6204c5b4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A waterfall cascading down a lush, misty mountain valley" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Rainforest zip lining &amp; the aerial tram</h3>
+        <p>St Lucia's rainforest covered interior is set up for exactly this, an aerial tram ride through the canopy followed by a series of zip lines strung between the trees, usually finishing with a swim at a waterfall.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1743252878695-367d69dc87a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cocoa pods hanging from a tree branch" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Rum, cacao &amp; chocolate making near Soufriere</h3>
+        <p>St Lucia grows its own cacao, and estates near Soufriere, including the one behind the Rabot Hotel from Hotel Chocolat, run tours and hands on chocolate making sessions. Rum distillery tours and tastings are easy to add on nearby too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">St Lucia uses the Eastern Caribbean Dollar, and US Dollars are also widely accepted in resorts and tourist areas. Prices below are shown in pounds sterling with the Eastern Caribbean Dollar equivalent alongside, based on a rate of roughly &pound;1 to 3.57 XCD. These are crowd-sourced averages for the island, and prices right on a resort's own doorstep in tourist areas can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;6.16 (about EC$22)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;56.02 (about EC$200)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;2.94 (about EC$10.50)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;2.24 (about EC$8)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.78 (about EC$2.79)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;7.00 (about EC$25)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages via Numbeo, checked at time of writing. Eastern Caribbean Dollar to pound sterling conversion is approximate and moves around day to day, so treat these as a guide rather than an exact figure.</p>
+    {jake_tip("Most clients on an all inclusive stay don't need much spending money beyond tips, drinks on excursions and souvenirs. US Dollars are widely accepted alongside Eastern Caribbean Dollars almost everywhere, and cards are fine for most things too, so there's no need to change a large amount of cash before travelling.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Eastern Caribbean Dollar (XCD), with US Dollars also widely accepted in resorts and tourist areas</td></tr>
+          <tr><td>Plug type</td><td>Type G, the same as the UK. The mains supply is 230V, so no adapter or converter is needed for standard UK appliances</td></tr>
+          <tr><td>Language</td><td>English is the official language, with a French-influenced Kweyol (Creole) also widely spoken</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 8 to 9 hours. TUI packages the holiday but the flight itself is with a partner airline, usually British Airways direct from Gatwick, since TUI retired its own St Lucia route in 2025</td></tr>
+          <tr><td>Time difference</td><td>St Lucia stays on the same time year round and doesn't change its clocks, so it's 4 hours behind the UK in winter and 5 hours behind during British Summer Time</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders don't need a visa for stays of up to 6 weeks, a passport valid for the length of the stay with at least one blank page is all that's needed</td></tr>
+          <tr><td>Driving</td><td>Left hand side, the same as the UK, though the roads are hillier and more winding than on flatter islands</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Faith Panciello, Karl Moore, JR Harris, Meg von Haartman, Steve Adams, Rosemary Media, Sara Nichols, ben lim, Atharva Tulsi and Aleksandar Popovski via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy St Lucia for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around the Pitons and Soufriere's scenery, find the right family base in Rodney Bay or Vieux Fort, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+st_lucia_body = st_lucia_body.replace("::NEWSLETTER::", newsletter_section())
+
+ST_LUCIA_SCHEMA = article_and_faq_schema(
+    "St Lucia: Jake's Destination Guide",
+    "Jake's honest guide to St Lucia: Rodney Bay, Soufriere and the Pitons, weather by month, where to stay, things to do and what it actually costs.",
+    "st-lucia.html",
+    "https://images.unsplash.com/photo-1706645616928-1902d9a6b929?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator sells St Lucia holidays?", "TUI is the one of the three operators Jake sells (TUI, Jet2holidays and easyJet holidays) who packages St Lucia holidays. TUI retired its own direct aircraft on this route in May 2025, so the flight is now operated by a partner airline, usually British Airways, which flies direct from London Gatwick most days. Neither Jet2holidays nor easyJet holidays currently fly to the Caribbean."),
+        ("How long is the flight to St Lucia?", "Around 8 to 9 hours direct from the UK, depending on the departure airport, airline and winds."),
+        ("What's the best time to visit St Lucia?", "December to April is the dry season and the most popular time to visit, though also the busiest and most expensive. Saint Lucia's Carnival runs through July with a big calendar of events. May, June and November are good value shoulder months, while July to October brings more rain but also the best prices of the year."),
+        ("Is St Lucia at risk from hurricanes?", "St Lucia sits in the Atlantic hurricane belt, with the official season running from 1 June to 30 November, so proper travel insurance is sensible for a trip during those months, though it isn't hit anywhere near as often as islands further north."),
+        ("Do I need a visa for St Lucia?", "No. UK passport holders don't need a visa for stays of up to 6 weeks, you just need a passport that's valid for the length of your stay with at least one blank page."),
+    ]
+)
+with open(os.path.join(SITE, "st-lucia.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "St Lucia: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to St Lucia: Rodney Bay, Soufriere and the Pitons, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        st_lucia_body,
+        extra_schema=ST_LUCIA_SCHEMA,
+        canonical_path="st-lucia.html"
+    ))
+print("st-lucia.html written")
+
 
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
@@ -13444,6 +13717,7 @@ SITEMAP_PAGES = [
     ("tunisia.html", "0.6"),
     ("jamaica.html", "0.6"),
     ("barbados.html", "0.6"),
+    ("st-lucia.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
