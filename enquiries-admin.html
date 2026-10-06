@@ -15,20 +15,20 @@
 </script>
 <!-- GetYourGuide Analytics -->
 <script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="EFDILG1"></script>
-<title>Enquiries Dashboard | Travel Agent Jake</title>
-<meta name="description" content="Private dashboard for Travel Agent Jake holiday enquiries.">
+<title>Business Dashboard | Travel Agent Jake</title>
+<meta name="description" content="Private business dashboard for Travel Agent Jake.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://travelagentjake.co.uk/enquiries-admin.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Travel Agent Jake">
-<meta property="og:title" content="Enquiries Dashboard | Travel Agent Jake">
-<meta property="og:description" content="Private dashboard for Travel Agent Jake holiday enquiries.">
+<meta property="og:title" content="Business Dashboard | Travel Agent Jake">
+<meta property="og:description" content="Private business dashboard for Travel Agent Jake.">
 <meta property="og:url" content="https://travelagentjake.co.uk/enquiries-admin.html">
 <meta property="og:image" content="https://travelagentjake.co.uk/images/pool-portrait.jpg">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Enquiries Dashboard | Travel Agent Jake">
-<meta name="twitter:description" content="Private dashboard for Travel Agent Jake holiday enquiries.">
+<meta name="twitter:title" content="Business Dashboard | Travel Agent Jake">
+<meta name="twitter:description" content="Private business dashboard for Travel Agent Jake.">
 <meta name="twitter:image" content="https://travelagentjake.co.uk/images/pool-portrait.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -75,6 +75,11 @@
 
 <style>
 .ea-wrap{max-width:1000px;margin:0 auto;}
+.ea-tabs{display:flex;gap:8px;margin-bottom:18px;}
+.ea-tab{flex:1 1 0;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:12px 16px;font:700 15px inherit;font-family:inherit;cursor:pointer;}
+.ea-tab[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:#fff;}
+.ea-sales-frame{width:100%;height:80vh;min-height:680px;border:2px solid var(--ink);border-radius:16px;background:#fff;}
+.ea-sales-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:12px;font-size:14px;color:#5b6478;}
 .ea-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:18px;}
 .ea-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:18px;}
 .ea-stat{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:12px 14px;cursor:pointer;text-align:left;font:inherit;}
@@ -123,8 +128,8 @@
 <section class="theme-bold">
   <div class="wrap">
     <div class="eyebrow">Private</div>
-    <h1>ENQUIRIES DASHBOARD</h1>
-    <p class="lead" style="margin-top:14px;">Every holiday enquiry and 2028 pre-registration in one place. WhatsApp them, add notes and move them through to done.</p>
+    <h1>BUSINESS DASHBOARD</h1>
+    <p class="lead" style="margin-top:14px;">Your enquiries and your sales in one place. WhatsApp new enquiries, add notes and move them through to done, then flip to your sales dashboard.</p>
   </div>
 </section>
 
@@ -139,6 +144,8 @@
     </div>
 
     <div id="eaApp" hidden>
+      <div class="ea-tabs" role="tablist"><button type="button" class="ea-tab" data-tab="enq" role="tab" aria-selected="true">Enquiries</button><button type="button" class="ea-tab" data-tab="sales" role="tab" aria-selected="false">Sales dashboard</button></div>
+      <div id="eaPaneEnq">
       <div class="ea-stats" id="eaStats"></div>
       <div class="ea-tools">
         <input id="eaSearch" type="search" placeholder="Search name, email, phone or destination">
@@ -147,6 +154,11 @@
         <button class="ea-btn" id="eaOut" type="button">Lock</button>
       </div>
       <div id="eaList"></div>
+      </div>
+      <div id="eaPaneSales" hidden>
+        <div class="ea-sales-bar"><span>Your sales app (bookings, income, stats, vouchers, BDM and recon). You may need to be signed in to Google.</span><a class="ea-btn" href="https://script.google.com/a/macros/travelagentjake.co.uk/s/AKfycbwko0aqnPrsxG2vA5hRgZWSmzUjjn-v2rxdbjTGMOIR8_Hx40QR49Qb9kFNrbJrToS1Bg/exec" target="_blank" rel="noopener">Open in a new tab</a></div>
+        <div id="eaSalesHold"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -252,9 +264,16 @@
     }).catch(function(){toast('Could not load enquiries');return false;});
   }
   function unlock(){key=$('eaKey').value.trim();if(!key)return;load(true).then(function(ok){if(ok){try{localStorage.setItem(KEY_NAME,key);}catch(e){}}});}
+  var SALES_URL='https://script.google.com/a/macros/travelagentjake.co.uk/s/AKfycbwko0aqnPrsxG2vA5hRgZWSmzUjjn-v2rxdbjTGMOIR8_Hx40QR49Qb9kFNrbJrToS1Bg/exec';
+  function tab(t){
+    Array.prototype.forEach.call(document.querySelectorAll('.ea-tab'),function(b){b.setAttribute('aria-selected',b.dataset.tab===t);});
+    $('eaPaneEnq').hidden=t!=='enq'; $('eaPaneSales').hidden=t!=='sales';
+    if(t==='sales'&&!$('eaSalesHold').firstChild){var f=document.createElement('iframe');f.className='ea-sales-frame';f.title='Sales dashboard';f.src=SALES_URL;f.setAttribute('allow','clipboard-write');$('eaSalesHold').appendChild(f);}
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.ea-tab'),function(b){b.addEventListener('click',function(){tab(b.dataset.tab);});});
   $('eaGo').addEventListener('click',unlock); $('eaKey').addEventListener('keydown',function(e){if(e.key==='Enter')unlock();});
   $('eaRefresh').addEventListener('click',function(){load(false).then(function(){toast('Refreshed');});});
-  $('eaOut').addEventListener('click',function(){try{localStorage.removeItem(KEY_NAME);}catch(e){} key='';data=[];$('eaApp').hidden=true;$('eaGate').hidden=false;$('eaKey').value='';});
+  $('eaOut').addEventListener('click',function(){try{localStorage.removeItem(KEY_NAME);}catch(e){} key='';data=[];$('eaSalesHold').innerHTML='';tab('enq');$('eaApp').hidden=true;$('eaGate').hidden=false;$('eaKey').value='';});
   try{var saved=localStorage.getItem(KEY_NAME);if(saved){key=saved;load(false);}}catch(e){}
   setInterval(function(){if(key&&!$('eaApp').hidden&&document.visibilityState==='visible')load(false);},60000);
 })();
