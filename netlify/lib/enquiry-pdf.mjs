@@ -128,7 +128,6 @@ export async function buildEnquiryPdf(q, logoPng) {
   grid([
     ["Email", q.email],
     ["Mobile / WhatsApp", q.phone],
-    ["Prefers contact by", q.contactPref],
   ]);
 
   section("The holiday");

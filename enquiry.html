@@ -133,8 +133,6 @@
               <div class="enq-field"><label for="enqLast">Last name</label><input id="enqLast" name="lastName" type="text" autocomplete="family-name" required></div>
               <div class="enq-field"><label for="enqEmail">Email address</label><input id="enqEmail" name="email" type="email" autocomplete="email" inputmode="email" required></div>
               <div class="enq-field"><label for="enqPhone">Mobile number</label><input id="enqPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><div class="enq-hint">WhatsApp is perfect if you have it.</div></div>
-              <div class="enq-field full"><label for="enqPref">How would you like me to get back to you? <span class="opt">(optional)</span></label>
-                <select id="enqPref" name="contactPref"><option value="">No preference</option><option>WhatsApp</option><option>Email</option><option>Phone call</option></select></div>
             </div>
           </div>
 
@@ -319,7 +317,7 @@
   form.addEventListener('submit',function(e){
     e.preventDefault(); err.hidden=true;
     var f=form.elements, data={};
-    ['firstName','lastName','email','phone','contactPref','holidayType','destination','departDate','dateFlex','dateNotes','nights','adults','children','accommodation','stars','board','budget','whenBook','notes','source','website'].forEach(function(k){ data[k]=(f[k]&&f[k].value||'').trim(); });
+    ['firstName','lastName','email','phone','holidayType','destination','departDate','dateFlex','dateNotes','nights','adults','children','accommodation','stars','board','budget','whenBook','notes','source','website'].forEach(function(k){ data[k]=(f[k]&&f[k].value||'').trim(); });
     if(!data.firstName||!data.lastName){ return showErr('Please enter your first and last name.',f.firstName); }
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)){ return showErr('Please enter a valid email address.',f.email); }
     if(data.phone.replace(/\D/g,'').length<9){ return showErr('Please enter a mobile number so I can reach you.',f.phone); }

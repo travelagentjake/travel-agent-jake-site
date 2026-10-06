@@ -79,7 +79,6 @@ export default async (req) => {
     id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
     createdAt: new Date().toISOString(),
     firstName, lastName, email, phone,
-    contactPref: clean(b.contactPref, 30),
     holidayType: clean(b.holidayType, 60),
     destination: clean(b.destination, 300),
     departDate,
@@ -116,7 +115,7 @@ export default async (req) => {
 <h2 style="margin:0 0 14px;font-size:22px;">${esc(firstName)} ${esc(lastName)}</h2>
 <p style="margin:0 0 16px;">${waBtn}${btn("mailto:" + esc(email), "Email them")}</p>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e6eaf3;border-radius:10px;">
-${row("Email", email)}${row("Mobile", phone)}${row("Prefers contact by", q.contactPref)}
+${row("Email", email)}${row("Mobile", phone)}
 ${row("Holiday type", q.holidayType)}${row("Departure month", q.month)}${row("Destination", q.destination)}${row("Hotel in mind", q.hotel)}${row("Dates", when)}${row("Nights", q.nights)}
 ${row("Flying from", airports.join(", "))}${row("Travelling", party)}
 ${row("Accommodation", q.accommodation)}${row("Minimum stars", q.stars)}${row("Board basis", q.board)}
