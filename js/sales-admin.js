@@ -55,6 +55,26 @@
     '.sd-steps{margin:10px 0 0 18px;padding:0;font-size:15px;line-height:1.6}',
     '.sd-loading{text-align:center;padding:50px 10px;color:#5b6478}',
     '.sd-query{white-space:pre-wrap;background:#f2f5fb;border-radius:10px;padding:12px;font-size:14px}',
+    '.sd-hero{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:6px}',
+    '.sd-herocard{background:#fff;border:2px solid var(--ink);border-radius:18px;padding:18px 20px;box-shadow:5px 5px 0 #d5dbea}',
+    '.sd-herocard small{display:block;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#5b6478}',
+    '.sd-herocard b{display:block;font-family:"Archivo Black",sans-serif;font-size:34px;line-height:1.15;margin:4px 0 8px}',
+    '.sd-herocard span{display:block;font-size:13px;color:#5b6478;margin-top:8px}',
+    '.sd-herocard.blue{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:5px 5px 0 var(--yellow)}',
+    '.sd-herocard.blue small,.sd-herocard.blue span{color:rgba(255,255,255,.88)}',
+    '.sd-herocard.blue .sd-bar2{background:rgba(255,255,255,.3)}.sd-herocard.blue .sd-bar2 i{background:var(--yellow)}',
+    '.sd-sec{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-family:"Archivo Black",sans-serif;font-size:18px;text-transform:uppercase;margin:30px 0 12px;padding-left:12px;border-left:6px solid var(--yellow)}',
+    '.sd-sec small{font-size:13px;font-weight:600;text-transform:none;color:#5b6478}',
+    '.sd-tiles.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.sd-tiles.c4{grid-template-columns:repeat(4,minmax(0,1fr))}',
+    '.sd-det{background:#fff;border:2px solid var(--ink);border-radius:14px;margin-bottom:12px;overflow:hidden}',
+    '.sd-det summary{cursor:pointer;padding:12px 16px;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center}',
+    '.sd-det summary::-webkit-details-marker{display:none}.sd-det summary::after{content:"+";font-size:20px;line-height:1}.sd-det[open] summary::after{content:"\\2212"}',
+    '.sd-detbody{padding:2px 16px 12px;border-top:1px solid #e6eaf3}',
+    '.sd-cols.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}',
+    '.sd-n{display:inline-block;width:22px;color:#6b7190}',
+    '.sd-trow{display:grid;grid-template-columns:1fr auto;gap:10px 14px;align-items:start}',
+    '.sd-check{display:inline-flex;gap:8px;align-items:center;font-weight:700;cursor:pointer;padding:0 6px}.sd-check input{width:20px;height:20px}',
+    '@media (max-width:640px){.sd-cols.two{grid-template-columns:1fr}.sd-hero{grid-template-columns:1fr}.sd-tiles.c4{grid-template-columns:repeat(2,minmax(0,1fr))}.sd-herocard b{font-size:30px}}',
     '@media (max-width:640px){.sd-detail,.sd-form{grid-template-columns:1fr}.sd-tile b{font-size:21px}}'
   ].join('\n');
 
@@ -62,7 +82,7 @@
   var HOLIDAY_TYPES = ['Summer Beach Package', 'Winter Beach Package', 'Ski', 'Ocean Cruise', 'River Cruise', 'Tailor Made', 'Expedition Cruise', 'Touring and Adventure', 'ATOL Packaged', 'Rail Holiday', 'City Break', 'Disney Holiday', 'Theme Park Holiday', 'Special Interest Holiday'];
   var EXTRAS = ['Car Parking', 'Insurance', 'Airport Lounge', 'Security Fast Track', 'Car Hire', 'Attraction Tickets', 'Airport Hotel', 'Excursions'];
 
-  var S = { all: null, view: 'home', loading: false, error: '', setup: false, bq: '', bf: 'active', bs: 'booked', open: {}, inc: {}, year: null, vf: 'avail', form: null, busy: false, at: null };
+  var S = { all: null, view: 'home', loading: false, error: '', setup: false, bq: '', bf: 'active', bs: 'booked', open: {}, inc: {}, det: {}, year: null, vf: 'avail', form: null, busy: false, at: null };
   var root, getKey, toast;
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -107,19 +127,49 @@
       + '<ol class="sd-steps"><li>Open your Apps Script project and add the bridge code Jake was sent (a new file called Bridge).</li><li>Add the one line to the top of <code>doGet</code>, then set a <code>BRIDGE_SECRET</code> script property.</li><li>Deploy it as a new web app that anyone can open (run as you).</li><li>Add <code>SALES_BRIDGE_URL</code> and <code>SALES_BRIDGE_SECRET</code> in Netlify and redeploy.</li></ol>'
       + '<div class="sd-actions"><button class="ea-btn" data-a="refresh" type="button">Check again</button></div></div>';
   }
+  function secHead(t, sub) { return '<h3 class="sd-sec"><span>' + esc(t) + '</span>' + (sub ? '<small>' + esc(sub) + '</small>' : '') + '</h3>'; }
+  function det(key, title, inner) { return '<details class="sd-det" data-k="' + key + '"' + (S.det[key] ? ' open' : '') + '><summary>' + title + '</summary><div class="sd-detbody">' + inner + '</div></details>'; }
+  function periodTable(an) {
+    var P = [['today', 'Today'], ['yesterday', 'Yesterday'], ['wtd', 'This week'], ['mtd', 'This month'], ['ytd', 'This year']];
+    function row(label, f) { return '<tr><td>' + label + '</td>' + P.map(function (p) { return '<td>' + f(an.totals[p[0]] || {}) + '</td>'; }).join('') + '</tr>'; }
+    return '<div class="sd-scroll"><table class="sd-tbl"><tr><th>Metric</th>' + P.map(function (p) { return '<th>' + p[1] + '</th>'; }).join('') + '</tr>'
+      + row('Sales', function (r) { return money(r.sales); }) + row('Passengers', function (r) { return r.passengers || 0; }) + row('Commission', function (r) { return money(r.commission, 2); }) + '</table></div>';
+  }
+  function rankList(arr) {
+    var mx = Math.max.apply(null, (arr || []).map(function (r) { return r.value; }).concat([1]));
+    return (arr || []).length ? arr.map(function (r, i) { return '<div class="sd-rank"><span title="' + esc(r.name) + '"><b class="sd-n">' + (i + 1) + '</b>' + esc(r.name) + '</span><div class="sd-bar2"><i style="width:' + Math.round(r.value / mx * 100) + '%"></i></div><span>' + money(r.value) + ' (' + r.count + ')</span></div>'; }).join('') : '<p class="sd-sub">No data yet.</p>';
+  }
+  function whenLabel(ms) {
+    var t0 = new Date(); t0.setHours(0, 0, 0, 0);
+    var n = Math.round((ms - t0.getTime()) / 86400000);
+    return n <= 0 ? 'Today' : n === 1 ? 'Tomorrow' : 'In ' + n + ' days';
+  }
   function vHome() {
-    var a = S.all, d = a.dashboard, inc = a.income, soon = a.travellingSoon || [];
-    var t = '<div class="sd-tiles">' + tile(money(inc.thisMonth), 'Commission due this month', { hi: 1 }) + tile(money(inc.nextMonth), 'Commission due next month') + tile(money(d.mtdSales), 'Sales this month') + tile(money(d.mtdCommission), 'Commission this month') + tile(money(d.ytdSales), 'Sales this year') + tile(money(d.ytdCommission), 'Commission this year') + tile(d.ytdPassengers, 'Passengers booked this year') + tile(d.totalBookings, 'Total bookings') + '</div>';
+    var a = S.all, d = a.dashboard, inc = a.income, an = a.analytics, soon = a.travellingSoon || [];
     var band = inc.months && inc.months[0] ? inc.months[0].band : 'green';
     var pctT = Math.min(100, Math.round(inc.thisMonth / (inc.target || 1) * 100));
-    t += '<div class="sd-card"><div class="sd-row"><b>This month against your ' + money(inc.target) + ' target</b><span>' + money(inc.thisMonth) + ' (' + pctT + '%)</span></div><div class="sd-bar2 ' + band + '"><i style="width:' + pctT + '%"></i></div><p class="sd-sub">Below ' + money(inc.chargeThreshold) + ' a month the host agency charges a fee.</p></div>';
-    t += '<div class="sd-tiles">' + tile(esc(d.topSupplier || 'n/a'), 'Top supplier') + tile(esc(d.topDestination || 'n/a'), 'Top destination') + tile(pc(d.avgMarginPct), 'Average margin') + '</div>';
-    t += '<h3 class="sd-h">Travelling in the next 14 days</h3>';
-    if (!soon.length) t += '<p class="sd-sub">Nobody flying in the next two weeks.</p>';
+    var t = '<div class="sd-hero"><div class="sd-herocard blue"><small>Commission due this month</small><b>' + money(inc.thisMonth, 2) + '</b><div class="sd-bar2 ' + band + '"><i style="width:' + pctT + '%"></i></div><span>' + pctT + '% of your ' + money(inc.target) + ' monthly target</span></div>'
+      + '<div class="sd-herocard"><small>Commission due in ' + esc(d.nextMonthLabel) + '</small><b>' + money(d.nextMonthCommission, 2) + '</b><span>Coming up next month</span></div></div>';
+
+    t += secHead('This month so far') + '<div class="sd-tiles c2">' + tile(money(d.mtdSales), 'Sales so far') + tile(money(d.mtdCommission, 2), 'Commission so far') + '</div>';
+    t += secHead('This year') + '<div class="sd-tiles c4">' + tile(money(d.ytdSales), 'Sales') + tile(money(d.ytdCommission, 2), 'Commission') + tile(d.ytdPassengers, 'Passengers flown') + tile(d.totalBookings, 'Total bookings ever') + '</div>';
+    t += '<div class="sd-tiles c2">' + tile(esc(d.topSupplier || 'n/a'), 'Top supplier') + tile(esc(d.topDestination || 'n/a'), 'Top destination') + '</div>';
+
+    t += secHead('Stats', 'this calendar year') + periodTable(an);
+    t += '<div class="sd-tiles c4">' + tile(money(an.averages.avgBookingValue), 'Avg. booking value') + tile(pc(an.averages.avgMarginPct), 'Avg. margin') + tile(an.averages.avgLeadTimeDays + ' days', 'Avg. lead time') + tile(pc(an.averages.loyalRatePct), 'Loyal customer rate') + '</div>';
+
+    t += secHead('Top 10s') + '<div class="sd-cols two">' + det('r-sup', 'Top suppliers', rankList(an.rankings.suppliers)) + det('r-air', 'Top airports', rankList(an.rankings.airports)) + det('r-dest', 'Top destinations', rankList(an.rankings.destinations)) + det('r-type', 'Top holiday types', rankList(an.rankings.holidayTypes)) + '</div>';
+    var lc = an.loyalCustomers || [];
+    t += det('loyal', 'Loyal customers (' + lc.length + ')', lc.length ? lc.map(function (c) { return '<div class="sd-line"><span>' + esc(c.name) + '</span><span><b>' + c.count + ' bookings</b> &middot; ' + money(c.value) + '</span></div>'; }).join('') : '<p class="sd-sub">None yet.</p>');
+
+    t += secHead('Travelling in the next 2 weeks', soon.length ? soon.length + (soon.length === 1 ? ' booking' : ' bookings') : '');
+    if (!soon.length) t += '<div class="sd-card"><p class="sd-sub" style="margin:0">Nobody flying in the next two weeks.</p></div>';
     soon.forEach(function (s) {
-      t += '<div class="sd-card"><div class="sd-row"><div><h4 class="sd-name">' + esc(s.customerName) + '</h4><div class="sd-sub">' + esc(s.destination) + ' &middot; departs ' + esc(s.departureLabel) + ' &middot; ' + esc(s.bookingRef) + '</div></div>'
-        + '<label style="display:flex;gap:8px;align-items:center;font-weight:700;cursor:pointer"><input type="checkbox" data-a="pretravel" data-ref="' + esc(s.bookingRef) + '"' + (s.done ? ' checked' : '') + ' style="width:20px;height:20px"> Checked in</label></div>'
-        + '<div class="sd-actions">' + (s.whatsappUrl ? '<a class="ea-btn wa" target="_blank" rel="noopener" href="' + esc(s.whatsappUrl) + '">WhatsApp</a>' : '') + (s.customerPhone ? '<a class="ea-btn" href="tel:' + esc(tel(s.customerPhone)) + '">Call</a>' : '') + '</div></div>';
+      var nearly = (s.departureMs - Date.now()) < 3 * 86400000;
+      t += '<div class="sd-card sd-trow"><div><h4 class="sd-name">' + esc(s.customerName) + '</h4><div class="sd-sub">' + esc(s.destination) + ' &middot; departs ' + esc(s.departureLabel) + ' &middot; ' + esc(s.bookingRef) + '</div></div>'
+        + '<span class="sd-badge ' + (nearly ? 'warn' : 'ok') + '">' + whenLabel(s.departureMs) + '</span>'
+        + '<div class="sd-actions" style="grid-column:1/-1;margin-top:0">' + (s.whatsappUrl ? '<a class="ea-btn wa" target="_blank" rel="noopener" href="' + esc(s.whatsappUrl) + '">WhatsApp</a>' : '') + (s.customerPhone ? '<a class="ea-btn" href="tel:' + esc(tel(s.customerPhone)) + '">Call</a>' : '')
+        + '<label class="sd-check"><input type="checkbox" data-a="pretravel" data-ref="' + esc(s.bookingRef) + '"' + (s.done ? ' checked' : '') + '> Checked in with them</label></div></div>';
     });
     return t;
   }
@@ -318,7 +368,7 @@
     mount: function (el, keyFn, toastFn) {
       if (!document.getElementById('sdCss')) { var st = document.createElement('style'); st.id = 'sdCss'; st.textContent = CSS; document.head.appendChild(st); }
       root = el; getKey = keyFn; toast = toastFn;
-      if (!root.dataset.bound) { root.dataset.bound = '1'; root.addEventListener('click', onClick); root.addEventListener('change', onChange); root.addEventListener('input', onInput); root.addEventListener('submit', onSubmit); }
+      if (!root.dataset.bound) { root.dataset.bound = '1'; root.addEventListener('click', onClick); root.addEventListener('change', onChange); root.addEventListener('input', onInput); root.addEventListener('submit', onSubmit); root.addEventListener('toggle', function (e) { var d = e.target; if (d && d.classList && d.classList.contains('sd-det')) S.det[d.dataset.k] = d.open; }, true); }
       render(); load(false);
     },
     refresh: function () { return load(true); },
