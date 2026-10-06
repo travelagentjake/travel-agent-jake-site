@@ -7,7 +7,7 @@
 - ABTA number: P8503
 - Based in the UK, serves customers UK-wide (online/social-media led, not tied to one branch)
 - Contact: enquiries@travelagentjake.com, bookings@travelagentjake.com, WhatsApp 07899 290262
-- Booking routes: free holiday design call, WhatsApp, or the "Price Match Challenge" (send Jake a like for like holiday quote before you book and he will try to beat it, or at worst match it; not applicable to On the Beach or loveholidays). See /book.html
+- Booking routes: holiday enquiry form, WhatsApp, or the "Price Match Challenge" (send Jake a like for like holiday quote before you book and he will try to beat it, or at worst match it; not applicable to On the Beach or loveholidays). See /book.html. Holiday enquiry form: /enquiry.html. 2028 holiday pre-registration (departures January to October 2028): /pre-register-2028.html
 - Social: instagram.com/travelagentjake, tiktok.com/@travelagentjake
 
 ## Pages
