@@ -1795,6 +1795,13 @@ DESTINATION_POSTS = [
         "excerpt": "Rodney Bay, Soufriere and the Pitons: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1706645616928-1902d9a6b929?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "sri-lanka.html",
+        "meta": "Sri Lanka",
+        "title": "Sri Lanka",
+        "excerpt": "Negombo, Ahungalla, Bentota and Hikkaduwa: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1656495783346-559815221595?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -8541,6 +8548,272 @@ with open(os.path.join(SITE, "st-lucia.html"), "w", encoding="utf-8") as f:
     ))
 print("st-lucia.html written")
 
+sri_lanka_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>SRI LANKA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to one of the most varied islands you can fly to on a package holiday.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Sri Lanka</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1656495783346-559815221595?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Visiting the historical rock fortress in Sigiriya, Sri Lanka" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Sri Lanka is the one I recommend when a client says they want a beach holiday but also wants to feel like they have actually been somewhere. You get proper palm-lined beaches down the west and south coasts, and within a couple of hours' drive you are up among tea plantations, ancient rock fortresses and temples that are thousands of years old. TUI is the operator I use for Sri Lanka, packaging your hotel and flights together, and it is the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that currently goes this far east.</p>
+    <p style="margin-top:14px;">It is not a short-haul island, so I am always upfront with clients about that before anything else. The flight is long and the routing can vary, but once you land you get an enormous amount of variety for the money, real elephants, real tea pickers, real ancient cities, all within a sensible day trip of your hotel.</p>
+    {jake_tip("I always ask a client whether they want a pure beach fortnight or whether they fancy building in a day or two inland while they are out there. Sigiriya, Kandy and the tea country around Nuwara Eliya are all within reach of a day trip from the west coast hotels, so you do not need a separate touring holiday to see them.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Ten to fourteen nights is the sweet spot for Sri Lanka, long enough to make the flight time worthwhile and to fit in a day or two of touring alongside the beach. It suits families looking for a west coast all inclusive base with a kids' club, couples and honeymooners drawn to the quieter, more scenic hotels further south, and anyone with a genuine interest in wildlife, culture or tea, since all three are easy to combine with a beach stay here in a way few other TUI destinations allow. It is less suited to anyone who wants the shortest possible flight, or who wants a destination where every hotel and every excursion is already set up in English with minimal fuss, parts of Sri Lanka still feel properly off the beaten track.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Everyone arrives into Bandaranaike International Airport (CMB), just outside Negombo and about 30 minutes from the capital, Colombo. TUI packages the holiday with your flights included, but the exact routing is worth checking for your dates. SriLankan Airlines flies direct from London Heathrow in around 10 hours 45 minutes, and British Airways has just relaunched its own direct Gatwick to Colombo service, three times a week from 23 October 2026, after several years without one. Plenty of routings still go via a Middle Eastern hub such as Doha, Dubai or Abu Dhabi with Qatar Airways, Emirates or Etihad, which adds to the overall journey time. Neither Jet2holidays nor easyJet holidays currently fly this far, so TUI is the one to book with for a Sri Lanka package.</p>
+    {jake_tip("Because the routing on a Sri Lanka package can vary so much, direct with SriLankan Airlines or British Airways, or via a Gulf hub, I always check the exact flight times and any stopover length for a client's specific dates before confirming anything.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Sri Lanka runs on two separate monsoons depending on the coast. Figures below are for Colombo, representative of the west and south coast hotels in this guide, where the wetter months run roughly April to October and the driest, sunniest spell is December to March.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>31&deg;C</td><td>24&deg;C</td><td>Dry and sunny, one of the best months on the west coast</td></tr>
+          <tr><td>February</td><td>32&deg;C</td><td>25&deg;C</td><td>Still dry, reliably good weather</td></tr>
+          <tr><td>March</td><td>32&deg;C</td><td>26&deg;C</td><td>Warm and dry, a great all round month</td></tr>
+          <tr><td>April</td><td>32&deg;C</td><td>27&deg;C</td><td>Hot, the last of the dry spell before the rains build</td></tr>
+          <tr><td>May</td><td>32&deg;C</td><td>28&deg;C</td><td>The west coast monsoon begins, showers increase</td></tr>
+          <tr><td>June</td><td>30&deg;C</td><td>27&deg;C</td><td>Wet season on the west and south coasts, showers most days</td></tr>
+          <tr><td>July</td><td>31&deg;C</td><td>27&deg;C</td><td>Wet season continues, though showers are often short</td></tr>
+          <tr><td>August</td><td>30&deg;C</td><td>27&deg;C</td><td>Still wet on the west coast, usually quieter and better value</td></tr>
+          <tr><td>September</td><td>30&deg;C</td><td>27&deg;C</td><td>Rain starts easing off</td></tr>
+          <tr><td>October</td><td>30&deg;C</td><td>26&deg;C</td><td>Transitional month, showers becoming less frequent</td></tr>
+          <tr><td>November</td><td>31&deg;C</td><td>26&deg;C</td><td>Drying out again, a good value shoulder month</td></tr>
+          <tr><td>December</td><td>31&deg;C</td><td>25&deg;C</td><td>Dry season returns, the start of the busy winter season</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for Colombo, sourced via climate-zone.com. The east coast around Trincomalee runs an almost opposite pattern, driest from April to September.</p>
+    {jake_tip("Sri Lanka's two coasts are out of sync with each other, so if a client's dates fall in the wetter months on the west coast, I sometimes point them towards the hill country or just build more flexibility into the itinerary rather than assuming rain will ruin the trip. Showers tend to be short and heavy rather than all day.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">December to March is the classic dry season for the west and south coast hotels in this guide, warm, sunny and the busiest and most expensive time to travel, especially over Christmas and February half term. April is hot and still mostly dry, a good shoulder option. May through October brings the west coast monsoon, with more frequent showers but also much better value and quieter beaches and roads, showers are usually short rather than lasting all day. The hill country around Kandy and Nuwara Eliya is cooler year round and makes a good escape from coastal heat whenever you travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Sri Lanka's package hotels sit along the west and south coasts, within reasonable transfer time of the airport. I split them into two rough areas.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1580910527739-556eb89f9d65?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A palm-lined beach on Sri Lanka's coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Negombo &amp; Ahungalla (closer to the airport)</h3>
+        <p>Negombo sits just a few minutes from Bandaranaike Airport, making it the easiest, shortest transfer on the island, while Ahungalla is a little further south down the coast. This is the area I point families and anyone who wants to keep transfer time to a minimum towards, with a good spread of value and family all inclusive hotels.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1592328243439-4fbff14b2391?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A traditional stilt fisherman off Sri Lanka's south coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bentota &amp; Hikkaduwa (further south)</h3>
+        <p>An hour or two further down the coast, Bentota and Hikkaduwa have a more scenic, polished feel, with Bentota's river and lagoon setting and Hikkaduwa's surf town energy. This is where I'd steer couples and anyone after a more upmarket base, with a longer transfer but a noticeably different, greener stretch of coast.</p>
+      </div>
+    </div>
+    {jake_tip("The transfer from the airport to Bentota or Hikkaduwa can take two to three hours depending on traffic, so I always factor that into a client's first night, a late landing with a long transfer is not the start to a holiday anyone wants.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Airport transfers are usually included as part of the TUI package. Sri Lanka drives on the left, the same as the UK, but roads can be busy and the standard of driving varies, so almost every client sticks to transfers, taxis and organised day trips rather than self drive. Tuk-tuks are everywhere and are a cheap, easy way to get around locally once you are based at a hotel, and a private car and driver for a day is easy to arrange for trips inland to Sigiriya, Kandy or the tea country.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1566650576880-6740b03eaad1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An elephant safari jeep in Sri Lanka" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>This is where Sri Lanka really stands out among the islands I sell. Day trips from the west coast can take in ancient rock fortresses, national park safaris, elephant encounters and hill country tea estates, all without needing a separate touring holiday.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="176097,970745,1232557,463215"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/negombo-l2735/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/negombo-l2735/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Sri Lanka &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across Sri Lanka's west and south coasts. TUI is the operator I use for Sri Lanka, so all four of these are booked through TUI.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1735770517146-e95c872226fc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool overlooking the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Goldi Sands, Negombo</h3>
+        <p>A straightforward, good value hotel right on Negombo's beach, just minutes from the airport. A sensible pick for anyone who wants to keep transfer time short and spend their money on the trip rather than a long drive. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1717361054046-eda52d552736?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A swimming pool surrounded by palm trees at a family resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Riu Sri Lanka, Ahungalla</h3>
+        <p>A large all inclusive resort on Ahungalla's beach, from a brand well known for its family set up elsewhere in the world. A good, dependable base for families who want everything included and a straightforward stretch of beach on the doorstep. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1588504633950-9dc518941e93?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A quiet deck overlooking the water at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Vivanta by Taj, Bentota</h3>
+        <p>A polished five star feel on the Bentota river mouth, with an infinity pool, a spa set around a courtyard garden and a lantern-lit cocktail bar. The one I'd point towards for a client who wants Sri Lanka's more scenic southern stretch without compromising on comfort. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for couples</div>
+        <img src="https://images.unsplash.com/photo-1580247331145-82d32dbbdcac?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An infinity pool overlooking the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hikka Tranz by Cinnamon, Hikkaduwa</h3>
+        <p>An on-trend, oceanfront hotel in Hikkaduwa's lively surf town, with a more modern feel than many of the island's older beach hotels. A good fit for couples who want a sociable base with easy access to Hikkaduwa's bars, restaurants and reef snorkelling. Bookable through TUI.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the sights worth building into an itinerary beyond the hotel pool.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1663784025074-49e9e7f11f62?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The countryside surrounding Sigiriya's ancient rock fortress" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sigiriya Rock Fortress</h3>
+        <p>An ancient royal citadel built on top of a 200 metre column of rock, with frescoes, water gardens and sweeping views from the summit. A UNESCO World Heritage Site and genuinely one of the most striking things I have seen anywhere, usually visited as a long day trip from the west coast.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1665849050332-8d5d7e59afb6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Temple of the Sacred Tooth Relic in Kandy, Sri Lanka" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Temple of the Sacred Tooth Relic, Kandy</h3>
+        <p>Sri Lanka's most sacred Buddhist site, said to house a tooth relic of the Buddha, set in the hill city of Kandy. Combine it with a wander round Kandy Lake and the botanical gardens at nearby Peradeniya for a full day out.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1534545872802-0579930815c2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Elephants bathing in the river near Pinnawala" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Pinnawala Elephant Orphanage</h3>
+        <p>Home to around 100 elephants, with a daily river bath that draws a crowd for good reason. A popular stop on the way to or from Kandy, and a highlight for most families I book here.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1760532511219-c8b7566f90af?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Tea plantations near Nuwara Eliya in Sri Lanka's hill country" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Tea country around Nuwara Eliya</h3>
+        <p>Rolling tea plantations, working tea factories and a noticeably cooler climate up in the central highlands. Worth the drive for the scenery alone, and most estates offer a tour with a tasting at the end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Sri Lanka uses the Sri Lankan Rupee. Prices below are shown in pounds sterling with the rupee equivalent alongside, based on a rate of roughly &pound;1 to 438 LKR. These are crowd-sourced averages for Colombo, and prices right on a resort's own doorstep in tourist areas can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;3.31 (about LKR 1,450)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;18.26 (about LKR 8,000)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.84 (about LKR 808)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;1.46 (about LKR 638)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.20 (about LKR 87)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;0.30 (about LKR 130)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages via Numbeo, checked at time of writing. Rupee to pound sterling conversion is approximate and moves around day to day, so treat these as a guide rather than an exact figure.</p>
+    {jake_tip("Sri Lanka is noticeably cheaper day to day than most of the Caribbean or Indian Ocean islands I sell, so beyond the cost of the holiday itself, most clients find spending money goes a long way on meals out, tuk-tuk rides and day trips.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Sri Lankan Rupee (LKR)</td></tr>
+          <tr><td>Plug type</td><td>Type G, the same as the UK. The mains supply is 230V, so no adapter or converter is needed for standard UK appliances</td></tr>
+          <tr><td>Language</td><td>Sinhala and Tamil are the official languages, with English widely used across hotels and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 10 hours 45 minutes direct with SriLankan Airlines or British Airways, longer with a connection via the Middle East</td></tr>
+          <tr><td>Time difference</td><td>Sri Lanka stays on the same time year round and does not change its clocks, so it is 4 hours 30 minutes ahead of the UK during British Summer Time and 5 hours 30 minutes ahead during UK winter time</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders need a free Electronic Travel Authorisation (ETA) before travelling, valid for 30 days, and a passport valid for at least 6 months beyond arrival</td></tr>
+          <tr><td>Driving</td><td>Left hand side, the same as the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Datingscout, Kelum Chathuranga, Chathura Anuradha Subasinghe, Rajiv Perera, Erik Esly, Dinuka Lankaloka, Chamara Vijendra, Tom Paisley, Meg von Haartman, Louise Smith, Anine Beetge and Morgan Alley via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Sri Lanka for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around the west coast beaches, add on a day or two inland to Sigiriya or Kandy, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+sri_lanka_body = sri_lanka_body.replace("::NEWSLETTER::", newsletter_section())
+
+SRI_LANKA_SCHEMA = article_and_faq_schema(
+    "Sri Lanka: Jake's Destination Guide",
+    "Jake's honest guide to Sri Lanka: weather by month, where to stay, things to do and what it actually costs.",
+    "sri-lanka.html",
+    "https://images.unsplash.com/photo-1656495783346-559815221595?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator sells Sri Lanka holidays?", "TUI is the one of the three operators Jake sells (TUI, Jet2holidays and easyJet holidays) who packages Sri Lanka holidays. Neither Jet2holidays nor easyJet holidays currently fly this far east."),
+        ("How long is the flight to Sri Lanka?", "Around 10 hours 45 minutes direct from London Heathrow with SriLankan Airlines, or on British Airways' direct Gatwick to Colombo service launching 23 October 2026. Many routings also go via a Middle Eastern hub such as Doha, Dubai or Abu Dhabi, which takes longer."),
+        ("What's the best time to visit Sri Lanka?", "December to March is the dry season for the west and south coast hotels most packages use, and the busiest, most expensive time to travel. May to October brings more rain on the west coast but much better value, and the hill country around Kandy stays cooler year round."),
+        ("Do I need a visa for Sri Lanka?", "UK passport holders need a free Electronic Travel Authorisation (ETA) before travelling, valid for 30 days, plus a passport valid for at least 6 months beyond arrival."),
+        ("Can I combine the beach with sightseeing in Sri Lanka?", "Yes. Sigiriya, Kandy, Pinnawala and the tea country around Nuwara Eliya are all within a day trip of the west coast hotels in this guide, so most clients add a day or two of touring onto a beach stay rather than needing a separate holiday."),
+    ]
+)
+with open(os.path.join(SITE, "sri-lanka.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Sri Lanka: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Sri Lanka: weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        sri_lanka_body,
+        extra_schema=SRI_LANKA_SCHEMA,
+        canonical_path="sri-lanka.html"
+    ))
+print("sri-lanka.html written")
+
 
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
@@ -13781,6 +14054,7 @@ SITEMAP_PAGES = [
     ("jamaica.html", "0.6"),
     ("barbados.html", "0.6"),
     ("st-lucia.html", "0.6"),
+    ("sri-lanka.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
