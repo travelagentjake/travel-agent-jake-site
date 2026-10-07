@@ -8977,6 +8977,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1581553673739-c4906b5d0de8?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "An open passport with multiple colourful ink stamps on the pages",
     },
+    {
+        "slug": "summer-2028-jet2holidays-now-on-sale.html",
+        "meta": "Booking &amp; payments",
+        "title": "Summer 2028 is now on sale with Jet2holidays, and it's already cheaper",
+        "excerpt": "Jet2holidays has released Summer 2028. I checked live prices against 2027 for the same hotel, room, board and flights, three real examples below, plus how to book now with zero deposit on a direct debit.",
+        "image": "https://images.unsplash.com/photo-1722600522742-0213cba5e3e4?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "The seafront at Fuengirola on Spain's Costa del Sol",
+    },
 ]
 
 def tip_card(post):
@@ -13602,6 +13610,183 @@ with open(os.path.join(SITE, "passport-10-year-rule-spain-greece-turkey-egypt.ht
 print("passport-10-year-rule-spain-greece-turkey-egypt.html written")
 
 
+# ---------------- TRAVEL TIPS: Summer 2028 now on sale with Jet2holidays ----------------
+s28_early_tip = "I've written separately about the general case for booking early versus late, if you want the fuller picture beyond just these Summer 2028 numbers. You can find that <a href=\"booking-early-vs-late.html\">here</a>."
+s28_dd_tip = "It works out your plan the same way as the direct debit calculator on my My Booking page, give it a try to get a feel for what a monthly plan could look like. You'll find it <a href=\"my-booking.html#dd-calculator\">here</a>."
+summer2028_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>SUMMER 2028 IS NOW ON SALE WITH JET2HOLIDAYS, AND IT'S ALREADY CHEAPER</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Jet2holidays has released Summer 2028, and I've been through the live prices myself. Booking this early means more choice of hotels, room types and flight times before anything sells out, and in every comparison I checked, it was genuinely cheaper too. Here's why it's worth booking now, three real price comparisons so you can see it for yourself, and how you can book with zero deposit today.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Why it pays to book this early</h2>
+    <img src="https://images.unsplash.com/photo-1722600522742-0213cba5e3e4?auto=format&fit=crop&w=1600&h=700&q=80" alt="The seafront at Fuengirola on Spain's Costa del Sol" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">When a new season is released, you're getting first pick. Every hotel, room type and flight time is still available, rather than whatever's left once the popular dates and the best value rooms have already gone. Jet2holidays has now opened Summer 2028 for booking, which means you can put a holiday together more than a year and a half out from departure, while the choice is at its widest.</p>
+    <p style="margin-top:14px; margin-bottom:0;">What surprised me is that it isn't just about choice. When I compared live prices for exactly the same hotel, room, board basis, airport and duration a year apart, Summer 2028 came out cheaper than Summer 2027 every single time I checked.</p>
+    {jake_tip(s28_early_tip)}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>I checked the real prices, so you don't have to</h2>
+    <p style="margin-top:14px;">On 7 October 2026 I went through Jet2holidays' live booking system myself and compared Summer 2027 against Summer 2028 for the exact same hotel, room type, board basis, departure airport and holiday length, on the same weekday a year apart. Three of those comparisons are below.</p>
+    <p style="margin-top:14px;">A word of warning though. These prices move, sometimes by the hour. While I was checking the Lanzarote example below, the 2027 price went up by around &pound;450 in the time it took me to search for it and then open the actual hotel page a few minutes later. That's exactly why booking sooner rather than later makes sense, the price you see today isn't guaranteed to still be there tomorrow.</p>
+    <p style="margin-top:14px; margin-bottom:0;">Across every combination I checked, somewhere in the region of 3,000 different hotel, board and airport pairings, the large majority came out cheaper for 2028 than for 2027. The three below aren't cherry picked best cases, they're simply the ones I wrote down as I went.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Example 1: Fuengirola, Costa del Sol</h2>
+    <img src="https://images.unsplash.com/photo-1722600522815-561a0116e95e?auto=format&fit=crop&w=1600&h=700&q=80" alt="View over Fuengirola on Spain's Costa del Sol" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A couple, 10 nights all inclusive in a standard double or twin room, flying from Manchester.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Departure</th><th>Total price</th><th>Per person</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Wed 16 Jun 2027</td><td>&pound;2,810</td><td>&pound;1,405</td></tr>
+          <tr><td>Wed 14 Jun 2028</td><td>&pound;2,280</td><td>&pound;1,140</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0;"><b>&pound;530 cheaper</b> booking 2028, for the same hotel, room, board and flights.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Example 2: Costa Teguise, Lanzarote</h2>
+    <img src="https://images.unsplash.com/photo-1781994815429-2412521d3d0c?auto=format&fit=crop&w=1600&h=700&q=80" alt="Dark volcanic sand beach on Lanzarote with the Atlantic surf" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A family of four, two adults and two children aged 10, 7 nights all inclusive in a junior suite in the school holidays, flying from Birmingham.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Departure</th><th>Total price</th><th>Per person</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sat 31 Jul 2027</td><td>&pound;6,672</td><td>&pound;1,668</td></tr>
+          <tr><td>Sat 29 Jul 2028</td><td>&pound;5,100</td><td>&pound;1,275</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0;"><b>&pound;1,572 cheaper</b> booking 2028, the biggest saving of the three, for the same hotel, room, board and flights.</p>
+    {jake_tip("Prices like these move throughout the day, never mind week to week. If you see a price you're happy with, it's usually worth acting on it rather than waiting to see if it drops further, it's just as likely to go the other way.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Example 3: Kardamena, Kos</h2>
+    <img src="https://images.unsplash.com/photo-1589185693971-cf7362605d8c?auto=format&fit=crop&w=1600&h=700&q=80" alt="The harbour at Kardamena on the Greek island of Kos" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A couple, 7 nights self catering in a studio in September, flying from Manchester.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Departure</th><th>Total price</th><th>Per person</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sat 11 Sep 2027</td><td>&pound;2,292</td><td>&pound;1,146</td></tr>
+          <tr><td>Sat 9 Sep 2028</td><td>&pound;1,574</td><td>&pound;787</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0;"><b>&pound;718 cheaper</b> booking 2028, about 31% less, for the same hotel, room, board and flights.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Want to see your own dates compared?</h2>
+    <p style="margin-top:14px; margin-bottom:0;">These three are just what I happened to check while putting this article together. If you've got a particular hotel, airport or month in mind, I'm happy to run the same comparison for you, exactly the same hotel, room, board and flights, 2027 against 2028, so you can see the actual difference before you book anything.</p>
+    {jake_tip("Message me on WhatsApp with where you fancy and when, and I'll pull the real prices for you, the same way I did for the three examples above.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>How to book now with zero deposit</h2>
+    <img src="https://images.unsplash.com/photo-1649433391719-2e784576d044?auto=format&fit=crop&w=1600&h=700&q=80" alt="A calendar displayed on a computer screen for planning ahead" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">When you book a Summer 2028 holiday with me and set up a direct debit at the same time, you don't pay anything at all on the day you book. Genuinely zero deposit. The full cost of your holiday becomes the balance on your direct debit from the very start, rather than a deposit now and a lump sum later, and I work out a payment plan with you individually based on your holiday cost and your departure date.</p>
+      <p style="margin-top:14px; margin-bottom:0;">The only requirement is that your departure date needs to be at least 18 weeks away, which every Summer 2028 holiday comfortably is from where we are right now.</p>
+    </div>
+    {jake_tip(s28_dd_tip)}
+    <p style="margin-top:14px; margin-bottom:0;">This is something I offer personally as part of how I take bookings, it isn't a blanket Jet2holidays policy, so message me on WhatsApp and I'll talk you through exactly what your own plan would look like before you commit to anything.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Is Summer 2028 really on sale with Jet2holidays now?</h3>
+      <p>Yes. Jet2holidays has released Summer 2028 departures, so you can book flights and package holidays for it already. I checked live prices on the booking system myself, comparing the same hotel, room, board and flights a year apart, and in every example I looked at, 2028 came out cheaper than 2027.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Will Summer 2028 definitely be cheaper than Summer 2027?</h3>
+      <p>I can't promise every single holiday will be cheaper, prices move constantly and depend on the specific hotel, dates and demand. What I can say is that across the hundreds of combinations I checked, the large majority came out cheaper for 2028, and the three examples in this article are genuine prices I found on the same day, not best case ones I went looking for.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How does the zero deposit offer actually work?</h3>
+      <p>Book your Summer 2028 holiday with me and set up a direct debit at the same time, and you don't pay anything at all on the day you book. The full holiday cost becomes your direct debit balance from the start, and I work out your payment plan with you individually. Your departure date needs to be at least 18 weeks away, which every Summer 2028 holiday is.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What if I want a different hotel, airport or date to the examples here?</h3>
+      <p>Just ask. I checked thousands of hotel, board and airport combinations to put this article together, and I'm happy to run the same comparison for whatever you've got in mind. Message me on WhatsApp with where you fancy and I'll find out what it actually costs.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Ready to book Summer 2028?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Message me your dates, hotel or just where you fancy, and I'll find out what it actually costs for 2028, with zero deposit if you set up a direct debit at the same time.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="https://wa.me/447899290262?text=Hi%20Jake%2C%20I%27d%20like%20to%20find%20out%20about%20booking%20a%20Summer%202028%20Jet2holidays%20holiday%20with%20zero%20deposit%20please" target="_blank" rel="noopener">WhatsApp Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+summer2028_body = summer2028_body.replace("::NEWSLETTER::", newsletter_section())
+
+SUMMER2028_SCHEMA = article_and_faq_schema(
+    "Summer 2028 Is Now On Sale With Jet2holidays, And It's Already Cheaper",
+    "Jet2holidays has released Summer 2028. I checked live prices against 2027 for the same hotel, room, board and flights, and here's what I found, plus how to book now with zero deposit on a direct debit.",
+    "summer-2028-jet2holidays-now-on-sale.html",
+    "https://images.unsplash.com/photo-1722600522742-0213cba5e3e4?auto=format&fit=crop&w=1600&h=700&q=80",
+    faqs=[
+        ("Is Summer 2028 really on sale with Jet2holidays now?", "Yes. Jet2holidays has released Summer 2028 departures, so you can book flights and package holidays for it already. I checked live prices on the booking system myself, comparing the same hotel, room, board and flights a year apart, and in every example I looked at, 2028 came out cheaper than 2027."),
+        ("Will Summer 2028 definitely be cheaper than Summer 2027?", "I can't promise every single holiday will be cheaper, prices move constantly and depend on the specific hotel, dates and demand. What I can say is that across the hundreds of combinations I checked, the large majority came out cheaper for 2028, and the three examples in this article are genuine prices I found on the same day, not best case ones I went looking for."),
+        ("How does the zero deposit offer actually work?", "Book your Summer 2028 holiday with me and set up a direct debit at the same time, and you don't pay anything at all on the day you book. The full holiday cost becomes your direct debit balance from the start, and I work out your payment plan with you individually. Your departure date needs to be at least 18 weeks away, which every Summer 2028 holiday is."),
+        ("What if I want a different hotel, airport or date to the examples here?", "Just ask. I checked thousands of hotel, board and airport combinations to put this article together, and I'm happy to run the same comparison for whatever you've got in mind. Message me on WhatsApp with where you fancy and I'll find out what it actually costs."),
+    ]
+)
+
+with open(os.path.join(SITE, "summer-2028-jet2holidays-now-on-sale.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Summer 2028 Is Now On Sale With Jet2holidays, And It's Already Cheaper | Travel Agent Jake",
+        "Jet2holidays has released Summer 2028. I checked live prices against 2027 for the same hotel, room, board and flights, and here's what I found, plus how to book now with zero deposit on a direct debit.",
+        "travel-tips.html",
+        summer2028_body,
+        extra_schema=SUMMER2028_SCHEMA,
+        canonical_path="summer-2028-jet2holidays-now-on-sale.html"
+    ))
+print("summer-2028-jet2holidays-now-on-sale.html written")
+
+
 # ---------------- BOOKING WIDGET PLACEHOLDER PAGES (Agendas Group) ----------------
 # Jess Speight (Agendas Group Ltd, account manager for the new holiday
 # search/booking widget) asked for three blank pages, named so their URLs
@@ -14261,6 +14446,7 @@ SITEMAP_PAGES = [
     ("lost-delayed-luggage-compensation-rights.html", "0.7"),
     ("package-holiday-compensation-rights.html", "0.7"),
     ("passport-10-year-rule-spain-greece-turkey-egypt.html", "0.7"),
+    ("summer-2028-jet2holidays-now-on-sale.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
