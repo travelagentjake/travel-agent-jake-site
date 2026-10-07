@@ -8969,6 +8969,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Swimming pool at a holiday resort",
     },
+    {
+        "slug": "passport-10-year-rule-spain-greece-turkey-egypt.html",
+        "meta": "Border rules",
+        "title": "Your passport might not be as valid as you think: the 10 year rule explained",
+        "excerpt": "Spain, Greece and Cyprus apply a strict 10 year issue date rule plus 3 months remaining validity, and it still catches people out every year. Turkey and Egypt have completely different rules. Here's exactly what to check before you book.",
+        "image": "https://images.unsplash.com/photo-1581553673739-c4906b5d0de8?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "An open passport with multiple colourful ink stamps on the pages",
+    },
 ]
 
 def tip_card(post):
@@ -13417,6 +13425,183 @@ with open(os.path.join(SITE, "package-holiday-compensation-rights.html"), "w", e
     ))
 print("package-holiday-compensation-rights.html written")
 
+# ---------------- TRAVEL TIPS: UK passport 10 year rule for Spain, Greece, Turkey and Egypt ----------------
+passport_check_tip = "The Post Office has a free online passport validity checker if you'd rather not do the maths yourself. But the only guarantee is checking the exact entry requirements page for your specific destination on gov.uk, since the rule genuinely isn't the same everywhere."
+passport_jake_tip = "Message me your passport's issue and expiry dates when we book, and I'll check them against the exact rule for wherever you're going. It takes me two minutes and it's a lot cheaper than finding out at check in that you can't fly."
+passport_renew_tip = "If you're travelling to Spain, Greece, Cyprus or anywhere else in the Schengen area within the next year, check your passport now, not the week before you fly. The standard renewal service alone usually takes about 3 weeks, and that's before you've even accounted for a delay."
+
+passport_rule_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>THE PASSPORT RULE THAT COULD STOP YOU BOARDING</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Every year, holidaymakers get turned away at check in or at the border because their passport doesn't meet the rule for where they're going, even though it's still got months or years left on it. It's one of the most common and most avoidable ways to lose a holiday completely, and the rule is different depending on where you're actually flying to. Here's exactly what Spain, Greece, Cyprus, Turkey and Egypt each require, why so many passports fall foul of it without their owner realising, and how to check yours properly before you book.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1581553673739-c4906b5d0de8?auto=format&fit=crop&w=1600&h=700&q=80" alt="An open passport with multiple colourful ink stamps on the pages" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">For Spain, Greece and Cyprus, your passport has to pass two separate tests, not one. First, it must have been issued less than 10 years before the day you arrive. Second, it must stay valid for at least 3 months after the day you plan to leave. Both are confirmed directly on gov.uk's own entry requirements pages for each country, and both have to be true at the same time. A passport that's nowhere near its printed expiry date can still fail the first test, and that's exactly where most people get caught out.</p>
+      <p style="margin-top:14px; margin-bottom:0;">Turkey and Egypt don't use this rule at all. They only care about your expiry date relative to your arrival date, with no issue date test whatsoever. Further down, I've set out exactly what each destination actually requires, so you can check yours properly rather than guessing.</p>
+    </div>
+    {jake_tip(passport_jake_tip)}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Why a passport that "isn't expired" can still get you turned away</h2>
+    <img src="https://images.unsplash.com/photo-1655722724447-2d2a3071e7f8?auto=format&fit=crop&w=1600&h=700&q=80" alt="UK passports with boarding passes tucked inside them" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Before October 2018, renewing your UK passport early meant any months left on your old one got added on top of the new 10 year validity. So someone who renewed with 9 months still left on their old passport ended up with a new one valid for 10 years and 9 months, printed clearly on the cover as the expiry date.</p>
+    <p style="margin-top:14px; margin-bottom:0;">Since Brexit, Spain, Greece, Cyprus and the rest of the Schengen area simply don't recognise that extra carried over time. They only look at the actual date your passport was issued, and if that's more than 10 years before you arrive, it fails, regardless of what the expiry date printed on the cover says. If your current passport was renewed before October 2018 and you haven't replaced it since, this is genuinely worth checking properly rather than assuming you're fine because the expiry date looks fine.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The rule changes completely once you leave the Schengen area</h2>
+    <img src="https://images.unsplash.com/photo-1783442758997-2b3eccdedda8?auto=format&fit=crop&w=1600&h=700&q=80" alt="Santorini's blue domed churches overlooking the Aegean Sea" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This is the bit that trips people up most, because it isn't one single rule for every holiday. I've checked gov.uk's own entry requirements page for each destination directly, and they genuinely don't match.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Destination</th><th>What your passport actually needs</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Spain (mainland, Costas, Balearics &amp; Canary Islands)</td><td>Issued less than 10 years before you arrive, and valid for at least 3 months after you leave the Schengen area</td></tr>
+          <tr><td>Greece</td><td>Issued less than 10 years before you arrive, and valid for at least 3 months after you leave the Schengen area</td></tr>
+          <tr><td>Cyprus</td><td>The same 10 year and 3 month rule as above, even though Cyprus isn't actually in the Schengen area itself</td></tr>
+          <tr><td>Turkey</td><td>Valid for at least 150 days after the date you arrive, with no issue date test at all, plus at least one blank page</td></tr>
+          <tr><td>Egypt</td><td>Valid for at least 6 months after the date you arrive, plus at least one blank page</td></tr>
+          <tr><td>Tunisia</td><td>Valid for the whole length of your stay, no fixed buffer specified</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0;">Cyprus is the one that catches people out the most, since it's easy to assume a non Schengen country wouldn't bother with the Schengen test. Gov.uk confirms it applies the identical two part rule anyway. If you're travelling anywhere not listed here, the same gov.uk foreign travel advice page for that specific country will have its own entry requirements section, and it's always worth checking directly rather than assuming it matches somewhere else you've been before.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What actually happens if your passport doesn't meet the rule</h2>
+    <img src="https://images.unsplash.com/photo-1730288278805-42d46b17438d?auto=format&fit=crop&w=1600&h=700&q=80" alt="A large group of people waiting in a queue at an airport" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Airlines are fined by the destination country if they carry a passenger whose passport doesn't meet that country's entry rules, so check in staff are trained to refuse boarding on the spot if your passport fails the test, not to let you take the chance and sort it out on arrival. This happens before you've even reached airport security, and it's the airline's own staff enforcing it, not border control.</p>
+    <p style="margin-top:14px; margin-bottom:0;">Being denied boarding this way is treated as your own responsibility for travelling with an invalid document, not something the airline did wrong. That means no automatic refund for the flight you've missed, and your travel insurance is unlikely to cover a problem caused by not checking your own passport before you travelled. It's a genuinely expensive mistake, and one that's entirely avoidable with a two minute check.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>How to actually check your own passport</h2>
+    <img src="https://images.unsplash.com/photo-1641736494066-bd18237ede26?auto=format&fit=crop&w=1600&h=700&q=80" alt="A person holding their passport in their hand" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Find your issue date and expiry date.</b> Both are printed on the photo page of your passport, usually labelled clearly in English and French.</span></li>
+      <li><span class="num">2</span><span><b>Work out your actual travel dates,</b> both the day you arrive and the day you're due to leave the country or the wider Schengen area, not just the day you fly home from that specific airport.</span></li>
+      <li><span class="num">3</span><span><b>Check the exact entry requirements page for your destination on gov.uk.</b> Search "gov.uk foreign travel advice" plus the country name, then look for the passport validity section under entry requirements. Don't assume it matches a different country you've visited before.</span></li>
+      <li><span class="num">4</span><span><b>If you're even slightly unsure, renew rather than risk it.</b> A passport that's borderline on either test isn't worth gambling an entire holiday on.</span></li>
+    </ul>
+    {jake_tip(passport_check_tip)}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>If you do need to renew, here's what it actually costs and takes</h2>
+    <img src="https://images.unsplash.com/photo-1487637419635-a2a471ff5c7b?auto=format&fit=crop&w=1600&h=700&q=80" alt="A UK passport book" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">These are the current fees and turnaround times taken directly from gov.uk, correct as of October 2026.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Service</th><th>Cost</th><th>How long it takes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Standard online renewal</td><td>&pound;102</td><td>Usually within 3 weeks</td></tr>
+          <tr><td>Standard paper application</td><td>&pound;115.50</td><td>Usually longer than applying online</td></tr>
+          <tr><td>1 week Fast Track</td><td>&pound;192 adult, &pound;156.50 child</td><td>Appointment as early as the next day, passport couriered within a week of that appointment</td></tr>
+          <tr><td>1 Day Premium</td><td>&pound;239.50 adult (renewals only)</td><td>Appointment within 2 days, new passport ready around 4 hours later</td></tr>
+        </tbody>
+      </table>
+    </div>
+    {jake_tip(passport_renew_tip)}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Does this affect the holiday I've booked with you?</h2>
+    <p style="margin-top:14px;">I can't check your passport for you automatically, it has to be a conversation, but I always flag this when I'm booking anywhere in Spain, Greece, Cyprus, Turkey or Egypt, and I'm always happy to double check your specific dates against the right rule before you travel. Message me on WhatsApp with your passport's issue and expiry dates and where you're headed, and I'll tell you straight away whether you're fine or whether it's worth renewing first.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">What is the UK passport 10 year rule?</h3>
+      <p>For Spain, Greece, Cyprus and the rest of the Schengen area, your passport must have been issued less than 10 years before the day you arrive, and must stay valid for at least 3 months after the day you leave. Both conditions have to be met, and the 10 year test looks at your passport's actual issue date, not its printed expiry date.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Why would my passport fail the rule if it hasn't expired yet?</h3>
+      <p>If your passport was renewed before October 2018 and had leftover months carried over from your previous passport, its printed expiry date can be more than 10 years after its actual issue date. Schengen countries don't count that extra carried over time, so a passport that looks fine on its cover can still fail the 10 year issue date test.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does the 10 year rule apply to Turkey and Egypt too?</h3>
+      <p>No. Turkey only requires your passport to stay valid for at least 150 days after you arrive, and Egypt requires at least 6 months after you arrive, both with at least one blank page. Neither country tests how long ago your passport was issued.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What happens if my passport doesn't meet the rule for where I'm going?</h3>
+      <p>Airlines are fined for carrying passengers whose passports don't meet the destination's entry rules, so check in staff will refuse to let you board rather than risk it. This counts as travelling with an invalid document, which generally means no refund for the missed flight and no cover from your travel insurance.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Not sure if your passport is good to go?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Send me your passport's issue and expiry dates and where you're headed, and I'll check it against the right rule before you book anything.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+passport_rule_body = passport_rule_body.replace("::NEWSLETTER::", newsletter_section())
+
+PASSPORT_RULE_SCHEMA = article_and_faq_schema(
+    "Your Passport Might Not Be As Valid As You Think: The 10 Year Rule Explained",
+    "Spain, Greece and Cyprus apply a strict 10 year issue date rule plus 3 months remaining validity, and it still catches people out every year. Turkey and Egypt have completely different rules. Here's exactly what to check before you book.",
+    "passport-10-year-rule-spain-greece-turkey-egypt.html",
+    "https://images.unsplash.com/photo-1581553673739-c4906b5d0de8?auto=format&fit=crop&w=1600&h=700&q=80",
+    faqs=[
+        ("What is the UK passport 10 year rule?", "For Spain, Greece, Cyprus and the rest of the Schengen area, your passport must have been issued less than 10 years before the day you arrive, and must stay valid for at least 3 months after the day you leave. Both conditions have to be met, and the 10 year test looks at your passport's actual issue date, not its printed expiry date."),
+        ("Why would my passport fail the rule if it hasn't expired yet?", "If your passport was renewed before October 2018 and had leftover months carried over from your previous passport, its printed expiry date can be more than 10 years after its actual issue date. Schengen countries don't count that extra carried over time, so a passport that looks fine on its cover can still fail the 10 year issue date test."),
+        ("Does the 10 year rule apply to Turkey and Egypt too?", "No. Turkey only requires your passport to stay valid for at least 150 days after you arrive, and Egypt requires at least 6 months after you arrive, both with at least one blank page. Neither country tests how long ago your passport was issued."),
+        ("What happens if my passport doesn't meet the rule for where I'm going?", "Airlines are fined for carrying passengers whose passports don't meet the destination's entry rules, so check in staff will refuse to let you board rather than risk it. This counts as travelling with an invalid document, which generally means no refund for the missed flight and no cover from your travel insurance."),
+    ]
+)
+
+with open(os.path.join(SITE, "passport-10-year-rule-spain-greece-turkey-egypt.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "The UK Passport 10 Year Rule Explained: Spain, Greece, Turkey & Egypt | Travel Agent Jake",
+        "Spain, Greece and Cyprus apply a strict 10 year issue date rule plus 3 months remaining validity, and it still catches people out every year. Turkey and Egypt have completely different rules. Here's exactly what to check before you book.",
+        "travel-tips.html",
+        passport_rule_body,
+        extra_schema=PASSPORT_RULE_SCHEMA,
+        canonical_path="passport-10-year-rule-spain-greece-turkey-egypt.html"
+    ))
+print("passport-10-year-rule-spain-greece-turkey-egypt.html written")
+
+
 # ---------------- BOOKING WIDGET PLACEHOLDER PAGES (Agendas Group) ----------------
 # Jess Speight (Agendas Group Ltd, account manager for the new holiday
 # search/booking widget) asked for three blank pages, named so their URLs
@@ -14075,6 +14260,7 @@ SITEMAP_PAGES = [
     ("best-snow-sure-ski-resorts-december-january-february-march.html", "0.7"),
     ("lost-delayed-luggage-compensation-rights.html", "0.7"),
     ("package-holiday-compensation-rights.html", "0.7"),
+    ("passport-10-year-rule-spain-greece-turkey-egypt.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
