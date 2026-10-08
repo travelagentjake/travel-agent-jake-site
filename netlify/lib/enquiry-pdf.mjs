@@ -9,6 +9,8 @@ const MUTED = rgb(0x6b / 255, 0x71 / 255, 0x90 / 255);
 const LINE = rgb(0xdf / 255, 0xe3 / 255, 0xee / 255);
 const WHITE = rgb(1, 1, 1);
 
+export const roomText = (r) => `${r.adults} adult${Number(r.adults) === 1 ? "" : "s"}` + (Number(r.children) ? `, ${r.children} child${Number(r.children) === 1 ? "" : "ren"} (ages ${(r.childAges || []).join(", ")})` : "");
+
 // Standard fonts only cover WinAnsi, so tidy up anything outside it.
 const MAP = { "‘": "'", "’": "'", "“": '"', "”": '"', "–": "-", "—": "-", "…": "...", "•": "-", " ": " ", "€": "EUR " };
 const safe = (s) =>
@@ -120,6 +122,7 @@ export async function buildEnquiryPdf(q, logoPng) {
     y -= 4;
   };
 
+  const rooms = Array.isArray(q.rooms) ? q.rooms : [];
   const agesText = (q.childAges || []).map((a, i) => `Child ${i + 1}: ${a}`).join(", ");
   const party = `${q.adults || 1} adult${Number(q.adults) === 1 ? "" : "s"}` + (Number(q.children) ? `, ${q.children} child${Number(q.children) === 1 ? "" : "ren"}` : "");
   const ages = (q.childAges || []).map((a, i) => `Child ${i + 1}: ${/^\d+$/.test(a) ? a + " yrs" : a}`).join("   ");
@@ -145,7 +148,11 @@ export async function buildEnquiryPdf(q, logoPng) {
   ]);
 
   section("Who's travelling");
-  grid([
+  grid(rooms.length ? [
+    ["How many rooms?", String(rooms.length)],
+    ...rooms.map((r, i) => [`Room ${i + 1}`, roomText(r)]),
+    ["Total travelling", party],
+  ] : [
     ["Adults", String(q.adults || 1)],
     ["Children", String(q.children || 0)],
     ["Child ages", agesText],

@@ -6,7 +6,7 @@
 import { getStore } from "@netlify/blobs";
 import { json, esc, SITE, waLink, jakeEmail } from "../lib/pw.mjs";
 import { SENDER, brevo, loadLogo, pdfName, b64 } from "../lib/enquiry-lib.mjs";
-import { buildEnquiryPdf } from "../lib/enquiry-pdf.mjs";
+import { buildEnquiryPdf, roomText } from "../lib/enquiry-pdf.mjs";
 
 const clean = (v, max = 300) => String(v ?? "").replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "").trim().slice(0, max);
 const shell = (inner) => `<!doctype html><html><body style="margin:0;background:#f2f5fb;font-family:Arial,Helvetica,sans-serif;color:#14213d;">
@@ -55,10 +55,20 @@ export default async (req) => {
   if (phone.replace(/\D/g, "").length < 9) return json({ error: "Please enter a mobile number so I can reach you." }, 400);
   if (!b.privacyConsent) return json({ error: "Please tick the box to confirm you're happy for me to use your details to reply to your enquiry." }, 400);
 
-  const adults = Math.min(Math.max(parseInt(b.adults, 10) || 0, 1), 20);
-  const children = Math.min(Math.max(parseInt(b.children, 10) || 0, 0), 12);
-  const ages = (Array.isArray(b.childAges) ? b.childAges : []).slice(0, children).map((a) => clean(a, 20)).filter(Boolean);
-  if (children > 0 && ages.length < children) return json({ error: "Please choose an age for each child." }, 400);
+  const clampInt = (v, lo, hi, d) => Math.min(Math.max(parseInt(v, 10) || d, lo), hi);
+  // Room by room breakdown (new forms). Older cached pages still send plain adults/children.
+  const rooms = [];
+  for (const r of (Array.isArray(b.rooms) ? b.rooms : []).slice(0, 10)) {
+    if (!r || typeof r !== "object") continue;
+    const ra = clampInt(r.adults, 1, 8, 1), rc = clampInt(r.children, 0, 6, 0);
+    const rages = (Array.isArray(r.childAges) ? r.childAges : []).slice(0, rc).map((a) => clean(a, 20)).filter(Boolean);
+    if (rc > 0 && rages.length < rc) return json({ error: "Please choose an age for each child." }, 400);
+    rooms.push({ adults: ra, children: rc, childAges: rages });
+  }
+  const adults = rooms.length ? rooms.reduce((n, r) => n + r.adults, 0) : Math.min(Math.max(parseInt(b.adults, 10) || 0, 1), 20);
+  const children = rooms.length ? rooms.reduce((n, r) => n + r.children, 0) : Math.min(Math.max(parseInt(b.children, 10) || 0, 0), 12);
+  const ages = rooms.length ? rooms.flatMap((r) => r.childAges) : (Array.isArray(b.childAges) ? b.childAges : []).slice(0, children).map((a) => clean(a, 20)).filter(Boolean);
+  if (!rooms.length && children > 0 && ages.length < children) return json({ error: "Please choose an age for each child." }, 400);
 
   const airports = (Array.isArray(b.airports) ? b.airports : []).map((a) => clean(a, 40)).filter(Boolean).slice(0, 25);
   const departDate = /^\d{4}-\d{2}-\d{2}$/.test(clean(b.departDate, 10)) ? clean(b.departDate, 10) : "";
@@ -86,7 +96,7 @@ export default async (req) => {
     dateNotes: clean(b.dateNotes, 300),
     nights: clean(b.nights, 20),
     airports,
-    adults, children, childAges: ages,
+    rooms, adults, children, childAges: ages,
     accommodation: clean(b.accommodation, 40),
     stars: clean(b.stars, 30),
     board: pre ? boards.join(", ") : clean(b.board, 40),
@@ -106,6 +116,9 @@ export default async (req) => {
 
   const party = `${adults} adult${adults === 1 ? "" : "s"}` + (children ? `, ${children} child${children === 1 ? "" : "ren"} (ages ${ages.join(", ")})` : "");
   const agesText = ages.map((a, i) => `Child ${i + 1}: ${a}`).join(", ");
+  const travelRows = rooms.length
+    ? row("How many rooms?", String(rooms.length)) + rooms.map((r, i) => row(`Room ${i + 1}`, roomText(r))).join("") + row("Total travelling", party)
+    : row("Adults", String(adults)) + row("Children", String(children)) + row("Child ages", agesText);
   const when = [nice(departDate) && `from ${nice(departDate)}`, q.dateFlex, q.dateNotes].filter(Boolean).join(", ");
 
   const hello = pre
@@ -119,7 +132,7 @@ export default async (req) => {
 ${row("Email", email)}${row("Mobile", phone)}
 ${row(pre ? "What type of holiday are you after?" : "Type of holiday", q.holidayType)}${row("Which month would you like to depart?", q.month)}${row("Where would you like to go?", q.destination)}${row("Have you got a particular hotel in mind?", q.hotel)}
 ${row("Preferred departure date", nice(departDate))}${row("How flexible are your dates?", q.dateFlex)}${row("Date notes", q.dateNotes)}${row("How many nights?", q.nights)}
-${row("Which airports can you fly from?", airports.join(", "))}${row("Adults", String(adults))}${row("Children", String(children))}${row("Child ages", agesText)}
+${row("Which airports can you fly from?", airports.join(", "))}${travelRows}
 ${row("Type of accommodation", q.accommodation)}${row("Minimum star rating", q.stars)}${row("Board basis", q.board)}
 ${row(pre ? "What is your total budget for everyone?" : "Budget for the whole holiday", q.budget)}${row("Will you be ready to pay a deposit when 2028 launches?", q.deposit)}${row("When are you looking to book?", q.whenBook)}
 ${row(pre ? "Anything else I should know?" : "Anything else?", q.notes)}${row(pre ? "How did you find me?" : "How did you hear about me?", q.source)}
@@ -157,7 +170,7 @@ ${row("Marketing opt in", q.marketing ? "Yes" : "No")}
 <p style="margin:0 0 14px;">${pre ? "Thanks for pre-registering. You're on my list for 2028, and I'll message you personally on WhatsApp as soon as 2028 holidays are released so you're first in line for the best prices and availability." : "Thanks for sending your enquiry over. I've got everything I need to start putting some real options together for you, and I'll be in touch personally."}</p>
 <p style="margin:0 0 6px;"><strong>Here's what you told me:</strong></p>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e6eaf3;border-radius:10px;margin-bottom:16px;">
-${row("Where would you like to go?", q.destination || q.holidayType)}${row("Which month would you like to depart?", q.month)}${row("Preferred departure date", nice(departDate))}${row("How flexible are your dates?", q.dateFlex)}${row("Date notes", q.dateNotes)}${row("How many nights?", q.nights)}${row("Travelling", party)}${row("Flying from", airports.join(", "))}${row("Budget", q.budget)}
+${row("Where would you like to go?", q.destination || q.holidayType)}${row("Which month would you like to depart?", q.month)}${row("Preferred departure date", nice(departDate))}${row("How flexible are your dates?", q.dateFlex)}${row("Date notes", q.dateNotes)}${row("How many nights?", q.nights)}${rooms.length ? travelRows : row("Travelling", party)}${row("Flying from", airports.join(", "))}${row("Budget", q.budget)}
 </table>
 <p style="margin:0 0 14px;">If anything changes, or you've seen a holiday you like the look of, just reply to this email or message me on WhatsApp.</p>
 <p style="margin:0 0 14px;">${btn(waLink("Hi Jake, I've just sent a holiday enquiry through your website."), "Message me on WhatsApp")}</p>

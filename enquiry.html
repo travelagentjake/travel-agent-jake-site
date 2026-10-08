@@ -90,6 +90,11 @@
 .enq-ages{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:4px;}
 .enq-ages[hidden],.enq-other[hidden]{display:none !important;}
 .enq-ages-box{background:#eef3fb;border-radius:12px;padding:16px;}
+.enq-room{background:#eef3fb;border-radius:12px;padding:16px;margin-bottom:14px;}
+.enq-room-h{font:inherit;font-weight:800;font-size:16px;margin:0 0 10px;}
+.enq-room-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.enq-room .enq-ages-box{background:#fff;margin-top:12px;}
+@media (max-width:560px){.enq-room-grid{grid-template-columns:1fr;}}
 .enq-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;}
 .enq-chip{position:relative;}
 .enq-chip input{position:absolute;opacity:0;pointer-events:none;}
@@ -200,22 +205,12 @@
 
           <div class="enq-card">
             <h2><span class="enq-num">3</span> Who's travelling?</h2>
-            <p class="enq-sub">Add the children and I'll ask for their ages, which can change the price.</p>
+            <p class="enq-sub">Tell me who is staying in each room and I'll ask for the children's ages, which can change the price.</p>
             <div class="enq-grid">
-              <div class="enq-field"><label for="enqAdults">Adults <span class="opt">(18 and over)</span></label>
-                <select id="enqAdults" name="adults" required>
-                  <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
-                </select></div>
-              <div class="enq-field"><label for="enqChildren">Children <span class="opt">(17 and under)</span></label>
-                <select id="enqChildren" name="children" required>
-                  <option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
-                </select></div>
-              <div class="enq-field full enq-ages-box" id="enqAgesBox" hidden>
-                <span class="enq-label">How old will each child be when you travel?</span>
-                <div class="enq-ages" id="enqAges"></div>
-                <div class="enq-hint">Please use their age on the day you return home.</div>
-              </div>
-              <div class="enq-field full"><div class="enq-hint">Travelling with a bigger group? Fill this in with a rough idea and tell me the numbers in the notes below.</div></div>
+              <div class="enq-field full"><label for="enqRooms">How many rooms do you need?</label>
+                <select id="enqRooms" name="rooms" required><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select>
+                <div class="enq-hint">Choose how many rooms, then tell me who is staying in each one. Need more than 10? Pick 10 and tell me in the notes.</div></div>
+              <div class="enq-field full" id="enqRoomsBox"></div>
             </div>
           </div>
 
@@ -286,26 +281,53 @@
 <script>
 (function(){
   var form=document.getElementById('enqForm'); if(!form) return;
-  var kids=document.getElementById('enqChildren'), box=document.getElementById('enqAgesBox'), ages=document.getElementById('enqAges');
   var err=document.getElementById('enqError'), btn=document.getElementById('enqSubmit');
-  var agesCache=[];
+  var roomsSel=document.getElementById('enqRooms'), roomsBox=document.getElementById('enqRoomsBox');
   function ageOptions(sel){
     var h='<option value="">Choose age</option><option value="Under 2"'+(sel==='Under 2'?' selected':'')+'>Under 2</option>';
     for(var i=2;i<=17;i++){ h+='<option value="'+i+'"'+(String(i)===sel?' selected':'')+'>'+i+' years</option>'; }
     return h;
   }
-  function renderAges(){
-    var n=parseInt(kids.value,10)||0;
-    Array.prototype.forEach.call(ages.querySelectorAll('select'),function(s,i){ agesCache[i]=s.value; });
-    ages.innerHTML='';
-    for(var i=0;i<n;i++){
-      var d=document.createElement('div'); d.className='enq-field';
-      d.innerHTML='<label for="enqAge'+i+'">Child '+(i+1)+'</label><select id="enqAge'+i+'" data-age="1" required>'+ageOptions(agesCache[i])+'</select>';
-      ages.appendChild(d);
-    }
-    box.hidden = n===0; ages.hidden = n===0;
+  function readRooms(){
+    return Array.prototype.map.call(roomsBox.querySelectorAll('.enq-room'),function(r){
+      var ages=Array.prototype.map.call(r.querySelectorAll('[data-age]'),function(s){ return s.value; });
+      return {adults:parseInt(r.querySelector('[data-a]').value,10)||1, children:parseInt(r.querySelector('[data-c]').value,10)||0, childAges:ages};
+    });
   }
-  kids.addEventListener('change',renderAges); renderAges();
+  function renderAges(room,i,keep){
+    var n=parseInt(room.querySelector('[data-c]').value,10)||0, abox=room.querySelector('.enq-ages-box'), wrap=room.querySelector('.enq-ages');
+    var old=Array.prototype.map.call(wrap.querySelectorAll('select'),function(s){ return s.value; });
+    if(!old.length&&keep){ old=keep; }
+    wrap.innerHTML='';
+    for(var k=0;k<n;k++){
+      var d=document.createElement('div'); d.className='enq-field';
+      d.innerHTML='<label for="enqR'+i+'Age'+k+'">Child '+(k+1)+'</label><select id="enqR'+i+'Age'+k+'" data-age="1" required>'+ageOptions(old[k])+'</select>';
+      wrap.appendChild(d);
+    }
+    abox.hidden=(n===0);
+  }
+  function buildRoom(i,st){
+    var ao='', co='';
+    for(var a=1;a<=8;a++){ ao+='<option'+(a===st.adults?' selected':'')+'>'+a+'</option>'; }
+    for(var c=0;c<=6;c++){ co+='<option'+(c===st.children?' selected':'')+'>'+c+'</option>'; }
+    var d=document.createElement('div'); d.className='enq-room';
+    d.innerHTML='<h3 class="enq-room-h">Room '+(i+1)+'</h3>'
+      +'<div class="enq-room-grid"><div class="enq-field"><label for="enqR'+i+'A">Adults <span class="opt">(18 and over)</span></label><select id="enqR'+i+'A" data-a="1">'+ao+'</select></div>'
+      +'<div class="enq-field"><label for="enqR'+i+'C">Children <span class="opt">(17 and under)</span></label><select id="enqR'+i+'C" data-c="1">'+co+'</select></div></div>'
+      +'<div class="enq-ages-box" hidden><span class="enq-label">How old will each child be when you travel?</span><div class="enq-ages"></div><div class="enq-hint">Please use their age on the day you return home.</div></div>';
+    renderAges(d,i,st.childAges);
+    return d;
+  }
+  function renderRooms(){
+    var n=parseInt(roomsSel.value,10)||1, old=readRooms();
+    roomsBox.innerHTML='';
+    for(var i=0;i<n;i++){ roomsBox.appendChild(buildRoom(i,old[i]||{adults:2,children:0,childAges:[]})); }
+  }
+  roomsSel.addEventListener('change',renderRooms);
+  roomsBox.addEventListener('change',function(e){
+    if(e.target.hasAttribute('data-c')){ var room=e.target.closest('.enq-room'); renderAges(room,Array.prototype.indexOf.call(roomsBox.children,room)); }
+  });
+  renderRooms();
 
   var other=document.getElementById('enqAirOther'), wrap=document.getElementById('enqOtherWrap');
   other.addEventListener('change',function(){ wrap.hidden=!other.checked; if(other.checked){ document.getElementById('enqOtherText').focus(); } });
@@ -317,7 +339,7 @@
   form.addEventListener('submit',function(e){
     e.preventDefault(); err.hidden=true;
     var f=form.elements, data={};
-    ['firstName','lastName','email','phone','holidayType','destination','departDate','dateFlex','dateNotes','nights','adults','children','accommodation','stars','board','budget','whenBook','notes','source','website'].forEach(function(k){ data[k]=(f[k]&&f[k].value||'').trim(); });
+    ['firstName','lastName','email','phone','holidayType','destination','departDate','dateFlex','dateNotes','nights','accommodation','stars','board','budget','whenBook','notes','source','website'].forEach(function(k){ data[k]=(f[k]&&f[k].value||'').trim(); });
     if(!data.firstName||!data.lastName){ return showErr('Please enter your first and last name.',f.firstName); }
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)){ return showErr('Please enter a valid email address.',f.email); }
     if(data.phone.replace(/\D/g,'').length<9){ return showErr('Please enter a mobile number so I can reach you.',f.phone); }
@@ -330,9 +352,11 @@
       if(c.value==='Other'){ var t=document.getElementById('enqOtherText').value.trim(); air.push(t?'Other: '+t:'Other'); } else { air.push(c.value); }
     });
     data.airports=air;
-    data.childAges=[]; var bad=null;
-    Array.prototype.forEach.call(ages.querySelectorAll('select'),function(s){ if(!s.value&&!bad){ bad=s; } data.childAges.push(s.value); });
+    var rooms=readRooms(), bad=null, tA=0, tC=0; data.childAges=[];
+    Array.prototype.forEach.call(roomsBox.querySelectorAll('[data-age]'),function(s){ if(!s.value&&!bad){ bad=s; } });
     if(bad){ return showErr('Please choose an age for each child.',bad); }
+    rooms.forEach(function(r){ tA+=r.adults; tC+=r.children; r.childAges.forEach(function(a){ data.childAges.push(a); }); });
+    data.rooms=rooms; data.adults=String(tA); data.children=String(tC);
     data.privacyConsent=!!f.privacyConsent.checked; data.marketingConsent=!!f.marketingConsent.checked;
     if(!data.privacyConsent){ return showErr('Please tick the box to say you are happy for me to use your details to reply.',f.privacyConsent); }
     btn.disabled=true; btn.textContent='Sending...';
