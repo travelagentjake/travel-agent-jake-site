@@ -9290,6 +9290,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1722600522742-0213cba5e3e4?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "The seafront at Fuengirola on Spain's Costa del Sol",
     },
+    {
+        "slug": "eu-roaming-charges-uk-networks-2026.html",
+        "meta": "Phones abroad",
+        "title": "Mobile roaming charges in Europe 2026: who actually charges you now",
+        "excerpt": "EE, Vodafone, Three and Sky Mobile now charge to use your phone in the EU, while O2 and several others still don't. Exactly who charges what, and how to avoid a surprise bill landing when you're home.",
+        "image": "https://images.unsplash.com/photo-1753385158278-387d4dda60c4?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Sim cards and their adaptors laid out against a dark background",
+    },
 ]
 
 def tip_card(post):
@@ -14092,6 +14100,151 @@ with open(os.path.join(SITE, "summer-2028-jet2holidays-now-on-sale.html"), "w", 
 print("summer-2028-jet2holidays-now-on-sale.html written")
 
 
+# ---------------- TRAVEL TIPS: Mobile roaming charges in Europe 2026 ----------------
+roaming_short_tip = "If you're not sure which category your plan falls into, check the My EE, My Vodafone, My Three or My O2 app before you travel rather than guessing. Roaming terms depend on exactly when you joined or last upgraded, not just which network you're on."
+roaming_esim_tip = "If you use a lot of data abroad, or you're on a network that now charges by the day, a travel eSIM can work out cheaper than a daily roaming fee for a week or more away. I've already compared Breeze and Airalo properly if you want to see which one to go for."
+roaming_check_tip = "Message me your network and roughly when you joined or upgraded, and I'll tell you honestly whether you're likely to be charged before you travel. It takes me two minutes and it's a lot better than finding out from a text while you're already away."
+
+roaming_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>WHO ACTUALLY CHARGES YOU TO USE YOUR PHONE IN EUROPE NOW</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Free EU roaming disappeared after Brexit, and since then each UK network has quietly set its own rules. Some still let you use your phone exactly as you would at home. Others charge a daily fee that depends on exactly when you joined or last upgraded, and at least one network has just put its price up. Here's exactly where each major network stands right now, and how to avoid a bill you weren't expecting.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1753385158278-387d4dda60c4?auto=format&fit=crop&w=1600&h=700&q=80" alt="Sim cards and their adaptors laid out against a dark background" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">EE, Vodafone, Three and Sky Mobile all charge most customers to use calls, texts and data in the EU now, usually somewhere around &pound;2 to &pound;2.75 a day depending on the network and exactly when you joined or upgraded. O2 and a handful of smaller networks, including giffgaff, SMARTY, Tesco Mobile, iD Mobile, Lebara and Lyca Mobile, still include it as standard, usually with a fair use data cap rather than a daily charge.</p>
+      <p style="margin-top:14px; margin-bottom:0;">None of this is written in one place by any network in a way that's easy to find, and the exact charge often depends on when you joined or last upgraded, not just which network you're with. I've set out what I could verify directly below, network by network, so you can check yours properly before you travel rather than finding out from a text while you're already away.</p>
+    </div>
+    {jake_tip(roaming_short_tip)}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Network by network, as it actually stands</h2>
+    <img src="https://images.unsplash.com/photo-1772466104938-d9e6b6197cdb?auto=format&fit=crop&w=1600&h=700&q=80" alt="Woman talking on her phone near a departure board at Gatwick Airport" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Network</th><th>What happens in the EU right now</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>EE</td><td>Around &pound;2.47 a day for customers who joined or upgraded on or after 7 July 2021, covering around 48 destinations. The Roam Abroad Pass costs &pound;25 a month instead and also covers the USA, Canada, Mexico, Australia and New Zealand. Some longer standing customers still roam free.</td></tr>
+          <tr><td>Vodafone</td><td>Zone A (Ireland, the Isle of Man, Iceland and Norway) stays free for everyone. Zone B, which covers the rest of the EU, costs in the region of &pound;2.40 a day unless you're on an Xtra plan that already includes it, or you buy an 8 or 15 day European Roaming Pass in advance. Some pre August 2021 plans still include it free.</td></tr>
+          <tr><td>Three</td><td>&pound;2 a day for anyone who joined or upgraded between 1 October 2021 and 17 December 2025. Anyone joining or upgrading from 18 December 2025 onwards now pays &pound;2.75 a day. Value and Complete plans taken out since 22 June 2025 include it free, and anyone on a plan from before 1 October 2021 still roams free.</td></tr>
+          <tr><td>Sky Mobile</td><td>&pound;2 a day through Roaming Passport Plus, which Sky expanded from 55 to over 120 destinations worldwide in May 2026, including the EU.</td></tr>
+          <tr><td>O2</td><td>Free as standard, with a 25GB fair use data cap for the EU and around 48 destinations for customers whose UK monthly allowance is above that. Calls and texts aren't capped.</td></tr>
+          <tr><td>giffgaff, SMARTY, Tesco Mobile, iD Mobile, Lebara, Lyca Mobile</td><td>All currently include EU roaming free as standard, each with its own fair use data cap rather than a daily charge.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0;">A few of these figures genuinely vary depending on your exact plan and join date even within the same network, which is exactly why I'd check your own account rather than take any single figure as gospel for your situation.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Why this keeps changing, and why Three just put its price up</h2>
+    <img src="https://images.unsplash.com/photo-1763952326037-ad7433681873?auto=format&fit=crop&w=1600&h=700&q=80" alt="Tourist taking a photo on their phone in a busy city" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Free EU roaming was an EU rule, so once the UK left, there was nothing forcing any network to keep offering it. Networks have been free to set their own policy since 2021, and some have moved the goalposts more than once since. Three is the clearest recent example: customers who joined or upgraded from 18 December 2025 onwards now pay &pound;2.75 a day for Go Roam in Europe, up from the &pound;2 a day that applied to anyone who joined between October 2021 and mid December 2025.</p>
+    <p style="margin-top:14px; margin-bottom:0;">Sky Mobile moved the other way in May 2026, more than doubling its roaming destinations from 55 to over 120 while keeping the price at &pound;2 a day, which is a genuinely good deal if you're already with Sky and travel widely. The pattern across every network is the same though: whatever applied when you joined isn't necessarily what applies now, and it's worth checking again even if you checked a year or two ago.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>How to avoid a shock bill</h2>
+    <img src="https://images.unsplash.com/photo-1484788984921-03950022c9ef?auto=format&fit=crop&w=1600&h=700&q=80" alt="Laptop and phone on a table in a cafe with wifi" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Check your own account before you travel,</b> not just your network's general policy. The My EE, My Vodafone, My Three, My O2 and equivalent apps all show your specific plan's roaming terms, and these depend on exactly when you joined or last upgraded, not just which network you're with.</span></li>
+      <li><span class="num">2</span><span><b>Buy a pass in advance if your network charges daily.</b> A monthly or multi day pass is almost always cheaper than paying the daily rate for a full week or two away, and it means one predictable charge instead of a running total.</span></li>
+      <li><span class="num">3</span><span><b>Turn off data roaming and rely on wifi</b> at your hotel if you're on a network that charges and you're not travelling for long. Most hotels, bars and restaurants across Spain, Greece and Turkey offer free wifi, and it covers messaging apps and maps without touching your allowance.</span></li>
+      <li><span class="num">4</span><span><b>Consider a travel eSIM</b> if you use a genuinely large amount of data, work remotely while you're away, or you're on a network that now charges daily. It's a separate data plan for your destination, usually cheaper than a daily roaming fee over a week or more.</span></li>
+    </ul>
+    {jake_tip(roaming_esim_tip)}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Does this affect the holiday I've booked with you?</h2>
+    <p style="margin-top:14px;">It doesn't change anything about your booking itself, but it's genuinely worth sorting out before you travel rather than after you've already racked up charges. I can't see your mobile account for you, but I'm always happy to help you work out what your own network actually charges for wherever you're headed.</p>
+    {jake_tip(roaming_check_tip)}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Do all UK networks charge for roaming in Europe now?</h3>
+      <p>No. EE, Vodafone, Three and Sky Mobile charge most customers a daily fee, though the exact amount depends on when you joined or upgraded. O2 and several smaller networks, including giffgaff, SMARTY, Tesco Mobile, iD Mobile, Lebara and Lyca Mobile, still include EU roaming free as standard, usually with a fair use data cap.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Why does the charge depend on when I joined my network?</h3>
+      <p>Each network introduced its charges from a specific date, and most honoured the terms that applied to customers who joined or upgraded before that cut off. That means two people on the same network can have completely different roaming terms depending purely on how long they've held their current plan.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is a travel eSIM cheaper than paying my network's daily roaming charge?</h3>
+      <p>Often yes, especially for a week or more away or if you use a lot of data. It depends on your network's exact charge and how much data you'll actually use, so it's worth comparing the two for your specific trip rather than assuming either option is automatically cheaper.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does this apply to Ireland as well as the rest of the EU?</h3>
+      <p>Not always. Several networks, including Vodafone and EE, treat Ireland as included within your normal UK allowance even when the rest of the EU is charged separately, so it's worth checking Ireland specifically rather than assuming it's covered by the same rule as everywhere else.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Not sure what your own phone will cost you abroad?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Tell me your network and roughly when you joined, and I'll help you work out what you're actually likely to pay before you travel.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+roaming_body = roaming_body.replace("::NEWSLETTER::", newsletter_section())
+
+ROAMING_SCHEMA = article_and_faq_schema(
+    "Mobile Roaming Charges In Europe 2026: Who Actually Charges You Now",
+    "EE, Vodafone, Three and Sky Mobile now charge to use your phone in the EU, while O2 and several others still don't. Exactly who charges what, and how to avoid a surprise bill landing when you're home.",
+    "eu-roaming-charges-uk-networks-2026.html",
+    "https://images.unsplash.com/photo-1753385158278-387d4dda60c4?auto=format&fit=crop&w=1600&h=700&q=80",
+    faqs=[
+        ("Do all UK networks charge for roaming in Europe now?", "No. EE, Vodafone, Three and Sky Mobile charge most customers a daily fee, though the exact amount depends on when you joined or upgraded. O2 and several smaller networks, including giffgaff, SMARTY, Tesco Mobile, iD Mobile, Lebara and Lyca Mobile, still include EU roaming free as standard, usually with a fair use data cap."),
+        ("Why does the charge depend on when I joined my network?", "Each network introduced its charges from a specific date, and most honoured the terms that applied to customers who joined or upgraded before that cut off. That means two people on the same network can have completely different roaming terms depending purely on how long they've held their current plan."),
+        ("Is a travel eSIM cheaper than paying my network's daily roaming charge?", "Often yes, especially for a week or more away or if you use a lot of data. It depends on your network's exact charge and how much data you'll actually use, so it's worth comparing the two for your specific trip rather than assuming either option is automatically cheaper."),
+        ("Does this apply to Ireland as well as the rest of the EU?", "Not always. Several networks, including Vodafone and EE, treat Ireland as included within your normal UK allowance even when the rest of the EU is charged separately, so it's worth checking Ireland specifically rather than assuming it's covered by the same rule as everywhere else."),
+    ]
+)
+
+with open(os.path.join(SITE, "eu-roaming-charges-uk-networks-2026.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Mobile Roaming Charges In Europe 2026: Who Actually Charges You Now | Travel Agent Jake",
+        "EE, Vodafone, Three and Sky Mobile now charge to use your phone in the EU, while O2 and several others still don't. Exactly who charges what, and how to avoid a surprise bill landing when you're home.",
+        "travel-tips.html",
+        roaming_body,
+        extra_schema=ROAMING_SCHEMA,
+        canonical_path="eu-roaming-charges-uk-networks-2026.html"
+    ))
+print("eu-roaming-charges-uk-networks-2026.html written")
+
+
 # ---------------- BOOKING WIDGET PLACEHOLDER PAGES (Agendas Group) ----------------
 # Jess Speight (Agendas Group Ltd, account manager for the new holiday
 # search/booking widget) asked for three blank pages, named so their URLs
@@ -14753,6 +14906,7 @@ SITEMAP_PAGES = [
     ("package-holiday-compensation-rights.html", "0.7"),
     ("passport-10-year-rule-spain-greece-turkey-egypt.html", "0.7"),
     ("summer-2028-jet2holidays-now-on-sale.html", "0.7"),
+    ("eu-roaming-charges-uk-networks-2026.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
