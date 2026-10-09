@@ -1806,7 +1806,7 @@ DESTINATION_POSTS = [
         "slug": "mauritius.html",
         "meta": "Mauritius",
         "title": "Mauritius",
-        "excerpt": "North and west coast versus the south east, weather by month, Jake's own direct Beachcomber hotels and what it actually costs.",
+        "excerpt": "Grand Baie, Trou aux Biches, Le Morne and Blue Bay compared, weather by month, Jake's own direct Beachcomber hotels and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1513415563383-4e580ed27a46?auto=format&fit=crop&w=1200&q=80",
     },
 ]
@@ -8827,7 +8827,7 @@ mauritius_body = f"""
   <div class="wrap">
     <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
     <h1>MAURITIUS</h1>
-    <p class="lead" style="margin-top:18px; margin-bottom:0;">North and west coast versus the south east, weather by month, my own direct Beachcomber hotels and what it actually costs, everything you need to plan a trip to my favourite long haul island.</p>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Grand Baie, Trou aux Biches, Le Morne and Blue Bay compared, weather by month, my own direct Beachcomber hotels and what it actually costs, everything you need to plan a trip to my favourite long haul island.</p>
   </div>
 </section>
 
@@ -8836,7 +8836,7 @@ mauritius_body = f"""
     <h2>What Jake says about Mauritius</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1513415563383-4e580ed27a46?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Le Morne Brabant mountain rising above the lagoon in Mauritius" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
     <p>Mauritius is my favourite long haul destination, and I have been lucky enough to go back more than once. It has everything I want from an island holiday: proper turquoise lagoons, mountains that look almost unreal rising straight out of the sea, genuinely excellent food thanks to its French, Indian, Chinese and Creole mix, and a level of service at the resorts that is hard to match anywhere else I sell.</p>
-    <p style="margin-top:14px;">Unlike most of the destinations in this guide series, Mauritius is not one I book through TUI, Jet2holidays or easyJet holidays. I have my own direct trade contract with Beachcomber, one of the island's longest established hotel groups, which covers eight resorts across the north, west and south east coasts. That means I am not just reselling a package, I know these hotels myself and can put a client into the right one for them rather than whichever one happens to be on an operator's shelf.</p>
+    <p style="margin-top:14px;">Unlike most of the destinations in this guide series, Mauritius is not one I book through TUI, Jet2holidays or easyJet holidays. I have my own direct trade contract with Beachcomber, one of the island's longest established hotel groups, which covers eight resorts spread across four stretches of coast, the north west, the west, the south west and the east. That means I am not just reselling a package, I know these hotels myself and can put a client into the right one for them rather than whichever one happens to be on an operator's shelf.</p>
     {jake_tip("Because I book Mauritius direct with Beachcomber rather than through a mainstream package, I always sort flights separately for a client, usually on Air Mauritius or British Airways direct from Gatwick, then build the hotel and transfers around whichever flight suits their dates best.")}
   </div>
 </section>
@@ -8897,20 +8897,30 @@ mauritius_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Where to stay</h2>
-    <p style="margin-top:14px;">My eight Beachcomber hotels sit in three areas, which I group into two broad coasts when I am talking a client through where suits them.</p>
+    <p style="margin-top:14px;">My eight Beachcomber hotels sit on four distinct stretches of coast, and which one I point a client towards depends on what matters most to them, sunsets, nightlife, watersports or simply the shortest possible transfer.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1690413994339-2b147e5129c8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A calm lagoon beach on Mauritius's north west coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:17px;">The North &amp; West Coast (Grand Baie, Trou aux Biches &amp; Le Morne)</h3>
-        <p>Grand Baie and Trou aux Biches on the north west coast, and Le Morne down in the south west, all face broadly west, which means this is where I send anyone who wants to make a proper evening of watching the sun go down over the water. Grand Baie itself has the island's best nightlife, shopping and restaurants a short walk or taxi from several of these hotels, while Le Morne sits beneath its own UNESCO listed mountain and is one of the best kitesurfing bases anywhere in the world. Transfers from the airport generally run 45 minutes to an hour and a half depending on traffic and exactly which hotel.</p>
+        <h3 style="font-size:17px;">North West: Grand Baie</h3>
+        <p><strong>Best for nightlife, shopping and a lively base.</strong> Grand Baie has the island's best restaurants, bars and shopping, all an easy walk or short taxi from three of my hotels here, plus free kids clubs for families. Transfers from the airport generally run 45 minutes to an hour.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1784823453587-8aaa92819b9d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset over palm trees on Mauritius's west coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">West Coast: Trou aux Biches</h3>
+        <p><strong>Best for the island's prettiest lagoon.</strong> Trou aux Biches and Victoria sit a little further south than Grand Baie, on what I would call the most beautiful stretch of white sand and calm lagoon on the island. Quieter than Grand Baie, with good sunsets of its own. Transfers from the airport generally run an hour to an hour and a quarter.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1650928026857-2af78407bb0f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Le Morne Brabant mountain on Mauritius's south west coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:17px;">The South East Coast (Blue Bay)</h3>
-        <p>Blue Bay sits right next to the airport, with transfers of 10 to 15 minutes rather than the best part of an hour or more. It is a quieter, more low key stretch of coast, set inside its own marine park, and it is where I point clients who want to keep travel time to an absolute minimum or who are only in Mauritius for a shorter stay as part of a longer trip.</p>
+        <h3 style="font-size:17px;">South West: Le Morne</h3>
+        <p><strong>Best area for sunsets, and the island's top kitesurfing base.</strong> Le Morne sits beneath its own UNESCO listed mountain, facing due west with nothing between the beach and the horizon. This is the one I steer clients towards for a proper evening of watching the sun go down, and it is one of the best kitesurfing spots anywhere in the world. Transfers from the airport generally run an hour and a quarter to an hour and a half.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1651512227821-5c59b46b12b7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The shoreline at Blue Bay on Mauritius's east coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">East Coast: Blue Bay</h3>
+        <p><strong>Best for the shortest airport transfer.</strong> Blue Bay sits right next to the airport, just 10 to 15 minutes away rather than the best part of an hour or more. A quieter, more low key stretch of coast set inside its own marine park, good for anyone who wants to keep travel time to a minimum or who is only in Mauritius for a shorter stay as part of a longer trip.</p>
       </div>
     </div>
-    {jake_tip("If sunset views and nightlife matter most, I steer clients north or south west. If a short, easy transfer matters more than anything else, Blue Bay in the south east wins every time.")}
+    {jake_tip("For the best sunsets, Le Morne in the south west is the one I steer clients towards. Grand Baie in the north west is the better pick if nightlife matters just as much. If a short, easy transfer matters more than anything else, Blue Bay on the east coast wins every time.")}
   </div>
 </section>
 
@@ -8939,8 +8949,8 @@ mauritius_body = f"""
   <div class="wrap">
     <h2>Recommended hotels</h2>
     <p style="margin-top:14px;">All eight of my direct contract Beachcomber hotels, grouped by coast. I book every one of these myself, so there is no third party operator to check, I know each of them personally or through my own trade relationship with the group.</p>
-    <h3 style="font-size:17px; margin-top:28px;">North &amp; West Coast</h3>
-    <div class="grid-2-eq equal-cards" style="margin-top:16px;">
+    <h3 style="font-size:17px; margin-top:28px;">North West Coast, Grand Baie</h3>
+    <div class="grid-3 equal-cards" style="margin-top:16px;">
       <div class="jake-card">
         <div class="accom-category">Best for a special occasion</div>
         <img src="https://images.unsplash.com/photo-1776761731098-86f6b57da863?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort pool overlooking the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -8959,6 +8969,9 @@ mauritius_body = f"""
         <h3 style="font-size:18px;">Canonnier Beachcomber Golf Resort &amp; Spa, Grand Baie</h3>
         <p>Set across 17 acres of tropical garden on a historic peninsula, with cascading pools, a free kids club and teen club, and privileged access to two golf courses. A genuinely family friendly resort with plenty of space to roam. Booked direct through my own Beachcomber contract.</p>
       </div>
+    </div>
+    <h3 style="font-size:17px; margin-top:34px;">West Coast, Trou aux Biches</h3>
+    <div class="grid-2-eq equal-cards" style="margin-top:16px;">
       <div class="jake-card">
         <div class="accom-category">Best beach setting</div>
         <img src="https://images.unsplash.com/photo-1772064901543-fb4a5d9f4736?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort pool and palm trees at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -8987,7 +9000,7 @@ mauritius_body = f"""
         <p>Next door to Paradis on the same peninsula, with its own adults only area and private pool, plus a kitesurfing school affiliated with the International Kiteboarding Organization right on the doorstep, one of the best kite spots on earth. Booked direct through my own Beachcomber contract.</p>
       </div>
     </div>
-    <h3 style="font-size:17px; margin-top:34px;">South East Coast, Blue Bay</h3>
+    <h3 style="font-size:17px; margin-top:34px;">East Coast, Blue Bay</h3>
     <div class="grid-2-eq equal-cards" style="margin-top:16px;">
       <div class="jake-card">
         <div class="accom-category">Best for a short airport transfer</div>
@@ -9097,7 +9110,7 @@ mauritius_body = mauritius_body.replace("::NEWSLETTER::", newsletter_section())
 
 MAURITIUS_SCHEMA = article_and_faq_schema(
     "Mauritius: Jake's Destination Guide",
-    "Jake's honest guide to Mauritius: north and west coast versus the south east, weather by month, his own direct Beachcomber hotels and what it actually costs.",
+    "Jake's honest guide to Mauritius: Grand Baie, Trou aux Biches, Le Morne and Blue Bay compared, weather by month, his own direct Beachcomber hotels and what it actually costs.",
     "mauritius.html",
     "https://images.unsplash.com/photo-1513415563383-4e580ed27a46?auto=format&fit=crop&w=1200&q=80",
     faqs=[
@@ -9105,13 +9118,13 @@ MAURITIUS_SCHEMA = article_and_faq_schema(
         ("How long is the flight to Mauritius?", "Around 11 hours 40 minutes to 12 hours direct from London Gatwick with Air Mauritius or British Airways, who between them run around 8 direct flights a week."),
         ("What's the best time to visit Mauritius?", "May to October gives the best all round weather with the lowest cyclone risk, with July and August the busiest months. September and October offer similar weather with fewer crowds. November to April is the cyclone season, with the highest risk in January to March, though a direct hit in any given year is rare."),
         ("Do I need a visa for Mauritius?", "UK passport holders do not need a visa for stays of up to 60 days, but must show proof of onward or return travel and have a passport valid for the length of their stay."),
-        ("Is Mauritius good for a honeymoon?", "Yes, it is one of the most popular honeymoon destinations Jake sells. All eight of his direct Beachcomber hotels offer sea view or beachfront rooms, several have dedicated adults only wings, and the north and south west coasts in particular are known for spectacular sunsets."),
+        ("Is Mauritius good for a honeymoon?", "Yes, it is one of the most popular honeymoon destinations Jake sells. All eight of his direct Beachcomber hotels offer sea view or beachfront rooms, several have dedicated adults only wings, and Le Morne on the south west coast in particular is known for spectacular sunsets."),
     ]
 )
 with open(os.path.join(SITE, "mauritius.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "Mauritius: Jake's Destination Guide | Travel Agent Jake",
-        "Jake's honest guide to Mauritius: north and west coast versus the south east, weather by month, his own direct Beachcomber hotels and what it actually costs.",
+        "Jake's honest guide to Mauritius: Grand Baie, Trou aux Biches, Le Morne and Blue Bay compared, weather by month, his own direct Beachcomber hotels and what it actually costs.",
         "destinations.html",
         mauritius_body,
         extra_schema=MAURITIUS_SCHEMA,
