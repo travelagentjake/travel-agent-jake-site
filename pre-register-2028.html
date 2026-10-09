@@ -229,6 +229,7 @@
             </div>
             <input type="text" name="website" class="newsletter-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
             <label class="enq-check"><input type="checkbox" name="privacyConsent" required> <span>I'm happy for Travel Agent Jake to contact me about my 2028 holiday. <strong>(Required)</strong></span></label>
+            <label class="enq-check"><input type="checkbox" name="bookingIntent" required> <span>I understand that Jake is a self-employed travel agent who is paid solely through commission on bookings. I'm registering because I intend to book my 2028 holiday with him. <strong>(Required)</strong></span></label>
             <label class="enq-check"><input type="checkbox" name="marketingConsent"> <span>Send me Jake's exclusive deals, offers and travel news too. Unsubscribe any time.</span></label>
             <div id="preError" class="enq-error" role="alert" hidden></div>
             <div class="btn-row" style="margin-top:22px;"><button class="btn btn-primary" type="submit" id="preSubmit">Register for 2028</button></div>
@@ -354,6 +355,8 @@
     if(!data.deposit){ return showErr('Please tell me whether you will be ready to pay a deposit.',f.deposit); }
     data.privacyConsent=!!f.privacyConsent.checked; data.marketingConsent=!!f.marketingConsent.checked;
     if(!data.privacyConsent){ return showErr('Please tick the box to say you are happy for me to contact you about your 2028 holiday.',f.privacyConsent); }
+    data.bookingIntent=!!f.bookingIntent.checked;
+    if(!data.bookingIntent){ return showErr('Please tick the box to confirm you intend to book your 2028 holiday with Jake.',f.bookingIntent); }
     btn.disabled=true; btn.textContent='Sending...';
     fetch('/api/enquiry',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(data)})
       .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return {s:r.status,j:j}; }); })

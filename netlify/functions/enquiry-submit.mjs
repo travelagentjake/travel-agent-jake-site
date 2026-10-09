@@ -108,6 +108,7 @@ export default async (req) => {
     hotel: pre ? clean(b.hotel, 200) : "",
     deposit: pre ? clean(b.deposit, 80) : "",
     marketing: !!b.marketingConsent,
+    bookingIntent: !!b.bookingIntent,
     consentAt: new Date().toISOString(),
   };
 
