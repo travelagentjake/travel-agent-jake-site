@@ -1802,6 +1802,13 @@ DESTINATION_POSTS = [
         "excerpt": "Negombo, Ahungalla, Bentota and Hikkaduwa: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1656495783346-559815221595?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "mauritius.html",
+        "meta": "Mauritius",
+        "title": "Mauritius",
+        "excerpt": "North and west coast versus the south east, weather by month, Jake's own direct Beachcomber hotels and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1513415563383-4e580ed27a46?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -8815,6 +8822,304 @@ with open(os.path.join(SITE, "sri-lanka.html"), "w", encoding="utf-8") as f:
 print("sri-lanka.html written")
 
 
+mauritius_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>MAURITIUS</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">North and west coast versus the south east, weather by month, my own direct Beachcomber hotels and what it actually costs, everything you need to plan a trip to my favourite long haul island.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Mauritius</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1513415563383-4e580ed27a46?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Le Morne Brabant mountain rising above the lagoon in Mauritius" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Mauritius is my favourite long haul destination, and I have been lucky enough to go back more than once. It has everything I want from an island holiday: proper turquoise lagoons, mountains that look almost unreal rising straight out of the sea, genuinely excellent food thanks to its French, Indian, Chinese and Creole mix, and a level of service at the resorts that is hard to match anywhere else I sell.</p>
+    <p style="margin-top:14px;">Unlike most of the destinations in this guide series, Mauritius is not one I book through TUI, Jet2holidays or easyJet holidays. I have my own direct trade contract with Beachcomber, one of the island's longest established hotel groups, which covers eight resorts across the north, west and south east coasts. That means I am not just reselling a package, I know these hotels myself and can put a client into the right one for them rather than whichever one happens to be on an operator's shelf.</p>
+    {jake_tip("Because I book Mauritius direct with Beachcomber rather than through a mainstream package, I always sort flights separately for a client, usually on Air Mauritius or British Airways direct from Gatwick, then build the hotel and transfers around whichever flight suits their dates best.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Ten to fourteen nights is the most common length I book, long enough to properly settle in after a flight of this length and make the most of what is usually a once a year trip for most clients. Mauritius is one of the most honeymoon heavy destinations I sell, the combination of genuine romance, excellent food and a huge spread of adults only wings and suites makes it an easy recommendation for a big trip. It is just as strong for families thanks to free kids clubs at every single Beachcomber hotel, for golfers with several championship courses attached to the resorts, and for couples or groups who want a proper watersports base, Le Morne in the south west is one of the world's best known kitesurfing spots. It suits anyone happy with a long flight and a holiday built around one or two resort bases rather than a lot of touring, though day trips inland are easy to add on.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Everyone flies into Sir Seewoosagur Ramgoolam International Airport (MRU), in the south east of the island near Mahebourg. Air Mauritius and British Airways both fly direct from London Gatwick, between them running around 8 flights a week, 5 with Air Mauritius and 3 with British Airways, with a scheduled flight time of around 11 hours 40 minutes to 12 hours. Because I book the hotel direct with Beachcomber rather than through a flight inclusive package, I sort the flight separately for every client and build transfers around whichever one suits their dates and budget.</p>
+    {jake_tip("A direct flight from Gatwick is by far the easiest way to do this trip, so I always check live fares and seat availability with a client's dates before confirming anything, since a long overnight flight with a connection somewhere else can add several hours each way.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Mauritius sits in a cyclone zone, so it pays to know the pattern before picking your dates. The cyclone season officially runs November to April, with the highest risk in January to March, though most years pass without a direct hit and resorts are well used to monitoring and managing it. Figures below are long term averages for the island.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>30&deg;C</td><td>22&deg;C</td><td>28&deg;C</td><td>Hot and humid, peak cyclone risk, short sharp storms possible</td></tr>
+          <tr><td>February</td><td>30&deg;C</td><td>22&deg;C</td><td>28&deg;C</td><td>Still hot and humid, peak cyclone risk continues</td></tr>
+          <tr><td>March</td><td>30&deg;C</td><td>22&deg;C</td><td>28&deg;C</td><td>Warm and humid, cyclone risk starting to ease</td></tr>
+          <tr><td>April</td><td>29&deg;C</td><td>21&deg;C</td><td>27&deg;C</td><td>Warm, drier, a good value shoulder month as cyclone risk drops</td></tr>
+          <tr><td>May</td><td>27&deg;C</td><td>19&deg;C</td><td>26&deg;C</td><td>Cooler and drier, the start of the more comfortable season</td></tr>
+          <tr><td>June</td><td>25&deg;C</td><td>17&deg;C</td><td>25&deg;C</td><td>Mild, dry and increasingly popular with winter sun seekers</td></tr>
+          <tr><td>July</td><td>25&deg;C</td><td>17&deg;C</td><td>24&deg;C</td><td>One of the coolest months, dry, can feel breezy on the coast</td></tr>
+          <tr><td>August</td><td>25&deg;C</td><td>16&deg;C</td><td>23&deg;C</td><td>Driest month of the year, sea at its coolest, peak season crowds</td></tr>
+          <tr><td>September</td><td>26&deg;C</td><td>17&deg;C</td><td>23&deg;C</td><td>Warming slightly, still dry, good value with fewer crowds</td></tr>
+          <tr><td>October</td><td>27&deg;C</td><td>18&deg;C</td><td>24&deg;C</td><td>Warming further, dry, a lovely shoulder month</td></tr>
+          <tr><td>November</td><td>29&deg;C</td><td>20&deg;C</td><td>25&deg;C</td><td>Warm and humid returns as cyclone season begins again</td></tr>
+          <tr><td>December</td><td>29&deg;C</td><td>21&deg;C</td><td>27&deg;C</td><td>Hot and humid, the start of peak season for Christmas and New Year</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long term climate averages for the island, sourced via weather2travel.com. Expect short, heavy downpours rather than all day rain even in the wetter months.</p>
+    {jake_tip("I never rule out January to March for a client, cyclones that actually hit the island directly are rare in any given year, but I do make sure everyone travelling in that window has solid travel insurance and understands flights and excursions can occasionally be affected at short notice.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">May to October gives the best all round weather, lower humidity, steady trade winds and the lowest cyclone risk, which is why July and August are the busiest and most expensive months to travel. September and October give a similar quality of weather with noticeably fewer crowds, usually my first recommendation for a client who can be flexible. April, May and June are quieter shoulder months with good value and still reliable weather. November to March is hot, humid and carries cyclone risk, but it is also when the island is at its greenest and lushest, and plenty of clients travel very happily across Christmas and New Year, the resorts' busiest and most festive time of year.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">My eight Beachcomber hotels sit in three areas, which I group into two broad coasts when I am talking a client through where suits them.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1690413994339-2b147e5129c8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A calm lagoon beach on Mauritius's north west coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The North &amp; West Coast (Grand Baie, Trou aux Biches &amp; Le Morne)</h3>
+        <p>Grand Baie and Trou aux Biches on the north west coast, and Le Morne down in the south west, all face broadly west, which means this is where I send anyone who wants to make a proper evening of watching the sun go down over the water. Grand Baie itself has the island's best nightlife, shopping and restaurants a short walk or taxi from several of these hotels, while Le Morne sits beneath its own UNESCO listed mountain and is one of the best kitesurfing bases anywhere in the world. Transfers from the airport generally run 45 minutes to an hour and a half depending on traffic and exactly which hotel.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1650928026857-2af78407bb0f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Le Morne Brabant mountain on Mauritius's south west coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The South East Coast (Blue Bay)</h3>
+        <p>Blue Bay sits right next to the airport, with transfers of 10 to 15 minutes rather than the best part of an hour or more. It is a quieter, more low key stretch of coast, set inside its own marine park, and it is where I point clients who want to keep travel time to an absolute minimum or who are only in Mauritius for a shorter stay as part of a longer trip.</p>
+      </div>
+    </div>
+    {jake_tip("If sunset views and nightlife matter most, I steer clients north or south west. If a short, easy transfer matters more than anything else, Blue Bay in the south east wins every time.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Airport transfers are arranged as part of booking with me, and most clients stick to transfers, taxis and organised excursions rather than self drive, though car hire is easy to arrange for anyone who wants the freedom. Mauritius drives on the left, the same as the UK. One nice touch across the Beachcomber group is dining interchangeability, guests can often book a table at a sister hotel nearby and the two Le Morne resorts, Paradis and Dinarobin, effectively share each other's restaurants and facilities.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1678376789557-db5dc3992327?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A catamaran sailing off the coast of Mauritius" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Beyond the resorts themselves, Mauritius has an excellent spread of day trips, from catamaran cruises out to the northern islands to inland tours through the Chamarel area and its famous coloured earth.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="1130829,756434,464291,442365"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/mauritius-l169137/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/mauritius-l169137/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Mauritius &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">All eight of my direct contract Beachcomber hotels, grouped by coast. I book every one of these myself, so there is no third party operator to check, I know each of them personally or through my own trade relationship with the group.</p>
+    <h3 style="font-size:17px; margin-top:28px;">North &amp; West Coast</h3>
+    <div class="grid-2-eq equal-cards" style="margin-top:16px;">
+      <div class="jake-card">
+        <div class="accom-category">Best for a special occasion</div>
+        <img src="https://images.unsplash.com/photo-1776761731098-86f6b57da863?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort pool overlooking the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Royal Palm Beachcomber Luxury, Grand Baie</h3>
+        <p>A Leading Hotels of the World member and the most exclusive of my eight, with just 69 suites, three restaurants, a Valmont spa and even its own helipad. The one I reach for when a client wants the very top end of what Mauritius can offer. Booked direct through my own Beachcomber contract.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for groups of friends</div>
+        <img src="https://images.unsplash.com/photo-1760564019141-abe33455ce02?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An infinity pool overlooking a turquoise ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Mauricia Beachcomber Resort &amp; Spa, Grand Baie</h3>
+        <p>A 4 star hotel with real Mediterranean warmth, a short walk from Grand Baie's restaurants, shopping and casino. Popular with groups of friends as well as families, and the easiest hotel on my list for anyone who wants a lively village right on the doorstep. Booked direct through my own Beachcomber contract.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1776761731034-248be1b3184d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A tropical resort pool beside a calm ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Canonnier Beachcomber Golf Resort &amp; Spa, Grand Baie</h3>
+        <p>Set across 17 acres of tropical garden on a historic peninsula, with cascading pools, a free kids club and teen club, and privileged access to two golf courses. A genuinely family friendly resort with plenty of space to roam. Booked direct through my own Beachcomber contract.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best beach setting</div>
+        <img src="https://images.unsplash.com/photo-1772064901543-fb4a5d9f4736?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort pool and palm trees at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Trou aux Biches Beachcomber Golf Resort &amp; Spa, Trou aux Biches</h3>
+        <p>Almost two kilometres of white sand on what I would call the most beautiful stretch of lagoon on the island, with six restaurants and villas with their own private pools. It has been closed for a refurbishment since May 2026 and is due to reopen on 15 October 2026, so I always check its exact reopening status before quoting it for near term dates. Booked direct through my own Beachcomber contract.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for couples wanting an adults only wing</div>
+        <img src="https://images.unsplash.com/photo-1636484807510-bc2ffbaf3241?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A large swimming pool surrounded by lush green trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Victoria Beachcomber Resort &amp; Spa, between Grand Baie &amp; Port Louis</h3>
+        <p>One of the island's most popular family resorts overall, but with the added option of Victoria for 2, a 40 room adults only wing with its own pool and sea view rooms opening onto the marine park. A good pick when a couple and a family are travelling together but want slightly different experiences under one roof. Booked direct through my own Beachcomber contract.</p>
+      </div>
+    </div>
+    <h3 style="font-size:17px; margin-top:34px;">South West Coast, Le Morne</h3>
+    <div class="grid-2-eq equal-cards" style="margin-top:16px;">
+      <div class="jake-card">
+        <div class="accom-category">Best for families wanting the Le Morne scenery</div>
+        <img src="https://images.unsplash.com/photo-1729673766564-618fce6c835e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of a resort with a swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Paradis Beachcomber Golf Resort &amp; Spa, Le Morne</h3>
+        <p>Sits right beneath Le Morne Brabant mountain, with its own 18 hole golf course and a free kids club, plus shared access to four more restaurants next door at Dinarobin. The hotel I'd call Mauritius's classic postcard setting. Booked direct through my own Beachcomber contract.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for watersports &amp; a private adults only pool</div>
+        <img src="https://images.unsplash.com/photo-1789745263839-622f61024e25?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A sandy beach with palm trees and loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Dinarobin Beachcomber Golf Resort &amp; Spa, Le Morne</h3>
+        <p>Next door to Paradis on the same peninsula, with its own adults only area and private pool, plus a kitesurfing school affiliated with the International Kiteboarding Organization right on the doorstep, one of the best kite spots on earth. Booked direct through my own Beachcomber contract.</p>
+      </div>
+    </div>
+    <h3 style="font-size:17px; margin-top:34px;">South East Coast, Blue Bay</h3>
+    <div class="grid-2-eq equal-cards" style="margin-top:16px;">
+      <div class="jake-card">
+        <div class="accom-category">Best for a short airport transfer</div>
+        <img src="https://images.unsplash.com/photo-1776008107477-47630b3f2195?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A tropical beach resort with palm trees and seating areas" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Shandrani Beachcomber Resort &amp; Spa, Blue Bay</h3>
+        <p>A 4 star resort on its own peninsula inside the Blue Bay Marine Park, with three beaches and an adults only wing called Shandrani for 2. All inclusive is optional rather than standard here, and with the airport just 10 to 15 minutes away it is the one I recommend when transfer time matters most. Booked direct through my own Beachcomber contract.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Availability, board basis and pricing change regularly, always confirm the live details with me before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the sights worth building into a Mauritius itinerary beyond the hotel pool.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1692722387928-0155436b02b6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The coloured sand dunes at Chamarel Seven Coloured Earth in Mauritius" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Chamarel Seven Coloured Earth</h3>
+        <p>A small geological curiosity where volcanic soil has settled into bands of red, brown, violet, green and yellow. Usually combined with the nearby Chamarel waterfall and the Black River Gorges viewpoint as a half day inland tour.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1611435289372-56d029c53661?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Dolphins swimming off the coast of Mauritius" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Dolphin watching off Tamarin</h3>
+        <p>Pods of spinner dolphins are seen most mornings in the bay off Tamarin on the west coast, and a number of boat trips combine a dolphin watch with snorkelling and a stop at Crystal Rock or Ile aux Benitiers.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1738610612578-7c31a08c54b4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of Ile aux Cerfs beach in Mauritius" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Ile aux Cerfs</h3>
+        <p>A small island off the east coast with one of Mauritius's best beaches, usually reached by catamaran or speedboat from Trou d'Eau Douce, often paired with a BBQ lunch and a stop at the Grand River South East waterfall on the way.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1791039834079-f0fb58d4b2ad?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The covered market at Caudan Waterfront in Port Louis, Mauritius" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Port Louis &amp; the Caudan Waterfront</h3>
+        <p>The island's capital, with a bustling central market, the Caudan Waterfront for shopping and dining, and Signal Hill above the city for a proper view over the harbour. A good half day out for anyone staying on the north or west coast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Mauritius uses the Mauritian Rupee. Prices below are shown in pounds sterling with the rupee equivalent alongside, based on a rate of roughly &pound;1 to 47 MUR. These are crowd-sourced averages for Port Louis, and prices right on a resort's own doorstep in the main tourist areas can run higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;5.85 (about MUR 275)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;38.30 (about MUR 1,800)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;2.66 (about MUR 125)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;2.66 (about MUR 125)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;0.65 (about MUR 31)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;4.26 (about MUR 200)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages via Numbeo, checked at time of writing. Rupee to pound sterling conversion is approximate and moves around day to day, so treat these as a guide rather than an exact figure.</p>
+    {jake_tip("Most of my Mauritius clients are on an all inclusive or half board basis at their resort, so day to day spending tends to go on excursions, drinks beyond the inclusive list and the odd meal out rather than everyday essentials.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Mauritian Rupee (MUR)</td></tr>
+          <tr><td>Plug type</td><td>Types C, E and G are all used. Type G is the same 3 pin plug as the UK, so most UK appliances need no adapter, though it is worth packing a universal one just in case. Mains supply is 230V</td></tr>
+          <tr><td>Language</td><td>English is the official language and French the national language, with Mauritian Creole widely spoken day to day</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 11 hours 40 minutes to 12 hours direct with Air Mauritius or British Airways from London Gatwick</td></tr>
+          <tr><td>Time difference</td><td>Mauritius does not change its clocks, so it is 3 hours ahead of the UK during British Summer Time and 4 hours ahead during UK winter time</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders do not need a visa for stays of up to 60 days, but must show proof of onward or return travel and have a passport valid for the length of the stay</td></tr>
+          <tr><td>Driving</td><td>Left hand side, the same as the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Xavier Coiffic, Anton Marchuk, Raoul du Plessis, Jackson Chindowa, Hongbin, Liga Meijere, Antonio Araujo, Meg von Haartman, Jeffrey Eisen, allPhoto Bangkok, Sourabh Adhya, Desiree M, Tom Woodhouse and Ngoc Nguyen Phuong via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Mauritius for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can put together a trip around any of my eight direct Beachcomber hotels, whichever coast suits you best, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+mauritius_body = mauritius_body.replace("::NEWSLETTER::", newsletter_section())
+
+MAURITIUS_SCHEMA = article_and_faq_schema(
+    "Mauritius: Jake's Destination Guide",
+    "Jake's honest guide to Mauritius: north and west coast versus the south east, weather by month, his own direct Beachcomber hotels and what it actually costs.",
+    "mauritius.html",
+    "https://images.unsplash.com/photo-1513415563383-4e580ed27a46?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator sells Mauritius holidays?", "Jake books Mauritius direct through his own trade contract with Beachcomber, a Mauritian hotel group, rather than through TUI, Jet2holidays or easyJet holidays. Flights are arranged separately, usually direct with Air Mauritius or British Airways from London Gatwick."),
+        ("How long is the flight to Mauritius?", "Around 11 hours 40 minutes to 12 hours direct from London Gatwick with Air Mauritius or British Airways, who between them run around 8 direct flights a week."),
+        ("What's the best time to visit Mauritius?", "May to October gives the best all round weather with the lowest cyclone risk, with July and August the busiest months. September and October offer similar weather with fewer crowds. November to April is the cyclone season, with the highest risk in January to March, though a direct hit in any given year is rare."),
+        ("Do I need a visa for Mauritius?", "UK passport holders do not need a visa for stays of up to 60 days, but must show proof of onward or return travel and have a passport valid for the length of their stay."),
+        ("Is Mauritius good for a honeymoon?", "Yes, it is one of the most popular honeymoon destinations Jake sells. All eight of his direct Beachcomber hotels offer sea view or beachfront rooms, several have dedicated adults only wings, and the north and south west coasts in particular are known for spectacular sunsets."),
+    ]
+)
+with open(os.path.join(SITE, "mauritius.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Mauritius: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Mauritius: north and west coast versus the south east, weather by month, his own direct Beachcomber hotels and what it actually costs.",
+        "destinations.html",
+        mauritius_body,
+        extra_schema=MAURITIUS_SCHEMA,
+        canonical_path="mauritius.html"
+    ))
+print("mauritius.html written")
+
+
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
     {
@@ -14425,6 +14730,7 @@ SITEMAP_PAGES = [
     ("barbados.html", "0.6"),
     ("st-lucia.html", "0.6"),
     ("sri-lanka.html", "0.6"),
+    ("mauritius.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
