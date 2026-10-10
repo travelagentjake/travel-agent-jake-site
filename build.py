@@ -506,7 +506,7 @@ def how_it_works_html(full):
         ("I do the research",
          "I use my knowledge and expertise to find you a holiday that matches your needs." + (" You get a few options with the pros and cons of each, and I will tweak them until they are right." if full else "")),
         ("Pay a deposit to secure it",
-         "Pay a deposit to secure the holiday, then pay in monthly instalments or pay the balance on the balance due date." + (" Deposits start from as little as &pound;60 per person and the balance is due 12 weeks before you travel (16 weeks for cruises). If your trip is at least 18 weeks away you can spread what you owe with a monthly direct debit. You can work out a plan on the <a href=\"my-booking.html\">My Booking</a> page." if full else "")),
+         "Pay a deposit to secure the holiday, then pay in monthly instalments or pay the balance on the balance due date." + (" Deposits start from as little as &pound;60 per person. The balance is due roughly 14 weeks before you travel (this varies by company), or 6 weeks before if you pay by monthly direct debit, which is available when your trip is at least 18 weeks away. You can work out a plan on the <a href=\"my-booking.html\">My Booking</a> page." if full else "")),
         ("I'm on WhatsApp whenever you need me",
          "Message me with any questions about your holiday, either before or during your trip." + (" You deal with me directly, never a call centre." if full else "")),
         ("If things go wrong, I'm here to help",
