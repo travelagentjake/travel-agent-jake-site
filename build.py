@@ -1200,29 +1200,6 @@ book_body = """
 </section>
 <script>(function(){var e=document.getElementById('prereg-strip');if(e&&Date.now()>=Date.parse(e.getAttribute('data-expires'))){e.remove();}})();</script>
 
-<section class="theme-dark" id="how">
-  <div class="wrap">
-    <div class="eyebrow">The enquiry form, explained</div>
-    <h2>What actually happens next.</h2>
-    <div class="grid-3 equal-cards" style="margin-top:32px;">
-      <div class="jake-card" style="background:var(--ink); border-color:rgba(255,255,255,0.25);">
-        <div style="width:36px; height:36px; border-radius:50%; background:var(--yellow); color:var(--ink); display:flex; align-items:center; justify-content:center; font-family:'Archivo Black',sans-serif; margin-bottom:14px;">1</div>
-        <h3 style="color:var(--white); font-size:17px;">You tell me what you're after</h3>
-        <p style="color:rgba(255,255,255,0.8);">Fill in the form in a few minutes, from your sofa, phone in hand. Dates, destination, who's going and what you'd like to spend. Rough ideas are fine.</p>
-      </div>
-      <div class="jake-card" style="background:var(--ink); border-color:rgba(255,255,255,0.25);">
-        <div style="width:36px; height:36px; border-radius:50%; background:var(--yellow); color:var(--ink); display:flex; align-items:center; justify-content:center; font-family:'Archivo Black',sans-serif; margin-bottom:14px;">2</div>
-        <h3 style="color:var(--white); font-size:17px;">I do the searching</h3>
-        <p style="color:rgba(255,255,255,0.8);">Real flights, hotels and transfers from over 400 suppliers, matched to what you've told me and compared properly.</p>
-      </div>
-      <div class="jake-card" style="background:var(--ink); border-color:rgba(255,255,255,0.25);">
-        <div style="width:36px; height:36px; border-radius:50%; background:var(--yellow); color:var(--ink); display:flex; align-items:center; justify-content:center; font-family:'Archivo Black',sans-serif; margin-bottom:14px;">3</div>
-        <h3 style="color:var(--white); font-size:17px;">You get your options</h3>
-        <p style="color:rgba(255,255,255,0.8);">I talk you through the best fits with the pros and cons. Happy? We can book it. Want changes? I'll tweak it until it's right.</p>
-      </div>
-    </div>
-  </div>
-</section>
 """
 
 book_body = book_body + how_it_works_html(True)
