@@ -470,6 +470,97 @@ LOGO_CARDS_HTML = "\n        ".join(
     for fname, alt in _shuffled_logos
 )
 
+
+# ---------------- HOW IT WORKS (home page + how to book page) ----------------
+HIW_STYLE = """<style>
+.hiw{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:36px;align-items:start;margin-top:30px;}
+.hiw-step{display:flex;gap:16px;align-items:flex-start;margin-bottom:20px;}
+.hiw-num{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--yellow);color:var(--ink);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Archivo Black',sans-serif;}
+.hiw-step h3{margin:0 0 4px;font-size:18px;}
+.hiw-step p{margin:0;}
+.hiw-call{background:var(--blue);color:var(--white);border:3px solid var(--ink);border-radius:18px;padding:26px;box-shadow:6px 6px 0 var(--yellow);}
+.hiw-call h3{color:var(--white);margin:0 0 10px;font-size:22px;}
+.hiw-call p{color:rgba(255,255,255,0.92);margin:0 0 14px;}
+.hiw-call p:last-of-type{margin-bottom:18px;}
+.hiw-call .hiw-q{display:inline-block;background:var(--yellow);color:var(--ink);font-weight:800;border-radius:999px;padding:4px 12px;margin-bottom:10px;font-size:14px;}
+.hiw-more{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:34px;}
+.hiw-more h3{margin:0 0 10px;}
+.hiw-more p{margin:0 0 12px;}
+.hiw-more ul{margin:0;padding-left:20px;}
+.hiw-more li{margin-bottom:8px;}
+@media (max-width:860px){.hiw,.hiw-more{grid-template-columns:1fr;}}
+</style>"""
+
+HIW_CALLOUT = """<div class="hiw-call">
+        <h3>No booking fees. Ever.</h3>
+        <p>As a self employed travel agent I do not charge any fees to book your holiday. I rely solely on the commission I make from booking it, so you are not paying more than you need to, but you still get a great service.</p>
+        <span class="hiw-q">Did you know?</span>
+        <p>The prices from big companies like TUI, easyJet Holidays and Jet2holidays already include travel agent commission. When you book direct they keep it, but when you book with me I receive it, which helps support my small business and my family.</p>
+        ::CALLOUT_BTN::
+      </div>"""
+
+def how_it_works_html(full):
+    steps = [
+        ("Send me the details of what you are looking for",
+         "Tell me what you have in mind, including any examples or quotes you have had so far." + (" Use the enquiry form or message me on WhatsApp, whichever you prefer. Rough ideas are absolutely fine." if full else "")),
+        ("I do the research",
+         "I use my knowledge and expertise to find you a holiday that matches your needs." + (" You get a few options with the pros and cons of each, and I will tweak them until they are right." if full else "")),
+        ("Pay a deposit to secure it",
+         "Pay a deposit to secure the holiday, then pay in monthly instalments or pay the balance on the balance due date." + (" Deposits start from &pound;150 per person and the balance is due 12 weeks before you travel (16 weeks for cruises). If your trip is at least 18 weeks away you can spread what you owe with a monthly direct debit. You can work out a plan on the <a href=\"my-booking.html\">My Booking</a> page." if full else "")),
+        ("I'm on WhatsApp whenever you need me",
+         "Message me with any questions about your holiday, either before or during your trip." + (" You deal with me directly, never a call centre." if full else "")),
+        ("If things go wrong, I'm here to help",
+         "I'll help you get things back on track." + (" Message me first, always, and I'll deal with the supplier for you." if full else "")),
+    ]
+    items = "\n      ".join(
+        '<div class="hiw-step"><div class="hiw-num">%d</div><div><h3>%s</h3><p>%s</p></div></div>' % (i + 1, t, p)
+        for i, (t, p) in enumerate(steps)
+    )
+    if full:
+        btn = '<a class="btn" style="background:var(--yellow);color:var(--ink);border-color:var(--ink);" href="enquiry.html">Start with the enquiry form</a>'
+    else:
+        btn = '<a class="btn" style="background:var(--yellow);color:var(--ink);border-color:var(--ink);" href="book.html#how-it-works">The full guide</a>'
+    call = HIW_CALLOUT.replace("::CALLOUT_BTN::", btn)
+    more = ""
+    if full:
+        more = """
+    <div class="hiw-more">
+      <div class="jake-card">
+        <h3>What you receive after you book</h3>
+        <ul>
+          <li>Your booking confirmation and invoice, with your HAY booking reference.</li>
+          <li>A login for <a href="my-booking.html">My Booking</a>, where you can see your invoice, balance and due dates.</li>
+          <li>Your ATOL certificate on flight inclusive holidays.</li>
+          <li>Your travel documents before you go.</li>
+          <li>A check in from me before you travel, to make sure everything is in order.</li>
+        </ul>
+      </div>
+      <div class="jake-card">
+        <h3>Who you pay and who protects you</h3>
+        <p>Your holiday is booked through Club Voyages with Hays Tour Operating. You pay Hays through the booking portal, by direct debit or with a secure payment link, and I'll help you with all of it.</p>
+        <p>Club Voyages is a member of ABTA (P8503 and Y6784) and flight inclusive holidays are ATOL protected (ATOL 10531). See the <a href="booking-conditions.html">booking conditions</a> for the full details.</p>
+      </div>
+    </div>"""
+    lead = "I get asked how booking through an independent agent works all the time, so here it is in plain English."
+    sec_id = ' id="how-it-works"' if full else ' id="how-it-works-home"'
+    return """
+<section class="theme-light"%s>
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>BOOKING WITH AN INDEPENDENT AGENT, EXPLAINED.</h2>
+    <p>%s</p>
+    %s
+    <div class="hiw">
+      <div>
+      %s
+      </div>
+      %s
+    </div>%s
+  </div>
+</section>
+""" % (sec_id, lead, HIW_STYLE, items, call, more)
+
+
 home_body = """
 <section class="theme-bold home-hero">
   <div class="wrap grid-2">
@@ -794,6 +885,7 @@ home_body = """
   </div>
 </section>
 
+::HOW_IT_WORKS::
 <section class="theme-dark">
   <div class="wrap">
     <div class="eyebrow">What I specialise in</div>
@@ -887,6 +979,7 @@ home_body = """
 """
 home_body = home_body.replace("::NEWSLETTER::", newsletter_section(wrap_style="padding-top:44px;"))
 home_body = home_body.replace("::LOGO_CARDS::", LOGO_CARDS_HTML)
+home_body = home_body.replace("::HOW_IT_WORKS::", how_it_works_html(False))
 
 with open(os.path.join(SITE, "index.html"), "w", encoding="utf-8") as f:
     f.write(page(
@@ -1131,6 +1224,8 @@ book_body = """
   </div>
 </section>
 """
+
+book_body = book_body + how_it_works_html(True)
 
 with open(os.path.join(SITE, "book.html"), "w", encoding="utf-8") as f:
     f.write(page(
