@@ -74,6 +74,7 @@ export default async (req) => {
   const departDate = /^\d{4}-\d{2}-\d{2}$/.test(clean(b.departDate, 10)) ? clean(b.departDate, 10) : "";
 
   const boards = (Array.isArray(b.boards) ? b.boards : []).map((a) => clean(a, 40)).filter(Boolean).slice(0, 10);
+  if (!pre && !clean(b.budget, 80)) return json({ error: "Please tell me your budget for the whole holiday, even roughly, so I can find the right options." }, 400);
   if (pre) {
     if (!clean(b.month, 30)) return json({ error: "Please choose the month you would like to depart." }, 400);
     if (!/^2028-(0[1-9]|10)-\d{2}$/.test(departDate)) return json({ error: "Please choose a preferred departure date between 1 January and 31 October 2028." }, 400);

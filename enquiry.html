@@ -224,7 +224,7 @@
                 <select id="enqStars" name="stars"><option value="">No preference</option><option>3 stars and above</option><option>4 stars and above</option><option>5 stars</option></select></div>
               <div class="enq-field"><label for="enqBoard">Board basis</label>
                 <select id="enqBoard" name="board"><option value="">No preference</option><option>Room only</option><option>Self catering</option><option>Bed and breakfast</option><option>Half board</option><option>Full board</option><option>All inclusive</option><option>Cruise, drinks package included</option></select></div>
-              <div class="enq-field"><label for="enqBudget">Budget for the whole holiday</label><input id="enqBudget" name="budget" type="text" placeholder="e.g. £4,000 for everyone"><div class="enq-hint">The total for everyone travelling, so I can find the best fit.</div></div>
+              <div class="enq-field"><label for="enqBudget">Budget for the whole holiday</label><input id="enqBudget" name="budget" type="text" placeholder="e.g. £4,000 for everyone" required><div class="enq-hint">The total for everyone travelling, so I can find the best fit.</div></div>
               <div class="enq-field full"><label for="enqWhen">When are you looking to book?</label>
                 <select id="enqWhen" name="whenBook"><option value="">Please choose</option><option>As soon as possible</option><option>This week</option><option>This month</option><option>In the next 3 months</option><option>Just researching for now</option></select></div>
             </div>
@@ -349,6 +349,7 @@
     if(!data.dateFlex){ return showErr('Please tell me how flexible your dates are.',f.dateFlex); }
     if(!data.departDate && !data.dateNotes){ return showErr('Please add a preferred departure date, or a note about when you would like to go.',f.departDate); }
     if(!data.nights){ return showErr('Please choose how many nights.',f.nights); }
+    if(!data.budget){ return showErr('Please tell me your budget for the whole holiday, even roughly, so I can find the right options.',f.budget); }
     var air=[]; Array.prototype.forEach.call(form.querySelectorAll('input[name=airports]:checked'),function(c){
       if(c.value==='Other'){ var t=document.getElementById('enqOtherText').value.trim(); air.push(t?'Other: '+t:'Other'); } else { air.push(c.value); }
     });
