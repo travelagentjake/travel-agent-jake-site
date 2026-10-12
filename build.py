@@ -1888,6 +1888,13 @@ DESTINATION_POSTS = [
         "excerpt": "Nungwi, Kendwa, Kiwengwa and Matemwe compared, weather by month, three ways to add a mainland safari and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1620896712848-d05411ec91ec?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "kenya.html",
+        "meta": "Kenya",
+        "title": "Kenya",
+        "excerpt": "Diani and Bamburi compared, weather by month, where to stay, three ways to add a safari and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1651860282131-e3257674ccd1?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -9505,6 +9512,299 @@ with open(os.path.join(SITE, "zanzibar.html"), "w", encoding="utf-8") as f:
 print("zanzibar.html written")
 
 
+# ---------------- KENYA ----------------
+kenya_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>KENYA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Diani and Bamburi compared, weather by month, where to stay, things to do, three ways to add a safari and what it actually costs, everything you need to plan a trip to Kenya's coast.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Kenya</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1602579350028-3b6e757e379c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees and white sand on Diani Beach, Kenya" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Kenya is the one I reach for when a client wants a proper beach holiday that can also turn into something much bigger. Diani on the south coast has some of the best white sand I've seen anywhere, warm turquoise water and a laid back, barefoot feel, and it sits within easy reach of a genuine Big Five safari if you want to build one in. TUI is the operator I use for Kenya, packaging flights and hotel together, and it is the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that currently flies this far.</p>
+    <p style="margin-top:14px;">What makes Kenya stand out from Zanzibar or the Caribbean for me is how easy TUI has made it to turn a beach week into a proper safari and beach trip without having to book anything separately. There are several real, named, priced itineraries you can book directly through TUI that combine time in the bush with time on the sand, which I'll come back to further down.</p>
+    {jake_tip("I always ask a client upfront whether a safari is even a maybe for this trip. It changes how many nights I'd suggest booking and which coastal hotel I'd point them towards, since some combine much more neatly with a safari add-on than others.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven to ten nights is the sweet spot for a pure beach stay on the coast, long enough to make the long flight worthwhile without feeling like too much time in one place. If you want to add a safari, I'd budget ten to fourteen nights in total so neither half of the trip feels rushed, nine nights is the shortest I've seen a genuine combined safari and beach package run to. It suits couples and honeymooners who want Diani's quieter, more boutique feel, families after a big all inclusive resort with a kids' club on the north coast around Bamburi, and anyone who likes the idea of elephants and lions one week and a beach sunbed the next. It is less suited to anyone who needs the shortest possible flight today, since this is a genuine long haul destination, or anyone expecting every hotel to feel as polished top to bottom as somewhere like the Canaries, parts of the Kenyan coast still feel refreshingly unpolished.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">TUI's coastal package holidays fly into Moi International Airport (MBA) at Mombasa, and TUI's own travel information quotes a flight time of around 9 hours from Gatwick. If a safari built around Nairobi is more your focus, it's worth knowing that Kenya Airways launched the first ever nonstop service between London Gatwick and Nairobi in July 2025, flying three times a week, where previously every scheduled option routed via a connection. Scheduled carriers flying into Mombasa itself, such as British Airways, KLM and Ethiopian Airlines, still route via a connection such as Nairobi, Amsterdam or Addis Ababa rather than flying nonstop to the coast.</p>
+    {jake_tip("For a straightforward coastal beach holiday I book the TUI package as normal, flights and hotel together with one flight time to plan around. If a client is building their own Nairobi-based safari independently of a coastal stay, I flag the new direct Kenya Airways route, since it's a genuinely new option that didn't exist a couple of years ago.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Kenya's coast is warm all year round, but it does run on a rainy season pattern that's worth planning your dates around.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Rainfall</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>32&deg;C</td><td>Low</td><td>Hot and dry, one of the most popular months to travel</td></tr>
+          <tr><td>February</td><td>32&deg;C</td><td>Low</td><td>Among the driest months of the year</td></tr>
+          <tr><td>March</td><td>32&deg;C</td><td>Low-moderate</td><td>Still hot, the long rains start to build towards the end of the month</td></tr>
+          <tr><td>April</td><td>31&deg;C</td><td>High</td><td>The wettest month, expect afternoon downpours rather than washed out days</td></tr>
+          <tr><td>May</td><td>29&deg;C</td><td>High</td><td>Long rains continue, the quietest and cheapest time to travel</td></tr>
+          <tr><td>June</td><td>28&deg;C</td><td>Moderate</td><td>Cooler and drier, overlaps with the start of inland safari season</td></tr>
+          <tr><td>July</td><td>28&deg;C</td><td>Moderate</td><td>The coolest month, pleasant for sightseeing and safari days</td></tr>
+          <tr><td>August</td><td>28&deg;C</td><td>Low-moderate</td><td>Cool and fairly dry, busy with Northern Hemisphere school holidays</td></tr>
+          <tr><td>September</td><td>29&deg;C</td><td>Low-moderate</td><td>Warming back up, calm seas</td></tr>
+          <tr><td>October</td><td>29&deg;C</td><td>Moderate</td><td>The short rains begin, usually brief showers rather than all day rain</td></tr>
+          <tr><td>November</td><td>31&deg;C</td><td>Moderate</td><td>Short rains continue, good value shoulder month</td></tr>
+          <tr><td>December</td><td>31&deg;C</td><td>Moderate</td><td>Hot again, busy and pricier over Christmas and New Year</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Average high temperatures sourced via weather2travel.com (Mombasa). Rainfall bands are based on average rainy days and millimetres per day for the Diani area via bestdateweather.com.</p>
+    {jake_tip("The April and May rains put a lot of clients off, but they're also when prices are at their lowest. Showers tend to come as short, heavy afternoon bursts rather than ruining a whole day, so I don't rule the long rains out automatically, it depends what the client wants from the trip.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">January to March is hot and dry and a safe bet if your dates are fixed around that window. June to October is drier and a touch cooler on the coast, and it also overlaps with the best inland safari viewing, making it the natural pick if you're planning a combined trip, though August is busy with school holidays. April and May are the long rains, by far the quietest and cheapest time to travel, with the trade off being more frequent afternoon showers. November is a good value shoulder month with the short rains usually limited to brief showers, and December is hot and dry again but busy and pricier over Christmas and New Year.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Kenya's package hotels cluster in two main areas, Diani on the south coast and Bamburi on the north coast, each with a distinct feel.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1667935837291-1dc178866251?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Clear blue water along Kenya's south coast near Diani" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Diani (the south coast)</h3>
+        <p>A long, white sand beach with the widest choice of TUI hotels, a lively strip of beachfront restaurants and bars, and the easiest access to boat trips out to Wasini Island. This is the area I'd point couples, honeymooners and anyone after Kenya's most sociable coastal base towards.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1583074345723-15313f31ebf2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset over the ocean on Kenya's north coast near Mombasa" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bamburi (the north coast)</h3>
+        <p>Closer to Mombasa town and the airport, with some of Kenya's biggest all inclusive family resorts and easy access to Mombasa's Old Town and Fort Jesus. This is the area I'd steer larger families and groups towards for the shortest transfer and the most resort facilities on site.</p>
+      </div>
+    </div>
+    {jake_tip("Diani has the edge for a honeymoon or a couple's trip, Bamburi has the edge for a big family group who want the shortest possible transfer and the most pools and kids' clubs on site. I ask which matters more before I recommend either.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Airport transfers are included as part of the TUI package. Kenya drives on the left, the same as the UK, but almost every client sticks to transfers, taxis and organised day trips rather than self drive. A private driver for the day is easy to arrange through your hotel for a trip into Mombasa, a Wasini Island boat day or a safari day trip, and is by far the most relaxed way to see more of the coast beyond the resort.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1673902249261-8ce70638269b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A traditional dhow style boat off Kenya's coast near Mombasa" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Dhow trips, Mombasa's Old Town and easy safari day trips from the coast give you a genuinely varied list of things to do beyond the hotel pool.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="443380,1090658,804480,786218"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/kenya-l169122/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/kenya-l169122/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Kenya &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across Diani and Bamburi. TUI is the operator I use for Kenya, so all four of these are booked through TUI.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1633345778967-3760204a4c57?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees and sun loungers on a beach in Diani, Kenya" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Southern Palms Beach Resort, Diani</h3>
+        <p>A 4 star beach resort directly on Diani's sand, with two pools, a ten acre tropical garden, four restaurants and five bars. A straightforward, good value base for anyone who wants a solid resort without paying for a five star price tag. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1708119063168-4785d1359824?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A swimming pool surrounded by tropical gardens on Kenya's coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Baobab Beach Resort &amp; Spa, Diani</h3>
+        <p>Set across 80 acres of gardens with 500 metres of beach, family suites for two adults and two children, a kids' scuba club and half, full or all inclusive board options. Winner of Africa's Leading Family Resort, and a hotel I know well since it's the one TUI itself uses on its own combined safari and beach packages. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for couples</div>
+        <img src="https://images.unsplash.com/photo-1570021799031-63e228162838?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunrise over the ocean on Kenya's coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Leopard Beach Resort &amp; Spa, Diani</h3>
+        <p>A smart casual, "Chui Class" resort with honeymoon suites, sixteen private pool villas known as The Residences, a spa and four restaurants including a Chaine des Rotisseurs dining room. The one I'd point towards for a couple wanting Diani's most polished address. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for big groups</div>
+        <img src="https://images.unsplash.com/photo-1633345778967-3760204a4c57?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees and beach chairs on Kenya's coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Sarova Whitesands Beach Resort &amp; Spa, Bamburi</h3>
+        <p>One of the coast's biggest resorts, with around 300 rooms across five categories, five swimming pools, a hot tub, tennis and family rooms. The shortest transfer from Mombasa airport of any hotel in this guide, and the one I'd book for a large family group or multi-generation trip. Bookable through TUI.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the sights worth building into an itinerary beyond the hotel pool.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1664093671658-a2aac3a344a9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A traditional dhow style boat on the water off Kenya's coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Wasini Island &amp; Kisite Marine Park</h3>
+        <p>A dhow sailing trip from Diani to Wasini Island, with a good chance of spotting dolphins and some of Kenya's best snorkelling in the Kisite-Mpunguti Marine Park. One of the most popular full day trips from the south coast.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1655725884750-571ffdc08daf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boats on the water near Mombasa's old harbour" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Mombasa Old Town &amp; Fort Jesus</h3>
+        <p>A UNESCO World Heritage 16th century Portuguese fort, winding old town streets, the famous Mombasa Tusks and a lively spice market. Usually booked as a half or full day trip from either coastal area.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1685301258848-686f457e6151?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Giraffes in the Kenyan bush" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Shimba Hills National Reserve</h3>
+        <p>A forested reserve close to Diani, home to the rare sable antelope alongside elephants, giraffes and buffalo. A good, easy introduction to safari for anyone short on time who still wants a taste of the bush close to the coast.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1554490754-c1f912ac1b77?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An elephant on a Kenya safari" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Tsavo East National Park</h3>
+        <p>One of the world's largest national parks, known for its "red elephants", dust-stained from the park's red soil, plus lions and the Galana River. Bookable as a long day trip or an overnight stay from either coastal area.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Combining Kenya's coast with a safari</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1790866321806-5f0db078b203?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A lioness in the Maasai Mara, Kenya" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Kenya is one of the easiest places I sell to turn a beach week into a proper safari trip, and TUI sells several real, bookable itineraries that do exactly that. These aren't a generic add-on, each one is a named, priced tour you can book directly through TUI. Here are three genuinely different options.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1554490827-1b935520e95b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An elephant on a Kenya safari" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Safari Taster, 9 nights</h3>
+        <p>Five nights of all inclusive safari, staying at Ashnil Aruba Lodge in Tsavo East, Salt Lick Safari Lodge in the Taita Hills and Amboseli Serena Lodge, with views of Mount Kilimanjaro, then four nights unwinding at Baobab Beach Resort on Diani Beach. Flights, transfers and 23kg luggage included. From &pound;2,742 per person.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1740927725859-63765c800c6d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Lions resting in the grass on a Kenya safari" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">A Taste of Kenya Safari, 11 days</h3>
+        <p>An 11 day beach and safari holiday built around six game drives, with an overnight stay at Salt Lick Safari Lodge in the Taita Hills before finishing on the coast. TUI's own named package. From &pound;2,783 per person.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1740928507887-e7dd7e8bac94?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A giraffe with a mountain in the background on a Kenya safari" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Highlights of Kenya, 12 days</h3>
+        <p>A 12 day tour from Nairobi to Diani Beach, with most meals and eight included "experiences" plus one night at a stilted safari lodge with views of Mount Kilimanjaro. Flights available from Heathrow, Gatwick or Manchester. From &pound;2,624 per person.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are TUI's own "from" prices for two adults sharing at time of writing and change regularly with dates and availability. All three are flight-inclusive, ATOL protected tours booked through TUI, separate from the main Kenya coast beach package above.</p>
+    {jake_tip("A safari add-on is the single biggest upgrade I suggest to Kenya clients who have the extra days and budget. The Safari Taster is the one I point most clients towards since it's the shortest of the three and still covers three proper safari lodges, while Highlights of Kenya suits anyone who wants a slightly longer, more structured tour with more meals and experiences built in.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Kenya uses the Kenyan Shilling. Prices below are shown in pounds sterling with the shilling equivalent alongside, based on a rate of roughly &pound;1 to 172 KES. These are crowd-sourced averages for Mombasa, and prices right on a resort's own doorstep in tourist areas can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;2.03 (about KES 350)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;2.02 (about KES 347.50)</td></tr>
+          <tr><td>Local beer, a bottle</td><td>&pound;1.48 (about KES 255)</td></tr>
+          <tr><td>Bottled water, 1.5 litres</td><td>&pound;0.33 (about KES 57.50)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;2.33 (about KES 400)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages via Numbeo (Mombasa), checked at time of writing. Shilling to pound sterling conversion is approximate and moves around day to day, so treat these as a guide rather than an exact figure.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Kenyan Shilling (KES)</td></tr>
+          <tr><td>Plug type</td><td>Type G, the same as the UK. The mains supply is 240V, so no adapter or converter is needed for standard UK appliances</td></tr>
+          <tr><td>Language</td><td>Swahili and English are both official languages, with English widely used across hotels and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 9 hours from Gatwick to Mombasa with TUI. Kenya Airways flies nonstop from Gatwick to Nairobi three times a week</td></tr>
+          <tr><td>Time difference</td><td>Kenya stays on the same time year round and does not change its clocks, so it is 3 hours ahead of the UK in winter and 2 hours ahead during British Summer Time</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders need an electronic travel authorisation (eTA), applied for online at etakenya.go.ke at least 2 weeks before travel. From 5 October 2026 applicants must also buy travel health insurance as part of the eTA application. A passport valid for at least 6 months beyond arrival, with 2 blank pages, is also required</td></tr>
+          <tr><td>Driving</td><td>Left hand side, the same as the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Andrew Molo, Timothy K, Victor Birai, Ezekiel Kilimo, Adams Korir, Jessica Pamp, Derricks Nature Book, Wendy Brooks, imsogabriel stock, Ripe Studios, Polina Koroleva, Carlos Torres, Dmitrii Zhodzishskii and Simone Dinoia via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Kenya for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around Diani's beaches, a bigger family base on the north coast, add on a safari, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+kenya_body = kenya_body.replace("::NEWSLETTER::", newsletter_section())
+
+KENYA_SCHEMA = article_and_faq_schema(
+    "Kenya: Jake's Destination Guide",
+    "Jake's honest guide to Kenya: Diani and Bamburi compared, weather by month, three ways to add a safari and what it actually costs.",
+    "kenya.html",
+    "https://images.unsplash.com/photo-1651860282131-e3257674ccd1?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator sells Kenya holidays?", "TUI is the one of the three operators Jake sells (TUI, Jet2holidays and easyJet holidays) who packages Kenya coast holidays. Neither Jet2holidays nor easyJet holidays currently fly this far."),
+        ("How long is the flight to Kenya?", "TUI's own travel information quotes a flight time of around 9 hours from Gatwick to Mombasa. Kenya Airways also launched the first nonstop service between London Gatwick and Nairobi in July 2025, flying three times a week, for travellers focused on a Nairobi-based safari rather than the coast."),
+        ("Do I need a visa for Kenya?", "Yes. UK passport holders need an electronic travel authorisation (eTA), applied for online at etakenya.go.ke at least 2 weeks before travel. From 5 October 2026, applicants must also buy travel health insurance as part of the eTA application, alongside a passport valid for at least 6 months beyond arrival."),
+        ("What's the best time to visit Kenya's coast?", "January to March is hot and dry, June to October is drier and cooler and overlaps with the best inland safari viewing, April and May are the long rains and the quietest, cheapest time to travel, and November is a good value shoulder month with usually brief short rains."),
+        ("Can I combine Kenya's coast with a safari?", "Yes. TUI sells several real, bookable combined itineraries, from a 9 night Safari Taster covering three safari lodges and four nights on Diani Beach, to longer 11 and 12 day tours taking in the Taita Hills, Amboseli and a stilted lodge with Kilimanjaro views."),
+    ]
+)
+with open(os.path.join(SITE, "kenya.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Kenya: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Kenya: Diani and Bamburi compared, weather by month, three ways to add a safari and what it actually costs.",
+        "destinations.html",
+        kenya_body,
+        extra_schema=KENYA_SCHEMA,
+        canonical_path="kenya.html"
+    ))
+print("kenya.html written")
+
+
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
     {
@@ -15270,6 +15570,7 @@ SITEMAP_PAGES = [
     ("sri-lanka.html", "0.6"),
     ("mauritius.html", "0.6"),
     ("zanzibar.html", "0.6"),
+    ("kenya.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
