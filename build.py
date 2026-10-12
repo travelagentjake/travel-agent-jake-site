@@ -47,7 +47,7 @@ SITE_SCHEMA = """<script type="application/ld+json">
   "areaServed": {"@type": "Country", "name": "United Kingdom"},
   "address": {"@type": "PostalAddress", "addressCountry": "GB"},
   "telephone": "+447899290262",
-  "email": "enquiries@travelagentjake.com",
+  "email": "enquiries@travelagentjake.co.uk",
   "priceRange": "$$",
   "sameAs": [
     "https://instagram.com/travelagentjake",
@@ -326,8 +326,8 @@ FOOTER = """<footer class="site-footer">
         <h4>CONTACT</h4>
         <ul>
           <li><a href="https://wa.me/447899290262">WhatsApp 07899 290262</a></li>
-          <li><a href="mailto:enquiries@travelagentjake.com">enquiries@travelagentjake.com</a></li>
-          <li><a href="mailto:bookings@travelagentjake.com">bookings@travelagentjake.com</a></li>
+          <li><a href="mailto:enquiries@travelagentjake.co.uk">enquiries@travelagentjake.co.uk</a></li>
+          <li><a href="mailto:bookings@travelagentjake.co.uk">bookings@travelagentjake.co.uk</a></li>
         </ul>
       </div>
       <div>
@@ -12199,7 +12199,7 @@ privacy_body = """
 <section class="theme-light">
   <div class="wrap" style="max-width:78ch;">
     <h2>Who we are</h2>
-    <p>This website, travelagentjake.co.uk, is run by Club Voyages Ltd, trading as Travel Agent Jake. Club Voyages is a Member of ABTA (membership number P8503 &amp; Y6784) and acts as an agent for Hays Tour Operating Ltd (ATOL 10531). For anything to do with this policy or your personal information, contact <a href="mailto:enquiries@travelagentjake.com">enquiries@travelagentjake.com</a>.</p>
+    <p>This website, travelagentjake.co.uk, is run by Club Voyages Ltd, trading as Travel Agent Jake. Club Voyages is a Member of ABTA (membership number P8503 &amp; Y6784) and acts as an agent for Hays Tour Operating Ltd (ATOL 10531). For anything to do with this policy or your personal information, contact <a href="mailto:enquiries@travelagentjake.co.uk">enquiries@travelagentjake.co.uk</a>.</p>
 
     <h2>Information we collect</h2>
     <p>We only collect information you choose to give us, or that is gathered automatically as you browse. This includes:</p>
@@ -12223,7 +12223,7 @@ privacy_body = """
     <p>We keep enquiry and booking information for as long as it is needed to deal with your enquiry or booking, and afterwards only as long as we are required to for accounting, ABTA or legal reasons. Newsletter addresses are kept until you unsubscribe.</p>
 
     <h2>Your rights</h2>
-    <p>Under UK data protection law, you can ask to see the information we hold about you, ask us to correct or delete it, or object to how it is used. To do any of this, email <a href="mailto:enquiries@travelagentjake.com">enquiries@travelagentjake.com</a>. If you are not happy with how we have handled your information, you can also complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+    <p>Under UK data protection law, you can ask to see the information we hold about you, ask us to correct or delete it, or object to how it is used. To do any of this, email <a href="mailto:enquiries@travelagentjake.co.uk">enquiries@travelagentjake.co.uk</a>. If you are not happy with how we have handled your information, you can also complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
 
     <h2>Changes to this policy</h2>
     <p>We may update this policy from time to time as the site changes. The date at the top shows when it was last updated.</p>
@@ -15804,7 +15804,7 @@ LLMS_TXT = """# Travel Agent Jake
 - Business name: Travel Agent Jake
 - ABTA number: P8503
 - Based in the UK, serves customers UK-wide (online/social-media led, not tied to one branch)
-- Contact: enquiries@travelagentjake.com, bookings@travelagentjake.com, WhatsApp 07899 290262
+- Contact: enquiries@travelagentjake.co.uk, bookings@travelagentjake.co.uk, WhatsApp 07899 290262
 - Booking routes: holiday enquiry form, WhatsApp, or the "Price Match Challenge" (send Jake a like for like holiday quote before you book and he will try to beat it, or at worst match it; not applicable to On the Beach or loveholidays). See /book.html. Holiday enquiry form: /enquiry.html. 2028 holiday pre-registration (departures January to October 2028): /pre-register-2028.html
 - Social: instagram.com/travelagentjake, tiktok.com/@travelagentjake
 
