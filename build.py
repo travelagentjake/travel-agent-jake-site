@@ -9983,6 +9983,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1753385158278-387d4dda60c4?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Sim cards and their adaptors laid out against a dark background",
     },
+    {
+        "slug": "term-time-holiday-fines-uk-parents-2026.html",
+        "meta": "Family travel",
+        "title": "Term time holiday fines: what UK parents actually need to know in 2026",
+        "excerpt": "More than a third of UK parents plan to take their kids out of school for a holiday this year, and fines have topped \u00a341 million since 2022. Here's exactly what the current rules say in England, Wales, Scotland and Northern Ireland, and how to weigh it up properly.",
+        "image": "https://images.unsplash.com/photo-1687992176093-6417a93fa3d0?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "A family walking through an airport with their luggage",
+    },
 ]
 
 def tip_card(post):
@@ -15533,6 +15541,178 @@ with open(os.path.join(SITE, "price-watch.html"), "w", encoding="utf-8") as f:
     ))
 print("price-watch.html written" + ("" if PRICE_WATCH_LIVE else " (noindex, not in nav/sitemap until the checker is proven)"))
 
+
+# ---------------- TRAVEL TIPS: Term time holiday fines, what UK parents need to know ----------------
+term_time_fines_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>TERM TIME HOLIDAY FINES: WHAT UK PARENTS ACTUALLY NEED TO KNOW</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">More than a third of UK parents say they're planning to take their children out of school for a holiday this year, and plenty more have already done it. Fines for it are real, they've topped &pound;41 million across England and Wales since 2022, and the rules changed in 2024 in a way a lot of people haven't caught up with yet. Here's exactly what the current rules actually say, what it genuinely costs if you get it wrong, and how to think about the decision properly rather than going on what you've heard at the school gate.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1687992176093-6417a93fa3d0?auto=format&fit=crop&w=1600&h=700&q=80" alt="A family walking through an airport with their luggage" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">In England, a national framework that came into force on 19 August 2024 sets one standard fine structure for every school: &pound;80 per parent per child if you pay within 21 days, rising to &pound;160 if it drags on, and a flat &pound;160 with no discount if it happens again within 3 years. A third time within 3 years skips the fine altogether and goes straight to court. Wales, Scotland and Northern Ireland all handle it differently, and none of them use England's figures.</p>
+      <p style="margin-top:14px; margin-bottom:0;">None of this makes a family holiday in term time illegal exactly, it means it's unauthorised absence unless your headteacher agrees it's an exceptional circumstance, and unauthorised absence is what the fine is actually for.</p>
+    </div>
+    {jake_tip("A fine isn't the only thing at stake here, a pattern of unauthorised absence also affects how a school and local authority view your child's attendance record more broadly, which matters for its own reasons beyond the money.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>England's actual rules, since the 2024 change</h2>
+    <img src="https://images.unsplash.com/photo-1740635341299-3b8e3490f546?auto=format&fit=crop&w=1600&h=700&q=80" alt="An empty school classroom with rows of wooden desks" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The Department for Education's National Framework for Penalty Notices applies to every state school in England from 19 August 2024 onwards, replacing the old system where each local authority set its own figures. It's a single, consistent set of fines, and it escalates quickly if it happens more than once.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Occurrence (within a rolling 3 years)</th><th>If paid within 21 days</th><th>If paid within 22 to 28 days</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>First offence</td><td>&pound;80 per parent, per child</td><td>&pound;160 per parent, per child</td></tr>
+          <tr><td>Second offence</td><td>No reduced rate, flat &pound;160 per parent, per child</td><td>&pound;160 per parent, per child</td></tr>
+          <tr><td>Third offence or more</td><td colspan="2">No penalty notice issued. Referred straight to the Magistrates' Court, with fines of up to &pound;2,500 and a possible criminal record that can later appear on a parent's DBS check.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0;">Both parents can be fined separately for the same absence, so for two parents and two children that's up to &pound;320 at the first offence rate, or &pound;640 if it happens a second time, well before anyone goes near court.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What actually triggers a penalty notice</h2>
+    <img src="https://images.unsplash.com/photo-1435527173128-983b87201f4d?auto=format&fit=crop&w=1600&h=700&q=80" alt="An open monthly planner on a wooden desk" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The national threshold is 10 sessions of unauthorised absence within a rolling 10 school week period. A school day counts as 2 sessions, so that's the equivalent of 5 full days, but they don't need to be 5 days in a row. A long weekend added to half term, plus an unrelated day off a few weeks later, can add up to the same threshold even though neither looked like much on its own, and the rolling window can span two different terms or even two school years.</p>
+    <p style="margin-top:14px; margin-bottom:0;">This is a national minimum, not a maximum. A school or local authority can still choose to issue a penalty notice for unauthorised absence below that threshold if it wants to, the 10 session rule just guarantees it as the baseline everywhere.</p>
+    {jake_tip("If you're already close to 10 sessions of unauthorised absence from anything else this term, a seemingly small extra day or two tacked onto a holiday can be the thing that actually triggers it, worth checking your child's current attendance record before you assume you've got room.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Wales, Scotland and Northern Ireland do this differently</h2>
+    <p style="margin-top:14px;">England's national framework only applies in England. The other three nations don't use the same figures, and it's worth knowing that before assuming the rules above apply everywhere in the UK.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Nation</th><th>How it actually works</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Wales</td><td>Each local council sets its own penalty notice code of conduct rather than following England's national figures, so the exact amount varies by area. Conwy's current code, for example, charges &pound;60 if paid within 28 days, rising to &pound;120 if paid within 42 days, capped at one penalty notice per parent per term. Check your own council's code rather than assuming it matches England or another Welsh council.</td></tr>
+          <tr><td>Scotland</td><td>No fixed penalty notice system equivalent to England's. Scottish Government guidance treats a term time family holiday as unauthorised absence unless the circumstances are genuinely exceptional, and it's the local council, not a set fine scale, that decides what happens next. Contact your council's education department directly rather than assuming either way.</td></tr>
+          <tr><td>Northern Ireland</td><td>Also doesn't run a fixed fine scale like England's. If attendance becomes a concern, the Education Authority's Education Welfare Service can get involved and the response is handled case by case rather than through a set penalty amount, so check directly with your child's school or the Education Authority before you book.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    {jake_tip("If your family splits term time decisions across more than one nation, such as grandparents in Scotland or a move partway through the year, don't assume whichever system you're more familiar with applies, check with the actual school your child is registered at.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Is it actually worth it? What the numbers say</h2>
+    <img src="https://images.unsplash.com/photo-1768839721719-c5ed97c1fd58?auto=format&fit=crop&w=1600&h=700&q=80" alt="Coins falling into a white piggy bank" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A Confused.com survey of 1,000 UK parents in January 2026 found 34% are planning to take their children out of school for a holiday this year, and 40% said they're unfazed by warnings, fines or legal action. Parents who've done it before reported average savings of &pound;605 per holiday, and 37% said outright that they think a fine is simply cheaper than school holiday prices.</p>
+    <p style="margin-top:14px;">The enforcement side is real too. The same research found more than &pound;41 million has been paid in fines across England and Wales, with over 873,000 fixed penalty notices issued between 2022 and 2024 based on Freedom of Information requests. Essex County Council issued more than any other authority, over 35,605 since 2022, and 32% of parents surveyed said they personally have received a fine or warning.</p>
+    <p style="margin-top:14px; margin-bottom:0;">Run your own numbers before assuming the fine is automatically the cheaper option. A &pound;605 average saving against a first offence fine of &pound;80 to &pound;160 per parent per child can genuinely still come out ahead for some families, but that gap closes fast on a second occasion, or with more than two children, or if it tips into the no-fine, straight to court category.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>How to actually handle it properly</h2>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Ask the headteacher directly and early, in writing.</b> Authorisation for term time leave is always at the headteacher's discretion and only for genuinely exceptional circumstances, never an automatic right, so a normal family holiday is unlikely to be granted. It's still always worth asking properly rather than assuming either way or just not showing up.</span></li>
+      <li><span class="num">2</span><span><b>If it's refused, weigh the real risk honestly.</b> Work out the actual fine for your own family size against the actual saving for your own trip, rather than going on "fines are cheaper" as a blanket rule. With two parents and two children, a second occurrence alone can reach &pound;640 before court is even on the table.</span></li>
+      <li><span class="num">3</span><span><b>Consider the edges of a normal school holiday instead of the middle of term.</b> Travelling right at the start or the very end of an existing half term or holiday is still authorised time, carries no fine risk at all, and is often meaningfully cheaper than the peak week in the middle, even if it's not quite as cheap as a genuine term time trip.</span></li>
+      <li><span class="num">4</span><span><b>Keep the rest of your child's attendance strong.</b> Schools and local authorities generally look at the wider pattern, not just one trip in isolation, so an otherwise excellent attendance record is viewed differently to a pattern of repeated unauthorised absence.</span></li>
+      <li><span class="num">5</span><span><b>If you are fined, pay it promptly.</b> It roughly doubles if left unpaid past the initial window, and an unpaid fine can be referred for prosecution rather than simply written off.</span></li>
+    </ul>
+    {jake_tip("If the saving is genuinely the main reason you're considering term time, message me before you book rather than after. Shifting a trip by just a few days either side of half term, or picking a destination where term time pricing isn't that different to begin with, sometimes saves you more than the fine risk is worth, without touching school time at all.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where I come in</h2>
+    <p style="margin-top:14px;">This is a decision for you, your child's school and your own family's circumstances, and I'm not going to tell you what to do with it. What I can do is help you find the holiday that works at a genuinely good price in the first place, whether that's travelling just outside the most expensive dates, picking a destination where the school holiday premium is smaller, or simply getting the best price available for the dates you've already decided on. If you want a second pair of eyes on whether a trip is actually worth the premium of proper school holiday dates, WhatsApp me and I'll run the real numbers with you.</p>
+    {jake_tip("I'd also always rather know upfront if term time dates are what you're after, so I can be straight with you about what's actually achievable on price for those dates specifically, rather than you finding out after booking that the saving wasn't what you expected.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">How much is the fine for taking a child out of school in England in 2026?</h3>
+      <p>&pound;80 per parent per child if paid within 21 days, rising to &pound;160 if paid within 22 to 28 days, for a first offence. A second offence within 3 years is a flat &pound;160 per parent per child with no reduced rate. A third offence within 3 years means no penalty notice at all, the case goes straight to the Magistrates' Court instead, with fines of up to &pound;2,500 possible.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How many days off school actually trigger a fine?</h3>
+      <p>The national threshold is 10 sessions, the equivalent of 5 full school days, of unauthorised absence within a rolling 10 school week period. The days don't need to be consecutive and can span more than one term.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do Wales, Scotland and Northern Ireland use the same fines as England?</h3>
+      <p>No. England's &pound;80 to &pound;160 figures only apply in England. Wales sets its own penalty notice amounts council by council, so the figure varies by area. Scotland and Northern Ireland don't run a fixed fine scale at all, decisions are made locally by the council or Education Authority instead.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is it actually worth taking the fine to save money on a holiday?</h3>
+      <p>Sometimes, depending on your own family's numbers. Parents who've done it report average savings of around &pound;605, which can beat a first offence fine for some families, but the gap closes quickly with more children, a second occurrence, or a trip that tips into the no-fine, straight to court category.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Want help finding a cheaper date instead?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can check real prices just outside the most expensive dates, or for a destination where the premium is smaller, before you have to weigh up a fine at all. Message me on WhatsApp and I'll run the numbers with you.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+term_time_fines_body = term_time_fines_body.replace("::NEWSLETTER::", newsletter_section())
+
+TERM_TIME_FINES_SCHEMA = article_and_faq_schema(
+    "Term Time Holiday Fines: What UK Parents Actually Need to Know in 2026",
+    "England's National Framework penalty notice fines explained with the real 2024 figures, how Wales, Scotland and Northern Ireland differ, and whether the savings genuinely outweigh the risk.",
+    "term-time-holiday-fines-uk-parents-2026.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("How much is the fine for taking a child out of school in England in 2026?", "£80 per parent per child if paid within 21 days, rising to £160 if paid within 22 to 28 days, for a first offence. A second offence within 3 years is a flat £160 per parent per child with no reduced rate. A third offence within 3 years means no penalty notice at all, the case goes straight to the Magistrates' Court instead, with fines of up to £2,500 possible."),
+        ("How many days off school actually trigger a fine?", "The national threshold is 10 sessions, the equivalent of 5 full school days, of unauthorised absence within a rolling 10 school week period. The days don't need to be consecutive and can span more than one term."),
+        ("Do Wales, Scotland and Northern Ireland use the same fines as England?", "No. England's £80 to £160 figures only apply in England. Wales sets its own penalty notice amounts council by council, so the figure varies by area. Scotland and Northern Ireland don't run a fixed fine scale at all, decisions are made locally by the council or Education Authority instead."),
+        ("Is it actually worth taking the fine to save money on a holiday?", "Sometimes, depending on your own family's numbers. Parents who've done it report average savings of around £605, which can beat a first offence fine for some families, but the gap closes quickly with more children, a second occurrence, or a trip that tips into the no-fine, straight to court category."),
+    ]
+)
+
+with open(os.path.join(SITE, "term-time-holiday-fines-uk-parents-2026.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Term Time Holiday Fines: What UK Parents Actually Need to Know in 2026 | Travel Agent Jake",
+        "England's National Framework penalty notice fines explained with the real 2024 figures, how Wales, Scotland and Northern Ireland differ, and whether the savings genuinely outweigh the risk.",
+        "travel-tips.html",
+        term_time_fines_body,
+        extra_schema=TERM_TIME_FINES_SCHEMA,
+        canonical_path="term-time-holiday-fines-uk-parents-2026.html"
+    ))
+print("term-time-holiday-fines-uk-parents-2026.html written")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -15594,6 +15774,7 @@ SITEMAP_PAGES = [
     ("passport-10-year-rule-spain-greece-turkey-egypt.html", "0.7"),
     ("summer-2028-jet2holidays-now-on-sale.html", "0.7"),
     ("eu-roaming-charges-uk-networks-2026.html", "0.7"),
+    ("term-time-holiday-fines-uk-parents-2026.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
