@@ -10569,6 +10569,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1687992176093-6417a93fa3d0?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "A family walking through an airport with their luggage",
     },
+    {
+        "slug": "esta-usa-fee-rise-2026.html",
+        "meta": "Border rules",
+        "title": "The ESTA fee for the USA has gone up again, here's how to apply properly",
+        "excerpt": "The official ESTA fee for US travel has risen twice this year, now $40.62 (around \u00a330), and copycat websites are still charging UK travellers far more than that. Here's the real cost, who actually needs one, and the one rule that keeps you from being overcharged.",
+        "image": "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "The Statue of Liberty standing before the Manhattan skyline",
+    },
 ]
 
 def tip_card(post):
@@ -16291,6 +16299,161 @@ with open(os.path.join(SITE, "term-time-holiday-fines-uk-parents-2026.html"), "w
 print("term-time-holiday-fines-uk-parents-2026.html written")
 
 
+# ---------------- TRAVEL TIPS: ESTA fee rise for the USA 2026 ----------------
+esta_usa_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>ESTA FOR THE USA: THE FEE HAS GONE UP AGAIN, HERE'S HOW TO APPLY PROPERLY</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">If you're a UK passport holder heading to the States, you'll almost certainly need an ESTA, and the official fee has just gone up for the second time this year, to $40.62 from 16 October 2026. That's still only around &pound;30, but websites that mimic the real government site have been charging UK and Irish travellers several times that for exactly the same form. Here's what an ESTA actually costs right now, who genuinely needs one, and the one rule that stops you overpaying for something that should be straightforward.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=1600&h=700&q=80" alt="The Statue of Liberty standing before the Manhattan skyline" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">An ESTA (Electronic System for Travel Authorisation) is the US government's advance authorisation for visa free visits of up to 90 days, business or tourism, for UK and other eligible passport holders arriving by air or sea. It's not a visa, there's no interview, and most applications are approved within minutes.</p>
+      <p style="margin-top:14px; margin-bottom:0;">The genuine fee for an approved application is $40.62 (roughly &pound;30 at today's exchange rate) from 16 October 2026, up from $40.27 earlier this year and just $21 before 2025. Once approved, it's valid for 2 years or until your passport expires, whichever comes first, covering unlimited trips in that time. The only place to apply is the official government site, <b>esta.cbp.dhs.gov</b>, or its official mobile app. Anywhere else charging you for an ESTA is a third party add on at best.</p>
+    </div>
+    {jake_tip("Prices in this guide are shown in pounds for clarity, but the real charge happens in US dollars on your card, so the exact amount you're billed will move slightly with the exchange rate on the day.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Why the fee keeps rising</h2>
+    <p style="margin-top:14px;">For years, an ESTA cost a flat $21. That changed in 2025, when a US federal law (the budget reconciliation act known as HR-1) introduced new mandatory fee components for ESTA and several other immigration related charges, pushing the total to around $40. Since then, the fee has been adjusted annually for inflation under that same law, which is why it's moved twice in 2026 alone.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>When</th><th>Approved application</th><th>Denied application</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Before 2025</td><td>$21 (about &pound;15.60)</td><td>Partial refund, minus a processing charge</td></tr>
+          <tr><td>From 1 January 2026</td><td>$40.27 (about &pound;30)</td><td>$10.27 (about &pound;7.65)</td></tr>
+          <tr><td>From 16 October 2026</td><td>$40.62 (about &pound;30.20)</td><td>$10.62 (about &pound;7.90)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0;">It's a genuinely small increase this time, 35 cents, but it's part of an annual pattern rather than a one off, so expect another small rise around the same time next year rather than being caught out by it.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Who actually needs one, and what it covers</h2>
+    <img src="https://images.unsplash.com/photo-1639034741369-1e0c771adaeb?auto=format&fit=crop&w=1600&h=700&q=80" alt="A passport resting on top of a laptop keyboard" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>UK passport holders visiting for up to 90 days,</b> for business or tourism, arriving by plane or cruise ship, including a brief stop or connecting flight through the US. You don't need one if you already hold a valid US visa.</span></li>
+      <li><span class="num">2</span><span><b>It's valid for 2 years or until your passport expires,</b> whichever comes first, and covers as many separate trips as you like within that time. It can't be renewed. Once it expires, you simply apply again.</span></li>
+      <li><span class="num">3</span><span><b>If you renew your passport after getting an ESTA, you'll need a new application</b> linked to the new passport number, even if the old ESTA hadn't expired yet.</span></li>
+      <li><span class="num">4</span><span><b>Every traveller needs their own approved ESTA,</b> including children and infants, each linked to their own passport.</span></li>
+      <li><span class="num">5</span><span><b>A valid ESTA doesn't guarantee entry.</b> It means you're authorised to travel to the US and request entry, the final decision is still made by a border officer when you arrive.</span></li>
+    </ul>
+    {jake_tip("If you're heading to the US via Canada or Mexico by land, ESTA isn't the right form at all, that route uses a separate I-94 process. ESTA is specifically for arriving by air or sea.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>The one rule that stops you overpaying</h2>
+    <img src="https://images.unsplash.com/photo-1733503747506-773e56e4078f?auto=format&fit=crop&w=1600&h=700&q=80" alt="A person sitting with a laptop and a credit card, paying for something online" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Apply only through <b>esta.cbp.dhs.gov</b> or the official ESTA mobile app. That's it, that's the whole rule, and it's worth repeating because it's the single most common way UK travellers end up paying far more than they should for a form that genuinely costs about &pound;30.</p>
+    <p style="margin-top:14px;">Lookalike websites that mimic the official government page are a well documented problem, not a rare scam. US Customs and Border Protection has publicly warned that these sites don't work on behalf of the government, aren't guaranteed to protect your data properly, and that money paid to them can't be refunded by the real authorities if something goes wrong. One widely reported case saw travellers charged as much as $150, around &pound;112, more than three times the genuine fee, once a lookalike site's own "processing fee" was added on top. An Irish MEP who looked into it found some sites were charging roughly ten times the real price.</p>
+    <p style="margin-top:14px; margin-bottom:0;">A simple way to check you're in the right place: the real site's address ends in <b>.gov</b>, it's run by US Customs and Border Protection, and it will never ask you to pay more than the current official fee shown above.</p>
+    {jake_tip("If you've already applied through a site you're now not sure about, check your application status directly on esta.cbp.dhs.gov using your reference number, rather than assuming it went through properly or applying again and paying twice.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Before you apply: the photo requirement, timing, and what gets you refused</h2>
+    <img src="https://images.unsplash.com/photo-1530469525856-cf37954301f7?auto=format&fit=crop&w=1600&h=700&q=80" alt="A passport silhouetted against an aeroplane window" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>You'll now need to upload a photo of your own face</b> as part of the application, alongside your passport details. The UK government's own current guidance notes that if your ESTA account doesn't have this photograph on file, you may need to apply again before you travel, so it's worth checking your existing ESTA account if you got one before this became standard.</span></li>
+      <li><span class="num">2</span><span><b>Apply at least 72 hours before you fly,</b> officially, though plenty of applications are approved within minutes. The safest habit is applying as soon as you book, rather than leaving it until the week before.</span></li>
+      <li><span class="num">3</span><span><b>Common reasons an ESTA gets refused:</b> a previous overstay or breach of US immigration rules, a criminal record, a previous deportation or removal from the US, false or inconsistent answers on the form, or having been in Iran, Iraq, Libya, North Korea, Somalia, Sudan, Syria or Yemen on or after March 2011, or in Cuba on or after 12 January 2021.</span></li>
+      <li><span class="num">4</span><span><b>There's no appeal within the ESTA system itself.</b> If you're refused, the next step is applying for a full visa through a US embassy or consulate, which involves booking an interview well ahead of travel, so it's not something to leave until close to your departure date.</span></li>
+    </ul>
+    {jake_tip("Fill the form in properly rather than quickly. Minor inconsistencies between your passport details and what you type in, even innocent typos, are a genuine cause of unnecessary refusals.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where I come in</h2>
+    <p style="margin-top:14px;">I can't apply for your ESTA for you, it has to be done by you, directly with the US government, but I'm always happy to talk through the process with you before you book a US holiday, confirm you're applying in the right place, and flag anything in your own circumstances that's worth knowing about in advance. If you're planning a trip to the States and want a second pair of eyes on the entry requirements before you go, message me on WhatsApp.</p>
+    {jake_tip("Build your ESTA application into your post booking checklist alongside things like travel insurance, rather than leaving it to the last minute. It's one of the few parts of a US trip that's genuinely in your own hands to get right early.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">How much does an ESTA cost for US travel in 2026?</h3>
+      <p>The official fee for an approved application is $40.62 (around &pound;30) from 16 October 2026, up from $40.27 earlier in the year and just $21 before 2025. A denied application costs $10.62. Always pay through the official esta.cbp.dhs.gov website or app, never a third party site.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How long does an ESTA last once it's approved?</h3>
+      <p>Two years from approval, or until your passport expires, whichever comes first, covering unlimited trips to the US of up to 90 days each for business or tourism. If you renew your passport in that time, your existing ESTA no longer applies and you'll need to apply again under the new passport.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Why do some websites charge much more than $40.62 for an ESTA?</h3>
+      <p>Third party websites that mimic the official US government site have been known to charge well over the real fee, in one widely reported case as much as $150, more than three times the genuine cost, plus their own added processing fees. US Customs and Border Protection has repeatedly warned travellers to apply only through the official esta.cbp.dhs.gov website or app, which is the only place the real fee applies.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What's the new photo requirement for ESTA?</h3>
+      <p>As part of tightening identity checks, applicants now need to upload a photo of their own face alongside their passport details. The UK government's own guidance notes that if your existing ESTA account doesn't have this photograph on file, you may need to apply again before you travel.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Got a US trip coming up?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I'll always point you to the real government site and nothing else for your ESTA, and I'm happy to run through the rest of your entry requirements before you book. Message me on WhatsApp.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+esta_usa_body = esta_usa_body.replace("::NEWSLETTER::", newsletter_section())
+
+ESTA_USA_SCHEMA = article_and_faq_schema(
+    "ESTA for the USA: The Fee Has Gone Up Again, Here's How to Apply Properly",
+    "The official ESTA fee for US travel rose to $40.62 from 16 October 2026. Who actually needs one, how long it lasts, the new photo requirement, and how to avoid the copycat websites charging UK travellers far more than the real price.",
+    "esta-usa-fee-rise-2026.html",
+    "images/pool-portrait.jpg",
+    faqs=[
+        ("How much does an ESTA cost for US travel in 2026?", "The official fee for an approved application is $40.62 (around £30) from 16 October 2026, up from $40.27 earlier in the year and just $21 before 2025. A denied application costs $10.62. Always pay through the official esta.cbp.dhs.gov website or app, never a third party site."),
+        ("How long does an ESTA last once it's approved?", "Two years from approval, or until your passport expires, whichever comes first, covering unlimited trips to the US of up to 90 days each for business or tourism. If you renew your passport in that time, your existing ESTA no longer applies and you'll need to apply again under the new passport."),
+        ("Why do some websites charge much more than $40.62 for an ESTA?", "Third party websites that mimic the official US government site have been known to charge well over the real fee, in one widely reported case as much as $150, more than three times the genuine cost, plus their own added processing fees. US Customs and Border Protection has repeatedly warned travellers to apply only through the official esta.cbp.dhs.gov website or app, which is the only place the real fee applies."),
+        ("What's the new photo requirement for ESTA?", "As part of tightening identity checks, applicants now need to upload a photo of their own face alongside their passport details. The UK government's own guidance notes that if your existing ESTA account doesn't have this photograph on file, you may need to apply again before you travel."),
+    ]
+)
+
+with open(os.path.join(SITE, "esta-usa-fee-rise-2026.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "ESTA for the USA: The Fee Has Gone Up Again, Here's How to Apply Properly | Travel Agent Jake",
+        "The official ESTA fee for US travel rose to $40.62 from 16 October 2026. Who actually needs one, how long it lasts, the new photo requirement, and how to avoid the copycat websites charging UK travellers far more than the real price.",
+        "travel-tips.html",
+        esta_usa_body,
+        extra_schema=ESTA_USA_SCHEMA,
+        canonical_path="esta-usa-fee-rise-2026.html"
+    ))
+print("esta-usa-fee-rise-2026.html written")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -16355,6 +16518,7 @@ SITEMAP_PAGES = [
     ("summer-2028-jet2holidays-now-on-sale.html", "0.7"),
     ("eu-roaming-charges-uk-networks-2026.html", "0.7"),
     ("term-time-holiday-fines-uk-parents-2026.html", "0.7"),
+    ("esta-usa-fee-rise-2026.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
