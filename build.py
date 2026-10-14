@@ -1902,6 +1902,13 @@ DESTINATION_POSTS = [
         "excerpt": "Three real TUI tours compared, weather by month, Cape Town, the Garden Route and Kruger, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1626894169601-482d26b23f35?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "lapland-finland.html",
+        "meta": "Finnish Lapland",
+        "title": "Finnish Lapland",
+        "excerpt": "Rovaniemi, Saariselka and Levi compared, weather by month, real TUI hotels and what a Santa break actually costs.",
+        "image": "https://images.unsplash.com/photo-1528155124528-06c125d81e89?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -10082,6 +10089,300 @@ print("south-africa.html written")
 
 
 
+# ---------------- LAPLAND, FINLAND ----------------
+lapland_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>FINNISH LAPLAND</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Husky and reindeer sleigh rides, a meeting with Santa Claus, and a genuine shot at the Northern Lights above the Arctic Circle, three real TUI resorts compared, weather by month and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Finnish Lapland</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1528155124528-06c125d81e89?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Northern Lights over a snowy landscape in Ylläsjärvi, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Lapland is one of the few holidays I sell where the cold is the whole point. TUI is currently the only one of my three operators, TUI, Jet2holidays and easyJet holidays, that packages it as a proper holiday, flights, transfers, accommodation and a taster of the classic activities all bundled together. Jet2 does fly seasonal charters into several Lapland airports and easyJet has recently added its own routes too, but at the time of writing neither Jet2holidays nor easyJet holidays has turned those flights into an actual package holiday, so TUI is the one I book this through.</p>
+    <p style="margin-top:14px;">It is also a different shaped trip to almost everything else in this guide. Instead of a week by a pool, you are looking at a short, high impact break built around meeting Santa, a husky or reindeer sleigh ride, and a genuine chance of seeing the aurora overhead.</p>
+    {jake_tip("I set expectations early with clients on this one. It is a short, cold, activity packed break rather than a long relaxing one, and thermal suits and boots are provided as part of the package because you will need them.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">TUI's core Lapland product is a short break, typically three or four nights, with flights, return transfers, half board accommodation, thermal clothing and a taster session of sleigh and husky rides all included as standard, plus a visit to Santa and a festive meal. Longer stays, extra activities such as snowmobiling (minimum age 12), extra husky or reindeer time, and dedicated Northern Lights tours can all be added on top. It suits families with young children especially well, since the Santa visit is built into every trip, but equally suits couples and small groups after a short, dramatic break chasing the aurora rather than a long holiday. Levi also works for anyone wanting proper downhill skiing or snowboarding alongside the classic Lapland activities, and tends to suit longer stays than a three night Santa trip.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Flights take around 3 hours 30 minutes from the UK. TUI flies from a range of regional airports including Gatwick, Manchester, Newcastle, Glasgow, Birmingham and Belfast, landing at Rovaniemi, Kittila (for Levi) or Ivalo (for Saariselka) depending on which resort you book. British Airways also now runs its own direct Gatwick to Rovaniemi service through the winter season, for anyone wanting to book flights independently of a package.</p>
+    {jake_tip("All transfers between the airport and your hotel are included in a TUI package, and your full itinerary, including which day each activity happens, is confirmed through the TUI Santa Trips app a couple of days before you travel.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Lapland sits either on or above the Arctic Circle, so winters are long, dark and properly cold, and summers bring near constant daylight instead.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>-7&deg;C</td><td>-14&deg;C</td><td>Deep snow, short days and prime Northern Lights viewing</td></tr>
+          <tr><td>February</td><td>-7&deg;C</td><td>-13&deg;C</td><td>Usually the coldest, driest and snowiest month</td></tr>
+          <tr><td>March</td><td>-2&deg;C</td><td>-9&deg;C</td><td>Still deep snow but noticeably longer, brighter days</td></tr>
+          <tr><td>April</td><td>4&deg;C</td><td>-4&deg;C</td><td>Snow starts to thin, a quieter shoulder month</td></tr>
+          <tr><td>May</td><td>11&deg;C</td><td>2&deg;C</td><td>Snow mostly gone, light returning fast</td></tr>
+          <tr><td>June</td><td>17&deg;C</td><td>8&deg;C</td><td>Midnight sun, no real darkness at all</td></tr>
+          <tr><td>July</td><td>20&deg;C</td><td>11&deg;C</td><td>Warmest month, still very long daylight hours</td></tr>
+          <tr><td>August</td><td>17&deg;C</td><td>9&deg;C</td><td>Mild and green, nights start drawing back in</td></tr>
+          <tr><td>September</td><td>11&deg;C</td><td>4&deg;C</td><td>Autumn colour, aurora season begins again</td></tr>
+          <tr><td>October</td><td>3&deg;C</td><td>-2&deg;C</td><td>First snow usually arrives, darker evenings</td></tr>
+          <tr><td>November</td><td>-2&deg;C</td><td>-7&deg;C</td><td>Snow builds up, a good value shoulder month</td></tr>
+          <tr><td>December</td><td>-4&deg;C</td><td>-11&deg;C</td><td>The classic snowy Christmas look, busiest and priciest month</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Average high and low temperatures for Rovaniemi, sourced via climate-zone.com (1991 to 2020 averages).</p>
+    <p style="margin-top:14px;">The Northern Lights can appear any time the sky is dark enough, roughly September through to March, with the long, properly dark nights of December to February generally rated the best odds, weather and solar activity allowing. There is no guarantee on any single trip, since it comes down to clear skies and the aurora actually being active that night.</p>
+    {jake_tip("June and July flip the whole picture, with the midnight sun above the Arctic Circle meaning it never really gets dark. It is a completely different trip to the snowy winter one, worth knowing if a client pictures Lapland as snow all year round.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">December is the classic choice for the full snowy Christmas look and the best odds of a white landscape for a Santa visit, though it is also the busiest and most expensive month by some distance. January to March tends to offer better value, deeper snow cover and longer, darker nights for Northern Lights hunting, at the cost of some seriously low temperatures. November is a quieter, cheaper shoulder month, though snow cover can be hit or miss that early in the season.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1580212763260-cec90c2f3ff7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A snow covered wooden cottage in Ylläsjärvi, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>TUI sells Lapland across three main resort areas, each with its own character and its own named hotels, and all bookable through TUI.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1514773896690-40d0fd46f143?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A reindeer pulling a sleigh through snow in Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Rovaniemi</h3>
+        <p>Santa Claus's official hometown, right on the Arctic Circle line itself, and the easiest base for a classic short break built around Santa Claus Village, husky and reindeer sleigh rides and a central city with restaurants and shops. Named hotels include Hotel Santa Claus, Arctic City Hotel, Santasport Hotel and the Christmas Cottages.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1546205811-43c360b42f1c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of snow covered wilderness forest in Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Saariselka</h3>
+        <p>Finland's northernmost resort, set among the fells of Urho Kekkonen National Park, further above the Arctic Circle and generally quieter and darker, which makes it a strong choice for Northern Lights hunting. Named hotels include Santa's Hotel Tunturi, Holiday Club Saariselka and Hotel Snowflake and Apartments.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1737055821828-5a0fc8ea89c2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The sun setting over a snowy landscape in Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Levi</h3>
+        <p>Lapland's biggest ski resort, with proper downhill pistes alongside the usual husky, reindeer and Santa activities, so the one I point skiers and snowboarders towards. Named hotels include Hotel K5 Levi, Levi Panorama, Crazy Reindeer and the Lapland Hotel Sirkantahti.</p>
+      </div>
+    </div>
+    {jake_tip("Facilities, board basis and exact inclusions vary by hotel and by resort, so I always confirm the live details for a specific hotel before a client books.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Return airport transfers are included in every TUI package, and your included activities, such as the husky or reindeer sleigh taster, are collected from and returned to your hotel as part of the trip. You do not need to arrange anything yourself once you land. Anyone wanting to explore further independently, or combine more than one resort in a single trip, can also self drive, since Finland drives on the right, the opposite side to the UK.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1672878198678-d61df5fc791f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A team of husky sled dogs in the snow in Finnish Lapland" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A husky ride, a reindeer sleigh ride and a visit to Santa are included as standard on a TUI break, but most clients add at least one extra activity once they are there. These are some of the best rated options around Rovaniemi.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="300692,320613,952146,301148"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/rovaniemi-l2653/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/rovaniemi-l2653/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Rovaniemi &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">One named hotel from each resort area, all bookable through TUI.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Rovaniemi</div>
+        <img src="https://images.unsplash.com/photo-1672878198678-d61df5fc791f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A husky sled team in the snow near Rovaniemi" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Santa Claus</h3>
+        <p>A well known, centrally located hotel in Rovaniemi itself, a short walk from the city centre and themed around its Santa Claus namesake. The one I'd point first time Lapland families towards for an easy, central base. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Saariselka</div>
+        <img src="https://images.unsplash.com/photo-1546205811-43c360b42f1c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Snow covered wilderness forest near Saariselka, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Holiday Club Saariselka</h3>
+        <p>A large resort hotel with its own spa and pools, set right among the fells inside Urho Kekkonen National Park, among the best placed bases in Finland for a quiet, dark sky and a genuine shot at the aurora. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Levi</div>
+        <img src="https://images.unsplash.com/photo-1737055821828-5a0fc8ea89c2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset over the snowy slopes at Levi, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel K5 Levi</h3>
+        <p>A modern, boutique style hotel close to the lifts at Levi, Lapland's biggest ski resort. The one I'd suggest for a family wanting to combine proper skiing with the classic Lapland activities. Bookable through TUI.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three ways to see Lapland with TUI</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1584379749556-02820fae0d19?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A snowmobile in the snow in Finnish Lapland" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>All three of TUI's main resorts are genuine, bookable holidays rather than a generic add on, and each suits a slightly different client.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1514773896690-40d0fd46f143?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A reindeer sleigh ride in the snow near Rovaniemi" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Rovaniemi, the classic Santa break</h3>
+        <p>A three or four night short break built around Santa Claus Village, crossing the Arctic Circle line itself, and the included husky and reindeer sleigh taster. The easiest, most central option, and the one I book most often for families with young children.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1546205811-43c360b42f1c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Snow covered wilderness fells near Saariselka" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Saariselka, the wilderness and aurora break</h3>
+        <p>A quieter, darker base further north among the fells of Urho Kekkonen National Park, with the same included activities plus cross country skiing and snowshoeing on the doorstep. The one I book when Northern Lights viewing is the main priority.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1737055821828-5a0fc8ea89c2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Snowy ski slopes at sunset in Levi, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Levi, the ski and Santa break</h3>
+        <p>Lapland's biggest ski resort, for clients who want proper downhill skiing or snowboarding built around the same core Lapland activities, and generally the resort I steer longer stays and keen skiers towards.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">TUI's own "from" pricing for a three to four night Lapland break generally starts from around &pound;900 to &pound;1,350 per adult at time of writing, covering flights, transfers, accommodation, half board and the included activity taster, and moves around a great deal with resort, hotel, dates and departure airport.</p>
+    {jake_tip("TUI's Design Your Trip tool also sells a genuine self drive, land only multi centre tour combining Rovaniemi and Saariselka in one trip for anyone who wants to see both. It does not include flights, so I book the flights separately alongside it, just ask me for current pricing.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1514773896690-40d0fd46f143?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A reindeer sleigh in the snow at Santa Claus Village, Rovaniemi" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Santa Claus Village &amp; the Arctic Circle line</h3>
+        <p>A purpose built village right on the Arctic Circle line itself, just outside Rovaniemi, where you can meet Santa in his grotto year round and get a certificate for crossing into the Arctic Circle. Included as standard on a TUI Rovaniemi break.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1672878198678-d61df5fc791f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Husky sled dogs in the snow near Ranua, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Ranua Wildlife Park</h3>
+        <p>An Arctic zoo around an hour south of Rovaniemi, home to polar bears, brown bears, wolverines and lynx in large outdoor enclosures. A popular full day add on for families staying in or around Rovaniemi.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1546205811-43c360b42f1c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Snow covered forest in Urho Kekkonen National Park, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Urho Kekkonen National Park</h3>
+        <p>A vast wilderness national park right on Saariselka's doorstep, criss crossed with cross country skiing and snowshoeing trails through the fells. One of the best spots in Finland for a dark sky and genuine aurora hunting.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1737055821828-5a0fc8ea89c2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Snowy ski slopes at Levi fell, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Levi fell</h3>
+        <p>Lapland's largest ski area, with pistes for every ability plus a gondola up to the summit for Northern Lights viewing or simply the view, even for clients who are not skiing themselves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Finland uses the Euro. Most of a TUI Lapland break is already paid for upfront, since flights, transfers, accommodation, half board and your included activity are all bundled into the package price, but these are typical costs for anything extra, converted to pounds sterling at a rate of roughly &pound;1 to &euro;1.18.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;12.68 (about &euro;15.00)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;3.71 (about &euro;4.39)</td></tr>
+          <tr><td>Domestic draught beer, a pint</td><td>&pound;6.34 (about &euro;7.50)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;1.70 (about &euro;2.01)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;6.76 (about &euro;8.00)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages via Numbeo (Finland), checked at time of writing. Euro to pound sterling conversion is approximate and moves around day to day, so treat these as a guide rather than an exact figure.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (EUR)</td></tr>
+          <tr><td>Plug type</td><td>Type C and Type F, different from the UK's Type G, so you will need a travel adaptor. Mains supply is 230V</td></tr>
+          <tr><td>Language</td><td>Finnish and Swedish are the official languages, with English very widely spoken in hotels, airports and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 3 hours 30 minutes from Gatwick and other UK airports to Rovaniemi, Kittila or Ivalo</td></tr>
+          <tr><td>Time difference</td><td>2 hours ahead of the UK all year round, since both countries move their clocks forward and back on the same dates</td></tr>
+          <tr><td>Entry requirements</td><td>Finland is in the Schengen area. UK passport holders can currently visit visa free for up to 90 days in any 180 day period, and your passport needs at least 3 months validity remaining beyond your planned departure date. The EU's new ETIAS travel authorisation is expected to apply from late 2026, see my full <a href="ees-etias-explained.html">EES and ETIAS guide</a> for the detail</td></tr>
+          <tr><td>Driving</td><td>Right hand side, the opposite of the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Lucas Marcomini, Colin White, Norman Tsui, Tania Malrechauffe, Robert Tjalondo, Ozgu Ozden, Joakim Honkasalo and Henniina Salomaki via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Lapland for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around the classic Rovaniemi Santa break, a quieter Northern Lights hunt from Saariselka, a ski break at Levi, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+lapland_body = lapland_body.replace("::NEWSLETTER::", newsletter_section())
+
+LAPLAND_SCHEMA = article_and_faq_schema(
+    "Finnish Lapland: Jake's Destination Guide",
+    "Jake's honest guide to Finnish Lapland: Rovaniemi, Saariselka and Levi compared, weather by month, real TUI hotels and what a Santa break actually costs.",
+    "lapland-finland.html",
+    "https://images.unsplash.com/photo-1528155124528-06c125d81e89?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator sells Lapland holidays?", "TUI is currently the only one of the three operators Jake sells, TUI, Jet2holidays and easyJet holidays, that packages Finnish Lapland as a flight inclusive holiday. Jet2 and easyJet both now fly seasonal routes into Lapland airports, but neither has bundled those flights into a Jet2holidays or easyJet holidays package at the time of writing."),
+        ("How long is a typical Lapland holiday?", "TUI's core product is a short break of three or four nights, including flights, transfers, half board accommodation, thermal clothing and a taster of husky and reindeer sleigh rides. Longer stays and extra activities can be added, and Levi in particular suits longer stays for skiing."),
+        ("When is the best time to see the Northern Lights in Lapland?", "The Northern Lights can appear any time the sky is dark enough, roughly September to March, with the long, dark nights of December to February generally rated the best odds. There is never a guarantee on any single trip, since it depends on clear skies and the aurora being active that night."),
+        ("Do I need a visa for Finland?", "UK passport holders can visit Finland, which is in the Schengen area, visa free for up to 90 days in any 180 day period, with at least 3 months of passport validity remaining. The EU's ETIAS travel authorisation is expected to apply from late 2026."),
+        ("Which Lapland resort should I book?", "Rovaniemi is the easiest, most central choice and the one built most directly around Santa Claus Village. Saariselka is quieter and further north, which suits Northern Lights hunting best. Levi is Lapland's biggest ski resort, for anyone wanting proper skiing alongside the classic activities."),
+    ]
+)
+with open(os.path.join(SITE, "lapland-finland.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Finnish Lapland: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Finnish Lapland: Rovaniemi, Saariselka and Levi compared, weather by month, real TUI hotels and what a Santa break actually costs.",
+        "destinations.html",
+        lapland_body,
+        extra_schema=LAPLAND_SCHEMA,
+        canonical_path="lapland-finland.html"
+    ))
+print("lapland-finland.html written")
+
+
+
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
     {
@@ -16029,6 +16330,7 @@ SITEMAP_PAGES = [
     ("zanzibar.html", "0.6"),
     ("kenya.html", "0.6"),
     ("south-africa.html", "0.6"),
+    ("lapland-finland.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
