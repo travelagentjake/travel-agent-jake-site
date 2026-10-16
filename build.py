@@ -1890,6 +1890,13 @@ DESTINATION_POSTS = [
         "excerpt": "Walt Disney World, Universal Orlando Resort and International Drive compared, weather by month, real TUI hotels and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1597466599360-3b9775841aec?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "japan.html",
+        "meta": "Japan",
+        "title": "Japan",
+        "excerpt": "How TUI's Discover Japan escorted tour works, weather by month and what a trip through Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto actually costs.",
+        "image": "https://images.unsplash.com/photo-1558862107-d49ef2a04d72?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -10629,6 +10636,263 @@ print("orlando.html written")
 
 
 
+japan_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>JAPAN</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Tokyo's neon streets, Mount Fuji, a bullet train route through Takayama, Kanazawa, Hiroshima and Kyoto. The one genuine way I can currently book Japan, exactly how it works, what it costs and what to expect.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Japan</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1547448526-5e9d57fa28f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Crowds crossing the Shibuya scramble intersection at night in Tokyo" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Japan comes up in conversation more than almost any other long haul destination I get asked about, but it's also one of the more unusual ones for me to book. Unlike most of what I sell, there's no simple flight and hotel package to a single resort or city. TUI is currently the only one of my three operators, TUI, Jet2holidays and easyJet holidays, that sells Japan at all, since neither Jet2holidays nor easyJet holidays flies long haul yet. And even through TUI, Japan isn't sold as a stay in one place, it's a single fully escorted tour called Discover Japan.</p>
+    <p style="margin-top:14px;">It's a proper 12 night route through six stops, Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto, with flights, hotels, transfers, a local English speaking guide and a run of included experiences all built in. It isn't cheap, current prices start from around &pound;5,127 per person, but everything from the flights down to the bullet train tickets is arranged for you, which a lot of clients find genuinely reassuring for a first trip somewhere this different.</p>
+    {jake_tip("I always set expectations early that this is the one Japan option I can currently book: a single escorted tour, not a pick your own hotel package. If you want a fully independent, build it yourself Japan itinerary, that's a different conversation, and not something I can book through TUI, Jet2holidays or easyJet holidays.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">The tour runs 12 nights, 14 days including the two flight days, and TUI rates it as an active pace tour, meaning early starts, some long days on the bullet train or coach, and a fair amount of walking at each stop. There's a minimum tour age of 16 and a maximum group size of 25. It suits couples, friends travelling together, honeymooners after something different from the usual beach week, and anyone who has always wanted to properly see Japan rather than just tick off Tokyo. It's less suited to young families given the minimum age, to anyone wanting a slower, more relaxing pace, or to anyone who only wants a few days in Tokyo itself, since this tour covers the whole route in one booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">TUI flies into Tokyo Narita International Airport from a choice of UK departure airports, including Manchester, Gatwick, Heathrow, Edinburgh and Glasgow, with the exact routing, direct or via a connecting hub, depending on your chosen airport and date. Flight time is upwards of 12 hours even on a direct service, more on an indirect one, so this is very much a long haul trip. All flights, transfers, bullet train travel and coach transport between each stop on the tour are included in the TUI package price and protected under TUI's ATOL licence.</p>
+    <p style="margin-top:14px;">UK passport holders currently travel to Japan visa free for tourist stays of up to 90 days, with no advance paperwork needed beyond a passport valid for the length of your stay. Japan has announced a new pre travel digital screening system called JESTA, broadly similar to Europe's ETIAS scheme, but based on current reporting it isn't expected to become mandatory before 2028 at the earliest, so it won't affect a booking made for the tour's current April to September departures. I'll flag it here if that changes.</p>
+    {jake_tip("Because this is a fully escorted tour with a minimum age of 16, it isn't the holiday to book if you're travelling with younger children. For a family trip to Japan I'd need to look at a fully independent, tailor made itinerary instead, since none of my three main operators currently sell Japan any other way.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Tokyo has four distinct seasons: a cold, dry winter, a mild spring that brings cherry blossom, a hot and humid summer with a rainy season at its start, and a crisp fogbrooming autumn known for its colour. Figures below are for Tokyo, the natural reference point for the whole route, though Kanazawa on the tour sees noticeably more rain and snow, and Kyoto's inland position makes its summers hotter and its winters colder still.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>9&deg;C</td><td>3&deg;C</td><td>Cold and the driest month of the year, with crisp, clear skies common</td></tr>
+          <tr><td>February</td><td>10&deg;C</td><td>4&deg;C</td><td>Still cold and dry, plum blossom season begins</td></tr>
+          <tr><td>March</td><td>13&deg;C</td><td>7&deg;C</td><td>Warming quickly, cherry blossom season usually starts towards the end of the month</td></tr>
+          <tr><td>April</td><td>18&deg;C</td><td>12&deg;C</td><td>Mild and one of the best months to see cherry blossom, rain picks up through the month</td></tr>
+          <tr><td>May</td><td>23&deg;C</td><td>17&deg;C</td><td>Warm, settled and one of the most comfortable months to visit</td></tr>
+          <tr><td>June</td><td>26&deg;C</td><td>20&deg;C</td><td>Tsuyu, the rainy season, begins, warm and increasingly humid</td></tr>
+          <tr><td>July</td><td>29&deg;C</td><td>24&deg;C</td><td>Hot, humid and often wet, Kyoto's Gion Matsuri festival runs mid month</td></tr>
+          <tr><td>August</td><td>30&deg;C</td><td>25&deg;C</td><td>The hottest and most humid month of the year</td></tr>
+          <tr><td>September</td><td>27&deg;C</td><td>21&deg;C</td><td>Still hot and humid with typhoon season risk, cooling begins late in the month</td></tr>
+          <tr><td>October</td><td>22&deg;C</td><td>16&deg;C</td><td>Cooler and drier, a comfortable month for a lot of walking</td></tr>
+          <tr><td>November</td><td>17&deg;C</td><td>11&deg;C</td><td>Best month for autumn leaves, especially from mid to late in the month</td></tr>
+          <tr><td>December</td><td>12&deg;C</td><td>6&deg;C</td><td>Cold, dry and clear, winter illuminations light up the cities</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Average high and low temperatures for Tokyo, converted from data via weatherspark.com (long term averages).</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">TUI currently only runs the Discover Japan tour in April, May, June and September, so it's worth being honest about what that does and doesn't line up with. April catches the tail end of cherry blossom season in most years and is the most popular, and priciest, departure month, from around &pound;5,476 per person. May is warm and settled, a genuinely comfortable shoulder month and better value, from around &pound;5,322 per person. June departures run into the start of the tsuyu rainy season, warmer and more humid with a higher chance of rain, but also the cheapest of the four months alongside September, from around &pound;5,183 per person. September is TUI's lowest priced departure month, from around &pound;5,127 per person, though it still carries typhoon season risk and the humidity of summer hasn't fully broken. There currently aren't any TUI departures in the winter months, over the autumn leaves season in November, or in July and August, so if a client's heart is set on seeing snow at the temples or the full blaze of autumn colour, I have to be upfront that this particular tour can't currently get them there.</p>
+    {jake_tip("With only four departure months a year and a maximum group size of 25, popular dates, especially April's cherry blossom departures, can sell out well in advance. I always suggest booking as early as possible once a date is decided.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The Discover Japan route</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1558862107-d49ef2a04d72?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A stone path through a tunnel of orange torii gates in Kyoto, Japan" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Because this is one escorted tour rather than a pick your own hotel holiday, where you stay is set by the itinerary. Here's how the 12 nights break down across the six stops.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1573456373835-579c408de263?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of the Shibuya crossing area in Tokyo" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Tokyo</h3>
+        <p>Two nights at the start of the tour and a final night at the end before flying home, with a city tour taking in Asakusa's Sensoji Temple and the Meiji Jingu shrine. Hotel standard is 3 or 4 star, chosen by TUI for location rather than named in advance.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Mount Fuji rising above the clouds, Japan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hakone &amp; Mount Fuji</h3>
+        <p>One night at Hakone, with views of Mount Fuji and a boat trip on Lake Ashi, before the tour moves on by bullet train. Same 3 to 4 star hotel standard throughout.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1753600517946-a2a3f2f90dfb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A traditional street in Takayama's old town, Japan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Takayama &amp; Shirakawago</h3>
+        <p>Two nights in the beautifully preserved old town of Takayama, with walking tours there and at the thatched roof village of Shirakawago, a UNESCO World Heritage Site.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1637846931849-d1748990481b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Kenrokuen Garden in Kanazawa, Japan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Kanazawa</h3>
+        <p>One night in Kanazawa, with a bus tour taking in Kenrokuen, rated as one of Japan's three great gardens, and the chance to explore the city's well preserved samurai and geisha districts.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1504109586057-7a2ae83d1338?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The floating torii gate of Itsukushima Shrine near Hiroshima, Japan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hiroshima &amp; Miyajima</h3>
+        <p>Two nights in Hiroshima, with a tram tour of the city, the Peace Memorial Museum and Atomic Bomb Dome, and a boat trip out to Miyajima to see the floating torii gate at Itsukushima Shrine.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1632923754832-60642c12a7ed?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The bamboo grove at Arashiyama, Kyoto, Japan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Kyoto &amp; Nara</h3>
+        <p>Three nights in Kyoto, the longest single stop on the tour, including a visit to Nara to see its famous bowing deer on the way in, a Kyoto city tour, and a walk through the Arashiyama bamboo grove.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">TUI doesn't name individual hotels in advance for this tour, only that they're a mix of 3 and 4 star standard across the six stops, with breakfast included throughout plus a handful of extra lunches and dinners built into the included experiences. I'll confirm exact hotels with you once a specific departure date is booked.</p>
+    {jake_tip("Your main luggage doesn't travel with you on the bullet train between stops. TUI's tour uses Japan's Takkyubin door to door delivery service instead, at roughly &pound;13 to &pound;16 per case, arranged by your tour guide. Worth packing a smaller overnight bag for the train travel days themselves.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1709455905432-b73f6ae077a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A Shinkansen bullet train passing a mountain in Japan" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Everything on this tour, bullet train travel, coaches and transfers between each of the six stops, is arranged and included as part of the TUI package, with a local English speaking guide throughout, so there's genuinely nothing to organise yourself once you've booked. If you extend your own time in Tokyo or Kyoto before or after the tour, Japan's public transport is some of the most reliable in the world: an IC card such as Suica or Pasmo covers trains, subways and buses in every city on the route, tapping in and out much like an Oyster card, and also works for small purchases in convenience stores and vending machines.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;">Beyond the tour's own included experiences, these are some of the best rated extra things to do in Tokyo, worth adding on if you extend your stay there before or after the tour.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="792363,215997,260407,1042988"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/tokyo-l193/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/tokyo-l193/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Tokyo &rarr;</a>
+      </div>
+    </div>
+    <p style="margin-top:18px;">Further along the route in Kyoto, popular extras include a traditional tea ceremony, a kimono hire experience, and an evening walking tour of the Gion geisha district, all bookable locally through your tour guide or in advance through GetYourGuide.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1785637981940-0ec1cfefed10?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An immersive digital light installation at teamLab Planets, Tokyo" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">teamLab Planets, Tokyo</h3>
+        <p>An immersive digital art museum in Toyosu where you walk barefoot through water and mirrored rooms of shifting light and colour. A genuinely different few hours, and a good one to add on around the tour's Tokyo nights.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1706813253696-10ee6332edd3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Visitors at Sensoji Temple in the Asakusa district of Tokyo" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sensoji Temple, Asakusa</h3>
+        <p>Tokyo's oldest temple, approached through the Kaminarimon gate and a long street of traditional shops. Included on the tour's own Tokyo city stop, and worth a second visit in the evening when it's quieter.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1551801288-45c95df0a7c9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A deer at Nara Park, Japan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Nara's deer park</h3>
+        <p>Over a thousand wild sika deer roam freely around Nara's temples and are used to being hand fed special crackers sold nearby. A short stop built into the tour's journey from Hiroshima to Kyoto.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1761141954476-2921e2e43e99?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A traditional temple with cherry blossoms at sunset in Kyoto, Japan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Kiyomizu-dera, Kyoto</h3>
+        <p>A UNESCO listed wooden temple on a hillside above Kyoto, with a famous wooden stage and sweeping views over the city. Not on the tour's set itinerary, but an easy add on during the three nights in Kyoto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Japan uses the Japanese Yen. Flights, hotels, most meals and the included experiences are already covered in the TUI tour price, but these are typical everyday costs for extra meals, drinks and taxis, converted to pounds sterling at a rate of roughly &pound;1 to &yen;210.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;5.71 (about &yen;1,200)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;2.68 (about &yen;563)</td></tr>
+          <tr><td>Domestic draught beer, a pint</td><td>&pound;2.86 (about &yen;600)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;0.67 (about &yen;140)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;2.38 (about &yen;500)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd sourced averages via Numbeo (Tokyo), checked at time of writing. Yen to pound sterling conversion is approximate and moves around day to day, so treat these as a guide rather than an exact figure.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Japanese Yen (JPY)</td></tr>
+          <tr><td>Plug type</td><td>Type A, different from the UK's Type G, so you'll need a travel adaptor, and Japan runs on 100V against the UK's 230V, so some appliances also need a voltage converter</td></tr>
+          <tr><td>Language</td><td>Japanese</td></tr>
+          <tr><td>Flight time from the UK</td><td>Upwards of 12 hours to Tokyo Narita, more on an indirect routing</td></tr>
+          <tr><td>Time difference</td><td>9 hours ahead of the UK in winter, 8 hours ahead during British Summer Time, since Japan doesn't change its own clocks</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders currently travel visa free for stays of up to 90 days. Japan's planned JESTA digital screening system isn't expected to be mandatory before 2028 at the earliest</td></tr>
+          <tr><td>Minimum tour age</td><td>16, so this tour isn't suited to young families</td></tr>
+          <tr><td>Driving</td><td>Left hand side, same as the UK, though this tour is fully guided with no need to drive yourself</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: David Emrich, Timo Volz, Denys Nevozhai, JJ Ying, Airu, Dino Johannes, Nicki Eliza Schinow, Thuy Duong Nguyen, Jiachen Lin, Zion C, Tim D and Nathalie Lays via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Japan for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can talk you through the Discover Japan tour, check real departure dates and pricing, and let you know honestly whether it's the right fit before you book anything.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+japan_body = japan_body.replace("::NEWSLETTER::", newsletter_section())
+
+JAPAN_SCHEMA = article_and_faq_schema(
+    "Japan: Jake's Destination Guide",
+    "Jake's honest guide to Japan: how TUI's Discover Japan escorted tour works, weather by month, what's included and what a trip to Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto actually costs.",
+    "japan.html",
+    "https://images.unsplash.com/photo-1558862107-d49ef2a04d72?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator sells Japan package holidays?", "TUI is currently the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that sells Japan at all. Neither Jet2holidays nor easyJet holidays flies long haul at the moment."),
+        ("Is Japan sold as a flight and hotel package or a tour?", "As a single escorted tour called Discover Japan: 12 nights covering Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto, with flights, hotels, transport and a local guide all included. There's currently no pick your own hotel TUI package for Japan."),
+        ("When can I book a Japan departure?", "TUI currently only runs this tour in April, May, June and September, with no departures the rest of the year."),
+        ("Do I need a visa for Japan?", "UK passport holders currently travel visa free for stays of up to 90 days. Japan's planned JESTA digital screening system isn't expected to be mandatory before 2028 at the earliest."),
+        ("Is there a minimum age for the tour?", "Yes, 16, so this isn't suited to young families. The maximum group size is 25."),
+    ]
+)
+with open(os.path.join(SITE, "japan.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Japan: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Japan: how TUI's Discover Japan escorted tour works, weather by month, what's included and what a trip to Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto actually costs.",
+        "destinations.html",
+        japan_body,
+        extra_schema=JAPAN_SCHEMA,
+        canonical_path="japan.html"
+    ))
+print("japan.html written")
+
+
+
+
 
 # ---------------- TRAVEL TIPS (index) ----------------
 TIPS_POSTS = [
@@ -16741,6 +17005,7 @@ SITEMAP_PAGES = [
     ("south-africa.html", "0.6"),
     ("lapland-finland.html", "0.6"),
     ("orlando.html", "0.6"),
+    ("japan.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
