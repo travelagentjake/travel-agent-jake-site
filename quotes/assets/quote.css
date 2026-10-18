@@ -247,3 +247,9 @@ html,body{overflow-x:clip}
 .upo .up b{font-family:'Archivo Black',sans-serif;font-size:18px;display:block;line-height:1.1}
 .upo .up small{font-size:12px;font-weight:700}
 .upg .upn{font-size:13px;color:var(--muted);margin:10px 0 0}
+
+/* arrows on area guide photo strips */
+.agwrap{position:relative}
+.agwrap .arr{z-index:2;top:calc(50% - 8px)}
+.agwrap .arr.l{left:8px}.agwrap .arr.r{right:8px}
+@media (max-width:560px){.agwrap .arr{width:38px;height:38px;font-size:20px}}

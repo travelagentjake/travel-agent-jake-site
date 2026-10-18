@@ -451,10 +451,11 @@
   /* lightbox */
   var lbH = null, lbI = 0;
   function hotel(id) { for (var i = 0; i < hotels.length; i++) if (hotels[i].id === id) return hotels[i]; }
-  function lbShow() { var x = hotel(lbH); var im = document.getElementById('lbImg'); im.src = img(x.imgs[lbI], 1800); im.alt = x.name + ' photo ' + (lbI + 1); document.getElementById('lbCap').textContent = x.name + '  ' + (lbI + 1) + ' / ' + x.imgs.length; }
-  function lbOpen(id, i) { lbH = id; lbI = i || 0; lbShow(); document.getElementById('lb').classList.add('on'); document.body.style.overflow = 'hidden'; }
+  var lbG = null; /* custom photo galleries (area guides) use their own list */
+  function lbShow() { if (lbG) { var g = lbG[lbI], gi = document.getElementById('lbImg'); gi.src = g.src; gi.alt = g.cap; document.getElementById('lbCap').textContent = g.cap + '  ' + (lbI + 1) + ' / ' + lbG.length; return; } var x = hotel(lbH); var im = document.getElementById('lbImg'); im.src = img(x.imgs[lbI], 1800); im.alt = x.name + ' photo ' + (lbI + 1); document.getElementById('lbCap').textContent = x.name + '  ' + (lbI + 1) + ' / ' + x.imgs.length; }
+  function lbOpen(id, i) { lbG = null; lbH = id; lbI = i || 0; lbShow(); document.getElementById('lb').classList.add('on'); document.body.style.overflow = 'hidden'; }
   function lbClose() { document.getElementById('lb').classList.remove('on'); document.body.style.overflow = ''; }
-  function lbStep(d) { var n = hotel(lbH).imgs.length; lbI = (lbI + d + n) % n; lbShow(); }
+  function lbStep(d) { var n = lbG ? lbG.length : hotel(lbH).imgs.length; lbI = (lbI + d + n) % n; lbShow(); }
   var list = document.getElementById('hotelList');
   if (list) list.addEventListener('click', function (e) {
     var z = e.target.closest('[data-zoom]'); if (z) { var tr = z.parentNode.querySelector('.track'); lbOpen(z.dataset.zoom, Math.round(tr.scrollLeft / tr.clientWidth)); return; }
@@ -468,6 +469,25 @@
   (function () { var x0 = null, el = document.getElementById('lb');
     el.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
     el.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) lbStep(dx < 0 ? 1 : -1); x0 = null; }, { passive: true }); })();
+
+  /* photo strips inside custom sections (area guides): arrows to flick through, tap a photo for full screen */
+  Array.prototype.forEach.call(document.querySelectorAll('.custom .agstrip'), function (st) {
+    var wrap = document.createElement('div'); wrap.className = 'agwrap'; st.parentNode.insertBefore(wrap, st); wrap.appendChild(st);
+    ['l', 'r'].forEach(function (side) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'arr ' + side; b.setAttribute('aria-label', side === 'l' ? 'Previous photo' : 'Next photo'); b.innerHTML = side === 'l' ? '&#8249;' : '&#8250;';
+      b.addEventListener('click', function () {
+        var f = st.querySelector('figure'), w = f ? f.offsetWidth + 10 : 300, max = st.scrollWidth - st.clientWidth, nx = st.scrollLeft + (side === 'l' ? -w : w);
+        if (nx > max + 5) nx = 0; else if (nx < -5) nx = max;
+        st.scrollTo({ left: nx, behavior: 'smooth' });
+      });
+      wrap.appendChild(b);
+    });
+    var pics = Array.prototype.map.call(st.querySelectorAll('img'), function (im) { return { src: im.currentSrc || im.src, cap: im.alt }; });
+    Array.prototype.forEach.call(st.querySelectorAll('img'), function (im, i) {
+      im.style.cursor = 'zoom-in';
+      im.addEventListener('click', function () { lbG = pics; lbI = i; lbShow(); document.getElementById('lb').classList.add('on'); document.body.style.overflow = 'hidden'; });
+    });
+  });
 
   /* GetYourGuide widgets load after the page is built */
 
