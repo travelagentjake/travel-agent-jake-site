@@ -297,3 +297,4 @@ html,body{overflow-x:clip}
 .wxa{margin:0;padding-left:18px;font-size:15px;line-height:1.5}
 .wxa li{margin:4px 0}
 .bkfull{background:var(--pill);border-radius:12px;padding:10px 14px;font-weight:700;margin:0}
+.snav a[hidden],section[hidden]{display:none!important}

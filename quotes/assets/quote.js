@@ -348,10 +348,14 @@
       + '<table><tbody>' + rows + '</tbody><tfoot><tr><td>Total</td><td class="n">' + fmt(Math.round(sum * 100) / 100) + '</td></tr>'
       + (people > 1 ? '<tr class="pp"><td>' + (x.free ? 'About per paying person (' + x.free + (Number(x.free) === 1 ? ' child goes' : ' children go') + ' free)' : 'About per person') + '</td><td class="n">' + money(sum / Math.max(1, people - Number(x.free || 0))) + '</td></tr>' : '') + '</tfoot></table>'
       + (deposit || today ? '<div class="today"><b>To pay today: ' + fmt(Math.round((deposit + today) * 100) / 100) + '</b><span>' + (deposit ? gbp(deposit) + ' deposit' : '') + (today ? (deposit ? ' plus ' : '') + fmt(Math.round(today * 100) / 100) + ' for your airport extras, which are paid in full when you book' : '') + '. ' + (Q.departDate ? 'The rest of the holiday is the balance, spread in the calculator below.' : '') + '</span></div>' : '')
-      + (extras.length ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">the extras for this hotel</a>.') + (multi ? '' : '') + '</p>' : '');
+      + (extras.some(function (e) { return fits(e, x); }) ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">the extras for this hotel</a>.') + (multi ? '' : '') + '</p>' : '');
     var xs = document.getElementById('xSum');
     /* only show extras that go with the hotel picked */
     Array.prototype.forEach.call(document.querySelectorAll('[data-x]'), function (c) { var e = extras.filter(function (z) { return z.id === c.dataset.x; })[0], card = c.closest('.xcard'); if (e && card) card.hidden = !fits(e, x); });
+    /* no extras for the hotel picked: hide the whole section and its menu link */
+    var anyFit = extras.some(function (e) { return fits(e, x); });
+    var xs0 = document.getElementById('extras'); if (xs0) xs0.hidden = !anyFit;
+    var xnav = document.querySelector('.snav a[href="#extras"]'); if (xnav) xnav.hidden = !anyFit;
     Array.prototype.forEach.call(document.querySelectorAll('[data-xp]'), function (el) { var e = extras.filter(function (z) { return z.id === el.dataset.xp; })[0]; if (e && e.prices) el.innerHTML = xPriceLine(e); });
     if (xs) { var all = xFor(x), tot = all.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0); xs.innerHTML = all.length ? '<b>' + all.length + ' extra' + (all.length > 1 ? 's' : '') + ' added' + (tot ? ', ' + fmt(Math.round(tot * 100) / 100) : '') + '</b><a class="btn btn-y" href="#fullCost">See your full holiday cost</a>' : ''; }
   }
