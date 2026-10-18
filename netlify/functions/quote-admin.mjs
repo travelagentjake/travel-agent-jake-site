@@ -5,10 +5,12 @@
 //        { action: "request-file", id, index }   -> { name, type, b64 }
 //        { action: "request-delete", id }
 //        { action: "views-reset", slug }
+//        { action: "quote-status", slug, status: "open" | "booked" | "closed" }  (booked also marks the customer's enquiry booked)
+//        { action: "sync-bookings" }  starts a check of the sales dashboard for new bookings
 // Quote requests and their uploaded files live in Netlify Blobs ("quote-requests", "quote-files"), never in the git repo.
 // A request for someone who is not already in the dashboard also creates their customer profile in "enquiries".
 import { getStore } from "@netlify/blobs";
-import { json } from "../lib/pw.mjs";
+import { json, SITE } from "../lib/pw.mjs";
 
 const STATUSES = ["requested", "building", "sent", "booked", "closed"];
 const st = (name) => getStore({ name, consistency: "strong" });
@@ -27,7 +29,10 @@ export default async (req) => {
     const rlist = (await reqs.list()).blobs;
     const r = (await Promise.all(rlist.map((b) => reqs.get(b.key, { type: "json" }).catch(() => null)))).filter(Boolean);
     r.sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""));
-    return json({ views: v, requests: r });
+    const sl = (await st("quote-status").list()).blobs, statuses = {};
+    await Promise.all(sl.map(async (b) => { statuses[b.key] = await st("quote-status").get(b.key, { type: "json" }).catch(() => null); }));
+    const sync = await st("booking-sync").get("last", { type: "json" }).catch(() => null);
+    return json({ views: v, requests: r, statuses, sync });
   }
 
   const b = await req.json().catch(() => ({}));
@@ -65,6 +70,27 @@ export default async (req) => {
     };
     await reqs.setJSON(id, rq);
     return json({ ok: true, request: rq });
+  }
+
+  if (b.action === "quote-status") {
+    const slug = clean(b.slug, 40).toLowerCase();
+    if (!["open", "booked", "closed"].includes(b.status)) return json({ error: "Unknown status" }, 400);
+    const rec = { status: b.status, at: new Date().toISOString(), via: "dashboard" };
+    await st("quote-status").setJSON(slug, rec);
+    if (b.status === "booked") {
+      const reg = await fetch(SITE + "/quotes/quotes.json?cb=" + Date.now()).then((x) => x.json()).catch(() => ({ quotes: [] }));
+      const q = (reg.quotes || []).find((x) => x.slug === slug);
+      if (q && q.enquiryId) {
+        const es = st("enquiries"), e = await es.get(q.enquiryId, { type: "json" }).catch(() => null);
+        if (e && e.status !== "booked") { e.status = "booked"; e.statusAt = rec.at; await es.setJSON(e.id, e); }
+      }
+    }
+    return json({ ok: true, status: rec });
+  }
+
+  if (b.action === "sync-bookings") {
+    await fetch(SITE + "/.netlify/functions/booking-sync-background", { method: "POST", headers: { "x-admin-key": process.env.PW_ADMIN_KEY } }).catch(() => {});
+    return json({ ok: true, started: true });
   }
 
   if (b.action === "views-reset") {

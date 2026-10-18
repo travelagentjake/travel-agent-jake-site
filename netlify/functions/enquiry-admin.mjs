@@ -6,7 +6,7 @@ import { json } from "../lib/pw.mjs";
 import { loadLogo, pdfName, b64 } from "../lib/enquiry-lib.mjs";
 import { buildEnquiryPdf } from "../lib/enquiry-pdf.mjs";
 
-const STATUSES = ["new", "contacted", "quoted", "done", "closed"];
+const STATUSES = ["new", "contacted", "quoted", "booked", "done", "closed"];
 const store = () => getStore({ name: "enquiries", consistency: "strong" });
 
 export default async (req) => {

@@ -96,6 +96,7 @@
 .ea-badge.s-new{background:var(--yellow);}
 .ea-badge.s-contacted{background:#dfe9ff;border-color:#99ACFF;}
 .ea-badge.s-quoted{background:#e3f4ea;border-color:#118A5B;color:#0a5c3b;}
+.ea-badge.s-booked{background:#118A5B;border-color:#118A5B;color:#fff;}
 .ea-badge.s-done{background:#118A5B;border-color:#118A5B;color:#fff;}
 .ea-badge.s-closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478;}
 .ea-sum{margin:12px 0 0;font-size:15px;}
@@ -157,7 +158,7 @@
 
 <script>
 (function(){
-  var KEY_NAME='taj-enq-admin-key', STATUSES=[['new','New'],['contacted','Contacted'],['quoted','Quote sent'],['done','Done'],['closed','Closed']];
+  var KEY_NAME='taj-enq-admin-key', STATUSES=[['new','New'],['contacted','Contacted'],['quoted','Quote sent'],['booked','Booked'],['done','Done'],['closed','Closed']];
   var data=[], filter='open', open={}, key='';
   function $(i){return document.getElementById(i);}
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
@@ -173,9 +174,9 @@
   function label(s){for(var i=0;i<STATUSES.length;i++){if(STATUSES[i][0]===s)return STATUSES[i][1];}return s;}
   function pre(q){return q.kind==='prereg2028';}
 
-  function counts(){var c={open:0,all:data.length};STATUSES.forEach(function(s){c[s[0]]=0;});data.forEach(function(q){var s=q.status||'new';c[s]=(c[s]||0)+1;if(s!=='done'&&s!=='closed')c.open++;});return c;}
+  function counts(){var c={open:0,all:data.length};STATUSES.forEach(function(s){c[s[0]]=0;});data.forEach(function(q){var s=q.status||'new';c[s]=(c[s]||0)+1;if(s!=='done'&&s!=='closed'&&s!=='booked')c.open++;});return c;}
   function renderStats(){
-    var c=counts();var items=[['open','Open',c.open],['new','New',c['new']],['contacted','Contacted',c.contacted],['quoted','Quote sent',c.quoted],['done','Done',c.done],['closed','Closed',c.closed],['all','All',c.all]];
+    var c=counts();var items=[['open','Open',c.open],['new','New',c['new']],['contacted','Contacted',c.contacted],['quoted','Quote sent',c.quoted],['booked','Booked',c.booked],['done','Done',c.done],['closed','Closed',c.closed],['all','All',c.all]];
     $('eaStats').innerHTML=items.map(function(i){return '<button type="button" class="ea-stat" data-f="'+i[0]+'" aria-pressed="'+(filter===i[0])+'"><b>'+i[2]+'</b><span>'+i[1]+'</span></button>';}).join('');
     Array.prototype.forEach.call($('eaStats').querySelectorAll('button'),function(b){b.addEventListener('click',function(){filter=b.dataset.f;render();});});
   }
@@ -183,7 +184,7 @@
     var term=$('eaSearch').value.trim().toLowerCase(), type=$('eaType').value;
     return data.filter(function(q){
       var s=q.status||'new';
-      if(filter==='open'){if(s==='done'||s==='closed')return false;}else if(filter!=='all'&&s!==filter)return false;
+      if(filter==='open'){if(s==='done'||s==='closed'||s==='booked')return false;}else if(filter!=='all'&&s!==filter)return false;
       if(type==='enquiry'&&pre(q))return false; if(type==='prereg2028'&&!pre(q))return false;
       if(term){var hay=[q.firstName,q.lastName,q.email,q.phone,q.destination,q.holidayType].join(' ').toLowerCase();if(hay.indexOf(term)<0)return false;}
       return true;});

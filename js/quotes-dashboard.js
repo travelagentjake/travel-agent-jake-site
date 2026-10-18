@@ -6,7 +6,7 @@
 (function () {
   var KEY_NAME = 'taj-enq-admin-key';
   var QUOTE_HOST = 'https://quotes.travelagentjake.co.uk/';
-  var S = { quotes: [], views: {}, requests: [], enquiries: [], tab: 'enq', openHist: {} };
+  var S = { quotes: [], views: {}, requests: [], enquiries: [], statuses: {}, sync: null, showDone: false, tab: 'enq', openHist: {} };
   var RSTAT = [['requested', 'Requested'], ['building', 'Being built'], ['sent', 'Sent'], ['booked', 'Booked'], ['closed', 'Closed']];
   function $(i) { return document.getElementById(i); }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -34,6 +34,9 @@
     + '.qd-gen{margin-left:auto;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:10px 18px;font:800 15px inherit;font-family:inherit;cursor:pointer}'
     + '.qd-h{font-family:"Archivo Black",sans-serif;font-size:22px;margin:6px 0 12px}'
     + '.qd-card{background:#fff;border:2px solid var(--ink);border-radius:16px;padding:16px 18px;margin-bottom:14px;box-shadow:5px 5px 0 #d5dbea}'
+    + '.qd-done{opacity:.75}.qd-pill.booked{background:#118A5B;border-color:#118A5B;color:#fff}.qd-pill.closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478}'
+    + '.qd-sync{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff;border:2px dashed #d5dbea;border-radius:14px;padding:10px 14px;margin-bottom:14px;font-size:14px;color:#5b6478}'
+    + '.qd-booked{background:#e3f4ea;border:2px solid #118A5B;color:#0a5c3b;border-radius:12px;padding:8px 12px;font-weight:700;font-size:14px;margin-top:12px}'
     + '.qd-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start}'
     + '.qd-name{font-family:"Archivo Black",sans-serif;font-size:18px;margin:0}'
     + '.qd-meta{font-size:13px;color:#5b6478}'
@@ -83,7 +86,7 @@
       api('/api/enquiry-admin', 'GET')
     ]).then(function (res) {
       S.quotes = (res[0] && res[0].quotes) || [];
-      if (res[1].j) { S.views = res[1].j.views || {}; S.requests = res[1].j.requests || []; }
+      if (res[1].j) { S.views = res[1].j.views || {}; S.requests = res[1].j.requests || []; S.statuses = res[1].j.statuses || {}; S.sync = res[1].j.sync || null; }
       if (res[2].j && res[2].j.enquiries) S.enquiries = res[2].j.enquiries;
       renderPane(); decorate();
     });
@@ -91,6 +94,13 @@
 
   /* ---------- Quotes pane ---------- */
   function viewsOf(slug) { return S.views[slug] || { views: 0, opens: [] }; }
+  /* a quote is booked or closed when Jake marks it, or booked when its customer's enquiry is booked */
+  function qState(q) {
+    var s = S.statuses[q.slug], e = enq(q.enquiryId);
+    if (s && s.status !== 'open') return s.status;
+    if (!s && e && e.status === 'booked') return 'booked';
+    return 'open';
+  }
   function quoteCard(q) {
     var v = viewsOf(q.slug), e = enq(q.enquiryId), url = quoteUrl(q);
     var hello = 'Hi ' + (q.customer || (e && e.firstName) || '') + ", it's Jake from Travel Agent Jake. Here's your personal holiday quote, have a look and let me know what you think: " + url;
@@ -98,13 +108,15 @@
     var live = v.lastView && (Date.now() - Date.parse(v.lastView) < 5 * 60000);
     var comeback = (v.opens || []).some(function (o, i, a) { return a[i + 1] && Date.parse(o.t) - Date.parse(a[i + 1].t) >= 86400000; });
     var hist = (v.opens || []).slice(0, showAll ? 100 : 6).map(function (o) { return '<div>' + esc(nice(o.t)) + ' &#183; ' + esc(o.device || '') + (o.place ? ' &#183; ' + esc(o.place) : '') + (o.from ? ' &#183; via ' + esc(o.from) : '') + '</div>'; }).join('');
-    return '<article class="qd-card" data-slug="' + esc(q.slug) + '"><div class="qd-row"><div><h3 class="qd-name">' + esc(q.customer || '') + '</h3><div class="qd-meta">' + esc(q.title || '') + (q.created ? ' &#183; made ' + esc(q.created) : '') + '</div>'
+    var st = qState(q);
+    return '<article class="qd-card' + (st !== 'open' ? ' qd-done' : '') + '" data-slug="' + esc(q.slug) + '"><div class="qd-row"><div><h3 class="qd-name">' + esc(q.customer || '') + (st !== 'open' ? ' <span class="qd-pill ' + st + '">' + (st === 'booked' ? 'Booked' : 'Closed') + '</span>' : '') + '</h3><div class="qd-meta">' + esc(q.title || '') + (q.created ? ' &#183; made ' + esc(q.created) : '') + '</div>'
       + '<a class="qd-link" href="' + esc(url) + '?jake=1" target="_blank" rel="noopener">' + esc(url.replace('https://', '')) + '</a></div>'
       + '<div class="qd-views"><b>' + (v.views || 0) + '</b><span>view' + (v.views === 1 ? '' : 's') + '</span>' + (live ? '<div class="qd-live">Viewing now</div>' : '') + (v.lastView ? '<div class="qd-meta">Last opened ' + esc(ago(v.lastView)) + '</div>' : '<div class="qd-meta">Not opened yet</div>') + (comeback ? '<div class="qd-keen">Came back after 24 hrs</div>' : '') + '</div></div>'
       + '<div class="qd-act"><a class="ea-btn" href="' + esc(url) + '?jake=1" target="_blank" rel="noopener">Open</a>'
       + '<button class="ea-btn" type="button" data-qa="amend" style="background:var(--yellow)">Amend quote</button>'
       + '<button class="ea-btn" type="button" data-qa="copy" data-url="' + esc(url) + '">Copy link</button>'
       + (e && e.phone ? '<a class="ea-btn wa" target="_blank" rel="noopener" href="https://wa.me/' + waNum(e.phone) + '?text=' + encodeURIComponent(hello) + '">Send on WhatsApp</a>' : '')
+      + (st === 'open' ? '<button class="ea-btn" type="button" data-qa="qbooked" style="background:#118A5B;border-color:#118A5B;color:#fff">Booked</button><button class="ea-btn" type="button" data-qa="qclosed">Close</button>' : '<button class="ea-btn" type="button" data-qa="qopen">Reopen</button>')
       + ((v.opens || []).length > 6 ? '<button class="ea-btn" type="button" data-qa="hist">' + (showAll ? 'Show fewer' : 'Show all ' + v.opens.length + ' opens') + '</button>' : '') + '</div>'
       + (hist ? '<div class="qd-small">When it was opened</div><div class="qd-hist">' + hist + '</div>' : '') + '</article>';
   }
@@ -125,8 +137,11 @@
   function renderPane() {
     var open = S.requests.filter(function (r) { return r.status === 'requested' || r.status === 'building'; });
     var rest = S.requests.filter(function (r) { return !(r.status === 'requested' || r.status === 'building'); });
-    var qs = S.quotes.slice().sort(function (a, b) { return String(b.created || '').localeCompare(String(a.created || '')); });
-    paneQ.innerHTML = '<h2 class="qd-h">Quote links</h2>' + (qs.length ? qs.map(quoteCard).join('') : '<p class="qd-empty">No quote pages yet.</p>')
+    var all = S.quotes.slice().sort(function (a, b) { return String(b.created || '').localeCompare(String(a.created || '')); });
+    var qs = all.filter(function (q) { return qState(q) === 'open'; }), done = all.filter(function (q) { return qState(q) !== 'open'; });
+    var sy = S.sync, syncLine = '<div class="qd-sync"><span>' + (sy ? (sy.ok ? 'Sales dashboard checked ' + esc(ago(sy.at)) + (sy.matched && sy.matched.length ? ', last check marked ' + sy.matched.map(function (m) { return esc(m.name); }).join(', ') + ' as booked' : '') : 'Bookings check failed: ' + esc(sy.error || '')) : 'Bookings are checked against your sales dashboard every hour') + '</span><button class="ea-btn" type="button" data-qa="sync">Check bookings now</button></div>';
+    paneQ.innerHTML = syncLine + '<h2 class="qd-h">Quote links</h2>' + (qs.length ? qs.map(quoteCard).join('') : '<p class="qd-empty">No open quotes.</p>')
+      + (done.length ? '<button class="ea-btn" type="button" data-qa="showdone" style="margin:4px 0 10px">' + (S.showDone ? 'Hide' : 'Show') + ' booked and closed quotes (' + done.length + ')</button>' + (S.showDone ? done.map(quoteCard).join('') : '') : '')
       + '<h2 class="qd-h" style="margin-top:26px">Quote requests waiting to be built</h2>' + (open.length ? open.map(reqCard).join('') : '<p class="qd-empty">Nothing waiting. Click Generate quote to start one.</p>')
       + (rest.length ? '<h2 class="qd-h" style="margin-top:26px">Older requests</h2>' + rest.map(reqCard).join('') : '');
   }
@@ -134,6 +149,16 @@
     var b = e.target.closest('[data-qa]'); if (!b || b.tagName === 'SELECT') return; var act = b.dataset.qa;
     if (act === 'copy') return copy(b.dataset.url, 'Quote link copied');
     if (act === 'amend') return openAmend(b.closest('[data-slug]').dataset.slug);
+    if (act === 'showdone') { S.showDone = !S.showDone; renderPane(); return; }
+    if (act === 'sync') { b.disabled = true; b.textContent = 'Checking...'; api('/api/quote-admin', 'POST', { action: 'sync-bookings' }).then(function () { toast('Checking your sales dashboard, this can take a minute'); setTimeout(function () { load(); if (window.taj_enq_reload) window.taj_enq_reload(); }, 45000); }); return; }
+    if (act === 'qbooked' || act === 'qclosed' || act === 'qopen') {
+      var sl = b.closest('[data-slug]').dataset.slug, ns = act === 'qbooked' ? 'booked' : act === 'qclosed' ? 'closed' : 'open';
+      api('/api/quote-admin', 'POST', { action: 'quote-status', slug: sl, status: ns }).then(function (x) {
+        if (x.j && x.j.ok) { S.statuses[sl] = x.j.status; if (ns === 'booked') { var qq = S.quotes.filter(function (z) { return z.slug === sl; })[0], ee = qq && enq(qq.enquiryId); if (ee) ee.status = 'booked'; } renderPane(); toast(ns === 'open' ? 'Reopened' : ns === 'booked' ? 'Marked booked' : 'Closed'); }
+        else toast('Could not save');
+      });
+      return;
+    }
     if (act === 'hist') { var slug = b.closest('[data-slug]').dataset.slug; S.openHist[slug] = !S.openHist[slug]; renderPane(); return; }
     var card = b.closest('[data-req]'); if (!card) return; var r = S.requests.filter(function (x) { return x.id === card.dataset.req; })[0]; if (!r) return;
     if (act === 'brief') return copy(brief(r), 'Brief copied. Paste it to Claude');
@@ -181,7 +206,9 @@
       var id = String(c.dataset.id || '').toLowerCase();
       var qs = S.quotes.filter(function (q) { return String(q.enquiryId || '').toLowerCase() === id; });
       var rs = S.requests.filter(function (r) { return String(r.enquiryId || '').toLowerCase() === id && !qs.some(function (q) { return q.slug === r.slug; }); });
-      var html = '<div class="qd-small">Quotes</div>'
+      var en = S.enquiries.filter(function (x) { return String(x.id || '').toLowerCase() === id; })[0];
+      var html = (en && en.status === 'booked' && en.booked ? '<div class="qd-booked">Booked' + (en.booked.ref ? ', ref ' + esc(en.booked.ref) : '') + (en.booked.supplier ? ' with ' + esc(en.booked.supplier) : '') + (en.booked.via ? ' (found in your ' + esc(en.booked.via) + ')' : '') + '</div>' : '')
+        + '<div class="qd-small">Quotes</div>'
         + qs.map(function (q) { var v = viewsOf(q.slug); return '<div class="qd-mini"><a href="' + esc(quoteUrl(q)) + '?jake=1" target="_blank" rel="noopener"><b>' + esc(q.title || q.slug) + '</b></a><span class="qd-meta">' + (v.views || 0) + ' view' + (v.views === 1 ? '' : 's') + (v.lastView ? ', last ' + esc(ago(v.lastView)) : ', not opened yet') + '</span></div>'; }).join('')
         + rs.map(function (r) { return '<div class="qd-mini"><span>' + esc(r.title || ('Quote for ' + r.customerName)) + '</span><span class="qd-pill ' + esc(r.status) + '">' + esc(r.status) + '</span></div>'; }).join('')
         + (qs.length || rs.length ? '' : '<div class="qd-empty">No quotes yet.</div>')
