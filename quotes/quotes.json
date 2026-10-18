@@ -30,6 +30,17 @@
       "created": "2026-10-18",
       "departs": "2027-06-07",
       "fromPrice": 4479
+    },
+    {
+      "slug": "emilyshort",
+      "url": "https://quotes.travelagentjake.co.uk/emilyshort",
+      "customer": "Emily Short",
+      "enquiryId": "muyj28s9839k",
+      "quoteRequestId": "mvdr4nvi7lze",
+      "title": "Summer 2028 family group, Turkey, Algarve and Rhodes",
+      "created": "2026-10-18",
+      "departs": "2028-07-19",
+      "fromPrice": 18096
     }
   ]
 }

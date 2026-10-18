@@ -7,7 +7,7 @@
      facts: [[label, value]], partyLabel ("all 11"), whatsappName,
      compareIntro, hotelsIntro,
      hotels: [{ id, match, name, area, country, rating, reviews, transfer (minutes), slides (bool),
-                badge, total, pp, tax (tourist tax paid at the hotel, £ for the party), taxNote, rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
+                badge, total, pp (per paying person when free > 0), free (number of free child places), tax (tourist tax paid at the hotel, £ for the party), taxNote, rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
      extras: [{ id, cat, title, text, price (unit price), unit ("per person", "per car for 8 days"),
                 units (defaults to partyCount for "per person", else 1), separate (bool: not part of the tour operator booking, so not in the direct debits),
                 prices: { <hotel id>: total for the party } for prices that change by hotel (room upgrades, private transfers),
@@ -17,7 +17,7 @@
      extras may also have group: extras in the same group are either or (one villa upgrade at a time)
      touristTax: { amount, note }   // default tourist tax for every hotel; a hotel's own tax/taxNote wins. Required on every quote (CMA).
      sections: [{ id, title, intro, html, after: "hotels" | "trip" | "todo" }],   // custom sections from Jake's notes
-     flights: { intro, legs: [{ tag, date, from, fromCode, to, toCode, dep, arr, dur, carrier }] },
+     flights: { intro, legs: [{ group (optional heading, e.g. the hotels these flights are for), tag, date, from, fromCode, to, toCode, dep, arr, dur, carrier }] },
      rooms: [], included: [],
      areas: [{ img, title, text }],
      areas: [{ img, title, text, alt, link (GetYourGuide page, affiliate code added automatically), linkLabel }],
@@ -189,7 +189,10 @@
   if (Q.flights) {
     var F = Q.flights;
     h += '<section id="trip"><div class="wrap"><h2 class="h2">Flights and rooms</h2>' + (F.intro ? '<p class="intro">' + esc(F.intro) + '</p>' : '') + '<div class="trip">';
+    var lastGrp = null;
     (F.legs || []).forEach(function (l) {
+      /* legs can be grouped by hotel when options fly to different airports: { group: "Eftalia Village and Eftalia Splash" } */
+      if (l.group && l.group !== lastGrp) { h += '<h3 class="fgrp">' + esc(l.group) + '</h3>'; lastGrp = l.group; }
       h += '<div class="flight"><div class="top2"><span class="tg">' + esc(l.tag) + '</span><span class="ft">' + esc(l.date) + '</span></div>'
         + '<div class="rt"><div><div class="cd">' + esc(l.fromCode) + '</div><div class="tm">' + esc(l.dep) + '</div></div>'
         + '<svg width="80" height="20" viewBox="0 0 80 20" aria-hidden="true"><line x1="2" y1="10" x2="60" y2="10" stroke="#99ACFF" stroke-width="2" stroke-dasharray="4 4"></line><path d="M64 4l12 6-12 6 2-6z" fill="#FFD21F"></path></svg>'
@@ -317,9 +320,9 @@
     el.innerHTML = '<h3>Your full holiday cost</h3>'
       + (multi ? '<label class="fbl" for="fHotel">Hotel</label><select id="fHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '')
       + '<table><tbody>' + rows + '</tbody><tfoot><tr><td>Total</td><td class="n">' + fmt(Math.round(sum * 100) / 100) + '</td></tr>'
-      + (people > 1 ? '<tr class="pp"><td>About per person</td><td class="n">' + money(sum / people) + '</td></tr>' : '') + '</tfoot></table>'
+      + (people > 1 ? '<tr class="pp"><td>' + (x.free ? 'About per paying person (' + x.free + ' children go free)' : 'About per person') + '</td><td class="n">' + money(sum / Math.max(1, people - Number(x.free || 0))) + '</td></tr>' : '') + '</tfoot></table>'
       + (deposit || today ? '<div class="today"><b>To pay today: ' + fmt(Math.round((deposit + today) * 100) / 100) + '</b><span>' + (deposit ? gbp(deposit) + ' deposit' : '') + (today ? (deposit ? ' plus ' : '') + fmt(Math.round(today * 100) / 100) + ' for your airport extras, which are paid in full when you book' : '') + '. ' + (Q.departDate ? 'The rest of the holiday is the balance, spread in the calculator below.' : '') + '</span></div>' : '')
-      + (extras.length ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">parking, fast track, room upgrades and more</a>.') + (multi ? '' : '') + '</p>' : '');
+      + (extras.length ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">the extras for this hotel</a>.') + (multi ? '' : '') + '</p>' : '');
     var xs = document.getElementById('xSum');
     /* only show extras that go with the hotel picked */
     Array.prototype.forEach.call(document.querySelectorAll('[data-x]'), function (c) { var e = extras.filter(function (z) { return z.id === c.dataset.x; })[0], card = c.closest('.xcard'); if (e && card) card.hidden = !fits(e, x); });
@@ -401,13 +404,13 @@
     var t = document.getElementById('ctable'); if (!t) return;
     t.innerHTML = ordered().map(function (x) {
       return '<tr><td><a href="#h-' + esc(x.id) + '">' + esc(x.name) + '</a></td><td>' + esc(x.area) + '</td><td><span class="stars">' + (x.rating ? x.rating.toFixed(1) : '') + '</span>' + (x.rating ? ' / 5' : '') + '</td><td>' + mins(x.transfer) + '</td>'
-        + (anySlides ? '<td>' + (x.slides ? '<span class="yes">Yes</span>' : '<span class="no">No</span>') + '</td>' : '') + '<td class="n"><b>' + gbp(x.total) + '</b></td><td class="n">' + gbp(x.pp) + '</td></tr>';
+        + (anySlides ? '<td>' + (x.slides ? '<span class="yes">Yes</span>' : '<span class="no">No</span>') + '</td>' : '') + '<td class="n"><b>' + gbp(x.total) + '</b></td><td class="n">' + gbp(x.pp) + (x.free ? '<br><small>' + x.free + ' kids free</small>' : '') + '</td></tr>';
     }).join('');
     /* phones get a stacked list instead of the wide table */
     var m = document.getElementById('cmob'); if (m) m.innerHTML = ordered().map(function (x) {
       return '<a class="crow" href="#h-' + esc(x.id) + '"><span class="cn"><b>' + esc(x.name) + '</b><span>' + esc(x.area)
         + (x.rating ? ' &#183; ' + x.rating.toFixed(1) + '/5' : '') + (x.transfer ? ' &#183; ' + mins(x.transfer) + ' transfer' : '') + (anySlides && x.slides ? ' &#183; Slides' : '') + '</span></span>'
-        + '<span class="cp"><b>' + gbp(x.total) + '</b>' + (x.pp ? '<span>' + gbp(x.pp) + 'pp</span>' : '') + '</span></a>';
+        + '<span class="cp"><b>' + gbp(x.total) + '</b>' + (x.pp ? '<span>' + gbp(x.pp) + 'pp' + (x.free ? ', ' + x.free + ' kids free' : '') + '</span>' : '') + '</span></a>';
     }).join('');
   }
   function renderHotels() {
@@ -423,7 +426,7 @@
         + '<p>' + esc(x.why) + '</p>'
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
         + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
-        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + ' per person<br>' : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - Number(Q.depositTotal || 0)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">or about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
+        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + (x.free ? ' per paying person<br><span class="freec">' + x.free + ' free child places included</span><br>' : ' per person<br>') : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - Number(Q.depositTotal || 0)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">or about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
         /* optional in-card upgrade, e.g. a resort's deluxe collection: { title, text, perks: [], options: [{ name, price }], note } */
         + (x.upgrade && x.upgrade.options && x.upgrade.options.length ? '<div class="upg"><div class="upgh">' + esc(x.upgrade.title || 'Upgrade option') + '</div>' + (x.upgrade.text ? '<p>' + esc(x.upgrade.text) + '</p>' : '')
           + (x.upgrade.perks && x.upgrade.perks.length ? '<ul>' + x.upgrade.perks.map(function (k) { return '<li>' + esc(k) + '</li>'; }).join('') + '</ul>' : '')

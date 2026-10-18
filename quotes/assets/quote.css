@@ -253,3 +253,8 @@ html,body{overflow-x:clip}
 .agwrap .arr{z-index:2;top:calc(50% - 8px)}
 .agwrap .arr.l{left:8px}.agwrap .arr.r{right:8px}
 @media (max-width:560px){.agwrap .arr{width:38px;height:38px;font-size:20px}}
+
+/* free child places and per hotel flight groups */
+.price .freec{display:inline-block;margin-top:4px;background:#FFD21F;color:#0A1A3F;font-weight:800;font-size:12px;border-radius:999px;padding:3px 10px}
+.trip .fgrp{grid-column:1/-1;margin:18px 0 0;font-family:'Archivo Black',sans-serif;font-size:18px;color:#004AAD}
+.trip .fgrp:first-child{margin-top:0}
