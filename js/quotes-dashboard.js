@@ -293,8 +293,8 @@
             var ds = (Array.isArray(A.dates) ? A.dates : (Q.dates || []));
             if (!ds.length) return '';
             return '<div class="qd-small" style="margin-top:16px">Other dates and prices</div>' + ds.map(function (d) {
-              return '<div class="qd-card" style="box-shadow:none;margin:8px 0;padding:12px" data-did="' + esc(d.id) + '" data-dlabel="' + esc(d.label) + '" data-dnote="' + esc(d.note || '') + '" data-dcur="' + (d.current ? 1 : 0) + '">'
-                + '<label style="display:flex;gap:10px;align-items:center;margin:0;font-weight:800"><input type="checkbox" data-f="dshow" style="width:22px;height:22px"' + (d.hidden ? '' : ' checked') + '> ' + esc(d.label) + (d.current ? ' (quoted dates, uses the hotel price above)' : '') + '</label>'
+              return '<div class="qd-card" style="box-shadow:none;margin:8px 0;padding:12px" data-did="' + esc(d.id) + '" data-dlabel="' + esc(d.label) + '" data-dnote="' + esc(d.note || '') + '" data-dcur="' + (d.current ? 1 : 0) + '" data-dhotel="' + esc(d.hotel || '') + '">'
+                + '<label style="display:flex;gap:10px;align-items:center;margin:0;font-weight:800"><input type="checkbox" data-f="dshow" style="width:22px;height:22px"' + (d.hidden ? '' : ' checked') + '> ' + esc(d.label) + (d.hotel ? ' &#183; ' + esc(((Q.hotels || []).filter(function (x) { return x.id === d.hotel; })[0] || {}).name || d.hotel) : '') + (d.current ? ' (quoted dates, uses the hotel price above)' : '') + '</label>'
                 + '<div class="qd-two"><div><label>Total (&#163;)</label><input data-f="dtotal" inputmode="decimal" value="' + esc(d.total != null ? d.total : '') + '"></div><div><label>Per person (&#163;)</label><input data-f="dpp" inputmode="decimal" value="' + esc(d.pp != null ? d.pp : '') + '"></div></div></div>';
             }).join('');
           })()
@@ -341,7 +341,7 @@
         var dcards = f.querySelectorAll('[data-did]'), newDates;
         if (dcards.length) newDates = Array.prototype.map.call(dcards, function (c) {
           var o = { id: c.dataset.did, label: c.dataset.dlabel, note: c.dataset.dnote, total: c.querySelector('[data-f="dtotal"]').value.replace(/[^\d.]/g, ''), pp: c.querySelector('[data-f="dpp"]').value.replace(/[^\d.]/g, '') };
-          if (c.dataset.dcur === '1') o.current = true;
+          if (c.dataset.dcur === '1') o.current = true; if (c.dataset.dhotel) o.hotel = c.dataset.dhotel;
           if (!c.querySelector('[data-f="dshow"]').checked) o.hidden = true;
           return o;
         });

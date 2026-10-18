@@ -34,6 +34,7 @@ export function sanitizeDates(list) {
     const o = { id: clean(d.id, 40).toLowerCase().replace(/[^a-z0-9-]/g, "") || "d" + (i + 1), label: clean(d.label, 120), note: clean(d.note, 200) };
     const t = num(d.total); if (t !== undefined) o.total = t;
     const p = num(d.pp); if (p !== undefined) o.pp = p;
+    if (d.hotel) o.hotel = clean(d.hotel, 40);
     if (d.current) o.current = true;
     if (d.hidden) o.hidden = true;
     return o;

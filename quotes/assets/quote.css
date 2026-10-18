@@ -226,3 +226,11 @@ html,body{overflow-x:clip}
 @media (max-width:900px){.dcar .dcard{flex-basis:calc((100% - 14px)/2)}}
 @media (max-width:560px){.dcar .dcard{flex-basis:70%}}
 .acar .arr.l{left:-22px}.acar .arr.r{right:-22px}
+/* flight segments and connection waits */
+.segs{list-style:none;margin:12px 0 0;padding:12px 0 0;border-top:1px solid rgba(255,255,255,.18);display:grid;gap:6px;font-size:14px}
+.segs li{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline}
+.segs .fn{background:rgba(255,255,255,.14);border-radius:6px;padding:1px 7px;font-weight:800;font-size:12px}
+.segs .ar{color:var(--yellow)}.segs em{font-style:normal;color:#DCE3FF;font-size:12px;flex-basis:100%}
+.segs li.wait{color:var(--yellow);font-size:13px;padding-left:4px}
+.dcar[hidden]{display:none}
+.xcard[hidden]{display:none}

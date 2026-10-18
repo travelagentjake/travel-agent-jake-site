@@ -111,6 +111,7 @@
   var who = Q.whatsappName || Q.customer;
   var party = Q.partyLabel || 'everyone';
   var hotels = Q.hotels || [];
+  function hotelName(id) { var f = hotels.filter(function (x) { return x.id === id; })[0]; return f ? f.name : ''; }
   var multi = hotels.length > 1;
   var anySlides = hotels.some(function (h) { return h.slides; });
 
@@ -128,7 +129,14 @@
   if (Q.flights) nav.push(['trip', 'Flights and rooms']);
   var dates = (Q.dates || []).filter(function (d) { return d && d.label && !d.hidden && d.total != null && d.total !== '' && !isNaN(Number(d.total)); });
   /* the quoted dates always show the hotel price, so amending the hotel price keeps them in step */
-  if (hotels.length === 1) dates = dates.map(function (d) { if (!d.current) return d; var o = {}; for (var k in d) o[k] = d[k]; o.total = hotels[0].total; o.pp = hotels[0].pp; return o; });
+  dates = dates.map(function (d) {
+    if (!d.current) return d;
+    var hh = d.hotel ? hotels.filter(function (x) { return x.id === d.hotel; })[0] : (hotels.length === 1 ? hotels[0] : null);
+    if (!hh) return d;
+    var o = {}; for (var k in d) o[k] = d[k]; o.total = hh.total; o.pp = hh.pp; return o;
+  });
+  dates = dates.filter(function (d) { return !d.hotel || hotels.some(function (x) { return x.id === d.hotel; }); });
+  var dateHotels = []; dates.forEach(function (d) { if (d.hotel && dateHotels.indexOf(d.hotel) < 0) dateHotels.push(d.hotel); });
   if (dates.length > 1) nav.push(['dates', 'Other dates']);
   if (Q.areas && Q.areas.length) nav.push(['todo', 'Things to do']);
   function hasPrice(e) { return (e.price !== '' && e.price != null && !isNaN(Number(e.price))) || (e.prices && Object.keys(e.prices).some(function (k) { return e.prices[k] != null && !isNaN(Number(e.prices[k])); })); }
@@ -183,7 +191,13 @@
         + '<div class="rt"><div><div class="cd">' + esc(l.fromCode) + '</div><div class="tm">' + esc(l.dep) + '</div></div>'
         + '<svg width="80" height="20" viewBox="0 0 80 20" aria-hidden="true"><line x1="2" y1="10" x2="60" y2="10" stroke="#99ACFF" stroke-width="2" stroke-dasharray="4 4"></line><path d="M64 4l12 6-12 6 2-6z" fill="#FFD21F"></path></svg>'
         + '<div style="text-align:right"><div class="cd">' + esc(l.toCode) + '</div><div class="tm">' + esc(l.arr) + '</div></div></div>'
-        + '<div class="ft">' + esc(l.from) + ' to ' + esc(l.to) + (l.dur ? ' &#183; ' + esc(l.dur) : '') + (l.carrier ? ' &#183; ' + esc(l.carrier) : '') + '</div></div>';
+        + '<div class="ft">' + esc(l.from) + ' to ' + esc(l.to) + (l.dur ? ' &#183; ' + esc(l.dur) : '') + (l.carrier ? ' &#183; ' + esc(l.carrier) : '') + '</div>'
+        /* each flight and the wait between them, so connections are clear */
+        + (l.segments && l.segments.length ? '<ol class="segs">' + l.segments.map(function (g) {
+            if (g.wait) return '<li class="wait"><b>' + esc(g.wait) + ' wait in ' + esc(g.at) + '</b></li>';
+            return '<li><span class="fn">' + esc(g.flight || '') + '</span><span>' + esc(g.dep) + ' ' + esc(g.from) + '</span><span class="ar">&#8594;</span><span>' + esc(g.arr) + ' ' + esc(g.to) + '</span>' + (g.note ? '<em>' + esc(g.note) + '</em>' : '') + '</li>';
+          }).join('') + '</ol>' : '')
+        + '</div>';
     });
     if (Q.rooms && Q.rooms.length) h += '<div class="box"><h3>Your rooms</h3><ul>' + Q.rooms.map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul></div>';
     if (Q.included && Q.included.length) h += '<div class="box"><h3>Included for everyone</h3><ul>' + Q.included.map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul></div>';
@@ -193,17 +207,22 @@
 
   /* other dates: same holiday on different dates, with live prices Jake can amend */
   if (dates.length > 1) {
-    var cur = dates.filter(function (d) { return d.current; })[0];
+    var dcard = function (d, cur) {
+      var diff = cur && !d.current ? Number(d.total) - Number(cur.total) : 0;
+      return '<div class="dcard' + (d.current ? ' on' : '') + '" data-dh="' + esc(d.hotel || '') + '">' + (d.current ? '<span class="dtag">Your quote</span>' : '')
+        + '<b class="dl">' + esc(d.label) + '</b>' + (d.note ? '<span class="dn">' + esc(d.note) + '</span>' : '')
+        + '<span class="dp">' + gbp(d.total) + '</span><span class="dpp">' + (d.pp ? gbp(d.pp) + ' per person' : 'total for ' + esc(party)) + '</span>'
+        + (diff ? '<span class="dd ' + (diff > 0 ? 'up' : 'down') + '">' + gbp(Math.abs(diff)) + (diff > 0 ? ' more' : ' less') + '</span>' : '')
+        + (d.current ? '' : '<a class="btn btn-o dbtn" target="_blank" rel="noopener" href="' + wa('Hi Jake, it’s ' + who + '. Could you look at ' + d.label + (d.hotel ? ' at ' + hotelName(d.hotel) : '') + ' for our holiday? ') + '">Ask about these dates</a>') + '</div>';
+    };
+    var groups = dateHotels.length > 1 ? dateHotels : [null];
     h += '<section id="dates" class="alt"><div class="wrap"><h2 class="h2">Other dates</h2>' + (Q.datesIntro ? '<p class="intro">' + esc(Q.datesIntro) + '</p>' : '')
-      + '<div class="acar dcar"><button class="arr l" type="button" data-ddir="-1" aria-label="Previous">&#8249;</button><button class="arr r" type="button" data-ddir="1" aria-label="Next">&#8250;</button><div class="areas" id="dTrack">'
-      + dates.map(function (d) {
-        var diff = cur && !d.current ? Number(d.total) - Number(cur.total) : 0;
-        return '<div class="dcard' + (d.current ? ' on' : '') + '">' + (d.current ? '<span class="dtag">Your quote</span>' : '')
-          + '<b class="dl">' + esc(d.label) + '</b>' + (d.note ? '<span class="dn">' + esc(d.note) + '</span>' : '')
-          + '<span class="dp">' + gbp(d.total) + '</span><span class="dpp">' + (d.pp ? gbp(d.pp) + ' per person' : 'total for ' + esc(party)) + '</span>'
-          + (diff ? '<span class="dd ' + (diff > 0 ? 'up' : 'down') + '">' + gbp(Math.abs(diff)) + (diff > 0 ? ' more' : ' less') + '</span>' : '')
-          + (d.current ? '' : '<a class="btn btn-o dbtn" target="_blank" rel="noopener" href="' + wa('Hi Jake, it’s ' + who + '. Could you look at ' + d.label + ' for our holiday? ') + '">Ask about these dates</a>') + '</div>';
-      }).join('') + '</div></div></div></section>';
+      + (groups.length > 1 ? '<div class="ctrl" role="group" aria-label="Choose a hotel">' + groups.map(function (g, i) { return '<button class="chipbtn" type="button" data-dg="' + esc(g) + '" aria-pressed="' + (i === 0) + '">' + esc(hotelName(g)) + '</button>'; }).join('') + '</div>' : '')
+      + groups.map(function (g, i) {
+        var list = dates.filter(function (d) { return !g || d.hotel === g; }), cur = list.filter(function (d) { return d.current; })[0];
+        return '<div class="acar dcar" data-dgrp="' + esc(g || '') + '"' + (i ? ' hidden' : '') + '><button class="arr l" type="button" data-ddir="-1" aria-label="Previous">&#8249;</button><button class="arr r" type="button" data-ddir="1" aria-label="Next">&#8250;</button><div class="areas">'
+          + list.map(function (d) { return dcard(d, cur); }).join('') + '</div></div>';
+      }).join('') + '</div></section>';
   }
 
   if (Q.areas && Q.areas.length) {
@@ -239,7 +258,6 @@
     var t = xTotal(e), u = xUnits(e);
     return fmt(e.price) + (e.unit ? ' ' + esc(e.unit) : '') + (u > 1 ? ' &#183; ' + fmt(t) + ' for ' + esc(party) : '');
   }
-  function hotelName(id) { var f = hotels.filter(function (x) { return x.id === id; })[0]; return f ? f.name : ''; }
   if (extras.length) {
     var cats = []; extras.forEach(function (e) { var c = e.cat || 'Extras'; if (cats.indexOf(c) < 0) cats.push(c); });
     h += '<section id="extras"><div class="wrap"><h2 class="h2">Add extras</h2><p class="intro">' + esc(Q.extrasIntro || 'Tick anything you would like and it is added to your full holiday cost further down, so you can see exactly what the whole holiday will cost.') + '</p>'
@@ -298,6 +316,8 @@
       + (deposit || today ? '<div class="today"><b>To pay today: ' + fmt(Math.round((deposit + today) * 100) / 100) + '</b><span>' + (deposit ? gbp(deposit) + ' deposit' : '') + (today ? (deposit ? ' plus ' : '') + fmt(Math.round(today * 100) / 100) + ' for your airport extras, which are paid in full when you book' : '') + '. ' + (Q.departDate ? 'The rest of the holiday is the balance, spread in the calculator below.' : '') + '</span></div>' : '')
       + (extras.length ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">parking, fast track, room upgrades and more</a>.') + (multi ? '' : '') + '</p>' : '');
     var xs = document.getElementById('xSum');
+    /* only show extras that go with the hotel picked */
+    Array.prototype.forEach.call(document.querySelectorAll('[data-x]'), function (c) { var e = extras.filter(function (z) { return z.id === c.dataset.x; })[0], card = c.closest('.xcard'); if (e && card) card.hidden = !fits(e, x); });
     Array.prototype.forEach.call(document.querySelectorAll('[data-xp]'), function (el) { var e = extras.filter(function (z) { return z.id === el.dataset.xp; })[0]; if (e && e.prices) el.innerHTML = xPriceLine(e); });
     if (xs) { var all = xFor(x), tot = all.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0); xs.innerHTML = all.length ? '<b>' + all.length + ' extra' + (all.length > 1 ? 's' : '') + ' added' + (tot ? ', ' + fmt(Math.round(tot * 100) / 100) : '') + '</b><a class="btn btn-y" href="#fullCost">See your full holiday cost</a>' : ''; }
   }
@@ -327,7 +347,15 @@
     });
   });
   /* other dates: open with the quoted dates in view */
-  (function () { var t = document.getElementById('dTrack'), on = t && t.querySelector('.dcard.on'); if (on && on.previousElementSibling) t.scrollLeft = on.previousElementSibling.offsetLeft - t.firstElementChild.offsetLeft; })();
+  function dFocus() { Array.prototype.forEach.call(document.querySelectorAll('.dcar:not([hidden]) .areas'), function (t) { var on = t.querySelector('.dcard.on'); if (on && on.previousElementSibling) t.scrollLeft = on.previousElementSibling.offsetLeft - t.firstElementChild.offsetLeft; }); }
+  dFocus();
+  Array.prototype.forEach.call(document.querySelectorAll('[data-dg]'), function (b) {
+    b.addEventListener('click', function () {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-dg]'), function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-dgrp]'), function (g) { g.hidden = g.dataset.dgrp !== b.dataset.dg; });
+      dFocus();
+    });
+  });
   var cH = document.getElementById('cHotel');
   if (cH) cH.addEventListener('change', function () { hIdx = Number(cH.value) || 0; calc(); });
   var cD = document.getElementById('cDay'); if (cD) cD.addEventListener('change', calc);
