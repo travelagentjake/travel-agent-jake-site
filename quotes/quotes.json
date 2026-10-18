@@ -19,6 +19,17 @@
       "created": "2026-10-18",
       "departs": "2027-04-10",
       "fromPrice": 4487
+    },
+    {
+      "slug": "caroline-maddie",
+      "url": "https://quotes.travelagentjake.co.uk/caroline-maddie",
+      "customer": "Caroline & Maddie",
+      "enquiryId": "mvdll37lugmt",
+      "quoteRequestId": "mvdll391fdnx",
+      "title": "June 2027 private pool suites, Majorca, Kos and Zante",
+      "created": "2026-10-18",
+      "departs": "2027-06-07",
+      "fromPrice": 4345.19
     }
   ]
 }
