@@ -6,7 +6,7 @@
 (function () {
   var KEY_NAME = 'taj-enq-admin-key';
   var QUOTE_HOST = 'https://quotes.travelagentjake.co.uk/';
-  var S = { quotes: [], views: {}, requests: [], enquiries: [], statuses: {}, sync: null, showDone: false, tab: 'enq', openHist: {} };
+  var S = { quotes: [], views: {}, requests: [], enquiries: [], statuses: {}, sync: null, bookings: [], showDone: false, tab: 'enq', openHist: {}, openBk: {} };
   var RSTAT = [['requested', 'Requested'], ['building', 'Being built'], ['sent', 'Sent'], ['booked', 'Booked'], ['closed', 'Closed']];
   function $(i) { return document.getElementById(i); }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -51,7 +51,7 @@
     + '#qdPane .qd-name{font-size:16px}#qdPane .qd-meta{font-size:12px}#qdPane .qd-link{margin:2px 0 0;font-size:13px}'
     + '#qdPane .qd-views b{font-size:20px}#qdPane .qd-views span{font-size:11px}#qdPane .qd-act{margin-top:6px;gap:6px}#qdPane .ea-btn{padding:5px 12px;font-size:13px}#qdPane .qd-act select{padding:5px 10px!important;font-size:13px}'
     + '#qdPane .qd-hist{margin-top:6px;max-height:160px;font-size:12px;padding:6px 10px}#qdPane .qd-small{margin-top:6px}#qdPane .qd-pre{font-size:13px}'
-    + '.qd-done{opacity:.75}.qd-pill.booked{background:#118A5B;border-color:#118A5B;color:#fff}.qd-pill.closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478}.qd-wants{background:#FFD21F;border-color:#FFD21F;color:#10142B}'
+    + '.qd-done{opacity:.75}.qd-pill.booked{background:#118A5B;border-color:#118A5B;color:#fff}.qd-pill.closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478}.qd-wants{background:#FFD21F;border-color:#FFD21F;color:#10142B}.bk-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}.bk-btns{display:flex;gap:6px;flex-wrap:wrap}.bk-btns .ea-btn{background:#fff}.bk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin-top:10px;font-weight:500;font-size:13px;background:#fff;border-radius:10px;padding:12px}.bk-grid b{display:block;color:#004AAD;margin-bottom:3px}.bk-foot{margin-top:8px;font-size:12px;font-weight:500;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.bk-foot .ea-btn{background:#fff;font-size:12px;padding:4px 10px}@media(max-width:640px){.bk-grid{grid-template-columns:1fr}}'
     + '.qd-sync{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff;border:2px dashed #d5dbea;border-radius:14px;padding:10px 14px;margin-bottom:14px;font-size:14px;color:#5b6478}'
     + '.qd-booked{background:#e3f4ea;border:2px solid #118A5B;color:#0a5c3b;border-radius:12px;padding:8px 12px;font-weight:700;font-size:14px;margin-top:12px}'
     + '.qd-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start}'
@@ -103,7 +103,7 @@
       api('/api/enquiry-admin', 'GET')
     ]).then(function (res) {
       S.quotes = (res[0] && res[0].quotes) || [];
-      if (res[1].j) { S.views = res[1].j.views || {}; S.requests = res[1].j.requests || []; S.statuses = res[1].j.statuses || {}; S.sync = res[1].j.sync || null; }
+      if (res[1].j) { S.views = res[1].j.views || {}; S.requests = res[1].j.requests || []; S.statuses = res[1].j.statuses || {}; S.sync = res[1].j.sync || null; S.bookings = res[1].j.bookings || []; }
       if (res[2].j && res[2].j.enquiries) S.enquiries = res[2].j.enquiries;
       renderPane(); decorate();
       /* opening the dashboard also checks for new bookings if the last check was over 15 minutes ago */
@@ -257,7 +257,8 @@
       var qs = S.quotes.filter(function (q) { return String(q.enquiryId || '').toLowerCase() === id; });
       var rs = S.requests.filter(function (r) { return String(r.enquiryId || '').toLowerCase() === id && !qs.some(function (q) { return q.slug === r.slug; }); });
       var en = S.enquiries.filter(function (x) { return String(x.id || '').toLowerCase() === id; })[0];
-      var html = (en && en.wantsToBook && en.status !== 'booked' ? '<div class="qd-booked qd-wants">Wants to book! Booking form sent ' + esc(ago(en.wantsToBook.at)) + '. Text them the payment link.</div>' : '')
+      var bks = S.bookings.filter(function (k) { return k.email && en && String(k.email).toLowerCase() === String(en.email || '').toLowerCase() || (en && en.wantsToBook && k.id === en.wantsToBook.bookingId); });
+      var html = bks.map(bookingPanel).join('')
         + (en && en.status === 'booked' && en.booked ? '<div class="qd-booked">Booked' + (en.booked.ref ? ', ref ' + esc(en.booked.ref) : '') + (en.booked.supplier ? ' with ' + esc(en.booked.supplier) : '') + (en.booked.via ? ' (found in your ' + esc(en.booked.via) + ')' : '') + '</div>' : '')
         + '<div class="qd-small">Quotes</div>'
         + qs.map(function (q) { var v = viewsOf(q.slug); return '<div class="qd-mini"><a href="' + esc(quoteUrl(q)) + '?jake=1" target="_blank" rel="noopener"><b>' + esc(q.title || q.slug) + '</b></a><span class="qd-meta">' + (v.views || 0) + ' view' + (v.views === 1 ? '' : 's') + (v.lastView ? ', last ' + esc(ago(v.lastView)) : ', not opened yet') + '</span></div>'; }).join('')
@@ -270,6 +271,31 @@
       if (blk.innerHTML !== html) blk.innerHTML = html;
     });
   }
+  /* ---------- booking form details, kept on the dashboard rather than in email ---------- */
+  function gbp(n) { n = Number(n || 0); return '\u00a3' + (n % 1 ? n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : n.toLocaleString('en-GB')); }
+  function dmy(d) { try { var t = Date.parse(d); return isNaN(t) ? esc(d) : new Date(t).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }); } catch (e) { return esc(d); } }
+  function ordinal(d) { return d + ([, 'st', 'nd', 'rd'][(d % 100 >> 3 ^ 1 && d % 10)] || 'th'); }
+  function bookingPanel(k) {
+    var open = !!S.openBk[k.id];
+    var h = '<div class="qd-booked qd-wants" id="bk-' + esc(k.id) + '"><div class="bk-top"><span>Wants to book! Booking form sent ' + esc(ago(k.at)) + ': ' + esc(k.hotel) + ', ' + gbp(k.total) + ', paying ' + gbp(k.payToday) + ' today by ' + (k.payHow === 'bank' ? 'bank transfer' : 'card') + '.</span>'
+      + '<span class="bk-btns"><button class="ea-btn" type="button" data-bk="toggle" data-id="' + esc(k.id) + '">' + (open ? 'Hide details' : 'Show details') + '</button></span></div>';
+    if (open) {
+      h += '<div class="bk-grid"><div><b>Passengers</b>' + (k.passengers || []).map(function (p, i) { return '<div>' + (i + 1) + '. ' + esc([p.first, p.middle, p.last].filter(Boolean).join(' ')) + ', born ' + dmy(p.dob) + '</div>'; }).join('') + '</div>'
+        + '<div><b>Contact</b><div>' + esc(k.address).replace(/\n/g, '<br>') + '<br>' + esc(k.postcode) + '</div><div>' + esc(k.mobile) + '</div><div>' + esc(k.email) + '</div></div>'
+        + '<div><b>Holiday</b><div>' + esc(k.hotel) + ', ' + gbp(k.hotelTotal) + '</div>' + (k.extras || []).map(function (e) { return '<div>+ ' + esc(e.title) + ', ' + gbp(e.total) + (e.separate ? ' (paid in full at booking)' : '') + '</div>'; }).join('') + '<div>Total ' + gbp(k.total) + (k.departDate ? ', departs ' + dmy(k.departDate) : '') + '</div></div>'
+        + '<div><b>Payment</b><div>' + gbp(k.payToday) + ' today, ' + (k.payNow === 'full' ? 'the full amount' : 'the deposit') + ', by ' + (k.payHow === 'bank' ? 'bank transfer' : 'card') + '</div>'
+        + (k.dd ? '<div>Direct debit on the ' + ordinal(k.dd.day) + ' of each month</div><div>Account holder: ' + esc(k.dd.name) + '</div><div>Sort code ' + esc(String(k.dd.sort).replace(/(\d\d)(?=\d)/g, '$1-')) + ', account ' + esc(k.dd.account) + '</div>' : '<div>' + (k.payNow === 'full' ? 'No balance to follow' : 'No direct debit, balance due about 14 weeks before travel') + '</div>') + '</div></div>'
+        + '<div class="bk-foot">Agreed to the booking conditions on ' + esc(noteTime(k.at)) + '. Ref ' + esc(k.id) + '. <button class="ea-btn" type="button" data-bk="delete" data-id="' + esc(k.id) + '">Remove these details</button></div>';
+    }
+    return h + '</div>';
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-bk]'); if (!b) return;
+    if (b.dataset.bk === 'toggle') { S.openBk[b.dataset.id] = !S.openBk[b.dataset.id]; decorate(); renderPane(); return; }
+    if (b.dataset.bk === 'delete' && confirm('Remove these booking details from the dashboard? Do this once the holiday is booked.')) {
+      api('/api/quote-admin', 'POST', { action: 'booking-delete', id: b.dataset.id }).then(function () { S.bookings = S.bookings.filter(function (k) { return k.id !== b.dataset.id; }); decorate(); renderPane(); toast('Removed'); });
+    }
+  });
   /* ---------- notes history on each enquiry (replaces the single notes box) ---------- */
   function noteTime(iso) { try { return new Date(iso).toLocaleString('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }); } catch (e) { return ''; } }
   function notesBlock(c, en) {

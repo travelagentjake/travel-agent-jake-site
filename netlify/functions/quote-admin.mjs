@@ -32,7 +32,10 @@ export default async (req) => {
     const sl = (await st("quote-status").list()).blobs, statuses = {};
     await Promise.all(sl.map(async (b) => { statuses[b.key] = await st("quote-status").get(b.key, { type: "json" }).catch(() => null); }));
     const sync = await st("booking-sync").get("last", { type: "json" }).catch(() => null);
-    return json({ views: v, requests: r, statuses, sync });
+    const bl = (await st("quote-bookings").list()).blobs;
+    const bookings = (await Promise.all(bl.map((b) => st("quote-bookings").get(b.key, { type: "json" }).catch(() => null)))).filter(Boolean);
+    bookings.sort((a, b) => (b.at || "").localeCompare(a.at || ""));
+    return json({ views: v, requests: r, statuses, sync, bookings });
   }
 
   const b = await req.json().catch(() => ({}));
@@ -88,6 +91,11 @@ export default async (req) => {
     return json({ ok: true, status: rec });
   }
 
+  if (b.action === "booking-delete") {
+    const id = clean(b.id, 40); if (!/^[a-f0-9]{8,40}$/.test(id)) return json({ error: "Bad id" }, 400);
+    await st("quote-bookings").delete(id).catch(() => {});
+    return json({ ok: true });
+  }
   if (b.action === "sync-bookings") {
     await fetch(SITE + "/.netlify/functions/booking-sync-background", { method: "POST", headers: { "x-admin-key": process.env.PW_ADMIN_KEY } }).catch(() => {});
     return json({ ok: true, started: true });

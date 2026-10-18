@@ -1,8 +1,8 @@
 // Booking form on the interactive quotes (quotes.travelagentjake.co.uk/<slug>, the "Book this holiday" box).
 //   POST /api/quote-book  { slug, hotel, total, deposit, payToday, payNow, payHow, dd, passengers, address, postcode, mobile, email, agreed }
-// Emails Jake everything (including the direct debit details, if given) with a reply to the customer,
-// sends the customer a copy without any bank details, saves a copy in the Blobs store "quote-bookings"
-// and adds a note to the matching enquiry so the dashboard shows they want to book.
+// Saves the full details in the Blobs store "quote-bookings" (shown on the dashboard behind the admin key),
+// emails Jake a short notice with the names and the holiday only (no address, dates of birth or bank details),
+// sends the customer a copy without any bank details, and adds a note to the matching enquiry.
 import { getStore } from "@netlify/blobs";
 import { brevo, SENDER } from "../lib/enquiry-lib.mjs";
 import { jakeEmail, emailShell, button, esc, SITE, randomId } from "../lib/pw.mjs";
@@ -59,7 +59,7 @@ export default async (req) => {
       const enq = await es.get(q.enquiryId, { type: "json" }).catch(() => null);
       if (enq) {
         (enq.notesLog = enq.notesLog || []).push({ t: rec.at, text: "Booking form sent from the quote: " + rec.hotel + ", " + gbp(rec.total) + ", paying " + (payNow === "full" ? "in full" : "the deposit") + " by " + (payHow === "bank" ? "bank transfer" : "card") + (dd ? ", direct debit on the " + ordinal(dd.day) : "") + ". Send the payment link.", auto: true });
-        enq.wantsToBook = { at: rec.at, slug, bookingId: rec.id };
+        enq.wantsToBook = { at: rec.at, slug, bookingId: rec.id, hotel: rec.hotel, total: rec.total };
         await es.setJSON(enq.id, enq);
       }
     }
@@ -69,23 +69,21 @@ export default async (req) => {
   const name = lead.first + " " + lead.last;
   const row = (k, v) => `<tr><td style="padding:7px 10px 7px 0;color:#5b6478;vertical-align:top;white-space:nowrap;">${k}</td><td style="padding:7px 0;font-weight:bold;vertical-align:top;">${v}</td></tr>`;
   const paxRows = pax.map((p, i) => row("Passenger " + (i + 1), esc([p.first, p.middle, p.last].filter(Boolean).join(" ")) + `<br><span style="font-weight:normal">born ${nice(p.dob)}</span>`)).join("");
+  const addressRow = row("Address", esc(address).replace(/\n/g, "<br>") + "<br>" + esc(postcode));
   const money = `${row("Hotel", esc(rec.hotel) + " " + gbp(rec.hotelTotal))}${extras.length ? row("Extras", extras.map((e) => esc(e.title) + " " + gbp(e.total) + (e.separate ? " (paid in full at booking)" : "")).join("<br>")) : ""}${row("Total", gbp(rec.total))}${row("Paying today", gbp(rec.payToday) + (payNow === "full" ? ", the full amount" : ", the deposit") + " by " + (payHow === "bank" ? "bank transfer" : "card"))}`;
   const quoteUrl = "https://quotes.travelagentjake.co.uk/" + slug;
-  const waText = "https://wa.me/" + mobile.replace(/\D/g, "").replace(/^0/, "44") + "?text=" + encodeURIComponent("Hi " + lead.first + ", thanks for sending your booking details for " + rec.hotel + ". Here is your secure payment link for " + gbp(rec.payToday) + ": ");
 
   const jakeHtml = emailShell(`<h2 style="margin:0 0 6px;color:#004AAD;">${esc(name)} wants to book!</h2>
-<p style="margin:0 0 16px;">From the quote <a href="${quoteUrl}">${quoteUrl}</a>. They have agreed to the booking conditions. Text them the payment link for <strong>${gbp(rec.payToday)}</strong>${payHow === "bank" ? " (they asked for bank transfer details)" : ""}.</p>
-<p style="margin:0 0 16px;">${button(waText, "WhatsApp them the link", "#25D366", "#fff")}${button("sms:" + esc(mobile), "Text them")}${button(SITE + "/enquiries-admin.html", "Open dashboard", "#004AAD", "#fff")}</p>
-<h3 style="margin:18px 0 4px;color:#004AAD;">The holiday</h3><table cellpadding="0" cellspacing="0" style="font-size:15px;">${money}${rec.departDate ? row("Departs", nice(rec.departDate)) : ""}</table>
-<h3 style="margin:18px 0 4px;color:#004AAD;">Passengers</h3><table cellpadding="0" cellspacing="0" style="font-size:15px;">${paxRows}</table>
-<h3 style="margin:18px 0 4px;color:#004AAD;">Lead passenger contact</h3><table cellpadding="0" cellspacing="0" style="font-size:15px;">${row("Address", esc(address).replace(/\n/g, "<br>") + "<br>" + esc(postcode))}${row("Mobile", esc(mobile))}${row("Email", esc(email))}</table>
-<h3 style="margin:18px 0 4px;color:#004AAD;">Direct debit for the balance</h3>${dd ? `<table cellpadding="0" cellspacing="0" style="font-size:15px;">${row("Payment day", ordinal(dd.day) + " of each month")}${row("Account holder", esc(dd.name))}${row("Sort code", dd.sort.replace(/(\d\d)(?=\d)/g, "$1-"))}${row("Account number", dd.account)}</table>` : `<p style="margin:0;">${payNow === "full" ? "Not needed, paying in full." : "No direct debit. The balance is due about 14 weeks before travel."}</p>`}
-<p style="margin:18px 0 0;font-size:13px;color:#5b6478;">Booking reference on the dashboard: ${rec.id}. Hit reply to email ${esc(lead.first)} directly.</p>`);
+<p style="margin:0 0 14px;">${esc(name)} has sent the booking form from <a href="${quoteUrl}">${quoteUrl}</a> and agreed to the booking conditions.</p>
+<table cellpadding="0" cellspacing="0" style="font-size:15px;">${row("Hotel", esc(rec.hotel))}${row("Total", gbp(rec.total) + (extras.length ? " with " + extras.length + " extra" + (extras.length > 1 ? "s" : "") : ""))}${row("Paying today", gbp(rec.payToday) + (payNow === "full" ? ", the full amount" : ", the deposit") + " by " + (payHow === "bank" ? "bank transfer" : "card"))}${row("Balance", payNow === "full" ? "None" : dd ? "Monthly direct debit on the " + ordinal(dd.day) : "No direct debit, due about 14 weeks before travel")}${row("Passengers", pax.map((p) => esc([p.first, p.middle, p.last].filter(Boolean).join(" "))).join("<br>"))}${rec.departDate ? row("Departs", nice(rec.departDate)) : ""}</table>
+<p style="margin:16px 0 0;">Their address, contact details, dates of birth and the direct debit details are on the dashboard, under their enquiry. Nothing sensitive is in this email.</p>
+<p style="margin:14px 0 0;">${button(SITE + "/enquiries-admin.html#booking=" + rec.id, "See the booking details", "#004AAD", "#fff")}</p>
+<p style="margin:18px 0 0;font-size:13px;color:#5b6478;">Booking reference ${rec.id}. Hit reply to email ${esc(lead.first)} directly.</p>`);
 
   const custHtml = emailShell(`<h2 style="margin:0 0 6px;color:#004AAD;">Thank you, ${esc(lead.first)}!</h2>
 <p style="margin:0 0 14px;">I have your booking details for <strong>${esc(rec.hotel)}</strong>. Here is what happens next:</p>
 <ol style="margin:0 0 16px;padding-left:20px;"><li>I will text <strong>${esc(mobile)}</strong> with a secure payment link for <strong>${gbp(rec.payToday)}</strong>${payHow === "bank" ? ", or my bank details if you would rather transfer" : ""}.</li><li>As soon as that is paid I confirm the holiday with the tour operator.</li><li>You then get your booking confirmation and ATOL certificate by email.</li></ol>
-<h3 style="margin:18px 0 4px;color:#004AAD;">What you sent</h3><table cellpadding="0" cellspacing="0" style="font-size:15px;">${money}${paxRows}${row("Address", esc(address).replace(/\n/g, "<br>") + "<br>" + esc(postcode))}${row("Email", esc(email))}${dd ? row("Direct debit", "Balance by monthly direct debit on the " + ordinal(dd.day) + ", from the account ending " + dd.account.slice(-4)) : ""}</table>
+<h3 style="margin:18px 0 4px;color:#004AAD;">What you sent</h3><table cellpadding="0" cellspacing="0" style="font-size:15px;">${money}${paxRows}${addressRow}${row("Email", esc(email))}${dd ? row("Direct debit", "Balance by monthly direct debit on the " + ordinal(dd.day) + ", from the account ending " + dd.account.slice(-4)) : ""}</table>
 <p style="margin:16px 0 0;">Spotted a mistake, or want to change something? Just WhatsApp me on <a href="https://wa.me/447899290262">07899 290262</a> before you pay and I will sort it. Your quote is at <a href="${quoteUrl}">${quoteUrl}</a>.</p>
 <p style="margin:16px 0 0;">Jake</p>`);
 
