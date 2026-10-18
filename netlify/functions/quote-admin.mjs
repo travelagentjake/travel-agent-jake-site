@@ -82,7 +82,7 @@ export default async (req) => {
       const q = (reg.quotes || []).find((x) => x.slug === slug);
       if (q && q.enquiryId) {
         const es = st("enquiries"), e = await es.get(q.enquiryId, { type: "json" }).catch(() => null);
-        if (e && e.status !== "booked") { e.status = "booked"; e.statusAt = rec.at; await es.setJSON(e.id, e); }
+        if (e && e.status !== "booked") { e.status = "booked"; e.statusAt = rec.at; (e.notesLog = e.notesLog || []).push({ t: rec.at, text: "Booked, marked from the quote " + slug, auto: true }); await es.setJSON(e.id, e); }
       }
     }
     return json({ ok: true, status: rec });

@@ -53,6 +53,7 @@ export async function syncBookings() {
       q.status = "booked";
       q.statusAt = new Date().toISOString();
       q.booked = { ref: String(hit.bookingRef || ""), supplier: String(hit.supplier || ""), destination: String(hit.destination || ""), departs: String(hit.departureDate || ""), via: "sales dashboard" };
+      (q.notesLog = q.notesLog || []).push({ t: q.statusAt, text: "Booked, found in the sales dashboard" + (q.booked.ref ? " (ref " + q.booked.ref + (q.booked.supplier ? ", " + q.booked.supplier : "") + ")" : ""), auto: true });
       await es.setJSON(q.id, q);
       for (const quote of (reg.quotes || []).filter((x) => x.enquiryId === q.id)) {
         await qs.setJSON(quote.slug, { status: "booked", at: q.statusAt, ref: q.booked.ref, via: "sales dashboard" });

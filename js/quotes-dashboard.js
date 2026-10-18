@@ -42,6 +42,9 @@
     + '#eaList .ea-ctl{grid-template-columns:160px 1fr;gap:8px;margin-top:8px}#eaList .ea-ctl select,#eaList .ea-ctl textarea{padding:6px 10px;font-size:14px;border-radius:8px}#eaList .ea-ctl textarea{min-height:34px}'
     + '#eaList .qd-block{margin-top:8px;padding-top:8px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}#eaList .qd-block .qd-small{margin:0}#eaList .qd-block .qd-act{margin:0}#eaList .qd-block .qd-empty{padding:0;font-size:13px}#eaList .qd-block .qd-booked{flex-basis:100%;margin:0}#eaList .qd-block .qd-mini{flex-basis:100%}'
     + '@media (max-width:640px){#eaList .ea-ctl{grid-template-columns:1fr}}'
+    + '#eaList .ea-ctl{align-items:start}.qd-notes{display:grid;gap:6px}.qd-nadd{display:flex;gap:6px}.qd-nadd input{flex:1;min-width:0;padding:6px 10px;border:2px solid #d5dbea;border-radius:8px;font:inherit;font-size:14px}'
+    + '.qd-nlog{max-height:150px;overflow:auto;display:grid;gap:4px}.qd-nlog div{font-size:13px;background:#f6f8fd;border-radius:8px;padding:5px 9px}.qd-nlog div.auto{color:#5b6478;background:#fff;border:1px dashed #d5dbea}'
+    + '.qd-nlog time{display:block;font-size:11px;font-weight:700;color:#6b7190;text-transform:uppercase;letter-spacing:.03em}'
     + '.qd-done{opacity:.75}.qd-pill.booked{background:#118A5B;border-color:#118A5B;color:#fff}.qd-pill.closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478}'
     + '.qd-sync{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff;border:2px dashed #d5dbea;border-radius:14px;padding:10px 14px;margin-bottom:14px;font-size:14px;color:#5b6478}'
     + '.qd-booked{background:#e3f4ea;border:2px solid #118A5B;color:#0a5c3b;border-radius:12px;padding:8px 12px;font-weight:700;font-size:14px;margin-top:12px}'
@@ -97,6 +100,8 @@
       if (res[1].j) { S.views = res[1].j.views || {}; S.requests = res[1].j.requests || []; S.statuses = res[1].j.statuses || {}; S.sync = res[1].j.sync || null; }
       if (res[2].j && res[2].j.enquiries) S.enquiries = res[2].j.enquiries;
       renderPane(); decorate();
+      /* opening the dashboard also checks for new bookings if the last check was over 15 minutes ago */
+      if (!S.autoSynced && (!S.sync || Date.now() - Date.parse(S.sync.at) > 15 * 60000)) { S.autoSynced = true; api('/api/quote-admin', 'POST', { action: 'sync-bookings' }); }
     });
   }
 
@@ -147,7 +152,7 @@
     var rest = S.requests.filter(function (r) { return !(r.status === 'requested' || r.status === 'building'); });
     var all = S.quotes.slice().sort(function (a, b) { return String(b.created || '').localeCompare(String(a.created || '')); });
     var qs = all.filter(function (q) { return qState(q) === 'open'; }), done = all.filter(function (q) { return qState(q) !== 'open'; });
-    var sy = S.sync, syncLine = '<div class="qd-sync"><span>' + (sy ? (sy.ok ? 'Sales dashboard checked ' + esc(ago(sy.at)) + (sy.matched && sy.matched.length ? ', last check marked ' + sy.matched.map(function (m) { return esc(m.name); }).join(', ') + ' as booked' : '') : 'Bookings check failed: ' + esc(sy.error || '')) : 'Bookings are checked against your sales dashboard every hour') + '</span><button class="ea-btn" type="button" data-qa="sync">Check bookings now</button></div>';
+    var sy = S.sync, syncLine = '<div class="qd-sync"><span>' + (sy ? (sy.ok ? 'New bookings in your sales dashboard are picked up automatically every hour and when you open this dashboard. Last checked ' + esc(ago(sy.at)) + (sy.matched && sy.matched.length ? ', last check marked ' + sy.matched.map(function (m) { return esc(m.name); }).join(', ') + ' as booked' : '') : 'Bookings check failed: ' + esc(sy.error || '')) : 'Bookings are checked against your sales dashboard every hour') + '</span><button class="ea-btn" type="button" data-qa="sync">Check bookings now</button></div>';
     paneQ.innerHTML = syncLine + '<h2 class="qd-h">Quote links</h2>' + (qs.length ? qs.map(quoteCard).join('') : '<p class="qd-empty">No open quotes.</p>')
       + (done.length ? '<button class="ea-btn" type="button" data-qa="showdone" style="margin:4px 0 10px">' + (S.showDone ? 'Hide' : 'Show') + ' booked and closed quotes (' + done.length + ')</button>' + (S.showDone ? done.map(quoteCard).join('') : '') : '')
       + '<h2 class="qd-h" style="margin-top:26px">Quote requests waiting to be built</h2>' + (open.length ? open.map(reqCard).join('') : '<p class="qd-empty">Nothing waiting. Click Generate quote to start one.</p>')
@@ -221,13 +226,41 @@
         + rs.map(function (r) { return '<div class="qd-mini"><span>' + esc(r.title || ('Quote for ' + r.customerName)) + '</span><span class="qd-pill ' + esc(r.status) + '">' + esc(r.status) + '</span></div>'; }).join('')
         + (qs.length || rs.length ? '' : '<div class="qd-empty">No quotes yet.</div>')
         + '<div class="qd-act"><button class="ea-btn" type="button" data-qgen="' + esc(c.dataset.id) + '" style="background:var(--yellow)">Generate quote</button></div>';
+      notesBlock(c, en);
       var blk = c.querySelector('.qd-block');
       if (!blk) { blk = document.createElement('div'); blk.className = 'qd-block'; var ctl = c.querySelector('.ea-ctl'); c.insertBefore(blk, ctl || null); }
       if (blk.innerHTML !== html) blk.innerHTML = html;
     });
   }
+  /* ---------- notes history on each enquiry (replaces the single notes box) ---------- */
+  function noteTime(iso) { try { return new Date(iso).toLocaleString('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }); } catch (e) { return ''; } }
+  function notesBlock(c, en) {
+    var ta = c.querySelector('textarea[data-act="notes"]'); if (!ta || !en) return;
+    ta.hidden = true; ta.removeAttribute('data-act');
+    var log = (en.notesLog || []).slice().reverse();
+    var html = '<div class="qd-nadd"><input type="text" placeholder="Add a note, for example Rang and left a voicemail" data-note-in><button class="ea-btn" type="button" data-note-save>Save note</button></div>'
+      + '<div class="qd-nlog">' + log.map(function (n) { return '<div' + (n.auto ? ' class="auto"' : '') + '><time>' + esc(noteTime(n.t)) + '</time>' + esc(n.text) + '</div>'; }).join('')
+      + (en.adminNotes ? '<div><time>Earlier note</time>' + esc(en.adminNotes) + '</div>' : '') + '</div>';
+    var nb = c.querySelector('.qd-notes');
+    if (!nb) { nb = document.createElement('div'); nb.className = 'qd-notes'; ta.parentNode.appendChild(nb); }
+    var typing = nb.querySelector('[data-note-in]'), val = typing ? typing.value : '', focused = typing && document.activeElement === typing;
+    if (nb.dataset.h !== html) { nb.innerHTML = html; nb.dataset.h = html; var ni = nb.querySelector('[data-note-in]'); ni.value = val; if (focused) ni.focus(); }
+  }
+  function saveNote(btn) {
+    var c = btn.closest('.ea-card'), inp = c.querySelector('[data-note-in]'), text = inp.value.trim(); if (!text) return;
+    btn.disabled = true;
+    api('/api/enquiry-admin', 'POST', { action: 'note', id: c.dataset.id, text: text }).then(function (x) {
+      btn.disabled = false;
+      if (x.j && x.j.ok) { inp.value = ''; var en = enq(c.dataset.id); if (en) en.notesLog = x.j.enquiry.notesLog; else S.enquiries.push(x.j.enquiry); decorate(); toast('Note saved'); }
+      else toast((x.j && x.j.error) || 'Could not save the note');
+    });
+  }
   var list = $('eaList');
   if (list) {
+    list.addEventListener('click', function (e) { var b = e.target.closest('[data-note-save]'); if (b) saveNote(b); });
+    list.addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target.matches('[data-note-in]')) { e.preventDefault(); saveNote(e.target.closest('.ea-card').querySelector('[data-note-save]')); } });
+    /* status changes are logged on the server, so refresh the history shortly after one */
+    list.addEventListener('change', function (e) { if (e.target.matches('select[data-act="status"]')) setTimeout(load, 1500); });
     new MutationObserver(function () { decorate(); }).observe(list, { childList: true });
     list.addEventListener('click', function (e) { var b = e.target.closest('[data-qgen]'); if (b) openForm(b.dataset.qgen); });
   }
@@ -399,4 +432,5 @@
   setInterval(function () { if (key() && !app.hidden && document.visibilityState === 'visible') load(); }, 60000);
   /* near realtime while the Quotes tab is open */
   setInterval(function () { if (key() && !app.hidden && S.tab === 'quotes' && document.visibilityState === 'visible' && !document.querySelector('.qd-modal')) load(); }, 20000);
+  setInterval(function () { if (key() && !app.hidden && S.tab === 'enq' && document.visibilityState === 'visible' && !document.querySelector('[data-note-in]:focus')) load(); }, 60000);
 })();
