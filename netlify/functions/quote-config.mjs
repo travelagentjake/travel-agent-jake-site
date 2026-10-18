@@ -1,7 +1,7 @@
 // Amendments for the interactive quotes, saved from the business dashboard.
 //   GET  /api/quote-config?slug=cori          (public, read by the quote page)  -> { amendments }
 //   POST /api/quote-config { slug, amendments } (Jake only, header x-admin-key)  -> saves them
-// amendments: { hidden: [hotel ids], edits: { <hotel id>: { why, badge, rooms, total, pp } }, intro, subtitle, note, updatedAt }
+// amendments: { hidden: [hotel ids], edits: { <hotel id>: { why, badge, rooms, total, pp, tax } }, intro, subtitle, note, updatedAt }
 // Stored in the Netlify Blobs store "quote-config", one blob per quote slug.
 import { getStore } from "@netlify/blobs";
 
@@ -31,7 +31,7 @@ export default async (req) => {
   for (const [id, e] of Object.entries(a.edits || {}).slice(0, 40)) {
     const o = {};
     for (const k of ["why", "badge", "rooms"]) if (e && e[k]) o[k] = clean(e[k], 1500);
-    for (const k of ["total", "pp"]) if (e && e[k] !== undefined && e[k] !== "" && !isNaN(Number(e[k]))) o[k] = Number(e[k]);
+    for (const k of ["total", "pp", "tax"]) if (e && e[k] !== undefined && e[k] !== "" && !isNaN(Number(e[k]))) o[k] = Number(e[k]);
     if (Object.keys(o).length) edits[clean(id, 40)] = o;
   }
   const saved = {

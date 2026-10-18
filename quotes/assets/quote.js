@@ -7,7 +7,8 @@
      facts: [[label, value]], partyLabel ("all 11"), whatsappName,
      compareIntro, hotelsIntro,
      hotels: [{ id, match, name, area, country, rating, reviews, transfer (minutes), slides (bool),
-                badge, total, pp, rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
+                badge, total, pp, tax (tourist tax paid at the hotel, £ for the party), taxNote, rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
+     touristTax: { amount, note }   // default tourist tax for every hotel; a hotel's own tax/taxNote wins. Required on every quote (CMA).
      sections: [{ id, title, intro, html, after: "hotels" | "trip" | "todo" }],   // custom sections from Jake's notes
      flights: { intro, legs: [{ tag, date, from, fromCode, to, toCode, dep, arr, dur, carrier }] },
      rooms: [], included: [],
@@ -29,7 +30,7 @@
       var e = edits[h.id] || {}, o = {};
       for (var k in h) o[k] = h[k];
       ['why', 'badge', 'rooms'].forEach(function (k) { if (e[k]) o[k] = e[k]; });
-      ['total', 'pp'].forEach(function (k) { if (e[k] !== undefined && e[k] !== '' && !isNaN(Number(e[k]))) o[k] = Number(e[k]); });
+      ['total', 'pp', 'tax'].forEach(function (k) { if (e[k] !== undefined && e[k] !== '' && !isNaN(Number(e[k]))) o[k] = Number(e[k]); });
       return o;
     });
     if (a.intro) Q.intro = a.intro;
@@ -50,6 +51,11 @@
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function gbp(n) { return '£' + Number(n).toLocaleString('en-GB'); }
   function mins(m) { if (!m) return ''; if (m < 60) return m + ' mins'; var h = Math.floor(m / 60), r = m % 60; return h + ' hr' + (r ? ' ' + r : ''); }
+  /* tourist tax payable locally at the hotel: always shown next to every price (CMA rules) */
+  function taxText(x) {
+    var d = Q.touristTax || {}, amt = x.tax != null && x.tax !== '' ? x.tax : d.amount, note = x.taxNote || d.note;
+    return 'Plus ' + (amt ? 'about ' + gbp(amt) + ' ' : 'any ') + 'tourist tax, paid locally at the hotel' + (note ? ' (' + note + ')' : '') + '.';
+  }
   function wa(text) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text); }
   function img(u, w) {
     if (/media\.jet2\.com/.test(u)) return u.split('?')[0] + '?wid=' + w + '&qlt=80&fmt=jpg';
@@ -131,7 +137,7 @@
       + '<button class="chipbtn" type="button" data-sort="rating" aria-pressed="false">Top rated</button>'
       + '<button class="chipbtn" type="button" data-sort="transfer" aria-pressed="false">Shortest transfer</button>'
       + (anySlides ? '<button class="chipbtn" type="button" id="slidesOnly" aria-pressed="false">Slides only</button>' : '')
-      + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th><th>Tripadvisor</th><th>Transfer</th>' + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div></div></section>';
+      + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th><th>Tripadvisor</th><th>Transfer</th>' + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div><p class="taxnote">' + esc(Q.touristTax && Q.touristTax.amount ? 'Prices do not include tourist tax of about ' + gbp(Q.touristTax.amount) + ', paid locally at the hotel.' : 'Prices do not include any tourist tax, paid locally at the hotel.') + '</p></div></section>';
   }
   if (hotels.length) {
     h += '<section id="hotels" class="alt"><div class="wrap"><h2 class="h2">' + (multi ? 'The hotels' : 'Your hotel') + '</h2>'
@@ -197,7 +203,7 @@
     var day = Number(document.getElementById('cDay').value), bal = Math.max(0, x.total - deposit);
     var p = ddPlan(bal, Q.departDate, day);
     if (!p.ok) { out.innerHTML = '<p class="intro">Your holiday is too close for monthly payments, but I can send you a secure payment link instead.</p>'; return; }
-    var pl = document.getElementById('planLine'); if (pl) pl.textContent = p.n + ' monthly payments of ' + money(p.each) + ' with the final payment on ' + dmy(p.end);
+    var pl = document.getElementById('planLine'); if (pl) pl.textContent = (multi ? 'for ' + x.name + ', ' : '') + p.n + ' monthly payments of ' + money(p.each) + ' with the final payment on ' + dmy(p.end);
     out.innerHTML = '<div class="tiles">'
       + '<div class="tile"><small>Deposit today</small><b>' + gbp(deposit) + '</b></div>'
       + '<div class="tile hi"><small>Then each month</small><b>' + money(p.each) + '</b>' + (people > 1 ? '<span>about ' + money(p.each / people) + ' per person</span>' : '') + '</div>'
@@ -252,7 +258,7 @@
         + '<p>' + esc(x.why) + '</p>'
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
         + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
-        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + ' per person<br>' : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - Number(Q.depositTotal || 0)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">or about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div></div>'
+        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + ' per person<br>' : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - Number(Q.depositTotal || 0)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">or about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div><p class="tax">' + esc(taxText(x)) + '</p></div>'
         + '<div class="links"><a class="btn btn-wa" target="_blank" rel="noopener" href="' + wa('Hi Jake, it’s ' + who + '. We love the ' + x.name + '! ') + '">I like this one</a>'
         + (x.site ? '<a class="btn btn-o" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>' : '') + '</div></div></div></article>';
     }).join('');

@@ -41,6 +41,8 @@
     + '.qd-link{display:block;font-weight:700;word-break:break-all;margin:8px 0 0}'
     + '.qd-act{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}'
     + '.qd-hist{margin:10px 0 0;padding:10px 12px;background:#f4f6fb;border-radius:10px;font-size:13px;max-height:220px;overflow:auto}'
+    + '.qd-live{display:inline-block;background:#25D366;color:#fff;font-weight:800;font-size:12px;border-radius:999px;padding:3px 10px;margin:4px 0}'
+    + '.qd-keen{display:inline-block;background:var(--yellow);font-weight:800;font-size:12px;border-radius:999px;padding:3px 10px;margin-top:4px}'
     + '.qd-hist div{padding:3px 0;border-bottom:1px solid #e6eaf3}.qd-hist div:last-child{border:none}'
     + '.qd-pill{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;border:2px solid var(--ink);background:#fff;text-transform:uppercase;letter-spacing:.04em}'
     + '.qd-pill.requested{background:var(--yellow)}.qd-pill.building{background:#dfe9ff;border-color:#99ACFF}.qd-pill.sent{background:#e3f4ea;border-color:#118A5B;color:#0a5c3b}.qd-pill.booked{background:#118A5B;border-color:#118A5B;color:#fff}.qd-pill.closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478}'
@@ -92,16 +94,19 @@
   function quoteCard(q) {
     var v = viewsOf(q.slug), e = enq(q.enquiryId), url = quoteUrl(q);
     var hello = 'Hi ' + (q.customer || (e && e.firstName) || '') + ", it's Jake from Travel Agent Jake. Here's your personal holiday quote, have a look and let me know what you think: " + url;
-    var hist = (v.opens || []).map(function (o) { return '<div>' + esc(nice(o.t)) + ' &#183; ' + esc(o.device || '') + (o.place ? ' &#183; ' + esc(o.place) : '') + (o.from ? ' &#183; via ' + esc(o.from) : '') + '</div>'; }).join('');
+    var showAll = S.openHist[q.slug];
+    var live = v.lastView && (Date.now() - Date.parse(v.lastView) < 5 * 60000);
+    var comeback = (v.opens || []).some(function (o, i, a) { return a[i + 1] && Date.parse(o.t) - Date.parse(a[i + 1].t) >= 86400000; });
+    var hist = (v.opens || []).slice(0, showAll ? 100 : 6).map(function (o) { return '<div>' + esc(nice(o.t)) + ' &#183; ' + esc(o.device || '') + (o.place ? ' &#183; ' + esc(o.place) : '') + (o.from ? ' &#183; via ' + esc(o.from) : '') + '</div>'; }).join('');
     return '<article class="qd-card" data-slug="' + esc(q.slug) + '"><div class="qd-row"><div><h3 class="qd-name">' + esc(q.customer || '') + '</h3><div class="qd-meta">' + esc(q.title || '') + (q.created ? ' &#183; made ' + esc(q.created) : '') + '</div>'
       + '<a class="qd-link" href="' + esc(url) + '?jake=1" target="_blank" rel="noopener">' + esc(url.replace('https://', '')) + '</a></div>'
-      + '<div class="qd-views"><b>' + (v.views || 0) + '</b><span>view' + (v.views === 1 ? '' : 's') + '</span>' + (v.lastView ? '<div class="qd-meta">Last opened ' + esc(ago(v.lastView)) + '</div>' : '<div class="qd-meta">Not opened yet</div>') + '</div></div>'
+      + '<div class="qd-views"><b>' + (v.views || 0) + '</b><span>view' + (v.views === 1 ? '' : 's') + '</span>' + (live ? '<div class="qd-live">Viewing now</div>' : '') + (v.lastView ? '<div class="qd-meta">Last opened ' + esc(ago(v.lastView)) + '</div>' : '<div class="qd-meta">Not opened yet</div>') + (comeback ? '<div class="qd-keen">Came back after 24 hrs</div>' : '') + '</div></div>'
       + '<div class="qd-act"><a class="ea-btn" href="' + esc(url) + '?jake=1" target="_blank" rel="noopener">Open</a>'
       + '<button class="ea-btn" type="button" data-qa="amend" style="background:var(--yellow)">Amend quote</button>'
       + '<button class="ea-btn" type="button" data-qa="copy" data-url="' + esc(url) + '">Copy link</button>'
       + (e && e.phone ? '<a class="ea-btn wa" target="_blank" rel="noopener" href="https://wa.me/' + waNum(e.phone) + '?text=' + encodeURIComponent(hello) + '">Send on WhatsApp</a>' : '')
-      + ((v.opens || []).length ? '<button class="ea-btn" type="button" data-qa="hist">' + (S.openHist[q.slug] ? 'Hide' : 'Show') + ' view history</button>' : '') + '</div>'
-      + (S.openHist[q.slug] && hist ? '<div class="qd-hist">' + hist + '</div>' : '') + '</article>';
+      + ((v.opens || []).length > 6 ? '<button class="ea-btn" type="button" data-qa="hist">' + (showAll ? 'Show fewer' : 'Show all ' + v.opens.length + ' opens') + '</button>' : '') + '</div>'
+      + (hist ? '<div class="qd-small">When it was opened</div><div class="qd-hist">' + hist + '</div>' : '') + '</article>';
   }
   function reqCard(r) {
     var e = enq(r.enquiryId), published = S.quotes.some(function (q) { return q.slug === r.slug; });
@@ -163,6 +168,8 @@
       '', "JAKE'S NOTES FOR THIS QUOTE (personalise sections from these)", r.notes || 'None',
       '', 'WHATSAPP NOTES', r.chatNotes || 'None',
       '', 'FILES', (r.files || []).length ? r.files.map(function (f) { return f.name; }).join(', ') + ' (download from the Quotes tab of the dashboard)' : 'None',
+      '', 'MUST HAVE', 'Tourist tax payable at the hotel on every price (CMA): set touristTax { amount, note } for the quote and tax/taxNote on any hotel that differs, using the supplier\'s local charges.',
+      'Link preview: og:image in the page head must be the same photo as heroImg (1200 wide), with og:title and og:description written for this customer.',
       '', 'When done: add the page to quotes/<slug>/index.html, add it to quotes/quotes.json with the enquiry ID, push, and set this request to Sent.'
     ].filter(function (x) { return x !== null; }).join('\n');
   }
@@ -266,6 +273,7 @@
           + '<div class="qd-meta" style="margin:4px 0 0 32px">' + esc(h.area) + ' &#183; transfer ' + esc(mins(h.transfer)) + ' &#183; &#163;' + Number(h.total).toLocaleString('en-GB') + ' total</div>'
           + '<details style="margin:8px 0 0 32px"><summary style="cursor:pointer;font-weight:700;font-size:14px">Edit wording or price</summary>'
           + '<div class="qd-two"><div><label>Total price (&#163;)</label><input data-f="total" inputmode="numeric" placeholder="' + h.total + '" value="' + esc(e.total || '') + '"></div><div><label>Per person (&#163;)</label><input data-f="pp" inputmode="numeric" placeholder="' + h.pp + '" value="' + esc(e.pp || '') + '"></div></div>'
+          + '<label>Tourist tax paid at the hotel (&#163;, whole party)</label><input data-f="tax" inputmode="numeric" placeholder="' + (h.tax != null ? h.tax : 'Leave blank to use the quote default') + '" value="' + esc(e.tax != null ? e.tax : '') + '">'
           + '<label>Badge on the photo</label><input data-f="badge" placeholder="' + esc(h.badge || '') + '" value="' + esc(e.badge || '') + '">'
           + '<label>Rooms</label><input data-f="rooms" placeholder="' + esc(h.rooms || '') + '" value="' + esc(e.rooms || '') + '">'
           + '<label>Why it was chosen</label><textarea data-f="why" placeholder="' + esc(h.why || '') + '">' + esc(e.why || '') + '</textarea>'
@@ -292,7 +300,7 @@
         var hidden = [], edits = {};
         Array.prototype.forEach.call(f.querySelectorAll('[data-hid]'), function (c) {
           var id = c.dataset.hid; if (!c.querySelector('[data-f="show"]').checked) hidden.push(id);
-          var e = {}; ['total', 'pp', 'badge', 'rooms', 'why'].forEach(function (k) { var v = c.querySelector('[data-f="' + k + '"]').value.trim(); if (v) e[k] = k === 'total' || k === 'pp' ? v.replace(/[^\d.]/g, '') : v; });
+          var e = {}; ['total', 'pp', 'tax', 'badge', 'rooms', 'why'].forEach(function (k) { var v = c.querySelector('[data-f="' + k + '"]').value.trim(); if (v) e[k] = k === 'total' || k === 'pp' || k === 'tax' ? v.replace(/[^\d.]/g, '') : v; });
           if (Object.keys(e).length) edits[id] = e;
         });
         if (hidden.length >= (Q.hotels || []).length) { var er = f.querySelector('#amErr'); er.textContent = 'Keep at least one hotel showing.'; er.hidden = false; return; }
@@ -312,4 +320,6 @@
     if (tries++ < 600) setTimeout(wait, 1000);
   })();
   setInterval(function () { if (key() && !app.hidden && document.visibilityState === 'visible') load(); }, 60000);
+  /* near realtime while the Quotes tab is open */
+  setInterval(function () { if (key() && !app.hidden && S.tab === 'quotes' && document.visibilityState === 'visible' && !document.querySelector('.qd-modal')) load(); }, 20000);
 })();
