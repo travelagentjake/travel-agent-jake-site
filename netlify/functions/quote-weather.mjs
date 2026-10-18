@@ -6,7 +6,7 @@
 import { getStore } from "@netlify/blobs";
 
 const CORS = { "access-control-allow-origin": "*", "access-control-allow-methods": "GET, OPTIONS" };
-const json = (d, status = 200) => new Response(JSON.stringify(d), { status, headers: { ...CORS, "content-type": "application/json", "cache-control": status === 200 ? "public, max-age=86400" : "no-store" } });
+const json = (d, status = 200) => new Response(JSON.stringify(d), { status, headers: { ...CORS, "content-type": "application/json", "cache-control": status === 200 ? "public, max-age=3600" : "no-store" } });
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const avg = (a) => { const v = a.filter((x) => x != null && !isNaN(x)); return v.length ? v.reduce((s, x) => s + x, 0) / v.length : null; };
 const r1 = (n) => n == null ? null : Math.round(n * 10) / 10;
@@ -32,7 +32,14 @@ async function geocode(place, country) {
   for (const p of parts) {
     let hits = (await search(p)).filter((h) => inCountry(h, country));
     if (!hits.length) continue;
-    if (region) { hits = hits.map((h) => ({ h, d: km(h, region) })).filter((x) => x.d <= 150).sort((a, b) => a.d - b.d).map((x) => x.h); if (!hits.length) continue; }
+    if (region) {
+      // a hit whose province or district names the region wins; otherwise it must be close to the region, or we use the region itself
+      const rn = parts[parts.length - 1].toLowerCase();
+      const named = hits.filter((h) => (h.admin || "").toLowerCase().includes(rn));
+      if (named.length) return named[0];
+      hits = hits.map((h) => ({ h, d: km(h, region) })).filter((x) => x.d <= 60).sort((a, b) => a.d - b.d).map((x) => x.h);
+      if (!hits.length) continue;
+    }
     return hits[0];
   }
   if (region) return region;
@@ -95,7 +102,7 @@ export default async (req) => {
   const month = Number(u.searchParams.get("month"));
   if (!place && !country) return json({ error: "place needed" }, 400);
   if (!(month >= 1 && month <= 12)) return json({ error: "month needed" }, 400);
-  const key = ("v2|" + place + "|" + country + "|" + month).toLowerCase().replace(/[^a-z0-9|]+/g, "-");
+  const key = ("v3|" + place + "|" + country + "|" + month).toLowerCase().replace(/[^a-z0-9|]+/g, "-");
   const store = getStore({ name: "quote-weather", consistency: "strong" });
   const cached = await store.get(key, { type: "json" }).catch(() => null);
   if (cached && cached.at && Date.now() - Date.parse(cached.at) < 60 * 86400000) return json(cached);
