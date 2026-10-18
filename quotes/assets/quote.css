@@ -178,8 +178,8 @@ a.areacard:hover{transform:translateY(-3px)}
 .full td em{font-style:normal;color:#6b7190;font-size:13px}
 .full tfoot td{border-bottom:0;font-weight:800;font-size:18px;color:var(--blue);padding-top:14px}.full tfoot tr.pp td{font-size:14px;font-weight:600;padding-top:2px}
 
-.note.top{margin:24px 0 0;background:rgba(255,255,255,.08);border:3px solid var(--yellow);padding:24px 26px}.note.top p{color:#fff}
-.note.top h2{font-family:'Archivo Black',sans-serif;color:var(--yellow);font-size:clamp(22px,3vw,28px);margin:0 0 12px;text-transform:uppercase}
+.note.top{margin:18px 0 0;background:rgba(255,255,255,.08);border:2px solid var(--yellow);border-radius:16px;padding:14px 16px}.note.top p{color:#fff;font-size:13px;line-height:1.45;margin:0 0 7px}
+.note.top h2{font-family:'Archivo Black',sans-serif;color:var(--yellow);font-size:14px;letter-spacing:.03em;margin:0 0 8px;text-transform:uppercase}.note.top .sig{font-size:15px}
 .xwith{display:block;font-size:12px;font-weight:700;color:#6b7190}
 /* desktop: photos fill the whole height of the hotel card */
 @media (min-width:901px){.slider{min-height:420px}.slider .track{position:absolute;inset:0;height:auto}.slider .track img{height:100%;min-height:0;max-height:none}}
