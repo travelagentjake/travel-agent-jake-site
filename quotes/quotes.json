@@ -1,6 +1,17 @@
 {
   "quotes": [
     {
+      "slug": "jessicanewyork",
+      "url": "https://quotes.travelagentjake.co.uk/jessicanewyork",
+      "customer": "Jessica",
+      "enquiryId": "mvduwbkmyh98",
+      "quoteRequestId": "mvduwbna70dr",
+      "title": "New York city break, Canopy by Hilton Jersey City",
+      "created": "2026-10-18",
+      "departs": "2028-03-29",
+      "fromPrice": 5206
+    },
+    {
       "slug": "robert",
       "url": "https://quotes.travelagentjake.co.uk/robert",
       "customer": "Robert",
