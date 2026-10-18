@@ -151,8 +151,7 @@
   });
   if (extras.length) nav.push(['extras', 'Extras']);
   nav.push(['next', 'Prices and booking']);
-  if (hotels.length) nav.push(['book', 'Book']);
-  nav.push(['feedback', 'Send feedback']);
+  nav.push(['feedback', hotels.length ? 'Book or ask' : 'Send feedback']);
 
   var h = '';
   h += '<header class="top"><div class="wrap"><a href="https://travelagentjake.co.uk" aria-label="Travel Agent Jake home"><img src="https://travelagentjake.co.uk/images/logo.png" alt="Travel Agent Jake"></a>'
@@ -282,26 +281,27 @@
 
   h += '<section id="next"><div class="wrap"><h2 class="h2">Prices and booking</h2>' + (Q.priceIntro ? '<p class="intro">' + esc(Q.priceIntro) + '</p>' : '')
     + '<div class="pay">' + (Q.steps || []).map(function (s, i) { return '<div class="step"><div class="sn">' + (i + 1) + '</div><h3>' + esc(s[0]) + '</h3><p>' + stepText(s[1]) + '</p></div>'; }).join('') + '</div>'
-    + '<p style="margin:22px 0 0;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-y" href="#book">Book this holiday</a><a class="btn btn-o" href="' + wa('Hi Jake, it’s ' + who + '. I have a question about my quote. ') + '" target="_blank" rel="noopener">Ask a question on WhatsApp</a></p>'
+    + '<p style="margin:22px 0 0;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-y" href="#feedback" data-pick="book">I want to book</a><a class="btn btn-o" href="#feedback" data-pick="question">I have a question</a></p>'
     + (hotels.length ? '<div class="full" id="fullCost"></div>' : '')
     + (Q.departDate && hotels.length ? '<div class="calc" id="calc"><h3>Your monthly payments</h3><p class="intro" style="margin:4px 0 16px">Pick a hotel and the day of the month that suits you, and see how the balance could be spread by direct debit.</p>'
       + '<div class="calcgrid">' + (multi ? '<div><label class="fbl" for="cHotel">Hotel</label><select id="cHotel">' + hotels.map(function (x, i) { return '<option value="' + i + '">' + esc(x.name) + ' (' + gbp(x.total) + ')</option>'; }).join('') + '</select></div>' : '')
       + '<div><label class="fbl" for="cDay">Payment day each month</label><select id="cDay">' + Array.apply(null, Array(28)).map(function (_, i) { var d = i + 1; return '<option value="' + d + '"' + (d === 1 ? ' selected' : '') + '>' + d + ordinal(d) + '</option>'; }).join('') + '</select></div></div>'
       + '<div id="cOut"></div></div>' : '')
-    + (hotels.length ? bookForm() : '')
-    + '<div class="fb" id="feedback"><h3>Send your feedback to Jake</h3><p class="intro" style="margin:4px 0 14px">Questions and changes are easiest on WhatsApp. Tell me what you think and it opens WhatsApp with your message ready to send. Ready to book? Use the <a href="#book">booking form</a> above.</p>'
+    + '<div class="fb" id="feedback"><h3>What would you like to do?</h3><p class="intro" style="margin:4px 0 14px">Pick one. Booking is done right here. Questions and changes go to me on WhatsApp with your message ready to send.</p>'
     + '<div class="fbopts" role="radiogroup" aria-label="What would you like to do?">'
-    + [['changes', 'We would like some changes'], ['question', 'I have a question']].map(function (o, i) { return '<label class="fbopt"><input type="radio" name="fbType" value="' + o[0] + '"' + (i === 0 ? ' checked' : '') + '><span>' + o[1] + '</span></label>'; }).join('')
+    + (hotels.length ? [['book', 'We would like to book']] : []).concat([['changes', 'We would like some changes'], ['question', 'I have a question']]).map(function (o) { return '<label class="fbopt"><input type="radio" name="fbType" value="' + o[0] + '"><span>' + o[1] + '</span></label>'; }).join('')
     + '</div>'
+    + (hotels.length ? bookForm() : '')
+    + '<div id="fbWrap" hidden>'
     + (hotels.length ? '<label class="fbl" for="fbHotel">' + (multi ? 'Your favourite hotel' : 'Hotel') + '</label><select id="fbHotel"><option value="">' + (multi ? 'Not decided yet' : esc(hotels[0].name)) + '</option>' + (multi ? hotels.map(function (x) { return '<option>' + esc(x.name) + '</option>'; }).join('') : '') + '</select>' : '')
     + '<label class="fbl" for="fbMsg">Your message</label><textarea id="fbMsg" rows="4" placeholder="e.g. We love Tour Khalef, could we add sea view rooms?"></textarea>'
-    + '<button class="btn btn-wa" type="button" id="fbSend" style="margin-top:14px">Send to Jake on WhatsApp</button></div>'
+    + '<button class="btn btn-wa" type="button" id="fbSend" style="margin-top:14px">Send to Jake on WhatsApp</button></div></div>'
 
     + '<p class="small" style="margin-top:20px">' + esc(Q.smallprint || ('Prices were correct when this quote was prepared on ' + Q.prepared + ' and are subject to availability until booked. Your holiday is ATOL protected.')) + '</p>'
     /* standard tourist tax wording on every quote */
     + '<p class="small">' + esc('Tourist taxes are set by local governments and can change. Any tourist tax amounts shown are an estimate and are paid locally at the hotel. Destinations that do not currently charge a tourist tax may introduce one at any time, and if this happens I will let you know.') + '</p></div></section>';
   h += '<footer><div class="wrap"><p>Travel Agent Jake is part of Club Voyages, a Member of ABTA, membership number P8503 &amp; Y6784. Travel Agent Jake is part of Club Voyages Ltd, which is as an agent for Hays Tour Operating Ltd, ATOL 10531. All the flights and flight inclusive holidays on this website are financially protected by the ATOL scheme. Please see our <a href="https://travelagentjake.co.uk/booking-conditions.html">booking conditions</a> for more information.</p><p>&copy; ' + new Date().getFullYear() + ' Travel Agent Jake &#183; <a href="https://travelagentjake.co.uk">travelagentjake.co.uk</a></p></div></footer>';
-  h += '<a class="btn btn-wa float" id="fbFloat" href="#feedback">Send feedback to Jake</a>';
+  h += '<a class="btn btn-y float" id="fbFloat" href="#feedback">' + (hotels.length ? 'Book or ask Jake' : 'Send feedback to Jake') + '</a>';
   h += '<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" type="button" id="lbX" aria-label="Close">&#215;</button><button class="arr l" type="button" id="lbP" aria-label="Previous photo">&#8249;</button><img id="lbImg" alt=""><button class="arr r" type="button" id="lbN" aria-label="Next photo">&#8250;</button><div class="cap" id="lbCap"></div></div>';
   var isJake = false; try { if (new URLSearchParams(location.search).has('jake')) localStorage.setItem('taj-jake', '1'); isJake = localStorage.getItem('taj-jake') === '1'; } catch (e) {}
   if (isJake) h = h.replace('id="fbFloat"', 'id="fbFloat" hidden');
@@ -390,7 +390,7 @@
         + '<label>Date of birth<input type="date" name="dob" required max="' + new Date().toISOString().slice(0, 10) + '"></label></div></div>';
     }
     var rows = ''; for (var i = 0; i < n; i++) rows += paxRow(i);
-    return '<div class="book" id="book"><h3>Book this holiday</h3>'
+    return '<div class="book" id="book" hidden><h3>Book this holiday</h3>'
       + '<p class="intro" style="margin:4px 0 16px">Fill this in and it comes straight to me. I will then text you a secure payment link for your deposit (or the full amount), and as soon as that is paid I get your holiday confirmed. Nothing is charged on this page. Names must match passports exactly.</p>'
       + '<form id="bookForm" novalidate>'
       + '<h4>Which hotel</h4>'
@@ -494,6 +494,21 @@
     sum();
   }
   bookWire();
+  /* which option is picked decides what shows: the booking form, or the WhatsApp message box */
+  function pickType(t, hotelId) {
+    var r = document.querySelector('input[name="fbType"][value="' + t + '"]'); if (r) r.checked = true;
+    var bk = document.getElementById('book'), fw = document.getElementById('fbWrap');
+    if (bk) bk.hidden = t !== 'book';
+    if (fw) fw.hidden = !(t === 'changes' || t === 'question');
+    if (hotelId != null && hotelId !== '') { var i = -1; hotels.forEach(function (h, k) { if (h.id === hotelId) i = k; }); if (i >= 0) { hIdx = i; var c = document.getElementById('cHotel'); if (c) c.value = String(i); var fh = document.getElementById('fHotel'); if (fh) fh.value = String(i); var bh = document.getElementById('bkHotel'); if (bh) bh.value = String(i); calc(); } }
+    var msg = document.getElementById('fbMsg'); if (msg && t !== 'book') msg.placeholder = t === 'changes' ? 'e.g. Could we add sea view rooms, or look at different dates?' : 'e.g. How long is the transfer, and is the balance date flexible?';
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="fbType"]'), function (r) { r.addEventListener('change', function () { pickType(r.value); }); });
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-pick]'); if (!a) return;
+    e.preventDefault(); pickType(a.dataset.pick, a.dataset.hotel);
+    var box = document.getElementById('feedback'); if (box) box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
   var fbBtn = document.getElementById('fbSend');
   if (fbBtn) fbBtn.addEventListener('click', function () {
     var t = (document.querySelector('input[name="fbType"]:checked') || {}).value || 'question';
@@ -550,7 +565,7 @@
           + (x.upgrade.perks && x.upgrade.perks.length ? '<ul>' + x.upgrade.perks.map(function (k) { return '<li>' + esc(k) + '</li>'; }).join('') + '</ul>' : '')
           + x.upgrade.options.map(function (o) { return '<div class="upo"><span class="un">' + esc(o.name) + '</span><span class="up"><b>+' + gbp(o.price) + '</b><small>total ' + gbp(Math.round((Number(x.total) + Number(o.price)) * 100) / 100) + ' for ' + esc(party) + '</small></span></div>'; }).join('')
           + (x.upgrade.note ? '<p class="upn">' + esc(x.upgrade.note) + '</p>' : '') + '</div>' : '')
-        + '<div class="links"><a class="btn btn-wa" target="_blank" rel="noopener" href="' + wa('Hi Jake, it’s ' + who + '. We love the ' + x.name + '! ') + '">I like this one</a>'
+        + '<div class="links"><a class="btn btn-y" href="#feedback" data-pick="book" data-hotel="' + esc(x.id) + '">I like this one</a>'
         + (x.site ? '<a class="btn btn-o" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>' : '') + '</div></div></div></article>';
     }).join('');
     Array.prototype.forEach.call(el.querySelectorAll('.slider'), function (s) {

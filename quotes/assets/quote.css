@@ -260,8 +260,8 @@ html,body{overflow-x:clip}
 .trip .fgrp:first-child{margin-top:0}
 
 /* booking form */
-.book{background:#fff;border:3px solid var(--blue);border-radius:24px;padding:24px;margin-top:30px;scroll-margin-top:130px;position:relative}
-.book h3{font-size:26px;color:var(--blue);margin:0}
+.book{background:#fff;border:2px solid var(--blue);border-radius:20px;padding:22px;margin-top:18px;position:relative}
+.book h3{font-size:24px;color:var(--blue);margin:0}
 .book h4{font-family:'Archivo Black',sans-serif;font-size:17px;color:var(--ink);margin:22px 0 10px}
 .book input[type=text],.book input[type=tel],.book input[type=email],.book input[type=date],.book select,.book textarea{width:100%;padding:11px 13px;border:2px solid var(--line);border-radius:12px;font:inherit;font-size:16px;background:#fff;box-sizing:border-box}
 .book .paxg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px}
