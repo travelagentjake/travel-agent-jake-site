@@ -34,6 +34,14 @@
     + '.qd-gen{margin-left:auto;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:10px 18px;font:800 15px inherit;font-family:inherit;cursor:pointer}'
     + '.qd-h{font-family:"Archivo Black",sans-serif;font-size:22px;margin:6px 0 12px}'
     + '.qd-card{background:#fff;border:2px solid var(--ink);border-radius:16px;padding:16px 18px;margin-bottom:14px;box-shadow:5px 5px 0 #d5dbea}'
+    + '#eaStats.ea-stats{grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}#eaStats .ea-stat{padding:8px 10px;border-radius:12px}#eaStats .ea-stat b{font-size:20px}#eaStats .ea-stat span{font-size:12px}'
+    + '@media (max-width:760px){#eaStats.ea-stats{grid-template-columns:repeat(4,minmax(0,1fr))}}'
+    + '#eaList .ea-card{padding:12px 14px;margin-bottom:10px;border-radius:14px;box-shadow:3px 3px 0 #d5dbea}#eaList .ea-card.is-new{box-shadow:3px 3px 0 var(--yellow)}'
+    + '#eaList .ea-name{font-size:16px}#eaList .ea-meta{font-size:12px}#eaList .ea-badge{font-size:10px;padding:2px 8px}#eaList .ea-sum{margin:6px 0 0;font-size:14px}'
+    + '#eaList .ea-actions{margin-top:8px;gap:6px}#eaList .ea-btn{padding:5px 12px;font-size:13px}'
+    + '#eaList .ea-ctl{grid-template-columns:160px 1fr;gap:8px;margin-top:8px}#eaList .ea-ctl select,#eaList .ea-ctl textarea{padding:6px 10px;font-size:14px;border-radius:8px}#eaList .ea-ctl textarea{min-height:34px}'
+    + '#eaList .qd-block{margin-top:8px;padding-top:8px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}#eaList .qd-block .qd-small{margin:0}#eaList .qd-block .qd-act{margin:0}#eaList .qd-block .qd-empty{padding:0;font-size:13px}#eaList .qd-block .qd-booked{flex-basis:100%;margin:0}#eaList .qd-block .qd-mini{flex-basis:100%}'
+    + '@media (max-width:640px){#eaList .ea-ctl{grid-template-columns:1fr}}'
     + '.qd-done{opacity:.75}.qd-pill.booked{background:#118A5B;border-color:#118A5B;color:#fff}.qd-pill.closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478}'
     + '.qd-sync{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff;border:2px dashed #d5dbea;border-radius:14px;padding:10px 14px;margin-bottom:14px;font-size:14px;color:#5b6478}'
     + '.qd-booked{background:#e3f4ea;border:2px solid #118A5B;color:#0a5c3b;border-radius:12px;padding:8px 12px;font-weight:700;font-size:14px;margin-top:12px}'
@@ -143,7 +151,7 @@
     paneQ.innerHTML = syncLine + '<h2 class="qd-h">Quote links</h2>' + (qs.length ? qs.map(quoteCard).join('') : '<p class="qd-empty">No open quotes.</p>')
       + (done.length ? '<button class="ea-btn" type="button" data-qa="showdone" style="margin:4px 0 10px">' + (S.showDone ? 'Hide' : 'Show') + ' booked and closed quotes (' + done.length + ')</button>' + (S.showDone ? done.map(quoteCard).join('') : '') : '')
       + '<h2 class="qd-h" style="margin-top:26px">Quote requests waiting to be built</h2>' + (open.length ? open.map(reqCard).join('') : '<p class="qd-empty">Nothing waiting. Click Generate quote to start one.</p>')
-      + (rest.length ? '<h2 class="qd-h" style="margin-top:26px">Older requests</h2>' + rest.map(reqCard).join('') : '');
+      ;
   }
   paneQ.addEventListener('click', function (e) {
     var b = e.target.closest('[data-qa]'); if (!b || b.tagName === 'SELECT') return; var act = b.dataset.qa;
