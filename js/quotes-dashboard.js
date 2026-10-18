@@ -51,7 +51,7 @@
     + '#qdPane .qd-name{font-size:16px}#qdPane .qd-meta{font-size:12px}#qdPane .qd-link{margin:2px 0 0;font-size:13px}'
     + '#qdPane .qd-views b{font-size:20px}#qdPane .qd-views span{font-size:11px}#qdPane .qd-act{margin-top:6px;gap:6px}#qdPane .ea-btn{padding:5px 12px;font-size:13px}#qdPane .qd-act select{padding:5px 10px!important;font-size:13px}'
     + '#qdPane .qd-hist{margin-top:6px;max-height:160px;font-size:12px;padding:6px 10px}#qdPane .qd-small{margin-top:6px}#qdPane .qd-pre{font-size:13px}'
-    + '.qd-done{opacity:.75}.qd-pill.booked{background:#118A5B;border-color:#118A5B;color:#fff}.qd-pill.closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478}'
+    + '.qd-done{opacity:.75}.qd-pill.booked{background:#118A5B;border-color:#118A5B;color:#fff}.qd-pill.closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478}.qd-wants{background:#FFD21F;border-color:#FFD21F;color:#10142B}'
     + '.qd-sync{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff;border:2px dashed #d5dbea;border-radius:14px;padding:10px 14px;margin-bottom:14px;font-size:14px;color:#5b6478}'
     + '.qd-booked{background:#e3f4ea;border:2px solid #118A5B;color:#0a5c3b;border-radius:12px;padding:8px 12px;font-weight:700;font-size:14px;margin-top:12px}'
     + '.qd-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start}'
@@ -257,7 +257,8 @@
       var qs = S.quotes.filter(function (q) { return String(q.enquiryId || '').toLowerCase() === id; });
       var rs = S.requests.filter(function (r) { return String(r.enquiryId || '').toLowerCase() === id && !qs.some(function (q) { return q.slug === r.slug; }); });
       var en = S.enquiries.filter(function (x) { return String(x.id || '').toLowerCase() === id; })[0];
-      var html = (en && en.status === 'booked' && en.booked ? '<div class="qd-booked">Booked' + (en.booked.ref ? ', ref ' + esc(en.booked.ref) : '') + (en.booked.supplier ? ' with ' + esc(en.booked.supplier) : '') + (en.booked.via ? ' (found in your ' + esc(en.booked.via) + ')' : '') + '</div>' : '')
+      var html = (en && en.wantsToBook && en.status !== 'booked' ? '<div class="qd-booked qd-wants">Wants to book! Booking form sent ' + esc(ago(en.wantsToBook.at)) + '. Text them the payment link.</div>' : '')
+        + (en && en.status === 'booked' && en.booked ? '<div class="qd-booked">Booked' + (en.booked.ref ? ', ref ' + esc(en.booked.ref) : '') + (en.booked.supplier ? ' with ' + esc(en.booked.supplier) : '') + (en.booked.via ? ' (found in your ' + esc(en.booked.via) + ')' : '') + '</div>' : '')
         + '<div class="qd-small">Quotes</div>'
         + qs.map(function (q) { var v = viewsOf(q.slug); return '<div class="qd-mini"><a href="' + esc(quoteUrl(q)) + '?jake=1" target="_blank" rel="noopener"><b>' + esc(q.title || q.slug) + '</b></a><span class="qd-meta">' + (v.views || 0) + ' view' + (v.views === 1 ? '' : 's') + (v.lastView ? ', last ' + esc(ago(v.lastView)) : ', not opened yet') + '</span></div>'; }).join('')
         + rs.map(function (r) { return '<div class="qd-mini"><span>' + esc(r.title || ('Quote for ' + r.customerName)) + '</span><span class="qd-pill ' + esc(r.status) + '">' + esc(r.status) + '</span></div>'; }).join('')

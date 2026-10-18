@@ -258,3 +258,28 @@ html,body{overflow-x:clip}
 .price .freec{display:inline-block;margin-top:4px;background:#FFD21F;color:#0A1A3F;font-weight:800;font-size:12px;border-radius:999px;padding:3px 10px}
 .trip .fgrp{grid-column:1/-1;margin:18px 0 0;font-family:'Archivo Black',sans-serif;font-size:18px;color:#004AAD}
 .trip .fgrp:first-child{margin-top:0}
+
+/* booking form */
+.book{background:#fff;border:3px solid var(--blue);border-radius:24px;padding:24px;margin-top:30px;scroll-margin-top:130px;position:relative}
+.book h3{font-size:26px;color:var(--blue);margin:0}
+.book h4{font-family:'Archivo Black',sans-serif;font-size:17px;color:var(--ink);margin:22px 0 10px}
+.book input[type=text],.book input[type=tel],.book input[type=email],.book input[type=date],.book select,.book textarea{width:100%;padding:11px 13px;border:2px solid var(--line);border-radius:12px;font:inherit;font-size:16px;background:#fff;box-sizing:border-box}
+.book .paxg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px}
+.book .paxg label{display:block;font-weight:700;font-size:14px}
+.book .paxg label input,.book .paxg label select,.book .paxg label textarea{margin-top:4px;font-weight:400}
+.book .paxg .wide{grid-column:1/-1}
+.paxrow{background:var(--panel);border-radius:16px;padding:14px;margin:0 0 10px}
+.paxn{font-weight:800;color:var(--blue);margin:0 0 8px;display:flex;justify-content:space-between;align-items:center}
+.paxdel{background:none;border:0;color:var(--muted);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer}
+.bkopts{display:flex;flex-wrap:wrap;gap:8px}
+.bksum{background:var(--panel);border-radius:16px;padding:12px 16px;margin:12px 0 0}
+.bksum>div{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px solid var(--line)}
+.bksum>div:last-of-type{border-bottom:0}
+.bksum b{color:var(--blue)}
+.bkagree{display:flex;gap:10px;align-items:flex-start;margin:22px 0 14px;font-weight:600;line-height:1.45}
+.bkagree input{accent-color:var(--blue);width:20px;height:20px;flex:0 0 auto;margin-top:2px}
+.bkerr{background:#FFF1F1;border:2px solid #E33;color:#A00;border-radius:12px;padding:10px 14px;font-weight:700;margin:0 0 12px}
+.bkdone{background:var(--panel);border-radius:16px;padding:18px}
+.bkdone h4{margin:0 0 8px;color:var(--blue);font-family:'Archivo Black',sans-serif;font-size:20px}
+.bkh{margin:0;font-size:17px}
+@media (max-width:640px){.book .paxg{grid-template-columns:1fr}.book{padding:18px}}
