@@ -64,10 +64,13 @@
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function gbp(n) { n = Number(n); return '£' + (n % 1 ? n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : n.toLocaleString('en-GB')); }
   function mins(m) { if (!m) return ''; if (m < 60) return m + ' mins'; var h = Math.floor(m / 60), r = m % 60; return h + ' hr' + (r ? ' ' + r : ''); }
-  /* tourist tax payable locally at the hotel: always shown next to every price (CMA rules) */
+  /* tourist tax payable locally at the hotel (CMA rules): shown next to every price when the supplier lists one.
+     When the supplier lists none, nothing is shown and the standard small print covers it. */
+  function taxAmt(x) { var d = Q.touristTax || {}; return x && x.tax != null && x.tax !== '' ? Number(x.tax) : (d.amount ? Number(d.amount) : null); }
   function taxText(x) {
-    var d = Q.touristTax || {}, amt = x.tax != null && x.tax !== '' ? x.tax : d.amount, note = x.taxNote || d.note;
-    return 'Plus ' + (amt ? 'about ' + gbp(amt) + ' ' : 'any ') + 'tourist tax, paid locally at the hotel' + (note ? ' (' + note + ')' : '') + '.';
+    var d = Q.touristTax || {}, amt = taxAmt(x), note = x.taxNote || d.note;
+    if (amt == null) return '';
+    return 'Plus about ' + gbp(amt) + ' tourist tax, paid locally at the hotel' + (note ? ' (' + note + ')' : '') + '.';
   }
   function wa(text) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text); }
   function img(u, w) {
@@ -175,7 +178,7 @@
       + '<button class="chipbtn" type="button" data-sort="rating" aria-pressed="false">Top rated</button>'
       + '<button class="chipbtn" type="button" data-sort="transfer" aria-pressed="false">Shortest transfer</button>'
       + (anySlides ? '<button class="chipbtn" type="button" id="slidesOnly" aria-pressed="false">Slides only</button>' : '')
-      + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th><th>Tripadvisor</th><th>Transfer</th>' + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div><div class="cmob" id="cmob"></div><p class="taxnote">' + esc(Q.touristTax && Q.touristTax.amount ? 'Prices do not include tourist tax of about ' + gbp(Q.touristTax.amount) + ', paid locally at the hotel.' : 'Prices do not include any tourist tax, paid locally at the hotel.') + '</p></div></section>';
+      + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th><th>Tripadvisor</th><th>Transfer</th>' + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div><div class="cmob" id="cmob"></div>' + (Q.touristTax && Q.touristTax.amount ? '<p class="taxnote">' + esc('Prices do not include tourist tax of about ' + gbp(Q.touristTax.amount) + ', paid locally at the hotel.') + '</p>' : '') + '</div></section>';
   }
   if (hotels.length) {
     h += '<section id="hotels" class="alt"><div class="wrap"><h2 class="h2">' + (multi ? 'The hotels' : 'Your hotel') + '</h2>'
@@ -290,7 +293,9 @@
     + '<label class="fbl" for="fbMsg">Your message</label><textarea id="fbMsg" rows="4" placeholder="e.g. We love Tour Khalef, could we add sea view rooms?"></textarea>'
     + '<button class="btn btn-wa" type="button" id="fbSend" style="margin-top:14px">Send to Jake on WhatsApp</button></div>'
 
-    + '<p class="small" style="margin-top:20px">' + esc(Q.smallprint || ('Prices were correct when this quote was prepared on ' + Q.prepared + ' and are subject to availability until booked. Your holiday is ATOL protected.')) + '</p></div></section>';
+    + '<p class="small" style="margin-top:20px">' + esc(Q.smallprint || ('Prices were correct when this quote was prepared on ' + Q.prepared + ' and are subject to availability until booked. Your holiday is ATOL protected.')) + '</p>'
+    /* standard tourist tax wording on every quote */
+    + '<p class="small">' + esc('Tourist taxes are set by local governments and can change. Any tourist tax amounts shown are an estimate and are paid locally at the hotel. Destinations that do not currently charge a tourist tax may introduce one at any time, and if this happens I will let you know.') + '</p></div></section>';
   h += '<footer><div class="wrap"><p>Travel Agent Jake is part of Club Voyages, a Member of ABTA, membership number P8503 &amp; Y6784. Travel Agent Jake is part of Club Voyages Ltd, which is as an agent for Hays Tour Operating Ltd, ATOL 10531. All the flights and flight inclusive holidays on this website are financially protected by the ATOL scheme. Please see our <a href="https://travelagentjake.co.uk/booking-conditions.html">booking conditions</a> for more information.</p><p>&copy; ' + new Date().getFullYear() + ' Travel Agent Jake &#183; <a href="https://travelagentjake.co.uk">travelagentjake.co.uk</a></p></div></footer>';
   h += '<a class="btn btn-wa float" id="fbFloat" href="#feedback">Send feedback to Jake</a>';
   h += '<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" type="button" id="lbX" aria-label="Close">&#215;</button><button class="arr l" type="button" id="lbP" aria-label="Previous photo">&#8249;</button><img id="lbImg" alt=""><button class="arr r" type="button" id="lbN" aria-label="Next photo">&#8250;</button><div class="cap" id="lbCap"></div></div>';
@@ -299,7 +304,7 @@
   if (isJake) h += '<a class="btn btn-y amend" href="https://travelagentjake.co.uk/enquiries-admin.html#amend=' + encodeURIComponent(Q.slug) + '" target="_blank" rel="noopener">Amend this quote</a>';
   document.getElementById('app').innerHTML = h;
   var deposit = Number(Q.depositTotal || 0), people = Number(Q.partyCount || 0);
-  function taxOf(x) { var d = Q.touristTax || {}; return x.tax != null && x.tax !== '' ? Number(x.tax) : (d.amount ? Number(d.amount) : null); }
+  function taxOf(x) { return taxAmt(x); }
   function inBooking(x) { return xFor(x).reduce(function (a, e) { var t = xTotal(e, x); return a + (t != null && !e.separate ? t : 0); }, 0); }
   function full() {
     var el = document.getElementById('fullCost'); if (!el || !hotels.length) return;
@@ -307,7 +312,7 @@
     var rows = '<tr><td>' + esc(x.name) + ', ' + esc(party) + '</td><td class="n">' + gbp(x.total) + '</td></tr>';
     list.forEach(function (e) { var t = xTotal(e, x); if (t == null) return; sum += t; rows += '<tr><td>' + esc(e.title) + '</td><td class="n">' + fmt(t) + '</td></tr>'; });
     if (tax != null) sum += tax;
-    rows += '<tr><td>Tourist tax, paid locally at the hotel</td><td class="n">' + (tax != null ? 'about ' + gbp(tax) : 'To confirm') + '</td></tr>';
+    if (tax != null) rows += '<tr><td>Tourist tax, paid locally at the hotel</td><td class="n">about ' + gbp(tax) + '</td></tr>';
     var today = paidToday(x);
     el.innerHTML = '<h3>Your full holiday cost</h3>'
       + (multi ? '<label class="fbl" for="fHotel">Hotel</label><select id="fHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '')
@@ -418,7 +423,7 @@
         + '<p>' + esc(x.why) + '</p>'
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
         + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
-        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + ' per person<br>' : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - Number(Q.depositTotal || 0)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">or about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div><p class="tax">' + esc(taxText(x)) + '</p></div>'
+        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + ' per person<br>' : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - Number(Q.depositTotal || 0)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">or about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
         + '<div class="links"><a class="btn btn-wa" target="_blank" rel="noopener" href="' + wa('Hi Jake, it’s ' + who + '. We love the ' + x.name + '! ') + '">I like this one</a>'
         + (x.site ? '<a class="btn btn-o" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>' : '') + '</div></div></div></article>';
     }).join('');
