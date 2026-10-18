@@ -97,6 +97,7 @@
       + '<a class="qd-link" href="' + esc(url) + '?jake=1" target="_blank" rel="noopener">' + esc(url.replace('https://', '')) + '</a></div>'
       + '<div class="qd-views"><b>' + (v.views || 0) + '</b><span>view' + (v.views === 1 ? '' : 's') + '</span>' + (v.lastView ? '<div class="qd-meta">Last opened ' + esc(ago(v.lastView)) + '</div>' : '<div class="qd-meta">Not opened yet</div>') + '</div></div>'
       + '<div class="qd-act"><a class="ea-btn" href="' + esc(url) + '?jake=1" target="_blank" rel="noopener">Open</a>'
+      + '<button class="ea-btn" type="button" data-qa="amend" style="background:var(--yellow)">Amend quote</button>'
       + '<button class="ea-btn" type="button" data-qa="copy" data-url="' + esc(url) + '">Copy link</button>'
       + (e && e.phone ? '<a class="ea-btn wa" target="_blank" rel="noopener" href="https://wa.me/' + waNum(e.phone) + '?text=' + encodeURIComponent(hello) + '">Send on WhatsApp</a>' : '')
       + ((v.opens || []).length ? '<button class="ea-btn" type="button" data-qa="hist">' + (S.openHist[q.slug] ? 'Hide' : 'Show') + ' view history</button>' : '') + '</div>'
@@ -127,6 +128,7 @@
   paneQ.addEventListener('click', function (e) {
     var b = e.target.closest('[data-qa]'); if (!b || b.tagName === 'SELECT') return; var act = b.dataset.qa;
     if (act === 'copy') return copy(b.dataset.url, 'Quote link copied');
+    if (act === 'amend') return openAmend(b.closest('[data-slug]').dataset.slug);
     if (act === 'hist') { var slug = b.closest('[data-slug]').dataset.slug; S.openHist[slug] = !S.openHist[slug]; renderPane(); return; }
     var card = b.closest('[data-req]'); if (!card) return; var r = S.requests.filter(function (x) { return x.id === card.dataset.req; })[0]; if (!r) return;
     if (act === 'brief') return copy(brief(r), 'Brief copied. Paste it to Claude');
@@ -247,8 +249,67 @@
     });
   }
 
+  /* ---------- Amend a published quote (no rebuild needed) ---------- */
+  function mins(m) { if (!m) return ''; if (m < 60) return m + ' mins'; var h = Math.floor(m / 60), r = m % 60; return h + ' hr' + (r ? ' ' + r : ''); }
+  function openAmend(slug) {
+    Promise.all([
+      fetch('/quotes/' + encodeURIComponent(slug) + '/?cb=' + Date.now()).then(function (r) { return r.text(); }),
+      fetch('/api/quote-config?slug=' + encodeURIComponent(slug), { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return {}; })
+    ]).then(function (res) {
+      var Q; try { Q = JSON.parse(new DOMParser().parseFromString(res[0], 'text/html').getElementById('quote-data').textContent); } catch (e) { toast('Could not read that quote'); return; }
+      var A = (res[1] && res[1].amendments) || {}; A.hidden = A.hidden || []; A.edits = A.edits || {};
+      var m = document.createElement('div'); m.className = 'qd-modal';
+      var rows = (Q.hotels || []).map(function (h) {
+        var e = A.edits[h.id] || {};
+        return '<div class="qd-card" style="box-shadow:none;margin:10px 0" data-hid="' + esc(h.id) + '" data-transfer="' + (h.transfer || 0) + '">'
+          + '<label style="display:flex;gap:10px;align-items:center;margin:0;font-weight:800"><input type="checkbox" data-f="show" style="width:22px;height:22px"' + (A.hidden.indexOf(h.id) < 0 ? ' checked' : '') + '> ' + esc(h.name) + '</label>'
+          + '<div class="qd-meta" style="margin:4px 0 0 32px">' + esc(h.area) + ' &#183; transfer ' + esc(mins(h.transfer)) + ' &#183; &#163;' + Number(h.total).toLocaleString('en-GB') + ' total</div>'
+          + '<details style="margin:8px 0 0 32px"><summary style="cursor:pointer;font-weight:700;font-size:14px">Edit wording or price</summary>'
+          + '<div class="qd-two"><div><label>Total price (&#163;)</label><input data-f="total" inputmode="numeric" placeholder="' + h.total + '" value="' + esc(e.total || '') + '"></div><div><label>Per person (&#163;)</label><input data-f="pp" inputmode="numeric" placeholder="' + h.pp + '" value="' + esc(e.pp || '') + '"></div></div>'
+          + '<label>Badge on the photo</label><input data-f="badge" placeholder="' + esc(h.badge || '') + '" value="' + esc(e.badge || '') + '">'
+          + '<label>Rooms</label><input data-f="rooms" placeholder="' + esc(h.rooms || '') + '" value="' + esc(e.rooms || '') + '">'
+          + '<label>Why it was chosen</label><textarea data-f="why" placeholder="' + esc(h.why || '') + '">' + esc(e.why || '') + '</textarea>'
+          + '<div class="qd-hint">Leave a box empty to keep the original.</div></details></div>';
+      }).join('');
+      m.innerHTML = '<form class="qd-form" novalidate><h3>Amend ' + esc(Q.customer || slug) + '\'s quote</h3><p class="qd-hint">Changes go live on quotes.travelagentjake.co.uk/' + esc(slug) + ' as soon as you save. Nothing needs rebuilding.</p>'
+        + '<div class="qd-act"><button type="button" class="ea-btn" data-q="hide60">Hide transfers over 1 hour</button><button type="button" class="ea-btn" data-q="showall">Show all hotels</button></div>'
+        + rows
+        + '<label for="amNote">A note from Jake at the top of the quote (optional)</label><textarea id="amNote" placeholder="e.g. I have taken out the hotels with longer transfers as requested.">' + esc(A.note || '') + '</textarea>'
+        + '<label for="amSub">Subtitle</label><input id="amSub" placeholder="' + esc(Q.subtitle || '') + '" value="' + esc(A.subtitle || '') + '">'
+        + '<label for="amIntro">Intro paragraph</label><textarea id="amIntro" placeholder="' + esc(Q.intro || '') + '">' + esc(A.intro || '') + '</textarea>'
+        + '<div id="amErr" style="color:#c2412d;font-weight:700;margin-top:12px" hidden></div>'
+        + '<div class="qd-act" style="margin-top:18px"><button class="btn btn-primary" type="submit">Save changes</button><a class="ea-btn" href="' + QUOTE_HOST + esc(slug) + '?jake=1" target="_blank" rel="noopener">View quote</a><button class="ea-btn" type="button" data-q="x">Close</button></div></form>';
+      document.body.appendChild(m);
+      var f = m.querySelector('form');
+      m.addEventListener('click', function (ev) {
+        var q = ev.target.closest('[data-q]'); if (!q) return;
+        if (q.dataset.q === 'x') m.remove();
+        if (q.dataset.q === 'hide60') Array.prototype.forEach.call(f.querySelectorAll('[data-hid]'), function (c) { if (Number(c.dataset.transfer) > 60) c.querySelector('[data-f="show"]').checked = false; });
+        if (q.dataset.q === 'showall') Array.prototype.forEach.call(f.querySelectorAll('[data-f="show"]'), function (c) { c.checked = true; });
+      });
+      f.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var hidden = [], edits = {};
+        Array.prototype.forEach.call(f.querySelectorAll('[data-hid]'), function (c) {
+          var id = c.dataset.hid; if (!c.querySelector('[data-f="show"]').checked) hidden.push(id);
+          var e = {}; ['total', 'pp', 'badge', 'rooms', 'why'].forEach(function (k) { var v = c.querySelector('[data-f="' + k + '"]').value.trim(); if (v) e[k] = k === 'total' || k === 'pp' ? v.replace(/[^\d.]/g, '') : v; });
+          if (Object.keys(e).length) edits[id] = e;
+        });
+        if (hidden.length >= (Q.hotels || []).length) { var er = f.querySelector('#amErr'); er.textContent = 'Keep at least one hotel showing.'; er.hidden = false; return; }
+        api('/api/quote-config', 'POST', { slug: slug, amendments: { hidden: hidden, edits: edits, note: f.querySelector('#amNote').value, subtitle: f.querySelector('#amSub').value, intro: f.querySelector('#amIntro').value } })
+          .then(function (x) { if (x.j && x.j.ok) { toast('Quote updated'); m.remove(); } else { var er = f.querySelector('#amErr'); er.textContent = (x.j && x.j.error) || 'Could not save.'; er.hidden = false; } });
+      });
+    });
+  }
+
   /* first load once the dashboard is unlocked, then keep in step with it */
   var tries = 0;
-  (function wait() { if (key() && !app.hidden) { load(); return; } if (tries++ < 600) setTimeout(wait, 1000); })();
+  (function wait() {
+    if (key() && !app.hidden) {
+      load().then(function () { var m = /#amend=([a-z0-9-]+)/.exec(location.hash); if (m) { tabs.querySelector('[data-tab="quotes"]').click(); openAmend(m[1]); history.replaceState(null, '', location.pathname); } });
+      return;
+    }
+    if (tries++ < 600) setTimeout(wait, 1000);
+  })();
   setInterval(function () { if (key() && !app.hidden && document.visibilityState === 'visible') load(); }, 60000);
 })();

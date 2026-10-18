@@ -17,7 +17,34 @@
    }
 */
 (function () {
-  var Q = JSON.parse(document.getElementById('quote-data').textContent);
+  var BASE = JSON.parse(document.getElementById('quote-data').textContent);
+  var CONFIG_URL = 'https://travelagentjake.co.uk/api/quote-config?slug=';
+  /* Jake's amendments (hidden hotels, edited wording or prices) are saved from the dashboard
+     and applied on top of the page data, so changes need no rebuild. */
+  function applyAmendments(Q, a) {
+    if (!a) return Q;
+    var hidden = a.hidden || [], edits = a.edits || {};
+    Q.hotels = (Q.hotels || []).filter(function (h) { return hidden.indexOf(h.id) < 0; }).map(function (h) {
+      var e = edits[h.id] || {}, o = {};
+      for (var k in h) o[k] = h[k];
+      ['why', 'badge', 'rooms'].forEach(function (k) { if (e[k]) o[k] = e[k]; });
+      ['total', 'pp'].forEach(function (k) { if (e[k] !== undefined && e[k] !== '' && !isNaN(Number(e[k]))) o[k] = Number(e[k]); });
+      return o;
+    });
+    if (a.intro) Q.intro = a.intro;
+    if (a.subtitle) Q.subtitle = a.subtitle;
+    if (a.note) Q.jakeNote = a.note;
+    return Q;
+  }
+  var done = false;
+  function go(a) { if (done) return; done = true; render(applyAmendments(BASE, a)); }
+  setTimeout(function () { go(null); }, 2500);
+  try {
+    fetch(CONFIG_URL + encodeURIComponent(BASE.slug), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) { go(j && j.amendments); }, function () { go(null); });
+  } catch (e) { go(null); }
+
+  function render(Q) {
   var WA = '447899290262';
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function gbp(n) { return '£' + Number(n).toLocaleString('en-GB'); }
@@ -53,6 +80,7 @@
   if (Q.flights) nav.push(['trip', 'Flights and rooms']);
   if ((Q.areas && Q.areas.length) || (Q.gyg && Q.gyg.length)) nav.push(['todo', 'Things to do']);
   nav.push(['next', 'Prices and booking']);
+  nav.push(['feedback', 'Send feedback']);
 
   var h = '';
   h += '<header class="top"><div class="wrap"><a href="https://travelagentjake.co.uk" aria-label="Travel Agent Jake home"><img src="https://travelagentjake.co.uk/images/logo.png" alt="Travel Agent Jake"></a>'
@@ -62,6 +90,7 @@
     + '<p class="lead">' + esc(Q.intro) + '</p><div class="facts">'
     + (Q.facts || []).map(function (f) { return '<div class="fact"><small>' + esc(f[0]) + '</small><b>' + esc(f[1]) + '</b></div>'; }).join('')
     + '</div></div></div></div>';
+  if (Q.jakeNote) h += '<div class="wrap"><div class="jnote"><b>A note from Jake</b><p>' + esc(Q.jakeNote) + '</p></div></div>';
   h += '<nav class="snav" aria-label="Quote sections"><div class="wrap">' + nav.map(function (n) { return '<a href="#' + n[0] + '">' + esc(n[1]) + '</a>'; }).join('') + '</div></nav>';
 
   if (multi) {
@@ -112,14 +141,33 @@
     + '<div class="pay">' + (Q.steps || []).map(function (s, i) { return '<div class="step"><div class="sn">' + (i + 1) + '</div><h3>' + esc(s[0]) + '</h3><p>' + esc(s[1]) + '</p></div>'; }).join('') + '</div>'
     + '<p style="margin:22px 0 0;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-wa" href="' + wa('Hi Jake, it’s ' + who + '. We’d like to go ahead with ') + '" target="_blank" rel="noopener">WhatsApp me to book</a>'
     + '<a class="btn btn-o" href="https://travelagentjake.co.uk/my-booking.html#dd-calculator" target="_blank" rel="noopener">Work out monthly payments</a></p>'
+    + '<div class="fb" id="feedback"><h3>Send your feedback to Jake</h3><p class="intro" style="margin:4px 0 14px">Tell me what you think and it opens WhatsApp with your message ready to send.</p>'
+    + '<div class="fbopts" role="radiogroup" aria-label="What would you like to do?">'
+    + [['book', 'We would like to book'], ['changes', 'We would like some changes'], ['question', 'I have a question']].map(function (o, i) { return '<label class="fbopt"><input type="radio" name="fbType" value="' + o[0] + '"' + (i === 0 ? ' checked' : '') + '><span>' + o[1] + '</span></label>'; }).join('')
+    + '</div>'
+    + (hotels.length ? '<label class="fbl" for="fbHotel">' + (multi ? 'Your favourite hotel' : 'Hotel') + '</label><select id="fbHotel"><option value="">' + (multi ? 'Not decided yet' : esc(hotels[0].name)) + '</option>' + (multi ? hotels.map(function (x) { return '<option>' + esc(x.name) + '</option>'; }).join('') : '') + '</select>' : '')
+    + '<label class="fbl" for="fbMsg">Your message</label><textarea id="fbMsg" rows="4" placeholder="e.g. We love Tour Khalef, could we add sea view rooms?"></textarea>'
+    + '<button class="btn btn-wa" type="button" id="fbSend" style="margin-top:14px">Send to Jake on WhatsApp</button></div>'
     + '<div class="note"><p>As an Independent Self Employed Travel Agent I really appreciate you giving me the opportunity to provide you with this quote. If you have any questions then please feel free to ask. We can of course tweak this where needed to make it suitable for you.</p>'
     + '<p>If you have seen something else then please do send it my way before going ahead and booking because as a self employed travel agent I work on commission only so booking with me helps support my small business &amp; family.</p>'
     + '<p>I look forward to helping you get your holiday booked.</p><p style="margin:0">Kind regards</p><div class="sig">Jake</div></div>'
     + '<p class="small" style="margin-top:20px">' + esc(Q.smallprint || ('Prices were correct when this quote was prepared on ' + Q.prepared + ' and are subject to availability until booked. Your holiday is ATOL protected.')) + '</p></div></section>';
   h += '<footer><div class="wrap"><p>Travel Agent Jake is part of Club Voyages, a Member of ABTA, membership number P8503 &amp; Y6784. Travel Agent Jake is part of Club Voyages Ltd, which is as an agent for Hays Tour Operating Ltd, ATOL 10531. All the flights and flight inclusive holidays on this website are financially protected by the ATOL scheme. Please see our <a href="https://travelagentjake.co.uk/booking-conditions.html">booking conditions</a> for more information.</p><p>&copy; ' + new Date().getFullYear() + ' Travel Agent Jake &#183; <a href="https://travelagentjake.co.uk">travelagentjake.co.uk</a></p></div></footer>';
-  h += '<a class="btn btn-wa float" href="' + wa('Hi Jake, it’s ' + who + ' about my quote.') + '" target="_blank" rel="noopener">Questions? WhatsApp me</a>';
+  h += '<a class="btn btn-wa float" href="#feedback">Send feedback to Jake</a>';
   h += '<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" type="button" id="lbX" aria-label="Close">&#215;</button><button class="arr l" type="button" id="lbP" aria-label="Previous photo">&#8249;</button><img id="lbImg" alt=""><button class="arr r" type="button" id="lbN" aria-label="Next photo">&#8250;</button><div class="cap" id="lbCap"></div></div>';
+  var isJake = false; try { if (new URLSearchParams(location.search).has('jake')) localStorage.setItem('taj-jake', '1'); isJake = localStorage.getItem('taj-jake') === '1'; } catch (e) {}
+  if (isJake) h += '<a class="btn btn-y amend" href="https://travelagentjake.co.uk/enquiries-admin.html#amend=' + encodeURIComponent(Q.slug) + '" target="_blank" rel="noopener">Amend this quote</a>';
   document.getElementById('app').innerHTML = h;
+  var fbBtn = document.getElementById('fbSend');
+  if (fbBtn) fbBtn.addEventListener('click', function () {
+    var t = (document.querySelector('input[name="fbType"]:checked') || {}).value || 'question';
+    var hs = document.getElementById('fbHotel'), hotel = hs ? (hs.value || (multi ? '' : hotels[0].name)) : '';
+    var msg = document.getElementById('fbMsg').value.trim();
+    var head = { book: 'we would like to book!', changes: 'we would like some changes to our quote.', question: 'I have a question about our quote.' }[t];
+    var text = 'Hi Jake, it\u2019s ' + who + ' (quote: quotes.travelagentjake.co.uk/' + Q.slug + '). ' + head
+      + (hotel ? '\nHotel: ' + hotel : '') + (msg ? '\n\n' + msg : '');
+    window.open(wa(text), '_blank', 'noopener');
+  });
   Array.prototype.forEach.call(document.querySelectorAll('#app a[href*="getyourguide."]'), function (a) { a.href = gygLink(a.href); a.rel = 'noopener sponsored'; a.target = '_blank'; });
 
   /* hotels, table, sorting */
@@ -213,4 +261,5 @@
     try { if (navigator.sendBeacon && navigator.sendBeacon(url, new Blob([body], { type: 'text/plain' }))) return; } catch (e) {}
     try { fetch(url, { method: 'POST', body: body, mode: 'no-cors', keepalive: true }); } catch (e) {}
   })();
+  }
 })();
