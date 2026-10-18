@@ -11344,7 +11344,16 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "The Statue of Liberty standing before the Manhattan skyline",
     },
+    {
+        "slug": "eu-pet-travel-rules-2026.html",
+        "meta": "Pet travel",
+        "title": "Taking your pet to Europe? The rules changed in April 2026",
+        "excerpt": "EU pet passports no longer work for UK residents travelling to the EU, an Animal Health Certificate is now the only way in, and the rules on vehicle pet limits changed too. Here's exactly what's required now.",
+        "image": "https://images.unsplash.com/photo-1518155317743-a8ff43ea6a5f?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "A Labrador looking out of a car window on a road trip",
+    },
 ]
+
 
 def tip_card(post):
     if post.get("icons_html"):
@@ -17221,6 +17230,166 @@ with open(os.path.join(SITE, "esta-usa-fee-rise-2026.html"), "w", encoding="utf-
 print("esta-usa-fee-rise-2026.html written")
 
 
+pet_travel_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>TAKING YOUR PET TO EUROPE: WHAT CHANGED IN APRIL 2026</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">If you're planning to drive to Europe with your dog, cat or ferret, the rules changed on 22 April 2026, and reports since suggest plenty of owners still don't know it. Your old EU pet passport almost certainly won't get your pet into the EU any more. Here's exactly what's required now, what it costs, and the practical catches worth knowing about before you book the ferry or the Tunnel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1518155317743-a8ff43ea6a5f?auto=format&fit=crop&w=1600&h=700&q=80" alt="A Labrador looking out of a car window on a road trip" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">From 22 April 2026, an EU pet passport issued to a Great Britain resident is no longer a valid document for travelling with a pet from Great Britain to the EU, even one issued before that date. EU pet passports can now only be issued to people whose main home is in the EU, a second home abroad doesn't count. If you live in England, Scotland or Wales, the document you need instead is an Animal Health Certificate (AHC), arranged through a vet before every single trip.</p>
+      <p style="margin-top:14px; margin-bottom:0;">You can still use a valid pet passport, including an EU one, to bring your pet back into Great Britain. Northern Ireland residents are treated differently and can continue using an EU pet passport both ways.</p>
+    </div>
+    {jake_tip("Don't assume your existing EU pet passport still works just because nobody's checked it yet. Spot checks happen, and getting turned away at the border with a family holiday or a loaded car isn't the moment to find out the rules changed.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What's actually changed</h2>
+    <p style="margin-top:14px;">This isn't a small tweak, it's a genuine change in which document gets your pet across the border, plus a couple of smaller rule changes alongside it.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Before 22 April 2026</th><th>From 22 April 2026</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>A GB issued EU pet passport worked for repeat trips to the EU</td><td>A GB resident's EU pet passport no longer works for travel to the EU, whenever it was issued</td></tr>
+          <tr><td>Non commercial pet travel by car was limited to 5 pets per person</td><td>The limit is now 5 pets per vehicle, a tighter rule for anyone travelling as a group</td></tr>
+          <tr><td>No specific rule on a pet travelling without its owner</td><td>If the owner isn't travelling, the pet must travel within 5 days of them, and the person bringing it needs the owner's written permission alongside the pet's travel documents</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0;">Individual EU countries can also set their own extra entry conditions, so it's always worth a quick check of your specific destination's current rules alongside the UK wide ones here.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting an Animal Health Certificate</h2>
+    <img src="https://images.unsplash.com/photo-1630438994394-3deff7a591bf?auto=format&fit=crop&w=1600&h=700&q=80" alt="A dog being examined by a vet ahead of travel" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Your pet needs a microchip,</b> fitted before or at the same time as its rabies vaccination. Fitted the wrong way round and your vet will tell you the rabies vaccination needs doing again.</span></li>
+      <li><span class="num">2</span><span><b>Your pet needs a valid rabies vaccination.</b> If it's already up to date, your vet can issue the certificate once everything else is in order. If your pet needs its first ever course, you'll need to wait at least 21 full days after that first dose before the certificate can be issued, so this isn't something to leave until the week you're travelling.</span></li>
+      <li><span class="num">3</span><span><b>An official vet (an OV) signs the Animal Health Certificate,</b> covering up to 5 pets on one certificate. Ask your usual vet whether they're able to issue one, and if not, they should be able to point you to a practice that can.</span></li>
+      <li><span class="num">4</span><span><b>Timing matters.</b> The certificate is valid for entry to the EU for 10 days from the date it's issued. After that, the same certificate then covers onward travel between EU countries, and your return to Great Britain, for up to 6 months, as long as your pet's rabies vaccination is still valid throughout.</span></li>
+      <li><span class="num">5</span><span><b>A new certificate is needed for every separate trip</b> from Great Britain to the EU. There's no way to get one that simply renews itself for your next holiday.</span></li>
+    </ul>
+    {jake_tip("Tell your vet you'll need an Animal Health Certificate when you book the rabies vaccination appointment, not afterwards. If a first course is needed, the 21 day wait plus getting an appointment for the certificate itself means this easily needs sorting a month or more before you travel.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Tapeworm treatment: the rule that still catches people out</h2>
+    <img src="https://images.unsplash.com/photo-1759658697221-cac8127e905b?auto=format&fit=crop&w=1600&h=700&q=80" alt="Cars and people on a ferry crossing to Europe" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This part of the rules hasn't changed in 2026, but it trips people up every single year, so it's worth repeating alongside the Animal Health Certificate changes above. Dogs travelling to Finland, Ireland, Malta, Norway or Northern Ireland need a tapeworm treatment from a vet no less than 24 hours, and no more than 120 hours (5 days), before arrival. Treated too early or too late and it doesn't count.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Direction</th><th>Tapeworm treatment needed?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Travelling from Great Britain to Finland, Ireland, Malta, Norway or Northern Ireland</td><td>Yes, 24 to 120 hours before arrival</td></tr>
+          <tr><td>Returning to Great Britain from one of those same 5 destinations</td><td>No, a second treatment isn't needed</td></tr>
+          <tr><td>Returning to Great Britain from most other EU countries</td><td>Yes, a separate treatment is needed for the return leg too</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0;">This requirement applies to dogs. If you're travelling with a cat or ferret, check directly with your vet whether anything equivalent applies to your specific destination.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What it actually costs</h2>
+    <img src="https://images.unsplash.com/photo-1533413924355-a5797409980e?auto=format&fit=crop&w=1600&h=700&q=80" alt="A grey cat sitting inside a pet travel carrier" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">There's no fixed, government set price for an Animal Health Certificate, each vet practice sets its own fee. A survey of UK vets reported prices for a single pet ranging from around &pound;110 up to &pound;384, with extra pets on the same certificate usually costing somewhat less than the first. Some online or mobile vet services have worked out cheaper for owners travelling with more than one pet, though the microchip still has to be physically scanned in person, so it's never a fully remote process.</p>
+    <p style="margin-top:14px; margin-bottom:0;">Given the spread, it's genuinely worth ringing around a few practices rather than assuming your usual vet is the cheapest, or the only, option.</p>
+    {jake_tip("If you're a confirmed low cost online vet provider for a certificate, check they're a UK registered official vet before you book, not just a cheaper price. Ask to see their registration if you're not already familiar with the practice.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where I come in</h2>
+    <p style="margin-top:14px;">Pet travel paperwork isn't something I arrange, it sits entirely between you and your vet. But if you're planning a driving holiday to Europe alongside everything else, insurance, ferry or Tunnel crossings, passport validity for the humans in the car too, I'm always happy to talk it through with you. Message me on WhatsApp if you want a second opinion on the rest of the trip while you're sorting your pet's paperwork.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Can I still use my EU pet passport to travel to Europe?</h3>
+      <p>Not if you're a Great Britain resident. From 22 April 2026, EU pet passports issued to GB residents no longer work for travel from Great Britain to the EU, even ones issued before that date. You can still use a valid pet passport to bring your pet back into Great Britain. Northern Ireland residents are treated differently and can continue using an EU pet passport both ways.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What do I need instead of a pet passport?</h3>
+      <p>An Animal Health Certificate from a vet, arranged before each trip. It needs an up to date rabies vaccination and a microchip fitted beforehand, and must be issued no more than 10 days before you enter the EU. The same certificate then covers onward EU travel and your return to Great Britain for up to 6 months, provided the rabies vaccination stays valid.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How much does an Animal Health Certificate cost?</h3>
+      <p>There's no fixed price, it varies by vet practice. A survey of UK vets found quotes ranging from around &pound;110 to &pound;384 for a single pet, so it's worth ringing a few practices before booking one.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do I still need tapeworm treatment for my dog?</h3>
+      <p>Yes, for travel to Finland, Ireland, Malta, Norway or Northern Ireland, 24 to 120 hours before arrival. A second treatment isn't needed returning to Great Britain from those same 5 destinations, but is needed returning from most other EU countries.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Planning a driving holiday to Europe?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Your pet's paperwork is between you and your vet, but I'm always happy to talk through the rest of the trip, insurance, crossings and everything else, alongside it. Message me on WhatsApp.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+pet_travel_body = pet_travel_body.replace("::NEWSLETTER::", newsletter_section())
+
+PET_TRAVEL_SCHEMA = article_and_faq_schema(
+    "Taking Your Pet to Europe: What Changed in April 2026",
+    "EU pet passports no longer work for UK residents travelling from Great Britain to the EU. What the new Animal Health Certificate rules actually require, what it costs, the tapeworm treatment window, and the new vehicle pet limit.",
+    "eu-pet-travel-rules-2026.html",
+    "https://images.unsplash.com/photo-1518155317743-a8ff43ea6a5f?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can I still use my EU pet passport to travel to Europe?", "Not if you're a Great Britain resident. From 22 April 2026, EU pet passports issued to GB residents no longer work for travel from Great Britain to the EU, even ones issued before that date. You can still use a valid pet passport to bring your pet back into Great Britain. Northern Ireland residents are treated differently and can continue using an EU pet passport both ways."),
+        ("What do I need instead of a pet passport?", "An Animal Health Certificate from a vet, arranged before each trip. It needs an up to date rabies vaccination and a microchip fitted beforehand, and must be issued no more than 10 days before you enter the EU. The same certificate then covers onward EU travel and your return to Great Britain for up to 6 months, provided the rabies vaccination stays valid."),
+        ("How much does an Animal Health Certificate cost?", "There's no fixed price, it varies by vet practice. A survey of UK vets found quotes ranging from around £110 to £384 for a single pet, so it's worth ringing a few practices before booking one."),
+        ("Do I still need tapeworm treatment for my dog?", "Yes, for travel to Finland, Ireland, Malta, Norway or Northern Ireland, 24 to 120 hours before arrival. A second treatment isn't needed returning to Great Britain from those same 5 destinations, but is needed returning from most other EU countries."),
+    ]
+)
+
+with open(os.path.join(SITE, "eu-pet-travel-rules-2026.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Taking Your Pet to Europe: What Changed in April 2026 | Travel Agent Jake",
+        "EU pet passports no longer work for UK residents travelling from Great Britain to the EU. What the new Animal Health Certificate rules actually require, what it costs, the tapeworm treatment window, and the new vehicle pet limit.",
+        "travel-tips.html",
+        pet_travel_body,
+        extra_schema=PET_TRAVEL_SCHEMA,
+        canonical_path="eu-pet-travel-rules-2026.html"
+    ))
+print("eu-pet-travel-rules-2026.html written")
+
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -17288,6 +17457,7 @@ SITEMAP_PAGES = [
     ("eu-roaming-charges-uk-networks-2026.html", "0.7"),
     ("term-time-holiday-fines-uk-parents-2026.html", "0.7"),
     ("esta-usa-fee-rise-2026.html", "0.7"),
+    ("eu-pet-travel-rules-2026.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
