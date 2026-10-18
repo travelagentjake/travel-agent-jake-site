@@ -185,10 +185,10 @@
 
   if (Q.areas && Q.areas.length) {
     h += '<section id="todo" class="alt"><div class="wrap"><h2 class="h2">Things to do</h2>' + (Q.todoIntro ? '<p class="intro">' + esc(Q.todoIntro) + '</p>' : '');
-    h += '<div class="areas">' + Q.areas.map(function (a) {
+    h += '<div class="acar"><button class="arr l" type="button" data-adir="-1" aria-label="Previous">&#8249;</button><button class="arr r" type="button" data-adir="1" aria-label="Next">&#8250;</button><div class="areas" id="areaTrack">' + Q.areas.map(function (a) {
       var inner = '<img loading="lazy" src="' + esc(img(a.img, 800)) + '" alt="' + esc(a.alt || a.title) + '"><div><b>' + esc(a.title) + '</b><p>' + esc(a.text) + '</p>' + (a.link ? '<span class="see">' + esc(a.linkLabel || 'See tours and prices') + '</span>' : '') + '</div>';
       return a.link ? '<a class="areacard" href="' + esc(gygLink(a.link)) + '" target="_blank" rel="noopener sponsored">' + inner + '</a>' : '<div class="areacard">' + inner + '</div>';
-    }).join('') + '</div>';
+    }).join('') + '</div></div>';
     h += '</div></section>';
   }
   h += custom('todo');
@@ -204,7 +204,9 @@
   }
   function fits(e, x) { if (!x) return true; if (e.prices) return e.prices[x.id] != null; return !e.hotels || !e.hotels.length || e.hotels.indexOf(x.id) >= 0; }
   function xFor(x) { return extras.filter(function (e) { return sel[e.id] && fits(e, x); }); }
-  function curHotel() { var hs = document.getElementById('cHotel'); return hotels[hs ? Number(hs.value) : 0]; }
+  var hIdx = 0;  /* the hotel picked in the full cost box or the calculator, kept in step */
+  function curHotel() { return hotels[hIdx] || hotels[0]; }
+  function paidToday(x) { return xFor(x).reduce(function (a, e) { var t = xTotal(e, x); return a + (t != null && e.separate ? t : 0); }, 0); }
   function xPriceLine(e) {
     if (e.prices) {
       var x = curHotel(), v = x ? e.prices[x.id] : null;
@@ -218,16 +220,15 @@
   if (extras.length) {
     var cats = []; extras.forEach(function (e) { var c = e.cat || 'Extras'; if (cats.indexOf(c) < 0) cats.push(c); });
     h += '<section id="extras"><div class="wrap"><h2 class="h2">Add extras</h2><p class="intro">' + esc(Q.extrasIntro || 'Tick anything you would like and it is added to your full holiday cost further down, so you can see exactly what the whole holiday will cost.') + '</p>'
-      + cats.map(function (c) {
-        return '<div class="xgroup"><h3>' + esc(c) + '</h3><div class="xgrid">' + extras.filter(function (e) { return (e.cat || 'Extras') === c; }).map(function (e) {
+      + '<div class="acar xcar"><button class="arr l" type="button" data-xdir="-1" aria-label="Previous">&#8249;</button><button class="arr r" type="button" data-xdir="1" aria-label="Next">&#8250;</button><div class="areas" id="xTrack">'
+      + extras.map(function (e) {
           var hs = (e.hotels || []).map(hotelName).filter(Boolean);
-          return '<label class="xcard"><input type="checkbox" data-x="' + esc(e.id) + '"' + (sel[e.id] ? ' checked' : '') + '><span class="xbody"><b>' + esc(e.title) + '</b>'
+          return '<label class="xcard"><input type="checkbox" data-x="' + esc(e.id) + '"' + (sel[e.id] ? ' checked' : '') + '><span class="xbody"><span class="xcat">' + esc(e.cat || 'Extras') + '</span><b>' + esc(e.title) + '</b>'
             + (e.text ? '<span class="xt">' + esc(e.text) + '</span>' : '')
             + (hs.length && multi ? '<span class="xh">With ' + esc(hs.join(' or ')) + '</span>' : '')
-            + '<span class="xp" data-xp="' + esc(e.id) + '">' + xPriceLine(e) + '</span>'
-            + (e.prices && multi ? '<span class="xt">Change the hotel in the calculator below to see its price.</span>' : '') + '</span></label>';
-        }).join('') + '</div></div>';
-      }).join('')
+            + '<span class="xp" data-xp="' + esc(e.id) + '">' + xPriceLine(e) + '</span>' + (e.separate ? '<span class="xh">Paid in full when you book</span>' : '<span class="xh">Added to your holiday balance</span>')
+            + '</span></label>';
+        }).join('') + '</div></div>'
       + '<div class="xsum" id="xSum"></div></div></section>';
   }
 
@@ -265,24 +266,27 @@
     list.forEach(function (e) { var t = xTotal(e, x); if (t == null) return; sum += t; rows += '<tr><td>' + esc(e.title) + '</td><td class="n">' + fmt(t) + '</td></tr>'; });
     if (tax != null) sum += tax;
     rows += '<tr><td>Tourist tax, paid locally at the hotel</td><td class="n">' + (tax != null ? 'about ' + gbp(tax) : 'To confirm') + '</td></tr>';
-    el.innerHTML = '<h3>Your full holiday cost' + (multi ? ' with ' + esc(x.name) : '') + '</h3>'
+    var today = paidToday(x);
+    el.innerHTML = '<h3>Your full holiday cost</h3>'
+      + (multi ? '<label class="fbl" for="fHotel">Hotel</label><select id="fHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '')
       + '<table><tbody>' + rows + '</tbody><tfoot><tr><td>Total</td><td class="n">' + fmt(Math.round(sum * 100) / 100) + '</td></tr>'
       + (people > 1 ? '<tr class="pp"><td>About per person</td><td class="n">' + money(sum / people) + '</td></tr>' : '') + '</tfoot></table>'
-      + (extras.length ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">parking, fast track, room upgrades and more</a>.') + (multi ? ' Pick a different hotel in the calculator below to compare.' : '') + '</p>' : '');
+      + (deposit || today ? '<div class="today"><b>To pay today: ' + fmt(Math.round((deposit + today) * 100) / 100) + '</b><span>' + (deposit ? gbp(deposit) + ' deposit' : '') + (today ? (deposit ? ' plus ' : '') + fmt(Math.round(today * 100) / 100) + ' for your airport extras, which are paid in full when you book' : '') + '. ' + (Q.departDate ? 'The rest of the holiday is the balance, spread in the calculator below.' : '') + '</span></div>' : '')
+      + (extras.length ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">parking, fast track, room upgrades and more</a>.') + (multi ? '' : '') + '</p>' : '');
     var xs = document.getElementById('xSum');
     Array.prototype.forEach.call(document.querySelectorAll('[data-xp]'), function (el) { var e = extras.filter(function (z) { return z.id === el.dataset.xp; })[0]; if (e && e.prices) el.innerHTML = xPriceLine(e); });
     if (xs) { var all = xFor(x), tot = all.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0); xs.innerHTML = all.length ? '<b>' + all.length + ' extra' + (all.length > 1 ? 's' : '') + ' added' + (tot ? ', ' + fmt(Math.round(tot * 100) / 100) : '') + '</b><a class="btn btn-y" href="#fullCost">See your full holiday cost</a>' : ''; }
   }
   function calc() {
     full();
-    var out = document.getElementById('cOut'); if (!out) return;
+    var out = document.getElementById('cOut'); if (!out || !Q.departDate) return;
     var x = curHotel(), extra = inBooking(x);
     var day = Number(document.getElementById('cDay').value), bal = Math.max(0, x.total + extra - deposit);
     var p = ddPlan(bal, Q.departDate, day);
     if (!p.ok) { out.innerHTML = '<p class="intro">Your holiday is too close for monthly payments, but I can send you a secure payment link instead.</p>'; return; }
     var pl = document.getElementById('planLine'); if (pl) pl.textContent = (multi ? 'for ' + x.name + ', ' : '') + p.n + ' monthly payments of ' + money(p.each) + ' with the final payment on ' + dmy(p.end);
     out.innerHTML = '<div class="tiles">'
-      + '<div class="tile"><small>Deposit today</small><b>' + gbp(deposit) + '</b></div>'
+      + '<div class="tile"><small>Paid today</small><b>' + fmt(Math.round((deposit + paidToday(x)) * 100) / 100) + '</b>' + (paidToday(x) ? '<span>' + gbp(deposit) + ' deposit plus ' + fmt(Math.round(paidToday(x) * 100) / 100) + ' airport extras</span>' : '') + '</div>'
       + '<div class="tile hi"><small>Then each month</small><b>' + money(p.each) + '</b>' + (people > 1 ? '<span>about ' + money(p.each / people) + ' per person</span>' : '') + '</div>'
       + '<div class="tile"><small>Number of payments</small><b>' + p.n + '</b><span>' + dmy(p.first) + ' to ' + dmy(p.end) + '</span></div></div>'
       + '<details class="sched"><summary>See every payment date</summary><table><tbody>'
@@ -290,7 +294,16 @@
       + '</tbody></table></details>'
       + '<p class="small" style="margin:12px 0 0">Based on ' + esc(x.name) + ' at ' + gbp(x.total) + ' for ' + esc(party) + (extra ? ' plus ' + fmt(Math.round(extra * 100) / 100) + ' of extras added to the booking' : '') + ', with a ' + gbp(deposit) + ' deposit and the balance cleared 6 weeks before you fly. This is an estimate to help you budget, and I confirm the exact plan when you book. Payments falling on a weekend move to the next working day.</p>';
   }
-  if (document.getElementById('calc')) { ['cHotel', 'cDay'].forEach(function (id) { var e = document.getElementById(id); if (e) e.addEventListener('change', calc); }); calc(); } else full();
+  /* carousel arrows: things to do and extras */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-adir],[data-xdir]'), function (b) {
+    b.addEventListener('click', function () { var x = b.hasAttribute('data-xdir'), t = document.getElementById(x ? 'xTrack' : 'areaTrack'), c = t.querySelector('.areacard'); t.scrollBy({ left: Number(b.dataset.adir) * ((c ? c.offsetWidth : 280) + 14), behavior: 'smooth' }); });
+  });
+  var cH = document.getElementById('cHotel');
+  if (cH) cH.addEventListener('change', function () { hIdx = Number(cH.value) || 0; calc(); });
+  var cD = document.getElementById('cDay'); if (cD) cD.addEventListener('change', calc);
+  var fc = document.getElementById('fullCost');
+  if (fc) fc.addEventListener('change', function (ev) { if (ev.target.id !== 'fHotel') return; hIdx = Number(ev.target.value) || 0; if (cH) cH.value = hIdx; calc(); });
+  calc();
   Array.prototype.forEach.call(document.querySelectorAll('[data-x]'), function (c) {
     c.addEventListener('change', function () { if (c.checked) sel[c.dataset.x] = 1; else delete sel[c.dataset.x]; try { localStorage.setItem(SKEY, JSON.stringify(sel)); } catch (e) {} calc(); });
   });
