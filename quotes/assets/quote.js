@@ -424,6 +424,11 @@
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
         + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
         + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + ' per person<br>' : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - Number(Q.depositTotal || 0)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">or about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
+        /* optional in-card upgrade, e.g. a resort's deluxe collection: { title, text, perks: [], options: [{ name, price }], note } */
+        + (x.upgrade && x.upgrade.options && x.upgrade.options.length ? '<div class="upg"><div class="upgh">' + esc(x.upgrade.title || 'Upgrade option') + '</div>' + (x.upgrade.text ? '<p>' + esc(x.upgrade.text) + '</p>' : '')
+          + (x.upgrade.perks && x.upgrade.perks.length ? '<ul>' + x.upgrade.perks.map(function (k) { return '<li>' + esc(k) + '</li>'; }).join('') + '</ul>' : '')
+          + x.upgrade.options.map(function (o) { return '<div class="upo"><span class="un">' + esc(o.name) + '</span><span class="up"><b>+' + gbp(o.price) + '</b><small>total ' + gbp(Math.round((Number(x.total) + Number(o.price)) * 100) / 100) + ' for ' + esc(party) + '</small></span></div>'; }).join('')
+          + (x.upgrade.note ? '<p class="upn">' + esc(x.upgrade.note) + '</p>' : '') + '</div>' : '')
         + '<div class="links"><a class="btn btn-wa" target="_blank" rel="noopener" href="' + wa('Hi Jake, it’s ' + who + '. We love the ' + x.name + '! ') + '">I like this one</a>'
         + (x.site ? '<a class="btn btn-o" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>' : '') + '</div></div></div></article>';
     }).join('');

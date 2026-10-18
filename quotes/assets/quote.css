@@ -234,3 +234,16 @@ html,body{overflow-x:clip}
 .segs li.wait{color:var(--yellow);font-size:13px;padding-left:4px}
 .dcar[hidden]{display:none}
 .xcard[hidden]{display:none}
+
+/* in-card upgrade option (e.g. Ikos Deluxe Collection) */
+.upg{margin-top:14px;border:2px solid var(--blue);border-radius:20px;padding:16px 18px;background:#fff}
+.upg .upgh{font-family:'Archivo Black',sans-serif;color:var(--blue);font-size:18px;line-height:1.2}
+.upg p{margin:6px 0 8px;font-size:15px}
+.upg ul{margin:0 0 10px;padding-left:18px}
+.upg li{font-size:14px;margin:3px 0}
+.upo{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--pill);border-radius:14px;padding:10px 14px;margin-top:8px}
+.upo .un{font-weight:700;font-size:14px;color:var(--ink)}
+.upo .up{text-align:right;color:var(--blue);white-space:nowrap}
+.upo .up b{font-family:'Archivo Black',sans-serif;font-size:18px;display:block;line-height:1.1}
+.upo .up small{font-size:12px;font-weight:700}
+.upg .upn{font-size:13px;color:var(--muted);margin:10px 0 0}
