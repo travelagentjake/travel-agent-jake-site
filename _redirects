@@ -1,3 +1,6 @@
+https://quotes.travelagentjake.co.uk/  https://travelagentjake.co.uk/  302!
+https://quotes.travelagentjake.co.uk/assets/*  /quotes/assets/:splat  200!
+https://quotes.travelagentjake.co.uk/*  /quotes/:splat  200!
 https://bio.travelagentjake.co.uk/*  /bio/:splat  200!
 /travel-kit.html  https://bio.travelagentjake.co.uk/  301
 /tui-summer-2028.html  /  301

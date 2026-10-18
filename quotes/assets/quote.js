@@ -1,0 +1,216 @@
+/* Travel Agent Jake interactive quote renderer.
+   Each quote page (quotes/<slug>/index.html) only holds a JSON data block (id="quote-data").
+   This file turns that data into the full page, so new quotes only need new data, not new code.
+   Data shape (all text fields are plain text, keep them free of dashes):
+   {
+     slug, customer, title, tag, subtitle, intro, heroImg, heroAlt, heroPos,
+     facts: [[label, value]], partyLabel ("all 11"), whatsappName,
+     compareIntro, hotelsIntro,
+     hotels: [{ id, match, name, area, country, rating, reviews, transfer (minutes), slides (bool),
+                badge, total, pp, rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
+     sections: [{ id, title, intro, html, after: "hotels" | "trip" | "todo" }],   // custom sections from Jake's notes
+     flights: { intro, legs: [{ tag, date, from, fromCode, to, toCode, dep, arr, dur, carrier }] },
+     rooms: [], included: [],
+     areas: [{ img, title, text }],
+     gyg: [{ title, tourIds, moreUrl, moreLabel }],
+     priceIntro, steps: [[title, text]], smallprint, prepared
+   }
+*/
+(function () {
+  var Q = JSON.parse(document.getElementById('quote-data').textContent);
+  var WA = '447899290262';
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function gbp(n) { return '£' + Number(n).toLocaleString('en-GB'); }
+  function mins(m) { if (!m) return ''; if (m < 60) return m + ' mins'; var h = Math.floor(m / 60), r = m % 60; return h + ' hr' + (r ? ' ' + r : ''); }
+  function wa(text) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text); }
+  function img(u, w) {
+    if (/media\.jet2\.com/.test(u)) return u.split('?')[0] + '?wid=' + w + '&qlt=80&fmt=jpg';
+    if (/images\.unsplash\.com/.test(u)) return u.split('?')[0] + '?w=' + w + '&q=78&auto=format&fit=crop';
+    return u;
+  }
+  /* every GetYourGuide link always carries Jake's affiliate code */
+  function gygLink(u) {
+    try { var x = new URL(u); if (!/getyourguide\./.test(x.hostname)) return u; x.searchParams.set('partner_id', 'EFDILG1'); x.searchParams.set('utm_medium', 'online_publisher'); return x.toString(); } catch (e) { return u; }
+  }
+  function dots(r) { var s = ''; for (var i = 1; i <= 5; i++) s += '<i class="' + (r >= i ? '' : (r >= i - 0.5 ? 'h' : 'e')) + '"></i>'; return '<span class="dots" aria-hidden="true">' + s + '</span>'; }
+  var who = Q.whatsappName || Q.customer;
+  var party = Q.partyLabel || 'everyone';
+  var hotels = Q.hotels || [];
+  var multi = hotels.length > 1;
+  var anySlides = hotels.some(function (h) { return h.slides; });
+
+  function custom(after) {
+    return (Q.sections || []).filter(function (s) { return (s.after || 'hotels') === after; }).map(function (s, i) {
+      return '<section id="' + esc(s.id || ('extra-' + after + i)) + '"' + (s.alt ? ' class="alt"' : '') + '><div class="wrap"><h2 class="h2">' + esc(s.title) + '</h2>'
+        + (s.intro ? '<p class="intro">' + esc(s.intro) + '</p>' : '') + '<div class="custom">' + (s.html || '') + '</div></div></section>';
+    }).join('');
+  }
+
+  var nav = [];
+  if (multi) nav.push(['compare', 'Compare']);
+  if (hotels.length) nav.push(['hotels', multi ? 'The hotels' : 'Your hotel']);
+  (Q.sections || []).forEach(function (s, i) { if (s.nav) nav.push([s.id || ('extra-' + (s.after || 'hotels') + i), s.nav]); });
+  if (Q.flights) nav.push(['trip', 'Flights and rooms']);
+  if ((Q.areas && Q.areas.length) || (Q.gyg && Q.gyg.length)) nav.push(['todo', 'Things to do']);
+  nav.push(['next', 'Prices and booking']);
+
+  var h = '';
+  h += '<header class="top"><div class="wrap"><a href="https://travelagentjake.co.uk" aria-label="Travel Agent Jake home"><img src="https://travelagentjake.co.uk/images/logo.png" alt="Travel Agent Jake"></a>'
+    + '<a class="btn btn-wa" href="' + wa('Hi Jake, it’s ' + who + '. I’ve had a look at my quote and ') + '" target="_blank" rel="noopener">WhatsApp Jake</a></div></header>';
+  h += '<div class="hero"><img class="hero-img" src="' + esc(img(Q.heroImg, 2000)) + '" alt="' + esc(Q.heroAlt) + '"' + (Q.heroPos ? ' style="object-position:' + esc(Q.heroPos) + '"' : '') + '><div class="wrap"><div class="hero-card">'
+    + '<span class="tag">' + esc(Q.tag || 'YOUR PERSONAL QUOTE') + '</span><h1>' + esc(Q.title) + '</h1><div class="sub">' + esc(Q.subtitle) + '</div>'
+    + '<p class="lead">' + esc(Q.intro) + '</p><div class="facts">'
+    + (Q.facts || []).map(function (f) { return '<div class="fact"><small>' + esc(f[0]) + '</small><b>' + esc(f[1]) + '</b></div>'; }).join('')
+    + '</div></div></div></div>';
+  h += '<nav class="snav" aria-label="Quote sections"><div class="wrap">' + nav.map(function (n) { return '<a href="#' + n[0] + '">' + esc(n[1]) + '</a>'; }).join('') + '</div></nav>';
+
+  if (multi) {
+    h += '<section id="compare"><div class="wrap"><h2 class="h2">Your ' + (hotels.length === 2 ? 'two' : hotels.length === 3 ? 'three' : hotels.length === 4 ? 'four' : hotels.length === 5 ? 'five' : hotels.length === 6 ? 'six' : hotels.length) + ' hotels at a glance</h2>'
+      + (Q.compareIntro ? '<p class="intro">' + esc(Q.compareIntro) + '</p>' : '')
+      + '<div class="ctrl" role="group" aria-label="Sort hotels"><span>Sort by</span>'
+      + '<button class="chipbtn" type="button" data-sort="match" aria-pressed="true">Best match</button>'
+      + '<button class="chipbtn" type="button" data-sort="price" aria-pressed="false">Lowest price</button>'
+      + '<button class="chipbtn" type="button" data-sort="rating" aria-pressed="false">Top rated</button>'
+      + '<button class="chipbtn" type="button" data-sort="transfer" aria-pressed="false">Shortest transfer</button>'
+      + (anySlides ? '<button class="chipbtn" type="button" id="slidesOnly" aria-pressed="false">Slides only</button>' : '')
+      + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th><th>Tripadvisor</th><th>Transfer</th>' + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div></div></section>';
+  }
+  if (hotels.length) {
+    h += '<section id="hotels" class="alt"><div class="wrap"><h2 class="h2">' + (multi ? 'The hotels' : 'Your hotel') + '</h2>'
+      + '<p class="intro">' + esc(Q.hotelsIntro || 'Swipe or tap the arrows to browse the photos, and tap any photo to see it full screen.') + '</p><div class="hotels" id="hotelList"></div></div></section>';
+  }
+  h += custom('hotels');
+
+  if (Q.flights) {
+    var F = Q.flights;
+    h += '<section id="trip"><div class="wrap"><h2 class="h2">Flights and rooms</h2>' + (F.intro ? '<p class="intro">' + esc(F.intro) + '</p>' : '') + '<div class="trip">';
+    (F.legs || []).forEach(function (l) {
+      h += '<div class="flight"><div class="top2"><span class="tg">' + esc(l.tag) + '</span><span class="ft">' + esc(l.date) + '</span></div>'
+        + '<div class="rt"><div><div class="cd">' + esc(l.fromCode) + '</div><div class="tm">' + esc(l.dep) + '</div></div>'
+        + '<svg width="80" height="20" viewBox="0 0 80 20" aria-hidden="true"><line x1="2" y1="10" x2="60" y2="10" stroke="#99ACFF" stroke-width="2" stroke-dasharray="4 4"></line><path d="M64 4l12 6-12 6 2-6z" fill="#FFD21F"></path></svg>'
+        + '<div style="text-align:right"><div class="cd">' + esc(l.toCode) + '</div><div class="tm">' + esc(l.arr) + '</div></div></div>'
+        + '<div class="ft">' + esc(l.from) + ' to ' + esc(l.to) + (l.dur ? ' &#183; ' + esc(l.dur) : '') + (l.carrier ? ' &#183; ' + esc(l.carrier) : '') + '</div></div>';
+    });
+    if (Q.rooms && Q.rooms.length) h += '<div class="box"><h3>Your rooms</h3><ul>' + Q.rooms.map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul></div>';
+    if (Q.included && Q.included.length) h += '<div class="box"><h3>Included for everyone</h3><ul>' + Q.included.map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul></div>';
+    h += '</div></div></section>';
+  }
+  h += custom('trip');
+
+  if ((Q.areas && Q.areas.length) || (Q.gyg && Q.gyg.length)) {
+    h += '<section id="todo" class="alt"><div class="wrap"><h2 class="h2">Things to do</h2>' + (Q.todoIntro ? '<p class="intro">' + esc(Q.todoIntro) + '</p>' : '');
+    if (Q.areas && Q.areas.length) h += '<div class="areas">' + Q.areas.map(function (a) { return '<div class="areacard"><img loading="lazy" src="' + esc(img(a.img, 800)) + '" alt="' + esc(a.alt || a.title) + '"><div><b>' + esc(a.title) + '</b><p>' + esc(a.text) + '</p></div></div>'; }).join('') + '</div>';
+    (Q.gyg || []).forEach(function (g) {
+      h += '<div class="gyg"><h3>' + esc(g.title) + '</h3><div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="' + esc(g.tourIds) + '"></div>'
+        + (g.moreUrl ? '<p style="margin:14px 0 0"><a class="btn btn-o" href="' + esc(gygLink(g.moreUrl)) + '" target="_blank" rel="noopener sponsored">' + esc(g.moreLabel || 'See more things to do') + '</a></p>' : '') + '</div>';
+    });
+    h += '</div></section>';
+  }
+  h += custom('todo');
+
+  h += '<section id="next"><div class="wrap"><h2 class="h2">Prices and booking</h2>' + (Q.priceIntro ? '<p class="intro">' + esc(Q.priceIntro) + '</p>' : '')
+    + '<div class="pay">' + (Q.steps || []).map(function (s, i) { return '<div class="step"><div class="sn">' + (i + 1) + '</div><h3>' + esc(s[0]) + '</h3><p>' + esc(s[1]) + '</p></div>'; }).join('') + '</div>'
+    + '<p style="margin:22px 0 0;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-wa" href="' + wa('Hi Jake, it’s ' + who + '. We’d like to go ahead with ') + '" target="_blank" rel="noopener">WhatsApp me to book</a>'
+    + '<a class="btn btn-o" href="https://travelagentjake.co.uk/my-booking.html#dd-calculator" target="_blank" rel="noopener">Work out monthly payments</a></p>'
+    + '<div class="note"><p>As an Independent Self Employed Travel Agent I really appreciate you giving me the opportunity to provide you with this quote. If you have any questions then please feel free to ask. We can of course tweak this where needed to make it suitable for you.</p>'
+    + '<p>If you have seen something else then please do send it my way before going ahead and booking because as a self employed travel agent I work on commission only so booking with me helps support my small business &amp; family.</p>'
+    + '<p>I look forward to helping you get your holiday booked.</p><p style="margin:0">Kind regards</p><div class="sig">Jake</div></div>'
+    + '<p class="small" style="margin-top:20px">' + esc(Q.smallprint || ('Prices were correct when this quote was prepared on ' + Q.prepared + ' and are subject to availability until booked. Your holiday is ATOL protected.')) + '</p></div></section>';
+  h += '<footer><div class="wrap"><p>Travel Agent Jake is part of Club Voyages, a Member of ABTA, membership number P8503 &amp; Y6784. Travel Agent Jake is part of Club Voyages Ltd, which is as an agent for Hays Tour Operating Ltd, ATOL 10531. All the flights and flight inclusive holidays on this website are financially protected by the ATOL scheme. Please see our <a href="https://travelagentjake.co.uk/booking-conditions.html">booking conditions</a> for more information.</p><p>&copy; ' + new Date().getFullYear() + ' Travel Agent Jake &#183; <a href="https://travelagentjake.co.uk">travelagentjake.co.uk</a></p></div></footer>';
+  h += '<a class="btn btn-wa float" href="' + wa('Hi Jake, it’s ' + who + ' about my quote.') + '" target="_blank" rel="noopener">Questions? WhatsApp me</a>';
+  h += '<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" type="button" id="lbX" aria-label="Close">&#215;</button><button class="arr l" type="button" id="lbP" aria-label="Previous photo">&#8249;</button><img id="lbImg" alt=""><button class="arr r" type="button" id="lbN" aria-label="Next photo">&#8250;</button><div class="cap" id="lbCap"></div></div>';
+  document.getElementById('app').innerHTML = h;
+  Array.prototype.forEach.call(document.querySelectorAll('#app a[href*="getyourguide."]'), function (a) { a.href = gygLink(a.href); a.rel = 'noopener sponsored'; a.target = '_blank'; });
+
+  /* hotels, table, sorting */
+  var sortKey = 'match', slidesOnly = false;
+  function ordered() {
+    var list = hotels.slice();
+    list.sort(function (a, b) {
+      if (sortKey === 'price') return a.total - b.total;
+      if (sortKey === 'rating') return b.rating - a.rating || a.total - b.total;
+      if (sortKey === 'transfer') return a.transfer - b.transfer;
+      return (a.match || 0) - (b.match || 0);
+    });
+    return slidesOnly ? list.filter(function (x) { return x.slides; }) : list;
+  }
+  function renderTable() {
+    var t = document.getElementById('ctable'); if (!t) return;
+    t.innerHTML = ordered().map(function (x) {
+      return '<tr><td><a href="#h-' + esc(x.id) + '">' + esc(x.name) + '</a></td><td>' + esc(x.area) + '</td><td><span class="stars">' + (x.rating ? x.rating.toFixed(1) : '') + '</span>' + (x.rating ? ' / 5' : '') + '</td><td>' + mins(x.transfer) + '</td>'
+        + (anySlides ? '<td>' + (x.slides ? '<span class="yes">Yes</span>' : '<span class="no">No</span>') + '</td>' : '') + '<td class="n"><b>' + gbp(x.total) + '</b></td><td class="n">' + gbp(x.pp) + '</td></tr>';
+    }).join('');
+  }
+  function renderHotels() {
+    var el = document.getElementById('hotelList'); if (!el) return;
+    el.innerHTML = ordered().map(function (x) {
+      var slides = (x.imgs || []).map(function (u, i) { return '<img loading="' + (i ? 'lazy' : 'eager') + '" src="' + esc(img(u, 1000)) + '" srcset="' + esc(img(u, 700)) + ' 700w, ' + esc(img(u, 1000)) + ' 1000w, ' + esc(img(u, 1400)) + ' 1400w" sizes="(max-width:900px) 100vw, 600px" alt="' + esc(x.name) + ' photo ' + (i + 1) + '" data-h="' + esc(x.id) + '" data-i="' + i + '">'; }).join('');
+      return '<article class="hotel" id="h-' + esc(x.id) + '"><div class="hotel-grid"><div class="slider"><div class="track">' + slides + '</div>'
+        + (x.badge ? '<span class="badge">' + esc(x.badge) + '</span>' : '')
+        + '<button class="arr l" type="button" aria-label="Previous photo" data-dir="-1">&#8249;</button><button class="arr r" type="button" aria-label="Next photo" data-dir="1">&#8250;</button>'
+        + '<button class="zoom" type="button" data-zoom="' + esc(x.id) + '">View full screen</button><span class="count">1 / ' + (x.imgs || []).length + '</span></div>'
+        + '<div class="hb"><div class="area">' + esc(x.area) + (x.country ? ', ' + esc(x.country) : '') + '</div><h3>' + esc(x.name) + '</h3>'
+        + (x.rating ? '<div class="rating">' + dots(x.rating) + '<span><b>' + x.rating.toFixed(1) + '</b> on Tripadvisor' + (x.reviews ? ', ' + esc(x.reviews) + ' reviews' : '') + '</span></div>' : '')
+        + '<p>' + esc(x.why) + '</p>'
+        + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
+        + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
+        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + ' per person<br>' : '') + esc(x.deposit || '') + '</div></div>'
+        + '<div class="links"><a class="btn btn-wa" target="_blank" rel="noopener" href="' + wa('Hi Jake, it’s ' + who + '. We love the ' + x.name + '! ') + '">I like this one</a>'
+        + (x.site ? '<a class="btn btn-o" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>' : '') + '</div></div></div></article>';
+    }).join('');
+    Array.prototype.forEach.call(el.querySelectorAll('.slider'), function (s) {
+      var track = s.querySelector('.track'), count = s.querySelector('.count'), n = track.children.length;
+      function idx() { return Math.round(track.scrollLeft / track.clientWidth); }
+      track.addEventListener('scroll', function () { count.textContent = (idx() + 1) + ' / ' + n; }, { passive: true });
+      Array.prototype.forEach.call(s.querySelectorAll('.arr'), function (b) {
+        b.addEventListener('click', function () { var i = (idx() + Number(b.dataset.dir) + n) % n; track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' }); });
+      });
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-sort]'), function (b) {
+    b.addEventListener('click', function () { sortKey = b.dataset.sort; Array.prototype.forEach.call(document.querySelectorAll('[data-sort]'), function (x) { x.setAttribute('aria-pressed', String(x === b)); }); renderTable(); renderHotels(); });
+  });
+  var so = document.getElementById('slidesOnly');
+  if (so) so.addEventListener('click', function () { slidesOnly = !slidesOnly; so.setAttribute('aria-pressed', String(slidesOnly)); renderTable(); renderHotels(); });
+  renderTable(); renderHotels();
+
+  /* lightbox */
+  var lbH = null, lbI = 0;
+  function hotel(id) { for (var i = 0; i < hotels.length; i++) if (hotels[i].id === id) return hotels[i]; }
+  function lbShow() { var x = hotel(lbH); var im = document.getElementById('lbImg'); im.src = img(x.imgs[lbI], 1800); im.alt = x.name + ' photo ' + (lbI + 1); document.getElementById('lbCap').textContent = x.name + '  ' + (lbI + 1) + ' / ' + x.imgs.length; }
+  function lbOpen(id, i) { lbH = id; lbI = i || 0; lbShow(); document.getElementById('lb').classList.add('on'); document.body.style.overflow = 'hidden'; }
+  function lbClose() { document.getElementById('lb').classList.remove('on'); document.body.style.overflow = ''; }
+  function lbStep(d) { var n = hotel(lbH).imgs.length; lbI = (lbI + d + n) % n; lbShow(); }
+  var list = document.getElementById('hotelList');
+  if (list) list.addEventListener('click', function (e) {
+    var z = e.target.closest('[data-zoom]'); if (z) { var tr = z.parentNode.querySelector('.track'); lbOpen(z.dataset.zoom, Math.round(tr.scrollLeft / tr.clientWidth)); return; }
+    var im = e.target.closest('.track img'); if (im) lbOpen(im.dataset.h, Number(im.dataset.i));
+  });
+  document.getElementById('lbX').addEventListener('click', lbClose);
+  document.getElementById('lbP').addEventListener('click', function () { lbStep(-1); });
+  document.getElementById('lbN').addEventListener('click', function () { lbStep(1); });
+  document.getElementById('lb').addEventListener('click', function (e) { if (e.target.id === 'lb') lbClose(); });
+  document.addEventListener('keydown', function (e) { if (!document.getElementById('lb').classList.contains('on')) return; if (e.key === 'Escape') lbClose(); if (e.key === 'ArrowLeft') lbStep(-1); if (e.key === 'ArrowRight') lbStep(1); });
+  (function () { var x0 = null, el = document.getElementById('lb');
+    el.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    el.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) lbStep(dx < 0 ? 1 : -1); x0 = null; }, { passive: true }); })();
+
+  /* GetYourGuide widgets load after the page is built */
+  if (Q.gyg && Q.gyg.length) { var g = document.createElement('script'); g.async = true; g.src = 'https://widget.getyourguide.com/dist/pa.umd.production.min.js'; g.setAttribute('data-gyg-partner-id', 'EFDILG1'); document.body.appendChild(g); }
+
+  /* view counter: lets Jake see when the quote is opened. Jake's own devices are skipped once he opens any quote with ?jake=1 */
+  (function () {
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.has('jake')) localStorage.setItem('taj-jake', '1');
+      if (localStorage.getItem('taj-jake') === '1') return;
+      var k = 'tajqv-' + Q.slug, last = Number(localStorage.getItem(k) || 0);
+      if (Date.now() - last < 30 * 60 * 1000) return;
+      localStorage.setItem(k, String(Date.now()));
+    } catch (e) {}
+    var body = JSON.stringify({ slug: Q.slug, ref: (document.referrer || '').slice(0, 200) });
+    var url = 'https://travelagentjake.co.uk/api/quote-view';
+    try { if (navigator.sendBeacon && navigator.sendBeacon(url, new Blob([body], { type: 'text/plain' }))) return; } catch (e) {}
+    try { fetch(url, { method: 'POST', body: body, mode: 'no-cors', keepalive: true }); } catch (e) {}
+  })();
+})();
