@@ -7,7 +7,7 @@
      facts: [[label, value]], partyLabel ("all 11"), whatsappName,
      compareIntro, hotelsIntro,
      hotels: [{ id, match, name, area, country, rating, reviews, transfer (minutes), slides (bool),
-                badge, total, pp (per paying person when free > 0), free (number of free child places), tax (tourist tax paid at the hotel, £ for the party), taxNote, rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
+                badge, total, pp (per paying person when free > 0), free (number of free child places), depositAmt (this hotel's deposit for the party, when it differs from depositTotal), tax (tourist tax paid at the hotel, £ for the party), taxNote, rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
      extras: [{ id, cat, title, text, price (unit price), unit ("per person", "per car for 8 days"),
                 units (defaults to partyCount for "per person", else 1), separate (bool: not part of the tour operator booking, so not in the direct debits),
                 prices: { <hotel id>: total for the party } for prices that change by hotel (room upgrades, private transfers),
@@ -330,12 +330,14 @@
   if (isJake) h = h.replace('id="fbFloat"', 'id="fbFloat" hidden');
   if (isJake) h += '<a class="btn btn-y amend" href="https://travelagentjake.co.uk/enquiries-admin.html#amend=' + encodeURIComponent(Q.slug) + '" target="_blank" rel="noopener">Amend this quote</a>';
   document.getElementById('app').innerHTML = h;
-  var deposit = Number(Q.depositTotal || 0), people = Number(Q.partyCount || 0);
+  var people = Number(Q.partyCount || 0);
+  /* deposit for the party: a hotel's own depositAmt wins over the quote wide depositTotal (operators differ) */
+  function depOf(x) { return x && x.depositAmt != null ? Number(x.depositAmt) : Number(Q.depositTotal || 0); }
   function taxOf(x) { return taxAmt(x); }
   function inBooking(x) { return xFor(x).reduce(function (a, e) { var t = xTotal(e, x); return a + (t != null && !e.separate ? t : 0); }, 0); }
   function full() {
     var el = document.getElementById('fullCost'); if (!el || !hotels.length) return;
-    var x = curHotel(), list = xFor(x), tax = taxOf(x), sum = x.total, pending = 0;
+    var x = curHotel(), list = xFor(x), tax = taxOf(x), sum = x.total, pending = 0, deposit = depOf(x);
     var rows = '<tr><td>' + esc(x.name) + ', ' + esc(party) + '</td><td class="n">' + gbp(x.total) + '</td></tr>';
     list.forEach(function (e) { var t = xTotal(e, x); if (t == null) return; sum += t; rows += '<tr><td>' + esc(e.title) + '</td><td class="n">' + fmt(t) + '</td></tr>'; });
     if (tax != null) sum += tax;
@@ -344,7 +346,7 @@
     el.innerHTML = '<h3>Your full holiday cost</h3>'
       + (multi ? '<label class="fbl" for="fHotel">Hotel</label><select id="fHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '')
       + '<table><tbody>' + rows + '</tbody><tfoot><tr><td>Total</td><td class="n">' + fmt(Math.round(sum * 100) / 100) + '</td></tr>'
-      + (people > 1 ? '<tr class="pp"><td>' + (x.free ? 'About per paying person (' + x.free + ' children go free)' : 'About per person') + '</td><td class="n">' + money(sum / Math.max(1, people - Number(x.free || 0))) + '</td></tr>' : '') + '</tfoot></table>'
+      + (people > 1 ? '<tr class="pp"><td>' + (x.free ? 'About per paying person (' + x.free + (Number(x.free) === 1 ? ' child goes' : ' children go') + ' free)' : 'About per person') + '</td><td class="n">' + money(sum / Math.max(1, people - Number(x.free || 0))) + '</td></tr>' : '') + '</tfoot></table>'
       + (deposit || today ? '<div class="today"><b>To pay today: ' + fmt(Math.round((deposit + today) * 100) / 100) + '</b><span>' + (deposit ? gbp(deposit) + ' deposit' : '') + (today ? (deposit ? ' plus ' : '') + fmt(Math.round(today * 100) / 100) + ' for your airport extras, which are paid in full when you book' : '') + '. ' + (Q.departDate ? 'The rest of the holiday is the balance, spread in the calculator below.' : '') + '</span></div>' : '')
       + (extras.length ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">the extras for this hotel</a>.') + (multi ? '' : '') + '</p>' : '');
     var xs = document.getElementById('xSum');
@@ -357,7 +359,7 @@
     full();
     try { document.dispatchEvent(new CustomEvent('taj-calc')); } catch (e) {}
     var out = document.getElementById('cOut'); if (!out || !Q.departDate) return;
-    var x = curHotel(), extra = inBooking(x);
+    var x = curHotel(), extra = inBooking(x), deposit = depOf(x);
     var day = Number(document.getElementById('cDay').value), bal = Math.max(0, x.total + extra - deposit);
     var p = ddPlan(bal, Q.departDate, day);
     if (!p.ok) { out.innerHTML = '<p class="intro">Your holiday is too close for monthly payments, but I can send you a secure payment link instead.</p>'; return; }
@@ -454,7 +456,7 @@
     function bkHotel() { return hs ? hotels[Number(hs.value)] || hotels[0] : hotels[0]; }
     function sum() {
       var x = bkHotel(), list = xFor(x), ex = list.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0);
-      var total = x.total + ex, today = paidToday(x), dep = deposit + today;
+      var total = x.total + ex, today = paidToday(x), deposit = depOf(x), dep = deposit + today;
       var full = fullOnly || (document.querySelector('input[name="payNow"]:checked') || {}).value === 'full';
       var el = document.getElementById('bkSum');
       el.innerHTML = '<div><span>Holiday' + (list.length ? ' with ' + list.length + ' extra' + (list.length > 1 ? 's' : '') : '') + '</span><b>' + fmt(Math.round(total * 100) / 100) + '</b></div>'
@@ -497,7 +499,7 @@
       }
       if (!document.getElementById('bkAgree').checked) problems.push('a tick to agree to the booking conditions');
       if (problems.length) { err.textContent = 'Please check: ' + problems.join(', ') + '.'; err.hidden = false; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
-      var list = xFor(x), ex = list.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0);
+      var list = xFor(x), ex = list.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0), deposit = depOf(x);
       var body = {
         slug: Q.slug, customer: Q.customer, title: Q.title, hotel: x.name, hotelTotal: x.total, extras: list.map(function (e) { return { title: e.title, total: xTotal(e, x), separate: !!e.separate }; }),
         total: Math.round((x.total + ex) * 100) / 100, deposit: deposit, payToday: Math.round(((full ? x.total + ex : deposit + paidToday(x))) * 100) / 100,
@@ -604,7 +606,7 @@
         + '<p>' + esc(x.why) + '</p>'
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
         + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
-        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + (x.free ? ' per paying person<br><span class="freec">' + x.free + ' free child places included</span><br>' : ' per person<br>') : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - Number(Q.depositTotal || 0)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">then about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
+        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + (x.free ? ' per paying person<br><span class="freec">' + x.free + ' free child place' + (Number(x.free) === 1 ? '' : 's') + ' included</span><br>' : ' per person<br>') : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - depOf(x)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">then about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
         /* optional in-card upgrade, e.g. a resort's deluxe collection: { title, text, perks: [], options: [{ name, price }], note } */
         + (x.upgrade && x.upgrade.options && x.upgrade.options.length ? '<div class="upg"><div class="upgh">' + esc(x.upgrade.title || 'Upgrade option') + '</div>' + (x.upgrade.text ? '<p>' + esc(x.upgrade.text) + '</p>' : '')
           + (x.upgrade.perks && x.upgrade.perks.length ? '<ul>' + x.upgrade.perks.map(function (k) { return '<li>' + esc(k) + '</li>'; }).join('') + '</ul>' : '')

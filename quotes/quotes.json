@@ -63,6 +63,15 @@
       "created": "2026-10-18",
       "departs": "2028-07-19",
       "fromPrice": 18096
+    },
+    {
+      "slug": "aarron",
+      "url": "https://quotes.travelagentjake.co.uk/aarron",
+      "customer": "Aarron Salliss",
+      "title": "Cyprus family holiday, Protaras or Limassol, August 2028",
+      "created": "2026-10-18",
+      "departs": "2028-08-12",
+      "fromPrice": 5085.73
     }
   ]
 }
