@@ -58,6 +58,7 @@ export function sanitizeAmendments(a) {
   const ex = sanitizeExtras(a.extras); if (ex) out.extras = ex;
   const ds = sanitizeDates(a.dates); if (ds) out.dates = ds;
   if (a.datesIntro) out.datesIntro = clean(a.datesIntro, 600);
+  if (a.fullPayment === true) out.fullPayment = true;
   if (a.touristTax && (num(a.touristTax.amount) !== undefined || a.touristTax.note)) out.touristTax = { amount: num(a.touristTax.amount), note: clean(a.touristTax.note, 200) };
   return out;
 }

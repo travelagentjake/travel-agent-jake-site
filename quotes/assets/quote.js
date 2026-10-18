@@ -22,7 +22,8 @@
      areas: [{ img, title, text }],
      areas: [{ img, title, text, alt, link (GetYourGuide page, affiliate code added automatically), linkLabel }],
      departDate (YYYY-MM-DD), depositTotal, partyCount   // used by the built in monthly payment calculator
-     priceIntro, steps: [[title, text]], smallprint, prepared
+     priceIntro, steps: [[title, text]], smallprint, prepared,
+     weatherIntro (optional), noWeather (true to leave the weather section off), fullPayment (true when the holiday is paid in full at booking)
    }
 */
 (function () {
@@ -43,6 +44,7 @@
     if (a.intro) Q.intro = a.intro;
     if (a.subtitle) Q.subtitle = a.subtitle;
     if (a.note) Q.jakeNote = a.note;
+    if (a.fullPayment === true) Q.fullPayment = true;
     if (Array.isArray(a.extras)) Q.extras = a.extras;
     if (Array.isArray(a.dates)) Q.dates = a.dates;
     if (a.datesIntro) Q.datesIntro = a.datesIntro;
@@ -130,6 +132,8 @@
   if (hotels.length) nav.push(['hotels', multi ? 'The hotels' : 'Your hotel']);
   (Q.sections || []).forEach(function (s, i) { if (s.nav) nav.push([s.id || ('extra-' + (s.after || 'hotels') + i), s.nav]); });
   if (Q.flights) nav.push(['trip', 'Flights and rooms']);
+  var wxPlaces = wxList();
+  if (wxPlaces.length) nav.push(['weather', 'Weather']);
   var dates = (Q.dates || []).filter(function (d) { return d && d.label && !d.hidden && d.total != null && d.total !== '' && !isNaN(Number(d.total)); });
   /* the quoted dates always show the hotel price, so amending the hotel price keeps them in step */
   dates = dates.map(function (d) {
@@ -153,6 +157,19 @@
   nav.push(['next', 'Prices and booking']);
   nav.push(['feedback', hotels.length ? 'Book or ask' : 'Send feedback']);
 
+  /* paid in full at booking when travel is within 14 weeks, or when Jake marks the quote fullPayment */
+  var fullOnly = Q.fullPayment === true || !!(Q.departDate && (Date.parse(Q.departDate) - Date.now()) < 98 * 86400000);
+  function wxMonthName() { var m = Q.departDate ? new Date(Q.departDate + 'T12:00:00Z').toLocaleDateString('en-GB', { month: 'long', timeZone: 'UTC' }) : ''; return m; }
+  function wxList() {
+    if (!Q.departDate || Q.noWeather) return [];
+    var seen = {}, out = [];
+    hotels.forEach(function (x) {
+      var place = (x.area || '').trim(), country = (x.country || '').trim(); if (!place && !country) return;
+      var key = (place + '|' + country).toLowerCase(); if (seen[key]) return; seen[key] = 1;
+      out.push({ key: key, place: place, country: country, label: place ? place.replace(/^nr\s+/i, '') + (country ? ', ' + country : '') : country, hotels: hotels.filter(function (y) { return ((y.area || '') + '|' + (y.country || '')).toLowerCase() === key; }).map(function (y) { return y.name; }) });
+    });
+    return out.slice(0, 8);
+  }
   var h = '';
   h += '<header class="top"><div class="wrap"><a href="https://travelagentjake.co.uk" aria-label="Travel Agent Jake home"><img src="https://travelagentjake.co.uk/images/logo.png" alt="Travel Agent Jake"></a>'
     + '<a class="btn btn-wa" href="' + wa('Hi Jake, it’s ' + who + '. I’ve had a look at my quote and ') + '" target="_blank" rel="noopener">WhatsApp Jake</a></div></header>';
@@ -210,6 +227,12 @@
     h += '</div></div></section>';
   }
   h += custom('trip');
+
+  /* weather: what each hotel's area is usually like in the month they travel, from /api/quote-weather */
+  if (wxPlaces.length) {
+    h += '<section id="weather" class="alt"><div class="wrap"><h2 class="h2">The weather when you go</h2><p class="intro">' + esc(Q.weatherIntro || ('What ' + wxMonthName() + ' is usually like' + (wxPlaces.length > 1 ? ' in each area' : '') + ', based on the last three years of real weather data, with my tips on what to pack.')) + '</p>'
+      + '<div class="wx" id="wxList">' + wxPlaces.map(function (w) { return '<div class="wxc" data-wx="' + esc(w.key) + '"><div class="wxh"><b>' + esc(w.label) + '</b><span>Checking the weather…</span></div></div>'; }).join('') + '</div></div></section>';
+  }
 
   /* other dates: same holiday on different dates, with live prices Jake can amend */
   if (dates.length > 1) {
@@ -391,7 +414,7 @@
     }
     var rows = ''; for (var i = 0; i < n; i++) rows += paxRow(i);
     return '<div class="book" id="book" hidden><h3>Book this holiday</h3>'
-      + '<p class="intro" style="margin:4px 0 16px">Fill this in and it comes straight to me. I will then text you a secure payment link for your deposit (or the full amount), and as soon as that is paid I get your holiday confirmed. Nothing is charged on this page. Names must match passports exactly.</p>'
+      + '<p class="intro" style="margin:4px 0 16px">Fill this in and it comes straight to me. I will then text you a secure payment link for ' + (fullOnly ? 'the full amount' : 'your deposit (or the full amount if you prefer)') + ', and as soon as that is paid I get your holiday confirmed. Nothing is charged on this page. Names must match passports exactly.</p>'
       + '<form id="bookForm" novalidate>'
       + '<h4>Which hotel</h4>'
       + (multi ? '<select id="bkHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '<p class="bkh"><b>' + esc(hotels[0].name) + '</b>, ' + gbp(hotels[0].total) + '</p>')
@@ -403,19 +426,21 @@
       + '<label>Postcode<input type="text" name="postcode" autocomplete="postal-code" required></label>'
       + '<label>Mobile number<input type="tel" name="mobile" autocomplete="tel" required></label>'
       + '<label class="wide">Email address<input type="email" name="email" autocomplete="email" required></label></div>'
-      + '<h4>Paying today</h4><div class="bkopts" id="bkPayNow">'
-      + '<label class="fbopt"><input type="radio" name="payNow" value="deposit" checked><span>Just the deposit</span></label>'
-      + '<label class="fbopt"><input type="radio" name="payNow" value="full"><span>The full amount</span></label></div>'
-      + '<div class="bkopts" style="margin-top:10px"><label class="fbopt"><input type="radio" name="payHow" value="card" checked><span>Debit or credit card (I text you a secure link)</span></label>'
-      + '<label class="fbopt"><input type="radio" name="payHow" value="bank"><span>Bank transfer (I send you the details)</span></label></div>'
-      + '<div id="bkDD"><h4>The rest of the balance</h4>'
+      + '<h4>Paying today</h4>' + (fullOnly
+        ? '<p class="bkfull" id="bkFullNote">' + (Q.fullPayment === true ? 'This holiday is paid in full at the time of booking.' : 'As you travel within 14 weeks, this holiday is paid in full at the time of booking.') + '</p><input type="hidden" name="payNow" value="full" checked>'
+        : '<div class="bkopts" id="bkPayNow"><label class="fbopt"><input type="radio" name="payNow" value="deposit" checked><span>Just the deposit</span></label>'
+        + '<label class="fbopt"><input type="radio" name="payNow" value="full"><span>The full amount</span></label></div>')
+      + '<div class="bkopts" style="margin-top:10px"><label class="fbopt"><input type="radio" name="payHow" value="card" checked><span>Debit or credit card</span></label>'
+      + '<label class="fbopt"><input type="radio" name="payHow" value="bank"><span>Bank transfer</span></label></div>'
+      + '<p class="small" style="margin:8px 0 0">Either way I text you a secure payment link, so nothing is paid on this page.</p>'
+      + (fullOnly ? '' : '<div id="bkDD"><h4>The rest of the balance</h4>'
       + '<label class="fbopt" style="display:inline-flex"><input type="checkbox" id="bkWantDD" checked><span>Set up a monthly direct debit for the remaining balance</span></label>'
       + '<div id="bkDDFields" class="paxg" style="margin-top:12px">'
       + '<label>Day of the month it comes out<select name="ddDay">' + Array.apply(null, Array(28)).map(function (_, i) { var d = i + 1; return '<option value="' + d + '">' + d + ordinal(d) + '</option>'; }).join('') + '</select></label>'
       + '<label>Name of the account holder<input type="text" name="ddName" autocomplete="off"></label>'
       + '<label>Sort code<input type="text" name="ddSort" inputmode="numeric" placeholder="00-00-00" autocomplete="off"></label>'
       + '<label>Account number<input type="text" name="ddAcc" inputmode="numeric" placeholder="8 digits" autocomplete="off"></label></div>'
-      + '<p class="small" id="bkDDNote">Without a direct debit, the balance is due in one go about 14 weeks before you travel.</p></div>'
+      + '<p class="small" id="bkDDNote">Without a direct debit, the balance is due in one go about 14 weeks before you travel.</p></div>')
       + '<label class="bkagree"><input type="checkbox" id="bkAgree" required><span>I have read and agree to the <a href="https://travelagentjake.co.uk/booking-conditions.html" target="_blank" rel="noopener">booking conditions</a> on travelagentjake.co.uk, and I confirm the details above are correct.</span></label>'
       + '<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">'
       + '<p id="bkErr" class="bkerr" hidden></p>'
@@ -430,7 +455,7 @@
     function sum() {
       var x = bkHotel(), list = xFor(x), ex = list.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0);
       var total = x.total + ex, today = paidToday(x), dep = deposit + today;
-      var full = (document.querySelector('input[name="payNow"]:checked') || {}).value === 'full';
+      var full = fullOnly || (document.querySelector('input[name="payNow"]:checked') || {}).value === 'full';
       var el = document.getElementById('bkSum');
       el.innerHTML = '<div><span>Holiday' + (list.length ? ' with ' + list.length + ' extra' + (list.length > 1 ? 's' : '') : '') + '</span><b>' + fmt(Math.round(total * 100) / 100) + '</b></div>'
         + '<div><span>' + (full ? 'To pay today, the full amount' : 'To pay today' + (today ? ' (deposit plus airport extras)' : ', your deposit')) + '</span><b>' + fmt(Math.round((full ? total : dep) * 100) / 100) + '</b></div>'
@@ -458,8 +483,8 @@
         pax.push({ first: r.querySelector('[name=first]').value.trim(), middle: r.querySelector('[name=middle]').value.trim(), last: r.querySelector('[name=last]').value.trim(), dob: r.querySelector('[name=dob]').value });
       });
       var g = function (n) { var el = f.querySelector('[name=' + n + ']'); return el ? el.value.trim() : ''; };
-      var full = (document.querySelector('input[name="payNow"]:checked') || {}).value === 'full';
-      var wantDD = !full && document.getElementById('bkWantDD').checked;
+      var full = fullOnly || (document.querySelector('input[name="payNow"]:checked') || {}).value === 'full';
+      var wantDD = !full && !!document.getElementById('bkWantDD') && document.getElementById('bkWantDD').checked;
       var problems = [];
       if (pax.some(function (p) { return !p.first || !p.last || !p.dob; })) problems.push('every passenger needs a first name, surname and date of birth');
       if (!g('address') || !g('postcode')) problems.push('your home address and postcode');
@@ -486,7 +511,7 @@
         .then(function (r) {
           if (!r.ok) throw new Error((r.j && r.j.error) || 'Something went wrong');
           f.hidden = true; var d = document.getElementById('bkDone'); d.hidden = false;
-          d.innerHTML = '<h4>Thank you, ' + esc(pax[0].first) + '!</h4><p>Your booking details are with me. I will text ' + esc(body.mobile) + ' with a secure payment link for ' + fmt(body.payToday) + (body.payHow === 'bank' ? ', or the bank details if you would rather transfer' : '') + '. As soon as that is paid I get your holiday confirmed and send your confirmation and ATOL certificate.</p><p>A copy of what you sent (without any bank details) is on its way to ' + esc(body.email) + '.</p>';
+          d.innerHTML = '<h4>Thank you, ' + esc(pax[0].first) + '!</h4><p>Your booking details are with me. I will text ' + esc(body.mobile) + ' with a secure payment link for ' + fmt(body.payToday) + '. As soon as that is paid I get your holiday confirmed and send your confirmation and ATOL certificate.</p><p>A copy of what you sent (without any bank details) is on its way to ' + esc(body.email) + '.</p>';
           d.scrollIntoView({ behavior: 'smooth', block: 'start' });
         })
         .catch(function (e) { err.textContent = 'Sorry, that did not send (' + e.message + '). Please try again, or send me a WhatsApp and I will take the details there.'; err.hidden = false; btn.disabled = false; btn.textContent = 'Send my booking details to Jake'; });
@@ -494,6 +519,26 @@
     sum();
   }
   bookWire();
+  (function loadWeather() {
+    if (!wxPlaces.length) return;
+    var month = Number(Q.departDate.slice(5, 7));
+    wxPlaces.forEach(function (w) {
+      var el = document.querySelector('[data-wx="' + w.key.replace(/"/g, '') + '"]'); if (!el) return;
+      fetch('https://travelagentjake.co.uk/api/quote-weather?place=' + encodeURIComponent(w.place) + '&country=' + encodeURIComponent(w.country) + '&month=' + month)
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (!d || !d.ok) { el.remove(); wxEmpty(); return; }
+          var stat = function (n, v, s) { return '<div class="wxs"><small>' + n + '</small><b>' + v + '</b>' + (s ? '<span>' + s + '</span>' : '') + '</div>'; };
+          el.innerHTML = '<div class="wxh"><b>' + esc(w.label) + '</b><span>' + esc(d.monthName) + (w.hotels.length > 1 && wxPlaces.length > 1 ? ' · ' + esc(w.hotels.join(', ')) : '') + '</span></div>'
+            + '<div class="wxg">' + stat('Daytime high', Math.round(d.high) + '°C', 'average') + stat('Night low', Math.round(d.low) + '°C', 'average')
+            + stat('Sunshine', (d.sun != null ? Math.round(d.sun) + ' hrs' : 'n/a'), 'a day') + stat('Rain', d.rainDays + (d.rainDays === 1 ? ' day' : ' days'), 'about ' + d.rainMm + 'mm')
+            + (d.sea != null ? stat('Sea', Math.round(d.sea) + '°C', 'average') : '') + '</div>'
+            + '<ul class="wxa">' + (d.advice || []).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>';
+        })
+        .catch(function () { el.remove(); wxEmpty(); });
+    });
+    function wxEmpty() { var l = document.getElementById('wxList'); if (l && !l.children.length) { var sec = document.getElementById('weather'); if (sec) sec.remove(); var nl = document.querySelector('.snav a[href="#weather"]'); if (nl) nl.remove(); } }
+  })();
   /* which option is picked decides what shows: the booking form, or the WhatsApp message box */
   function pickType(t, hotelId) {
     var r = document.querySelector('input[name="fbType"][value="' + t + '"]'); if (r) r.checked = true;

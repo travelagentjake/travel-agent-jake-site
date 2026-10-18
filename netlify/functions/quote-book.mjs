@@ -82,7 +82,7 @@ export default async (req) => {
 
   const custHtml = emailShell(`<h2 style="margin:0 0 6px;color:#004AAD;">Thank you, ${esc(lead.first)}!</h2>
 <p style="margin:0 0 14px;">I have your booking details for <strong>${esc(rec.hotel)}</strong>. Here is what happens next:</p>
-<ol style="margin:0 0 16px;padding-left:20px;"><li>I will text <strong>${esc(mobile)}</strong> with a secure payment link for <strong>${gbp(rec.payToday)}</strong>${payHow === "bank" ? ", or my bank details if you would rather transfer" : ""}.</li><li>As soon as that is paid I confirm the holiday with the tour operator.</li><li>You then get your booking confirmation and ATOL certificate by email.</li></ol>
+<ol style="margin:0 0 16px;padding-left:20px;"><li>I will text <strong>${esc(mobile)}</strong> with a secure payment link for <strong>${gbp(rec.payToday)}</strong>.</li><li>As soon as that is paid I confirm the holiday with the tour operator.</li><li>You then get your booking confirmation and ATOL certificate by email.</li></ol>
 <h3 style="margin:18px 0 4px;color:#004AAD;">What you sent</h3><table cellpadding="0" cellspacing="0" style="font-size:15px;">${money}${paxRows}${addressRow}${row("Email", esc(email))}${dd ? row("Direct debit", "Balance by monthly direct debit on the " + ordinal(dd.day) + ", from the account ending " + dd.account.slice(-4)) : ""}</table>
 <p style="margin:16px 0 0;">Spotted a mistake, or want to change something? Just WhatsApp me on <a href="https://wa.me/447899290262">07899 290262</a> before you pay and I will sort it. Your quote is at <a href="${quoteUrl}">${quoteUrl}</a>.</p>
 <p style="margin:16px 0 0;">Jake</p>`);
