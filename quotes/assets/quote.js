@@ -12,7 +12,8 @@
      flights: { intro, legs: [{ tag, date, from, fromCode, to, toCode, dep, arr, dur, carrier }] },
      rooms: [], included: [],
      areas: [{ img, title, text }],
-     gyg: [{ title, tourIds, moreUrl, moreLabel }],
+     areas: [{ img, title, text, alt, link (GetYourGuide page, affiliate code added automatically), linkLabel }],
+     departDate (YYYY-MM-DD), depositTotal, partyCount   // used by the built in monthly payment calculator
      priceIntro, steps: [[title, text]], smallprint, prepared
    }
 */
@@ -59,6 +60,34 @@
   function gygLink(u) {
     try { var x = new URL(u); if (!/getyourguide\./.test(x.hostname)) return u; x.searchParams.set('partner_id', 'EFDILG1'); x.searchParams.set('utm_medium', 'online_publisher'); return x.toString(); } catch (e) { return u; }
   }
+  function ordinal(n) { var r = n % 100; if (r >= 11 && r <= 13) return 'th'; return ['th', 'st', 'nd', 'rd'][n % 10] || 'th'; }
+  /* Same rules as the calculator on travelagentjake.co.uk/my-booking.html:
+     travel at least 18 weeks away, first payment more than 14 days away on the chosen day,
+     weekends roll to the next working day, last payment before 6 weeks ahead of travel. */
+  function ddPlan(balance, travelISO, prefDay) {
+    var today = new Date(); today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    var travel = new Date(travelISO + 'T00:00:00');
+    function add(d, n) { var r = new Date(d.getTime()); r.setDate(r.getDate() + n); return r; }
+    function between(a, b) { return Math.round((b - a) / 86400000); }
+    function clamp(y, m, day) { var yy = y + Math.floor(m / 12), mm = ((m % 12) + 12) % 12; return new Date(yy, mm, Math.min(day, new Date(yy, mm + 1, 0).getDate())); }
+    function work(d) { var r = new Date(d.getTime()); while (r.getDay() === 0 || r.getDay() === 6) r = add(r, 1); return r; }
+    if (travel < add(today, 18 * 7)) return { ok: false };
+    var due = add(travel, -42), off = 0, base = clamp(today.getFullYear(), today.getMonth(), prefDay);
+    while (between(today, base) <= 14) { off++; base = clamp(today.getFullYear(), today.getMonth() + off, prefDay); }
+    var rows = [], i = 0, d = work(base);
+    while (d < due) { rows.push(d); i++; d = work(clamp(base.getFullYear(), base.getMonth() + i, prefDay)); }
+    if (!rows.length) return { ok: false };
+    var each = Math.floor(balance / rows.length * 100) / 100;
+    return { ok: true, n: rows.length, each: each, last: Math.round((balance - each * (rows.length - 1)) * 100) / 100, first: rows[0], end: rows[rows.length - 1], rows: rows, due: due };
+  }
+  /* step text tokens: {balanceDue} = about 14 weeks before travel, {monthlyPlan} = live summary from the calculator */
+  function stepText(t) {
+    var out = esc(t);
+    if (Q.departDate) { var bd = new Date(Q.departDate + 'T00:00:00'); bd.setDate(bd.getDate() - 98); out = out.replace('{balanceDue}', '<b>' + dmy(bd) + '</b>'); }
+    return out.replace('{monthlyPlan}', '<b id="planLine">monthly payments</b>');
+  }
+  function dmy(d) { return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }); }
+  function money(n) { return '\u00a3' + Number(n).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
   function dots(r) { var s = ''; for (var i = 1; i <= 5; i++) s += '<i class="' + (r >= i ? '' : (r >= i - 0.5 ? 'h' : 'e')) + '"></i>'; return '<span class="dots" aria-hidden="true">' + s + '</span>'; }
   var who = Q.whatsappName || Q.customer;
   var party = Q.partyLabel || 'everyone';
@@ -78,7 +107,7 @@
   if (hotels.length) nav.push(['hotels', multi ? 'The hotels' : 'Your hotel']);
   (Q.sections || []).forEach(function (s, i) { if (s.nav) nav.push([s.id || ('extra-' + (s.after || 'hotels') + i), s.nav]); });
   if (Q.flights) nav.push(['trip', 'Flights and rooms']);
-  if ((Q.areas && Q.areas.length) || (Q.gyg && Q.gyg.length)) nav.push(['todo', 'Things to do']);
+  if (Q.areas && Q.areas.length) nav.push(['todo', 'Things to do']);
   nav.push(['next', 'Prices and booking']);
   nav.push(['feedback', 'Send feedback']);
 
@@ -126,21 +155,24 @@
   }
   h += custom('trip');
 
-  if ((Q.areas && Q.areas.length) || (Q.gyg && Q.gyg.length)) {
+  if (Q.areas && Q.areas.length) {
     h += '<section id="todo" class="alt"><div class="wrap"><h2 class="h2">Things to do</h2>' + (Q.todoIntro ? '<p class="intro">' + esc(Q.todoIntro) + '</p>' : '');
-    if (Q.areas && Q.areas.length) h += '<div class="areas">' + Q.areas.map(function (a) { return '<div class="areacard"><img loading="lazy" src="' + esc(img(a.img, 800)) + '" alt="' + esc(a.alt || a.title) + '"><div><b>' + esc(a.title) + '</b><p>' + esc(a.text) + '</p></div></div>'; }).join('') + '</div>';
-    (Q.gyg || []).forEach(function (g) {
-      h += '<div class="gyg"><h3>' + esc(g.title) + '</h3><div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="' + esc(g.tourIds) + '"></div>'
-        + (g.moreUrl ? '<p style="margin:14px 0 0"><a class="btn btn-o" href="' + esc(gygLink(g.moreUrl)) + '" target="_blank" rel="noopener sponsored">' + esc(g.moreLabel || 'See more things to do') + '</a></p>' : '') + '</div>';
-    });
+    h += '<div class="areas">' + Q.areas.map(function (a) {
+      var inner = '<img loading="lazy" src="' + esc(img(a.img, 800)) + '" alt="' + esc(a.alt || a.title) + '"><div><b>' + esc(a.title) + '</b><p>' + esc(a.text) + '</p>' + (a.link ? '<span class="see">' + esc(a.linkLabel || 'See tours and prices') + '</span>' : '') + '</div>';
+      return a.link ? '<a class="areacard" href="' + esc(gygLink(a.link)) + '" target="_blank" rel="noopener sponsored">' + inner + '</a>' : '<div class="areacard">' + inner + '</div>';
+    }).join('') + '</div>';
     h += '</div></section>';
   }
   h += custom('todo');
 
   h += '<section id="next"><div class="wrap"><h2 class="h2">Prices and booking</h2>' + (Q.priceIntro ? '<p class="intro">' + esc(Q.priceIntro) + '</p>' : '')
-    + '<div class="pay">' + (Q.steps || []).map(function (s, i) { return '<div class="step"><div class="sn">' + (i + 1) + '</div><h3>' + esc(s[0]) + '</h3><p>' + esc(s[1]) + '</p></div>'; }).join('') + '</div>'
+    + '<div class="pay">' + (Q.steps || []).map(function (s, i) { return '<div class="step"><div class="sn">' + (i + 1) + '</div><h3>' + esc(s[0]) + '</h3><p>' + stepText(s[1]) + '</p></div>'; }).join('') + '</div>'
     + '<p style="margin:22px 0 0;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-wa" href="' + wa('Hi Jake, it’s ' + who + '. We’d like to go ahead with ') + '" target="_blank" rel="noopener">WhatsApp me to book</a>'
-    + '<a class="btn btn-o" href="https://travelagentjake.co.uk/my-booking.html#dd-calculator" target="_blank" rel="noopener">Work out monthly payments</a></p>'
+    + '</p>'
+    + (Q.departDate && hotels.length ? '<div class="calc" id="calc"><h3>Your monthly payments</h3><p class="intro" style="margin:4px 0 16px">Pick a hotel and the day of the month that suits you, and see how the balance could be spread by direct debit.</p>'
+      + '<div class="calcgrid">' + (multi ? '<div><label class="fbl" for="cHotel">Hotel</label><select id="cHotel">' + hotels.map(function (x, i) { return '<option value="' + i + '">' + esc(x.name) + ' (' + gbp(x.total) + ')</option>'; }).join('') + '</select></div>' : '')
+      + '<div><label class="fbl" for="cDay">Payment day each month</label><select id="cDay">' + Array.apply(null, Array(28)).map(function (_, i) { var d = i + 1; return '<option value="' + d + '"' + (d === 1 ? ' selected' : '') + '>' + d + ordinal(d) + '</option>'; }).join('') + '</select></div></div>'
+      + '<div id="cOut"></div></div>' : '')
     + '<div class="fb" id="feedback"><h3>Send your feedback to Jake</h3><p class="intro" style="margin:4px 0 14px">Tell me what you think and it opens WhatsApp with your message ready to send.</p>'
     + '<div class="fbopts" role="radiogroup" aria-label="What would you like to do?">'
     + [['book', 'We would like to book'], ['changes', 'We would like some changes'], ['question', 'I have a question']].map(function (o, i) { return '<label class="fbopt"><input type="radio" name="fbType" value="' + o[0] + '"' + (i === 0 ? ' checked' : '') + '><span>' + o[1] + '</span></label>'; }).join('')
@@ -158,6 +190,24 @@
   var isJake = false; try { if (new URLSearchParams(location.search).has('jake')) localStorage.setItem('taj-jake', '1'); isJake = localStorage.getItem('taj-jake') === '1'; } catch (e) {}
   if (isJake) h += '<a class="btn btn-y amend" href="https://travelagentjake.co.uk/enquiries-admin.html#amend=' + encodeURIComponent(Q.slug) + '" target="_blank" rel="noopener">Amend this quote</a>';
   document.getElementById('app').innerHTML = h;
+  var deposit = Number(Q.depositTotal || 0), people = Number(Q.partyCount || 0);
+  function calc() {
+    var out = document.getElementById('cOut'); if (!out) return;
+    var hs = document.getElementById('cHotel'), x = hotels[hs ? Number(hs.value) : 0];
+    var day = Number(document.getElementById('cDay').value), bal = Math.max(0, x.total - deposit);
+    var p = ddPlan(bal, Q.departDate, day);
+    if (!p.ok) { out.innerHTML = '<p class="intro">Your holiday is too close for monthly payments, but I can send you a secure payment link instead.</p>'; return; }
+    var pl = document.getElementById('planLine'); if (pl) pl.textContent = p.n + ' monthly payments of ' + money(p.each) + ' with the final payment on ' + dmy(p.end);
+    out.innerHTML = '<div class="tiles">'
+      + '<div class="tile"><small>Deposit today</small><b>' + gbp(deposit) + '</b></div>'
+      + '<div class="tile hi"><small>Then each month</small><b>' + money(p.each) + '</b>' + (people > 1 ? '<span>about ' + money(p.each / people) + ' per person</span>' : '') + '</div>'
+      + '<div class="tile"><small>Number of payments</small><b>' + p.n + '</b><span>' + dmy(p.first) + ' to ' + dmy(p.end) + '</span></div></div>'
+      + '<details class="sched"><summary>See every payment date</summary><table><tbody>'
+      + p.rows.map(function (d, i) { return '<tr><td>Payment ' + (i + 1) + '</td><td>' + dmy(d) + '</td><td class="n">' + money(i === p.n - 1 ? p.last : p.each) + '</td></tr>'; }).join('')
+      + '</tbody></table></details>'
+      + '<p class="small" style="margin:12px 0 0">Based on ' + esc(x.name) + ' at ' + gbp(x.total) + ' for ' + esc(party) + ', with a ' + gbp(deposit) + ' deposit and the balance cleared 6 weeks before you fly. This is an estimate to help you budget, and I confirm the exact plan when you book. Payments falling on a weekend move to the next working day.</p>';
+  }
+  if (document.getElementById('calc')) { ['cHotel', 'cDay'].forEach(function (id) { var e = document.getElementById(id); if (e) e.addEventListener('change', calc); }); calc(); }
   var fbBtn = document.getElementById('fbSend');
   if (fbBtn) fbBtn.addEventListener('click', function () {
     var t = (document.querySelector('input[name="fbType"]:checked') || {}).value || 'question';
@@ -202,7 +252,7 @@
         + '<p>' + esc(x.why) + '</p>'
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
         + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
-        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + ' per person<br>' : '') + esc(x.deposit || '') + '</div></div>'
+        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + ' per person<br>' : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - Number(Q.depositTotal || 0)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">or about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div></div>'
         + '<div class="links"><a class="btn btn-wa" target="_blank" rel="noopener" href="' + wa('Hi Jake, it’s ' + who + '. We love the ' + x.name + '! ') + '">I like this one</a>'
         + (x.site ? '<a class="btn btn-o" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>' : '') + '</div></div></div></article>';
     }).join('');
@@ -244,7 +294,6 @@
     el.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) lbStep(dx < 0 ? 1 : -1); x0 = null; }, { passive: true }); })();
 
   /* GetYourGuide widgets load after the page is built */
-  if (Q.gyg && Q.gyg.length) { var g = document.createElement('script'); g.async = true; g.src = 'https://widget.getyourguide.com/dist/pa.umd.production.min.js'; g.setAttribute('data-gyg-partner-id', 'EFDILG1'); document.body.appendChild(g); }
 
   /* view counter: lets Jake see when the quote is opened. Jake's own devices are skipped once he opens any quote with ?jake=1 */
   (function () {
