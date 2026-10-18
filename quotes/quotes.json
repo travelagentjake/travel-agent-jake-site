@@ -72,6 +72,17 @@
       "created": "2026-10-18",
       "departs": "2028-08-12",
       "fromPrice": 5085.73
+    },
+    {
+      "slug": "leewalker",
+      "url": "https://quotes.travelagentjake.co.uk/leewalker",
+      "customer": "Lee Walker",
+      "enquiryId": "mve2ub4757rd",
+      "quoteRequestId": "mve3kbyka1kq",
+      "title": "Louis Phaethon Beach, Paphos, April 2027",
+      "created": "2026-10-18",
+      "departs": "2027-04-21",
+      "fromPrice": 2099.96
     }
   ]
 }
