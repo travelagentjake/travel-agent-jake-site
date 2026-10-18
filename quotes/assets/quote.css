@@ -181,3 +181,5 @@ a.areacard:hover{transform:translateY(-3px)}
 .note.top{margin:24px 0 0;background:rgba(255,255,255,.08);border:3px solid var(--yellow);padding:24px 26px}.note.top p{color:#fff}
 .note.top h2{font-family:'Archivo Black',sans-serif;color:var(--yellow);font-size:clamp(22px,3vw,28px);margin:0 0 12px;text-transform:uppercase}
 .xwith{display:block;font-size:12px;font-weight:700;color:#6b7190}
+/* desktop: photos fill the whole height of the hotel card */
+@media (min-width:901px){.slider{min-height:420px}.slider .track{position:absolute;inset:0;height:auto}.slider .track img{height:100%;min-height:0;max-height:none}}
