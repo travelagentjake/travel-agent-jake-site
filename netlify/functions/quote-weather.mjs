@@ -11,20 +11,32 @@ const MONTHS = ["January", "February", "March", "April", "May", "June", "July", 
 const avg = (a) => { const v = a.filter((x) => x != null && !isNaN(x)); return v.length ? v.reduce((s, x) => s + x, 0) / v.length : null; };
 const r1 = (n) => n == null ? null : Math.round(n * 10) / 10;
 
+const km = (a, b) => { const R = 6371, dLat = (b.lat - a.lat) * Math.PI / 180, dLon = (b.lon - a.lon) * Math.PI / 180; const x = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * Math.PI / 180) * Math.cos(b.lat * Math.PI / 180) * Math.sin(dLon / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(x)); };
+async function search(q) {
+  try {
+    const r = await fetch("https://geocoding-api.open-meteo.com/v1/search?count=10&language=en&name=" + encodeURIComponent(q), { signal: AbortSignal.timeout(6000) });
+    const j = await r.json();
+    return (j.results || []).map((h) => ({ lat: h.latitude, lon: h.longitude, name: h.name, country: h.country || "", admin: [h.admin1, h.admin2, h.admin3].filter(Boolean).join(", ") }));
+  } catch { return []; }
+}
+const inCountry = (h, country) => { if (!country) return true; const c = country.toLowerCase(), hc = (h.country || "").toLowerCase(); const alias = { turkey: "türkiye", usa: "united states", uk: "united kingdom", "new jersey": "united states", florida: "united states", california: "united states", nevada: "united states", "new york": "united states" }; return hc.includes(c) || c.includes(hc) || hc.includes(alias[c] || "\u0000") || (alias[c] && alias[c].includes(hc)); };
+// Area names on quotes look like "Lambi, Kos" or "Nr Alanya, Antalya": the last part is the island or region, the first the resort.
+// Find the region first, then pick the resort hit nearest to it, so "Lambi, Kos" never lands on the mainland.
 async function geocode(place, country) {
-  const tries = [];
   const parts = String(place || "").split(",").map((s) => s.replace(/^\s*(nr|near)\s+/i, "").trim()).filter(Boolean);
-  for (const p of parts) tries.push(p + (country ? ", " + country : ""), p);
-  if (country) tries.push(country);
-  for (const q of tries) {
-    try {
-      const r = await fetch("https://geocoding-api.open-meteo.com/v1/search?count=5&language=en&name=" + encodeURIComponent(q), { signal: AbortSignal.timeout(6000) });
-      const j = await r.json();
-      const hits = (j.results || []);
-      const hit = hits.find((h) => !country || !h.country || h.country.toLowerCase().includes(country.toLowerCase().split(" ")[0]) || country.toLowerCase().includes(h.country.toLowerCase())) || hits[0];
-      if (hit) return { lat: hit.latitude, lon: hit.longitude, name: hit.name, country: hit.country };
-    } catch {}
+  let region = null;
+  if (parts.length > 1) {
+    const rh = (await search(parts[parts.length - 1])).filter((h) => inCountry(h, country));
+    region = rh[0] || null;
   }
+  for (const p of parts) {
+    let hits = (await search(p)).filter((h) => inCountry(h, country));
+    if (!hits.length) continue;
+    if (region) { hits = hits.map((h) => ({ h, d: km(h, region) })).filter((x) => x.d <= 150).sort((a, b) => a.d - b.d).map((x) => x.h); if (!hits.length) continue; }
+    return hits[0];
+  }
+  if (region) return region;
+  if (country) { const ch = await search(country); if (ch[0]) return ch[0]; }
   return null;
 }
 
@@ -83,7 +95,7 @@ export default async (req) => {
   const month = Number(u.searchParams.get("month"));
   if (!place && !country) return json({ error: "place needed" }, 400);
   if (!(month >= 1 && month <= 12)) return json({ error: "month needed" }, 400);
-  const key = (place + "|" + country + "|" + month).toLowerCase().replace(/[^a-z0-9|]+/g, "-");
+  const key = ("v2|" + place + "|" + country + "|" + month).toLowerCase().replace(/[^a-z0-9|]+/g, "-");
   const store = getStore({ name: "quote-weather", consistency: "strong" });
   const cached = await store.get(key, { type: "json" }).catch(() => null);
   if (cached && cached.at && Date.now() - Date.parse(cached.at) < 60 * 86400000) return json(cached);
@@ -99,7 +111,7 @@ export default async (req) => {
     rainMm: Math.round(avg(ys.map((y) => y.rainMm))), rainDays: Math.round(avg(ys.map((y) => y.rainDays))),
     sun: r1(avg(ys.map((y) => y.sun))), sea: r1(await seaTemp(g.lat, g.lon, years[0], month)),
   };
-  const out = { ok: true, at: new Date().toISOString(), place, country, resolved: g.name + (g.country ? ", " + g.country : ""), month, monthName: MONTHS[month - 1], years: years.length ? years[years.length - 1] + " to " + years[0] : "", ...w, advice: advice(w) };
+  const out = { ok: true, at: new Date().toISOString(), place, country, resolved: g.name + (g.admin ? ", " + g.admin : "") + (g.country ? ", " + g.country : ""), month, monthName: MONTHS[month - 1], years: years.length ? years[years.length - 1] + " to " + years[0] : "", ...w, advice: advice(w) };
   await store.setJSON(key, out).catch(() => {});
   return json(out);
 };
