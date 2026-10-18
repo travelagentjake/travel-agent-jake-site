@@ -169,6 +169,7 @@
       '', 'WHATSAPP NOTES', r.chatNotes || 'None',
       '', 'FILES', (r.files || []).length ? r.files.map(function (f) { return f.name; }).join(', ') + ' (download from the Quotes tab of the dashboard)' : 'None',
       '', 'MUST HAVE', 'Tourist tax payable at the hotel on every price (CMA): set touristTax { amount, note } for the quote and tax/taxNote on any hotel that differs, using the supplier\'s local charges.',
+      'Extras: add an extras list (Holiday Extras parking, lounge and fast track for the departure airport, seats, room upgrades, private transfers) with prices from the supplier links where known, otherwise leave the price empty.',
       'Link preview: og:image in the page head must be the same photo as heroImg (1200 wide), with og:title and og:description written for this customer.',
       '', 'When done: add the page to quotes/<slug>/index.html, add it to quotes/quotes.json with the enquiry ID, push, and set this request to Sent.'
     ].filter(function (x) { return x !== null; }).join('\n');
@@ -265,6 +266,7 @@
     ]).then(function (res) {
       var Q; try { Q = JSON.parse(new DOMParser().parseFromString(res[0], 'text/html').getElementById('quote-data').textContent); } catch (e) { toast('Could not read that quote'); return; }
       var A = (res[1] && res[1].amendments) || {}; A.hidden = A.hidden || []; A.edits = A.edits || {};
+      var PENDING = null;
       var m = document.createElement('div'); m.className = 'qd-modal';
       var rows = (Q.hotels || []).map(function (h) {
         var e = A.edits[h.id] || {};
@@ -280,18 +282,42 @@
           + '<div class="qd-hint">Leave a box empty to keep the original.</div></details></div>';
       }).join('');
       m.innerHTML = '<form class="qd-form" novalidate><h3>Amend ' + esc(Q.customer || slug) + '\'s quote</h3><p class="qd-hint">Changes go live on quotes.travelagentjake.co.uk/' + esc(slug) + ' as soon as you save. Nothing needs rebuilding.</p>'
+        + '<div class="qd-card" style="box-shadow:none;margin:12px 0;border-color:var(--blue)"><label for="amAI" style="margin-top:0;font-size:18px">Tell the AI what to change</label>'
+        + '<textarea id="amAI" rows="4" placeholder="e.g. Take out the hotels with over an hour transfer, add a note saying I have done this, and add sea view upgrades at Tour Khalef for £12 per person per night."></textarea>'
+        + '<div class="qd-act"><button type="button" class="btn btn-primary" data-q="ai">Make the changes</button></div>'
+        + '<div id="amAIOut" hidden style="margin-top:12px"></div></div>'
+        + '<details style="margin-top:14px"><summary style="cursor:pointer;font-weight:800">Or edit by hand</summary>'
         + '<div class="qd-act"><button type="button" class="ea-btn" data-q="hide60">Hide transfers over 1 hour</button><button type="button" class="ea-btn" data-q="showall">Show all hotels</button></div>'
         + rows
         + '<label for="amNote">A note from Jake at the top of the quote (optional)</label><textarea id="amNote" placeholder="e.g. I have taken out the hotels with longer transfers as requested.">' + esc(A.note || '') + '</textarea>'
         + '<label for="amSub">Subtitle</label><input id="amSub" placeholder="' + esc(Q.subtitle || '') + '" value="' + esc(A.subtitle || '') + '">'
         + '<label for="amIntro">Intro paragraph</label><textarea id="amIntro" placeholder="' + esc(Q.intro || '') + '">' + esc(A.intro || '') + '</textarea>'
+        + '<div class="qd-act" style="margin-top:14px"><button class="btn btn-primary" type="submit">Save hand edits</button></div></details>'
         + '<div id="amErr" style="color:#c2412d;font-weight:700;margin-top:12px" hidden></div>'
-        + '<div class="qd-act" style="margin-top:18px"><button class="btn btn-primary" type="submit">Save changes</button><a class="ea-btn" href="' + QUOTE_HOST + esc(slug) + '?jake=1" target="_blank" rel="noopener">View quote</a><button class="ea-btn" type="button" data-q="x">Close</button></div></form>';
+        + '<div class="qd-act" style="margin-top:18px"><a class="ea-btn" href="' + QUOTE_HOST + esc(slug) + '?jake=1" target="_blank" rel="noopener">View quote</a><button class="ea-btn" type="button" data-q="x">Close</button></div></form>';
       document.body.appendChild(m);
       var f = m.querySelector('form');
       m.addEventListener('click', function (ev) {
         var q = ev.target.closest('[data-q]'); if (!q) return;
         if (q.dataset.q === 'x') m.remove();
+        if (q.dataset.q === 'ai') {
+          var pr = f.querySelector('#amAI').value.trim(), out = f.querySelector('#amAIOut'); if (!pr) return;
+          q.disabled = true; q.textContent = 'Working on it...'; out.hidden = true;
+          api('/api/quote-ai', 'POST', { slug: slug, prompt: pr, quote: Q, amendments: A }).then(function (x) {
+            q.disabled = false; q.textContent = 'Make the changes';
+            if (!(x.j && x.j.ok)) { out.innerHTML = '<div style="color:#c2412d;font-weight:700">' + esc((x.j && x.j.error) || 'Something went wrong.') + '</div>'; out.hidden = false; return; }
+            PENDING = x.j.amendments;
+            out.innerHTML = '<div class="qd-pre" style="white-space:normal"><b>Ready to save:</b> ' + esc(x.j.summary) + '</div><div class="qd-act"><button type="button" class="btn btn-primary" data-q="aisave">Save and go live</button><button type="button" class="ea-btn" data-q="aino">Discard</button></div>';
+            out.hidden = false;
+          });
+        }
+        if (q.dataset.q === 'aino') { PENDING = null; f.querySelector('#amAIOut').hidden = true; }
+        if (q.dataset.q === 'aisave' && PENDING) {
+          api('/api/quote-config', 'POST', { slug: slug, amendments: PENDING }).then(function (x) {
+            if (x.j && x.j.ok) { A = x.j.amendments; PENDING = null; f.querySelector('#amAI').value = ''; f.querySelector('#amAIOut').innerHTML = '<div class="qd-pre" style="white-space:normal"><b>Saved.</b> It is live now. <a href="' + QUOTE_HOST + esc(slug) + '?jake=1" target="_blank" rel="noopener">View quote</a>. Type another change, or close this window.</div>'; toast('Quote updated'); }
+            else toast((x.j && x.j.error) || 'Could not save');
+          });
+        }
         if (q.dataset.q === 'hide60') Array.prototype.forEach.call(f.querySelectorAll('[data-hid]'), function (c) { if (Number(c.dataset.transfer) > 60) c.querySelector('[data-f="show"]').checked = false; });
         if (q.dataset.q === 'showall') Array.prototype.forEach.call(f.querySelectorAll('[data-f="show"]'), function (c) { c.checked = true; });
       });
@@ -304,7 +330,7 @@
           if (Object.keys(e).length) edits[id] = e;
         });
         if (hidden.length >= (Q.hotels || []).length) { var er = f.querySelector('#amErr'); er.textContent = 'Keep at least one hotel showing.'; er.hidden = false; return; }
-        api('/api/quote-config', 'POST', { slug: slug, amendments: { hidden: hidden, edits: edits, note: f.querySelector('#amNote').value, subtitle: f.querySelector('#amSub').value, intro: f.querySelector('#amIntro').value } })
+        api('/api/quote-config', 'POST', { slug: slug, amendments: Object.assign({}, A, { hidden: hidden, edits: edits, note: f.querySelector('#amNote').value, subtitle: f.querySelector('#amSub').value, intro: f.querySelector('#amIntro').value }) })
           .then(function (x) { if (x.j && x.j.ok) { toast('Quote updated'); m.remove(); } else { var er = f.querySelector('#amErr'); er.textContent = (x.j && x.j.error) || 'Could not save.'; er.hidden = false; } });
       });
     });

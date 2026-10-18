@@ -8,6 +8,9 @@
      compareIntro, hotelsIntro,
      hotels: [{ id, match, name, area, country, rating, reviews, transfer (minutes), slides (bool),
                 badge, total, pp, tax (tourist tax paid at the hotel, £ for the party), taxNote, rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
+     extras: [{ id, cat, title, text, price (unit price, empty = price on request), unit ("per person", "per car for the week"),
+                units (defaults to partyCount for "per person", else 1), from (bool), separate (bool: paid separately, not via the booking),
+                hotels: [hotel ids it applies to], link, linkLabel }], extrasIntro,
      touristTax: { amount, note }   // default tourist tax for every hotel; a hotel's own tax/taxNote wins. Required on every quote (CMA).
      sections: [{ id, title, intro, html, after: "hotels" | "trip" | "todo" }],   // custom sections from Jake's notes
      flights: { intro, legs: [{ tag, date, from, fromCode, to, toCode, dep, arr, dur, carrier }] },
@@ -36,6 +39,10 @@
     if (a.intro) Q.intro = a.intro;
     if (a.subtitle) Q.subtitle = a.subtitle;
     if (a.note) Q.jakeNote = a.note;
+    if (Array.isArray(a.extras)) Q.extras = a.extras;
+    if (a.priceIntro) Q.priceIntro = a.priceIntro;
+    if (a.extrasIntro) Q.extrasIntro = a.extrasIntro;
+    if (a.touristTax && (a.touristTax.amount != null || a.touristTax.note)) Q.touristTax = a.touristTax;
     return Q;
   }
   var done = false;
@@ -114,6 +121,8 @@
   (Q.sections || []).forEach(function (s, i) { if (s.nav) nav.push([s.id || ('extra-' + (s.after || 'hotels') + i), s.nav]); });
   if (Q.flights) nav.push(['trip', 'Flights and rooms']);
   if (Q.areas && Q.areas.length) nav.push(['todo', 'Things to do']);
+  var extras = (Q.extras || []).filter(function (e) { return e && e.title; });
+  if (extras.length) nav.push(['extras', 'Extras']);
   nav.push(['next', 'Prices and booking']);
   nav.push(['feedback', 'Send feedback']);
 
@@ -124,7 +133,12 @@
     + '<span class="tag">' + esc(Q.tag || 'YOUR PERSONAL QUOTE') + '</span><h1>' + esc(Q.title) + '</h1><div class="sub">' + esc(Q.subtitle) + '</div>'
     + '<p class="lead">' + esc(Q.intro) + '</p><div class="facts">'
     + (Q.facts || []).map(function (f) { return '<div class="fact"><small>' + esc(f[0]) + '</small><b>' + esc(f[1]) + '</b></div>'; }).join('')
-    + '</div></div></div></div>';
+    + '</div>'
+    /* Jake's sign off sits in the blue hero, under the summary boxes, so nobody misses it */
+    + '<div class="note top"><h2>A personal note from Jake</h2><p>As an Independent Self Employed Travel Agent I really appreciate you giving me the opportunity to provide you with this quote. If you have any questions then please feel free to ask. We can of course tweak this where needed to make it suitable for you.</p>'
+    + '<p>If you have seen something else then please do send it my way before going ahead and booking because as a self employed travel agent I work on commission only so booking with me helps support my small business &amp; family.</p>'
+    + '<p>I look forward to helping you get your holiday booked.</p><p style="margin:0">Kind regards</p><div class="sig">Jake</div></div>'
+    + '</div></div></div>';
   if (Q.jakeNote) h += '<div class="wrap"><div class="jnote"><b>A note from Jake</b><p>' + esc(Q.jakeNote) + '</p></div></div>';
   h += '<nav class="snav" aria-label="Quote sections"><div class="wrap">' + nav.map(function (n) { return '<a href="#' + n[0] + '">' + esc(n[1]) + '</a>'; }).join('') + '</div></nav>';
 
@@ -171,10 +185,37 @@
   }
   h += custom('todo');
 
+  /* optional extras: parking, lounges, fast track, seats, upgrades, transfers. Ticked ones feed the full cost box */
+  var SKEY = 'tajx-' + Q.slug, sel = {};
+  try { sel = JSON.parse(localStorage.getItem(SKEY) || '{}') || {}; } catch (e) { sel = {}; }
+  function fmt(n) { return Number(n) % 1 ? money(n) : gbp(n); }
+  function xUnits(e) { return e.units ? Number(e.units) : (/per person/i.test(e.unit || '') && Number(Q.partyCount) ? Number(Q.partyCount) : 1); }
+  function xTotal(e) { return e.price === '' || e.price == null || isNaN(Number(e.price)) ? null : Math.round(Number(e.price) * xUnits(e) * 100) / 100; }
+  function xFor(x) { return extras.filter(function (e) { return sel[e.id] && (!e.hotels || !e.hotels.length || !x || e.hotels.indexOf(x.id) >= 0); }); }
+  function hotelName(id) { var f = hotels.filter(function (x) { return x.id === id; })[0]; return f ? f.name : ''; }
+  if (extras.length) {
+    var cats = []; extras.forEach(function (e) { var c = e.cat || 'Extras'; if (cats.indexOf(c) < 0) cats.push(c); });
+    h += '<section id="extras"><div class="wrap"><h2 class="h2">Add extras</h2><p class="intro">' + esc(Q.extrasIntro || 'Tick anything you would like and it is added to your full holiday cost further down, so you can see exactly what the whole holiday will cost.') + '</p>'
+      + cats.map(function (c) {
+        return '<div class="xgroup"><h3>' + esc(c) + '</h3><div class="xgrid">' + extras.filter(function (e) { return (e.cat || 'Extras') === c; }).map(function (e) {
+          var t = xTotal(e), u = xUnits(e);
+          var pl = t == null ? 'Price on request, I will confirm it for you' : (e.from ? 'From ' : '') + fmt(e.price) + (e.unit ? ' ' + esc(e.unit) : '') + (u > 1 ? ' &#183; ' + fmt(t) + ' for ' + esc(party) : '');
+          var hs = (e.hotels || []).map(hotelName).filter(Boolean);
+          return '<label class="xcard"><input type="checkbox" data-x="' + esc(e.id) + '"' + (sel[e.id] ? ' checked' : '') + '><span class="xbody"><b>' + esc(e.title) + '</b>'
+            + (e.text ? '<span class="xt">' + esc(e.text) + '</span>' : '')
+            + (hs.length && multi ? '<span class="xh">With ' + esc(hs.join(' or ')) + '</span>' : '')
+            + '<span class="xp">' + pl + (e.separate ? '<em>Paid separately</em>' : '') + '</span>'
+            + (e.link ? '<a class="see" href="' + esc(gygLink(e.link)) + '" target="_blank" rel="noopener">' + esc(e.linkLabel || 'See more') + '</a>' : '') + '</span></label>';
+        }).join('') + '</div></div>';
+      }).join('')
+      + '<div class="xsum" id="xSum"></div></div></section>';
+  }
+
   h += '<section id="next"><div class="wrap"><h2 class="h2">Prices and booking</h2>' + (Q.priceIntro ? '<p class="intro">' + esc(Q.priceIntro) + '</p>' : '')
     + '<div class="pay">' + (Q.steps || []).map(function (s, i) { return '<div class="step"><div class="sn">' + (i + 1) + '</div><h3>' + esc(s[0]) + '</h3><p>' + stepText(s[1]) + '</p></div>'; }).join('') + '</div>'
     + '<p style="margin:22px 0 0;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-wa" href="' + wa('Hi Jake, it’s ' + who + '. We’d like to go ahead with ') + '" target="_blank" rel="noopener">WhatsApp me to book</a>'
     + '</p>'
+    + (hotels.length ? '<div class="full" id="fullCost"></div>' : '')
     + (Q.departDate && hotels.length ? '<div class="calc" id="calc"><h3>Your monthly payments</h3><p class="intro" style="margin:4px 0 16px">Pick a hotel and the day of the month that suits you, and see how the balance could be spread by direct debit.</p>'
       + '<div class="calcgrid">' + (multi ? '<div><label class="fbl" for="cHotel">Hotel</label><select id="cHotel">' + hotels.map(function (x, i) { return '<option value="' + i + '">' + esc(x.name) + ' (' + gbp(x.total) + ')</option>'; }).join('') + '</select></div>' : '')
       + '<div><label class="fbl" for="cDay">Payment day each month</label><select id="cDay">' + Array.apply(null, Array(28)).map(function (_, i) { var d = i + 1; return '<option value="' + d + '"' + (d === 1 ? ' selected' : '') + '>' + d + ordinal(d) + '</option>'; }).join('') + '</select></div></div>'
@@ -186,9 +227,7 @@
     + (hotels.length ? '<label class="fbl" for="fbHotel">' + (multi ? 'Your favourite hotel' : 'Hotel') + '</label><select id="fbHotel"><option value="">' + (multi ? 'Not decided yet' : esc(hotels[0].name)) + '</option>' + (multi ? hotels.map(function (x) { return '<option>' + esc(x.name) + '</option>'; }).join('') : '') + '</select>' : '')
     + '<label class="fbl" for="fbMsg">Your message</label><textarea id="fbMsg" rows="4" placeholder="e.g. We love Tour Khalef, could we add sea view rooms?"></textarea>'
     + '<button class="btn btn-wa" type="button" id="fbSend" style="margin-top:14px">Send to Jake on WhatsApp</button></div>'
-    + '<div class="note"><p>As an Independent Self Employed Travel Agent I really appreciate you giving me the opportunity to provide you with this quote. If you have any questions then please feel free to ask. We can of course tweak this where needed to make it suitable for you.</p>'
-    + '<p>If you have seen something else then please do send it my way before going ahead and booking because as a self employed travel agent I work on commission only so booking with me helps support my small business &amp; family.</p>'
-    + '<p>I look forward to helping you get your holiday booked.</p><p style="margin:0">Kind regards</p><div class="sig">Jake</div></div>'
+
     + '<p class="small" style="margin-top:20px">' + esc(Q.smallprint || ('Prices were correct when this quote was prepared on ' + Q.prepared + ' and are subject to availability until booked. Your holiday is ATOL protected.')) + '</p></div></section>';
   h += '<footer><div class="wrap"><p>Travel Agent Jake is part of Club Voyages, a Member of ABTA, membership number P8503 &amp; Y6784. Travel Agent Jake is part of Club Voyages Ltd, which is as an agent for Hays Tour Operating Ltd, ATOL 10531. All the flights and flight inclusive holidays on this website are financially protected by the ATOL scheme. Please see our <a href="https://travelagentjake.co.uk/booking-conditions.html">booking conditions</a> for more information.</p><p>&copy; ' + new Date().getFullYear() + ' Travel Agent Jake &#183; <a href="https://travelagentjake.co.uk">travelagentjake.co.uk</a></p></div></footer>';
   h += '<a class="btn btn-wa float" href="#feedback">Send feedback to Jake</a>';
@@ -197,10 +236,28 @@
   if (isJake) h += '<a class="btn btn-y amend" href="https://travelagentjake.co.uk/enquiries-admin.html#amend=' + encodeURIComponent(Q.slug) + '" target="_blank" rel="noopener">Amend this quote</a>';
   document.getElementById('app').innerHTML = h;
   var deposit = Number(Q.depositTotal || 0), people = Number(Q.partyCount || 0);
+  function curHotel() { var hs = document.getElementById('cHotel'); return hotels[hs ? Number(hs.value) : 0]; }
+  function taxOf(x) { var d = Q.touristTax || {}; return x.tax != null && x.tax !== '' ? Number(x.tax) : (d.amount ? Number(d.amount) : null); }
+  function inBooking(x) { return xFor(x).reduce(function (a, e) { var t = xTotal(e); return a + (t != null && !e.separate ? t : 0); }, 0); }
+  function full() {
+    var el = document.getElementById('fullCost'); if (!el || !hotels.length) return;
+    var x = curHotel(), list = xFor(x), tax = taxOf(x), sum = x.total, pending = 0;
+    var rows = '<tr><td>' + esc(x.name) + ', ' + esc(party) + '</td><td class="n">' + gbp(x.total) + '</td></tr>';
+    list.forEach(function (e) { var t = xTotal(e); if (t == null) pending++; else sum += t; rows += '<tr><td>' + esc(e.title) + (e.separate ? ' <em>(paid separately)</em>' : '') + '</td><td class="n">' + (t == null ? 'To confirm' : fmt(t)) + '</td></tr>'; });
+    if (tax != null) sum += tax;
+    rows += '<tr><td>Tourist tax, paid locally at the hotel</td><td class="n">' + (tax != null ? 'about ' + gbp(tax) : 'To confirm') + '</td></tr>';
+    el.innerHTML = '<h3>Your full holiday cost' + (multi ? ' with ' + esc(x.name) : '') + '</h3>'
+      + '<table><tbody>' + rows + '</tbody><tfoot><tr><td>Total' + (pending ? ' (plus ' + pending + ' price' + (pending > 1 ? 's' : '') + ' to confirm)' : '') + '</td><td class="n">' + fmt(Math.round(sum * 100) / 100) + '</td></tr>'
+      + (people > 1 ? '<tr class="pp"><td>About per person</td><td class="n">' + money(sum / people) + '</td></tr>' : '') + '</tfoot></table>'
+      + (extras.length ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">parking, lounges, seats and more</a>.') + (multi ? ' Pick a different hotel in the calculator below to compare.' : '') + '</p>' : '');
+    var xs = document.getElementById('xSum');
+    if (xs) { var all = xFor(null), tot = all.reduce(function (a, e) { var t = xTotal(e); return a + (t || 0); }, 0); xs.innerHTML = all.length ? '<b>' + all.length + ' extra' + (all.length > 1 ? 's' : '') + ' added' + (tot ? ', ' + fmt(Math.round(tot * 100) / 100) : '') + '</b><a class="btn btn-y" href="#fullCost">See your full holiday cost</a>' : ''; }
+  }
   function calc() {
+    full();
     var out = document.getElementById('cOut'); if (!out) return;
-    var hs = document.getElementById('cHotel'), x = hotels[hs ? Number(hs.value) : 0];
-    var day = Number(document.getElementById('cDay').value), bal = Math.max(0, x.total - deposit);
+    var x = curHotel(), extra = inBooking(x);
+    var day = Number(document.getElementById('cDay').value), bal = Math.max(0, x.total + extra - deposit);
     var p = ddPlan(bal, Q.departDate, day);
     if (!p.ok) { out.innerHTML = '<p class="intro">Your holiday is too close for monthly payments, but I can send you a secure payment link instead.</p>'; return; }
     var pl = document.getElementById('planLine'); if (pl) pl.textContent = (multi ? 'for ' + x.name + ', ' : '') + p.n + ' monthly payments of ' + money(p.each) + ' with the final payment on ' + dmy(p.end);
@@ -211,9 +268,12 @@
       + '<details class="sched"><summary>See every payment date</summary><table><tbody>'
       + p.rows.map(function (d, i) { return '<tr><td>Payment ' + (i + 1) + '</td><td>' + dmy(d) + '</td><td class="n">' + money(i === p.n - 1 ? p.last : p.each) + '</td></tr>'; }).join('')
       + '</tbody></table></details>'
-      + '<p class="small" style="margin:12px 0 0">Based on ' + esc(x.name) + ' at ' + gbp(x.total) + ' for ' + esc(party) + ', with a ' + gbp(deposit) + ' deposit and the balance cleared 6 weeks before you fly. This is an estimate to help you budget, and I confirm the exact plan when you book. Payments falling on a weekend move to the next working day.</p>';
+      + '<p class="small" style="margin:12px 0 0">Based on ' + esc(x.name) + ' at ' + gbp(x.total) + ' for ' + esc(party) + (extra ? ' plus ' + fmt(Math.round(extra * 100) / 100) + ' of extras added to the booking' : '') + ', with a ' + gbp(deposit) + ' deposit and the balance cleared 6 weeks before you fly. This is an estimate to help you budget, and I confirm the exact plan when you book. Payments falling on a weekend move to the next working day.</p>';
   }
-  if (document.getElementById('calc')) { ['cHotel', 'cDay'].forEach(function (id) { var e = document.getElementById(id); if (e) e.addEventListener('change', calc); }); calc(); }
+  if (document.getElementById('calc')) { ['cHotel', 'cDay'].forEach(function (id) { var e = document.getElementById(id); if (e) e.addEventListener('change', calc); }); calc(); } else full();
+  Array.prototype.forEach.call(document.querySelectorAll('[data-x]'), function (c) {
+    c.addEventListener('change', function () { if (c.checked) sel[c.dataset.x] = 1; else delete sel[c.dataset.x]; try { localStorage.setItem(SKEY, JSON.stringify(sel)); } catch (e) {} calc(); });
+  });
   var fbBtn = document.getElementById('fbSend');
   if (fbBtn) fbBtn.addEventListener('click', function () {
     var t = (document.querySelector('input[name="fbType"]:checked') || {}).value || 'question';
@@ -221,7 +281,7 @@
     var msg = document.getElementById('fbMsg').value.trim();
     var head = { book: 'we would like to book!', changes: 'we would like some changes to our quote.', question: 'I have a question about our quote.' }[t];
     var text = 'Hi Jake, it\u2019s ' + who + ' (quote: quotes.travelagentjake.co.uk/' + Q.slug + '). ' + head
-      + (hotel ? '\nHotel: ' + hotel : '') + (msg ? '\n\n' + msg : '');
+      + (hotel ? '\nHotel: ' + hotel : '') + (xFor(null).length ? '\nExtras: ' + xFor(null).map(function (e) { return e.title; }).join(', ') : '') + (msg ? '\n\n' + msg : '');
     window.open(wa(text), '_blank', 'noopener');
   });
   Array.prototype.forEach.call(document.querySelectorAll('#app a[href*="getyourguide."]'), function (a) { a.href = gygLink(a.href); a.rel = 'noopener sponsored'; a.target = '_blank'; });

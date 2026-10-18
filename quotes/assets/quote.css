@@ -160,3 +160,23 @@ a.areacard:hover{transform:translateY(-3px)}
 
 .price{flex-wrap:wrap}.price p.tax{flex-basis:100%;margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(16,20,43,.12);font-size:14px;font-weight:600;color:var(--blue);max-width:none}
 .taxnote{font-size:14px;font-weight:600;margin-top:10px}
+
+/* extras */
+.xgroup{margin-top:22px}.xgroup h3{font-size:20px;color:var(--blue);margin:0 0 12px}
+.xgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.xcard{display:flex;gap:12px;align-items:flex-start;background:#fff;border:2px solid #E3E7F5;border-radius:18px;padding:16px;cursor:pointer;transition:border-color .15s}
+.xcard:has(input:checked){border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,74,173,.12)}
+.xcard input{width:22px;height:22px;flex:0 0 22px;margin-top:2px;accent-color:var(--blue)}
+.xbody{display:flex;flex-direction:column;gap:6px}.xbody b{font-size:16px}
+.xt{font-size:14px;color:#4a5070}.xh{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#6b7190}
+.xp{font-weight:800;color:var(--blue);font-size:15px}.xp em{display:block;font-style:normal;font-weight:600;font-size:12px;color:#6b7190}
+.xbody .see{font-size:14px}
+.xsum{margin-top:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}.xsum:empty{display:none}
+.full{background:#fff;border:2px solid var(--blue);border-radius:22px;padding:22px;margin-top:26px}
+.full h3{margin:0 0 12px;color:var(--blue)}
+.full table{width:100%;border-collapse:collapse;font-size:15px}.full td{padding:9px 0;border-bottom:1px solid #E3E7F5}.full td.n{text-align:right;white-space:nowrap;font-weight:700;padding-left:12px}
+.full td em{font-style:normal;color:#6b7190;font-size:13px}
+.full tfoot td{border-bottom:0;font-weight:800;font-size:18px;color:var(--blue);padding-top:14px}.full tfoot tr.pp td{font-size:14px;font-weight:600;padding-top:2px}
+
+.note.top{margin:24px 0 0;background:rgba(255,255,255,.08);border:3px solid var(--yellow);padding:24px 26px}.note.top p{color:#fff}
+.note.top h2{font-family:'Archivo Black',sans-serif;color:var(--yellow);font-size:clamp(22px,3vw,28px);margin:0 0 12px;text-transform:uppercase}
