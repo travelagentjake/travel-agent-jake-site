@@ -10,15 +10,20 @@ export function sanitizeExtras(list) {
     const o = {
       id: clean(e.id, 40).toLowerCase().replace(/[^a-z0-9-]/g, "") || "x" + (i + 1),
       cat: clean(e.cat, 60) || "Extras", title: clean(e.title, 120), text: clean(e.text, 600),
-      unit: clean(e.unit, 60), linkLabel: clean(e.linkLabel, 60), link: okLink(e.link),
+      unit: clean(e.unit, 60),
     };
     const p = num(e.price); if (p !== undefined) o.price = p;
     const u = num(e.units); if (u) o.units = u;
     if (e.from) o.from = true;
     if (e.separate) o.separate = true;
     if (Array.isArray(e.hotels) && e.hotels.length) o.hotels = e.hotels.map((x) => clean(x, 40)).slice(0, 20);
+    if (e.prices && typeof e.prices === "object") {
+      const pr = {};
+      for (const [k, v] of Object.entries(e.prices).slice(0, 20)) { const n = num(v); if (n !== undefined) pr[clean(k, 40)] = n; }
+      if (Object.keys(pr).length) o.prices = pr;
+    }
     return o;
-  }).filter((e) => e.title);
+  }).filter((e) => e.title && (e.price !== undefined || e.prices));
 }
 
 export function sanitizeAmendments(a) {

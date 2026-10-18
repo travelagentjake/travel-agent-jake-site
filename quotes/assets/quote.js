@@ -8,9 +8,11 @@
      compareIntro, hotelsIntro,
      hotels: [{ id, match, name, area, country, rating, reviews, transfer (minutes), slides (bool),
                 badge, total, pp, tax (tourist tax paid at the hotel, £ for the party), taxNote, rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
-     extras: [{ id, cat, title, text, price (unit price, empty = price on request), unit ("per person", "per car for the week"),
-                units (defaults to partyCount for "per person", else 1), from (bool), separate (bool: paid separately, not via the booking),
-                hotels: [hotel ids it applies to], link, linkLabel }], extrasIntro,
+     extras: [{ id, cat, title, text, price (unit price), unit ("per person", "per car for 8 days"),
+                units (defaults to partyCount for "per person", else 1), separate (bool: not part of the tour operator booking, so not in the direct debits),
+                prices: { <hotel id>: total for the party } for prices that change by hotel (room upgrades, private transfers),
+                hotels: [hotel ids it applies to] }], extrasIntro,
+     Extras only show with a real live price. No price means it is left off the page. Extras never link out to other sellers.
      touristTax: { amount, note }   // default tourist tax for every hotel; a hotel's own tax/taxNote wins. Required on every quote (CMA).
      sections: [{ id, title, intro, html, after: "hotels" | "trip" | "todo" }],   // custom sections from Jake's notes
      flights: { intro, legs: [{ tag, date, from, fromCode, to, toCode, dep, arr, dur, carrier }] },
@@ -121,7 +123,13 @@
   (Q.sections || []).forEach(function (s, i) { if (s.nav) nav.push([s.id || ('extra-' + (s.after || 'hotels') + i), s.nav]); });
   if (Q.flights) nav.push(['trip', 'Flights and rooms']);
   if (Q.areas && Q.areas.length) nav.push(['todo', 'Things to do']);
-  var extras = (Q.extras || []).filter(function (e) { return e && e.title; });
+  function hasPrice(e) { return (e.price !== '' && e.price != null && !isNaN(Number(e.price))) || (e.prices && Object.keys(e.prices).some(function (k) { return e.prices[k] != null && !isNaN(Number(e.prices[k])); })); }
+  var hotelIds = hotels.map(function (x) { return x.id; });
+  var extras = (Q.extras || []).filter(function (e) {
+    if (!e || !e.title || !hasPrice(e)) return false;
+    if (e.prices) return hotelIds.some(function (id) { return e.prices[id] != null; });
+    return true;
+  });
   if (extras.length) nav.push(['extras', 'Extras']);
   nav.push(['next', 'Prices and booking']);
   nav.push(['feedback', 'Send feedback']);
@@ -190,22 +198,34 @@
   try { sel = JSON.parse(localStorage.getItem(SKEY) || '{}') || {}; } catch (e) { sel = {}; }
   function fmt(n) { return Number(n) % 1 ? money(n) : gbp(n); }
   function xUnits(e) { return e.units ? Number(e.units) : (/per person/i.test(e.unit || '') && Number(Q.partyCount) ? Number(Q.partyCount) : 1); }
-  function xTotal(e) { return e.price === '' || e.price == null || isNaN(Number(e.price)) ? null : Math.round(Number(e.price) * xUnits(e) * 100) / 100; }
-  function xFor(x) { return extras.filter(function (e) { return sel[e.id] && (!e.hotels || !e.hotels.length || !x || e.hotels.indexOf(x.id) >= 0); }); }
+  function xTotal(e, x) {
+    if (e.prices) { x = x || curHotel(); var v = x && e.prices[x.id]; return v == null || isNaN(Number(v)) ? null : Number(v); }
+    return e.price === '' || e.price == null || isNaN(Number(e.price)) ? null : Math.round(Number(e.price) * xUnits(e) * 100) / 100;
+  }
+  function fits(e, x) { if (!x) return true; if (e.prices) return e.prices[x.id] != null; return !e.hotels || !e.hotels.length || e.hotels.indexOf(x.id) >= 0; }
+  function xFor(x) { return extras.filter(function (e) { return sel[e.id] && fits(e, x); }); }
+  function curHotel() { var hs = document.getElementById('cHotel'); return hotels[hs ? Number(hs.value) : 0]; }
+  function xPriceLine(e) {
+    if (e.prices) {
+      var x = curHotel(), v = x ? e.prices[x.id] : null;
+      if (v == null) return 'Not available with ' + esc(x ? x.name : 'this hotel');
+      return fmt(v) + (e.unit ? ' ' + esc(e.unit) : '') + (multi ? ' <span class="xwith">with ' + esc(x.name) + '</span>' : '');
+    }
+    var t = xTotal(e), u = xUnits(e);
+    return fmt(e.price) + (e.unit ? ' ' + esc(e.unit) : '') + (u > 1 ? ' &#183; ' + fmt(t) + ' for ' + esc(party) : '');
+  }
   function hotelName(id) { var f = hotels.filter(function (x) { return x.id === id; })[0]; return f ? f.name : ''; }
   if (extras.length) {
     var cats = []; extras.forEach(function (e) { var c = e.cat || 'Extras'; if (cats.indexOf(c) < 0) cats.push(c); });
     h += '<section id="extras"><div class="wrap"><h2 class="h2">Add extras</h2><p class="intro">' + esc(Q.extrasIntro || 'Tick anything you would like and it is added to your full holiday cost further down, so you can see exactly what the whole holiday will cost.') + '</p>'
       + cats.map(function (c) {
         return '<div class="xgroup"><h3>' + esc(c) + '</h3><div class="xgrid">' + extras.filter(function (e) { return (e.cat || 'Extras') === c; }).map(function (e) {
-          var t = xTotal(e), u = xUnits(e);
-          var pl = t == null ? 'Price on request, I will confirm it for you' : (e.from ? 'From ' : '') + fmt(e.price) + (e.unit ? ' ' + esc(e.unit) : '') + (u > 1 ? ' &#183; ' + fmt(t) + ' for ' + esc(party) : '');
           var hs = (e.hotels || []).map(hotelName).filter(Boolean);
           return '<label class="xcard"><input type="checkbox" data-x="' + esc(e.id) + '"' + (sel[e.id] ? ' checked' : '') + '><span class="xbody"><b>' + esc(e.title) + '</b>'
             + (e.text ? '<span class="xt">' + esc(e.text) + '</span>' : '')
             + (hs.length && multi ? '<span class="xh">With ' + esc(hs.join(' or ')) + '</span>' : '')
-            + '<span class="xp">' + pl + (e.separate ? '<em>Paid separately</em>' : '') + '</span>'
-            + (e.link ? '<a class="see" href="' + esc(gygLink(e.link)) + '" target="_blank" rel="noopener">' + esc(e.linkLabel || 'See more') + '</a>' : '') + '</span></label>';
+            + '<span class="xp" data-xp="' + esc(e.id) + '">' + xPriceLine(e) + '</span>'
+            + (e.prices && multi ? '<span class="xt">Change the hotel in the calculator below to see its price.</span>' : '') + '</span></label>';
         }).join('') + '</div></div>';
       }).join('')
       + '<div class="xsum" id="xSum"></div></div></section>';
@@ -236,22 +256,22 @@
   if (isJake) h += '<a class="btn btn-y amend" href="https://travelagentjake.co.uk/enquiries-admin.html#amend=' + encodeURIComponent(Q.slug) + '" target="_blank" rel="noopener">Amend this quote</a>';
   document.getElementById('app').innerHTML = h;
   var deposit = Number(Q.depositTotal || 0), people = Number(Q.partyCount || 0);
-  function curHotel() { var hs = document.getElementById('cHotel'); return hotels[hs ? Number(hs.value) : 0]; }
   function taxOf(x) { var d = Q.touristTax || {}; return x.tax != null && x.tax !== '' ? Number(x.tax) : (d.amount ? Number(d.amount) : null); }
-  function inBooking(x) { return xFor(x).reduce(function (a, e) { var t = xTotal(e); return a + (t != null && !e.separate ? t : 0); }, 0); }
+  function inBooking(x) { return xFor(x).reduce(function (a, e) { var t = xTotal(e, x); return a + (t != null && !e.separate ? t : 0); }, 0); }
   function full() {
     var el = document.getElementById('fullCost'); if (!el || !hotels.length) return;
     var x = curHotel(), list = xFor(x), tax = taxOf(x), sum = x.total, pending = 0;
     var rows = '<tr><td>' + esc(x.name) + ', ' + esc(party) + '</td><td class="n">' + gbp(x.total) + '</td></tr>';
-    list.forEach(function (e) { var t = xTotal(e); if (t == null) pending++; else sum += t; rows += '<tr><td>' + esc(e.title) + (e.separate ? ' <em>(paid separately)</em>' : '') + '</td><td class="n">' + (t == null ? 'To confirm' : fmt(t)) + '</td></tr>'; });
+    list.forEach(function (e) { var t = xTotal(e, x); if (t == null) return; sum += t; rows += '<tr><td>' + esc(e.title) + '</td><td class="n">' + fmt(t) + '</td></tr>'; });
     if (tax != null) sum += tax;
     rows += '<tr><td>Tourist tax, paid locally at the hotel</td><td class="n">' + (tax != null ? 'about ' + gbp(tax) : 'To confirm') + '</td></tr>';
     el.innerHTML = '<h3>Your full holiday cost' + (multi ? ' with ' + esc(x.name) : '') + '</h3>'
-      + '<table><tbody>' + rows + '</tbody><tfoot><tr><td>Total' + (pending ? ' (plus ' + pending + ' price' + (pending > 1 ? 's' : '') + ' to confirm)' : '') + '</td><td class="n">' + fmt(Math.round(sum * 100) / 100) + '</td></tr>'
+      + '<table><tbody>' + rows + '</tbody><tfoot><tr><td>Total</td><td class="n">' + fmt(Math.round(sum * 100) / 100) + '</td></tr>'
       + (people > 1 ? '<tr class="pp"><td>About per person</td><td class="n">' + money(sum / people) + '</td></tr>' : '') + '</tfoot></table>'
-      + (extras.length ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">parking, lounges, seats and more</a>.') + (multi ? ' Pick a different hotel in the calculator below to compare.' : '') + '</p>' : '');
+      + (extras.length ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">parking, fast track, room upgrades and more</a>.') + (multi ? ' Pick a different hotel in the calculator below to compare.' : '') + '</p>' : '');
     var xs = document.getElementById('xSum');
-    if (xs) { var all = xFor(null), tot = all.reduce(function (a, e) { var t = xTotal(e); return a + (t || 0); }, 0); xs.innerHTML = all.length ? '<b>' + all.length + ' extra' + (all.length > 1 ? 's' : '') + ' added' + (tot ? ', ' + fmt(Math.round(tot * 100) / 100) : '') + '</b><a class="btn btn-y" href="#fullCost">See your full holiday cost</a>' : ''; }
+    Array.prototype.forEach.call(document.querySelectorAll('[data-xp]'), function (el) { var e = extras.filter(function (z) { return z.id === el.dataset.xp; })[0]; if (e && e.prices) el.innerHTML = xPriceLine(e); });
+    if (xs) { var all = xFor(x), tot = all.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0); xs.innerHTML = all.length ? '<b>' + all.length + ' extra' + (all.length > 1 ? 's' : '') + ' added' + (tot ? ', ' + fmt(Math.round(tot * 100) / 100) : '') + '</b><a class="btn btn-y" href="#fullCost">See your full holiday cost</a>' : ''; }
   }
   function calc() {
     full();

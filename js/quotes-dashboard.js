@@ -169,7 +169,7 @@
       '', 'WHATSAPP NOTES', r.chatNotes || 'None',
       '', 'FILES', (r.files || []).length ? r.files.map(function (f) { return f.name; }).join(', ') + ' (download from the Quotes tab of the dashboard)' : 'None',
       '', 'MUST HAVE', 'Tourist tax payable at the hotel on every price (CMA): set touristTax { amount, note } for the quote and tax/taxNote on any hotel that differs, using the supplier\'s local charges.',
-      'Extras: add an extras list (Holiday Extras parking, lounge and fast track for the departure airport, seats, room upgrades, private transfers) with prices from the supplier links where known, otherwise leave the price empty.',
+      'Extras with LIVE prices only: click through the supplier booking (up to passenger details) for room upgrades, private transfers and seats, and search travelagentjake.co.uk/airport-extras with this customer\'s airport, dates, flight times and party for parking, lounges and fast track. Anything with no live price is left out. Never link to Holiday Extras or other sellers.',
       'Link preview: og:image in the page head must be the same photo as heroImg (1200 wide), with og:title and og:description written for this customer.',
       '', 'When done: add the page to quotes/<slug>/index.html, add it to quotes/quotes.json with the enquiry ID, push, and set this request to Sent.'
     ].filter(function (x) { return x !== null; }).join('\n');
