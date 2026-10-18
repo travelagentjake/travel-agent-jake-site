@@ -45,6 +45,12 @@
     + '#eaList .ea-ctl{align-items:start}.qd-notes{display:grid;gap:6px}.qd-nadd{display:flex;gap:6px}.qd-nadd input{flex:1;min-width:0;padding:6px 10px;border:2px solid #d5dbea;border-radius:8px;font:inherit;font-size:14px}'
     + '.qd-nlog{max-height:150px;overflow:auto;display:grid;gap:4px}.qd-nlog div{font-size:13px;background:#f6f8fd;border-radius:8px;padding:5px 9px}.qd-nlog div.auto{color:#5b6478;background:#fff;border:1px dashed #d5dbea}'
     + '.qd-nlog time{display:block;font-size:11px;font-weight:700;color:#6b7190;text-transform:uppercase;letter-spacing:.03em}'
+    + '#qdPane .qd-tools{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}#qdPane .qd-tools input{flex:1 1 240px;padding:9px 12px;border:2px solid #d5dbea;border-radius:10px;font:inherit;font-size:15px;background:#fff}#qdPane .qd-tools select{padding:9px 12px;border:2px solid #d5dbea;border-radius:10px;font:inherit;font-size:14px;background:#fff}'
+    + '#qdPane .qd-sync{padding:6px 12px;font-size:13px;margin-bottom:10px;border-radius:10px}#qdPane .qd-sync .ea-btn{padding:4px 12px;font-size:12px}'
+    + '#qdPane .qd-h{font-size:16px;margin:12px 0 8px}#qdPane .qd-card{padding:10px 14px;margin-bottom:8px;border-radius:14px;box-shadow:3px 3px 0 #d5dbea}'
+    + '#qdPane .qd-name{font-size:16px}#qdPane .qd-meta{font-size:12px}#qdPane .qd-link{margin:2px 0 0;font-size:13px}'
+    + '#qdPane .qd-views b{font-size:20px}#qdPane .qd-views span{font-size:11px}#qdPane .qd-act{margin-top:6px;gap:6px}#qdPane .ea-btn{padding:5px 12px;font-size:13px}#qdPane .qd-act select{padding:5px 10px!important;font-size:13px}'
+    + '#qdPane .qd-hist{margin-top:6px;max-height:160px;font-size:12px;padding:6px 10px}#qdPane .qd-small{margin-top:6px}#qdPane .qd-pre{font-size:13px}'
     + '.qd-done{opacity:.75}.qd-pill.booked{background:#118A5B;border-color:#118A5B;color:#fff}.qd-pill.closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478}'
     + '.qd-sync{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff;border:2px dashed #d5dbea;border-radius:14px;padding:10px 14px;margin-bottom:14px;font-size:14px;color:#5b6478}'
     + '.qd-booked{background:#e3f4ea;border:2px solid #118A5B;color:#0a5c3b;border-radius:12px;padding:8px 12px;font-weight:700;font-size:14px;margin-top:12px}'
@@ -120,17 +126,17 @@
     var showAll = S.openHist[q.slug];
     var live = v.lastView && (Date.now() - Date.parse(v.lastView) < 5 * 60000);
     var comeback = (v.opens || []).some(function (o, i, a) { return a[i + 1] && Date.parse(o.t) - Date.parse(a[i + 1].t) >= 86400000; });
-    var hist = (v.opens || []).slice(0, showAll ? 100 : 6).map(function (o) { return '<div>' + esc(nice(o.t)) + ' &#183; ' + esc(o.device || '') + (o.place ? ' &#183; ' + esc(o.place) : '') + (o.from ? ' &#183; via ' + esc(o.from) : '') + '</div>'; }).join('');
+    var hist = !showAll ? '' : (v.opens || []).slice(0, 100).map(function (o) { return '<div>' + esc(nice(o.t)) + ' &#183; ' + esc(o.device || '') + (o.place ? ' &#183; ' + esc(o.place) : '') + (o.from ? ' &#183; via ' + esc(o.from) : '') + '</div>'; }).join('');
     var st = qState(q);
     return '<article class="qd-card' + (st !== 'open' ? ' qd-done' : '') + '" data-slug="' + esc(q.slug) + '"><div class="qd-row"><div><h3 class="qd-name">' + esc(q.customer || '') + (st !== 'open' ? ' <span class="qd-pill ' + st + '">' + (st === 'booked' ? 'Booked' : 'Closed') + '</span>' : '') + '</h3><div class="qd-meta">' + esc(q.title || '') + (q.created ? ' &#183; made ' + esc(q.created) : '') + '</div>'
       + '<a class="qd-link" href="' + esc(url) + '?jake=1" target="_blank" rel="noopener">' + esc(url.replace('https://', '')) + '</a></div>'
-      + '<div class="qd-views"><b>' + (v.views || 0) + '</b><span>view' + (v.views === 1 ? '' : 's') + '</span>' + (live ? '<div class="qd-live">Viewing now</div>' : '') + (v.lastView ? '<div class="qd-meta">Last opened ' + esc(ago(v.lastView)) + '</div>' : '<div class="qd-meta">Not opened yet</div>') + (comeback ? '<div class="qd-keen">Came back after 24 hrs</div>' : '') + '</div></div>'
+      + '<div class="qd-views"><b>' + (v.views || 0) + '</b><span>view' + (v.views === 1 ? '' : 's') + '</span>' + (live ? '<div class="qd-live">Viewing now</div>' : '') + (v.lastView ? '<div class="qd-meta">Last opened ' + esc(ago(v.lastView)) + (v.opens && v.opens[0] ? ' &#183; ' + esc(v.opens[0].device || '') + (v.opens[0].place ? ', ' + esc(String(v.opens[0].place).split(',')[0]) : '') : '') + '</div>' : '<div class="qd-meta">Not opened yet</div>') + (comeback ? '<div class="qd-keen">Came back after 24 hrs</div>' : '') + '</div></div>'
       + '<div class="qd-act"><a class="ea-btn" href="' + esc(url) + '?jake=1" target="_blank" rel="noopener">Open</a>'
       + '<button class="ea-btn" type="button" data-qa="amend" style="background:var(--yellow)">Amend quote</button>'
       + '<button class="ea-btn" type="button" data-qa="copy" data-url="' + esc(url) + '">Copy link</button>'
       + (e && e.phone ? '<a class="ea-btn wa" target="_blank" rel="noopener" href="https://wa.me/' + waNum(e.phone) + '?text=' + encodeURIComponent(hello) + '">Send on WhatsApp</a>' : '')
       + (st === 'open' ? '<button class="ea-btn" type="button" data-qa="qbooked" style="background:#118A5B;border-color:#118A5B;color:#fff">Booked</button><button class="ea-btn" type="button" data-qa="qclosed">Close</button>' : '<button class="ea-btn" type="button" data-qa="qopen">Reopen</button>')
-      + ((v.opens || []).length > 6 ? '<button class="ea-btn" type="button" data-qa="hist">' + (showAll ? 'Show fewer' : 'Show all ' + v.opens.length + ' opens') + '</button>' : '') + '</div>'
+      + ((v.opens || []).length ? '<button class="ea-btn" type="button" data-qa="hist">' + (showAll ? 'Hide opens' : 'Opens (' + v.opens.length + ')') + '</button>' : '') + '</div>'
       + (hist ? '<div class="qd-small">When it was opened</div><div class="qd-hist">' + hist + '</div>' : '') + '</article>';
   }
   function reqCard(r) {
@@ -147,16 +153,47 @@
       + '<select data-qa="status" aria-label="Request status" style="padding:9px 12px;border:2px solid #d5dbea;border-radius:999px;font:inherit">' + RSTAT.map(function (x) { return '<option value="' + x[0] + '"' + (x[0] === r.status ? ' selected' : '') + '>' + x[1] + '</option>'; }).join('') + '</select>'
       + '<button class="ea-btn danger" type="button" data-qa="del">Delete</button></div></article>';
   }
+  function qMatches(q) {
+    var t = (S.qSearch || '').trim().toLowerCase(); if (!t) return true;
+    var e = enq(q.enquiryId);
+    return [q.customer, q.title, q.slug, e && e.firstName, e && e.lastName, e && e.email, e && e.phone, e && e.destination].join(' ').toLowerCase().indexOf(t) >= 0;
+  }
+  function qSorted(list) {
+    var lv = function (q) { var v = viewsOf(q.slug); return v.lastView ? Date.parse(v.lastView) : 0; };
+    var by = S.qSort || 'viewed';
+    return list.slice().sort(function (a, b) {
+      if (by === 'views') return (viewsOf(b.slug).views || 0) - (viewsOf(a.slug).views || 0);
+      if (by === 'newest') return String(b.created || '').localeCompare(String(a.created || ''));
+      if (by === 'unopened') return (lv(a) ? 1 : 0) - (lv(b) ? 1 : 0) || String(b.created || '').localeCompare(String(a.created || ''));
+      if (by === 'name') return String(a.customer || '').localeCompare(String(b.customer || ''));
+      return lv(b) - lv(a) || String(b.created || '').localeCompare(String(a.created || ''));
+    });
+  }
+  function qFiltered(q) {
+    var f = S.qFilter || 'all', v = viewsOf(q.slug), last = v.lastView ? Date.parse(v.lastView) : 0;
+    if (f === 'today') return last && Date.now() - last < 86400000;
+    if (f === 'week') return last && Date.now() - last < 7 * 86400000;
+    if (f === 'unopened') return !last;
+    if (f === 'quiet') return last && Date.now() - last >= 3 * 86400000;
+    return true;
+  }
   function renderPane() {
+    if (!$('qdList')) {
+      paneQ.innerHTML = '<div id="qdSync"></div><div class="qd-tools"><input id="qdSearch" type="search" placeholder="Search name, email, phone, destination or quote">'
+        + '<select id="qdSort" aria-label="Sort quotes"><option value="viewed">Last viewed by customer</option><option value="views">Most views</option><option value="newest">Newest quote</option><option value="unopened">Not opened first</option><option value="name">Name A to Z</option></select>'
+        + '<select id="qdFilter" aria-label="Filter quotes"><option value="all">All open quotes</option><option value="today">Viewed in last 24 hours</option><option value="week">Viewed in last 7 days</option><option value="quiet">Not viewed for 3+ days</option><option value="unopened">Never opened</option></select></div><div id="qdList"></div>';
+      $('qdSearch').addEventListener('input', function () { S.qSearch = this.value; renderPane(); });
+      $('qdSort').addEventListener('change', function () { S.qSort = this.value; renderPane(); });
+      $('qdFilter').addEventListener('change', function () { S.qFilter = this.value; renderPane(); });
+    }
     var open = S.requests.filter(function (r) { return r.status === 'requested' || r.status === 'building'; });
-    var rest = S.requests.filter(function (r) { return !(r.status === 'requested' || r.status === 'building'); });
-    var all = S.quotes.slice().sort(function (a, b) { return String(b.created || '').localeCompare(String(a.created || '')); });
-    var qs = all.filter(function (q) { return qState(q) === 'open'; }), done = all.filter(function (q) { return qState(q) !== 'open'; });
-    var sy = S.sync, syncLine = '<div class="qd-sync"><span>' + (sy ? (sy.ok ? 'New bookings in your sales dashboard are picked up automatically every hour and when you open this dashboard. Last checked ' + esc(ago(sy.at)) + (sy.matched && sy.matched.length ? ', last check marked ' + sy.matched.map(function (m) { return esc(m.name); }).join(', ') + ' as booked' : '') : 'Bookings check failed: ' + esc(sy.error || '')) : 'Bookings are checked against your sales dashboard every hour') + '</span><button class="ea-btn" type="button" data-qa="sync">Check bookings now</button></div>';
-    paneQ.innerHTML = syncLine + '<h2 class="qd-h">Quote links</h2>' + (qs.length ? qs.map(quoteCard).join('') : '<p class="qd-empty">No open quotes.</p>')
-      + (done.length ? '<button class="ea-btn" type="button" data-qa="showdone" style="margin:4px 0 10px">' + (S.showDone ? 'Hide' : 'Show') + ' booked and closed quotes (' + done.length + ')</button>' + (S.showDone ? done.map(quoteCard).join('') : '') : '')
-      + '<h2 class="qd-h" style="margin-top:26px">Quote requests waiting to be built</h2>' + (open.length ? open.map(reqCard).join('') : '<p class="qd-empty">Nothing waiting. Click Generate quote to start one.</p>')
-      ;
+    var all = qSorted(S.quotes.filter(qMatches));
+    var qs = all.filter(function (q) { return qState(q) === 'open' && qFiltered(q); }), done = all.filter(function (q) { return qState(q) !== 'open'; });
+    var sy = S.sync;
+    $('qdSync').innerHTML = '<div class="qd-sync"><span>' + (sy ? (sy.ok ? 'Bookings from your sales dashboard are picked up automatically. Last checked ' + esc(ago(sy.at)) + (sy.matched && sy.matched.length ? ', marked ' + sy.matched.map(function (m) { return esc(m.name); }).join(', ') + ' as booked' : '') : 'Bookings check failed: ' + esc(sy.error || '')) : 'Bookings are checked against your sales dashboard every hour') + '</span><button class="ea-btn" type="button" data-qa="sync">Check now</button></div>';
+    $('qdList').innerHTML = (open.length ? '<h2 class="qd-h">Waiting to be built (' + open.length + ')</h2>' + open.map(reqCard).join('') : '')
+      + '<h2 class="qd-h">Quote links (' + qs.length + ')</h2>' + (qs.length ? qs.map(quoteCard).join('') : '<p class="qd-empty">No quotes match.</p>')
+      + (done.length ? '<button class="ea-btn" type="button" data-qa="showdone" style="margin:4px 0 10px">' + (S.showDone ? 'Hide' : 'Show') + ' booked and closed quotes (' + done.length + ')</button>' + (S.showDone ? done.map(quoteCard).join('') : '') : '');
   }
   paneQ.addEventListener('click', function (e) {
     var b = e.target.closest('[data-qa]'); if (!b || b.tagName === 'SELECT') return; var act = b.dataset.qa;
