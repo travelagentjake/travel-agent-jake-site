@@ -159,7 +159,7 @@
       + '<button class="chipbtn" type="button" data-sort="rating" aria-pressed="false">Top rated</button>'
       + '<button class="chipbtn" type="button" data-sort="transfer" aria-pressed="false">Shortest transfer</button>'
       + (anySlides ? '<button class="chipbtn" type="button" id="slidesOnly" aria-pressed="false">Slides only</button>' : '')
-      + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th><th>Tripadvisor</th><th>Transfer</th>' + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div><p class="taxnote">' + esc(Q.touristTax && Q.touristTax.amount ? 'Prices do not include tourist tax of about ' + gbp(Q.touristTax.amount) + ', paid locally at the hotel.' : 'Prices do not include any tourist tax, paid locally at the hotel.') + '</p></div></section>';
+      + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th><th>Tripadvisor</th><th>Transfer</th>' + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div><div class="cmob" id="cmob"></div><p class="taxnote">' + esc(Q.touristTax && Q.touristTax.amount ? 'Prices do not include tourist tax of about ' + gbp(Q.touristTax.amount) + ', paid locally at the hotel.' : 'Prices do not include any tourist tax, paid locally at the hotel.') + '</p></div></section>';
   }
   if (hotels.length) {
     h += '<section id="hotels" class="alt"><div class="wrap"><h2 class="h2">' + (multi ? 'The hotels' : 'Your hotel') + '</h2>'
@@ -251,9 +251,10 @@
 
     + '<p class="small" style="margin-top:20px">' + esc(Q.smallprint || ('Prices were correct when this quote was prepared on ' + Q.prepared + ' and are subject to availability until booked. Your holiday is ATOL protected.')) + '</p></div></section>';
   h += '<footer><div class="wrap"><p>Travel Agent Jake is part of Club Voyages, a Member of ABTA, membership number P8503 &amp; Y6784. Travel Agent Jake is part of Club Voyages Ltd, which is as an agent for Hays Tour Operating Ltd, ATOL 10531. All the flights and flight inclusive holidays on this website are financially protected by the ATOL scheme. Please see our <a href="https://travelagentjake.co.uk/booking-conditions.html">booking conditions</a> for more information.</p><p>&copy; ' + new Date().getFullYear() + ' Travel Agent Jake &#183; <a href="https://travelagentjake.co.uk">travelagentjake.co.uk</a></p></div></footer>';
-  h += '<a class="btn btn-wa float" href="#feedback">Send feedback to Jake</a>';
+  h += '<a class="btn btn-wa float" id="fbFloat" href="#feedback">Send feedback to Jake</a>';
   h += '<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" type="button" id="lbX" aria-label="Close">&#215;</button><button class="arr l" type="button" id="lbP" aria-label="Previous photo">&#8249;</button><img id="lbImg" alt=""><button class="arr r" type="button" id="lbN" aria-label="Next photo">&#8250;</button><div class="cap" id="lbCap"></div></div>';
   var isJake = false; try { if (new URLSearchParams(location.search).has('jake')) localStorage.setItem('taj-jake', '1'); isJake = localStorage.getItem('taj-jake') === '1'; } catch (e) {}
+  if (isJake) h = h.replace('id="fbFloat"', 'id="fbFloat" hidden');
   if (isJake) h += '<a class="btn btn-y amend" href="https://travelagentjake.co.uk/enquiries-admin.html#amend=' + encodeURIComponent(Q.slug) + '" target="_blank" rel="noopener">Amend this quote</a>';
   document.getElementById('app').innerHTML = h;
   var deposit = Number(Q.depositTotal || 0), people = Number(Q.partyCount || 0);
@@ -336,6 +337,12 @@
     t.innerHTML = ordered().map(function (x) {
       return '<tr><td><a href="#h-' + esc(x.id) + '">' + esc(x.name) + '</a></td><td>' + esc(x.area) + '</td><td><span class="stars">' + (x.rating ? x.rating.toFixed(1) : '') + '</span>' + (x.rating ? ' / 5' : '') + '</td><td>' + mins(x.transfer) + '</td>'
         + (anySlides ? '<td>' + (x.slides ? '<span class="yes">Yes</span>' : '<span class="no">No</span>') + '</td>' : '') + '<td class="n"><b>' + gbp(x.total) + '</b></td><td class="n">' + gbp(x.pp) + '</td></tr>';
+    }).join('');
+    /* phones get a stacked list instead of the wide table */
+    var m = document.getElementById('cmob'); if (m) m.innerHTML = ordered().map(function (x) {
+      return '<a class="crow" href="#h-' + esc(x.id) + '"><span class="cn"><b>' + esc(x.name) + '</b><span>' + esc(x.area)
+        + (x.rating ? ' &#183; ' + x.rating.toFixed(1) + '/5' : '') + (x.transfer ? ' &#183; ' + mins(x.transfer) + ' transfer' : '') + (anySlides && x.slides ? ' &#183; Slides' : '') + '</span></span>'
+        + '<span class="cp"><b>' + gbp(x.total) + '</b>' + (x.pp ? '<span>' + gbp(x.pp) + 'pp</span>' : '') + '</span></a>';
     }).join('');
   }
   function renderHotels() {
