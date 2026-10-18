@@ -13,6 +13,8 @@
                 prices: { <hotel id>: total for the party } for prices that change by hotel (room upgrades, private transfers),
                 hotels: [hotel ids it applies to] }], extrasIntro,
      Extras only show with a real live price. No price means it is left off the page. Extras never link out to other sellers.
+     dates: [{ id, label, total, pp, note, current (bool) }], datesIntro   // other dates with their prices, editable from the dashboard
+     extras may also have group: extras in the same group are either or (one villa upgrade at a time)
      touristTax: { amount, note }   // default tourist tax for every hotel; a hotel's own tax/taxNote wins. Required on every quote (CMA).
      sections: [{ id, title, intro, html, after: "hotels" | "trip" | "todo" }],   // custom sections from Jake's notes
      flights: { intro, legs: [{ tag, date, from, fromCode, to, toCode, dep, arr, dur, carrier }] },
@@ -42,6 +44,8 @@
     if (a.subtitle) Q.subtitle = a.subtitle;
     if (a.note) Q.jakeNote = a.note;
     if (Array.isArray(a.extras)) Q.extras = a.extras;
+    if (Array.isArray(a.dates)) Q.dates = a.dates;
+    if (a.datesIntro) Q.datesIntro = a.datesIntro;
     if (a.priceIntro) Q.priceIntro = a.priceIntro;
     if (a.extrasIntro) Q.extrasIntro = a.extrasIntro;
     if (a.touristTax && (a.touristTax.amount != null || a.touristTax.note)) Q.touristTax = a.touristTax;
@@ -58,7 +62,7 @@
   function render(Q) {
   var WA = '447899290262';
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-  function gbp(n) { return '£' + Number(n).toLocaleString('en-GB'); }
+  function gbp(n) { n = Number(n); return '£' + (n % 1 ? n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : n.toLocaleString('en-GB')); }
   function mins(m) { if (!m) return ''; if (m < 60) return m + ' mins'; var h = Math.floor(m / 60), r = m % 60; return h + ' hr' + (r ? ' ' + r : ''); }
   /* tourist tax payable locally at the hotel: always shown next to every price (CMA rules) */
   function taxText(x) {
@@ -122,6 +126,10 @@
   if (hotels.length) nav.push(['hotels', multi ? 'The hotels' : 'Your hotel']);
   (Q.sections || []).forEach(function (s, i) { if (s.nav) nav.push([s.id || ('extra-' + (s.after || 'hotels') + i), s.nav]); });
   if (Q.flights) nav.push(['trip', 'Flights and rooms']);
+  var dates = (Q.dates || []).filter(function (d) { return d && d.label && !d.hidden && d.total != null && d.total !== '' && !isNaN(Number(d.total)); });
+  /* the quoted dates always show the hotel price, so amending the hotel price keeps them in step */
+  if (hotels.length === 1) dates = dates.map(function (d) { if (!d.current) return d; var o = {}; for (var k in d) o[k] = d[k]; o.total = hotels[0].total; o.pp = hotels[0].pp; return o; });
+  if (dates.length > 1) nav.push(['dates', 'Other dates']);
   if (Q.areas && Q.areas.length) nav.push(['todo', 'Things to do']);
   function hasPrice(e) { return (e.price !== '' && e.price != null && !isNaN(Number(e.price))) || (e.prices && Object.keys(e.prices).some(function (k) { return e.prices[k] != null && !isNaN(Number(e.prices[k])); })); }
   var hotelIds = hotels.map(function (x) { return x.id; });
@@ -182,6 +190,21 @@
     h += '</div></div></section>';
   }
   h += custom('trip');
+
+  /* other dates: same holiday on different dates, with live prices Jake can amend */
+  if (dates.length > 1) {
+    var cur = dates.filter(function (d) { return d.current; })[0];
+    h += '<section id="dates" class="alt"><div class="wrap"><h2 class="h2">Other dates</h2>' + (Q.datesIntro ? '<p class="intro">' + esc(Q.datesIntro) + '</p>' : '')
+      + '<div class="acar dcar"><button class="arr l" type="button" data-ddir="-1" aria-label="Previous">&#8249;</button><button class="arr r" type="button" data-ddir="1" aria-label="Next">&#8250;</button><div class="areas" id="dTrack">'
+      + dates.map(function (d) {
+        var diff = cur && !d.current ? Number(d.total) - Number(cur.total) : 0;
+        return '<div class="dcard' + (d.current ? ' on' : '') + '">' + (d.current ? '<span class="dtag">Your quote</span>' : '')
+          + '<b class="dl">' + esc(d.label) + '</b>' + (d.note ? '<span class="dn">' + esc(d.note) + '</span>' : '')
+          + '<span class="dp">' + gbp(d.total) + '</span><span class="dpp">' + (d.pp ? gbp(d.pp) + ' per person' : 'total for ' + esc(party)) + '</span>'
+          + (diff ? '<span class="dd ' + (diff > 0 ? 'up' : 'down') + '">' + gbp(Math.abs(diff)) + (diff > 0 ? ' more' : ' less') + '</span>' : '')
+          + (d.current ? '' : '<a class="btn btn-o dbtn" target="_blank" rel="noopener" href="' + wa('Hi Jake, it’s ' + who + '. Could you look at ' + d.label + ' for our holiday? ') + '">Ask about these dates</a>') + '</div>';
+      }).join('') + '</div></div></div></section>';
+  }
 
   if (Q.areas && Q.areas.length) {
     h += '<section id="todo" class="alt"><div class="wrap"><h2 class="h2">Things to do</h2>' + (Q.todoIntro ? '<p class="intro">' + esc(Q.todoIntro) + '</p>' : '');
@@ -295,10 +318,16 @@
       + '</tbody></table></details>'
       + '<p class="small" style="margin:12px 0 0">Based on ' + esc(x.name) + ' at ' + gbp(x.total) + ' for ' + esc(party) + (extra ? ' plus ' + fmt(Math.round(extra * 100) / 100) + ' of extras added to the booking' : '') + ', with a ' + gbp(deposit) + ' deposit and the balance cleared 6 weeks before you fly. This is an estimate to help you budget, and I confirm the exact plan when you book. Payments falling on a weekend move to the next working day.</p>';
   }
-  /* carousel arrows: things to do and extras */
-  Array.prototype.forEach.call(document.querySelectorAll('[data-adir],[data-xdir]'), function (b) {
-    b.addEventListener('click', function () { var x = b.hasAttribute('data-xdir'), t = document.getElementById(x ? 'xTrack' : 'areaTrack'), c = t.querySelector('.areacard'); t.scrollBy({ left: Number(b.dataset.adir) * ((c ? c.offsetWidth : 280) + 14), behavior: 'smooth' }); });
+  /* carousel arrows: things to do, extras and other dates */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-adir],[data-xdir],[data-ddir]'), function (b) {
+    b.addEventListener('click', function () {
+      var dir = Number(b.dataset.adir || b.dataset.xdir || b.dataset.ddir) || 1;
+      var t = b.parentElement.querySelector('.areas'), c = t && t.firstElementChild;
+      if (t) t.scrollBy({ left: dir * ((c ? c.offsetWidth : 280) + 14), behavior: 'smooth' });
+    });
   });
+  /* other dates: open with the quoted dates in view */
+  (function () { var t = document.getElementById('dTrack'), on = t && t.querySelector('.dcard.on'); if (on && on.previousElementSibling) t.scrollLeft = on.previousElementSibling.offsetLeft - t.firstElementChild.offsetLeft; })();
   var cH = document.getElementById('cHotel');
   if (cH) cH.addEventListener('change', function () { hIdx = Number(cH.value) || 0; calc(); });
   var cD = document.getElementById('cDay'); if (cD) cD.addEventListener('change', calc);
@@ -306,7 +335,10 @@
   if (fc) fc.addEventListener('change', function (ev) { if (ev.target.id !== 'fHotel') return; hIdx = Number(ev.target.value) || 0; if (cH) cH.value = hIdx; calc(); });
   calc();
   Array.prototype.forEach.call(document.querySelectorAll('[data-x]'), function (c) {
-    c.addEventListener('change', function () { if (c.checked) sel[c.dataset.x] = 1; else delete sel[c.dataset.x]; try { localStorage.setItem(SKEY, JSON.stringify(sel)); } catch (e) {} calc(); });
+    c.addEventListener('change', function () {
+      var me = extras.filter(function (z) { return z.id === c.dataset.x; })[0];
+      if (c.checked && me && me.group) extras.forEach(function (z) { if (z.group === me.group && z.id !== me.id) { delete sel[z.id]; var o = document.querySelector('[data-x="' + z.id + '"]'); if (o) o.checked = false; } });
+      if (c.checked) sel[c.dataset.x] = 1; else delete sel[c.dataset.x]; try { localStorage.setItem(SKEY, JSON.stringify(sel)); } catch (e) {} calc(); });
   });
   var fbBtn = document.getElementById('fbSend');
   if (fbBtn) fbBtn.addEventListener('click', function () {

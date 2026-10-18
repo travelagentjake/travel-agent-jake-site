@@ -9,6 +9,16 @@
       "created": "2026-10-18",
       "departs": "2027-08-07",
       "fromPrice": 10615
+    },
+    {
+      "slug": "bethemeey",
+      "url": "https://quotes.travelagentjake.co.uk/bethemeey",
+      "customer": "Beth",
+      "enquiryId": "mv9x1ae33fpr",
+      "title": "Maldives holiday, Villa Park Sun Island",
+      "created": "2026-10-18",
+      "departs": "2027-04-10",
+      "fromPrice": 4110
     }
   ]
 }

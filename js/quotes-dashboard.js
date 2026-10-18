@@ -289,6 +289,15 @@
         + '<details style="margin-top:14px"><summary style="cursor:pointer;font-weight:800">Or edit by hand</summary>'
         + '<div class="qd-act"><button type="button" class="ea-btn" data-q="hide60">Hide transfers over 1 hour</button><button type="button" class="ea-btn" data-q="showall">Show all hotels</button></div>'
         + rows
+        + (function () {
+            var ds = (Array.isArray(A.dates) ? A.dates : (Q.dates || []));
+            if (!ds.length) return '';
+            return '<div class="qd-small" style="margin-top:16px">Other dates and prices</div>' + ds.map(function (d) {
+              return '<div class="qd-card" style="box-shadow:none;margin:8px 0;padding:12px" data-did="' + esc(d.id) + '" data-dlabel="' + esc(d.label) + '" data-dnote="' + esc(d.note || '') + '" data-dcur="' + (d.current ? 1 : 0) + '">'
+                + '<label style="display:flex;gap:10px;align-items:center;margin:0;font-weight:800"><input type="checkbox" data-f="dshow" style="width:22px;height:22px"' + (d.hidden ? '' : ' checked') + '> ' + esc(d.label) + (d.current ? ' (quoted dates, uses the hotel price above)' : '') + '</label>'
+                + '<div class="qd-two"><div><label>Total (&#163;)</label><input data-f="dtotal" inputmode="decimal" value="' + esc(d.total != null ? d.total : '') + '"></div><div><label>Per person (&#163;)</label><input data-f="dpp" inputmode="decimal" value="' + esc(d.pp != null ? d.pp : '') + '"></div></div></div>';
+            }).join('');
+          })()
         + '<label for="amNote">A note from Jake at the top of the quote (optional)</label><textarea id="amNote" placeholder="e.g. I have taken out the hotels with longer transfers as requested.">' + esc(A.note || '') + '</textarea>'
         + '<label for="amSub">Subtitle</label><input id="amSub" placeholder="' + esc(Q.subtitle || '') + '" value="' + esc(A.subtitle || '') + '">'
         + '<label for="amIntro">Intro paragraph</label><textarea id="amIntro" placeholder="' + esc(Q.intro || '') + '">' + esc(A.intro || '') + '</textarea>'
@@ -329,8 +338,15 @@
           var e = {}; ['total', 'pp', 'tax', 'badge', 'rooms', 'why'].forEach(function (k) { var v = c.querySelector('[data-f="' + k + '"]').value.trim(); if (v) e[k] = k === 'total' || k === 'pp' || k === 'tax' ? v.replace(/[^\d.]/g, '') : v; });
           if (Object.keys(e).length) edits[id] = e;
         });
+        var dcards = f.querySelectorAll('[data-did]'), newDates;
+        if (dcards.length) newDates = Array.prototype.map.call(dcards, function (c) {
+          var o = { id: c.dataset.did, label: c.dataset.dlabel, note: c.dataset.dnote, total: c.querySelector('[data-f="dtotal"]').value.replace(/[^\d.]/g, ''), pp: c.querySelector('[data-f="dpp"]').value.replace(/[^\d.]/g, '') };
+          if (c.dataset.dcur === '1') o.current = true;
+          if (!c.querySelector('[data-f="dshow"]').checked) o.hidden = true;
+          return o;
+        });
         if (hidden.length >= (Q.hotels || []).length) { var er = f.querySelector('#amErr'); er.textContent = 'Keep at least one hotel showing.'; er.hidden = false; return; }
-        api('/api/quote-config', 'POST', { slug: slug, amendments: Object.assign({}, A, { hidden: hidden, edits: edits, note: f.querySelector('#amNote').value, subtitle: f.querySelector('#amSub').value, intro: f.querySelector('#amIntro').value }) })
+        api('/api/quote-config', 'POST', { slug: slug, amendments: Object.assign({}, A, newDates ? { dates: newDates } : {}, { hidden: hidden, edits: edits, note: f.querySelector('#amNote').value, subtitle: f.querySelector('#amSub').value, intro: f.querySelector('#amIntro').value }) })
           .then(function (x) { if (x.j && x.j.ok) { toast('Quote updated'); m.remove(); } else { var er = f.querySelector('#amErr'); er.textContent = (x.j && x.j.error) || 'Could not save.'; er.hidden = false; } });
       });
     });

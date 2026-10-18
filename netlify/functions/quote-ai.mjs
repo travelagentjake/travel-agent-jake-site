@@ -16,7 +16,8 @@ AMENDMENTS shape (every field optional):
   "intro": "", "subtitle": "", "note": "",          // note = "A note from Jake" banner at the top of the quote
   "priceIntro": "", "extrasIntro": "",
   "touristTax": { "amount": number, "note": "" },   // default tourist tax for every hotel
-  "extras": [ { "id", "cat", "title", "text", "price", "unit", "units", "separate", "prices": { "<hotel id>": number }, "hotels": [hotel ids] } ]
+  "extras": [ { "id", "cat", "title", "text", "price", "unit", "units", "separate", "group", "prices": { "<hotel id>": number }, "hotels": [hotel ids] } ],
+  "dates": [ { "id", "label", "total", "pp", "note", "current", "hidden" } ], "datesIntro": ""   // other dates with prices. If given it REPLACES the full list, so start from the current list
 }
 Extras are optional add ons the customer can tick (airport parking, lounges, fast track security, pre booked seats, room upgrades, private transfers and so on). Every extra MUST have a real price that Jake has given you or that is already in the data: either "price" (unit price in GBP) or "prices" (total for the whole party per hotel id, for things that change by hotel such as room upgrades). An extra with no price is never shown, so do not add one without a price. unit is wording like "per person", "per car for 8 days", "for all five rooms". units is how many units to charge (leave it out for "per person", it then uses the party size). separate = true for things Jake books outside the tour operator booking (airport parking, lounges, fast track), so they are not added to the monthly direct debits. Never add links to other sellers. If "extras" is given it REPLACES the full list, so always include every extra that should stay, starting from the current list.
 
@@ -40,7 +41,7 @@ export default async (req) => {
   const q = b.quote || {};
   const data = {
     customer: q.customer, title: q.title, subtitle: q.subtitle, intro: q.intro, partyLabel: q.partyLabel, partyCount: q.partyCount,
-    departDate: q.departDate, priceIntro: q.priceIntro, touristTax: q.touristTax, extras: q.extras, extrasIntro: q.extrasIntro,
+    departDate: q.departDate, dates: q.dates, datesIntro: q.datesIntro, priceIntro: q.priceIntro, touristTax: q.touristTax, extras: q.extras, extrasIntro: q.extrasIntro,
     hotels: (q.hotels || []).map((h) => ({ id: h.id, name: h.name, area: h.area, rating: h.rating, transfer_minutes: h.transfer, slides: h.slides, badge: h.badge, total: h.total, pp: h.pp, tax: h.tax, rooms: h.rooms, board: h.board, why: h.why })),
   };
   const user = `DATA:\n${JSON.stringify(data)}\n\nCURRENT AMENDMENTS:\n${JSON.stringify(b.amendments || {})}\n\nJAKE'S REQUEST:\n${prompt}`;
