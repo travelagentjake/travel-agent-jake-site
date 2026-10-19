@@ -682,8 +682,8 @@
     var todo = document.getElementById('todo'); if (todo) todo.parentNode.insertBefore(about, todo);
     function has(id) { var s = document.getElementById(id); return !!s && !s.hidden; }
     function aboutHtml(x) {
-      var r = x.resort || {}, h = '<div class="abt"><h3>About ' + esc(x.name) + '</h3><p>' + esc(x.why || '') + '</p>';
-      if (x.feats && x.feats.length) h += '<div class="feat">' + x.feats.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>';
+      var bs = x.variantOf ? hotel(x.variantOf) : null, r = x.resort || (bs && bs.resort) || {}, h = '<div class="abt"><h3>About ' + esc(x.name) + '</h3><p>' + esc(x.why || '') + '</p>';
+      if (!Object.keys(r).length && x.feats && x.feats.length) h += '<div class="feat">' + x.feats.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>';
       if (r.town) h += '<div class="pkgr"><b>The area</b><span>' + esc(r.town) + '</span></div>';
       if (r.eat && r.eat.length) h += '<div class="pkgr"><b>Eating out</b><span>' + r.eat.map(esc).join(' &#183; ') + '</span></div>';
       if (r.bars && r.bars.length) h += '<div class="pkgr"><b>Bars</b><span>' + r.bars.map(esc).join(' &#183; ') + '</span></div>';
