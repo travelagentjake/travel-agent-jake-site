@@ -893,6 +893,54 @@
       'sri lanka': ['Sri Lanka', 'Sri Lankan rupee (LKR)', 'Type D, G and M, 230V', 'Left', 'Sinhala and Tamil, English is widely spoken', 'sri-lanka'],
       india: ['India', 'Indian rupee (INR)', 'Type C, D and M, 230V', 'Left', 'Hindi and English', 'india']
     };
+    /* extra facts: [time vs UK, tap water, tipping, emergency number] */
+    var CF2 = {
+      spain: ['Usually 1 hour ahead of the UK (mainland and islands except the Canaries, which match the UK)', 'Safe to drink, though many visitors prefer bottled for taste', 'Not expected. Rounding up or 5 to 10% for great service is appreciated', '112'],
+      portugal: ['Same time as the UK (the Azores are 1 hour behind)', 'Safe to drink, though many visitors prefer bottled', 'Not expected. Rounding up or about 5 to 10% in restaurants', '112'],
+      greece: ['Usually 2 hours ahead of the UK', 'Safe in most places, but bottled is widely preferred on the islands', 'Round up or leave 5 to 10% in restaurants', '112'],
+      turkey: ['Usually 2 hours ahead of the UK', 'Bottled water is recommended', 'Around 10% in restaurants is customary, and small tips for hotel staff', '112'],
+      cyprus: ['Usually 2 hours ahead of the UK', 'Safe to drink, though many prefer bottled', 'Around 10% in restaurants if service is not included', '112'],
+      malta: ['Usually 1 hour ahead of the UK', 'Safe to drink but bottled is popular for taste', 'Around 10% in restaurants for good service', '112'],
+      italy: ['Usually 1 hour ahead of the UK', 'Safe to drink', 'Not expected. Round up or leave a few euros, and check for a cover charge (coperto)', '112'],
+      france: ['Usually 1 hour ahead of the UK', 'Safe to drink', 'Service is included, so a little extra is optional', '112'],
+      croatia: ['Usually 1 hour ahead of the UK', 'Safe to drink', 'Round up or about 10% in restaurants', '112'],
+      montenegro: ['Usually 1 hour ahead of the UK', 'Bottled water is recommended', 'Around 10% in restaurants', '112'],
+      netherlands: ['Usually 1 hour ahead of the UK', 'Safe to drink', 'Round up or about 5 to 10% for good service', '112'],
+      belgium: ['Usually 1 hour ahead of the UK', 'Safe to drink', 'Service is included, so tipping is optional', '112'],
+      germany: ['Usually 1 hour ahead of the UK', 'Safe to drink', 'Round up or about 5 to 10% in restaurants', '112'],
+      austria: ['Usually 1 hour ahead of the UK', 'Safe to drink, and excellent in the mountains', 'Round up or about 5 to 10% in restaurants', '112'],
+      finland: ['Usually 2 hours ahead of the UK', 'Safe to drink', 'Not expected', '112'],
+      switzerland: ['Usually 1 hour ahead of the UK', 'Safe to drink', 'Service is included, so rounding up is enough', '112'],
+      norway: ['Usually 1 hour ahead of the UK', 'Safe to drink', 'Service is included, rounding up is enough', '112'],
+      iceland: ['Same time as the UK all year', 'Safe to drink and very good', 'Not expected', '112'],
+      usa: ['Between 5 and 8 hours behind the UK depending on the state', 'Safe to drink', 'Expected. Around 18 to 20% in restaurants and bars, and a few dollars for hotel and taxi staff', '911'],
+      canada: ['Between 3.5 and 8 hours behind the UK depending on the province', 'Safe to drink', 'Expected. Around 15 to 20% in restaurants', '911'],
+      mexico: ['Usually 6 hours behind the UK in most resort areas', 'Bottled water only', 'Around 10 to 15% in restaurants, and small tips for resort staff', '911'],
+      'dominican republic': ['Usually 4 or 5 hours behind the UK', 'Bottled water only', 'Around 10% is often added, with small extra tips for staff appreciated', '911'],
+      uae: ['4 hours ahead of the UK in summer and 4 hours ahead in winter, so usually 3 to 4 hours', 'Safe to drink, though bottled is common', 'Around 10 to 15% if service is not included', '999'],
+      thailand: ['6 or 7 hours ahead of the UK', 'Bottled water only', 'Not expected, but small tips are appreciated', ''],
+      japan: ['8 or 9 hours ahead of the UK', 'Safe to drink', 'Not expected and can cause confusion, so do not tip', '110 police, 119 ambulance'],
+      singapore: ['7 or 8 hours ahead of the UK', 'Safe to drink', 'Not expected, a 10% service charge is usually added', '999 police, 995 ambulance'],
+      australia: ['Between 8 and 11 hours ahead of the UK depending on the state', 'Safe to drink', 'Not expected, but a small tip for great service is welcome', '000'],
+      'new zealand': ['Usually 11 to 13 hours ahead of the UK', 'Safe to drink', 'Not expected', '111'],
+      barbados: ['Usually 4 or 5 hours behind the UK', 'Safe to drink', 'A 10% service charge is often added, otherwise leave around 10 to 15%', ''],
+      jamaica: ['Usually 5 hours behind the UK', 'Bottled water is recommended', 'Around 10 to 15% if service is not included', ''],
+      maldives: ['Usually 4 or 5 hours ahead of the UK', 'Resorts provide safe drinking water, usually bottled or filtered', 'A service charge is usually added, small tips for staff are appreciated', ''],
+      egypt: ['Usually 1 or 2 hours ahead of the UK', 'Bottled water only', 'Tipping (baksheesh) is expected for most services, so carry small notes', ''],
+      morocco: ['Usually 0 or 1 hour from the UK, check at the time of travel', 'Bottled water only', 'Around 10% in restaurants and small tips for guides and porters', ''],
+      tunisia: ['Usually 1 hour ahead of the UK', 'Bottled water only', 'Around 10% in restaurants, small tips for hotel staff', ''],
+      mauritius: ['3 or 4 hours ahead of the UK', 'Safe in most places, bottled is common', 'Not expected, but appreciated', '112'],
+      seychelles: ['4 hours ahead of the UK', 'Safe to drink', 'Not expected, a service charge is often added', ''],
+      kenya: ['Usually 2 or 3 hours ahead of the UK', 'Bottled water only', 'Tips are expected for guides and drivers on safari', '999'],
+      tanzania: ['Usually 2 or 3 hours ahead of the UK', 'Bottled water only', 'Tips are expected for guides and drivers on safari', ''],
+      'south africa': ['Usually 1 or 2 hours ahead of the UK', 'Safe in most cities, bottled is common elsewhere', 'Around 10 to 15% in restaurants, and tips for guides and fuel attendants', ''],
+      'cape verde': ['Usually 1 hour behind the UK', 'Bottled water only', 'Around 10% in restaurants', ''],
+      'sri lanka': ['Usually 4 or 5 hours ahead of the UK', 'Bottled water only', 'Around 10% if no service charge is added', '119'],
+      india: ['Usually 4.5 or 5.5 hours ahead of the UK', 'Bottled water only', 'Around 10% in restaurants, and tips for drivers and guides', '112'],
+      indonesia: ['Between 6 and 8 hours ahead of the UK, depending on the island', 'Bottled water only', 'Around 10% if service is not included', ''],
+      andorra: ['Usually 1 hour ahead of the UK', 'Safe to drink', 'Not expected, round up in restaurants', '112']
+    };
+    var GHIC = { spain: 1, portugal: 1, greece: 1, cyprus: 1, malta: 1, italy: 1, france: 1, croatia: 1, netherlands: 1, belgium: 1, germany: 1, austria: 1, finland: 1, switzerland: 1, norway: 1, iceland: 1 };
     var CF_ALIAS = { 'united states': 'usa', 'united states of america': 'usa', us: 'usa', america: 'usa', florida: 'usa', california: 'usa', 'new jersey': 'usa', 'new york': 'usa', orlando: 'usa', 'las vegas': 'usa', nevada: 'usa', hawaii: 'usa', madeira: 'portugal', azores: 'portugal', algarve: 'portugal', tenerife: 'spain', lanzarote: 'spain', fuerteventura: 'spain', 'gran canaria': 'spain', 'canary islands': 'spain', mallorca: 'spain', majorca: 'spain', menorca: 'spain', ibiza: 'spain', 'costa del sol': 'spain', crete: 'greece', rhodes: 'greece', corfu: 'greece', kos: 'greece', zante: 'greece', zakynthos: 'greece', santorini: 'greece', bali: 'indonesia', 'united arab emirates': 'uae', dubai: 'uae', 'abu dhabi': 'uae', 'the maldives': 'maldives', 'the netherlands': 'netherlands', 'the usa': 'usa', cabo: 'mexico', cancun: 'mexico' };
     function cfFor(x) {
       var raw = String((x && x.country) || '').toLowerCase().trim(), k = CF_ALIAS[raw] || raw;
@@ -902,12 +950,12 @@
     function travelFactsHtml(x) {
       var T = BASE.travelFacts; if (!T) return '';
       var c = cfFor(x), o = (T === true ? {} : T), by = (o.byCountry && ((c && o.byCountry[c.k]) || o.byCountry[x.country])) || {};
-      var d = c ? { place: c.d[0], currency: c.d[1], plug: c.d[2], drive: c.d[3], language: c.d[4], fcdo: c.d[5] } : {};
-      ['place', 'currency', 'plug', 'drive', 'language', 'fcdo', 'entry', 'extra'].forEach(function (f) { if (o[f] != null) d[f] = o[f]; if (by[f] != null) d[f] = by[f]; });
+      var d = c ? { place: c.d[0], currency: c.d[1], plug: c.d[2], drive: c.d[3], language: c.d[4], fcdo: c.d[5] } : {}; var c2 = c && CF2[c.k]; if (c2) { d.time = c2[0]; d.water = c2[1]; d.tip = c2[2]; d.emergency = c2[3]; } if (c) d.health = GHIC[c.k] ? 'Take your free UK GHIC card for state healthcare, and still have travel insurance with medical cover.' : 'Travel insurance with medical cover is essential. Check your policy covers any activities you plan to do.';
+      ['place', 'currency', 'plug', 'drive', 'language', 'time', 'water', 'tip', 'emergency', 'health', 'fcdo', 'entry', 'extra'].forEach(function (f) { if (o[f] != null) d[f] = o[f]; if (by[f] != null) d[f] = by[f]; });
       if (!d.place) d.place = x.country || 'your destination';
       var tile = function (ic, t, v) { return v ? '<div class="gk"><span class="gki" aria-hidden="true">' + ic + '</span><div><b>' + esc(t) + '</b><span>' + esc(v) + '</span></div></div>' : ''; };
       var h = '<div class="ag"><h3>Good to know before you go</h3><div class="agh">' + esc(d.place) + '</div><div class="gkgrid">'
-        + tile('💱', 'Currency', d.currency) + tile('🔌', 'Plugs and voltage', d.plug) + tile('🚗', 'Drives on the', d.drive) + tile('🗣️', 'Language', d.language) + '</div>'
+        + tile('💱', 'Currency', d.currency) + tile('🔌', 'Plugs and voltage', d.plug) + tile('🚗', 'Drives on the', d.drive) + tile('🗣️', 'Language', d.language) + tile('⏰', 'Time difference', d.time) + tile('🚰', 'Tap water', d.water) + tile('💝', 'Tipping', d.tip) + tile('🆘', 'Emergency number', d.emergency) + tile('🩺', 'Healthcare', d.health) + '</div>'
         + (d.extra && d.extra.length ? '<div class="gkgrid">' + d.extra.map(function (e) { return tile('ℹ️', e[0], e[1]); }).join('') + '</div>' : '')
         + '<div class="agb safe gkent"><h4>Entry requirements</h4><p>' + esc(d.entry || 'Entry rules can change, so please check the latest requirements for British passport holders on the GOV.UK page below before you book.') + '</p></div>';
       if (d.fcdo) { var fb = 'https://www.gov.uk/foreign-travel-advice/' + encodeURIComponent(d.fcdo); h += '<div class="gkbtns"><a class="btn btn-y gkbtn" href="' + fb + '/entry-requirements" target="_blank" rel="noopener">Entry requirements on GOV.UK</a><a class="btn btn-y gkbtn" href="' + fb + '" target="_blank" rel="noopener">Current travel advice on GOV.UK</a></div>'; }
