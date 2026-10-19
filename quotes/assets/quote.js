@@ -473,13 +473,13 @@
       + '<label class="fbopt"><input type="radio" name="payHow" value="bank"><span>Bank transfer</span></label></div>'
       + '<p class="small" style="margin:8px 0 0">Either way I text you a secure payment link, so nothing is paid on this page.</p>'
       + (fullOnly ? '' : '<div id="bkDD"><h4>The rest of the balance</h4>'
-      + '<label class="fbopt" style="display:inline-flex"><input type="checkbox" id="bkWantDD" checked><span>Set up a monthly direct debit for the remaining balance</span></label>'
+      + '<div class="bkopts"><label class="fbopt"><input type="checkbox" id="bkWantDD"><span>Set up a monthly direct debit</span></label><label class="fbopt"><input type="checkbox" id="bkPayGo"><span>I will pay as I go</span></label></div>'
       + '<div id="bkDDFields" class="paxg" style="margin-top:12px">'
       + '<label>Day of the month it comes out<select name="ddDay">' + Array.apply(null, Array(28)).map(function (_, i) { var d = i + 1; return '<option value="' + d + '">' + d + ordinal(d) + '</option>'; }).join('') + '</select></label>'
       + '<label>Name of the account holder<input type="text" name="ddName" autocomplete="off"></label>'
       + '<label>Sort code<input type="text" name="ddSort" inputmode="numeric" placeholder="00-00-00" autocomplete="off"></label>'
       + '<label>Account number<input type="text" name="ddAcc" inputmode="numeric" placeholder="8 digits" autocomplete="off"></label></div>'
-      + '<p class="small" id="bkDDNote">Without a direct debit, the balance is due in one go about 14 weeks before you travel.</p></div>')
+      + '<p class="small" id="bkDDNote" hidden>The balance will be due in one go, about 14 weeks before you travel.</p></div>')
       + '<label class="bkagree"><input type="checkbox" id="bkAgree" required><span>I have read and agree to the <a href="https://travelagentjake.co.uk/booking-conditions.html" target="_blank" rel="noopener">booking conditions</a> on travelagentjake.co.uk, and I confirm the details above are correct.</span></label>'
       + '<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">'
       + '<p id="bkErr" class="bkerr" hidden></p>'
@@ -501,12 +501,12 @@
         + (full ? '' : '<div><span>Balance to follow</span><b>' + fmt(Math.round((total - dep) * 100) / 100) + '</b></div>')
         + (list.length ? '<p class="small" style="margin:8px 0 0">Extras: ' + list.map(function (e) { return esc(e.title); }).join(', ') + '. Change them in <a href="#extras">Add extras</a>.</p>' : '');
       var dd = document.getElementById('bkDD'); if (dd) dd.hidden = full;
-      var w = document.getElementById('bkWantDD'), ff = document.getElementById('bkDDFields'); if (w && ff) ff.hidden = !w.checked;
+      var w = document.getElementById('bkWantDD'), ff = document.getElementById('bkDDFields'), pg = document.getElementById('bkPayGo'), nt = document.getElementById('bkDDNote'); if (w && ff) ff.hidden = !w.checked; if (pg && nt) nt.hidden = !pg.checked;
       var opt = document.querySelector('input[name="payNow"][value="deposit"]'); if (opt) opt.nextSibling.textContent = 'Just the deposit, ' + fmt(Math.round(dep * 100) / 100);
       var opt2 = document.querySelector('input[name="payNow"][value="full"]'); if (opt2) opt2.nextSibling.textContent = 'The full amount, ' + fmt(Math.round(total * 100) / 100);
     }
     if (hs) hs.addEventListener('change', function () { hIdx = Number(hs.value); calc(); var c = document.getElementById('cHotel'); if (c) c.value = hs.value; var fh = document.getElementById('fHotel'); if (fh) fh.value = hs.value; sum(); });
-    f.addEventListener('change', sum);
+    f.addEventListener('change', function (ev) { var a = document.getElementById('bkWantDD'), b = document.getElementById('bkPayGo'); if (a && b) { if (ev.target === a && a.checked) b.checked = false; if (ev.target === b && b.checked) a.checked = false; } sum(); });
     document.addEventListener('taj-calc', function () { if (hs && Number(hs.value) !== hIdx) hs.value = String(hIdx); sum(); });
     document.getElementById('bkAdd').addEventListener('click', function () {
       var box = document.getElementById('bkPax'), i = box.children.length;
@@ -529,6 +529,7 @@
       if (!g('address') || !g('postcode')) problems.push('your home address and postcode');
       if (!/^\+?[\d\s]{10,15}$/.test(g('mobile'))) problems.push('a mobile number');
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(g('email'))) problems.push('a valid email address');
+      if (!full && document.getElementById('bkWantDD') && !wantDD && !document.getElementById('bkPayGo').checked) problems.push('how you would like to pay the balance (monthly direct debit or pay as you go)');
       if (wantDD) {
         if (!g('ddName')) problems.push('the name on the bank account');
         if (!/^\d{6}$/.test(g('ddSort').replace(/\D/g, ''))) problems.push('a 6 digit sort code');
