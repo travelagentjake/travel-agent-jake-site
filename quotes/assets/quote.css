@@ -660,3 +660,5 @@ body{overscroll-behavior-y:none}
 
 body.deck[data-v=final]{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .deck[data-v=final] footer{margin-top:auto;padding:22px 0 calc(96px + env(safe-area-inset-bottom))}
+
+body.deck[data-v=final] #app{flex:1;display:flex;flex-direction:column;min-height:0}
