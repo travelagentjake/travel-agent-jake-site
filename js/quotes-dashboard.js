@@ -98,7 +98,7 @@
   function load() {
     if (!key()) return Promise.resolve();
     return Promise.all([
-      fetch('/quotes/quotes.json?cb=' + Date.now()).then(function (r) { return r.json(); }).catch(function () { return { quotes: [] }; }),
+      fetch('https://quotes.travelagentjake.co.uk/quotes.json?cb=' + Date.now()).then(function (r) { return r.json(); }).catch(function () { return { quotes: [] }; }),
       api('/api/quote-admin', 'GET'),
       api('/api/enquiry-admin', 'GET')
     ]).then(function (res) {
@@ -393,7 +393,7 @@
   function mins(m) { if (!m) return ''; if (m < 60) return m + ' mins'; var h = Math.floor(m / 60), r = m % 60; return h + ' hr' + (r ? ' ' + r : ''); }
   function openAmend(slug) {
     Promise.all([
-      fetch('/quotes/' + encodeURIComponent(slug) + '/?cb=' + Date.now()).then(function (r) { return r.text(); }),
+      fetch('https://quotes.travelagentjake.co.uk/' + encodeURIComponent(slug) + '/?cb=' + Date.now()).then(function (r) { return r.text(); }),
       fetch('/api/quote-config?slug=' + encodeURIComponent(slug), { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return {}; })
     ]).then(function (res) {
       var Q; try { Q = JSON.parse(new DOMParser().parseFromString(res[0], 'text/html').getElementById('quote-data').textContent); } catch (e) { toast('Could not read that quote'); return; }

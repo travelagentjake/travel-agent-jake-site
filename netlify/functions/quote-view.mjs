@@ -46,7 +46,7 @@ function nice(t) { return new Date(t).toLocaleString("en-GB", { timeZone: "Europ
 function gap(ms) { const h = Math.round(ms / 3600000); return h < 48 ? h + " hours" : Math.round(h / 24) + " days"; }
 
 async function comebackEmail(slug, v, prev, open) {
-  const reg = await fetch(SITE + "/quotes/quotes.json", { signal: AbortSignal.timeout(4000) }).then((r) => r.json()).catch(() => ({ quotes: [] }));
+  const reg = await fetch("https://quotes.travelagentjake.co.uk/quotes.json", { signal: AbortSignal.timeout(4000) }).then((r) => r.json()).catch(() => ({ quotes: [] }));
   const q = (reg.quotes || []).find((x) => x.slug === slug) || { slug, customer: slug };
   let enq = null;
   if (q.enquiryId) enq = await getStore({ name: "enquiries", consistency: "strong" }).get(q.enquiryId, { type: "json" }).catch(() => null);

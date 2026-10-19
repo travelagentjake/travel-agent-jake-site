@@ -1,5 +1,7 @@
 [build]
   publish = "."
+  # quote pages are published by Cloudflare Pages, so skip Netlify when only quotes/ changed
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)quotes'"
 
 [functions]
   directory = "netlify/functions"
