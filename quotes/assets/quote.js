@@ -585,7 +585,7 @@
     if (bk) bk.hidden = t !== 'book';
     if (fw) fw.hidden = !(t === 'changes' || t === 'question');
     if (hotelId != null && hotelId !== '') { var i = -1; hotels.forEach(function (h, k) { if (h.id === hotelId) i = k; }); if (i >= 0) { hIdx = i; var c = document.getElementById('cHotel'); if (c) c.value = String(i); var fh = document.getElementById('fHotel'); if (fh) fh.value = String(i); var bh = document.getElementById('bkHotel'); if (bh) bh.value = String(i); calc(); } }
-    var msg = document.getElementById('fbMsg'); if (msg && t !== 'book') msg.placeholder = t === 'changes' ? 'e.g. Could we add sea view rooms, or look at different dates?' : 'e.g. How long is the transfer, and is the balance date flexible?';
+    var msg = document.getElementById('fbMsg'); if (msg && t !== 'book') msg.placeholder = t === 'changes' ? 'e.g. Could we add sea view rooms, or look at different dates?' : 'e.g. Can we get a price for airport parking?';
   }
   Array.prototype.forEach.call(document.querySelectorAll('input[name="fbType"]'), function (r) { r.addEventListener('change', function () { pickType(r.value); }); });
   document.addEventListener('click', function (e) {
