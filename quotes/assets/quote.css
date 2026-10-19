@@ -662,3 +662,12 @@ body.deck[data-v=final]{min-height:100vh;min-height:100dvh;display:flex;flex-dir
 .deck[data-v=final] footer{margin-top:auto;padding:22px 0 calc(96px + env(safe-area-inset-bottom))}
 
 body.deck[data-v=final] #app{flex:1;display:flex;flex-direction:column;min-height:0}
+
+.gkgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 12px}
+.gk{display:flex;gap:12px;align-items:flex-start;border:2px solid #DCE3FF;border-radius:16px;padding:12px 14px;background:#fff}
+.gk .gki{font-size:24px;line-height:1.1;flex:0 0 auto}
+.gk b{display:block;color:#004AAD;font-weight:800;font-size:13px;letter-spacing:.03em;text-transform:uppercase}
+.gk span:not(.gki){display:block;font-size:15px;margin-top:2px}
+.gkent p{margin:0;font-size:15px;line-height:1.45}
+.gkbtn{margin-top:12px;display:inline-flex;text-align:center}
+@media(max-width:900px){.gkgrid{grid-template-columns:1fr}.gk span:not(.gki){font-size:14px}.gkbtn{width:100%;box-sizing:border-box}}

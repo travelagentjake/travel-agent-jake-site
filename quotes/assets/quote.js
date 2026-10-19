@@ -843,7 +843,76 @@
     if (cgs) { cgs.classList.add('areag'); areaG = cgs; }
     var anchor = document.getElementById('todo') || document.getElementById('weather') || about;
     if (!cgs || anchor) anchor.parentNode.insertBefore(areaG, anchor.nextSibling);
+    var gtk = document.createElement('div'); gtk.id = 'goodToKnow'; gtk.className = 'areag gtk'; gtk.hidden = true; areaG.parentNode.insertBefore(gtk, areaG.nextSibling);
     function has(id) { var s = document.getElementById(id); return !!s && !s.hidden; }
+
+    /* useful facts by country (new quotes switch this on with "travelFacts" in the quote data) */
+    var CF = {
+      spain: ['Spain', 'Euro (€)', 'Type C and F, 230V', 'Right', 'Spanish', 'spain'],
+      portugal: ['Portugal', 'Euro (€)', 'Type C and F, 230V', 'Right', 'Portuguese', 'portugal'],
+      greece: ['Greece', 'Euro (€)', 'Type C and F, 230V', 'Right', 'Greek', 'greece'],
+      turkey: ['Turkey', 'Turkish lira (TRY)', 'Type C and F, 230V', 'Right', 'Turkish', 'turkey'],
+      cyprus: ['Cyprus', 'Euro (€)', 'UK style Type G, 240V', 'Left', 'Greek and Turkish, English is widely spoken', 'cyprus'],
+      malta: ['Malta', 'Euro (€)', 'UK style Type G, 230V', 'Left', 'Maltese and English', 'malta'],
+      italy: ['Italy', 'Euro (€)', 'Type C, F and L, 230V', 'Right', 'Italian', 'italy'],
+      france: ['France', 'Euro (€)', 'Type C and E, 230V', 'Right', 'French', 'france'],
+      croatia: ['Croatia', 'Euro (€)', 'Type C and F, 230V', 'Right', 'Croatian', 'croatia'],
+      montenegro: ['Montenegro', 'Euro (€)', 'Type C and F, 230V', 'Right', 'Montenegrin', 'montenegro'],
+      andorra: ['Andorra', 'Euro (€)', 'Type C and F, 230V', 'Right', 'Catalan, with Spanish and French widely spoken', 'andorra'],
+      netherlands: ['the Netherlands', 'Euro (€)', 'Type C and F, 230V', 'Right', 'Dutch, English is widely spoken', 'netherlands'],
+      belgium: ['Belgium', 'Euro (€)', 'Type C and E, 230V', 'Right', 'Dutch, French and German', 'belgium'],
+      germany: ['Germany', 'Euro (€)', 'Type C and F, 230V', 'Right', 'German', 'germany'],
+      austria: ['Austria', 'Euro (€)', 'Type C and F, 230V', 'Right', 'German', 'austria'],
+      finland: ['Finland', 'Euro (€)', 'Type C and F, 230V', 'Right', 'Finnish and Swedish', 'finland'],
+      switzerland: ['Switzerland', 'Swiss franc (CHF)', 'Type C and J, 230V', 'Right', 'German, French and Italian', 'switzerland'],
+      norway: ['Norway', 'Norwegian krone (NOK)', 'Type C and F, 230V', 'Right', 'Norwegian', 'norway'],
+      iceland: ['Iceland', 'Icelandic krona (ISK)', 'Type C and F, 230V', 'Right', 'Icelandic', 'iceland'],
+      tunisia: ['Tunisia', 'Tunisian dinar (TND)', 'Type C and E, 230V', 'Right', 'Arabic, with French widely spoken', 'tunisia'],
+      egypt: ['Egypt', 'Egyptian pound (EGP)', 'Type C and F, 220V', 'Right', 'Arabic', 'egypt'],
+      morocco: ['Morocco', 'Moroccan dirham (MAD)', 'Type C and E, 220V', 'Right', 'Arabic and Berber, with French widely spoken', 'morocco'],
+      maldives: ['the Maldives', 'Maldivian rufiyaa (MVR), US dollars are widely accepted at resorts', 'UK style Type G is common, some Type D, 230V', 'Left', 'Dhivehi, English is widely spoken at resorts', 'maldives'],
+      'dominican republic': ['the Dominican Republic', 'Dominican peso (DOP), US dollars are widely accepted at resorts', 'Type A and B (US style), 110V', 'Right', 'Spanish', 'dominican-republic'],
+      mexico: ['Mexico', 'Mexican peso (MXN)', 'Type A and B (US style), 127V', 'Right', 'Spanish', 'mexico'],
+      usa: ['the USA', 'US dollar (USD)', 'Type A and B (US style), 120V', 'Right', 'English', 'usa'],
+      canada: ['Canada', 'Canadian dollar (CAD)', 'Type A and B (US style), 120V', 'Right', 'English and French', 'canada'],
+      uae: ['the United Arab Emirates', 'UAE dirham (AED)', 'UK style Type G, 230V', 'Right', 'Arabic, English is widely spoken', 'united-arab-emirates'],
+      thailand: ['Thailand', 'Thai baht (THB)', 'Type A, B, C and O, 230V', 'Left', 'Thai', 'thailand'],
+      indonesia: ['Indonesia', 'Indonesian rupiah (IDR)', 'Type C and F, 230V', 'Left', 'Indonesian', 'indonesia'],
+      singapore: ['Singapore', 'Singapore dollar (SGD)', 'UK style Type G, 230V', 'Left', 'English, Malay, Mandarin and Tamil', 'singapore'],
+      japan: ['Japan', 'Japanese yen (JPY)', 'Type A and B (US style), 100V', 'Left', 'Japanese', 'japan'],
+      jamaica: ['Jamaica', 'Jamaican dollar (JMD)', 'Type A and B (US style), 110V', 'Left', 'English', 'jamaica'],
+      barbados: ['Barbados', 'Barbados dollar (BBD)', 'Type A and B (US style), 115V', 'Left', 'English', 'barbados'],
+      australia: ['Australia', 'Australian dollar (AUD)', 'Type I, 230V', 'Left', 'English', 'australia'],
+      'new zealand': ['New Zealand', 'New Zealand dollar (NZD)', 'Type I, 230V', 'Left', 'English and Maori', 'new-zealand'],
+      mauritius: ['Mauritius', 'Mauritian rupee (MUR)', 'Type C and G, 230V', 'Left', 'English, French and Creole', 'mauritius'],
+      seychelles: ['the Seychelles', 'Seychelles rupee (SCR)', 'UK style Type G, 240V', 'Left', 'Creole, English and French', 'seychelles'],
+      kenya: ['Kenya', 'Kenyan shilling (KES)', 'UK style Type G, 240V', 'Left', 'English and Swahili', 'kenya'],
+      tanzania: ['Tanzania', 'Tanzanian shilling (TZS)', 'Type D and G, 230V', 'Left', 'Swahili and English', 'tanzania'],
+      'south africa': ['South Africa', 'South African rand (ZAR)', 'Type M and N, 230V', 'Left', 'English and several other national languages', 'south-africa'],
+      'cape verde': ['Cape Verde', 'Cape Verdean escudo (CVE)', 'Type C and F, 230V', 'Right', 'Portuguese and Creole', 'cape-verde'],
+      'sri lanka': ['Sri Lanka', 'Sri Lankan rupee (LKR)', 'Type D, G and M, 230V', 'Left', 'Sinhala and Tamil, English is widely spoken', 'sri-lanka'],
+      india: ['India', 'Indian rupee (INR)', 'Type C, D and M, 230V', 'Left', 'Hindi and English', 'india']
+    };
+    var CF_ALIAS = { 'united states': 'usa', 'united states of america': 'usa', us: 'usa', america: 'usa', florida: 'usa', california: 'usa', 'new jersey': 'usa', 'new york': 'usa', orlando: 'usa', 'las vegas': 'usa', nevada: 'usa', hawaii: 'usa', madeira: 'portugal', azores: 'portugal', algarve: 'portugal', tenerife: 'spain', lanzarote: 'spain', fuerteventura: 'spain', 'gran canaria': 'spain', 'canary islands': 'spain', mallorca: 'spain', majorca: 'spain', menorca: 'spain', ibiza: 'spain', 'costa del sol': 'spain', crete: 'greece', rhodes: 'greece', corfu: 'greece', kos: 'greece', zante: 'greece', zakynthos: 'greece', santorini: 'greece', bali: 'indonesia', 'united arab emirates': 'uae', dubai: 'uae', 'abu dhabi': 'uae', 'the maldives': 'maldives', 'the netherlands': 'netherlands', 'the usa': 'usa', cabo: 'mexico', cancun: 'mexico' };
+    function cfFor(x) {
+      var raw = String((x && x.country) || '').toLowerCase().trim(), k = CF_ALIAS[raw] || raw;
+      if (!CF[k]) { var a = String((x && x.area) || '').toLowerCase(); for (var n in CF_ALIAS) if (a.indexOf(n) > -1) { k = CF_ALIAS[n]; break; } }
+      return CF[k] ? { k: k, d: CF[k] } : null;
+    }
+    function travelFactsHtml(x) {
+      var T = BASE.travelFacts; if (!T) return '';
+      var c = cfFor(x), o = (T === true ? {} : T), by = (o.byCountry && ((c && o.byCountry[c.k]) || o.byCountry[x.country])) || {};
+      var d = c ? { place: c.d[0], currency: c.d[1], plug: c.d[2], drive: c.d[3], language: c.d[4], fcdo: c.d[5] } : {};
+      ['place', 'currency', 'plug', 'drive', 'language', 'fcdo', 'entry', 'extra'].forEach(function (f) { if (o[f] != null) d[f] = o[f]; if (by[f] != null) d[f] = by[f]; });
+      if (!d.place) d.place = x.country || 'your destination';
+      var tile = function (ic, t, v) { return v ? '<div class="gk"><span class="gki" aria-hidden="true">' + ic + '</span><div><b>' + esc(t) + '</b><span>' + esc(v) + '</span></div></div>' : ''; };
+      var h = '<div class="ag"><h3>Good to know before you go</h3><div class="agh">' + esc(d.place) + '</div><div class="gkgrid">'
+        + tile('💱', 'Currency', d.currency) + tile('🔌', 'Plugs and voltage', d.plug) + tile('🚗', 'Drives on the', d.drive) + tile('🗣️', 'Language', d.language) + '</div>'
+        + (d.extra && d.extra.length ? '<div class="gkgrid">' + d.extra.map(function (e) { return tile('ℹ️', e[0], e[1]); }).join('') + '</div>' : '')
+        + '<div class="agb safe gkent"><h4>Entry requirements</h4><p>' + esc(d.entry || 'Entry rules can change, so please check the latest requirements for British passport holders on the GOV.UK page below before you book.') + '</p></div>';
+      if (d.fcdo) h += '<a class="btn btn-y gkbtn" href="https://www.gov.uk/foreign-travel-advice/' + encodeURIComponent(d.fcdo) + '" target="_blank" rel="noopener">Entry requirements and current travel advice on GOV.UK</a>';
+      return h + '</div>';
+    }
     function aboutHtml(x) {
       var bs = x.variantOf ? hotel(x.variantOf) : null, r = x.resort || (bs && bs.resort) || {}, h = '<div class="abt"><h3>About ' + esc(String(x.name).replace(/,\s*\d+ nights from.*$/, '')) + '</h3><p>' + esc(x.about || (bs && bs.about) || x.why || '') + '</p>';
       if (x.feats && x.feats.length) h += '<div class="feat">' + x.feats.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>';
@@ -861,6 +930,7 @@
         hIdx = hIndex(art); var c = document.getElementById('cHotel'); if (c) c.value = String(hIdx); calc();
         about.innerHTML = aboutHtml(x);
         if (!cgs) { var rs = x.resort || (x.variantOf && hotel(x.variantOf) ? hotel(x.variantOf).resort : null); areaG.innerHTML = areaGuideHtml(rs && rs.town ? areaGuideFromResort(x, rs) : areaGuideFor(x.variantOf && hotel(x.variantOf) ? hotel(x.variantOf) : x)); areaG.hidden = !areaG.innerHTML; }
+        gtk.innerHTML = travelFactsHtml(x); gtk.hidden = !gtk.innerHTML;
         var wsec = document.getElementById('weather'); if (wsec) wsec.classList.toggle('wxnone', !document.querySelector('#wxList > *:not([hidden])'));
         /* custom area guides: show only the one for this option's hotel (hotel areaId, or its id) */
         var akey = 'ag-' + (x.areaId || x.variantOf || x.id), ags = document.querySelectorAll('.custom .ag[id^="ag-"]'), hit = !!document.getElementById(akey);
