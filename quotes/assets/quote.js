@@ -453,12 +453,12 @@
     }
     var rows = ''; for (var i = 0; i < n; i++) rows += paxRow(i);
     return '<div class="book" id="book" hidden><h3>Book this holiday</h3>'
-      + '<div class="bknote"><p><b>No payment is taken on this page.</b> Fill this in and it comes straight to me, then I text you a secure payment link for ' + (fullOnly ? 'the full amount' : 'the amount you choose') + '.</p><p><b>Your holiday is not confirmed</b> until your payment has been received and I have booked everything with the tour operator. I then send your confirmation.</p><p>Names must match passports exactly.</p></div>'
+      + '<div class="bknote"><p><b>No payment is taken on this page.</b> Fill this in and it comes straight to me, then I text you a secure payment link for ' + (fullOnly ? 'the full amount' : 'the amount you choose') + '.</p><p><b>Your holiday is not confirmed</b> until your payment has been received and I have booked everything with the tour operator. I then send your confirmation, receipt and ATOL certificate.</p></div>'
       + '<form id="bookForm" novalidate>'
       + '<h4>' + esc(Q.pickTitle || 'Which hotel') + '</h4>'
       + (multi ? '<select id="bkHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '<p class="bkh"><b>' + esc(hotels[0].name) + '</b>, ' + gbp(hotels[0].total) + '</p>')
       + '<div id="bkSum" class="bksum"></div>'
-      + '<h4>Who is travelling</h4><div id="bkPax">' + rows + '</div>'
+      + '<h4>Who is travelling</h4><p class="small bkpp" style="margin:-2px 0 8px"><b>Names must be as they appear on your passport.</b></p><div id="bkPax">' + rows + '</div>'
       + '<p><button class="btn btn-o" type="button" id="bkAdd">Add another passenger</button></p>'
       + '<h4>Your contact details</h4><div class="paxg">'
       + '<label class="wide">Home address<textarea name="address" rows="3" autocomplete="street-address" required placeholder="House number, street, town"></textarea></label>'
@@ -562,7 +562,7 @@
         .then(function (r) {
           if (!r.ok) throw new Error((r.j && r.j.error) || 'Something went wrong');
           f.hidden = true; var d = document.getElementById('bkDone'); d.hidden = false;
-          d.innerHTML = '<h4>Thank you, ' + esc(pax[0].first) + '!</h4><p>Your booking details are with me. I will text ' + esc(body.mobile) + ' with a secure payment link for ' + fmt(body.payToday) + '. Nothing has been charged and your holiday is not confirmed yet. As soon as your payment is received I book everything with the tour operator, then send your confirmation and ATOL certificate.</p><p>A copy of what you sent (without any bank details) is on its way to ' + esc(body.email) + '.</p>';
+          d.innerHTML = '<h4>Thank you, ' + esc(pax[0].first) + '!</h4><p>Your booking details are with me. I will text ' + esc(body.mobile) + ' with a secure payment link for ' + fmt(body.payToday) + '. Nothing has been charged and your holiday is not confirmed yet. As soon as your payment is received I book everything with the tour operator, then send your confirmation, receipt and ATOL certificate.</p><p>A copy of what you sent (without any bank details) is on its way to ' + esc(body.email) + '.</p>';
           d.scrollIntoView({ behavior: 'smooth', block: 'start' });
         })
         .catch(function (e) { err.textContent = 'Sorry, that did not send (' + e.message + '). Please try again, or send me a WhatsApp and I will take the details there.'; err.hidden = false; btn.disabled = false; btn.textContent = 'Send my booking details to Jake'; });
