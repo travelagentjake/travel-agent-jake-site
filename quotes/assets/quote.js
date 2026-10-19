@@ -468,7 +468,9 @@
       + '<h4>Paying today</h4>' + (fullOnly
         ? '<p class="bkfull" id="bkFullNote">' + (Q.fullPayment === true ? 'This holiday is paid in full at the time of booking.' : 'As you travel within 14 weeks, this holiday is paid in full at the time of booking.') + '</p><input type="hidden" name="payNow" value="full" checked>'
         : '<div class="bkopts" id="bkPayNow"><label class="fbopt"><input type="radio" name="payNow" value="deposit" checked><span>Just the deposit</span></label>'
-        + '<label class="fbopt"><input type="radio" name="payNow" value="full"><span>The full amount</span></label></div>')
+        + '<label class="fbopt"><input type="radio" name="payNow" value="other"><span>Another amount</span></label>'
+        + '<label class="fbopt"><input type="radio" name="payNow" value="full"><span>The full amount</span></label></div>'
+        + '<div id="bkOther" hidden style="margin-top:10px"><label>How much would you like to pay today? (&pound;)<input type="number" id="bkOtherAmt" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 1000" autocomplete="off"></label><p class="small" id="bkOtherNote" style="margin:6px 0 0"></p></div>')
       + '<div class="bkopts" style="margin-top:10px"><label class="fbopt"><input type="radio" name="payHow" value="card" checked><span>Debit or credit card</span></label>'
       + '<label class="fbopt"><input type="radio" name="payHow" value="bank"><span>Bank transfer</span></label></div>'
       + '<p class="small" style="margin:8px 0 0">Either way I text you a secure payment link, so nothing is paid on this page.</p>'
@@ -479,7 +481,7 @@
       + '<label>Name of the account holder<input type="text" name="ddName" autocomplete="off"></label>'
       + '<label>Sort code<input type="text" name="ddSort" inputmode="numeric" placeholder="00-00-00" autocomplete="off"></label>'
       + '<label>Account number<input type="text" name="ddAcc" inputmode="numeric" placeholder="8 digits" autocomplete="off"></label></div>'
-      + '<p class="small" id="bkDDNote" hidden>The balance will be due in one go, about 14 weeks before you travel.</p></div>')
+      + '<p class="small" id="bkDDPlan" style="margin:6px 0 0"></p><p class="small" id="bkDDNote" hidden>The balance will be due in one go, about 14 weeks before you travel.</p></div>')
       + '<label class="bkagree"><input type="checkbox" id="bkAgree" required><span>I have read and agree to the <a href="https://travelagentjake.co.uk/booking-conditions.html" target="_blank" rel="noopener">booking conditions</a> on travelagentjake.co.uk, and I confirm the details above are correct.</span></label>'
       + '<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">'
       + '<p id="bkErr" class="bkerr" hidden></p>'
@@ -494,15 +496,20 @@
     function sum() {
       var x = bkHotel(), list = xFor(x), ex = list.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0);
       var total = x.total + ex, today = paidToday(x), deposit = depOf(x), dep = deposit + today;
-      var full = fullOnly || (document.querySelector('input[name="payNow"]:checked') || {}).value === 'full';
+      var pn = (document.querySelector('input[name="payNow"]:checked') || {}).value, full = fullOnly || pn === 'full', other = !full && pn === 'other';
+      var oBox = document.getElementById('bkOther'); if (oBox) oBox.hidden = !other;
+      var oa = other ? Math.round(parseFloat((document.getElementById('bkOtherAmt') || {}).value) * 100) / 100 : 0, oOk = other && oa >= dep && oa < total;
+      var oNote = document.getElementById('bkOtherNote'); if (oNote) oNote.textContent = other ? (oOk || !document.getElementById('bkOtherAmt').value ? 'The minimum is ' + fmt(Math.round(dep * 100) / 100) + ' (your deposit). The rest becomes your balance.' : 'Please enter an amount from ' + fmt(Math.round(dep * 100) / 100) + ' up to ' + fmt(Math.round((total - 0.01) * 100) / 100) + ', or choose the full amount.') : '';
+      if (other && oOk) dep = oa;
       var el = document.getElementById('bkSum');
       el.innerHTML = '<div><span>Holiday' + (list.length ? ' with ' + list.length + ' extra' + (list.length > 1 ? 's' : '') : '') + '</span><b>' + fmt(Math.round(total * 100) / 100) + '</b></div>'
-        + '<div><span>' + (full ? 'To pay today, the full amount' : 'To pay today' + (today ? ' (deposit plus airport extras)' : ', your deposit')) + '</span><b>' + fmt(Math.round((full ? total : dep) * 100) / 100) + '</b></div>'
+        + '<div><span>' + (full ? 'To pay today, the full amount' : other && oOk ? 'To pay today, the amount you chose' : 'To pay today' + (today ? ' (deposit plus airport extras)' : ', your deposit')) + '</span><b>' + fmt(Math.round((full ? total : dep) * 100) / 100) + '</b></div>'
         + (full ? '' : '<div><span>Balance to follow</span><b>' + fmt(Math.round((total - dep) * 100) / 100) + '</b></div>')
         + (list.length ? '<p class="small" style="margin:8px 0 0">Extras: ' + list.map(function (e) { return esc(e.title); }).join(', ') + '. Change them in <a href="#extras">Add extras</a>.</p>' : '');
       var dd = document.getElementById('bkDD'); if (dd) dd.hidden = full;
-      var w = document.getElementById('bkWantDD'), ff = document.getElementById('bkDDFields'), pg = document.getElementById('bkPayGo'), nt = document.getElementById('bkDDNote'); if (w && ff) ff.hidden = !w.checked; if (pg && nt) nt.hidden = !pg.checked;
-      var opt = document.querySelector('input[name="payNow"][value="deposit"]'); if (opt) opt.nextSibling.textContent = 'Just the deposit, ' + fmt(Math.round(dep * 100) / 100);
+      var ddp = document.getElementById('bkDDPlan'); if (ddp) { var dday = Number((f.querySelector('[name=ddDay]') || {}).value) || 1, pl2 = Q.departDate ? ddPlan(Math.max(0, total - dep), Q.departDate, dday) : { ok: false }; ddp.textContent = pl2.ok ? 'Your balance of ' + fmt(Math.round((total - dep) * 100) / 100) + ' is ' + pl2.n + ' monthly payments of ' + money(pl2.each) + ', from ' + dmy(pl2.first) + ', with the final payment on ' + dmy(pl2.end) + '.' : ''; }
+      var w = document.getElementById('bkWantDD'), ff = document.getElementById('bkDDFields'), pg = document.getElementById('bkPayGo'), nt = document.getElementById('bkDDNote'); if (w && ff) { ff.hidden = !w.checked; if (ddp) ddp.hidden = !w.checked; } if (pg && nt) nt.hidden = !pg.checked;
+      var opt = document.querySelector('input[name="payNow"][value="deposit"]'); if (opt) opt.nextSibling.textContent = 'Just the deposit, ' + fmt(Math.round((deposit + today) * 100) / 100);
       var opt2 = document.querySelector('input[name="payNow"][value="full"]'); if (opt2) opt2.nextSibling.textContent = 'The full amount, ' + fmt(Math.round(total * 100) / 100);
     }
     if (hs) hs.addEventListener('change', function () { hIdx = Number(hs.value); calc(); var c = document.getElementById('cHotel'); if (c) c.value = hs.value; var fh = document.getElementById('fHotel'); if (fh) fh.value = hs.value; sum(); });
@@ -522,9 +529,11 @@
         pax.push({ first: r.querySelector('[name=first]').value.trim(), middle: r.querySelector('[name=middle]').value.trim(), last: r.querySelector('[name=last]').value.trim(), dob: r.querySelector('[name=dob]').value });
       });
       var g = function (n) { var el = f.querySelector('[name=' + n + ']'); return el ? el.value.trim() : ''; };
-      var full = fullOnly || (document.querySelector('input[name="payNow"]:checked') || {}).value === 'full';
+      var pnv = (document.querySelector('input[name="payNow"]:checked') || {}).value, full = fullOnly || pnv === 'full', isOther = !full && pnv === 'other';
+      var otherAmt = isOther ? Math.round(parseFloat(document.getElementById('bkOtherAmt').value) * 100) / 100 : 0;
       var wantDD = !full && !!document.getElementById('bkWantDD') && document.getElementById('bkWantDD').checked;
       var problems = [];
+      if (isOther) { var minPay = depOf(bkHotel()) + paidToday(bkHotel()), totPay = bkHotel().total + xFor(bkHotel()).reduce(function (a, e) { return a + (xTotal(e, bkHotel()) || 0); }, 0); if (!(otherAmt >= minPay && otherAmt < totPay)) problems.push('an amount to pay today from ' + fmt(Math.round(minPay * 100) / 100) + ' up to just under the full price, or choose the full amount'); }
       if (pax.some(function (p) { return !p.first || !p.last || !p.dob; })) problems.push('every passenger needs a first name, surname and date of birth');
       if (!g('address') || !g('postcode')) problems.push('your home address and postcode');
       if (!/^\+?[\d\s]{10,15}$/.test(g('mobile'))) problems.push('a mobile number');
@@ -540,8 +549,8 @@
       var list = xFor(x), ex = list.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0), deposit = depOf(x);
       var body = {
         slug: Q.slug, customer: Q.customer, title: Q.title, hotel: x.name, hotelTotal: x.total, extras: list.map(function (e) { return { title: e.title, total: xTotal(e, x), separate: !!e.separate }; }),
-        total: Math.round((x.total + ex) * 100) / 100, deposit: deposit, payToday: Math.round(((full ? x.total + ex : deposit + paidToday(x))) * 100) / 100,
-        payNow: full ? 'full' : 'deposit', payHow: (document.querySelector('input[name="payHow"]:checked') || {}).value || 'card',
+        total: Math.round((x.total + ex) * 100) / 100, deposit: deposit, payToday: Math.round(((full ? x.total + ex : isOther ? otherAmt : deposit + paidToday(x))) * 100) / 100,
+        payNow: full ? 'full' : isOther ? 'other' : 'deposit', ddPlan: (wantDD && document.getElementById('bkDDPlan')) ? document.getElementById('bkDDPlan').textContent : '', payHow: (document.querySelector('input[name="payHow"]:checked') || {}).value || 'card',
         dd: wantDD ? { day: Number(g('ddDay')), name: g('ddName'), sort: g('ddSort').replace(/\D/g, ''), account: g('ddAcc').replace(/\D/g, '') } : null,
         passengers: pax, address: g('address'), postcode: g('postcode'), mobile: g('mobile'), email: g('email'), agreed: true, website: g('website'), departDate: Q.departDate || ''
       };
