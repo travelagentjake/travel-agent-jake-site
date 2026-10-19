@@ -1904,6 +1904,13 @@ DESTINATION_POSTS = [
         "excerpt": "TUI's three real escorted tours compared, from Beijing and the Great Wall to the Yangtze River, Zhangjiajie, Guilin and Hong Kong, weather by month and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1608037521277-154cd1b89191?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "canada.html",
+        "meta": "Canada",
+        "title": "Canada",
+        "excerpt": "TUI's real escorted and self drive Canada tours compared, from Toronto and Niagara Falls to Quebec City, Montreal, Ottawa and the Rockies, weather by month and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1507992781348-310259076fe0?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -11147,6 +11154,255 @@ with open(os.path.join(SITE, "china.html"), "w", encoding="utf-8") as f:
 print("china.html written")
 
 
+canada_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>CANADA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Niagara Falls, the old stone streets of Quebec City, turquoise lakes in the Rockies and the neon pull of Toronto. Canada is one of the biggest countries on earth, so here's exactly how I book it, what TUI's real escorted tours cover and what they cost.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Canada</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1507992781348-310259076fe0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Toronto skyline and CN Tower across Lake Ontario at golden hour" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Canada comes up a lot with clients who want a big bucket list trip rather than a straightforward beach week, and TUI is currently the only one of my three main operators, TUI, Jet2holidays and easyJet holidays, that sells it. Neither Jet2holidays nor easyJet holidays flies this far west yet. Even through TUI, Canada isn't sold as a pick your own hotel package, it's a set of real escorted tours, each with its own route, flights, hotels and a long list of included experiences built in.</p>
+    <p style="margin-top:14px;">That actually makes it easier to plan rather than harder. Canada is roughly 40 times the size of the UK, so trying to string together flights, car hire and hotels yourself across provinces and time zones is a serious undertaking. An escorted or self drive tour means the route, accommodation and (on the guided tours) an English speaking guide are already sorted, you just turn up and see the country.</p>
+    {jake_tip("I always explain upfront that Canada isn't one holiday, it's several completely different ones depending on which coast you head for. The first conversation is always which region and pace suits a client, not which hotel they fancy.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">TUI's Canada tours run anywhere from 8 to 13 nights depending on the route, with trip length and pace varying a lot between them. The eastern city tours are classed as a leisurely to moderate pace with a mix of guided sightseeing and free time, while the self drive tour through the Rockies covers serious distance each day behind the wheel. None of the three tours I've picked out below has an upper age limit, and only the Eastern Explorer has a minimum age, at 10. They suit couples, friends and families with older children who want a proper look at the country's cities, mountains or both, rather than a single resort stay. The self drive route particularly suits confident drivers who are happy covering long distances and want total flexibility over when they stop.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1533094602577-198d3beab8ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Niagara Falls seen from above, Ontario, Canada" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>TUI flies into Canada from a choice of UK departure airports depending on the tour. The eastern tours fly into Toronto with a wide choice of UK airports including Belfast City, Birmingham, Edinburgh, Glasgow, London City, Gatwick, Heathrow, Manchester and Newcastle, while the Rockies self drive tour flies into Vancouver from Heathrow or Manchester. Flight time is around 8 hours direct to Toronto and a little under 9 hours direct to Vancouver. All flights, transfers and transport between stops on the guided tours, or car hire on the self drive tour, are included in the TUI price and protected under TUI's ATOL licence (ATOL 2524).</p>
+    <p style="margin-top:14px;">On entry requirements, UK passport holders don't need a visa for a short Canadian holiday, but you do currently need an Electronic Travel Authorisation (eTA) to fly in, which is separate from a visa and currently costs CAD$7 (about &pound;3.70). It's applied for online before you travel, through the official Canada.ca website only, and most applications are approved within minutes. I always warn clients to apply directly on the government's own site, since several unofficial lookalike sites charge far more for the same thing.</p>
+    {jake_tip("Only ever apply for a Canada eTA on the official canada.ca website. I've seen clients get caught out paying two or three times the real fee on copycat sites that look official but aren't linked to the Canadian government at all.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Toronto is the start and finish point for both eastern tours, so it's the most useful reference for weather, though Canada is big enough that you'll find a real range of climates across it, from Quebec's crisp continental winters to the milder, wetter coast around Vancouver and genuinely cold, snowy conditions in the Rockies outside summer.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect in Toronto</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>-1&deg;C</td><td>-8&deg;C</td><td>Cold and often snowy, shortest days</td></tr>
+          <tr><td>February</td><td>-1&deg;C</td><td>-7&deg;C</td><td>Still cold, occasional snow</td></tr>
+          <tr><td>March</td><td>4&deg;C</td><td>-3&deg;C</td><td>Starting to thaw, still chilly</td></tr>
+          <tr><td>April</td><td>11&deg;C</td><td>3&deg;C</td><td>Mild and changeable</td></tr>
+          <tr><td>May</td><td>17&deg;C</td><td>9&deg;C</td><td>Pleasant and a popular tour start month</td></tr>
+          <tr><td>June</td><td>22&deg;C</td><td>14&deg;C</td><td>Warm, long daylight hours</td></tr>
+          <tr><td>July</td><td>25&deg;C</td><td>17&deg;C</td><td>Warmest month, can get humid</td></tr>
+          <tr><td>August</td><td>24&deg;C</td><td>17&deg;C</td><td>Still warm, occasional storms</td></tr>
+          <tr><td>September</td><td>20&deg;C</td><td>13&deg;C</td><td>Comfortable, early autumn colour starts</td></tr>
+          <tr><td>October</td><td>13&deg;C</td><td>7&deg;C</td><td>Cooling fast, peak autumn colour</td></tr>
+          <tr><td>November</td><td>7&deg;C</td><td>1&deg;C</td><td>Cold, often the first snow</td></tr>
+          <tr><td>December</td><td>2&deg;C</td><td>-4&deg;C</td><td>Firmly winter, festive but cold</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Average high and low temperatures for Toronto, via WeatherSpark (long term averages).</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">Each tour only runs across a handful of months, so the best time to go really depends on the route you pick. Canada's Twin Cultures runs year round and departs from around &pound;1352pp. Canada's Great Parks of the West Self Drive Tour only runs May to September, since the high mountain passes aren't reliably open outside summer, from around &pound;1912pp in May up to around &pound;2146pp in June and July. Canada's Eastern Explorer also only runs May to September, from around &pound;2745pp in May up to around &pound;2880pp in June. Late September and early October bring Canada's famous autumn colour, which I always flag to clients who ask specifically about the leaves, though it falls right at the end of the self drive tour's season and outside the eastern tours' current departure windows.</p>
+    {jake_tip("June tends to be the best balance of good weather and value across most of the tours. If a client's heart is set on seeing autumn colour, I talk them through what's actually bookable rather than promising a date none of the tours currently cover.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three ways to see Canada</h2>
+    <p style="margin-top:14px;">Canada is a natural multi centre destination, since even a single TUI tour strings several cities, parks or provinces together in one booking. Here are three real, bookable tours from TUI's current range, so you can see which route actually fits what you want to see.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1541789273499-d691c329a635?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Old Port in Montreal, Canada" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Canada's Twin Cultures</h3>
+        <p>8 nights. Toronto, Niagara Falls, Quebec City and Montreal, mixing English and French Canadian culture in one trip. Leisurely pace, 4 included experiences and a half day Niagara Falls trip. From &pound;1352pp, flying from a wide choice of UK airports. No minimum age.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1594741873407-c292ca075f8b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Lake Louise in Banff National Park, Alberta, Canada" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Canada's Great Parks of the West Self Drive Tour</h3>
+        <p>13 nights. Vancouver, the Okanagan Valley, Glacier and Banff National Parks, the Icefields Parkway, Jasper and Whistler. Self drive with car hire included, no guide needed. From &pound;1912pp, flying from Heathrow or Manchester. Runs May to September only.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1598637529152-69afaa58432b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The old town of Quebec City, Canada" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Canada's Eastern Explorer</h3>
+        <p>11 nights. Toronto, the Thousand Islands, Montreal, Quebec City, Ottawa, Algonquin Park and Niagara Falls. Moderate pace, 12 included experiences and almost all meals covered. From &pound;2745pp, flying from a wide choice of UK airports. Minimum age 10.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each tour across its current departure months, correct at the time of writing and subject to change. All three are ATOL protected under TUI's licence (ATOL 2524).</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Because these are escorted or self drive tours rather than pick your own hotel holidays, TUI chooses the hotels for location rather than naming them in advance, the same as its Japan and China tours. What TUI does confirm is the standard. Canada's Twin Cultures splits its 8 nights between three hotels of a 3 star, 3.5 star or 4 star standard across Toronto, Quebec City and Montreal. Canada's Great Parks of the West Self Drive Tour uses eight hotels of a 3 star and 3.5 star standard along its route from Vancouver to Whistler. Canada's Eastern Explorer spreads its 11 nights across six hotels of a 3 star and 4 star standard, covering Toronto, Montreal, Quebec City and Ottawa. I'll confirm the exact named hotels with you once a specific departure date is booked.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">On the two guided tours, every transfer, scenic train leg and piece of transport between stops is arranged and included as part of the TUI package, with a local English speaking guide throughout on the Twin Cultures and Eastern Explorer routes, so there's nothing to organise yourself once you've booked. The Great Parks of the West tour works differently, since it's a self drive itinerary with car hire included in the price rather than a guide. You'll need a full UK driving licence and be at least 21, with a surcharge for drivers under 25, and you'll be covering genuine distance each day along mountain roads like the Icefields Parkway, so it suits confident, experienced drivers rather than a first time visitor who'd rather not drive on holiday.</p>
+    {jake_tip("If driving yourself through the Rockies doesn't appeal, Canada's Twin Cultures or Eastern Explorer give you the same scale of scenery and city sightseeing with a guide doing all the driving and planning instead.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1543962226-818f4301073f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The illuminated Toronto skyline and CN Tower at night, seen from the Toronto Islands" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Beyond each tour's own included experiences, these are some of the best rated extra things to do in Toronto, worth adding on if you extend your stay there before or after your tour.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="1483852,191267,411285,19639"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/toronto-l177/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/toronto-l177/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Toronto &rarr;</a>
+      </div>
+    </div>
+    <p style="margin-top:18px;">Further along the routes, popular extras include a boat trip behind the Horseshoe Falls at Niagara, a food and distillery tour in Montreal's Old Port, whale watching off Vancouver Island, and a gondola ride up Whistler or Sulphur Mountain, all bookable locally through your tour guide or in advance through GetYourGuide.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1437147921639-ef00e030265a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The CN Tower rising above the Toronto skyline at dusk" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The CN Tower, Toronto</h3>
+        <p>One of the tallest freestanding structures in the world, with a glass floor and views over Lake Ontario on a clear day. The obvious first stop on every eastern tour, and a genuine highlight even for clients who aren't keen on heights.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1763877506868-636dc8550fb2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A boat approaching Niagara Falls, Ontario, Canada" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Niagara Falls</h3>
+        <p>Included on both eastern tours, with the option to get right up close on a boat trip or walk behind the curtain of water itself. One of those sights that's genuinely bigger and louder in person than any photo suggests.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1781210455329-3c8f41d60fce?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A turquoise glacial lake surrounded by the peaks of Banff National Park, Alberta, Canada" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Banff National Park &amp; the Icefields Parkway</h3>
+        <p>Turquoise glacial lakes, snow capped peaks and one of the most scenic drives on earth, all covered on the Great Parks of the West self drive route. Lake Louise alone is worth the entire trip for a lot of clients.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1598637529152-69afaa58432b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The old town of Quebec City, Canada" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Old Quebec, Quebec City</h3>
+        <p>A UNESCO listed old town with cobbled streets, a clifftop hotel and genuinely French Canadian atmosphere, included on both the Twin Cultures and Eastern Explorer tours. It feels more like a corner of France than anywhere else in North America.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1586805608485-add336722759?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Poutine, Canada's signature dish of chips, cheese curds and gravy, from a food truck" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Canada uses the Canadian Dollar. Flights, hotels, most transport and the included experiences are already covered in the TUI tour price, but these are typical everyday costs for extra meals, drinks and taxis in Toronto, converted to pounds sterling at a rate of roughly &pound;1 to C$1.88.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;13.31 (about C$25.00)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;3.04 (about C$5.70)</td></tr>
+          <tr><td>Domestic draught beer, a pint</td><td>&pound;4.79 (about C$9.00)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;1.30 (about C$2.44)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;2.26 (about C$4.25)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd sourced averages via Numbeo (Toronto), checked at time of writing. Canadian Dollar to pound sterling conversion is approximate and moves around day to day, so treat these as a guide rather than an exact figure. Don't forget tipping, which is expected in Canada at around 15 to 20 percent in restaurants.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Canadian Dollar (CAD)</td></tr>
+          <tr><td>Plug type</td><td>Types A and B, different from the UK's Type G, so you'll need a travel adaptor, and Canada runs on 120V against the UK's 230V</td></tr>
+          <tr><td>Language</td><td>English, with French widely spoken and the official language in Quebec</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 8 hours direct to Toronto, just under 9 hours direct to Vancouver</td></tr>
+          <tr><td>Time difference</td><td>Toronto, Montreal, Quebec City and Ottawa are 5 hours behind the UK. Vancouver and the Rockies are 7 to 8 hours behind</td></tr>
+          <tr><td>Entry requirements</td><td>No visa needed for a short UK visit, but you do need an Electronic Travel Authorisation (eTA), currently CAD$7, applied for online at canada.ca before you fly</td></tr>
+          <tr><td>Minimum age for tour</td><td>No minimum age on Twin Cultures or the Great Parks of the West self drive tour, 10 years on Eastern Explorer</td></tr>
+          <tr><td>Driving</td><td>Right hand side. Only relevant if you book the self drive tour, which needs a full UK licence and a minimum age of 21</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Berkay Gumustekin, Edward Koorey, Nathalia Segato, Charlie Gallant, Jochem Raat, Wade Gardner, Daniel Mainye, Rafael Peier and withlovefromchile via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Canada for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can talk you through all of TUI's real Canada tours, check live departure dates and pricing, and help you work out honestly which route fits what you actually want to see.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+canada_body = canada_body.replace("::NEWSLETTER::", newsletter_section())
+
+CANADA_SCHEMA = article_and_faq_schema(
+    "Canada: Jake's Destination Guide",
+    "Jake's honest guide to Canada: how TUI's real escorted and self drive tours work, weather by month, and what a trip covering Toronto, Niagara Falls, Quebec City, Montreal, Ottawa or the Rockies actually costs.",
+    "canada.html",
+    "https://images.unsplash.com/photo-1507992781348-310259076fe0?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator sells Canada package holidays?", "TUI is currently the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that sells Canada at all. Neither Jet2holidays nor easyJet holidays flies this far west at the moment."),
+        ("Is Canada sold as a flight and hotel package or a tour?", "As a set of escorted and self drive tours rather than a pick your own hotel package. I usually talk clients through three real options: Canada's Twin Cultures, Canada's Great Parks of the West Self Drive Tour, and Canada's Eastern Explorer, each with flights, hotels and transport included."),
+        ("Do I need a visa for Canada?", "No, UK passport holders don't need a visa for a short holiday, but you do currently need an Electronic Travel Authorisation (eTA), which costs CAD$7 and is applied for online at the official canada.ca website before you fly. Avoid unofficial lookalike sites that charge more for the same thing."),
+        ("Is there a minimum age for the Canada tours?", "It depends on the tour. Canada's Twin Cultures and the Great Parks of the West self drive tour have no minimum age, while Canada's Eastern Explorer has a minimum age of 10."),
+        ("Which Canada tour should I book?", "It depends what you want to see. Canada's Twin Cultures is a shorter, more affordable mix of Toronto, Niagara Falls, Quebec City and Montreal. The Great Parks of the West Self Drive Tour is the one for the Rockies and total flexibility behind the wheel. Canada's Eastern Explorer covers the most ground with a guide doing the planning, including Ottawa and Algonquin Park. I always talk clients through all three before they decide."),
+    ]
+)
+with open(os.path.join(SITE, "canada.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Canada: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Canada: how TUI's real escorted and self drive tours work, weather by month, and what a trip covering Toronto, Niagara Falls, Quebec City, Montreal, Ottawa or the Rockies actually costs.",
+        "destinations.html",
+        canada_body,
+        extra_schema=CANADA_SCHEMA,
+        canonical_path="canada.html"
+    ))
+print("canada.html written")
+
+
+
 
 
 
@@ -17432,6 +17688,7 @@ SITEMAP_PAGES = [
     ("orlando.html", "0.6"),
     ("japan.html", "0.6"),
     ("china.html", "0.6"),
+    ("canada.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
