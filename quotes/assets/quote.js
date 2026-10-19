@@ -659,6 +659,73 @@
   var so = document.getElementById('slidesOnly');
   if (so) so.addEventListener('click', function () { slidesOnly = !slidesOnly; so.setAttribute('aria-pressed', String(slidesOnly)); renderTable(); renderHotels(); });
   renderTable(); renderHotels();
+  /* swipe through mode for package quotes: intro, one option at a time (stay, things to do, weather, extras, pay), then decide */
+  function deck() {
+    if (!pkgAll) return;
+    function A() { return Array.prototype.slice.call(document.querySelectorAll('#hotelList article.hotel')); }
+    if (!A().length) return;
+    var N = A().length, view = 0, tab = 'stay', body = document.body;
+    body.classList.add('deck');
+    function hIndex(art) { var id = art.id.replace(/^h-/, ''), r = 0; hotels.forEach(function (h, i) { if (h.id === id) r = i; }); return r; }
+    var bar = document.createElement('div'); bar.id = 'dbar';
+    bar.innerHTML = '<button type="button" class="dback" id="dBack"></button><div class="dmid" id="dMid"></div><button type="button" class="dnext" id="dNext"></button>';
+    document.body.appendChild(bar);
+    var tabs = document.createElement('div'); tabs.className = 'dtabs'; tabs.id = 'dTabs';
+    tabs.innerHTML = [['stay', 'Stay and flights'], ['todo', 'Things to do'], ['weather', 'Weather'], ['extras', 'Extras'], ['pay', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '">' + t[1] + '</button>'; }).join('');
+    var hs = document.getElementById('hotels'); hs.parentNode.insertBefore(tabs, hs);
+    var prog = document.createElement('div'); prog.className = 'dprog'; prog.id = 'dProg'; bar.insertBefore(prog, bar.firstChild);
+    function has(id) { var s = document.getElementById(id); return !!s && !s.hidden; }
+    function render(dir) {
+      body.setAttribute('data-v', view === 0 ? 'intro' : view > N ? 'final' : 'opt');
+      body.setAttribute('data-tab', tab);
+      if (view >= 1 && view <= N) {
+        var art = A()[view - 1], x = hotels[hIndex(art)];
+        A().forEach(function (a, i) { a.hidden = i !== view - 1; });
+        hIdx = hIndex(art); var c = document.getElementById('cHotel'); if (c) c.value = String(hIdx); calc();
+        wxPlaces.forEach(function (w) { var el = document.querySelector('[data-wx="' + w.key.replace(/"/g, '') + '"]'); if (el) el.hidden = w.hotels.indexOf(x.name) < 0; });
+        var avail = { stay: true, todo: has('todo'), weather: has('weather') && !!document.querySelector('#wxList > *:not([hidden])'), extras: has('extras'), pay: true };
+        Array.prototype.forEach.call(tabs.children, function (b) { b.hidden = !avail[b.dataset.dt]; b.classList.toggle('on', b.dataset.dt === tab); });
+        if (!avail[tab]) { tab = 'stay'; body.setAttribute('data-tab', tab); Array.prototype.forEach.call(tabs.children, function (b) { b.classList.toggle('on', b.dataset.dt === tab); }); }
+      }
+      prog.innerHTML = Array.apply(null, Array(N + 2)).map(function (_, i) { return '<i class="' + (i === view ? 'on' : i < view ? 'done' : '') + '" data-go="' + i + '"></i>'; }).join('');
+      var back = document.getElementById('dBack'), next = document.getElementById('dNext'), mid = document.getElementById('dMid');
+      back.hidden = view === 0; next.hidden = view > N;
+      back.innerHTML = '&#8249; ' + (view === 1 ? 'Overview' : view > N ? 'Options' : view === 0 ? '' : 'Option ' + (view - 1));
+      next.innerHTML = (view === 0 ? 'See option 1' : view === N ? 'Decide' : 'Option ' + (view + 1)) + ' &#8250;';
+      mid.textContent = view === 0 ? 'Your options' : view > N ? 'Decide' : 'Option ' + view + ' of ' + N;
+      var g = document.getElementById('deckStage'); if (g && dir) { g.className = 'dgo' + (dir > 0 ? 'r' : 'l'); void g.offsetWidth; }
+    }
+    var stage = document.getElementById('app'); stage.id = 'app'; stage.setAttribute('data-stage', '1');
+    function go(v, dir, keepTab) {
+      v = Math.max(0, Math.min(N + 1, v)); if (v === view && keepTab) return;
+      dir = dir || (v > view ? 1 : -1); view = v; if (!keepTab) tab = 'stay';
+      stage.classList.remove('dgor', 'dgol'); void stage.offsetWidth; stage.classList.add(dir > 0 ? 'dgor' : 'dgol');
+      render(); window.scrollTo(0, 0);
+    }
+    function setTab(t) { tab = t; render(); window.scrollTo(0, 0); }
+    document.getElementById('dBack').addEventListener('click', function () { go(view - 1); });
+    document.getElementById('dNext').addEventListener('click', function () { go(view + 1); });
+    tabs.addEventListener('click', function (e) { var b = e.target.closest('[data-dt]'); if (b) setTab(b.dataset.dt); });
+    prog.addEventListener('click', function (e) { var d = e.target.closest('[data-go]'); if (d) go(Number(d.dataset.go)); });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href]'); var p = e.target.closest('[data-pick]');
+      if (p) { setTimeout(function () { go(N + 1, 1); }, 0); return; }
+      if (!a) return; var h = a.getAttribute('href') || '';
+      if (/^#h-/.test(h)) { e.preventDefault(); var id = h.slice(3), k = -1; A().forEach(function (r, i) { if (r.id === 'h-' + id) k = i; }); if (k >= 0) go(k + 1, 1); }
+      else if (h === '#extras') { e.preventDefault(); if (view >= 1 && view <= N) setTab('extras'); }
+      else if (h === '#fullCost') { e.preventDefault(); if (view >= 1 && view <= N) setTab('pay'); }
+      else if (h === '#feedback') { e.preventDefault(); go(N + 1, 1); }
+    });
+    document.addEventListener('keydown', function (e) { if (/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || '')) return; if (e.key === 'ArrowRight') go(view + 1); else if (e.key === 'ArrowLeft') go(view - 1); });
+    var sx = null, sy = null;
+    document.addEventListener('touchstart', function (e) { var t = e.touches[0]; sx = t.clientX; sy = t.clientY; if (e.target.closest('.track,.areas,.lb,select,input,textarea,table,.dtabs,.pkgfl')) sx = null; }, { passive: true });
+    document.addEventListener('touchend', function (e) {
+      if (sx == null) return; var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy; sx = null;
+      if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.8) go(view + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+    render();
+  }
+  if (pkgAll) deck();
 
   /* lightbox */
   var lbH = null, lbI = 0;

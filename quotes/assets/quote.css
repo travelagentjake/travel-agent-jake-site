@@ -370,3 +370,57 @@ html,body{overflow-x:clip}
  .pkgq .cmp{font-size:12.5px}.pkgq .crow{padding:9px 12px;font-size:13px}
  .pkgq footer{font-size:11.5px}
 }
+
+/* swipe through mode: one screen at a time */
+body.deck{padding-bottom:96px}
+.deck .snav,.deck #fbFloat,.deck #trip{display:none!important}
+.deck #hotels .h2,.deck #hotels .intro,.deck #todo .h2,.deck #todo .intro,.deck #weather .h2,.deck #weather .intro,.deck #extras .h2,.deck #extras .intro,.deck #next>.wrap>.h2,.deck #next>.wrap>.intro{display:none}
+.deck #hotels,.deck #todo,.deck #weather,.deck #extras{padding:12px 0}
+.deck #hotels .wrap,.deck #todo .wrap,.deck #weather .wrap,.deck #extras .wrap{padding-left:14px;padding-right:14px}
+.deck #next{padding:14px 0}
+.deck[data-v=intro] #hotels,.deck[data-v=intro] #todo,.deck[data-v=intro] #weather,.deck[data-v=intro] #extras,.deck[data-v=intro] #next,.deck[data-v=intro] .dtabs{display:none!important}
+.deck:not([data-v=intro]) .hero,.deck:not([data-v=intro]) #compare{display:none!important}
+.deck[data-v=final] #hotels,.deck[data-v=final] #todo,.deck[data-v=final] #weather,.deck[data-v=final] #extras,.deck[data-v=final] .dtabs{display:none!important}
+.deck[data-v=final] #next .pay,.deck[data-v=final] #next .full,.deck[data-v=final] #next .calc{display:none}.deck[data-v=final] #next>.wrap>p[style]{display:none!important}
+.deck[data-v=opt]:not([data-tab=stay]) #hotels,.deck[data-v=opt]:not([data-tab=todo]) #todo,.deck[data-v=opt]:not([data-tab=weather]) #weather,.deck[data-v=opt]:not([data-tab=extras]) #extras,.deck[data-v=opt]:not([data-tab=pay]) #next{display:none!important}
+.deck[data-v=opt] #next .pay,.deck[data-v=opt] #next .fb,.deck[data-v=opt] #next .small,.deck[data-v=opt] #next>.wrap>p[style]{display:none!important}
+.deck #fullCost .fbl,.deck #fHotel,.deck #cHotel,.deck .calcgrid>div:has(#cHotel){display:none}
+.deck #extras[hidden]{display:none!important}
+.deck .hotel[hidden]{display:none!important}
+.deck #hotelList{display:block}
+.deck #hotelList .hotel{margin:0}
+.dtabs{position:sticky;top:64px;z-index:30;display:flex;gap:6px;overflow-x:auto;padding:8px 14px;background:#fff;border-bottom:1px solid var(--line);scrollbar-width:none}
+.dtabs::-webkit-scrollbar{display:none}
+.dtabs button{flex:none;font:inherit;font-weight:800;font-size:12.5px;color:var(--blue);background:var(--pill);border:0;border-radius:999px;padding:7px 13px;cursor:pointer}
+.dtabs button.on{background:var(--blue);color:#fff}
+.dtabs button[hidden]{display:none}
+#dbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:6px 8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom))}
+.dprog{grid-column:1/-1;display:flex;justify-content:center;gap:5px}
+.dprog i{display:block;width:16px;height:5px;border-radius:3px;background:#DCE3FF;cursor:pointer}
+.dprog i.done{background:#99ACFF}.dprog i.on{background:var(--blue);width:28px}
+.dmid{text-align:center;font-weight:800;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+#dbar button{font:inherit;font-weight:800;font-size:14px;border-radius:999px;padding:9px 16px;cursor:pointer;min-height:40px;border:2px solid var(--blue);background:#fff;color:var(--blue)}
+#dbar .dnext{background:var(--yellow);border-color:var(--yellow);color:#0b1b3a;grid-column:3}
+#dbar button[hidden]{display:none}
+#dbar .dback{grid-column:1}
+@keyframes dgor{from{opacity:0;transform:translateX(34px)}to{opacity:1;transform:none}}
+@keyframes dgol{from{opacity:0;transform:translateX(-34px)}to{opacity:1;transform:none}}
+.dgor>section,.dgor>.hero,.dgor>.dtabs{animation:dgor .28s ease}
+.dgol>section,.dgol>.hero,.dgol>.dtabs{animation:dgol .28s ease}
+.deck .acar .arr{display:flex!important;width:34px;height:34px;font-size:18px;top:55px}
+.deck .acar .arr.l{left:4px}.deck .acar .arr.r{right:4px}.deck .xcar .arr{top:50%}
+.deck[data-v=intro] .facts{display:none}
+.deck[data-v=intro] .hero-img{height:120px;min-height:120px}
+.deck[data-v=intro] .hero p.lead{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.deck #compare{padding:14px 0}.deck #compare .h2{font-size:18px}
+.deck .crow{padding:8px 12px}.deck .crow .cn>span:not(.cpk){display:none}
+.deck .crow .cp b{font-size:15px}
+.deck .acar{margin-top:6px}
+
+.deck[data-v=opt] footer{display:none}
+.deck .top .wrap{height:48px}.deck .top img{height:32px}.deck .top .btn{padding:6px 14px;font-size:13px;min-height:0}
+.deck .dtabs{top:48px}
+.deck .hotel.pk .track img{height:190px;max-height:190px}
+.deck .hotel.pk{box-shadow:none}
+.deck #calc .intro{display:none}
+.deck footer{padding-bottom:24px}
