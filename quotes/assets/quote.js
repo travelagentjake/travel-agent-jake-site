@@ -957,7 +957,7 @@
       var h = '<div class="ag"><h3>Good to know before you go</h3><div class="agh">' + esc(d.place) + '</div><div class="gkgrid">'
         + tile('💱', 'Currency', d.currency) + tile('🔌', 'Plugs and voltage', d.plug) + tile('🚗', 'Drives on the', d.drive) + tile('🗣️', 'Language', d.language) + tile('⏰', 'Time difference', d.time) + tile('🚰', 'Tap water', d.water) + tile('💝', 'Tipping', d.tip) + tile('🆘', 'Emergency number', d.emergency) + tile('🩺', 'Healthcare', d.health) + '</div>'
         + (d.extra && d.extra.length ? '<div class="gkgrid">' + d.extra.map(function (e) { return tile('ℹ️', e[0], e[1]); }).join('') + '</div>' : '')
-        + '<div class="agb safe gkent"><h4>Entry requirements</h4><p>' + esc(d.entry || 'Entry rules can change, so please check the latest requirements for British passport holders on the GOV.UK page below before you book.') + '</p></div>';
+        + (d.entry ? '<div class="agb safe gkent"><h4>Entry requirements</h4><p>' + esc(d.entry) + '</p></div>' : '');
       if (d.fcdo) { var fb = 'https://www.gov.uk/foreign-travel-advice/' + encodeURIComponent(d.fcdo); h += '<div class="gkbtns"><a class="btn btn-y gkbtn" href="' + fb + '/entry-requirements" target="_blank" rel="noopener">Entry requirements on GOV.UK</a><a class="btn btn-y gkbtn" href="' + fb + '" target="_blank" rel="noopener">Current travel advice on GOV.UK</a></div>'; }
       return h + '</div>';
     }
