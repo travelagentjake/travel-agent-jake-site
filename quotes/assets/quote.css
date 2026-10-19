@@ -658,4 +658,5 @@ body{overscroll-behavior-y:none}
 
 @media (min-width:901px){.deck .hotel.pk .story{font-size:14px}.deck .hotel.pk .price .r,.deck .hotel.pk .price small{font-size:13px}.deck .hotel.pk .price p:not(.tax){font-size:14.5px;margin:0}}
 
-.deck[data-v=final] footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+body.deck[data-v=final]{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.deck[data-v=final] footer{margin-top:auto;padding:22px 0 calc(96px + env(safe-area-inset-bottom))}
