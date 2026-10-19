@@ -589,3 +589,9 @@ body.deck{padding-bottom:70px}
   .deck .wx{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 .deck .custom .ag[hidden],.deck .custom .agjump[hidden]{display:none!important}
+/* things to do: every card and photo the same size */
+.deck .acar:not(.xcar) .areacard{height:128px;overflow:hidden;align-items:stretch}
+.deck .acar:not(.xcar) .areacard img{width:112px;height:128px;min-height:0;flex:0 0 112px;object-fit:cover}
+.deck .acar:not(.xcar) .areacard div{min-width:0;overflow:hidden}
+.deck .acar:not(.xcar) .areacard p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+@media (min-width:901px){.deck .acar:not(.xcar) .areacard{height:136px}.deck .acar:not(.xcar) .areacard img{width:160px;height:136px;flex-basis:160px}}
