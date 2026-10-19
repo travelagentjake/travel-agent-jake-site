@@ -457,7 +457,7 @@ body.deck{padding-bottom:96px}
 #dbar{padding:7px 12px calc(7px + env(safe-area-inset-bottom));gap:0 8px}
 #dbar button{padding:7px 14px;min-height:38px}
 body.deck{padding-bottom:70px}
-.deck[data-v=welcome] .hero{min-height:calc(100vh - 44px - 70px)}
+.deck[data-v=welcome] .hero{min-height:calc(100svh - 44px - 70px)}
 .deck[data-v=welcome] .hero-card{margin-top:0}
 .deck[data-v=welcome] .hero-img{height:190px}
 
@@ -470,7 +470,7 @@ body.deck{padding-bottom:70px}
 
 .readmore{display:none;font:inherit;font-weight:800;font-size:14px;color:#0b1b3a;background:var(--yellow);border:0;border-radius:999px;padding:9px 20px;margin-top:14px;cursor:pointer;align-self:flex-start}
 .deck[data-v=welcome] .readmore{display:inline-block}
-.deck[data-v=welcome] .hero{min-height:calc(100vh - 44px - 70px);min-height:calc(100svh - 44px - 70px);display:flex;flex-direction:column}
+.deck[data-v=welcome] .hero{min-height:calc(100svh - 44px - 70px);min-height:calc(100svh - 44px - 70px);display:flex;flex-direction:column}
 .deck[data-v=welcome] .hero-card{flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:0;border-radius:0;width:100%;box-sizing:border-box}
 .deck[data-v=welcome] .hero-img{height:30vh;min-height:150px}
 .deck[data-v=welcome] .hero p.lead{-webkit-line-clamp:4}
@@ -503,10 +503,10 @@ body.deck{padding-bottom:70px}
  body.deck{padding-bottom:84px}
  #dbar{padding:10px max(20px,calc((100vw - 1100px)/2)) 10px}
  #dbar button{font-size:16px;padding:10px 24px;min-height:46px}
- .deck[data-v=opt] #hotels,.deck[data-v=opt] #extras,.deck[data-v=opt] #next,.deck[data-v=final] #next{min-height:calc(100vh - 64px - 62px - 84px)}
+ .deck[data-v=opt] #hotels,.deck[data-v=opt] #extras,.deck[data-v=opt] #next,.deck[data-v=final] #next{min-height:calc(100svh - 64px - 62px - 84px)}
  .deck #hotels .wrap{max-width:1180px;margin:0 auto}
  .deck .hotel.pk{border-radius:24px;overflow:hidden}
- .deck .hotel.pk .hotel-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);min-height:calc(100vh - 64px - 62px - 84px - 150px)}
+ .deck .hotel.pk .hotel-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);min-height:calc(100svh - 64px - 62px - 84px - 150px)}
  .deck .hotel.pk .slider{min-height:100%}
  .deck .hotel.pk .track img{height:100%;min-height:0;max-height:none;object-fit:cover}
  .deck .hotel.pk .hb{padding:34px 34px;gap:14px;justify-content:center}
@@ -523,8 +523,8 @@ body.deck{padding-bottom:70px}
  .deck .pkgfl{grid-template-columns:repeat(2,minmax(0,1fr))}
  .deck[data-v=welcome] .hero-img{height:38vh;min-height:260px}
  .deck[data-v=welcome] .hero-card{margin-top:-60px;max-width:1000px;padding:40px 44px 44px}
- .deck[data-v=welcome] .hero{min-height:calc(100vh - 64px - 84px)}
- .deck[data-v=glance] #compare{min-height:calc(100vh - 64px - 84px);padding:40px 0}
+ .deck[data-v=welcome] .hero{min-height:calc(100svh - 64px - 84px)}
+ .deck[data-v=glance] #compare{min-height:calc(100svh - 64px - 84px);padding:40px 0}
  .deck[data-v=glance] #compare .wrap{max-width:1100px}
  .deck[data-v=glance] #compare .h2{font-size:34px}
  .deck[data-v=glance] .tablebox{display:block}
@@ -643,3 +643,8 @@ body.deck{padding-bottom:70px}
 .deck .hotel.pk .story{display:none}
 @media (min-width:901px){.deck .hotel.pk .story{display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;font-size:14px;line-height:1.45;-webkit-line-clamp:5;margin:0 0 2px}}
 .deck .areacard.evenhide{display:none!important}
+
+/* app style: stable height while the phone address bar moves, and room for the notch and home bar when saved to the home screen */
+html{-webkit-text-size-adjust:100%}
+body{overscroll-behavior-y:none}
+@media (display-mode:standalone){.deck .top{padding-top:env(safe-area-inset-top)}}

@@ -890,7 +890,21 @@
       var rest = art.getBoundingClientRect().height - art.querySelector('.slider').getBoundingClientRect().height;
       art.style.setProperty('--ph', Math.max(150, Math.min(340, Math.floor(avail - rest))) + 'px');
     }
-    window.addEventListener('resize', fitPhoto);
+    /* the phone address bar sliding in and out only changes the height: ignore that so the layout does not jump */
+    var lastW = window.innerWidth;
+    window.addEventListener('resize', function () { if (window.innerWidth !== lastW) { lastW = window.innerWidth; fitPhoto(); } });
+    /* open like an app when saved to the home screen */
+    (function () {
+      function meta(n, c) { if (document.querySelector('meta[name="' + n + '"]')) return; var m = document.createElement('meta'); m.name = n; m.content = c; document.head.appendChild(m); }
+      meta('apple-mobile-web-app-capable', 'yes'); meta('mobile-web-app-capable', 'yes'); meta('apple-mobile-web-app-status-bar-style', 'black-translucent'); meta('apple-mobile-web-app-title', 'Your holiday quote'); meta('theme-color', '#004AAD');
+      var vp = document.querySelector('meta[name="viewport"]'); if (vp && vp.content.indexOf('viewport-fit') < 0) vp.content += ', viewport-fit=cover';
+      try {
+        if (!document.querySelector('link[rel="manifest"]')) {
+          var mf = { name: (Q.title || 'Your holiday quote'), short_name: 'Holiday quote', start_url: location.href.split('#')[0], scope: location.origin + '/', display: 'standalone', background_color: '#004AAD', theme_color: '#004AAD' };
+          var l = document.createElement('link'); l.rel = 'manifest'; l.href = URL.createObjectURL(new Blob([JSON.stringify(mf)], { type: 'application/manifest+json' })); document.head.appendChild(l);
+        }
+      } catch (e) {}
+    })();
     /* things to do: two columns on desktop, so show an even number (the last one drops out if the count is odd) */
     function evenTodo() {
       var cs = document.querySelectorAll('#todo .areacard'), wide = window.innerWidth > 900;
