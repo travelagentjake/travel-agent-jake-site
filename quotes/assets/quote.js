@@ -453,7 +453,7 @@
     }
     var rows = ''; for (var i = 0; i < n; i++) rows += paxRow(i);
     return '<div class="book" id="book" hidden><h3>Book this holiday</h3>'
-      + '<p class="intro" style="margin:4px 0 16px">Fill this in and it comes straight to me. I will then text you a secure payment link for ' + (fullOnly ? 'the full amount' : 'your deposit (or the full amount if you prefer)') + ', and as soon as that is paid I get your holiday confirmed. Nothing is charged on this page. Names must match passports exactly.</p>'
+      + '<div class="bknote"><p><b>No payment is taken on this page.</b> Fill this in and it comes straight to me, then I text you a secure payment link for ' + (fullOnly ? 'the full amount' : 'the amount you choose') + '.</p><p><b>Your holiday is not confirmed</b> until your payment has been received and I have booked everything with the tour operator. I then send your confirmation.</p><p>Names must match passports exactly.</p></div>'
       + '<form id="bookForm" novalidate>'
       + '<h4>' + esc(Q.pickTitle || 'Which hotel') + '</h4>'
       + (multi ? '<select id="bkHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '<p class="bkh"><b>' + esc(hotels[0].name) + '</b>, ' + gbp(hotels[0].total) + '</p>')
@@ -486,6 +486,7 @@
       + '<label class="bkagree"><input type="checkbox" id="bkAgree" required><span>I have read and agree to the <a href="https://travelagentjake.co.uk/booking-conditions.html" target="_blank" rel="noopener">booking conditions</a> on travelagentjake.co.uk, and I confirm the details above are correct.</span></label>'
       + '<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">'
       + '<p id="bkErr" class="bkerr" hidden></p>'
+      + '<p class="small bkreminder">Sending this form does not take any payment and does not confirm your holiday.</p>'
       + '<button class="btn btn-y" type="submit" id="bkSend" style="margin-top:6px">Send my booking details to Jake</button>'
       + '<p class="small" style="margin:12px 0 0">Your details are sent securely to Jake only and are used just to make this booking. Questions or changes to the quote? Those are easiest on <a href="' + wa('Hi Jake, it’s ' + who + '. Before I book, ') + '" target="_blank" rel="noopener">WhatsApp</a>.</p>'
       + '</form><div id="bkDone" class="bkdone" hidden></div></div>';
@@ -561,7 +562,7 @@
         .then(function (r) {
           if (!r.ok) throw new Error((r.j && r.j.error) || 'Something went wrong');
           f.hidden = true; var d = document.getElementById('bkDone'); d.hidden = false;
-          d.innerHTML = '<h4>Thank you, ' + esc(pax[0].first) + '!</h4><p>Your booking details are with me. I will text ' + esc(body.mobile) + ' with a secure payment link for ' + fmt(body.payToday) + '. As soon as that is paid I get your holiday confirmed and send your confirmation and ATOL certificate.</p><p>A copy of what you sent (without any bank details) is on its way to ' + esc(body.email) + '.</p>';
+          d.innerHTML = '<h4>Thank you, ' + esc(pax[0].first) + '!</h4><p>Your booking details are with me. I will text ' + esc(body.mobile) + ' with a secure payment link for ' + fmt(body.payToday) + '. Nothing has been charged and your holiday is not confirmed yet. As soon as your payment is received I book everything with the tour operator, then send your confirmation and ATOL certificate.</p><p>A copy of what you sent (without any bank details) is on its way to ' + esc(body.email) + '.</p>';
           d.scrollIntoView({ behavior: 'smooth', block: 'start' });
         })
         .catch(function (e) { err.textContent = 'Sorry, that did not send (' + e.message + '). Please try again, or send me a WhatsApp and I will take the details there.'; err.hidden = false; btn.disabled = false; btn.textContent = 'Send my booking details to Jake'; });

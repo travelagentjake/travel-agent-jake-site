@@ -696,3 +696,4 @@ body.deck[data-v=final] #app{flex:1;display:flex;flex-direction:column;min-heigh
 .bkagree input{width:18px;height:18px}
 @media (max-width:640px){.book{padding:14px}.book .paxg{grid-template-columns:repeat(2,minmax(0,1fr))}.book .paxg .wide{grid-column:1/-1}.book .fbopt{font-size:13px;padding:6px 10px}}
 .book input[type=text],.book input[type=tel],.book input[type=email],.book input[type=date],.book input[type=number],.book select{line-height:1.25;height:38px}.book textarea{line-height:1.35}.paxrow .paxn{margin-bottom:4px}
+.bknote{background:#FFF8DB;border:2px solid #FFD21F;border-radius:12px;padding:10px 12px;margin:6px 0 10px}.bknote p{margin:0 0 5px;font-size:13.5px;line-height:1.4}.bknote p:last-child{margin:0}.bkreminder{margin:0 0 8px;font-weight:700;color:var(--blue)}
