@@ -709,7 +709,7 @@
     bar.innerHTML = '<button type="button" class="dback" id="dBack"></button><div class="dmid" id="dMid"></div><button type="button" class="dnext" id="dNext"></button>';
     document.body.appendChild(bar);
     var tabs = document.createElement('div'); tabs.className = 'dtabs'; tabs.id = 'dTabs';
-    tabs.innerHTML = [['stay', 'Stay and flights'], ['about', 'About the resort'], ['weather', 'Weather'], ['extras', 'Extras'], ['more', 'More info'], ['pay', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '">' + t[1] + '</button>'; }).join('');
+    tabs.innerHTML = [['stay', 'Stay and flights'], ['about', 'About the resort'], ['extras', 'Extras'], ['more', 'More info'], ['pay', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '">' + t[1] + '</button>'; }).join('');
     var KNOWN = ['compare', 'hotels', 'trip', 'weather', 'todo', 'extras', 'next'];
     Array.prototype.forEach.call(document.querySelectorAll('#app > section'), function (s) { if (KNOWN.indexOf(s.id) < 0) s.classList.add('xsec'); });
     var hasMore = !!document.querySelector('.xsec');
@@ -717,7 +717,7 @@
     var prog = document.createElement('div'); prog.className = 'dprog'; prog.id = 'dProg'; bar.insertBefore(prog, bar.firstChild);
     /* about the resort panel: the hotel's own write up, resort information and things to do */
     var about = document.createElement('div'); about.id = 'aboutR'; about.className = 'aboutr';
-    var todo = document.getElementById('todo'); if (todo) todo.parentNode.insertBefore(about, todo);
+    var todo = document.getElementById('weather') || document.getElementById('todo'); if (todo) todo.parentNode.insertBefore(about, todo);
     function has(id) { var s = document.getElementById(id); return !!s && !s.hidden; }
     function aboutHtml(x) {
       var bs = x.variantOf ? hotel(x.variantOf) : null, r = x.resort || (bs && bs.resort) || {}, h = '<div class="abt"><h3>About ' + esc(x.name) + '</h3><p>' + esc(x.why || '') + '</p>';
@@ -739,13 +739,14 @@
         A().forEach(function (a, i) { a.hidden = i !== view - 2; });
         hIdx = hIndex(art); var c = document.getElementById('cHotel'); if (c) c.value = String(hIdx); calc();
         about.innerHTML = aboutHtml(x);
+        var wsec = document.getElementById('weather'); if (wsec) wsec.classList.toggle('wxnone', !document.querySelector('#wxList > *:not([hidden])'));
         /* custom area guides: show only the one for this option's hotel (hotel areaId, or its id) */
         var akey = 'ag-' + (x.areaId || x.variantOf || x.id), ags = document.querySelectorAll('.custom .ag[id^="ag-"]'), hit = !!document.getElementById(akey);
         Array.prototype.forEach.call(ags, function (g) { g.hidden = hit && g.id !== akey; });
         Array.prototype.forEach.call(document.querySelectorAll('.custom .agjump'), function (j) { j.hidden = hit; });
         var lk = art.querySelector('.links'), mb = art.querySelector('[data-tog=more]'); if (lk && mb && mb.parentNode !== lk) lk.appendChild(mb);
         wxPlaces.forEach(function (w) { var el = document.querySelector('[data-wx="' + w.key.replace(/"/g, '') + '"]'); if (el) el.hidden = w.hotels.indexOf(x.name) < 0; });
-        var avail = { stay: true, about: true, weather: has('weather') && !!document.querySelector('#wxList > *:not([hidden])'), extras: has('extras'), more: hasMore, pay: true };
+        var avail = { stay: true, about: true, extras: has('extras'), more: hasMore, pay: true };
         if (!avail[tab]) tab = 'stay'; body.setAttribute('data-tab', tab);
         Array.prototype.forEach.call(tabs.children, function (b) { b.hidden = !avail[b.dataset.dt]; b.classList.toggle('on', b.dataset.dt === tab); });
       }

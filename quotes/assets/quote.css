@@ -382,7 +382,7 @@ body.deck{padding-bottom:96px}
 .deck:not([data-v=welcome]) .hero,.deck:not([data-v=glance]) #compare{display:none!important}
 .deck[data-v=final] #hotels,.deck[data-v=final] #aboutR,.deck[data-v=final] #todo,.deck[data-v=final] #weather,.deck[data-v=final] #extras,.deck[data-v=final] .dtabs{display:none!important}
 .deck[data-v=final] #next .pay,.deck[data-v=final] #next .full,.deck[data-v=final] #next .calc{display:none}.deck[data-v=final] #next>.wrap>p[style]{display:none!important}
-.deck[data-v=opt]:not([data-tab=stay]) #hotels,.deck[data-v=opt]:not([data-tab=about]) #todo,.deck[data-v=opt]:not([data-tab=weather]) #weather,.deck[data-v=opt]:not([data-tab=extras]) #extras,.deck[data-v=opt]:not([data-tab=pay]) #next{display:none!important}
+.deck[data-v=opt]:not([data-tab=stay]) #hotels,.deck[data-v=opt]:not([data-tab=about]) #todo,.deck[data-v=opt]:not([data-tab=about]) #weather,.deck[data-v=opt]:not([data-tab=extras]) #extras,.deck[data-v=opt]:not([data-tab=pay]) #next{display:none!important}
 .deck[data-v=opt] #next .pay,.deck[data-v=opt] #next .fb,.deck[data-v=opt] #next .small,.deck[data-v=opt] #next>.wrap>p[style]{display:none!important}
 .deck #fullCost .fbl,.deck #fHotel,.deck #cHotel,.deck .calcgrid>div:has(#cHotel){display:none}
 .deck #extras[hidden]{display:none!important}
@@ -503,7 +503,7 @@ body.deck{padding-bottom:70px}
  body.deck{padding-bottom:84px}
  #dbar{padding:10px max(20px,calc((100vw - 1100px)/2)) 10px}
  #dbar button{font-size:16px;padding:10px 24px;min-height:46px}
- .deck[data-v=opt] #hotels,.deck[data-v=opt] #todo,.deck[data-v=opt] #weather,.deck[data-v=opt] #extras,.deck[data-v=opt] #next,.deck[data-v=final] #next{min-height:calc(100vh - 64px - 62px - 84px)}
+ .deck[data-v=opt] #hotels,.deck[data-v=opt] #extras,.deck[data-v=opt] #next,.deck[data-v=final] #next{min-height:calc(100vh - 64px - 62px - 84px)}
  .deck #hotels .wrap{max-width:1180px;margin:0 auto}
  .deck .hotel.pk{border-radius:24px;overflow:hidden}
  .deck .hotel.pk .hotel-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);min-height:calc(100vh - 64px - 62px - 84px - 150px)}
@@ -595,3 +595,9 @@ body.deck{padding-bottom:70px}
 .deck .acar:not(.xcar) .areacard div{min-width:0;overflow:hidden}
 .deck .acar:not(.xcar) .areacard p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 @media (min-width:901px){.deck .acar:not(.xcar) .areacard{height:136px}.deck .acar:not(.xcar) .areacard img{width:160px;height:136px;flex-basis:160px}}
+
+/* weather now sits inside the About the resort tab */
+.deck #weather.wxnone{display:none!important}
+.deck #weather{padding:0 0 4px}
+.deck #todo{padding-top:4px}
+.deck .wxc{margin:0}
