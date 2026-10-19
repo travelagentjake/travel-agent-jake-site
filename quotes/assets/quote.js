@@ -5,7 +5,7 @@
    {
      slug, customer, title, tag, subtitle, intro, heroImg, heroAlt, heroPos,
      facts: [[label, value]], partyLabel ("all 11"), whatsappName,
-     compareIntro, hotelsIntro,
+     compareIntro, hotelsIntro, compareTitle, hotelsTitle, pickTitle (optional heading overrides, e.g. when every option is the same hotel),
      hotels: [{ id, match, name, area, country, rating, reviews, transfer (minutes), slides (bool),
                 badge, total, pp (per paying person when free > 0), free (number of free child places), depositAmt (this hotel's deposit for the party, when it differs from depositTotal), tax (tourist tax paid at the hotel, £ for the party), taxNote, rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
      extras: [{ id, cat, title, text, price (unit price), unit ("per person", "per car for 8 days"),
@@ -130,7 +130,7 @@
 
   var nav = [];
   if (multi) nav.push(['compare', 'Compare']);
-  if (hotels.length) nav.push(['hotels', multi ? 'The hotels' : 'Your hotel']);
+  if (hotels.length) nav.push(['hotels', Q.hotelsTitle || (multi ? 'The hotels' : 'Your hotel')]);
   (Q.sections || []).forEach(function (s, i) { if (s.nav) nav.push([s.id || ('extra-' + (s.after || 'hotels') + i), s.nav]); });
   if (Q.flights) nav.push(['trip', 'Flights and rooms']);
   var wxPlaces = wxList();
@@ -188,7 +188,7 @@
   h += '<nav class="snav" aria-label="Quote sections"><div class="wrap">' + nav.map(function (n) { return '<a href="#' + n[0] + '">' + esc(n[1]) + '</a>'; }).join('') + '</div></nav>';
 
   if (multi) {
-    h += '<section id="compare"><div class="wrap"><h2 class="h2">Your ' + (hotels.length === 2 ? 'two' : hotels.length === 3 ? 'three' : hotels.length === 4 ? 'four' : hotels.length === 5 ? 'five' : hotels.length === 6 ? 'six' : hotels.length) + ' hotels at a glance</h2>'
+    h += '<section id="compare"><div class="wrap"><h2 class="h2">' + (Q.compareTitle ? esc(Q.compareTitle) : 'Your ' + (hotels.length === 2 ? 'two' : hotels.length === 3 ? 'three' : hotels.length === 4 ? 'four' : hotels.length === 5 ? 'five' : hotels.length === 6 ? 'six' : hotels.length) + ' hotels at a glance') + '</h2>'
       + (Q.compareIntro ? '<p class="intro">' + esc(Q.compareIntro) + '</p>' : '')
       + '<div class="ctrl" role="group" aria-label="Sort hotels"><span>Sort by</span>'
       + '<button class="chipbtn" type="button" data-sort="match" aria-pressed="true">Best match</button>'
@@ -199,7 +199,7 @@
       + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th><th>Tripadvisor</th><th>Transfer</th>' + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div><div class="cmob" id="cmob"></div>' + (Q.touristTax && Q.touristTax.amount ? '<p class="taxnote">' + esc('Prices do not include tourist tax of about ' + gbp(Q.touristTax.amount) + ', paid locally at the hotel.') + '</p>' : '') + '</div></section>';
   }
   if (hotels.length) {
-    h += '<section id="hotels" class="alt"><div class="wrap"><h2 class="h2">' + (multi ? 'The hotels' : 'Your hotel') + '</h2>'
+    h += '<section id="hotels" class="alt"><div class="wrap"><h2 class="h2">' + esc(Q.hotelsTitle || (multi ? 'The hotels' : 'Your hotel')) + '</h2>'
       + '<p class="intro">' + esc(Q.hotelsIntro || 'Swipe or tap the arrows to browse the photos, and tap any photo to see it full screen.') + '</p><div class="hotels" id="hotelList"></div></div></section>';
   }
   h += custom('hotels');
@@ -423,7 +423,7 @@
     return '<div class="book" id="book" hidden><h3>Book this holiday</h3>'
       + '<p class="intro" style="margin:4px 0 16px">Fill this in and it comes straight to me. I will then text you a secure payment link for ' + (fullOnly ? 'the full amount' : 'your deposit (or the full amount if you prefer)') + ', and as soon as that is paid I get your holiday confirmed. Nothing is charged on this page. Names must match passports exactly.</p>'
       + '<form id="bookForm" novalidate>'
-      + '<h4>Which hotel</h4>'
+      + '<h4>' + esc(Q.pickTitle || 'Which hotel') + '</h4>'
       + (multi ? '<select id="bkHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '<p class="bkh"><b>' + esc(hotels[0].name) + '</b>, ' + gbp(hotels[0].total) + '</p>')
       + '<div id="bkSum" class="bksum"></div>'
       + '<h4>Who is travelling</h4><div id="bkPax">' + rows + '</div>'
