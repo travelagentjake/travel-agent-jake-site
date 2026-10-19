@@ -481,7 +481,7 @@
       + '<label>Name of the account holder<input type="text" name="ddName" autocomplete="off"></label>'
       + '<label>Sort code<input type="text" name="ddSort" inputmode="numeric" placeholder="00-00-00" autocomplete="off"></label>'
       + '<label>Account number<input type="text" name="ddAcc" inputmode="numeric" placeholder="8 digits" autocomplete="off"></label></div>'
-      + '<p class="small" id="bkDDPlan" style="margin:6px 0 0"></p><p class="small" id="bkDDNote" hidden>The balance will be due in one go, about 14 weeks before you travel.</p></div>')
+      + '<p class="small" id="bkDDPlan" style="margin:6px 0 0"></p><p class="small" id="bkDDNote" hidden>The balance will be due by approximately 14 weeks before you travel.</p></div>')
       + '<label class="bkagree"><input type="checkbox" id="bkAgree" required><span>I have read and agree to the <a href="https://travelagentjake.co.uk/booking-conditions.html" target="_blank" rel="noopener">booking conditions</a> on travelagentjake.co.uk, and I confirm the details above are correct.</span></label>'
       + '<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">'
       + '<p id="bkErr" class="bkerr" hidden></p>'
