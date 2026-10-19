@@ -588,3 +588,4 @@ body.deck{padding-bottom:70px}
   .deck .xcar .areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
   .deck .wx{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+.deck .custom .ag[hidden],.deck .custom .agjump[hidden]{display:none!important}

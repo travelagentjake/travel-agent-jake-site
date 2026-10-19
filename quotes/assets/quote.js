@@ -739,6 +739,10 @@
         A().forEach(function (a, i) { a.hidden = i !== view - 2; });
         hIdx = hIndex(art); var c = document.getElementById('cHotel'); if (c) c.value = String(hIdx); calc();
         about.innerHTML = aboutHtml(x);
+        /* custom area guides: show only the one for this option's hotel (hotel areaId, or its id) */
+        var akey = 'ag-' + (x.areaId || x.variantOf || x.id), ags = document.querySelectorAll('.custom .ag[id^="ag-"]'), hit = !!document.getElementById(akey);
+        Array.prototype.forEach.call(ags, function (g) { g.hidden = hit && g.id !== akey; });
+        Array.prototype.forEach.call(document.querySelectorAll('.custom .agjump'), function (j) { j.hidden = hit; });
         var lk = art.querySelector('.links'), mb = art.querySelector('[data-tog=more]'); if (lk && mb && mb.parentNode !== lk) lk.appendChild(mb);
         wxPlaces.forEach(function (w) { var el = document.querySelector('[data-wx="' + w.key.replace(/"/g, '') + '"]'); if (el) el.hidden = w.hotels.indexOf(x.name) < 0; });
         var avail = { stay: true, about: true, weather: has('weather') && !!document.querySelector('#wxList > *:not([hidden])'), extras: has('extras'), more: hasMore, pay: true };
