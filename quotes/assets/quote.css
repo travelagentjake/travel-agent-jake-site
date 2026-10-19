@@ -541,3 +541,16 @@ body.deck{padding-bottom:70px}
  .deck .calc,.deck .full{padding:24px}.deck .calc h3,.deck .full h3{font-size:24px}
  .deck .full table{font-size:16px}.deck .tile b{font-size:26px}
 }
+
+/* quieter action buttons on option cards, remove option, toast */
+.deck .hotel.pk .links{gap:8px;align-items:center}
+.deck .hotel.pk .links .bk{padding:6px 16px;font-size:13px;font-weight:700;min-height:34px;box-shadow:none}
+.rmopt{font:inherit;font-size:12.5px;font-weight:600;color:#6b7190;background:none;border:1px solid #CBD2E8;border-radius:999px;padding:6px 14px;min-height:34px;cursor:pointer}
+.rmopt:hover{color:#0b1b3a;border-color:#8d97b8}
+#dtoast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom));z-index:70;background:#0b1b3a;color:#fff;border-radius:14px;padding:10px 14px;font-size:13px;display:flex;gap:12px;align-items:center;max-width:min(92vw,520px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+#dtoast[hidden]{display:none}
+#dtoast button{font:inherit;font-weight:800;color:var(--yellow);background:none;border:0;text-decoration:underline;cursor:pointer;flex:none}
+.rmnote{margin:10px 0 0;font-size:13px;color:var(--muted)}.rmnote button{font:inherit;font-weight:800;color:var(--blue);background:none;border:0;text-decoration:underline;cursor:pointer;padding:0}
+@media (min-width:901px){.deck .hotel.pk .links .btn.bk{padding:8px 20px;font-size:14.5px;min-height:38px}.rmopt{font-size:13.5px;padding:8px 16px;min-height:38px}#dtoast{bottom:96px}}
+#dtoast{bottom:auto;top:56px}
+@media (min-width:901px){#dtoast{bottom:auto;top:76px}}

@@ -579,8 +579,11 @@
 
   /* hotels, table, sorting */
   var sortKey = 'match', slidesOnly = false;
+  var RMKEY = 'tajrm-' + Q.slug, removed = {};
+  try { removed = JSON.parse(localStorage.getItem(RMKEY) || '{}') || {}; } catch (e) { removed = {}; }
+  function saveRm() { try { localStorage.setItem(RMKEY, JSON.stringify(removed)); } catch (e) {} }
   function ordered() {
-    var list = hotels.slice();
+    var list = hotels.filter(function (x) { return !(pkgAll && removed[x.id]); });
     list.sort(function (a, b) {
       if (sortKey === 'price') return a.total - b.total;
       if (sortKey === 'rating') return b.rating - a.rating || a.total - b.total;
@@ -643,7 +646,7 @@
           + (x.upgrade.perks && x.upgrade.perks.length ? '<ul>' + x.upgrade.perks.map(function (k) { return '<li>' + esc(k) + '</li>'; }).join('') + '</ul>' : '')
           + x.upgrade.options.map(function (o) { return '<div class="upo"><span class="un">' + esc(o.name) + (o.extra ? '<button class="upadd' + (sel[o.extra] ? ' on' : '') + '" type="button" data-upgadd="' + esc(o.extra) + '" data-hid="' + esc(x.id) + '">' + (sel[o.extra] ? 'Added, tap to remove' : 'Add to my holiday') + '</button>' : '') + '</span><span class="up"><b>+' + gbp(o.price) + '</b><small>total ' + gbp(Math.round((Number(x.total) + Number(o.price)) * 100) / 100) + ' for ' + esc(party) + '</small></span></div>'; }).join('')
           + (x.upgrade.note ? '<p class="upn">' + esc(x.upgrade.note) + '</p>' : '') + '</div>' : '')
-        + '<div class="links"><a class="btn btn-y" href="#feedback" data-pick="book" data-hotel="' + esc(x.id) + '">I like this one</a>'
+        + '<div class="links"><a class="btn btn-y bk" href="#feedback" data-pick="book" data-hotel="' + esc(x.id) + '">' + (x.package ? 'Book this one' : 'I like this one') + '</a>' + (x.package && multi ? '<button type="button" class="rmopt" data-rm="' + esc(x.id) + '">Remove this option</button>' : '')
         + (x.site ? '<a class="btn btn-o" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>' : '') + '</div></div></div>' + pkgHtml(x) + '</article>';
     }).join('');
     Array.prototype.forEach.call(el.querySelectorAll('.slider'), function (s) {
@@ -668,6 +671,7 @@
     function A() { return Array.prototype.slice.call(document.querySelectorAll('#hotelList article.hotel')); }
     if (!A().length) return;
     var N = A().length, view = 0, tab = 'stay', body = document.body, LAST = N + 2;
+    function sync() { N = A().length; LAST = N + 2; }
     body.classList.add('deck');
     function hIndex(art) { var id = art.id.replace(/^h-/, ''), r = 0; hotels.forEach(function (h, i) { if (h.id === id) r = i; }); return r; }
     var bar = document.createElement('div'); bar.id = 'dbar';
@@ -691,6 +695,7 @@
       return h + '</div>';
     }
     function render() {
+      sync();
       var isOpt = view >= 2 && view <= N + 1;
       body.setAttribute('data-v', view === 0 ? 'welcome' : view === 1 ? 'glance' : isOpt ? 'opt' : 'final');
       body.setAttribute('data-tab', tab);
@@ -733,6 +738,32 @@
     document.getElementById('dNext').addEventListener('click', function () { go(view + 1); });
     tabs.addEventListener('click', function (e) { var b = e.target.closest('[data-dt]'); if (b) setTab(b.dataset.dt); });
     prog.addEventListener('click', function (e) { var d = e.target.closest('[data-go]'); if (d) go(Number(d.dataset.go)); });
+    var toast = document.createElement('div'); toast.id = 'dtoast'; toast.hidden = true; document.body.appendChild(toast); var toastT = null;
+    function showToast(msg, undoId) {
+      toast.innerHTML = '<span>' + esc(msg) + '</span>' + (undoId ? '<button type="button" data-undo="' + esc(undoId) + '">Undo</button>' : '');
+      toast.hidden = false; clearTimeout(toastT); toastT = setTimeout(function () { toast.hidden = true; }, 5000);
+    }
+    function refreshAll(toView) {
+      renderTable(); renderHotels(); sync(); fixTitle();
+      var rl = document.getElementById('rmNote');
+      var n = Object.keys(removed).length;
+      if (rl) { rl.hidden = !n; rl.innerHTML = n ? n + ' option' + (n > 1 ? 's' : '') + ' removed. <button type="button" data-restore="1">Show them again</button>' : ''; }
+      view = Math.max(0, Math.min(LAST, toView)); render(); fitPhoto(); window.scrollTo(0, 0);
+    }
+    function fixTitle() { var W = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'], t = document.querySelector('#compare .h2'); if (t && N >= 1 && N < 9) t.textContent = t.textContent.replace(/\b(one|two|three|four|five|six|seven|eight)\b/, W[N]); }
+    var rmNote = document.createElement('p'); rmNote.id = 'rmNote'; rmNote.className = 'rmnote'; rmNote.hidden = true;
+    var cmpWrap = document.querySelector('#compare .wrap'); if (cmpWrap) cmpWrap.appendChild(rmNote);
+    document.addEventListener('click', function (e) {
+      var rb = e.target.closest('[data-rm]'), ub = e.target.closest('[data-undo]'), rs = e.target.closest('[data-restore]');
+      if (rb) {
+        if (N <= 1) { showToast('You need to keep at least one option.'); return; }
+        var id = rb.dataset.rm; removed[id] = 1; saveRm(); toast.hidden = true;
+        refreshAll(view); showToast('Option removed', id); return;
+      }
+      if (ub) { delete removed[ub.dataset.undo]; saveRm(); refreshAll(1); toast.hidden = true; return; }
+      if (rs) { removed = {}; saveRm(); refreshAll(1); return; }
+    }, true);
+    fixTitle(); var n0 = Object.keys(removed).length; if (n0) { var rl0 = rmNote; rl0.hidden = false; rl0.innerHTML = n0 + ' option' + (n0 > 1 ? 's' : '') + ' removed. <button type="button" data-restore="1">Show them again</button>'; }
     document.addEventListener('click', function (e) {
       var a = e.target.closest('a[href]'); var p = e.target.closest('[data-pick]'); var ab = e.target.closest('[data-tog=more]');
       if (ab) { e.stopImmediatePropagation(); setTab('about'); return; }
