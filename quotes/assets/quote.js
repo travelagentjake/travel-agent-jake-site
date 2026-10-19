@@ -710,7 +710,7 @@
       back.hidden = view === 0; next.hidden = view === LAST;
       back.innerHTML = '&#8249; ' + (view === 1 ? 'Welcome' : view === 2 ? 'All options' : view === LAST ? 'Options' : view === 0 ? '' : 'Option ' + (view - 2));
       next.innerHTML = (view === 0 ? 'See your options' : view === 1 ? 'Option 1' : view === N + 1 ? 'Decide' : 'Option ' + (view - 0)) + ' &#8250;';
-      mid.textContent = view === 0 ? '' : view === 1 ? 'At a glance' : view === LAST ? 'Decide' : 'Option ' + (view - 1) + ' of ' + N;
+      mid.textContent = view === 0 ? '' : view === 1 ? 'At a glance' : view === LAST ? '' : 'Option ' + (view - 1) + ' of ' + N;
     }
     /* make the photo as big as the screen allows so the whole card fits above the bottom bar */
     function fitPhoto() {
@@ -733,8 +733,6 @@
     document.getElementById('dNext').addEventListener('click', function () { go(view + 1); });
     tabs.addEventListener('click', function (e) { var b = e.target.closest('[data-dt]'); if (b) setTab(b.dataset.dt); });
     prog.addEventListener('click', function (e) { var d = e.target.closest('[data-go]'); if (d) go(Number(d.dataset.go)); });
-    var heroEl = document.querySelector('.hero .hero-card');
-    if (heroEl) { var nb = document.createElement('button'); nb.type = 'button'; nb.className = 'readmore'; nb.textContent = 'Read more'; nb.addEventListener('click', function () { var o = document.body.classList.toggle('hero-open'); nb.textContent = o ? 'Show less' : 'Read more'; }); heroEl.appendChild(nb); }
     document.addEventListener('click', function (e) {
       var a = e.target.closest('a[href]'); var p = e.target.closest('[data-pick]'); var ab = e.target.closest('[data-tog=more]');
       if (ab) { e.stopImmediatePropagation(); setTab('about'); return; }

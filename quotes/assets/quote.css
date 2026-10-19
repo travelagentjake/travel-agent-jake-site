@@ -491,3 +491,11 @@ body.deck{padding-bottom:70px}
 .deck .note.top{margin-top:10px}
 .deck .hotel.pk .mbtn[data-tog=more]{display:none!important}
 .deck .hotel.pk .track img{height:var(--ph,150px);max-height:none;min-height:0}
+
+/* welcome page is a full read */
+.readmore{display:none!important}
+.deck .hero p.lead,.deck[data-v=welcome] .hero p.lead{display:block;-webkit-line-clamp:unset;overflow:visible}
+.deck .note.top p,.deck .note.top .sig,.deck .note.top p:first-of-type,.deck .note.top:not(.open) p:first-of-type{display:block;-webkit-line-clamp:unset;overflow:visible}
+.deck[data-v=welcome] .hero{min-height:0;display:block}
+.deck[data-v=welcome] .hero-card{display:block;margin-top:-46px;border-radius:22px 22px 0 0;padding:20px 16px 24px}
+.deck[data-v=welcome] .hero-img{height:30vh;min-height:170px}
