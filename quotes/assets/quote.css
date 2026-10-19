@@ -503,7 +503,8 @@ body.deck{padding-bottom:70px}
  body.deck{padding-bottom:84px}
  #dbar{padding:10px max(20px,calc((100vw - 1100px)/2)) 10px}
  #dbar button{font-size:16px;padding:10px 24px;min-height:46px}
- .deck[data-v=opt] #hotels,.deck[data-v=opt] #extras,.deck[data-v=opt] #next,.deck[data-v=final] #next{min-height:calc(100vh - 62px - 84px)}
+ .deck[data-v=opt] #hotels,.deck[data-v=opt] #extras{min-height:calc(100vh - 62px - 84px)}
+ .deck[data-v=final] #next{min-height:0;padding-bottom:12px}
  .deck #hotels .wrap{max-width:1180px;margin:0 auto}
  .deck .hotel.pk{border-radius:24px;overflow:hidden}
  .deck .hotel.pk .hotel-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);min-height:calc(100vh - 62px - 84px - 150px)}
@@ -522,7 +523,7 @@ body.deck{padding-bottom:70px}
  .deck .pkgdet{padding-top:6px}
  .deck .pkgfl{grid-template-columns:repeat(2,minmax(0,1fr))}
  .deck[data-v=welcome] .hero-img{height:38vh;min-height:260px}
- .deck[data-v=welcome] .hero-card{margin-top:-60px;max-width:1000px;padding:40px 44px 44px}
+ .deck[data-v=welcome] .hero-card{margin-top:-60px;max-width:1180px;padding:36px 44px 40px}
  .deck[data-v=welcome] .hero{min-height:calc(100vh - 84px)}
  .deck[data-v=glance] #compare{min-height:calc(100vh - 84px);padding:40px 0}
  .deck[data-v=glance] #compare .wrap{max-width:1100px}
@@ -656,3 +657,5 @@ body{overscroll-behavior-y:none}
 .deck.hero-open .hero-logo{display:none}
 
 @media (min-width:901px){.deck .hotel.pk .story{font-size:14px}.deck .hotel.pk .price .r,.deck .hotel.pk .price small{font-size:13px}.deck .hotel.pk .price p:not(.tax){font-size:14.5px;margin:0}}
+
+.deck[data-v=final] footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
