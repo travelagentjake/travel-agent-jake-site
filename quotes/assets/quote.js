@@ -948,7 +948,7 @@
       return CF[k] ? { k: k, d: CF[k] } : null;
     }
     function travelFactsHtml(x) {
-      var T = BASE.travelFacts; if (!T) return '';
+      var T = BASE.travelFacts; if (T === false) return ''; if (!T) T = {};
       var c = cfFor(x), o = (T === true ? {} : T), by = (o.byCountry && ((c && o.byCountry[c.k]) || o.byCountry[x.country])) || {};
       var d = c ? { place: c.d[0], currency: c.d[1], plug: c.d[2], drive: c.d[3], language: c.d[4], fcdo: c.d[5] } : {}; var c2 = c && CF2[c.k]; if (c2) { d.time = c2[0]; d.water = c2[1]; d.tip = c2[2]; d.emergency = c2[3]; } if (c) d.health = GHIC[c.k] ? 'Take your free UK GHIC card for state healthcare, and still have travel insurance with medical cover.' : 'Travel insurance with medical cover is essential. Check your policy covers any activities you plan to do.';
       ['place', 'currency', 'plug', 'drive', 'language', 'time', 'water', 'tip', 'emergency', 'health', 'fcdo', 'entry', 'extra'].forEach(function (f) { if (o[f] != null) d[f] = o[f]; if (by[f] != null) d[f] = by[f]; });
