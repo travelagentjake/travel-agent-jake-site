@@ -14,6 +14,7 @@
                 hotels: [hotel ids it applies to] }], extrasIntro,
      Extras only show with a real live price. No price means it is left off the page. Extras never link out to other sellers.
      dates: [{ id, label, total, pp, note, current (bool) }], datesIntro   // other dates with their prices, editable from the dashboard
+     hotels[].upgrade: { title, text, perks, options: [{ name, price, extra (extras id, adds it from the card) }], note, button (label: keeps the box closed behind a button on the card) }
      extras may also have group: extras in the same group are either or (one villa upgrade at a time)
      touristTax: { amount, note }   // default tourist tax for every hotel; a hotel's own tax/taxNote wins. Required on every quote (CMA).
      sections: [{ id, title, intro, html, after: "hotels" | "trip" | "todo" }],   // custom sections from Jake's notes
@@ -612,9 +613,11 @@
         + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
         + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + (x.free ? ' per paying person<br><span class="freec">' + x.free + ' free child place' + (Number(x.free) === 1 ? '' : 's') + ' included</span><br>' : ' per person<br>') : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - depOf(x)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">then about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
         /* optional in-card upgrade, e.g. a resort's deluxe collection: { title, text, perks: [], options: [{ name, price }], note } */
-        + (x.upgrade && x.upgrade.options && x.upgrade.options.length ? '<div class="upg"><div class="upgh">' + esc(x.upgrade.title || 'Upgrade option') + '</div>' + (x.upgrade.text ? '<p>' + esc(x.upgrade.text) + '</p>' : '')
+        /* upgrade.button (optional): the upgrade box stays closed behind a button on the card. option.extra links an option to an extras id so it can be added straight from the card */
+        + (x.upgrade && x.upgrade.options && x.upgrade.options.length && x.upgrade.button ? '<button class="btn btn-upg" type="button" data-upg="' + esc(x.id) + '" aria-expanded="false">' + esc(x.upgrade.button) + ' <span class="upgc" aria-hidden="true">&#9662;</span></button>' : '')
+        + (x.upgrade && x.upgrade.options && x.upgrade.options.length ? '<div class="upg"' + (x.upgrade.button ? ' id="upg-' + esc(x.id) + '" hidden' : '') + '><div class="upgh">' + esc(x.upgrade.title || 'Upgrade option') + '</div>' + (x.upgrade.text ? '<p>' + esc(x.upgrade.text) + '</p>' : '')
           + (x.upgrade.perks && x.upgrade.perks.length ? '<ul>' + x.upgrade.perks.map(function (k) { return '<li>' + esc(k) + '</li>'; }).join('') + '</ul>' : '')
-          + x.upgrade.options.map(function (o) { return '<div class="upo"><span class="un">' + esc(o.name) + '</span><span class="up"><b>+' + gbp(o.price) + '</b><small>total ' + gbp(Math.round((Number(x.total) + Number(o.price)) * 100) / 100) + ' for ' + esc(party) + '</small></span></div>'; }).join('')
+          + x.upgrade.options.map(function (o) { return '<div class="upo"><span class="un">' + esc(o.name) + (o.extra ? '<button class="upadd' + (sel[o.extra] ? ' on' : '') + '" type="button" data-upgadd="' + esc(o.extra) + '" data-hid="' + esc(x.id) + '">' + (sel[o.extra] ? 'Added, tap to remove' : 'Add to my holiday') + '</button>' : '') + '</span><span class="up"><b>+' + gbp(o.price) + '</b><small>total ' + gbp(Math.round((Number(x.total) + Number(o.price)) * 100) / 100) + ' for ' + esc(party) + '</small></span></div>'; }).join('')
           + (x.upgrade.note ? '<p class="upn">' + esc(x.upgrade.note) + '</p>' : '') + '</div>' : '')
         + '<div class="links"><a class="btn btn-y" href="#feedback" data-pick="book" data-hotel="' + esc(x.id) + '">I like this one</a>'
         + (x.site ? '<a class="btn btn-o" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>' : '') + '</div></div></div></article>';
@@ -644,6 +647,20 @@
   function lbClose() { document.getElementById('lb').classList.remove('on'); document.body.style.overflow = ''; }
   function lbStep(d) { var n = lbG ? lbG.length : hotel(lbH).imgs.length; lbI = (lbI + d + n) % n; lbShow(); }
   var list = document.getElementById('hotelList');
+  function upgSync() { Array.prototype.forEach.call(document.querySelectorAll('[data-upgadd]'), function (b) { var on = !!sel[b.dataset.upgadd]; b.classList.toggle('on', on); b.textContent = on ? 'Added, tap to remove' : 'Add to my holiday'; }); }
+  if (list) list.addEventListener('click', function (e) {
+    var ub = e.target.closest('[data-upg]');
+    if (ub) { var box = document.getElementById('upg-' + ub.dataset.upg); if (box) { box.hidden = !box.hidden; ub.setAttribute('aria-expanded', String(!box.hidden)); } return; }
+    var ua = e.target.closest('[data-upgadd]');
+    if (ua) {
+      var hi = -1; hotels.forEach(function (h, i) { if (h.id === ua.dataset.hid) hi = i; });
+      if (hi >= 0) { hIdx = hi; var ch = document.getElementById('cHotel'); if (ch) ch.value = hi; }
+      var cb = document.querySelector('[data-x="' + ua.dataset.upgadd + '"]');
+      if (cb) { cb.checked = !sel[ua.dataset.upgadd]; cb.dispatchEvent(new Event('change')); }
+      upgSync(); return;
+    }
+  });
+  document.addEventListener('change', function (e) { if (e.target && e.target.dataset && e.target.dataset.x) upgSync(); });
   if (list) list.addEventListener('click', function (e) {
     var z = e.target.closest('[data-zoom]'); if (z) { var tr = z.parentNode.querySelector('.track'); lbOpen(z.dataset.zoom, Math.round(tr.scrollLeft / tr.clientWidth)); return; }
     var im = e.target.closest('.track img'); if (im) lbOpen(im.dataset.h, Number(im.dataset.i));

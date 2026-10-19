@@ -246,6 +246,11 @@ html,body{overflow-x:clip}
 .upo .up{text-align:right;color:var(--blue);white-space:nowrap}
 .upo .up b{font-family:'Archivo Black',sans-serif;font-size:18px;display:block;line-height:1.1}
 .upo .up small{font-size:12px;font-weight:700}
+.btn-upg{margin-top:14px;width:100%;background:var(--yellow);color:var(--blue);border-color:var(--blue)}
+.btn-upg[aria-expanded="true"] .upgc{display:inline-block;transform:rotate(180deg)}
+.upo .un{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.upadd{font:inherit;font-size:13px;font-weight:800;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:6px 12px;cursor:pointer;min-height:36px}
+.upadd.on{background:var(--blue);color:#fff}
 .upg .upn{font-size:13px;color:var(--muted);margin:10px 0 0}
 
 /* arrows on area guide photo strips */
