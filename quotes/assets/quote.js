@@ -468,8 +468,8 @@
       + '<h4>How much would you like to pay today?</h4>' + (fullOnly
         ? '<p class="bkfull" id="bkFullNote">' + (Q.fullPayment === true ? 'This holiday is paid in full at the time of booking.' : 'As you travel within 14 weeks, this holiday is paid in full at the time of booking.') + '</p><input type="hidden" name="payNow" value="full" checked>'
         : '<div class="bkopts" id="bkPayNow"><label class="fbopt"><input type="radio" name="payNow" value="deposit" checked><span>Just the deposit</span></label>'
-        + '<label class="fbopt"><input type="radio" name="payNow" value="other"><span>Another amount</span></label>'
-        + '<label class="fbopt"><input type="radio" name="payNow" value="full"><span>The full amount</span></label></div>'
+        + '<label class="fbopt"><input type="radio" name="payNow" value="full"><span>The full amount</span></label>'
+        + '<label class="fbopt"><input type="radio" name="payNow" value="other"><span>Another amount</span></label></div>'
         + '<div id="bkOther" hidden style="margin-top:10px"><label>Enter the amount (&pound;)<input type="number" id="bkOtherAmt" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 1000" autocomplete="off"></label><p class="small" id="bkOtherNote" style="margin:6px 0 0"></p></div>')
       + '<h4 style="margin-top:18px">How would you like to pay?</h4><div class="bkopts"><label class="fbopt"><input type="radio" name="payHow" value="bank" checked><span>Bank transfer</span></label>'
       + '<label class="fbopt"><input type="radio" name="payHow" value="debit"><span>Debit card</span></label>'
