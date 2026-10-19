@@ -205,7 +205,7 @@
     return out.slice(0, 8);
   }
   var h = '';
-  h += '<div class="hero"><img class="hero-img" src="' + esc(img(Q.heroImg, 2000)) + '" alt="' + esc(Q.heroAlt) + '"' + (Q.heroPos ? ' style="object-position:' + esc(Q.heroPos) + '"' : '') + '><img class="hero-logo" src="https://travelagentjake.co.uk/images/logo.png" alt="Travel Agent Jake"><div class="wrap"><div class="hero-card">'
+  h += '<div class="hero"><img class="hero-img" src="' + esc(img(Q.heroImg, 2000)) + '" alt="' + esc(Q.heroAlt) + '"' + (Q.heroPos ? ' style="object-position:' + esc(Q.heroPos) + '"' : '') + '><div class="hero-logo"><img src="https://travelagentjake.co.uk/images/logo.png" alt="Travel Agent Jake"></div><div class="wrap"><div class="hero-card">'
     + '<span class="tag">' + esc(Q.tag || 'YOUR PERSONAL QUOTE') + '</span><h1>' + esc(Q.title) + '</h1><div class="sub">' + esc(Q.subtitle) + '</div>'
     + '<p class="lead">' + esc(Q.intro) + '</p><div class="facts">'
     + (Q.facts || []).map(function (f) { return '<div class="fact"><small>' + esc(f[0]) + '</small><b>' + esc(f[1]) + '</b></div>'; }).join('')

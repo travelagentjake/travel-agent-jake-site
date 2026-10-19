@@ -649,6 +649,7 @@ html{-webkit-text-size-adjust:100%}
 body{overscroll-behavior-y:none}
 @media (display-mode:standalone){.deck .top{padding-top:env(safe-area-inset-top)}}
 
-.hero-logo{position:absolute;left:50%;top:calc((max(170px,30vh) - 46px) / 2);transform:translate(-50%,-50%);height:88px;width:auto;max-width:60%;z-index:2}
-@media (min-width:901px){.hero-logo{top:calc((max(260px,38vh) - 60px) / 2);height:128px}}
+.hero-logo{position:absolute;left:50%;top:calc((max(170px,30vh) - 46px) / 2);transform:translate(-50%,-50%);z-index:2;display:flex;align-items:center;justify-content:center;width:min(78vw,300px);aspect-ratio:1.9/1;border-radius:50%;background:radial-gradient(ellipse at center,rgba(232,243,255,.92) 0%,rgba(232,243,255,.85) 52%,rgba(232,243,255,.55) 72%,rgba(232,243,255,0) 100%);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);-webkit-mask-image:radial-gradient(ellipse at center,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 62%,transparent 100%)}
+.hero-logo img{height:80px;width:auto;max-width:70%;display:block}
+@media (min-width:901px){.hero-logo{top:calc((max(260px,38vh) - 60px) / 2);width:400px}.hero-logo img{height:112px}}
 .deck.hero-open .hero-logo{display:none}
