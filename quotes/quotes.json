@@ -1,6 +1,17 @@
 {
   "quotes": [
     {
+      "slug": "shawnmadeira",
+      "url": "https://quotes.travelagentjake.co.uk/shawnmadeira",
+      "customer": "Shawn van Schalkwyk",
+      "enquiryId": "mv9z87y5sloi",
+      "quoteRequestId": "mvf39vt5je76",
+      "title": "Shawn's Madeira Holiday, Dom Pedro Garajau, Dorisol Buganvilia or Pestana Casino Park",
+      "created": "2026-10-19",
+      "departs": "2027-01-06",
+      "fromPrice": 816.44
+    },
+    {
       "slug": "davidmexico",
       "url": "https://quotes.travelagentjake.co.uk/davidmexico",
       "customer": "David",
