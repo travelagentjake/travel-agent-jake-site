@@ -325,13 +325,15 @@ html,body{overflow-x:clip}
 .hotel.pk.xmore .why{display:block;-webkit-line-clamp:unset}
 .hotel.pk:not(.xmore) .feat{display:none}
 @media (max-width:900px){
- .hotel.pk .slider{min-height:0}.hotel.pk .track img{min-height:0;height:250px;max-height:250px;object-fit:cover}
- .hotel.pk .hb{padding:14px 16px;gap:8px}.hotel.pk .hb h3{font-size:20px}.hotel.pk .hb p{font-size:14px}.hotel.pk .rating{font-size:12.5px}.hotel.pk .area{font-size:12.5px}
+ .hotel.pk .slider{min-height:0}.hotel.pk .track img{min-height:0;height:210px;max-height:210px;object-fit:cover}
+ .hotel.pk .hb{padding:10px 14px;gap:6px}.hotel.pk .hb h3{font-size:18px;line-height:1.15}.hotel.pk .hb p{font-size:13px;line-height:1.35}.hotel.pk .rating{font-size:12.5px}.hotel.pk .area{font-size:12.5px}
  .hotel.pk .rooms{font-size:12.5px}
- .hotel.pk .price{padding:10px 14px;border-radius:16px;gap:8px;margin-top:0}.hotel.pk .price .big{font-size:24px}.hotel.pk .price .r{font-size:12.5px}.hotel.pk .price p.tax{margin-top:6px;padding-top:6px;font-size:11.5px}
+ .hotel.pk .price{padding:8px 12px;border-radius:14px;gap:4px;margin-top:0}.hotel.pk .price .big{font-size:21px}.hotel.pk .price .r{font-size:12px}.hotel.pk .price p.tax{margin-top:4px;padding-top:4px;font-size:11px;line-height:1.3}.hotel.pk .price .l,.hotel.pk .price small{font-size:10.5px}
+ .hotel.pk:not(.xmore) .rooms{display:none}.hotel.pk .optl{font-size:10px;padding:3px 9px}.hotel.pk .links{gap:8px}
  .hotel.pk .badge{font-size:11px;padding:4px 9px}
- .hotel.pk .links .btn{padding:8px 14px;font-size:13px;min-height:38px}
- .pkg{padding:10px 16px}.pkgfl{grid-template-columns:1fr}.pkgr{grid-template-columns:1fr;gap:1px}
+ .hotel.pk .links .btn{padding:6px 12px;font-size:12.5px;min-height:34px}
+ .pkg{padding:8px 14px}.pkgsl{font-size:12px}.pkgsl b{font-size:13px}.mbtn{font-size:12px;padding:5px 12px;min-height:32px}.hotel.pk .badge{top:8px;left:8px}
+ .hotel.pk{margin-bottom:14px}.pkgfl{grid-template-columns:1fr}.pkgr{grid-template-columns:1fr;gap:1px}
 }
 .hotel.variant .hotel-grid{grid-template-columns:1fr}.hotel.variant .slider{display:none}.hotel.variant .area,.hotel.variant .rating,.hotel.variant .feat{display:none}
 .vbadge{font-weight:800;color:#004AAD;font-size:15px}
