@@ -890,9 +890,7 @@
       var rest = art.getBoundingClientRect().height - art.querySelector('.slider').getBoundingClientRect().height;
       art.style.setProperty('--ph', Math.max(150, Math.min(340, Math.floor(avail - rest))) + 'px');
     }
-    /* the phone address bar sliding in and out only changes the height: ignore that so the layout does not jump */
-    var lastW = window.innerWidth;
-    window.addEventListener('resize', function () { if (window.innerWidth !== lastW) { lastW = window.innerWidth; fitPhoto(); } });
+    window.addEventListener('resize', fitPhoto);
     /* open like an app when saved to the home screen */
     (function () {
       function meta(n, c) { if (document.querySelector('meta[name="' + n + '"]')) return; var m = document.createElement('meta'); m.name = n; m.content = c; document.head.appendChild(m); }
