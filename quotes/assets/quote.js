@@ -194,6 +194,7 @@
     h += '<section id="compare"><div class="wrap"><h2 class="h2">' + (Q.compareTitle ? esc(Q.compareTitle) : 'Your ' + (hotels.length === 2 ? 'two' : hotels.length === 3 ? 'three' : hotels.length === 4 ? 'four' : hotels.length === 5 ? 'five' : hotels.length === 6 ? 'six' : hotels.length) + ' hotels at a glance') + '</h2>'
       + (Q.compareIntro ? '<p class="intro">' + esc(Q.compareIntro) + '</p>' : '')
       + '<div class="ctrl" role="group" aria-label="Sort hotels"><span>Sort by</span>'
+      + '<select id="sortSel" class="sortsel" aria-label="Sort hotels"><option value="match">Sort: Best match</option><option value="price">Sort: Lowest price</option><option value="rating">Sort: Top rated</option><option value="transfer">Sort: Shortest transfer</option></select>'
       + '<button class="chipbtn" type="button" data-sort="match" aria-pressed="true">Best match</button>'
       + '<button class="chipbtn" type="button" data-sort="price" aria-pressed="false">Lowest price</button>'
       + '<button class="chipbtn" type="button" data-sort="rating" aria-pressed="false">Top rated</button>'
@@ -623,7 +624,8 @@
   function renderHotels() {
     var el = document.getElementById('hotelList'); if (!el) return;
     el.innerHTML = ordered().map(function (x, oi) {
-      var slides = x.variantOf ? '' : (x.imgs || []).map(function (u, i) { return '<img loading="' + (i ? 'lazy' : 'eager') + '" src="' + esc(img(u, 1000)) + '" srcset="' + esc(img(u, 700)) + ' 700w, ' + esc(img(u, 1000)) + ' 1000w, ' + esc(img(u, 1400)) + ' 1400w" sizes="(max-width:900px) 100vw, 600px" alt="' + esc(x.name) + ' photo ' + (i + 1) + '" data-h="' + esc(x.id) + '" data-i="' + i + '">'; }).join('');
+      var base = x.variantOf ? hotel(x.variantOf) : null, pics = (x.imgs && x.imgs.length) ? x.imgs : (base && base.imgs) || [], hid = (x.imgs && x.imgs.length) ? x.id : (base ? base.id : x.id);
+      var slides = pics.map(function (u, i) { return '<img loading="' + (i ? 'lazy' : 'eager') + '" src="' + esc(img(u, 1000)) + '" srcset="' + esc(img(u, 700)) + ' 700w, ' + esc(img(u, 1000)) + ' 1000w, ' + esc(img(u, 1400)) + ' 1400w" sizes="(max-width:900px) 100vw, 600px" alt="' + esc(x.name) + ' photo ' + (i + 1) + '" data-h="' + esc(hid) + '" data-i="' + i + '">'; }).join('');
       return '<article class="hotel' + (x.variantOf ? ' variant' : '') + (x.package ? ' pk' : '') + '" id="h-' + esc(x.id) + '"><div class="hotel-grid"><div class="slider"><div class="track">' + slides + '</div>'
         + (x.badge ? '<span class="badge">' + esc(x.badge) + '</span>' : '')
         + '<button class="arr l" type="button" aria-label="Previous photo" data-dir="-1">&#8249;</button><button class="arr r" type="button" aria-label="Next photo" data-dir="1">&#8250;</button>'
@@ -653,8 +655,10 @@
       });
     });
   }
+  var sSel = document.getElementById('sortSel');
+  if (sSel) sSel.addEventListener('change', function () { sortKey = sSel.value; Array.prototype.forEach.call(document.querySelectorAll('[data-sort]'), function (x) { x.setAttribute('aria-pressed', String(x.dataset.sort === sortKey)); }); renderTable(); renderHotels(); if (typeof deckRefresh === 'function') deckRefresh(); });
   Array.prototype.forEach.call(document.querySelectorAll('[data-sort]'), function (b) {
-    b.addEventListener('click', function () { sortKey = b.dataset.sort; Array.prototype.forEach.call(document.querySelectorAll('[data-sort]'), function (x) { x.setAttribute('aria-pressed', String(x === b)); }); renderTable(); renderHotels(); });
+    b.addEventListener('click', function () { sortKey = b.dataset.sort; if (sSel) sSel.value = sortKey; Array.prototype.forEach.call(document.querySelectorAll('[data-sort]'), function (x) { x.setAttribute('aria-pressed', String(x === b)); }); renderTable(); renderHotels(); if (typeof deckRefresh === 'function') deckRefresh(); });
   });
   var so = document.getElementById('slidesOnly');
   if (so) so.addEventListener('click', function () { slidesOnly = !slidesOnly; so.setAttribute('aria-pressed', String(slidesOnly)); renderTable(); renderHotels(); });
@@ -723,8 +727,10 @@
       if (sx == null) return; var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy; sx = null;
       if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.8) go(view + (dx < 0 ? 1 : -1));
     }, { passive: true });
+    deckRefresh = function () { render(); };
     render();
   }
+  var deckRefresh = null;
   if (pkgAll) deck();
 
   /* lightbox */

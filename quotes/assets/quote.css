@@ -335,7 +335,7 @@ html,body{overflow-x:clip}
  .pkg{padding:8px 14px}.pkgsl{font-size:12px}.pkgsl b{font-size:13px}.mbtn{font-size:12px;padding:5px 12px;min-height:32px}.hotel.pk .badge{top:8px;left:8px}
  .hotel.pk{margin-bottom:14px}.pkgfl{grid-template-columns:1fr}.pkgr{grid-template-columns:1fr;gap:1px}
 }
-.hotel.variant .hotel-grid{grid-template-columns:1fr}.hotel.variant .slider{display:none}.hotel.variant .area,.hotel.variant .rating,.hotel.variant .feat{display:none}
+body:not(.deck) .hotel.variant .hotel-grid{grid-template-columns:1fr}body:not(.deck) .hotel.variant .slider{display:none}body:not(.deck) .hotel.variant .area,body:not(.deck) .hotel.variant .rating,body:not(.deck) .hotel.variant .feat{display:none}
 .vbadge{font-weight:800;color:#004AAD;font-size:15px}
 .optsm{display:block;color:#5b6478;font-weight:600;font-size:12.5px;margin-top:2px}
 .crow .cpk{display:block;font-weight:700;color:#004AAD}
@@ -424,3 +424,6 @@ body.deck{padding-bottom:96px}
 .deck .hotel.pk{box-shadow:none}
 .deck #calc .intro{display:none}
 .deck footer{padding-bottom:24px}
+
+.sortsel{display:none;width:100%;font:inherit;font-weight:700;font-size:14px;color:var(--blue);background:#fff;border:2px solid var(--blue);border-radius:999px;padding:9px 14px}
+@media (max-width:700px){.ctrl>span,.ctrl .chipbtn{display:none}.sortsel{display:block}.ctrl{display:block;margin:10px 0}}
