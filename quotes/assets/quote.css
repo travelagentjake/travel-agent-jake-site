@@ -509,15 +509,15 @@ body.deck{padding-bottom:70px}
  .deck .hotel.pk .hotel-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);min-height:calc(100vh - 62px - 84px - 150px)}
  .deck .hotel.pk .slider{min-height:100%}
  .deck .hotel.pk .track img{height:100%;min-height:0;max-height:none;object-fit:cover}
- .deck .hotel.pk .hb{padding:34px 34px;gap:14px;justify-content:center}
- .deck .hotel.pk .hb h3{font-size:34px}
+ .deck .hotel.pk .hb{padding:20px 30px;gap:9px;justify-content:center}
+ .deck .hotel.pk .hb h3{font-size:28px}
  .deck .hotel.pk .area{font-size:15px;margin-bottom:0}
- .deck .hotel.pk .hb p{font-size:17px}
- .deck .hotel.pk .price{padding:18px 22px;border-radius:20px}
- .deck .hotel.pk .price .big{font-size:38px}
- .deck .hotel.pk .price p.tax{font-size:13.5px}
- .deck .hotel.pk .links .btn{padding:12px 24px;font-size:16px;min-height:48px}
- .deck .hotel.pk .rooms{font-size:15px}
+ .deck .hotel.pk .hb p{font-size:14.5px;line-height:1.4}
+ .deck .hotel.pk .price{padding:12px 18px;border-radius:18px;gap:3px}
+ .deck .hotel.pk .price .big{font-size:30px}
+ .deck .hotel.pk .price p.tax{font-size:12px;line-height:1.3;margin-top:6px;padding-top:6px}
+ .deck .hotel.pk .links .btn{padding:9px 22px;font-size:15px;min-height:42px}
+ .deck .hotel.pk .rooms{font-size:13.5px;line-height:1.35}
  .deck .pkg{padding:16px 34px}.deck .pkgsl{font-size:15px}.deck .pkgsl b{font-size:17px}.deck .mbtn{font-size:15px;padding:9px 20px}
  .deck .pkgdet{padding-top:6px}
  .deck .pkgfl{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -654,3 +654,5 @@ body{overscroll-behavior-y:none}
 .hero-logo img{height:min(74px,calc((max(170px,30vh) - 46px) * .55));width:auto;max-width:70vw;display:block;position:relative}
 @media (min-width:901px){.hero-logo{top:calc((max(260px,38vh) - 60px) * .47)}.hero-logo img{height:min(112px,calc((max(260px,38vh) - 60px) * .6))}.hero-logo::before{inset:-4px -12px;filter:blur(16px)}}
 .deck.hero-open .hero-logo{display:none}
+
+@media (min-width:901px){.deck .hotel.pk .story{font-size:14px}.deck .hotel.pk .price .r,.deck .hotel.pk .price small{font-size:13px}.deck .hotel.pk .price p:not(.tax){font-size:14.5px;margin:0}}
