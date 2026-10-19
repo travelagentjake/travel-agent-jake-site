@@ -697,6 +697,128 @@
   var so = document.getElementById('slidesOnly');
   if (so) so.addEventListener('click', function () { slidesOnly = !slidesOnly; so.setAttribute('aria-pressed', String(slidesOnly)); renderTable(); renderHotels(); });
   renderTable(); renderHotels();
+  /* area guides: written once, matched to a hotel by its name and area. A hotel can override with areaKey, or with its own resort details. */
+  var AREA_GUIDES = [
+    { k: 'ovacik', m: /ovacik|hisaronu|oludeniz/, t: 'Ovacik and Oludeniz, Turkey', i: 'A hillside village a few minutes inland from the famous Oludeniz lagoon, with its own little strip of shops, restaurants and bars. It is greener and calmer than the beach resorts, with mountain views all around.',
+      eat: ['Turkish grills, pide and gozleme in the village restaurants', 'Fresh fish and sea view dinners down at Oludeniz', 'Turkish tea, baklava and ice cream from the village cafes'],
+      feel: ['Relaxed and friendly, with a lively little strip for the evenings', 'Hilly, so most people use the dolmus minibus or a taxi to reach the beach', 'Mountain scenery and cooler evenings than the coast'],
+      near: [['about 10 mins', 'Oludeniz Blue Lagoon', 'A sheltered turquoise lagoon and one of the best beaches in Turkey'], ['about 15 mins', 'Hisaronu', 'Busier bars, shops and restaurants for a night out'], ['about 25 mins', 'Fethiye', 'Harbour, markets and boat trips to the islands'], ['about 30 mins', 'Butterfly Valley', 'A hidden beach reached by boat, with a waterfall walk']] },
+    { k: 'marmaris', m: /marmaris|icmeler/, t: 'Marmaris, Turkey', i: 'A lively harbour town on a wide bay ringed by pine covered mountains. There is a pretty old town with a castle above the marina, a big bazaar and a long seafront promenade, with calmer Icmeler just around the headland.',
+      eat: ['Fish and meze restaurants along the harbour and promenade', 'Kebabs, pide and fresh Turkish bread in the old town', 'Bazaar cafes for Turkish coffee and baklava'],
+      feel: ['A real town rather than a resort, so there is plenty going on', 'Famous Bar Street for lively nights if you want them, easy to avoid if you do not', 'Easy to get around by dolmus minibus and water taxi'],
+      near: [['about 10 mins', 'Marmaris Old Town and castle', 'Whitewashed lanes, the bazaar and views over the bay'], ['about 15 mins', 'Icmeler', 'A smaller, calmer beach resort with a promenade of restaurants'], ['about 40 mins', 'Turunc', 'A pretty bay reached by road or boat'], ['around 1.5 hours', 'Dalyan', 'River boat to the Lycian rock tombs and Iztuzu turtle beach']] },
+    { k: 'protaras', m: /protaras|paralimni|ayia napa|agia napa/, t: 'Protaras, Cyprus', i: 'A relaxed resort on the east coast of Cyprus, built around a string of sandy bays with clear, shallow water, including Fig Tree Bay and Sunrise Beach. It is lively without being rowdy, with a promenade of shops, restaurants and bars.',
+      eat: ['Cypriot meze of halloumi, grilled meats and fresh fish in the seafront tavernas', 'Casual beach cafes at Fig Tree Bay for lunch and ice cream', 'Wider choice of restaurants in nearby Ayia Napa'],
+      feel: ['Easy going and very family friendly', 'Evenings are friendly rather than wild, much quieter than Ayia Napa', 'Flat and walkable along the seafront'],
+      near: [['about 5 mins', 'Fig Tree Bay', 'A sheltered golden beach and one of the island favourites'], ['about 15 mins', 'Cape Greco', 'Sea caves, cliff walks and snorkelling in a national park'], ['about 15 mins', 'Ayia Napa', 'Beaches, the harbour and a busier choice of bars and restaurants'], ['about 25 mins', 'Deryneia viewpoint', 'A look across to the abandoned beach town of Varosha']] },
+    { k: 'limassol', m: /limassol/, t: 'Limassol, Cyprus', i: 'Cyprus\'s lively second city, with a long seafront promenade, a smart marina and a pretty old town. The hotels sit along the beach strip, so you are never far from restaurants, bars and shops.',
+      eat: ['Cypriot meze in the old town tavernas', 'Fish restaurants and waterfront cafes along the promenade', 'Limassol Marina for a wider choice of restaurants'],
+      feel: ['A proper city with a resort strip, so there is always something to do', 'Good evenings out, from relaxed tavernas to cocktail bars', 'Pebbly and sandy mix on the beaches, with calm water'],
+      near: [['about 15 mins', 'Limassol Old Town and castle', 'Narrow streets, markets and the medieval castle'], ['about 15 mins', 'Limassol Marina', 'Restaurants, bars and boats along the waterfront'], ['about 25 mins', 'Kourion', 'Ancient Greek and Roman ruins above the sea'], ['about 40 mins', 'Aphrodite\'s Rock', 'The legendary birthplace of Aphrodite, on a dramatic stretch of coast']] },
+    { k: 'paphos', m: /paphos|pafos/, t: 'Paphos, Cyprus', i: 'A relaxed seaside town on the west coast of Cyprus, with a pretty harbour, a medieval fort and some of the best ancient ruins on the island. Kato Paphos is the tourist area by the sea, with restaurants, bars and shops all within an easy walk.',
+      eat: ['Fish tavernas and meze restaurants around the harbour', 'Souvlaki, halloumi and slow cooked kleftiko in the village style tavernas', 'Harbour cafes for sunset drinks'],
+      feel: ['Laid back and good for couples and families', 'Plenty of history on the doorstep as well as beaches', 'Easy to walk or take a short taxi between areas'],
+      near: [['about 10 mins', 'Paphos Archaeological Park', 'Roman mosaics and ruins, a UNESCO World Heritage Site'], ['about 10 mins', 'Tombs of the Kings', 'Grand underground tombs carved into the rock by the sea'], ['about 30 mins', 'Aphrodite\'s Rock', 'A famous sea stack and swimming spot'], ['about 45 mins', 'Akamas and the Blue Lagoon', 'Boat trips and snorkelling at the tip of the peninsula']] },
+    { k: 'ari', m: /ari atoll|villa park|sun island/, t: 'South Ari Atoll, Maldives', i: 'You stay on your own small island in the middle of the atoll, ringed by white sand, a shallow turquoise lagoon and a coral reef. There are no cars or crowds, just barefoot days and spectacular sunsets.',
+      eat: ['Buffet and a la carte dining at the island restaurants', 'Fresh Maldivian tuna, curries and mas huni at breakfast', 'Sunset drinks at the beach bar'],
+      feel: ['Quiet, barefoot and very relaxing', 'The evenings are at the hotel, with live music and themed nights', 'Warm sea all year, with the best snorkelling right from the beach'],
+      near: [['on the island', 'House reef snorkelling', 'Colourful fish and often turtles just off the beach'], ['half day trip', 'Sandbank picnic', 'A tiny sandbank in the middle of the ocean by boat'], ['half day trip', 'Dolphin cruise', 'Boat trips at sunset to spot dolphins'], ['full day trip', 'Whale shark snorkelling', 'South Ari Atoll is one of the best places in the world to see whale sharks']] },
+    { k: 'lhaviyani', m: /lhaviyani|kuredu/, t: 'Lhaviyani Atoll, Maldives', i: 'One of the larger resort islands in the Maldives, a long strip of white sand surrounded by a reef and a calm lagoon. It is known for its diving and snorkelling, and for being relaxed, friendly and good value for the Maldives.',
+      eat: ['Buffet restaurants and a la carte dining on the island', 'Fresh seafood and Maldivian curries', 'Beach bars for cocktails at sunset'],
+      feel: ['Barefoot and easy going, with space to spread out', 'Great for snorkelling, diving and water sports', 'Evenings are at the resort with entertainment and bars'],
+      near: [['on the island', 'House reef', 'Snorkel straight from the beach, with turtles and reef sharks often seen'], ['half day trip', 'Local island visit', 'See everyday Maldivian life and the village shops'], ['half day trip', 'Dolphin and sunset cruise', 'A boat trip over the lagoon at golden hour'], ['full day trip', 'Diving and snorkelling trips', 'Some of the best reef sites in the Maldives']] },
+    { k: 'kantaoui', m: /kantaoui/, t: 'Port El Kantaoui, Tunisia', i: 'A purpose built resort a short way north of Sousse, centred on a pretty marina lined with cafes, restaurants and shops. It feels smarter and calmer than most of Tunisia\'s resorts, with golf courses and long sandy beaches close by.',
+      eat: ['Marina restaurants serving fresh fish, grills and couscous', 'Tunisian pastries and mint tea at the harbour cafes', 'Pizza and international food along the promenade'],
+      feel: ['Safe, tidy and easy to stroll around', 'Calm evenings, with a few bars and live music along the marina', 'A little train and taxis link the hotels with the marina'],
+      near: [['about 5 mins', 'Port El Kantaoui marina', 'Boats, restaurants and a lovely evening walk'], ['about 15 mins', 'Sousse Medina', 'A walled old town with a fortress, souks and a great mosque'], ['about 30 mins', 'Monastir', 'A seaside town with a huge ribat fortress and the Bourguiba Mausoleum'], ['about 1 hour', 'El Jem', 'A spectacular Roman amphitheatre, almost as big as the Colosseum']] },
+    { k: 'sousse', m: /sousse/, t: 'Sousse, Tunisia', i: 'Tunisia\'s liveliest holiday city, with a long sandy beach, a UNESCO listed old town and a busy hotel strip. There is plenty to do in the evenings, and the medina is only a short taxi ride away.',
+      eat: ['Tunisian dishes such as brik, couscous and grilled fish in the medina', 'Seafront restaurants along the beach', 'Fresh pastries, mint tea and strong coffee at the cafes'],
+      feel: ['Busy and lively, with lots of choice for nights out', 'Best to take taxis after dark, which are cheap', 'A good mix of beach days and sightseeing'],
+      near: [['about 10 mins', 'Sousse Medina', 'A walled old town with a fortress, souks and a great mosque'], ['about 10 mins', 'Port El Kantaoui', 'A pretty marina with cafes, restaurants and boat trips'], ['about 30 mins', 'Monastir', 'A seaside town with a huge ribat fortress and the Bourguiba Mausoleum'], ['about 1 hour', 'El Jem', 'A spectacular Roman amphitheatre, almost as big as the Colosseum']] },
+    { k: 'monastir', m: /monastir|skanes/, t: 'Skanes and Monastir, Tunisia', i: 'A quieter hotel zone on a long, wide sandy beach just outside Monastir, beside the lagoon at Skanes. The old town of Monastir is close by, with a big seafront fortress, and the airport is only minutes away.',
+      eat: ['Tunisian grills, couscous and fish in Monastir town', 'Cafes for mint tea and pastries on the seafront', 'Most hotels have several restaurants to choose from'],
+      feel: ['Calm and relaxed, with a hotel zone feel', 'Evenings are mostly at the hotel, with taxis into Monastir', 'A long sandy beach with plenty of space'],
+      near: [['about 10 mins', 'Monastir Old Town and Ribat', 'A sea fortress where parts of Life of Brian were filmed'], ['about 10 mins', 'Bourguiba Mausoleum', 'A grand golden domed tomb at the heart of the town'], ['about 20 mins', 'Sousse', 'The medina, souks and a lively seafront'], ['about 1 hour', 'El Jem', 'A spectacular Roman amphitheatre']] },
+    { k: 'hammamet', m: /hammamet/, t: 'Hammamet, Tunisia', i: 'Tunisia\'s original beach resort, set on a sweeping bay lined with white sand, jasmine and orange blossom. It has a pretty walled medina right on the sea and a modern marina at Yasmine Hammamet.',
+      eat: ['Fish and seafood restaurants in the old town and marina', 'Tunisian couscous, brik and grills', 'Cafes for mint tea and pastries'],
+      feel: ['A softer, more upmarket resort feel than Sousse', 'Good evenings in the medina and marina', 'Easy to explore by taxi'],
+      near: [['about 10 mins', 'Hammamet Medina and Kasbah', 'A fortress and old town right on the seafront'], ['about 10 mins', 'Yasmine Hammamet', 'A modern marina with bars, restaurants and boat trips'], ['about 20 mins', 'Nabeul', 'Famous for its pottery and Friday market'], ['about 1 hour', 'Tunis and Carthage', 'The capital and its ancient Roman ruins']] },
+    { k: 'mahdia', m: /mahdia/, t: 'Mahdia, Tunisia', i: 'A calm, authentic coastal town on a narrow peninsula, with a fishing harbour, a walled old town and a long sandy beach. It is much quieter than Sousse or Hammamet, so it suits a gentler holiday.',
+      eat: ['Fresh grilled fish by the fishing harbour', 'Tunisian pastries and mint tea in the old town cafes', 'Hotel restaurants for relaxed evenings'],
+      feel: ['Peaceful, with a local feel', 'Evenings are quiet, mostly at the hotel or a short taxi into town', 'A long, uncrowded beach'],
+      near: [['about 10 mins', 'Mahdia Old Town', 'The old gate, the fishing harbour and the fortress'], ['about 10 mins', 'Cemetery by the sea', 'A beautiful cliff top spot for sunset'], ['about 45 mins', 'El Jem', 'A spectacular Roman amphitheatre'], ['about 1 hour', 'Monastir', 'A seaside town with a famous ribat fortress']] },
+    { k: 'miches', m: /miches/, t: 'Miches, Dominican Republic', i: 'A quiet, unspoilt stretch of the north east coast, far from the crowds of Punta Cana. Think long empty beaches, palm trees, lagoons and green hills, with a very peaceful feel.',
+      eat: ['Fresh seafood and Dominican dishes such as mofongo and la bandera', 'Local beach cafes for fried fish', 'Resort restaurants for most evening meals'],
+      feel: ['Remote and peaceful, a true escape', 'Evenings are at the resort, with little else around', 'Best for people who want to relax rather than go out'],
+      near: [['about 15 mins', 'Miches town', 'A small local town with simple restaurants'], ['about 30 mins', 'Laguna Redonda and Laguna Limon', 'Peaceful lagoons ringed by mangroves and beach'], ['about 1 hour', 'Los Haitises National Park', 'Boat trips among caves, mangroves and wildlife'], ['about 1.5 hours', 'Punta Cana', 'The airport and the main resort area']] },
+    { k: 'bavaro', m: /bavaro|punta cana/, t: 'Bavaro, Punta Cana', i: 'Mile after mile of white sand and palm trees, with the warm Caribbean on one side and the big all inclusive resorts spread along the coast. Most things you need are inside the resort, with shops, restaurants and day trips a short drive away.',
+      eat: ['Resort restaurants and a la carte dining included in your stay', 'Dominican food such as mofongo, la bandera and fresh seafood', 'Beach bars and restaurants in Bavaro town'],
+      feel: ['Relaxed and sociable, with an all inclusive feel', 'Most evenings are at the resort, with shows and live music', 'Taxis and excursions are easy to arrange'],
+      near: [['about 10 mins', 'Palma Real Shopping Village', 'An open air centre with shops and restaurants'], ['about 20 mins', 'Bavaro town', 'Beach bars, shops and local restaurants'], ['full day trip', 'Saona Island', 'A catamaran trip to a white sand island and natural pool'], ['about 1 hour', 'Altos de Chavon', 'A recreated Mediterranean village with an amphitheatre']] },
+    { k: 'akumal', m: /akumal|riviera maya|tulum/, t: 'Akumal, Riviera Maya', i: 'A small, laid back bay on the Mexican Caribbean, whose name means place of the turtles. It is quiet and green, with a calm bay for swimming and snorkelling and the busier towns of the Riviera Maya close by.',
+      eat: ['Fresh seafood, tacos and Mexican dishes at the beach cafes', 'Resort restaurants for most evenings', 'More choice in Playa del Carmen and Tulum'],
+      feel: ['Peaceful, with a Caribbean beach town feel', 'Evenings are quiet, mostly at the resort', 'Great for nature, snorkelling and day trips'],
+      near: [['about 5 mins', 'Akumal Bay', 'Snorkel with green turtles in the shallows'], ['about 15 mins', 'Xel-Ha', 'A natural water park with snorkelling and rivers'], ['about 25 mins', 'Tulum ruins', 'A Mayan city on a cliff above the sea'], ['about 35 mins', 'Playa del Carmen', 'Fifth Avenue for shopping, bars and restaurants']] },
+    { k: 'cancun', m: /cancun/, t: 'Cancun, Mexico', i: 'A long, thin strip of land between the Caribbean and a lagoon, packed with beaches, resorts, restaurants and nightlife. It is lively, with the airport close and some of Mexico\'s best day trips within reach.',
+      eat: ['Mexican tacos, ceviche and fresh seafood at lagoon side restaurants', 'Large choice of restaurants along the hotel zone', 'Resort dining for most meals'],
+      feel: ['Lively and well set up for visitors', 'Good nightlife, with Coco Bongo the famous party show', 'Buses and taxis run along the hotel zone'],
+      near: [['about 10 mins', 'Hotel zone shops and restaurants', 'Malls, bars and beach clubs along the strip'], ['about 25 mins', 'Isla Mujeres', 'Ferry to a laid back island with clear water'], ['about 30 mins', 'Cancun downtown', 'Local markets and Mexican restaurants'], ['around 2.5 hours', 'Chichen Itza', 'The world famous Mayan pyramid, as a day trip']] },
+    { k: 'qawra', m: /qawra|bugibba|st paul/, t: 'Qawra and Bugibba, Malta', i: 'A lively seaside resort on the north east coast of Malta, with a long promenade of restaurants, shops and bars. The sea here is clear and the shoreline is rocky, with lidos and swimming platforms rather than sandy beaches.',
+      eat: ['Maltese dishes such as rabbit stew, pastizzi and fresh fish', 'Promenade restaurants overlooking the bay', 'Bugibba Square for a wide choice of restaurants and bars'],
+      feel: ['Busy and sociable, with plenty going on in the evenings', 'Very easy to walk along the seafront', 'Buses to Valletta and the rest of the island are frequent'],
+      near: [['about 5 mins', 'National Aquarium', 'A big aquarium right on the Qawra seafront'], ['about 25 mins', 'Mdina', 'The silent city, a walled medieval town with rooftop views'], ['about 40 mins', 'Valletta', 'The capital, with palaces, churches and harbour views'], ['about 45 mins', 'Gozo', 'Ferry from Cirkewwa to the greener, quieter sister island']] },
+    { k: 'alanya', m: /alanya|antalya|konakli|okurcalar/, t: 'The Alanya coast, Turkey', i: 'A long stretch of the Turkish Riviera, with sandy beaches, mountains behind and a lively harbour town at its heart. The hotels are mostly big, well equipped resorts, so most days are spent by the pool or on the beach.',
+      eat: ['Turkish kebabs, pide and gozleme', 'Fresh fish in the harbour restaurants', 'Baklava, Turkish ice cream and strong tea in the cafes'],
+      feel: ['Relaxed and very family friendly', 'Evenings are mostly at the resort, with shows and entertainment', 'Alanya town has lots to choose from for a night out'],
+      near: [['about 30 mins', 'Alanya Castle', 'A hilltop fortress with views over the whole coast'], ['about 30 mins', 'Cleopatra Beach', 'A golden beach with calm water in Alanya'], ['about 45 mins', 'Side', 'Roman ruins beside a pretty harbour'], ['about 1 hour', 'Manavgat Waterfall', 'A waterfall with a river boat trip nearby']] },
+    { k: 'praia', m: /praia da rocha|algarve|portimao/, t: 'Praia da Rocha, Algarve', i: 'One of the Algarve\'s most famous beaches, a wide golden bay backed by red cliffs and rock formations. The resort is lively but never rowdy, with a promenade of cafes and restaurants overlooking the sea.',
+      eat: ['Grilled sardines, cataplana seafood stew and piri piri chicken', 'Clifftop restaurants with sea views', 'Pastel de nata and coffee in the beach cafes'],
+      feel: ['Relaxed and friendly, with good evenings out', 'The strip has bars and restaurants all within walking distance', 'Wide, sandy beach with plenty of space'],
+      near: [['about 5 mins', 'Portimao', 'A busy town with a fishing quay and sardine restaurants'], ['about 25 mins', 'Lagos', 'A pretty old town, beaches and boat trips'], ['about 30 mins', 'Benagil Caves', 'A boat or kayak trip into the famous sea cave'], ['about 35 mins', 'Albufeira', 'The Algarve\'s liveliest resort, with a busy old town']] },
+    { k: 'faliraki', m: /faliraki|rhodes/, t: 'Faliraki, Rhodes', i: 'Rhodes\'s liveliest resort, with a long sandy beach, a huge water park and a busy strip of bars and restaurants. There is plenty to do for families by day and for a lively night out after dark.',
+      eat: ['Greek tavernas for souvlaki, moussaka and Greek salad', 'Fresh fish along the beach', 'Cafes for frappe and Greek ice cream'],
+      feel: ['Lively and sociable, with lots going on', 'Easy to dip in and out of the busy strip', 'Buses and taxis make Rhodes Town easy to reach'],
+      near: [['about 5 mins', 'Faliraki Water Park', 'One of the biggest water parks in Greece'], ['about 10 mins', 'Kallithea Springs', 'A restored 1920s spa with a swimming bay'], ['about 20 mins', 'Rhodes Old Town', 'A medieval walled city with the Palace of the Grand Master'], ['about 40 mins', 'Lindos', 'A whitewashed village below an ancient acropolis']] },
+    { k: 'adeje', m: /adeje|tenerife/, t: 'Costa Adeje, Tenerife', i: 'The smartest resort on Tenerife\'s sunny south coast, with a long seafront promenade, calm beaches and lots of restaurants. It is polished, safe and family friendly, with Siam Park, one of the world\'s best water parks, close by.',
+      eat: ['Fresh fish and Canarian dishes such as papas arrugadas with mojo sauce', 'Restaurants along the promenade and at Playa del Duque', 'Puerto Colon marina for waterside dining'],
+      feel: ['Polished and calm, with a lot of choice', 'Good for families and couples', 'Easy to walk along the promenade between the beaches'],
+      near: [['about 10 mins', 'Siam Park', 'A top rated water park with wave pools and slides'], ['about 10 mins', 'Puerto Colon', 'Marina with boat trips to see whales and dolphins'], ['about 1 hour', 'Masca', 'A dramatic mountain village with walking trails'], ['about 1.25 hours', 'Mount Teide', 'Spain\'s highest peak, with cable car and volcanic scenery']] },
+    { k: 'jerseycity', m: /jersey city/, t: 'Jersey City, New Jersey', i: 'Just across the Hudson River from Manhattan, with some of the best skyline views anywhere. It is a lively city in its own right, with great restaurants, a waterfront walk and a fast train into New York.',
+      eat: ['Great pizza, Indian and Latin restaurants, often much cheaper than Manhattan', 'Grove Street Plaza for lots of places in one spot', 'Waterfront cafes with views of the skyline'],
+      feel: ['Lively and friendly, with a local feel', 'The skyline views at night are fantastic', 'Quieter and better value than staying in Manhattan'],
+      near: [['about 10 mins', 'PATH train to Manhattan', 'Straight to the World Trade Center or Midtown'], ['about 10 mins', 'Liberty State Park', 'Ferries to the Statue of Liberty and Ellis Island'], ['about 10 mins', 'Hudson River waterfront walk', 'A lovely walk with skyline views'], ['about 20 mins', 'Hoboken', 'A pretty town with bars, restaurants and Frank Sinatra\'s birthplace']] },
+    { k: 'weehawken', m: /weehawken|lincoln harbor/, t: 'Lincoln Harbor, Weehawken', i: 'A smart waterfront district on the Hudson, directly across from Midtown Manhattan. The skyline views are among the best, and a short ferry takes you straight into the city.',
+      eat: ['Waterfront restaurants along the harbour walk', 'More choice in nearby Hoboken', 'Manhattan is a short ferry ride away for dinner'],
+      feel: ['Quiet and tidy, with a waterfront walk', 'Great views of the Manhattan skyline', 'A calm base to come back to after busy days in New York'],
+      near: [['about 10 mins', 'Ferry to Midtown', 'A short ride across the river to West 39th Street'], ['about 10 mins', 'Port Imperial waterfront', 'A long riverside walk with restaurants'], ['about 15 mins', 'Hoboken', 'A pretty town with bars, restaurants and parks'], ['about 25 mins', 'Times Square', 'Straight into the heart of New York']] },
+    { k: 'orlando', m: /international drive|orlando/, t: 'International Drive, Orlando', i: 'Orlando\'s busiest tourist strip, packed with restaurants, shops and attractions, with the big theme parks close by. It is well set up for families, with free trolleys and a huge choice of food.',
+      eat: ['Huge choice of restaurants, from burgers and steaks to Asian and Italian', 'Restaurant Row on Sand Lake Road for something special', 'ICON Park and Pointe Orlando for evening meals'],
+      feel: ['Busy, lively and very well set up for visitors', 'Plenty of shops and attractions within a short ride', 'A hire car or taxi helps for the parks, though free trolleys run along International Drive'],
+      near: [['about 10 mins', 'ICON Park', 'A giant observation wheel, shops and restaurants'], ['about 10 mins', 'SeaWorld Orlando', 'Rides, shows and marine life'], ['about 15 mins', 'Universal Orlando', 'Harry Potter, Volcano Bay and thrill rides'], ['about 25 mins', 'Walt Disney World', 'Magic Kingdom, EPCOT, Animal Kingdom and Hollywood Studios']] }
+  ];
+  function areaGuideFor(x) {
+    if (x.areaKey) { var g = AREA_GUIDES.filter(function (a) { return a.k === x.areaKey; })[0]; if (g) return g; }
+    var text = ((x.area || '') + ' ' + (x.name || '')).toLowerCase();
+    for (var i = 0; i < AREA_GUIDES.length; i++) if (AREA_GUIDES[i].m.test(text)) return AREA_GUIDES[i];
+    return null;
+  }
+  /* turn a hotel's own resort details into the same shape, so Madeira and others can use their own */
+  function areaGuideFromResort(x, r) {
+    var eat = (r.eat || []).concat(r.bars || []);
+    return { t: 'The area around ' + x.name, i: r.town || '', eat: eat, feel: [], near: (r.nearby || []).map(function (n) { return ['', n, '']; }) };
+  }
+  function areaGuideHtml(g) {
+    if (!g) return '';
+    var h = '<div class="ag"><h3>' + esc(g.t) + '</h3><div class="agh">The area around your hotel</div>';
+    if (g.i) h += '<p class="agi">' + esc(g.i) + '</p>';
+    var cols = [];
+    if (g.eat && g.eat.length) cols.push('<div class="agb"><h4>Eat and drink</h4><ul>' + g.eat.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('') + '</ul></div>');
+    if (g.feel && g.feel.length) cols.push('<div class="agb safe"><h4>What it is like</h4><ul>' + g.feel.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('') + '</ul></div>');
+    if (cols.length) h += '<div class="aggrid' + (cols.length === 1 ? ' one' : '') + '">' + cols.join('') + '</div>';
+    if (g.near && g.near.length) h += '<div class="agnb"><h4>Nearby, for a day out</h4><div class="nbl">' + g.near.map(function (n) { return '<div class="nbr">' + (n[0] ? '<span class="nbt">' + esc(n[0]) + '</span>' : '') + '<div><b class="nbn">' + esc(n[1]) + '</b>' + (n[2] ? '<span class="nbd">' + esc(n[2]) + '</span>' : '') + '</div></div>'; }).join('') + '</div></div>';
+    return h + '</div>';
+  }
+
   /* swipe through mode for package quotes: intro, one option at a time (stay, things to do, weather, extras, pay), then decide */
   function deck() {
     function A() { return Array.prototype.slice.call(document.querySelectorAll('#hotelList article.hotel')); }
@@ -711,22 +833,23 @@
     var tabs = document.createElement('div'); tabs.className = 'dtabs'; tabs.id = 'dTabs';
     tabs.innerHTML = [['stay', 'Stay and flights'], ['about', 'About the resort'], ['extras', 'Extras'], ['more', 'More info'], ['pay', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '">' + t[1] + '</button>'; }).join('');
     var KNOWN = ['compare', 'hotels', 'trip', 'weather', 'todo', 'extras', 'next'];
-    Array.prototype.forEach.call(document.querySelectorAll('#app > section'), function (s) { if (KNOWN.indexOf(s.id) < 0) s.classList.add('xsec'); });
+    Array.prototype.forEach.call(document.querySelectorAll('#app > section'), function (s) { if (KNOWN.indexOf(s.id) < 0 && !s.querySelector('.custom .ag')) s.classList.add('xsec'); });
     var hasMore = !!document.querySelector('.xsec');
     var hs = document.getElementById('hotels'); hs.parentNode.insertBefore(tabs, hs);
     var prog = document.createElement('div'); prog.className = 'dprog'; prog.id = 'dProg'; bar.insertBefore(prog, bar.firstChild);
     /* about the resort panel: the hotel's own write up, resort information and things to do */
     var about = document.createElement('div'); about.id = 'aboutR'; about.className = 'aboutr';
     var todo = document.getElementById('weather') || document.getElementById('todo'); if (todo) todo.parentNode.insertBefore(about, todo);
+    var areaG = document.createElement('div'); areaG.id = 'areaG'; areaG.className = 'areag';
+    var cg = document.querySelector('.custom .ag'), cgs = cg ? cg.closest('section') : null;
+    if (cgs) { cgs.classList.add('areag'); areaG = cgs; }
+    var anchor = document.getElementById('todo') || document.getElementById('weather') || about;
+    if (!cgs || anchor) anchor.parentNode.insertBefore(areaG, anchor.nextSibling);
     function has(id) { var s = document.getElementById(id); return !!s && !s.hidden; }
     function aboutHtml(x) {
       var bs = x.variantOf ? hotel(x.variantOf) : null, r = x.resort || (bs && bs.resort) || {}, h = '<div class="abt"><h3>About ' + esc(x.name) + '</h3><p>' + esc(x.why || '') + '</p>';
-      if (!Object.keys(r).length && x.feats && x.feats.length) h += '<div class="feat">' + x.feats.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>';
+      if (x.feats && x.feats.length) h += '<div class="feat">' + x.feats.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>';
       if (x.rooms) h += '<div class="pkgr"><b>Your room</b><span>' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</span></div>';
-      if (r.town) h += '<div class="pkgr"><b>The area</b><span>' + esc(r.town) + '</span></div>';
-      if (r.eat && r.eat.length) h += '<div class="pkgr"><b>Eating out</b><span>' + r.eat.map(esc).join(' &#183; ') + '</span></div>';
-      if (r.bars && r.bars.length) h += '<div class="pkgr"><b>Bars</b><span>' + r.bars.map(esc).join(' &#183; ') + '</span></div>';
-      if (r.nearby && r.nearby.length) h += '<div class="pkgr"><b>Nearby</b><span>' + r.nearby.map(esc).join(' &#183; ') + '</span></div>';
       return h + '</div>';
     }
     function render() {
@@ -739,6 +862,7 @@
         A().forEach(function (a, i) { a.hidden = i !== view - 2; });
         hIdx = hIndex(art); var c = document.getElementById('cHotel'); if (c) c.value = String(hIdx); calc();
         about.innerHTML = aboutHtml(x);
+        if (!cgs) { var rs = x.resort || (x.variantOf && hotel(x.variantOf) ? hotel(x.variantOf).resort : null); areaG.innerHTML = areaGuideHtml(rs && rs.town ? areaGuideFromResort(x, rs) : areaGuideFor(x.variantOf && hotel(x.variantOf) ? hotel(x.variantOf) : x)); areaG.hidden = !areaG.innerHTML; }
         var wsec = document.getElementById('weather'); if (wsec) wsec.classList.toggle('wxnone', !document.querySelector('#wxList > *:not([hidden])'));
         /* custom area guides: show only the one for this option's hotel (hotel areaId, or its id) */
         var akey = 'ag-' + (x.areaId || x.variantOf || x.id), ags = document.querySelectorAll('.custom .ag[id^="ag-"]'), hit = !!document.getElementById(akey);

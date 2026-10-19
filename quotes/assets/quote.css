@@ -601,3 +601,39 @@ body.deck{padding-bottom:70px}
 .deck #weather{padding:0 0 4px}
 .deck #todo{padding-top:4px}
 .deck .wxc{margin:0}
+
+/* area guide (bottom of About the resort) */
+.agjump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.agjump a{background:var(--pill,#E8EDFF);color:var(--blue,#004AAD);font-weight:800;font-size:14px;border-radius:999px;padding:7px 14px;text-decoration:none}
+.ag{background:#fff;border:2px solid var(--line,#DCE3FF);border-radius:24px;padding:22px;margin:0 0 26px;scroll-margin-top:90px}
+.ag h3{font-family:'Archivo Black',sans-serif;color:var(--blue,#004AAD);font-size:24px;line-height:1.15;margin:0}
+.ag .agh{font-weight:700;color:var(--muted,#55607A);margin:4px 0 14px;font-size:15px}
+.agstrip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 0 16px;border-radius:18px}
+.agstrip::-webkit-scrollbar{display:none}
+.agstrip figure{flex:0 0 40%;margin:0;position:relative;scroll-snap-align:start;border-radius:16px;overflow:hidden}
+.agstrip img{width:100%;height:230px;object-fit:cover;display:block}
+.agstrip figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;background:linear-gradient(transparent,rgba(16,20,43,.78));color:#fff;font-weight:700;font-size:13px}
+.ag .agi{font-size:16px;margin:0 0 16px}
+.aggrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.aggrid.one{grid-template-columns:1fr}
+.agb{background:var(--pill,#F1F4FD);border-radius:18px;padding:16px 18px}
+.agb h4{margin:0 0 8px;color:var(--blue,#004AAD);font-family:'Archivo',sans-serif;font-weight:800;font-size:17px}
+.agb ul{margin:0;padding-left:18px}.agb li{margin:5px 0;font-size:15px}.agb li b{color:var(--ink,#10142B)}
+.agb.safe{background:var(--blue,#004AAD);color:#fff}.agb.safe h4{color:#FFD21F}
+.agnb{margin-top:22px;padding-top:18px;border-top:3px dashed #99ACFF}
+.agnb h4{margin:0 0 10px;color:var(--blue,#004AAD);font-family:'Archivo Black',sans-serif;font-size:19px}
+.nbl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.nbr{display:flex;gap:12px;align-items:flex-start;border:2px solid var(--line,#DCE3FF);border-radius:16px;padding:12px 14px;background:#fff}
+.nbr .nbt{flex:0 0 auto;background:#FFD21F;color:var(--blue,#004AAD);font-weight:800;font-size:12.5px;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.nbr b.nbn{display:block;color:var(--blue,#004AAD);font-weight:800;font-size:15.5px}
+.nbr span.nbd{display:block;font-size:14px;margin-top:2px}
+.agcred{font-size:11.5px;color:var(--muted,#55607A);margin:14px 0 0}.agcred a{color:inherit}
+@media(max-width:900px){.aggrid,.nbl{grid-template-columns:1fr}.agstrip figure{flex-basis:82%}.agstrip img{height:210px}.ag{padding:16px;margin-bottom:14px}.ag h3{font-size:19px}.nbr{flex-direction:column;gap:6px}.agb li,.agnb .nbd{font-size:13.5px}}
+.deck .areag{padding:4px 14px 12px}
+.deck .areag>.wrap{padding:0}.deck .areag .h2,.deck .areag .intro{display:none}
+.deck[data-v=welcome] .areag,.deck[data-v=glance] .areag,.deck[data-v=final] .areag,.deck[data-v=opt]:not([data-tab=about]) .areag{display:none!important}
+.deck .areag[hidden]{display:none!important}
+.deck .areag .ag{margin-bottom:10px}
+/* weather runs the full width, level with the other boxes */
+.deck .wx{grid-template-columns:1fr!important}
+.deck .wxg{grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
+@media (min-width:901px){.deck #weather .wrap,.deck #todo .wrap,.deck .areag>.wrap{padding-left:20px;padding-right:20px}.deck .areag{max-width:1100px;margin:0 auto;padding:4px 20px 16px}.deck .areag>.wrap{padding:0;max-width:none}}
