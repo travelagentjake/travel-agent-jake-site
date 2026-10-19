@@ -441,10 +441,6 @@ body.deck{padding-bottom:96px}
 .dtabs button{background:var(--yellow);color:#0b1b3a;font-size:13px;padding:8px 14px;box-shadow:0 2px 0 rgba(0,0,0,.18)}
 .dtabs button.on{background:#fff;color:var(--blue)}
 .notemore{font:inherit;font-weight:800;font-size:12.5px;color:var(--yellow);background:none;border:0;padding:6px 0 0;text-decoration:underline;cursor:pointer;display:none}
-.deck .note.top p:not(:first-of-type),.deck .note.top .sig{display:none}
-.deck .note.top.open p,.deck .note.top.open .sig{display:block}
-.deck .note.top .notemore{display:block}
-.deck .note.top:not(.open) p:first-of-type{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .deck[data-v=welcome] .hero-card{padding-bottom:20px}
 .deck[data-v=glance] #compare{padding-top:18px}
 @media (max-width:700px){.deck[data-v=glance] .tablebox{display:none}}
@@ -470,7 +466,6 @@ body.deck{padding-bottom:70px}
 .deck .hero p.lead{-webkit-line-clamp:3}
 .deck[data-v=welcome] .hero-img{height:120px;min-height:120px}
 .deck[data-v=welcome] .hero{min-height:0}
-.deck .note.top:not(.open) p:first-of-type{-webkit-line-clamp:2}
 .abt .feat span{font-size:11.5px;padding:3px 9px}.abt .feat{gap:4px}.abt p{font-size:13px;line-height:1.4}
 
 .readmore{display:none;font:inherit;font-weight:800;font-size:14px;color:#0b1b3a;background:var(--yellow);border:0;border-radius:999px;padding:9px 20px;margin-top:14px;cursor:pointer;align-self:flex-start}
@@ -554,3 +549,6 @@ body.deck{padding-bottom:70px}
 @media (min-width:901px){.deck .hotel.pk .links .btn.bk{padding:8px 20px;font-size:14.5px;min-height:38px}.rmopt{font-size:13.5px;padding:8px 16px;min-height:38px}#dtoast{bottom:96px}}
 #dtoast{bottom:auto;top:56px}
 @media (min-width:901px){#dtoast{bottom:auto;top:76px}}
+
+/* the personal note is always shown in full, never clamped or hidden */
+.note.top p,.note.top .sig,.note.top p:not(:first-of-type),.note.top p:first-of-type{display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important}
