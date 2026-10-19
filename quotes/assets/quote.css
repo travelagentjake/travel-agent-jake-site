@@ -649,6 +649,6 @@ html{-webkit-text-size-adjust:100%}
 body{overscroll-behavior-y:none}
 @media (display-mode:standalone){.deck .top{padding-top:env(safe-area-inset-top)}}
 
-.hero-logo{position:absolute;left:16px;top:14px;height:54px;width:auto;z-index:2;filter:drop-shadow(0 0 8px rgba(255,255,255,.55)) drop-shadow(0 1px 3px rgba(0,0,0,.25))}
-@media (min-width:900px){.hero-logo{left:28px;top:22px;height:72px}}
+.hero-logo{position:absolute;left:50%;transform:translateX(-50%);top:14px;height:60px;width:auto;z-index:2}
+@media (min-width:900px){.hero-logo{top:22px;height:76px}}
 @media (display-mode:standalone){.hero-logo{top:calc(14px + env(safe-area-inset-top))}.deck .dtabs{padding-top:calc(7px + env(safe-area-inset-top))}}
