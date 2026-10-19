@@ -149,6 +149,17 @@
       "created": "2026-10-18",
       "departs": "2027-04-21",
       "fromPrice": 2099.96
+    },
+    {
+      "slug": "elizabethmaltaholiday",
+      "url": "https://quotes.travelagentjake.co.uk/elizabethmaltaholiday",
+      "customer": "Elizabeth Urquhart",
+      "enquiryId": "mvfk25jhoqig",
+      "quoteRequestId": "mvfl1yz5tdfb",
+      "title": "Malta, 4 nights B&B from Glasgow, May 2027 (Soreda, Mayflower, Seaview)",
+      "created": "2026-10-19",
+      "departs": "2027-05-06",
+      "fromPrice": 1159
     }
   ]
 }
