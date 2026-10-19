@@ -20,6 +20,7 @@
      sections: [{ id, title, intro, html, after: "hotels" | "trip" | "todo" }],   // custom sections from Jake's notes
      flights: { intro, legs: [{ group (optional heading, e.g. the hotels these flights are for), tag, date, from, fromCode, to, toCode, dep, arr, dur, carrier }] },
      rooms: [], included: [],
+     hotels[].package: { dates, flights: { legs: [same as flights.legs] }, transfer (text), included: [] }   // whole package on the option card: hotel, dates, flights and transfers together. When every hotel has a package, the separate Flights section is left off.
      areas: [{ img, title, text }],
      areas: [{ img, title, text, alt, link (GetYourGuide page, affiliate code added automatically), linkLabel }],
      departDate (YYYY-MM-DD), depositTotal, partyCount   // used by the built in monthly payment calculator
@@ -128,11 +129,12 @@
     }).join('');
   }
 
+  var pkgAll = hotels.length > 0 && hotels.every(function (h) { return h.package && h.package.flights && h.package.flights.legs && h.package.flights.legs.length; });
   var nav = [];
   if (multi) nav.push(['compare', 'Compare']);
   if (hotels.length) nav.push(['hotels', Q.hotelsTitle || (multi ? 'The hotels' : 'Your hotel')]);
   (Q.sections || []).forEach(function (s, i) { if (s.nav) nav.push([s.id || ('extra-' + (s.after || 'hotels') + i), s.nav]); });
-  if (Q.flights) nav.push(['trip', 'Flights and rooms']);
+  if (pkgAll) { if ((Q.included && Q.included.length) || (Q.rooms && Q.rooms.length)) nav.push(['trip', 'Included']); } else if (Q.flights) nav.push(['trip', 'Flights and rooms']);
   var wxPlaces = wxList();
   if (wxPlaces.length) nav.push(['weather', 'Weather']);
   var dates = (Q.dates || []).filter(function (d) { return d && d.label && !d.hidden && d.total != null && d.total !== '' && !isNaN(Number(d.total)); });
@@ -204,9 +206,9 @@
   }
   h += custom('hotels');
 
-  if (Q.flights) {
-    var F = Q.flights;
-    h += '<section id="trip"><div class="wrap"><h2 class="h2">Flights and rooms</h2>' + (F.intro ? '<p class="intro">' + esc(F.intro) + '</p>' : '') + '<div class="trip">';
+  if (pkgAll ? ((Q.included && Q.included.length) || (Q.rooms && Q.rooms.length)) : Q.flights) {
+    var F = pkgAll ? {} : Q.flights;
+    h += '<section id="trip"><div class="wrap"><h2 class="h2">' + (pkgAll ? 'What is included' : 'Flights and rooms') + '</h2>' + (F.intro ? '<p class="intro">' + esc(F.intro) + '</p>' : '') + '<div class="trip">';
     var lastGrp = null;
     (F.legs || []).forEach(function (l) {
       /* legs can be grouped by hotel when options fly to different airports: { group: "Eftalia Village and Eftalia Splash" } */
@@ -598,15 +600,30 @@
         + '<span class="cp"><b>' + gbp(x.total) + '</b>' + (x.pp ? '<span>' + gbp(x.pp) + 'pp' + (x.free ? ', ' + x.free + ' kids free' : '') + '</span>' : '') + '</span></a>';
     }).join('');
   }
+  function pkgHtml(x) {
+    var p = x.package; if (!p) return '';
+    var legs = (p.flights && p.flights.legs) || [];
+    return '<div class="pkg"><div class="pkgh">Your whole package</div>'
+      + (p.dates ? '<div class="pkgr"><b>Dates</b><span>' + esc(p.dates) + '</span></div>' : '')
+      + '<div class="pkgfl">' + legs.map(function (l) {
+        return '<div class="pkgf"><span class="tg">' + esc(l.tag) + '</span><div><b>' + esc(l.date) + '</b><div class="pkgt">' + esc(l.fromCode) + ' ' + esc(l.dep) + ' &#8594; ' + esc(l.toCode) + ' ' + esc(l.arr) + '</div>'
+          + '<small>' + esc(l.from) + ' to ' + esc(l.to) + (l.dur ? ' &#183; ' + esc(l.dur) : '') + (l.carrier ? ' &#183; ' + esc(l.carrier) : '') + '</small>'
+          + (l.segments && l.segments.length ? '<ol class="pkgs">' + l.segments.map(function (g) { return g.wait ? '<li class="wait">' + esc(g.wait) + ' wait in ' + esc(g.at) + '</li>' : '<li>' + esc(g.flight || '') + ' ' + esc(g.dep) + ' ' + esc(g.from) + ' &#8594; ' + esc(g.arr) + ' ' + esc(g.to) + '</li>'; }).join('') + '</ol>' : '')
+          + '</div></div>';
+      }).join('') + '</div>'
+      + (p.transfer ? '<div class="pkgr"><b>Transfers</b><span>' + esc(p.transfer) + '</span></div>' : '')
+      + (p.included && p.included.length ? '<div class="pkgr"><b>Included</b><span>' + p.included.map(esc).join(' &#183; ') + '</span></div>' : '')
+      + '</div>';
+  }
   function renderHotels() {
     var el = document.getElementById('hotelList'); if (!el) return;
-    el.innerHTML = ordered().map(function (x) {
+    el.innerHTML = ordered().map(function (x, oi) {
       var slides = (x.imgs || []).map(function (u, i) { return '<img loading="' + (i ? 'lazy' : 'eager') + '" src="' + esc(img(u, 1000)) + '" srcset="' + esc(img(u, 700)) + ' 700w, ' + esc(img(u, 1000)) + ' 1000w, ' + esc(img(u, 1400)) + ' 1400w" sizes="(max-width:900px) 100vw, 600px" alt="' + esc(x.name) + ' photo ' + (i + 1) + '" data-h="' + esc(x.id) + '" data-i="' + i + '">'; }).join('');
       return '<article class="hotel" id="h-' + esc(x.id) + '"><div class="hotel-grid"><div class="slider"><div class="track">' + slides + '</div>'
         + (x.badge ? '<span class="badge">' + esc(x.badge) + '</span>' : '')
         + '<button class="arr l" type="button" aria-label="Previous photo" data-dir="-1">&#8249;</button><button class="arr r" type="button" aria-label="Next photo" data-dir="1">&#8250;</button>'
         + '<button class="zoom" type="button" data-zoom="' + esc(x.id) + '">View full screen</button><span class="count">1 / ' + (x.imgs || []).length + '</span></div>'
-        + '<div class="hb"><div class="area">' + esc(x.area) + (x.country ? ', ' + esc(x.country) : '') + '</div><h3>' + esc(x.name) + '</h3>'
+        + '<div class="hb">' + (x.package && multi ? '<div class="optl">' + esc(x.optionLabel || ('Option ' + (x.match || oi + 1))) + '</div>' : '') + '<div class="area">' + esc(x.area) + (x.country ? ', ' + esc(x.country) : '') + '</div><h3>' + esc(x.name) + '</h3>'
         + (x.rating ? '<div class="rating">' + dots(x.rating) + '<span><b>' + x.rating.toFixed(1) + '</b> on Tripadvisor' + (x.reviews ? ', ' + esc(x.reviews) + ' reviews' : '') + '</span></div>' : '')
         + '<p>' + esc(x.why) + '</p>'
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
@@ -620,7 +637,7 @@
           + x.upgrade.options.map(function (o) { return '<div class="upo"><span class="un">' + esc(o.name) + (o.extra ? '<button class="upadd' + (sel[o.extra] ? ' on' : '') + '" type="button" data-upgadd="' + esc(o.extra) + '" data-hid="' + esc(x.id) + '">' + (sel[o.extra] ? 'Added, tap to remove' : 'Add to my holiday') + '</button>' : '') + '</span><span class="up"><b>+' + gbp(o.price) + '</b><small>total ' + gbp(Math.round((Number(x.total) + Number(o.price)) * 100) / 100) + ' for ' + esc(party) + '</small></span></div>'; }).join('')
           + (x.upgrade.note ? '<p class="upn">' + esc(x.upgrade.note) + '</p>' : '') + '</div>' : '')
         + '<div class="links"><a class="btn btn-y" href="#feedback" data-pick="book" data-hotel="' + esc(x.id) + '">I like this one</a>'
-        + (x.site ? '<a class="btn btn-o" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>' : '') + '</div></div></div></article>';
+        + (x.site ? '<a class="btn btn-o" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>' : '') + '</div></div></div>' + pkgHtml(x) + '</article>';
     }).join('');
     Array.prototype.forEach.call(el.querySelectorAll('.slider'), function (s) {
       var track = s.querySelector('.track'), count = s.querySelector('.count'), n = track.children.length;
