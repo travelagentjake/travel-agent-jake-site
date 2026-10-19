@@ -552,3 +552,15 @@ body.deck{padding-bottom:70px}
 
 /* the personal note is always shown in full, never clamped or hidden */
 .note.top p,.note.top .sig,.note.top p:not(:first-of-type),.note.top p:first-of-type{display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important}
+
+/* more info tab: other dates and any extra sections */
+.deck .xsec{display:none}
+.deck[data-v=opt][data-tab=more] .xsec{display:block;padding:12px 0}
+.deck .xsec .h2{font-size:19px}
+.deck .xsec .wrap{padding-left:14px;padding-right:14px}
+@media (min-width:901px){.deck .xsec .wrap{max-width:1000px;margin:0 auto}.deck .xsec .h2{font-size:28px}}
+/* price box: everything reads left aligned */
+.price .r{text-align:left}
+.deck .price{flex-direction:column;align-items:flex-start;gap:4px}
+.deck .price p.tax{align-self:stretch}
+.deck .price p.tax{flex-basis:auto;width:100%;box-sizing:border-box}

@@ -129,6 +129,36 @@
     }).join('');
   }
 
+  /* older quotes: build each option's package from the separate flights, included and transfer details, so every quote uses the same layout */
+  (function legacyPackages() {
+    var F = Q.flights && Q.flights.legs && Q.flights.legs.length ? Q.flights : null; if (!F) return;
+    var grouped = F.legs.some(function (l) { return l.group; });
+    var inc = Q.included || [], trs = inc.filter(function (i) { return /transfer/i.test(i); }), rest = inc.filter(function (i) { return !/transfer/i.test(i); });
+    function norm(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim(); }
+    function pd(s) { var m = String(s || '').match(/(\d{1,2}) ([A-Za-z]+) (\d{4})/); return m ? new Date(m[2] + ' ' + m[1] + ', ' + m[3] + ' 12:00:00') : null; }
+    hotels.forEach(function (h) {
+      if (h.package) return;
+      var legs = F.legs;
+      if (grouped) {
+        var hn = norm(h.name);
+        legs = F.legs.filter(function (l) { var g = norm(l.group); return l.group && (g.indexOf(hn) >= 0 || hn.indexOf(g) >= 0); });
+        if (!legs.length) return;
+      }
+      var o = legs[0], b = legs[legs.length - 1], d1 = pd(o.date), d2 = pd(b.date);
+      var n = d1 && d2 ? Math.round((d2 - d1) / 86400000) : 0;
+      var cm = (o.carrier || '') || ((String(o.group || '').match(/with ([A-Za-z0-9. ]+)$/) || [])[1] || '');
+      var sd = d1 ? d1.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }) : String(o.date || '');
+      h.package = {
+        auto: true,
+        dates: String(o.date || '') + ' to ' + String(b.date || '') + (n ? ', ' + n + ' nights' : ''),
+        short: sd + (cm ? ', ' + cm : ''),
+        flights: { legs: legs.map(function (l) { var c = {}; for (var k in l) if (k !== 'group') c[k] = l[k]; return c; }) },
+        transfer: trs[0] || (h.transfer ? 'Transfer about ' + h.transfer + ' minutes' : ''),
+        included: rest,
+        note: F.intro || ''
+      };
+    });
+  })();
   var pkgAll = hotels.length > 0 && hotels.every(function (h) { return h.package && h.package.flights && h.package.flights.legs && h.package.flights.legs.length; });
   if (pkgAll) document.body.classList.add('pkgq');
   var nav = [];
@@ -592,8 +622,8 @@
     });
     return slidesOnly ? list.filter(function (x) { return x.slides; }) : list;
   }
-  function optName(x) { return 'Option ' + (x.match || '') + (x.package ? ': ' + (x.package.short || x.package.dates || '') : ''); }
-  function optLine(x) { return x.package ? '<small class="optsm">' + esc(optName(x)) + '</small>' : ''; }
+  function optName(x) { return 'Option ' + (x.match || '') + (x.package && !x.package.auto ? ': ' + (x.package.short || x.package.dates || '') : ''); }
+  function optLine(x) { return x.package && !x.package.auto ? '<small class="optsm">' + esc(optName(x)) + '</small>' : ''; }
   function renderTable() {
     var t = document.getElementById('ctable'); if (!t) return;
     t.innerHTML = ordered().map(function (x) {
@@ -602,7 +632,7 @@
     }).join('');
     /* phones get a stacked list instead of the wide table */
     var m = document.getElementById('cmob'); if (m) m.innerHTML = ordered().map(function (x) {
-      return '<a class="crow" href="#h-' + esc(x.id) + '"><span class="cn"><b>' + esc(x.name) + '</b>' + (x.package ? '<span class="cpk">' + esc(optName(x)) + '</span>' : '') + '<span>' + esc(x.area)
+      return '<a class="crow" href="#h-' + esc(x.id) + '"><span class="cn"><b>' + esc(x.name) + '</b>' + (x.package && !x.package.auto ? '<span class="cpk">' + esc(optName(x)) + '</span>' : '') + '<span>' + esc(x.area)
         + (x.rating ? ' &#183; ' + x.rating.toFixed(1) + '/5' : '') + (x.transfer ? ' &#183; ' + mins(x.transfer) + ' transfer' : '') + (anySlides && x.slides ? ' &#183; Slides' : '') + '</span></span>'
         + '<span class="cp"><b>' + gbp(x.total) + '</b>' + (x.pp ? '<span>' + gbp(x.pp) + 'pp' + (x.free ? ', ' + x.free + ' kids free' : '') + '</span>' : '') + '</span></a>';
     }).join('');
@@ -621,6 +651,7 @@
           + '</div>';
       }).join('') + '</div>'
       + (p.transfer ? '<div class="pkgr"><b>Transfers</b><span>' + esc(p.transfer) + '</span></div>' : '')
+      + (p.note ? '<div class="pkgr"><b>Good to know</b><span>' + esc(p.note) + '</span></div>' : '')
       + (p.included && p.included.length ? '<div class="pkgr"><b>Included</b><span>' + p.included.map(esc).join(' &#183; ') + '</span></div>' : '')
       + '</div></div>';
   }
@@ -678,7 +709,10 @@
     bar.innerHTML = '<button type="button" class="dback" id="dBack"></button><div class="dmid" id="dMid"></div><button type="button" class="dnext" id="dNext"></button>';
     document.body.appendChild(bar);
     var tabs = document.createElement('div'); tabs.className = 'dtabs'; tabs.id = 'dTabs';
-    tabs.innerHTML = [['stay', 'Stay and flights'], ['about', 'About the resort'], ['weather', 'Weather'], ['extras', 'Extras'], ['pay', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '">' + t[1] + '</button>'; }).join('');
+    tabs.innerHTML = [['stay', 'Stay and flights'], ['about', 'About the resort'], ['weather', 'Weather'], ['extras', 'Extras'], ['more', 'More info'], ['pay', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '">' + t[1] + '</button>'; }).join('');
+    var KNOWN = ['compare', 'hotels', 'trip', 'weather', 'todo', 'extras', 'next'];
+    Array.prototype.forEach.call(document.querySelectorAll('#app > section'), function (s) { if (KNOWN.indexOf(s.id) < 0) s.classList.add('xsec'); });
+    var hasMore = !!document.querySelector('.xsec');
     var hs = document.getElementById('hotels'); hs.parentNode.insertBefore(tabs, hs);
     var prog = document.createElement('div'); prog.className = 'dprog'; prog.id = 'dProg'; bar.insertBefore(prog, bar.firstChild);
     /* about the resort panel: the hotel's own write up, resort information and things to do */
@@ -688,6 +722,7 @@
     function aboutHtml(x) {
       var bs = x.variantOf ? hotel(x.variantOf) : null, r = x.resort || (bs && bs.resort) || {}, h = '<div class="abt"><h3>About ' + esc(x.name) + '</h3><p>' + esc(x.why || '') + '</p>';
       if (!Object.keys(r).length && x.feats && x.feats.length) h += '<div class="feat">' + x.feats.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>';
+      if (x.rooms) h += '<div class="pkgr"><b>Your room</b><span>' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</span></div>';
       if (r.town) h += '<div class="pkgr"><b>The area</b><span>' + esc(r.town) + '</span></div>';
       if (r.eat && r.eat.length) h += '<div class="pkgr"><b>Eating out</b><span>' + r.eat.map(esc).join(' &#183; ') + '</span></div>';
       if (r.bars && r.bars.length) h += '<div class="pkgr"><b>Bars</b><span>' + r.bars.map(esc).join(' &#183; ') + '</span></div>';
@@ -706,7 +741,7 @@
         about.innerHTML = aboutHtml(x);
         var lk = art.querySelector('.links'), mb = art.querySelector('[data-tog=more]'); if (lk && mb && mb.parentNode !== lk) lk.appendChild(mb);
         wxPlaces.forEach(function (w) { var el = document.querySelector('[data-wx="' + w.key.replace(/"/g, '') + '"]'); if (el) el.hidden = w.hotels.indexOf(x.name) < 0; });
-        var avail = { stay: true, about: true, weather: has('weather') && !!document.querySelector('#wxList > *:not([hidden])'), extras: has('extras'), pay: true };
+        var avail = { stay: true, about: true, weather: has('weather') && !!document.querySelector('#wxList > *:not([hidden])'), extras: has('extras'), more: hasMore, pay: true };
         if (!avail[tab]) tab = 'stay'; body.setAttribute('data-tab', tab);
         Array.prototype.forEach.call(tabs.children, function (b) { b.hidden = !avail[b.dataset.dt]; b.classList.toggle('on', b.dataset.dt === tab); });
       }
@@ -714,8 +749,8 @@
       var back = document.getElementById('dBack'), next = document.getElementById('dNext'), mid = document.getElementById('dMid');
       back.hidden = view === 0; next.hidden = view === LAST;
       back.innerHTML = '&#8249; ' + (view === 1 ? 'Welcome' : view === 2 ? 'All options' : view === LAST ? 'Options' : view === 0 ? '' : 'Option ' + (view - 2));
-      next.innerHTML = (view === 0 ? 'See your options' : view === 1 ? 'Option 1' : view === N + 1 ? 'Decide' : 'Option ' + (view - 0)) + ' &#8250;';
-      mid.textContent = view === 0 ? '' : view === 1 ? 'At a glance' : view === LAST ? '' : 'Option ' + (view - 1) + ' of ' + N;
+      next.innerHTML = (view === 0 ? (N === 1 ? 'See your holiday' : 'See your options') : view === 1 ? 'Option 1' : view === N + 1 ? 'Decide' : 'Option ' + (view - 0)) + ' &#8250;';
+      mid.textContent = view === 0 ? '' : view === 1 ? 'At a glance' : view === LAST ? '' : (N === 1 ? 'Your holiday' : 'Option ' + (view - 1) + ' of ' + N);
     }
     /* make the photo as big as the screen allows so the whole card fits above the bottom bar */
     function fitPhoto() {
@@ -729,7 +764,8 @@
     window.addEventListener('resize', fitPhoto);
     var stage = document.getElementById('app');
     function go(v, dir) {
-      v = Math.max(0, Math.min(LAST, v)); dir = dir || (v > view ? 1 : -1); view = v; tab = 'stay';
+      v = Math.max(0, Math.min(LAST, v)); dir = dir || (v > view ? 1 : -1);
+      if (v === 1 && N === 1) v = dir > 0 ? 2 : 0; view = v; tab = 'stay';
       stage.classList.remove('dgor', 'dgol'); void stage.offsetWidth; stage.classList.add(dir > 0 ? 'dgor' : 'dgol');
       render(); window.scrollTo(0, 0); fitPhoto();
     }
