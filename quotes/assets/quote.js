@@ -130,6 +130,7 @@
   }
 
   var pkgAll = hotels.length > 0 && hotels.every(function (h) { return h.package && h.package.flights && h.package.flights.legs && h.package.flights.legs.length; });
+  if (pkgAll) document.body.classList.add('pkgq');
   var nav = [];
   if (multi) nav.push(['compare', 'Compare']);
   if (hotels.length) nav.push(['hotels', Q.hotelsTitle || (multi ? 'The hotels' : 'Your hotel')]);

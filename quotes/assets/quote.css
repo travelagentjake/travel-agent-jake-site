@@ -339,3 +339,34 @@ html,body{overflow-x:clip}
 .vbadge{font-weight:800;color:#004AAD;font-size:15px}
 .optsm{display:block;color:#5b6478;font-weight:600;font-size:12.5px;margin-top:2px}
 .crow .cpk{display:block;font-weight:700;color:#004AAD}
+
+/* compact mobile sizing for package quotes, so every section matches the option cards */
+@media (max-width:900px){
+ .pkgq section{padding:26px 0}
+ .pkgq .h2{font-size:21px;line-height:1.1}
+ .pkgq .intro{font-size:13.5px;line-height:1.4;margin:6px 0 0}
+ .pkgq .hero-img{height:32vh;min-height:190px}
+ .pkgq .hero-card{margin-top:-46px;padding:18px 16px 16px}
+ .pkgq .hero h1{font-size:26px;margin-top:8px}
+ .pkgq .hero .sub{font-size:15px;margin-top:5px}
+ .pkgq .hero p.lead{font-size:13.5px;line-height:1.4;margin:10px 0 0}
+ .pkgq .tag,.pkgq .hero .pill{font-size:10.5px;padding:4px 10px}
+ .pkgq .note.top{margin-top:12px;padding:10px 12px}.pkgq .note.top p{font-size:12px;line-height:1.35}
+ .pkgq .box{padding:12px 14px;border-radius:16px}.pkgq .box h3{font-size:15px;margin-bottom:4px}.pkgq .box li,.pkgq .box p{font-size:13px;line-height:1.4}
+ .pkgq .areas{gap:10px;margin-top:14px}
+ .pkgq .areacard{border-radius:16px}.pkgq .areacard img{height:110px}.pkgq .areacard div{padding:10px 12px}.pkgq .areacard b{font-size:14px}.pkgq .areacard p{font-size:12.5px;line-height:1.35}.pkgq .areacard .see{margin-top:6px;font-size:12.5px}
+ .pkgq .acar .areacard{flex-basis:78%}
+ .pkgq .wx{gap:10px;margin-top:14px}.pkgq .wxc{padding:12px;border-radius:16px}.pkgq .wxh b{font-size:15px}.pkgq .wxh span{font-size:12.5px}
+ .pkgq .wxg{margin:10px 0;gap:6px}.pkgq .wxs{padding:6px 4px}.pkgq .wxs small{font-size:10px}
+ .pkgq .pay{gap:8px;margin-top:14px}.pkgq .step{padding:12px 14px;border-radius:16px}.pkgq .step .sn{width:24px;height:24px;font-size:13px;margin-bottom:4px}.pkgq .step h3{font-size:15px}.pkgq .step p{font-size:13px;line-height:1.35;margin-top:3px}
+ .pkgq .calc{padding:14px;border-radius:18px;margin-top:14px}.pkgq .calc h3,.pkgq .fb h3{font-size:18px}
+ .pkgq .calc select,.pkgq .fb select,.pkgq .fb textarea,.pkgq .fsel{padding:9px 12px;font-size:14px;border-radius:10px}
+ .pkgq .calcgrid{gap:8px;margin-bottom:10px}
+ .pkgq .tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.pkgq .tile{padding:10px 8px;border-radius:12px}.pkgq .tile b{font-size:17px}.pkgq .tile small{font-size:10px}.pkgq .tile span{font-size:11px}
+ .pkgq .fb{padding:14px;border-radius:18px;margin-top:16px}.pkgq .fbopt{padding:7px 12px;font-size:13px;min-height:0}.pkgq .fbl{margin:10px 0 4px;font-size:13px}
+ .pkgq .facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:12px}.pkgq .fact{padding:7px 10px;border-radius:12px}.pkgq .fact small{font-size:10px}.pkgq .fact b{font-size:12.5px;line-height:1.25}
+ .pkgq .xcard{padding:10px 12px;border-radius:14px;gap:8px;align-items:flex-start}.pkgq .xcar .xcard{flex-basis:80%}.pkgq .xcard input{width:18px;height:18px;flex-basis:18px}.pkgq .xbody{gap:3px}.pkgq .xbody b{font-size:14px}.pkgq .xt{font-size:12.5px;line-height:1.35}.pkgq .xh{font-size:10.5px}.pkgq .xbody .see{font-size:12.5px}.pkgq .xsum{margin-top:10px}.pkgq .full{padding:14px;border-radius:18px;margin-top:14px}.pkgq .full table{font-size:13px}.pkgq .full td{padding:6px 0}.pkgq .full tfoot td{font-size:15px;padding-top:8px}.pkgq .full h3{font-size:17px;margin-bottom:8px}.pkgq .xcar{margin-top:12px}.pkgq .xp{font-size:13px}.pkgq .xcat{font-size:10px}
+ .pkgq .btn{padding:8px 14px;font-size:13px;min-height:36px}
+ .pkgq .cmp{font-size:12.5px}.pkgq .crow{padding:9px 12px;font-size:13px}
+ .pkgq footer{font-size:11.5px}
+}
