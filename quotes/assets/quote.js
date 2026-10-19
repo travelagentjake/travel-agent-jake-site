@@ -910,7 +910,7 @@
         + tile('💱', 'Currency', d.currency) + tile('🔌', 'Plugs and voltage', d.plug) + tile('🚗', 'Drives on the', d.drive) + tile('🗣️', 'Language', d.language) + '</div>'
         + (d.extra && d.extra.length ? '<div class="gkgrid">' + d.extra.map(function (e) { return tile('ℹ️', e[0], e[1]); }).join('') + '</div>' : '')
         + '<div class="agb safe gkent"><h4>Entry requirements</h4><p>' + esc(d.entry || 'Entry rules can change, so please check the latest requirements for British passport holders on the GOV.UK page below before you book.') + '</p></div>';
-      if (d.fcdo) h += '<a class="btn btn-y gkbtn" href="https://www.gov.uk/foreign-travel-advice/' + encodeURIComponent(d.fcdo) + '" target="_blank" rel="noopener">Entry requirements and current travel advice on GOV.UK</a>';
+      if (d.fcdo) { var fb = 'https://www.gov.uk/foreign-travel-advice/' + encodeURIComponent(d.fcdo); h += '<div class="gkbtns"><a class="btn btn-y gkbtn" href="' + fb + '/entry-requirements" target="_blank" rel="noopener">Entry requirements on GOV.UK</a><a class="btn btn-y gkbtn" href="' + fb + '" target="_blank" rel="noopener">Current travel advice on GOV.UK</a></div>'; }
       return h + '</div>';
     }
     function aboutHtml(x) {

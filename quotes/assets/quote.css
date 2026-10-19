@@ -671,3 +671,4 @@ body.deck[data-v=final] #app{flex:1;display:flex;flex-direction:column;min-heigh
 .gkent p{margin:0;font-size:15px;line-height:1.45}
 .gkbtn{margin-top:12px;display:inline-flex;text-align:center}
 @media(max-width:900px){.gkgrid{grid-template-columns:1fr}.gk span:not(.gki){font-size:14px}.gkbtn{width:100%;box-sizing:border-box}}
+.gkbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.gkbtns .gkbtn{margin-top:0;flex:1 1 240px;justify-content:center}
