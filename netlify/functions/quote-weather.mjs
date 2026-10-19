@@ -80,7 +80,13 @@ function advice(w) {
   else out.push("Cool, so pack a proper coat and layers. Great for sightseeing rather than sunbathing.");
   if (w.low != null && w.low <= 14 && w.high >= 17) out.push("Evenings can feel cool, so take a light jacket or cardigan for dinner.");
   if (w.high >= 23 && w.low >= 22) out.push("Nights stay warm, so air conditioning in the room will be welcome.");
-  if (w.rainDays <= 1) out.push("Rain is very rare at this time of year.");
+  /* Caribbean and other tropical places: rain comes as short heavy downpours that dry up fast, so explain that rather than make it sound like a washout */
+  if (w.tropical && w.rainDays >= 2) {
+    out.push("Rain here is not like rain at home. It usually comes as a short, heavy tropical downpour, often in the afternoon or overnight, and then the sun comes straight back out. The heat dries everything up so quickly that half an hour later you would hardly know it had rained, so a rainy day on the forecast rarely means a wasted day.");
+    if (w.rainDays >= 10) out.push("This is one of the showerier months, so expect a few of these downpours, but the pattern is the same and they are usually over quickly. Plenty of people find them a welcome way to cool off.");
+    else out.push("Showers are warm, so most people just carry on by the pool or find a shady bar until they pass.");
+  }
+  else if (w.rainDays <= 1) out.push("Rain is very rare at this time of year.");
   else if (w.rainDays <= 4) out.push("The odd shower is possible but it rarely lasts long.");
   else if (w.rainDays <= 9) out.push("Expect some showery days, so pack a light waterproof and plan a couple of indoor options.");
   else out.push("Rain is common in this month, so a waterproof and a flexible plan are a must.");
@@ -102,7 +108,7 @@ export default async (req) => {
   const month = Number(u.searchParams.get("month"));
   if (!place && !country) return json({ error: "place needed" }, 400);
   if (!(month >= 1 && month <= 12)) return json({ error: "month needed" }, 400);
-  const key = ("v3|" + place + "|" + country + "|" + month).toLowerCase().replace(/[^a-z0-9|]+/g, "-");
+  const key = ("v4|" + place + "|" + country + "|" + month).toLowerCase().replace(/[^a-z0-9|]+/g, "-");
   const store = getStore({ name: "quote-weather", consistency: "strong" });
   const cached = await store.get(key, { type: "json" }).catch(() => null);
   if (cached && cached.at && Date.now() - Date.parse(cached.at) < 60 * 86400000) return json(cached);
@@ -118,6 +124,7 @@ export default async (req) => {
     rainMm: Math.round(avg(ys.map((y) => y.rainMm))), rainDays: Math.round(avg(ys.map((y) => y.rainDays))),
     sun: r1(avg(ys.map((y) => y.sun))), sea: r1(await seaTemp(g.lat, g.lon, years[0], month)),
   };
+  w.tropical = Math.abs(g.lat) <= 23.5 && w.high != null && w.high >= 26;
   const out = { ok: true, at: new Date().toISOString(), place, country, resolved: g.name + (g.admin ? ", " + g.admin : "") + (g.country ? ", " + g.country : ""), month, monthName: MONTHS[month - 1], years: years.length ? years[years.length - 1] + " to " + years[0] : "", ...w, advice: advice(w) };
   await store.setJSON(key, out).catch(() => {});
   return json(out);
