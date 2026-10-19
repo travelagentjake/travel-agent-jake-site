@@ -674,3 +674,4 @@ body.deck[data-v=final] #app{flex:1;display:flex;flex-direction:column;min-heigh
 .gkbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.gkbtns .gkbtn{margin-top:0;flex:1 1 240px;justify-content:center}
 .gk .gki{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#EEF2FF;font-size:24px;line-height:1}
 .gk{align-items:center}
+#bkDDFields[hidden],#bkDDPlan[hidden],#bkDDNote[hidden],#bkOther[hidden]{display:none!important}

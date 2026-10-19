@@ -475,7 +475,7 @@
       + '<label class="fbopt"><input type="radio" name="payHow" value="bank"><span>Bank transfer</span></label></div>'
       + '<p class="small" style="margin:8px 0 0">Either way I text you a secure payment link, so nothing is paid on this page.</p>'
       + (fullOnly ? '' : '<div id="bkDD"><h4>The rest of the balance</h4>'
-      + '<div class="bkopts"><label class="fbopt"><input type="checkbox" id="bkWantDD"><span>Set up a monthly direct debit</span></label><label class="fbopt"><input type="checkbox" id="bkPayGo"><span>I will pay as I go</span></label></div>'
+      + '<div class="bkopts"><label class="fbopt"><input type="checkbox" id="bkWantDD" checked><span>Set up a monthly direct debit</span></label><label class="fbopt"><input type="checkbox" id="bkPayGo"><span>I will pay as I go</span></label></div>'
       + '<div id="bkDDFields" class="paxg" style="margin-top:12px">'
       + '<label>Day of the month it comes out<select name="ddDay">' + Array.apply(null, Array(28)).map(function (_, i) { var d = i + 1; return '<option value="' + d + '">' + d + ordinal(d) + '</option>'; }).join('') + '</select></label>'
       + '<label>Name of the account holder<input type="text" name="ddName" autocomplete="off"></label>'
