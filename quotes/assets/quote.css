@@ -378,11 +378,11 @@ body.deck{padding-bottom:96px}
 .deck #hotels,.deck #todo,.deck #weather,.deck #extras{padding:12px 0}
 .deck #hotels .wrap,.deck #todo .wrap,.deck #weather .wrap,.deck #extras .wrap{padding-left:14px;padding-right:14px}
 .deck #next{padding:14px 0}
-.deck[data-v=intro] #hotels,.deck[data-v=intro] #todo,.deck[data-v=intro] #weather,.deck[data-v=intro] #extras,.deck[data-v=intro] #next,.deck[data-v=intro] .dtabs{display:none!important}
-.deck:not([data-v=intro]) .hero,.deck:not([data-v=intro]) #compare{display:none!important}
-.deck[data-v=final] #hotels,.deck[data-v=final] #todo,.deck[data-v=final] #weather,.deck[data-v=final] #extras,.deck[data-v=final] .dtabs{display:none!important}
+.deck[data-v=welcome] #hotels,.deck[data-v=welcome] #todo,.deck[data-v=welcome] #weather,.deck[data-v=welcome] #extras,.deck[data-v=welcome] #next,.deck[data-v=welcome] .dtabs,.deck[data-v=glance] #hotels,.deck[data-v=glance] #todo,.deck[data-v=glance] #weather,.deck[data-v=glance] #extras,.deck[data-v=glance] #next,.deck[data-v=glance] .dtabs{display:none!important}
+.deck:not([data-v=welcome]) .hero,.deck:not([data-v=glance]) #compare{display:none!important}
+.deck[data-v=final] #hotels,.deck[data-v=final] #aboutR,.deck[data-v=final] #todo,.deck[data-v=final] #weather,.deck[data-v=final] #extras,.deck[data-v=final] .dtabs{display:none!important}
 .deck[data-v=final] #next .pay,.deck[data-v=final] #next .full,.deck[data-v=final] #next .calc{display:none}.deck[data-v=final] #next>.wrap>p[style]{display:none!important}
-.deck[data-v=opt]:not([data-tab=stay]) #hotels,.deck[data-v=opt]:not([data-tab=todo]) #todo,.deck[data-v=opt]:not([data-tab=weather]) #weather,.deck[data-v=opt]:not([data-tab=extras]) #extras,.deck[data-v=opt]:not([data-tab=pay]) #next{display:none!important}
+.deck[data-v=opt]:not([data-tab=stay]) #hotels,.deck[data-v=opt]:not([data-tab=about]) #todo,.deck[data-v=opt]:not([data-tab=weather]) #weather,.deck[data-v=opt]:not([data-tab=extras]) #extras,.deck[data-v=opt]:not([data-tab=pay]) #next{display:none!important}
 .deck[data-v=opt] #next .pay,.deck[data-v=opt] #next .fb,.deck[data-v=opt] #next .small,.deck[data-v=opt] #next>.wrap>p[style]{display:none!important}
 .deck #fullCost .fbl,.deck #fHotel,.deck #cHotel,.deck .calcgrid>div:has(#cHotel){display:none}
 .deck #extras[hidden]{display:none!important}
@@ -409,15 +409,15 @@ body.deck{padding-bottom:96px}
 .dgol>section,.dgol>.hero,.dgol>.dtabs{animation:dgol .28s ease}
 .deck .acar .arr{display:flex!important;width:34px;height:34px;font-size:18px;top:55px}
 .deck .acar .arr.l{left:4px}.deck .acar .arr.r{right:4px}.deck .xcar .arr{top:50%}
-.deck[data-v=intro] .facts{display:none}
-.deck[data-v=intro] .hero-img{height:120px;min-height:120px}
-.deck[data-v=intro] .hero p.lead{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.deck .facts{display:none}
+.deck .hero-img{height:150px;min-height:150px}
+.deck .hero p.lead{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .deck #compare{padding:14px 0}.deck #compare .h2{font-size:18px}
 .deck .crow{padding:8px 12px}.deck .crow .cn>span:not(.cpk){display:none}
 .deck .crow .cp b{font-size:15px}
 .deck .acar{margin-top:6px}
 
-.deck[data-v=opt] footer{display:none}
+.deck:not([data-v=final]) footer{display:none}
 .deck .top .wrap{height:48px}.deck .top img{height:32px}.deck .top .btn{padding:6px 14px;font-size:13px;min-height:0}
 .deck .dtabs{top:48px}
 .deck .hotel.pk .track img{height:190px;max-height:190px}
@@ -427,3 +427,48 @@ body.deck{padding-bottom:96px}
 
 .sortsel{display:none;width:100%;font:inherit;font-weight:700;font-size:14px;color:var(--blue);background:#fff;border:2px solid var(--blue);border-radius:999px;padding:9px 14px}
 @media (max-width:700px){.ctrl>span,.ctrl .chipbtn{display:none}.sortsel{display:block}.ctrl{display:block;margin:10px 0}}
+
+/* deck v2: welcome, glance, options, decide */
+.deck:not([data-v=opt]) #aboutR,.deck:not([data-tab=about]) #aboutR,.deck:not([data-tab=about]) #todo{display:none!important}
+.deck[data-v=opt][data-tab=about] #todo{display:block}
+.aboutr{padding:12px 14px 0}.abt{background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px 14px;display:grid;gap:8px}
+.abt h3{font-size:17px;color:var(--blue)}.abt p{margin:0;font-size:13.5px;line-height:1.45}
+.abt .feat{display:flex!important}
+.deck .hotel.pk .optl,.deck .hotel.pk .why,.deck .hotel.pk .feat{display:none}
+.deck .hotel.pk .mbtn[data-tog=more]{align-self:flex-start;border:2px solid var(--blue);background:#fff;text-decoration:none;padding:6px 14px;min-height:34px;font-size:13px}
+.deck .hotel.pk .hb{gap:6px}
+.dtabs{background:var(--blue);border-bottom:0;padding:9px 12px}
+.dtabs button{background:var(--yellow);color:#0b1b3a;font-size:13px;padding:8px 14px;box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.dtabs button.on{background:#fff;color:var(--blue)}
+.notemore{font:inherit;font-weight:800;font-size:12.5px;color:var(--yellow);background:none;border:0;padding:6px 0 0;text-decoration:underline;cursor:pointer;display:none}
+.deck .note.top p:not(:first-of-type),.deck .note.top .sig{display:none}
+.deck .note.top.open p,.deck .note.top.open .sig{display:block}
+.deck .note.top .notemore{display:block}
+.deck .note.top:not(.open) p:first-of-type{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.deck[data-v=welcome] .hero-card{padding-bottom:20px}
+.deck[data-v=glance] #compare{padding-top:18px}
+.deck[data-v=glance] .tablebox{display:none}
+
+.deck .hotel.pk .links .btn[href^=http]{display:none}
+.deck .hotel.pk .links .mbtn{align-self:auto;margin:0}
+.deck .hotel.pk .track img{height:150px;max-height:150px}
+.deck .hotel.pk .hb{padding:8px 14px;gap:5px}
+.deck .hotel.pk .area{font-size:12px;margin-bottom:-2px}
+.deck .hotel.pk .price p.tax{font-size:10.5px;line-height:1.25}
+.deck .hotel.pk .price .big{font-size:20px}
+.deck .top .wrap{height:44px}.deck .dtabs{top:44px;padding:7px 12px}.deck .dtabs button{padding:6px 13px}
+.dprog{display:none}
+#dbar{padding:7px 12px calc(7px + env(safe-area-inset-bottom));gap:0 8px}
+#dbar button{padding:7px 14px;min-height:38px}
+body.deck{padding-bottom:70px}
+.deck[data-v=welcome] .hero{min-height:calc(100vh - 44px - 70px)}
+.deck[data-v=welcome] .hero-card{margin-top:0}
+.deck[data-v=welcome] .hero-img{height:190px}
+
+.deck .hotel.pk .track img{height:135px;max-height:135px}
+.deck .pkg{padding:7px 14px}
+.deck .hero p.lead{-webkit-line-clamp:3}
+.deck[data-v=welcome] .hero-img{height:120px;min-height:120px}
+.deck[data-v=welcome] .hero{min-height:0}
+.deck .note.top:not(.open) p:first-of-type{-webkit-line-clamp:2}
+.abt .feat span{font-size:11.5px;padding:3px 9px}.abt .feat{gap:4px}.abt p{font-size:13px;line-height:1.4}

@@ -609,7 +609,7 @@
     var legs = (p.flights && p.flights.legs) || [];
     var carrier = legs[0] && legs[0].carrier ? legs[0].carrier : '';
     var tshort = (p.transfer || '').split(',')[0];
-    return '<div class="pkg"><div class="pkgsum"><div class="pkgsl"><b>' + esc(p.dates || '') + '</b><span>' + esc([carrier ? 'Flights with ' + carrier : '', tshort].filter(Boolean).join(' \u00b7 ')) + '</span></div>'
+    return '<div class="pkg"><div class="pkgsum"><div class="pkgsl"><b>' + esc(p.short || p.dates || '') + '</b><span>' + esc([((p.dates || '').match(/\d+ nights?/) || [''])[0], tshort].filter(Boolean).join(' \u00b7 ')) + '</span></div>'
       + '<button class="mbtn pb" type="button" data-tog="pkg" aria-expanded="false"><span class="m1">View flights</span><span class="m2">Hide flights</span></button></div>'
       + '<div class="pkgdet"><div class="pkgfl">' + legs.map(function (l) {
         return '<div class="pkgf"><div class="pkgtop"><span class="tg">' + esc(l.tag) + '</span><b>' + esc(l.date) + '</b></div><div class="pkgt">' + esc(l.fromCode) + ' ' + esc(l.dep) + ' &#8594; ' + esc(l.toCode) + ' ' + esc(l.arr) + '</div>'
@@ -632,7 +632,7 @@
         + '<button class="zoom" type="button" data-zoom="' + esc(x.id) + '">View full screen</button><span class="count">1 / ' + (x.imgs || []).length + '</span></div>'
         + '<div class="hb">' + (x.package && multi ? '<div class="optl">' + esc(x.optionLabel || ('Option ' + (x.match || oi + 1))) + '</div>' + (x.variantOf && x.badge ? '<div class="vbadge">' + esc(x.badge) + '</div>' : '') : '') + '<div class="area">' + esc(x.area) + (x.country ? ', ' + esc(x.country) : '') + '</div><h3>' + esc(x.name) + '</h3>'
         + (x.rating ? '<div class="rating">' + dots(x.rating) + '<span><b>' + x.rating.toFixed(1) + '</b> on Tripadvisor' + (x.reviews ? ', ' + esc(x.reviews) + ' reviews' : '') + '</span></div>' : '')
-        + '<p class="why">' + esc(x.why) + '</p>' + (x.package ? '<button class="mbtn" type="button" data-tog="more" aria-expanded="false"><span class="m1">See more about this hotel</span><span class="m2">See less</span></button>' : '')
+        + '<p class="why">' + esc(x.why) + '</p>' + (x.package ? '<button class="mbtn" type="button" data-tog="more" aria-expanded="false"><span class="m1">About the resort</span><span class="m2">About the resort</span></button>' : '')
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
         + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
         + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + (x.free ? ' per paying person<br><span class="freec">' + x.free + ' free child place' + (Number(x.free) === 1 ? '' : 's') + ' included</span><br>' : ' per person<br>') : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - depOf(x)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">then about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
@@ -665,44 +665,57 @@
   renderTable(); renderHotels();
   /* swipe through mode for package quotes: intro, one option at a time (stay, things to do, weather, extras, pay), then decide */
   function deck() {
-    if (!pkgAll) return;
     function A() { return Array.prototype.slice.call(document.querySelectorAll('#hotelList article.hotel')); }
     if (!A().length) return;
-    var N = A().length, view = 0, tab = 'stay', body = document.body;
+    var N = A().length, view = 0, tab = 'stay', body = document.body, LAST = N + 2;
     body.classList.add('deck');
     function hIndex(art) { var id = art.id.replace(/^h-/, ''), r = 0; hotels.forEach(function (h, i) { if (h.id === id) r = i; }); return r; }
     var bar = document.createElement('div'); bar.id = 'dbar';
     bar.innerHTML = '<button type="button" class="dback" id="dBack"></button><div class="dmid" id="dMid"></div><button type="button" class="dnext" id="dNext"></button>';
     document.body.appendChild(bar);
     var tabs = document.createElement('div'); tabs.className = 'dtabs'; tabs.id = 'dTabs';
-    tabs.innerHTML = [['stay', 'Stay and flights'], ['todo', 'Things to do'], ['weather', 'Weather'], ['extras', 'Extras'], ['pay', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '">' + t[1] + '</button>'; }).join('');
+    tabs.innerHTML = [['stay', 'Stay and flights'], ['about', 'About the resort'], ['weather', 'Weather'], ['extras', 'Extras'], ['pay', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '">' + t[1] + '</button>'; }).join('');
     var hs = document.getElementById('hotels'); hs.parentNode.insertBefore(tabs, hs);
     var prog = document.createElement('div'); prog.className = 'dprog'; prog.id = 'dProg'; bar.insertBefore(prog, bar.firstChild);
+    /* about the resort panel: the hotel's own write up, resort information and things to do */
+    var about = document.createElement('div'); about.id = 'aboutR'; about.className = 'aboutr';
+    var todo = document.getElementById('todo'); if (todo) todo.parentNode.insertBefore(about, todo);
     function has(id) { var s = document.getElementById(id); return !!s && !s.hidden; }
-    function render(dir) {
-      body.setAttribute('data-v', view === 0 ? 'intro' : view > N ? 'final' : 'opt');
-      body.setAttribute('data-tab', tab);
-      if (view >= 1 && view <= N) {
-        var art = A()[view - 1], x = hotels[hIndex(art)];
-        A().forEach(function (a, i) { a.hidden = i !== view - 1; });
-        hIdx = hIndex(art); var c = document.getElementById('cHotel'); if (c) c.value = String(hIdx); calc();
-        wxPlaces.forEach(function (w) { var el = document.querySelector('[data-wx="' + w.key.replace(/"/g, '') + '"]'); if (el) el.hidden = w.hotels.indexOf(x.name) < 0; });
-        var avail = { stay: true, todo: has('todo'), weather: has('weather') && !!document.querySelector('#wxList > *:not([hidden])'), extras: has('extras'), pay: true };
-        Array.prototype.forEach.call(tabs.children, function (b) { b.hidden = !avail[b.dataset.dt]; b.classList.toggle('on', b.dataset.dt === tab); });
-        if (!avail[tab]) { tab = 'stay'; body.setAttribute('data-tab', tab); Array.prototype.forEach.call(tabs.children, function (b) { b.classList.toggle('on', b.dataset.dt === tab); }); }
-      }
-      prog.innerHTML = Array.apply(null, Array(N + 2)).map(function (_, i) { return '<i class="' + (i === view ? 'on' : i < view ? 'done' : '') + '" data-go="' + i + '"></i>'; }).join('');
-      var back = document.getElementById('dBack'), next = document.getElementById('dNext'), mid = document.getElementById('dMid');
-      back.hidden = view === 0; next.hidden = view > N;
-      back.innerHTML = '&#8249; ' + (view === 1 ? 'Overview' : view > N ? 'Options' : view === 0 ? '' : 'Option ' + (view - 1));
-      next.innerHTML = (view === 0 ? 'See option 1' : view === N ? 'Decide' : 'Option ' + (view + 1)) + ' &#8250;';
-      mid.textContent = view === 0 ? 'Your options' : view > N ? 'Decide' : 'Option ' + view + ' of ' + N;
-      var g = document.getElementById('deckStage'); if (g && dir) { g.className = 'dgo' + (dir > 0 ? 'r' : 'l'); void g.offsetWidth; }
+    function aboutHtml(x) {
+      var r = x.resort || {}, h = '<div class="abt"><h3>About ' + esc(x.name) + '</h3><p>' + esc(x.why || '') + '</p>';
+      if (x.feats && x.feats.length) h += '<div class="feat">' + x.feats.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>';
+      if (r.town) h += '<div class="pkgr"><b>The area</b><span>' + esc(r.town) + '</span></div>';
+      if (r.eat && r.eat.length) h += '<div class="pkgr"><b>Eating out</b><span>' + r.eat.map(esc).join(' &#183; ') + '</span></div>';
+      if (r.bars && r.bars.length) h += '<div class="pkgr"><b>Bars</b><span>' + r.bars.map(esc).join(' &#183; ') + '</span></div>';
+      if (r.nearby && r.nearby.length) h += '<div class="pkgr"><b>Nearby</b><span>' + r.nearby.map(esc).join(' &#183; ') + '</span></div>';
+      if (x.site) h += '<a class="btn btn-o" style="justify-self:start" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>';
+      return h + '</div>';
     }
-    var stage = document.getElementById('app'); stage.id = 'app'; stage.setAttribute('data-stage', '1');
-    function go(v, dir, keepTab) {
-      v = Math.max(0, Math.min(N + 1, v)); if (v === view && keepTab) return;
-      dir = dir || (v > view ? 1 : -1); view = v; if (!keepTab) tab = 'stay';
+    function render() {
+      var isOpt = view >= 2 && view <= N + 1;
+      body.setAttribute('data-v', view === 0 ? 'welcome' : view === 1 ? 'glance' : isOpt ? 'opt' : 'final');
+      body.setAttribute('data-tab', tab);
+      if (isOpt) {
+        var art = A()[view - 2], x = hotels[hIndex(art)];
+        A().forEach(function (a, i) { a.hidden = i !== view - 2; });
+        hIdx = hIndex(art); var c = document.getElementById('cHotel'); if (c) c.value = String(hIdx); calc();
+        about.innerHTML = aboutHtml(x);
+        var lk = art.querySelector('.links'), mb = art.querySelector('[data-tog=more]'); if (lk && mb && mb.parentNode !== lk) lk.appendChild(mb);
+        wxPlaces.forEach(function (w) { var el = document.querySelector('[data-wx="' + w.key.replace(/"/g, '') + '"]'); if (el) el.hidden = w.hotels.indexOf(x.name) < 0; });
+        var avail = { stay: true, about: true, weather: has('weather') && !!document.querySelector('#wxList > *:not([hidden])'), extras: has('extras'), pay: true };
+        if (!avail[tab]) tab = 'stay'; body.setAttribute('data-tab', tab);
+        Array.prototype.forEach.call(tabs.children, function (b) { b.hidden = !avail[b.dataset.dt]; b.classList.toggle('on', b.dataset.dt === tab); });
+      }
+      prog.innerHTML = Array.apply(null, Array(LAST + 1)).map(function (_, i) { return '<i class="' + (i === view ? 'on' : i < view ? 'done' : '') + '" data-go="' + i + '"></i>'; }).join('');
+      var back = document.getElementById('dBack'), next = document.getElementById('dNext'), mid = document.getElementById('dMid');
+      back.hidden = view === 0; next.hidden = view === LAST;
+      back.innerHTML = '&#8249; ' + (view === 1 ? 'Welcome' : view === 2 ? 'All options' : view === LAST ? 'Options' : view === 0 ? '' : 'Option ' + (view - 2));
+      next.innerHTML = (view === 0 ? 'See your options' : view === 1 ? 'Option 1' : view === N + 1 ? 'Decide' : 'Option ' + (view - 0)) + ' &#8250;';
+      mid.textContent = view === 0 ? 'Welcome' : view === 1 ? 'At a glance' : view === LAST ? 'Decide' : 'Option ' + (view - 1) + ' of ' + N;
+    }
+    var stage = document.getElementById('app');
+    function go(v, dir) {
+      v = Math.max(0, Math.min(LAST, v)); dir = dir || (v > view ? 1 : -1); view = v; tab = 'stay';
       stage.classList.remove('dgor', 'dgol'); void stage.offsetWidth; stage.classList.add(dir > 0 ? 'dgor' : 'dgol');
       render(); window.scrollTo(0, 0);
     }
@@ -711,15 +724,18 @@
     document.getElementById('dNext').addEventListener('click', function () { go(view + 1); });
     tabs.addEventListener('click', function (e) { var b = e.target.closest('[data-dt]'); if (b) setTab(b.dataset.dt); });
     prog.addEventListener('click', function (e) { var d = e.target.closest('[data-go]'); if (d) go(Number(d.dataset.go)); });
+    var note = document.querySelector('.note.top');
+    if (note) { var nb = document.createElement('button'); nb.type = 'button'; nb.className = 'notemore'; nb.textContent = 'Read the full note'; nb.addEventListener('click', function () { note.classList.toggle('open'); nb.textContent = note.classList.contains('open') ? 'Show less' : 'Read the full note'; }); note.appendChild(nb); }
     document.addEventListener('click', function (e) {
-      var a = e.target.closest('a[href]'); var p = e.target.closest('[data-pick]');
-      if (p) { setTimeout(function () { go(N + 1, 1); }, 0); return; }
+      var a = e.target.closest('a[href]'); var p = e.target.closest('[data-pick]'); var ab = e.target.closest('[data-tog=more]');
+      if (ab) { e.stopImmediatePropagation(); setTab('about'); return; }
+      if (p) { setTimeout(function () { go(LAST, 1); }, 0); return; }
       if (!a) return; var h = a.getAttribute('href') || '';
-      if (/^#h-/.test(h)) { e.preventDefault(); var id = h.slice(3), k = -1; A().forEach(function (r, i) { if (r.id === 'h-' + id) k = i; }); if (k >= 0) go(k + 1, 1); }
-      else if (h === '#extras') { e.preventDefault(); if (view >= 1 && view <= N) setTab('extras'); }
-      else if (h === '#fullCost') { e.preventDefault(); if (view >= 1 && view <= N) setTab('pay'); }
-      else if (h === '#feedback') { e.preventDefault(); go(N + 1, 1); }
-    });
+      if (/^#h-/.test(h)) { e.preventDefault(); var id = h.slice(3), k = -1; A().forEach(function (r, i) { if (r.id === 'h-' + id) k = i; }); if (k >= 0) go(k + 2, 1); }
+      else if (h === '#extras') { e.preventDefault(); if (view >= 2 && view <= N + 1) setTab('extras'); }
+      else if (h === '#fullCost') { e.preventDefault(); if (view >= 2 && view <= N + 1) setTab('pay'); }
+      else if (h === '#feedback') { e.preventDefault(); go(LAST, 1); }
+    }, true);
     document.addEventListener('keydown', function (e) { if (/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || '')) return; if (e.key === 'ArrowRight') go(view + 1); else if (e.key === 'ArrowLeft') go(view - 1); });
     var sx = null, sy = null;
     document.addEventListener('touchstart', function (e) { var t = e.touches[0]; sx = t.clientX; sy = t.clientY; if (e.target.closest('.track,.areas,.lb,select,input,textarea,table,.dtabs,.pkgfl')) sx = null; }, { passive: true });
