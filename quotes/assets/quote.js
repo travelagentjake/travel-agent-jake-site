@@ -605,9 +605,11 @@
   function pkgHtml(x) {
     var p = x.package; if (!p) return '';
     var legs = (p.flights && p.flights.legs) || [];
-    return '<div class="pkg"><div class="pkgh">Your whole package</div>'
-      + (p.dates ? '<div class="pkgr"><b>Dates</b><span>' + esc(p.dates) + '</span></div>' : '')
-      + '<div class="pkgfl">' + legs.map(function (l) {
+    var carrier = legs[0] && legs[0].carrier ? legs[0].carrier : '';
+    var tshort = (p.transfer || '').split(',')[0];
+    return '<div class="pkg"><div class="pkgsum"><div class="pkgsl"><b>' + esc(p.dates || '') + '</b><span>' + esc([carrier ? 'Flights with ' + carrier : '', tshort].filter(Boolean).join(' \u00b7 ')) + '</span></div>'
+      + '<button class="mbtn pb" type="button" data-tog="pkg" aria-expanded="false"><span class="m1">View flights</span><span class="m2">Hide flights</span></button></div>'
+      + '<div class="pkgdet"><div class="pkgfl">' + legs.map(function (l) {
         return '<div class="pkgf"><div class="pkgtop"><span class="tg">' + esc(l.tag) + '</span><b>' + esc(l.date) + '</b></div><div class="pkgt">' + esc(l.fromCode) + ' ' + esc(l.dep) + ' &#8594; ' + esc(l.toCode) + ' ' + esc(l.arr) + '</div>'
           + '<small>' + esc(l.from) + ' to ' + esc(l.to) + (l.dur ? ' &#183; ' + esc(l.dur) : '') + (l.carrier ? ' &#183; ' + esc(l.carrier) : '') + '</small>'
           + (l.segments && l.segments.length ? '<ol class="pkgs">' + l.segments.map(function (g) { return g.wait ? '<li class="wait">' + esc(g.wait) + ' wait in ' + esc(g.at) + '</li>' : '<li>' + esc(g.flight || '') + ' ' + esc(g.dep) + ' ' + esc(g.from) + ' &#8594; ' + esc(g.arr) + ' ' + esc(g.to) + '</li>'; }).join('') + '</ol>' : '')
@@ -615,19 +617,19 @@
       }).join('') + '</div>'
       + (p.transfer ? '<div class="pkgr"><b>Transfers</b><span>' + esc(p.transfer) + '</span></div>' : '')
       + (p.included && p.included.length ? '<div class="pkgr"><b>Included</b><span>' + p.included.map(esc).join(' &#183; ') + '</span></div>' : '')
-      + '</div>';
+      + '</div></div>';
   }
   function renderHotels() {
     var el = document.getElementById('hotelList'); if (!el) return;
     el.innerHTML = ordered().map(function (x, oi) {
       var slides = x.variantOf ? '' : (x.imgs || []).map(function (u, i) { return '<img loading="' + (i ? 'lazy' : 'eager') + '" src="' + esc(img(u, 1000)) + '" srcset="' + esc(img(u, 700)) + ' 700w, ' + esc(img(u, 1000)) + ' 1000w, ' + esc(img(u, 1400)) + ' 1400w" sizes="(max-width:900px) 100vw, 600px" alt="' + esc(x.name) + ' photo ' + (i + 1) + '" data-h="' + esc(x.id) + '" data-i="' + i + '">'; }).join('');
-      return '<article class="hotel' + (x.variantOf ? ' variant' : '') + '" id="h-' + esc(x.id) + '"><div class="hotel-grid"><div class="slider"><div class="track">' + slides + '</div>'
+      return '<article class="hotel' + (x.variantOf ? ' variant' : '') + (x.package ? ' pk' : '') + '" id="h-' + esc(x.id) + '"><div class="hotel-grid"><div class="slider"><div class="track">' + slides + '</div>'
         + (x.badge ? '<span class="badge">' + esc(x.badge) + '</span>' : '')
         + '<button class="arr l" type="button" aria-label="Previous photo" data-dir="-1">&#8249;</button><button class="arr r" type="button" aria-label="Next photo" data-dir="1">&#8250;</button>'
         + '<button class="zoom" type="button" data-zoom="' + esc(x.id) + '">View full screen</button><span class="count">1 / ' + (x.imgs || []).length + '</span></div>'
         + '<div class="hb">' + (x.package && multi ? '<div class="optl">' + esc(x.optionLabel || ('Option ' + (x.match || oi + 1))) + '</div>' + (x.variantOf && x.badge ? '<div class="vbadge">' + esc(x.badge) + '</div>' : '') : '') + '<div class="area">' + esc(x.area) + (x.country ? ', ' + esc(x.country) : '') + '</div><h3>' + esc(x.name) + '</h3>'
         + (x.rating ? '<div class="rating">' + dots(x.rating) + '<span><b>' + x.rating.toFixed(1) + '</b> on Tripadvisor' + (x.reviews ? ', ' + esc(x.reviews) + ' reviews' : '') + '</span></div>' : '')
-        + '<p>' + esc(x.why) + '</p>'
+        + '<p class="why">' + esc(x.why) + '</p>' + (x.package ? '<button class="mbtn" type="button" data-tog="more" aria-expanded="false"><span class="m1">See more about this hotel</span><span class="m2">See less</span></button>' : '')
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
         + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
         + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + (x.free ? ' per paying person<br><span class="freec">' + x.free + ' free child place' + (Number(x.free) === 1 ? '' : 's') + ' included</span><br>' : ' per person<br>') : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - depOf(x)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">then about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
@@ -667,6 +669,10 @@
   function lbStep(d) { var n = lbG ? lbG.length : hotel(lbH).imgs.length; lbI = (lbI + d + n) % n; lbShow(); }
   var list = document.getElementById('hotelList');
   function upgSync() { Array.prototype.forEach.call(document.querySelectorAll('[data-upgadd]'), function (b) { var on = !!sel[b.dataset.upgadd]; b.classList.toggle('on', on); b.textContent = on ? 'Added, tap to remove' : 'Add to my holiday'; }); }
+  if (list) list.addEventListener('click', function (e) {
+    var tg = e.target.closest('[data-tog]');
+    if (tg) { var art = tg.closest('.hotel'), cl = tg.dataset.tog === 'pkg' ? 'xpkg' : 'xmore'; art.classList.toggle(cl); tg.setAttribute('aria-expanded', String(art.classList.contains(cl))); return; }
+  });
   if (list) list.addEventListener('click', function (e) {
     var ub = e.target.closest('[data-upg]');
     if (ub) { var box = document.getElementById('upg-' + ub.dataset.upg); if (box) { box.hidden = !box.hidden; ub.setAttribute('aria-expanded', String(!box.hidden)); } return; }

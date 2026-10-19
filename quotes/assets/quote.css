@@ -304,19 +304,35 @@ html,body{overflow-x:clip}
 .bkfull{background:var(--pill);border-radius:12px;padding:10px 14px;font-weight:700;margin:0}
 .snav a[hidden],section[hidden]{display:none!important}
 
-/* whole package on each option card: hotel, dates, flights and transfers together */
-.optl{align-self:flex-start;background:#FFD21F;color:#0b1b3a;font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:5px 12px}
-.pkg{border-top:2px solid #DCE3FF;background:#F4F7FF;padding:20px 26px 22px;display:grid;gap:12px}
-.pkgh{font-family:'Archivo Black',sans-serif;font-size:16px;color:#004AAD}
-.pkgr{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px;font-size:14px;line-height:1.45}
-.pkgr b{color:#004AAD}
-.pkgfl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.pkgf{display:flex;flex-direction:column;gap:6px;background:#fff;border:2px solid #DCE3FF;border-radius:16px;padding:14px 16px;font-size:14px}.pkgtop{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.pkgtop b{display:inline}
-.pkgf .tg{background:#004AAD;color:#fff;font-size:11px;font-weight:800;letter-spacing:.05em;border-radius:999px;padding:4px 10px;flex:none;min-width:84px;text-align:center}
-.pkgt{font-family:'Archivo Black',sans-serif;font-size:17px;color:#0b1b3a}.pkgf small{color:#5b6478;font-size:12.5px}
-.pkgs{margin:2px 0 0;padding-left:16px;font-size:12.5px;color:#5b6478}.pkgs .wait{color:#8a5a00;font-weight:700;list-style:none;margin-left:-16px}
-@media (max-width:900px){.pkg{padding:18px}.pkgfl{grid-template-columns:1fr}.pkgr{grid-template-columns:1fr;gap:2px}}
-
+/* whole package on each option card: hotel, dates, flights and transfers together, compact with see more */
+.optl{align-self:flex-start;background:#FFD21F;color:#0b1b3a;font-family:'Archivo Black',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:4px 11px}
+.pkg{border-top:2px solid #DCE3FF;background:#F4F7FF;padding:12px 18px;display:grid;gap:10px}
+.pkgsum{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pkgsl{display:grid;gap:2px;font-size:13px;color:#5b6478;min-width:0}.pkgsl b{color:#0b1b3a;font-size:14px}
+.mbtn{font-family:inherit;font-weight:800;font-size:13px;color:#004AAD;background:#fff;border:2px solid #004AAD;border-radius:999px;padding:7px 14px;cursor:pointer;min-height:36px;flex:none}
+.mbtn .m2,.xmore>.hotel-grid .mbtn[data-tog=more] .m1,.xpkg .pb .m1{display:none}
+.xmore>.hotel-grid .mbtn[data-tog=more] .m2,.xpkg .pb .m2{display:inline}
+.hb .mbtn[data-tog=more]{align-self:flex-start;border-width:0;background:none;padding:0;min-height:0;text-decoration:underline;font-size:13px}
+.pkgdet{display:none;gap:10px}.xpkg .pkgdet{display:grid}
+.pkgr{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;font-size:13px;line-height:1.4}.pkgr b{color:#004AAD}
+.pkgfl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pkgf{display:flex;flex-direction:column;gap:3px;background:#fff;border:2px solid #DCE3FF;border-radius:14px;padding:10px 12px;font-size:13px}
+.pkgtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pkgtop b{display:inline}
+.pkgf .tg{background:#004AAD;color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.05em;border-radius:999px;padding:3px 9px;flex:none;min-width:74px;text-align:center}
+.pkgt{font-family:'Archivo Black',sans-serif;font-size:15px;color:#0b1b3a}.pkgf small{color:#5b6478;font-size:12px}
+.pkgs{margin:2px 0 0;padding-left:16px;font-size:12px;color:#5b6478}.pkgs .wait{color:#8a5a00;font-weight:700;list-style:none;margin-left:-16px}
+.hotel.pk .why{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.hotel.pk.xmore .why{display:block;-webkit-line-clamp:unset}
+.hotel.pk:not(.xmore) .feat{display:none}
+@media (max-width:900px){
+ .hotel.pk .slider{min-height:0}.hotel.pk .track img{min-height:0;height:170px;max-height:170px}
+ .hotel.pk .hb{padding:14px 16px;gap:8px}.hotel.pk .hb h3{font-size:20px}.hotel.pk .hb p{font-size:14px}.hotel.pk .rating{font-size:12.5px}.hotel.pk .area{font-size:12.5px}
+ .hotel.pk .rooms{font-size:12.5px}
+ .hotel.pk .price{padding:10px 14px;border-radius:16px;gap:8px;margin-top:0}.hotel.pk .price .big{font-size:24px}.hotel.pk .price .r{font-size:12.5px}.hotel.pk .price p.tax{margin-top:6px;padding-top:6px;font-size:11.5px}
+ .hotel.pk .badge{font-size:11px;padding:4px 9px}
+ .hotel.pk .links .btn{padding:8px 14px;font-size:13px;min-height:38px}
+ .pkg{padding:10px 16px}.pkgfl{grid-template-columns:1fr}.pkgr{grid-template-columns:1fr;gap:1px}
+}
 .hotel.variant .hotel-grid{grid-template-columns:1fr}.hotel.variant .slider{display:none}.hotel.variant .area,.hotel.variant .rating,.hotel.variant .feat{display:none}
 .vbadge{font-weight:800;color:#004AAD;font-size:15px}
 .optsm{display:block;color:#5b6478;font-weight:600;font-size:12.5px;margin-top:2px}
