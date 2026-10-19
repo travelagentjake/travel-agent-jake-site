@@ -675,3 +675,23 @@ body.deck[data-v=final] #app{flex:1;display:flex;flex-direction:column;min-heigh
 .gk .gki{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#EEF2FF;font-size:24px;line-height:1}
 .gk{align-items:center}
 #bkDDFields[hidden],#bkDDPlan[hidden],#bkDDNote[hidden],#bkOther[hidden]{display:none!important}
+
+/* booking form: compact, closer to the rest of the quote text size */
+.book{padding:16px;margin-top:14px;border-radius:18px}
+.book h3{font-size:20px}
+.book h4{font-size:15px;margin:14px 0 6px}
+.book p,.book .small{font-size:13px;line-height:1.4}
+.book .intro{font-size:14px;margin:4px 0 8px}
+.book .paxg{gap:6px 10px}
+.book .paxg label{font-size:12.5px}
+.book .paxg label input,.book .paxg label select{margin-top:2px}
+.book input[type=text],.book input[type=tel],.book input[type=email],.book input[type=date],.book input[type=number],.book select,.book textarea{padding:8px 11px;border-radius:10px;font-size:16px}
+.book .fbopt{padding:6px 12px;min-height:0;font-size:14px;gap:6px}
+.book .fbopt input{width:16px;height:16px}
+.book .bkopts{gap:6px}
+.paxrow{padding:10px;margin:0 0 8px;border-radius:12px}
+.bksum{padding:8px 12px;margin:8px 0 0;font-size:14px}
+.bksum>div{padding:3px 0}
+.bkagree{margin:14px 0 10px;font-size:13px;line-height:1.35;gap:8px}
+.bkagree input{width:18px;height:18px}
+@media (max-width:640px){.book{padding:14px}.book .paxg{grid-template-columns:repeat(2,minmax(0,1fr))}.book .paxg .wide{grid-column:1/-1}.book .fbopt{font-size:13px;padding:6px 10px}}
