@@ -81,7 +81,7 @@ export default async (req) => {
     const rec = { status: b.status, at: new Date().toISOString(), via: "dashboard" };
     await st("quote-status").setJSON(slug, rec);
     if (b.status === "booked") {
-      const reg = await fetch("https://quotes.travelagentjake.co.uk/quotes.json?cb=" + Date.now()).then((x) => x.json()).catch(() => ({ quotes: [] }));
+      const reg = await fetch("https://taj-quotes.pages.dev/quotes.json?cb=" + Date.now()).then((x) => x.json()).catch(() => ({ quotes: [] }));
       const q = (reg.quotes || []).find((x) => x.slug === slug);
       if (q && q.enquiryId) {
         const es = st("enquiries"), e = await es.get(q.enquiryId, { type: "json" }).catch(() => null);

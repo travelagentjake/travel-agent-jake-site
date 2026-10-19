@@ -35,7 +35,7 @@ export async function syncBookings() {
     const es = st("enquiries");
     const { blobs } = await es.list();
     const enquiries = (await Promise.all(blobs.map((b) => es.get(b.key, { type: "json" }).catch(() => null)))).filter(Boolean);
-    const reg = await fetch("https://quotes.travelagentjake.co.uk/quotes.json?cb=" + Date.now()).then((r) => r.json()).catch(() => ({ quotes: [] }));
+    const reg = await fetch("https://taj-quotes.pages.dev/quotes.json?cb=" + Date.now()).then((r) => r.json()).catch(() => ({ quotes: [] }));
     const qs = st("quote-status");
     const matched = [];
 

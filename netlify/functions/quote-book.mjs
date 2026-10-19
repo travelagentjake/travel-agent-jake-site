@@ -52,7 +52,7 @@ export default async (req) => {
   // Keep a copy, and link it to the enquiry so the dashboard shows it
   try { await getStore({ name: "quote-bookings", consistency: "strong" }).setJSON(rec.id, rec); } catch (e) { console.error("save booking", e.message); }
   try {
-    const reg = await fetch("https://quotes.travelagentjake.co.uk/quotes.json?cb=" + Date.now(), { signal: AbortSignal.timeout(4000) }).then((r) => r.json());
+    const reg = await fetch("https://taj-quotes.pages.dev/quotes.json?cb=" + Date.now(), { signal: AbortSignal.timeout(4000) }).then((r) => r.json());
     const q = (reg.quotes || []).find((x) => x.slug === slug);
     if (q && q.enquiryId) {
       const es = getStore({ name: "enquiries", consistency: "strong" });
