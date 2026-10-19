@@ -666,7 +666,7 @@
         + '<button class="zoom" type="button" data-zoom="' + esc(x.id) + '">View full screen</button><span class="count">1 / ' + (x.imgs || []).length + '</span></div>'
         + '<div class="hb">' + (x.package && multi ? '<div class="optl">' + esc(x.optionLabel || ('Option ' + (x.match || oi + 1))) + '</div>' + (x.variantOf && x.badge ? '<div class="vbadge">' + esc(x.badge) + '</div>' : '') : '') + '<div class="area">' + esc(x.area) + (x.country ? ', ' + esc(x.country) : '') + '</div><h3>' + esc(x.name) + '</h3>'
         + (x.rating ? '<div class="rating">' + dots(x.rating) + '<span><b>' + x.rating.toFixed(1) + '</b> on Tripadvisor' + (x.reviews ? ', ' + esc(x.reviews) + ' reviews' : '') + '</span></div>' : '')
-        + '<p class="why">' + esc(x.why) + '</p>' + (x.package ? '<button class="mbtn" type="button" data-tog="more" aria-expanded="false"><span class="m1">About the resort</span><span class="m2">About the resort</span></button>' : '')
+        + '<p class="why">' + esc(x.why) + '</p>' + ((x.story || (base && base.story)) ? '<p class="story">' + esc(x.story || base.story) + '</p>' : '') + (x.package ? '<button class="mbtn" type="button" data-tog="more" aria-expanded="false"><span class="m1">About the resort</span><span class="m2">About the resort</span></button>' : '')
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
         + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
         + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + (x.free ? ' per paying person<br><span class="freec">' + x.free + ' free child place' + (Number(x.free) === 1 ? '' : 's') + ' included</span><br>' : ' per person<br>') : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - depOf(x)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">then about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
@@ -831,7 +831,7 @@
     bar.innerHTML = '<button type="button" class="dback" id="dBack"></button><div class="dmid" id="dMid"></div><button type="button" class="dnext" id="dNext"></button>';
     document.body.appendChild(bar);
     var tabs = document.createElement('div'); tabs.className = 'dtabs'; tabs.id = 'dTabs';
-    tabs.innerHTML = [['stay', 'Stay and flights'], ['about', 'About the resort'], ['extras', 'Extras'], ['more', 'More info'], ['pay', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '">' + t[1] + '</button>'; }).join('');
+    tabs.innerHTML = [['stay', 'Stay and flights'], ['about', 'About this holiday'], ['extras', 'Extras'], ['more', 'More info'], ['pay', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '">' + t[1] + '</button>'; }).join('');
     var KNOWN = ['compare', 'hotels', 'trip', 'weather', 'todo', 'extras', 'next'];
     Array.prototype.forEach.call(document.querySelectorAll('#app > section'), function (s) { if (KNOWN.indexOf(s.id) < 0 && !s.querySelector('.custom .ag')) s.classList.add('xsec'); });
     var hasMore = !!document.querySelector('.xsec');
@@ -847,7 +847,7 @@
     if (!cgs || anchor) anchor.parentNode.insertBefore(areaG, anchor.nextSibling);
     function has(id) { var s = document.getElementById(id); return !!s && !s.hidden; }
     function aboutHtml(x) {
-      var bs = x.variantOf ? hotel(x.variantOf) : null, r = x.resort || (bs && bs.resort) || {}, h = '<div class="abt"><h3>About ' + esc(x.name) + '</h3><p>' + esc(x.why || '') + '</p>';
+      var bs = x.variantOf ? hotel(x.variantOf) : null, r = x.resort || (bs && bs.resort) || {}, h = '<div class="abt"><h3>About ' + esc(String(x.name).replace(/,\s*\d+ nights from.*$/, '')) + '</h3><p>' + esc(x.about || (bs && bs.about) || x.why || '') + '</p>';
       if (x.feats && x.feats.length) h += '<div class="feat">' + x.feats.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>';
       if (x.rooms) h += '<div class="pkgr"><b>Your room</b><span>' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</span></div>';
       return h + '</div>';
