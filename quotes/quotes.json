@@ -1,6 +1,17 @@
 {
   "quotes": [
     {
+      "slug": "davidmexico",
+      "url": "https://quotes.travelagentjake.co.uk/davidmexico",
+      "customer": "David",
+      "enquiryId": "mvf1dbkrpjo1",
+      "quoteRequestId": "mvf1dbm8cyw1",
+      "title": "David & Amir's Mexico Holiday, Secrets Akumal and Secrets The Vine",
+      "created": "2026-10-19",
+      "departs": "2026-12-30",
+      "fromPrice": 7253.02
+    },
+    {
       "slug": "zanellicookstefania",
       "url": "https://quotes.travelagentjake.co.uk/zanellicookstefania",
       "customer": "Stefania",
