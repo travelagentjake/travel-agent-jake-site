@@ -891,6 +891,13 @@
       art.style.setProperty('--ph', Math.max(150, Math.min(340, Math.floor(avail - rest))) + 'px');
     }
     window.addEventListener('resize', fitPhoto);
+    /* things to do: two columns on desktop, so show an even number (the last one drops out if the count is odd) */
+    function evenTodo() {
+      var cs = document.querySelectorAll('#todo .areacard'), wide = window.innerWidth > 900;
+      Array.prototype.forEach.call(cs, function (c) { c.classList.remove('evenhide'); });
+      if (wide && cs.length % 2) cs[cs.length - 1].classList.add('evenhide');
+    }
+    window.addEventListener('resize', evenTodo); evenTodo();
     var stage = document.getElementById('app');
     function go(v, dir) {
       v = Math.max(0, Math.min(LAST, v)); dir = dir || (v > view ? 1 : -1);

@@ -642,3 +642,4 @@ body.deck{padding-bottom:70px}
 .story{display:none;margin:0;color:#3b4262;line-height:1.45}
 .deck .hotel.pk .story{display:none}
 @media (min-width:901px){.deck .hotel.pk .story{display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;font-size:14px;line-height:1.45;-webkit-line-clamp:5;margin:0 0 2px}}
+.deck .areacard.evenhide{display:none!important}
