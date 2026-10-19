@@ -587,15 +587,17 @@
     });
     return slidesOnly ? list.filter(function (x) { return x.slides; }) : list;
   }
+  function optName(x) { return 'Option ' + (x.match || '') + (x.package ? ': ' + (x.package.short || x.package.dates || '') : ''); }
+  function optLine(x) { return x.package ? '<small class="optsm">' + esc(optName(x)) + '</small>' : ''; }
   function renderTable() {
     var t = document.getElementById('ctable'); if (!t) return;
     t.innerHTML = ordered().map(function (x) {
-      return '<tr><td><a href="#h-' + esc(x.id) + '">' + esc(x.name) + '</a></td><td>' + esc(x.area) + '</td><td><span class="stars">' + (x.rating ? x.rating.toFixed(1) : '') + '</span>' + (x.rating ? ' / 5' : '') + '</td><td>' + mins(x.transfer) + '</td>'
+      return '<tr><td><a href="#h-' + esc(x.id) + '">' + esc(x.name) + '</a>' + optLine(x) + '</td><td>' + esc(x.area) + '</td><td><span class="stars">' + (x.rating ? x.rating.toFixed(1) : '') + '</span>' + (x.rating ? ' / 5' : '') + '</td><td>' + mins(x.transfer) + '</td>'
         + (anySlides ? '<td>' + (x.slides ? '<span class="yes">Yes</span>' : '<span class="no">No</span>') + '</td>' : '') + '<td class="n"><b>' + gbp(x.total) + '</b></td><td class="n">' + gbp(x.pp) + (x.free ? '<br><small>' + x.free + ' kids free</small>' : '') + '</td></tr>';
     }).join('');
     /* phones get a stacked list instead of the wide table */
     var m = document.getElementById('cmob'); if (m) m.innerHTML = ordered().map(function (x) {
-      return '<a class="crow" href="#h-' + esc(x.id) + '"><span class="cn"><b>' + esc(x.name) + '</b><span>' + esc(x.area)
+      return '<a class="crow" href="#h-' + esc(x.id) + '"><span class="cn"><b>' + esc(x.name) + '</b>' + (x.package ? '<span class="cpk">' + esc(optName(x)) + '</span>' : '') + '<span>' + esc(x.area)
         + (x.rating ? ' &#183; ' + x.rating.toFixed(1) + '/5' : '') + (x.transfer ? ' &#183; ' + mins(x.transfer) + ' transfer' : '') + (anySlides && x.slides ? ' &#183; Slides' : '') + '</span></span>'
         + '<span class="cp"><b>' + gbp(x.total) + '</b>' + (x.pp ? '<span>' + gbp(x.pp) + 'pp' + (x.free ? ', ' + x.free + ' kids free' : '') + '</span>' : '') + '</span></a>';
     }).join('');
@@ -606,10 +608,10 @@
     return '<div class="pkg"><div class="pkgh">Your whole package</div>'
       + (p.dates ? '<div class="pkgr"><b>Dates</b><span>' + esc(p.dates) + '</span></div>' : '')
       + '<div class="pkgfl">' + legs.map(function (l) {
-        return '<div class="pkgf"><span class="tg">' + esc(l.tag) + '</span><div><b>' + esc(l.date) + '</b><div class="pkgt">' + esc(l.fromCode) + ' ' + esc(l.dep) + ' &#8594; ' + esc(l.toCode) + ' ' + esc(l.arr) + '</div>'
+        return '<div class="pkgf"><div class="pkgtop"><span class="tg">' + esc(l.tag) + '</span><b>' + esc(l.date) + '</b></div><div class="pkgt">' + esc(l.fromCode) + ' ' + esc(l.dep) + ' &#8594; ' + esc(l.toCode) + ' ' + esc(l.arr) + '</div>'
           + '<small>' + esc(l.from) + ' to ' + esc(l.to) + (l.dur ? ' &#183; ' + esc(l.dur) : '') + (l.carrier ? ' &#183; ' + esc(l.carrier) : '') + '</small>'
           + (l.segments && l.segments.length ? '<ol class="pkgs">' + l.segments.map(function (g) { return g.wait ? '<li class="wait">' + esc(g.wait) + ' wait in ' + esc(g.at) + '</li>' : '<li>' + esc(g.flight || '') + ' ' + esc(g.dep) + ' ' + esc(g.from) + ' &#8594; ' + esc(g.arr) + ' ' + esc(g.to) + '</li>'; }).join('') + '</ol>' : '')
-          + '</div></div>';
+          + '</div>';
       }).join('') + '</div>'
       + (p.transfer ? '<div class="pkgr"><b>Transfers</b><span>' + esc(p.transfer) + '</span></div>' : '')
       + (p.included && p.included.length ? '<div class="pkgr"><b>Included</b><span>' + p.included.map(esc).join(' &#183; ') + '</span></div>' : '')
@@ -618,12 +620,12 @@
   function renderHotels() {
     var el = document.getElementById('hotelList'); if (!el) return;
     el.innerHTML = ordered().map(function (x, oi) {
-      var slides = (x.imgs || []).map(function (u, i) { return '<img loading="' + (i ? 'lazy' : 'eager') + '" src="' + esc(img(u, 1000)) + '" srcset="' + esc(img(u, 700)) + ' 700w, ' + esc(img(u, 1000)) + ' 1000w, ' + esc(img(u, 1400)) + ' 1400w" sizes="(max-width:900px) 100vw, 600px" alt="' + esc(x.name) + ' photo ' + (i + 1) + '" data-h="' + esc(x.id) + '" data-i="' + i + '">'; }).join('');
-      return '<article class="hotel" id="h-' + esc(x.id) + '"><div class="hotel-grid"><div class="slider"><div class="track">' + slides + '</div>'
+      var slides = x.variantOf ? '' : (x.imgs || []).map(function (u, i) { return '<img loading="' + (i ? 'lazy' : 'eager') + '" src="' + esc(img(u, 1000)) + '" srcset="' + esc(img(u, 700)) + ' 700w, ' + esc(img(u, 1000)) + ' 1000w, ' + esc(img(u, 1400)) + ' 1400w" sizes="(max-width:900px) 100vw, 600px" alt="' + esc(x.name) + ' photo ' + (i + 1) + '" data-h="' + esc(x.id) + '" data-i="' + i + '">'; }).join('');
+      return '<article class="hotel' + (x.variantOf ? ' variant' : '') + '" id="h-' + esc(x.id) + '"><div class="hotel-grid"><div class="slider"><div class="track">' + slides + '</div>'
         + (x.badge ? '<span class="badge">' + esc(x.badge) + '</span>' : '')
         + '<button class="arr l" type="button" aria-label="Previous photo" data-dir="-1">&#8249;</button><button class="arr r" type="button" aria-label="Next photo" data-dir="1">&#8250;</button>'
         + '<button class="zoom" type="button" data-zoom="' + esc(x.id) + '">View full screen</button><span class="count">1 / ' + (x.imgs || []).length + '</span></div>'
-        + '<div class="hb">' + (x.package && multi ? '<div class="optl">' + esc(x.optionLabel || ('Option ' + (x.match || oi + 1))) + '</div>' : '') + '<div class="area">' + esc(x.area) + (x.country ? ', ' + esc(x.country) : '') + '</div><h3>' + esc(x.name) + '</h3>'
+        + '<div class="hb">' + (x.package && multi ? '<div class="optl">' + esc(x.optionLabel || ('Option ' + (x.match || oi + 1))) + '</div>' + (x.variantOf && x.badge ? '<div class="vbadge">' + esc(x.badge) + '</div>' : '') : '') + '<div class="area">' + esc(x.area) + (x.country ? ', ' + esc(x.country) : '') + '</div><h3>' + esc(x.name) + '</h3>'
         + (x.rating ? '<div class="rating">' + dots(x.rating) + '<span><b>' + x.rating.toFixed(1) + '</b> on Tripadvisor' + (x.reviews ? ', ' + esc(x.reviews) + ' reviews' : '') + '</span></div>' : '')
         + '<p>' + esc(x.why) + '</p>'
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'

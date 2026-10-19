@@ -311,8 +311,13 @@ html,body{overflow-x:clip}
 .pkgr{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px;font-size:14px;line-height:1.45}
 .pkgr b{color:#004AAD}
 .pkgfl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.pkgf{display:flex;gap:12px;align-items:flex-start;background:#fff;border:2px solid #DCE3FF;border-radius:16px;padding:12px 14px;font-size:14px}
-.pkgf .tg{background:#004AAD;color:#fff;font-size:11px;font-weight:800;letter-spacing:.05em;border-radius:999px;padding:4px 9px;flex:none}
-.pkgf b{display:block}.pkgt{font-family:'Archivo Black',sans-serif;font-size:16px;margin:3px 0;color:#0b1b3a}.pkgf small{color:#5b6478;font-size:12.5px}
-.pkgs{margin:6px 0 0;padding-left:16px;font-size:12.5px;color:#5b6478}.pkgs .wait{color:#8a5a00;font-weight:700;list-style:none;margin-left:-16px}
+.pkgf{display:flex;flex-direction:column;gap:6px;background:#fff;border:2px solid #DCE3FF;border-radius:16px;padding:14px 16px;font-size:14px}.pkgtop{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.pkgtop b{display:inline}
+.pkgf .tg{background:#004AAD;color:#fff;font-size:11px;font-weight:800;letter-spacing:.05em;border-radius:999px;padding:4px 10px;flex:none;min-width:84px;text-align:center}
+.pkgt{font-family:'Archivo Black',sans-serif;font-size:17px;color:#0b1b3a}.pkgf small{color:#5b6478;font-size:12.5px}
+.pkgs{margin:2px 0 0;padding-left:16px;font-size:12.5px;color:#5b6478}.pkgs .wait{color:#8a5a00;font-weight:700;list-style:none;margin-left:-16px}
 @media (max-width:900px){.pkg{padding:18px}.pkgfl{grid-template-columns:1fr}.pkgr{grid-template-columns:1fr;gap:2px}}
+
+.hotel.variant .hotel-grid{grid-template-columns:1fr}.hotel.variant .slider{display:none}.hotel.variant .area,.hotel.variant .rating,.hotel.variant .feat{display:none}
+.vbadge{font-weight:800;color:#004AAD;font-size:15px}
+.optsm{display:block;color:#5b6478;font-weight:600;font-size:12.5px;margin-top:2px}
+.crow .cpk{display:block;font-weight:700;color:#004AAD}
