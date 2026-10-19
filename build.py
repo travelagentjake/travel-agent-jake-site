@@ -11629,6 +11629,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1518155317743-a8ff43ea6a5f?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "A Labrador looking out of a car window on a road trip",
     },
+    {
+        "slug": "eu261-flight-compensation-reform-2026.html",
+        "meta": "Consumer rights",
+        "title": "The EU's flight compensation rules are changing: what it actually means for your holiday",
+        "excerpt": "The EU has agreed its biggest flight compensation shake up since 2004. The three hour rule and the compensation amounts aren't changing, but plenty else is, and whether it affects you depends on which airport your flight home takes off from.",
+        "image": "https://images.unsplash.com/photo-1787839137485-da1cc270d970?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "People walking through a busy airport terminal with flight departure boards and signage",
+    },
 ]
 
 
@@ -17687,6 +17695,166 @@ with open(os.path.join(SITE, "eu-pet-travel-rules-2026.html"), "w", encoding="ut
 print("eu-pet-travel-rules-2026.html written")
 
 
+eu261_reform_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>THE EU'S FLIGHT COMPENSATION RULES ARE CHANGING: HERE'S WHAT ACTUALLY CHANGES FOR YOUR HOLIDAY</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">The EU has just agreed the biggest overhaul of its flight delay and cancellation compensation rules since they were first written in 2004. If you've seen a headline about it and assumed your rights are about to get worse, the good news is the number that matters most to most holidaymakers, the three hour delay threshold, isn't moving. What's changing is a list of smaller but genuinely useful protections, plus a question most people never think to ask, does this even apply to your flight home from Spain, Greece or Turkey. Here's what's actually happening, when it kicks in, and what it means for your next package holiday.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1706711625046-93890d38c630?auto=format&fit=crop&w=1600&h=700&q=80" alt="A departures board showing a flight from London to New York" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;">On 15 June 2026, the European Parliament and the Council of the EU reached a political agreement on revising Regulation (EC) No 261/2004, the EU's flight compensation rules, their first major update in over twenty years. The European Parliament formally approved the text on 7 July 2026 by 646 votes to 12, with 3 abstentions. The Council still needs to give its own formal sign off before it becomes law, and the rules won't actually start applying to passengers straight away even once that happens.</p>
+      <p style="margin-top:14px; margin-bottom:0;">The headline figures people worry about most, how long a delay has to be and how much you can claim, aren't changing. What's being added is a set of smaller but genuinely useful protections, plus some important clarity on exactly who the rules apply to.</p>
+    </div>
+    {jake_tip("If you're booked to fly in 2026 or early 2027, nothing here changes your rights yet. The current rules, UK261 and EU261 as they stand today, still apply to your trip. Keep reading for when that actually changes.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What's staying exactly the same</h2>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Rule</th><th>What happens under the reform</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Delay threshold for compensation</td><td>Stays at 3 hours or more, or a cancellation</td></tr>
+          <tr><td>Compensation for a flight under 1,500km</td><td>Stays at &euro;250 (about &pound;210)</td></tr>
+          <tr><td>Compensation for a flight between 1,500km and 3,500km</td><td>Stays at &euro;400 (about &pound;335)</td></tr>
+          <tr><td>Compensation for a flight over 3,500km</td><td>Stays at &euro;600 (about &pound;505)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0;">This wasn't guaranteed. During the negotiations, the Council of the EU pushed to raise the delay threshold to 4 hours for medium length flights and as much as 6 hours for longer ones, changes consumer groups warned would have cut a large proportion of valid claims overnight. The European Parliament held firm and kept the existing 3 hour threshold and compensation amounts in the final deal, so this part of your rights isn't getting weaker.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What's actually changing</h2>
+    <img src="https://images.unsplash.com/photo-1784551127944-17cbd22066ae?auto=format&fit=crop&w=1600&h=700&q=80" alt="An airport waiting area with large windows overlooking the runway" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>You can use your return flight even if you missed the outbound leg.</b> Airlines will no longer be allowed to cancel the rest of your booking, or charge you extra, just because you didn't travel on an earlier segment of the same ticket.</span></li>
+      <li><span class="num">2</span><span><b>Hand baggage pricing has to be shown upfront.</b> Airlines, travel agents and comparison sites will need to display the full price including a cabin bag from the start of the booking process, rather than adding it as a surprise extra later, and a small personal item is guaranteed on board at no charge.</span></li>
+      <li><span class="num">3</span><span><b>Free seating next to your child.</b> Children, pregnant passengers and passengers with reduced mobility get a seat next to their accompanying adult at no extra cost, rather than paying a seat selection fee just to sit together.</span></li>
+      <li><span class="num">4</span><span><b>Faster, clearer claims.</b> Airlines must send you information on how to claim within 4 days of your journey ending, you'll have 9 months to actually submit a claim, and the airline then has 30 days to either pay out or give a proper reason for refusing.</span></li>
+      <li><span class="num">5</span><span><b>Care while you wait, regardless of why you're delayed.</b> Refreshments, meals and up to 3 nights of accommodation when genuinely needed, even when the delay is down to something outside the airline's control, which wasn't consistently guaranteed before.</span></li>
+      <li><span class="num">6</span><span><b>Better protection if you have reduced mobility.</b> If an airport fails to get you to the gate in time and you miss your flight as a result, you keep the right to compensation and rerouting rather than being treated as a no show, and the rules on protecting mobility equipment like wheelchairs are being strengthened too.</span></li>
+      <li><span class="num">7</span><span><b>Automatic refunds when you choose one.</b> If you pick a refund over being rerouted after a cancellation, the airline has to pay it automatically rather than you having to chase it.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Does this actually affect your holiday?</h2>
+    <img src="https://images.unsplash.com/photo-1787258733211-a3b4a47bc2b2?auto=format&fit=crop&w=1600&h=700&q=80" alt="An aeroplane parked at an airport terminal gate in Europe" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This reform only changes EU law, specifically Regulation 261/2004. It doesn't touch UK261, the near identical rule the UK kept on its own statute book after Brexit, which the Civil Aviation Authority enforces separately. The two currently mirror each other almost exactly, so in practice this matters more for one leg of a holiday than the other.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Your situation</th><th>Which rule applies</th><th>Affected by this change?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Outbound flight departing a UK airport</td><td>UK261</td><td>No, not unless the UK makes its own matching change</td></tr>
+          <tr><td>Return flight departing an EU or EEA airport (Spain, Greece, Cyprus, Portugal, Italy, Malta and similar), any airline</td><td>EU261</td><td>Yes, once the new rules apply</td></tr>
+          <tr><td>Either leg of a flight to or from Turkey, Tunisia, Egypt or a long haul destination like the Caribbean, on a UK airline</td><td>UK261 only</td><td>No, EU261 never applied here in the first place</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;">The detail that catches people out is that EU261 has always applied based on where the plane takes off, not which airline you're flying with or where you live. So the return leg of a Spanish, Greek, Cypriot, Portuguese, Italian or Maltese holiday is covered by EU261 today, even flying home with a British airline like Jet2, TUI Airways or easyJet, and it'll pick up these new protections once the reform is actually in force. Turkey, Tunisia, Egypt and long haul destinations like the Caribbean aren't in the EU or EEA, so EU261 has never applied to flights there, you're relying on UK261 alone, and only on the leg a UK airline operates.</p>
+    <p style="margin-top:14px; margin-bottom:0;">The UK government has separately looked at reforming its own aviation consumer rules, including giving the Civil Aviation Authority stronger enforcement powers and making dispute resolution schemes compulsory for airlines, but as things stand it hasn't committed to changing the core UK261 compensation thresholds or amounts to match this EU update. Worth keeping an eye on if you mostly fly UK airlines both ways.</p>
+    {jake_tip("If your holiday involves an EU or EEA airport on the way home, Spain and Greece being the obvious examples for a lot of my clients, that return leg already carries slightly more legal weight than people realise, and it's about to get a bit more.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>When does this actually kick in?</h2>
+    <p style="margin-top:14px;">None of this applies yet. The timeline from here is the Council of the EU formally confirming the agreement, then the finalised text being published in the Official Journal of the EU. The regulation itself comes into force 20 days after that publication, but the rules don't actually start applying to passengers until roughly a year later, so realistically some time in 2027 at the earliest. Nothing about your rights changes before then.</p>
+    {jake_tip("I'll update this once there's a confirmed application date rather than guess at one now. If you're flying this winter or next summer, it's today's UK261 and EU261 rules that protect you, not this reform.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where I come in</h2>
+    <p style="margin-top:14px;">I can't submit a compensation claim on your behalf, that always goes directly to the airline, but I'm always happy to help you work out which rule applies to your specific flight, whether UK261 or EU261, and what you're realistically entitled to before you contact the airline. If a holiday I've booked for you gets disrupted, message me on WhatsApp and I'll help you think it through.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Is the EU reducing how much compensation I can claim for a delayed flight?</h3>
+      <p>No. The 3 hour delay threshold and the compensation amounts (&euro;250, &euro;400 or &euro;600 depending on distance) are staying exactly as they are. Early proposals from the Council of the EU would have raised the threshold to 4 or 6 hours for some flights, but the European Parliament rejected that and kept the current rules in the final agreement reached in June and July 2026.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What's actually new under the reform?</h3>
+      <p>A handful of genuinely useful changes: you can use your return flight even if you skipped the outbound leg, hand baggage pricing has to be shown upfront rather than added later, children and reduced mobility passengers get a free seat next to their companion, claims get clearer deadlines (4 days for information, 9 months to claim, 30 days for the airline to respond), and care such as meals and accommodation is guaranteed regardless of why you're delayed.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does this affect flights from the UK?</h3>
+      <p>Only partly. This reform changes EU law (Regulation 261/2004), not UK261, the UK's own near identical rule. EU261 applies based on where a flight departs, so your return leg from an EU or EEA airport like Spain, Greece, Cyprus or Portugal is covered and will get these new protections, even on a British airline. Your outbound leg from the UK, and any flight to or from a non EU destination like Turkey or Egypt, relies on UK261 alone, which hasn't been changed to match.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">When do the new rules actually start?</h3>
+      <p>Not yet. The Council of the EU still needs to formally confirm the agreement, the text then needs publishing in the Official Journal, and the rules apply to passengers roughly a year after that, realistically some time in 2027. If you're travelling before then, today's UK261 and EU261 rules are what protect you.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Wondering what rules actually cover your next holiday?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Whether it's UK261, EU261 or something else entirely, I'm always happy to talk through what you're covered for before you book, or if something's already gone wrong. Message me on WhatsApp.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+eu261_reform_body = eu261_reform_body.replace("::NEWSLETTER::", newsletter_section())
+
+EU261_REFORM_SCHEMA = article_and_faq_schema(
+    "The EU's Flight Compensation Rules Are Changing: What It Actually Means for Your Holiday",
+    "The EU has agreed its biggest flight delay and cancellation compensation shake up since 2004. The three hour threshold and compensation amounts aren't changing, here's exactly what is, when it applies, and whether it even affects your holiday.",
+    "eu261-flight-compensation-reform-2026.html",
+    "https://images.unsplash.com/photo-1787839137485-da1cc270d970?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Is the EU reducing how much compensation I can claim for a delayed flight?", "No. The 3 hour delay threshold and the compensation amounts (\u20ac250, \u20ac400 or \u20ac600 depending on distance) are staying exactly as they are. Early proposals from the Council of the EU would have raised the threshold to 4 or 6 hours for some flights, but the European Parliament rejected that and kept the current rules in the final agreement reached in June and July 2026."),
+        ("What's actually new under the reform?", "A handful of genuinely useful changes: you can use your return flight even if you skipped the outbound leg, hand baggage pricing has to be shown upfront rather than added later, children and reduced mobility passengers get a free seat next to their companion, claims get clearer deadlines (4 days for information, 9 months to claim, 30 days for the airline to respond), and care such as meals and accommodation is guaranteed regardless of why you're delayed."),
+        ("Does this affect flights from the UK?", "Only partly. This reform changes EU law (Regulation 261/2004), not UK261, the UK's own near identical rule. EU261 applies based on where a flight departs, so your return leg from an EU or EEA airport like Spain, Greece, Cyprus or Portugal is covered and will get these new protections, even on a British airline. Your outbound leg from the UK, and any flight to or from a non EU destination like Turkey or Egypt, relies on UK261 alone, which hasn't been changed to match."),
+        ("When do the new rules actually start?", "Not yet. The Council of the EU still needs to formally confirm the agreement, the text then needs publishing in the Official Journal, and the rules apply to passengers roughly a year after that, realistically some time in 2027. If you're travelling before then, today's UK261 and EU261 rules are what protect you."),
+    ]
+)
+
+with open(os.path.join(SITE, "eu261-flight-compensation-reform-2026.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "The EU's Flight Compensation Rules Are Changing: What It Actually Means for Your Holiday | Travel Agent Jake",
+        "The EU has agreed its biggest flight delay and cancellation compensation shake up since 2004. The three hour threshold and compensation amounts aren't changing, here's exactly what is, when it applies, and whether it even affects your holiday.",
+        "travel-tips.html",
+        eu261_reform_body,
+        extra_schema=EU261_REFORM_SCHEMA,
+        canonical_path="eu261-flight-compensation-reform-2026.html"
+    ))
+print("eu261-flight-compensation-reform-2026.html written")
+
+
+
 
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
@@ -17757,6 +17925,7 @@ SITEMAP_PAGES = [
     ("term-time-holiday-fines-uk-parents-2026.html", "0.7"),
     ("esta-usa-fee-rise-2026.html", "0.7"),
     ("eu-pet-travel-rules-2026.html", "0.7"),
+    ("eu261-flight-compensation-reform-2026.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
