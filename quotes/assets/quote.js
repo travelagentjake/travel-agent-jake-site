@@ -465,14 +465,15 @@
       + '<label>Postcode<input type="text" name="postcode" autocomplete="postal-code" required></label>'
       + '<label>Mobile number<input type="tel" name="mobile" autocomplete="tel" required></label>'
       + '<label class="wide">Email address<input type="email" name="email" autocomplete="email" required></label></div>'
-      + '<h4>Paying today</h4>' + (fullOnly
+      + '<h4>How much would you like to pay today?</h4>' + (fullOnly
         ? '<p class="bkfull" id="bkFullNote">' + (Q.fullPayment === true ? 'This holiday is paid in full at the time of booking.' : 'As you travel within 14 weeks, this holiday is paid in full at the time of booking.') + '</p><input type="hidden" name="payNow" value="full" checked>'
         : '<div class="bkopts" id="bkPayNow"><label class="fbopt"><input type="radio" name="payNow" value="deposit" checked><span>Just the deposit</span></label>'
         + '<label class="fbopt"><input type="radio" name="payNow" value="other"><span>Another amount</span></label>'
         + '<label class="fbopt"><input type="radio" name="payNow" value="full"><span>The full amount</span></label></div>'
-        + '<div id="bkOther" hidden style="margin-top:10px"><label>How much would you like to pay today? (&pound;)<input type="number" id="bkOtherAmt" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 1000" autocomplete="off"></label><p class="small" id="bkOtherNote" style="margin:6px 0 0"></p></div>')
-      + '<div class="bkopts" style="margin-top:10px"><label class="fbopt"><input type="radio" name="payHow" value="card" checked><span>Debit or credit card</span></label>'
-      + '<label class="fbopt"><input type="radio" name="payHow" value="bank"><span>Bank transfer</span></label></div>'
+        + '<div id="bkOther" hidden style="margin-top:10px"><label>Enter the amount (&pound;)<input type="number" id="bkOtherAmt" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 1000" autocomplete="off"></label><p class="small" id="bkOtherNote" style="margin:6px 0 0"></p></div>')
+      + '<h4 style="margin-top:18px">How would you like to pay?</h4><div class="bkopts"><label class="fbopt"><input type="radio" name="payHow" value="bank" checked><span>Bank transfer</span></label>'
+      + '<label class="fbopt"><input type="radio" name="payHow" value="debit"><span>Debit card</span></label>'
+      + '<label class="fbopt"><input type="radio" name="payHow" value="credit"><span>Credit card</span></label></div>'
       + '<p class="small" style="margin:8px 0 0">Either way I text you a secure payment link, so nothing is paid on this page.</p>'
       + (fullOnly ? '' : '<div id="bkDD"><h4>The rest of the balance</h4>'
       + '<div class="bkopts"><label class="fbopt"><input type="checkbox" id="bkWantDD" checked><span>Set up a monthly direct debit</span></label><label class="fbopt"><input type="checkbox" id="bkPayGo"><span>I will pay as I go</span></label></div>'

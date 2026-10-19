@@ -35,7 +35,8 @@ export default async (req) => {
   if (b.agreed !== true) return json({ error: "Please agree to the booking conditions" }, 400);
 
   const payNow = b.payNow === "full" ? "full" : b.payNow === "other" ? "other" : "deposit";
-  const payHow = b.payHow === "bank" ? "bank" : "card";
+  const payHow = ["bank", "debit", "credit"].includes(b.payHow) ? b.payHow : "card";
+  const payLabel = { bank: "bank transfer", debit: "debit card", credit: "credit card" }[payHow] || "card";
   let dd = null;
   if (payNow !== "full" && b.dd && typeof b.dd === "object") {
     const sort = String(b.dd.sort || "").replace(/\D/g, ""), account = String(b.dd.account || "").replace(/\D/g, "");
@@ -58,7 +59,7 @@ export default async (req) => {
       const es = getStore({ name: "enquiries", consistency: "strong" });
       const enq = await es.get(q.enquiryId, { type: "json" }).catch(() => null);
       if (enq) {
-        (enq.notesLog = enq.notesLog || []).push({ t: rec.at, text: "Booking form sent from the quote: " + rec.hotel + ", " + gbp(rec.total) + ", paying " + (payNow === "full" ? "in full" : payNow === "other" ? "a chosen amount of " + gbp(Number(b.payToday) || 0) : "the deposit") + " by " + (payHow === "bank" ? "bank transfer" : "card") + (dd ? ", direct debit on the " + ordinal(dd.day) : "") + ". Send the payment link.", auto: true });
+        (enq.notesLog = enq.notesLog || []).push({ t: rec.at, text: "Booking form sent from the quote: " + rec.hotel + ", " + gbp(rec.total) + ", paying " + (payNow === "full" ? "in full" : payNow === "other" ? "a chosen amount of " + gbp(Number(b.payToday) || 0) : "the deposit") + " by " + payLabel + (dd ? ", direct debit on the " + ordinal(dd.day) : "") + ". Send the payment link.", auto: true });
         enq.wantsToBook = { at: rec.at, slug, bookingId: rec.id, hotel: rec.hotel, total: rec.total };
         await es.setJSON(enq.id, enq);
       }
@@ -70,12 +71,12 @@ export default async (req) => {
   const row = (k, v) => `<tr><td style="padding:7px 10px 7px 0;color:#5b6478;vertical-align:top;white-space:nowrap;">${k}</td><td style="padding:7px 0;font-weight:bold;vertical-align:top;">${v}</td></tr>`;
   const paxRows = pax.map((p, i) => row("Passenger " + (i + 1), esc([p.first, p.middle, p.last].filter(Boolean).join(" ")) + `<br><span style="font-weight:normal">born ${nice(p.dob)}</span>`)).join("");
   const addressRow = row("Address", esc(address).replace(/\n/g, "<br>") + "<br>" + esc(postcode));
-  const money = `${row("Hotel", esc(rec.hotel) + " " + gbp(rec.hotelTotal))}${extras.length ? row("Extras", extras.map((e) => esc(e.title) + " " + gbp(e.total) + (e.separate ? " (paid in full at booking)" : "")).join("<br>")) : ""}${row("Total", gbp(rec.total))}${row("Paying today", gbp(rec.payToday) + (payNow === "full" ? ", the full amount" : payNow === "other" ? ", the amount chosen (more than the deposit)" : ", the deposit") + " by " + (payHow === "bank" ? "bank transfer" : "card"))}`;
+  const money = `${row("Hotel", esc(rec.hotel) + " " + gbp(rec.hotelTotal))}${extras.length ? row("Extras", extras.map((e) => esc(e.title) + " " + gbp(e.total) + (e.separate ? " (paid in full at booking)" : "")).join("<br>")) : ""}${row("Total", gbp(rec.total))}${row("Paying today", gbp(rec.payToday) + (payNow === "full" ? ", the full amount" : payNow === "other" ? ", the amount chosen (more than the deposit)" : ", the deposit") + " by " + payLabel)}`;
   const quoteUrl = "https://quotes.travelagentjake.co.uk/" + slug;
 
   const jakeHtml = emailShell(`<h2 style="margin:0 0 6px;color:#004AAD;">${esc(name)} wants to book!</h2>
 <p style="margin:0 0 14px;">${esc(name)} has sent the booking form from <a href="${quoteUrl}">${quoteUrl}</a> and agreed to the booking conditions.</p>
-<table cellpadding="0" cellspacing="0" style="font-size:15px;">${row("Hotel", esc(rec.hotel))}${row("Total", gbp(rec.total) + (extras.length ? " with " + extras.length + " extra" + (extras.length > 1 ? "s" : "") : ""))}${row("Paying today", gbp(rec.payToday) + (payNow === "full" ? ", the full amount" : payNow === "other" ? ", the amount chosen (more than the deposit)" : ", the deposit") + " by " + (payHow === "bank" ? "bank transfer" : "card"))}${row("Balance", payNow === "full" ? "None" : dd ? "Monthly direct debit on the " + ordinal(dd.day) + (payNow === "other" ? ", balance " + gbp(Math.max(0, rec.total - rec.payToday)) : "") + (clean(b.ddPlan, 200) ? ". " + esc(clean(b.ddPlan, 200)) : "") : "No direct debit, due about 14 weeks before travel")}${row("Passengers", pax.map((p) => esc([p.first, p.middle, p.last].filter(Boolean).join(" "))).join("<br>"))}${rec.departDate ? row("Departs", nice(rec.departDate)) : ""}</table>
+<table cellpadding="0" cellspacing="0" style="font-size:15px;">${row("Hotel", esc(rec.hotel))}${row("Total", gbp(rec.total) + (extras.length ? " with " + extras.length + " extra" + (extras.length > 1 ? "s" : "") : ""))}${row("Paying today", gbp(rec.payToday) + (payNow === "full" ? ", the full amount" : payNow === "other" ? ", the amount chosen (more than the deposit)" : ", the deposit") + " by " + payLabel)}${row("Balance", payNow === "full" ? "None" : dd ? "Monthly direct debit on the " + ordinal(dd.day) + (payNow === "other" ? ", balance " + gbp(Math.max(0, rec.total - rec.payToday)) : "") + (clean(b.ddPlan, 200) ? ". " + esc(clean(b.ddPlan, 200)) : "") : "No direct debit, due about 14 weeks before travel")}${row("Passengers", pax.map((p) => esc([p.first, p.middle, p.last].filter(Boolean).join(" "))).join("<br>"))}${rec.departDate ? row("Departs", nice(rec.departDate)) : ""}</table>
 <p style="margin:16px 0 0;">Their address, contact details, dates of birth and the direct debit details are on the dashboard, under their enquiry. Nothing sensitive is in this email.</p>
 <p style="margin:14px 0 0;">${button(SITE + "/enquiries-admin.html#booking=" + rec.id, "See the booking details", "#004AAD", "#fff")}</p>
 <p style="margin:18px 0 0;font-size:13px;color:#5b6478;">Booking reference ${rec.id}. Hit reply to email ${esc(lead.first)} directly.</p>`);
