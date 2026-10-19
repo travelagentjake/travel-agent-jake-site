@@ -1,7 +1,10 @@
 [build]
   publish = "."
-  # quote pages are published by Cloudflare Pages, so skip Netlify when only quotes/ changed
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)quotes'"
+  # Weekly publishing: Netlify only builds when the pushed commit message contains [publish].
+  # Daily guides, tips and other site changes are pushed as normal but wait for the
+  # Friday 9am publish task (an empty "[publish]" commit). Quote pages are on Cloudflare Pages.
+  # For an urgent fix, put [publish] in the commit message to go live straight away.
+  ignore = "git log -1 --pretty=%B | grep -qF '[publish]' && exit 1 || exit 0"
 
 [functions]
   directory = "netlify/functions"
