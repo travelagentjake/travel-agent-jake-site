@@ -569,11 +569,11 @@
         .then(function (r) { return r.json(); })
         .then(function (d) {
           if (!d || !d.ok) { el.remove(); wxEmpty(); return; }
-          var stat = function (n, v, s) { return '<div class="wxs"><small>' + n + '</small><b>' + v + '</b>' + (s ? '<span>' + s + '</span>' : '') + '</div>'; };
+          var stat = function (n, v, s, ic) { return '<div class="wxs"><i class="wxi" aria-hidden="true">' + (ic || '') + '</i><small>' + n + '</small><b>' + v + '</b>' + (s ? '<span>' + s + '</span>' : '') + '</div>'; };
           el.innerHTML = '<div class="wxh"><b>' + esc(w.label) + '</b><span>' + esc(d.monthName) + (w.hotels.length > 1 && wxPlaces.length > 1 ? ' · ' + esc(w.hotels.join(', ')) : '') + '</span></div>'
-            + '<div class="wxg">' + stat('Daytime high', Math.round(d.high) + '°C', 'average') + stat('Night low', Math.round(d.low) + '°C', 'average')
-            + stat('Sunshine', (d.sun != null ? Math.round(d.sun) + ' hrs' : 'n/a'), 'a day') + stat('Rain', d.rainDays + (d.rainDays === 1 ? ' day' : ' days'), d.tropical ? 'with a shower, mostly short bursts' : 'about ' + d.rainMm + 'mm')
-            + (d.sea != null ? stat('Sea', Math.round(d.sea) + '°C', 'average') : '') + '</div>'
+            + '<div class="wxg">' + stat('Daytime high', Math.round(d.high) + '°C', 'average', '☀️') + stat('Night low', Math.round(d.low) + '°C', 'average', '🌙')
+            + stat('Sunshine', (d.sun != null ? Math.round(d.sun) + ' hrs' : 'n/a'), 'a day', '🌤️') + stat('Rain', d.rainDays + (d.rainDays === 1 ? ' day' : ' days'), d.tropical ? 'with a shower, mostly short bursts' : 'about ' + d.rainMm + 'mm', '🌧️')
+            + (d.sea != null ? stat('Sea', Math.round(d.sea) + '°C', 'average', '🌊') : '') + '</div>'
             + '<ul class="wxa">' + (d.advice || []).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>';
         })
         .catch(function () { el.remove(); wxEmpty(); });

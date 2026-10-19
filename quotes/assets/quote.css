@@ -564,3 +564,27 @@ body.deck{padding-bottom:70px}
 .deck .price{flex-direction:column;align-items:flex-start;gap:4px}
 .deck .price p.tax{align-self:stretch}
 .deck .price p.tax{flex-basis:auto;width:100%;box-sizing:border-box}
+
+/* lists instead of carousels in the swipe layout: things to do, extras; weather with icons */
+.deck .acar .arr{display:none!important}
+.deck .acar{margin-top:6px}
+.deck .acar .areas{display:flex;flex-direction:column;overflow:visible;scroll-snap-type:none;gap:10px;padding:0}
+.deck .acar .areacard{flex:0 0 auto;width:100%;display:flex;align-items:stretch;border-radius:16px}
+.deck .acar .areacard img{width:112px;height:auto;min-height:92px;flex:0 0 112px;object-fit:cover}
+.deck .acar .areacard div{padding:10px 12px;display:flex;flex-direction:column;justify-content:center}
+.deck .acar .areacard b{font-size:15px}.deck .acar .areacard p{font-size:13px;line-height:1.4}
+.deck .xcar .xcard{flex:0 0 auto;width:100%;box-sizing:border-box;padding:12px 14px}
+.deck .xcar .xcard .xbody{flex:1}
+.deck .wx{grid-template-columns:1fr;gap:12px}
+.deck .wxc{padding:14px}
+.deck .wxg{grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px}
+.deck .wxs{padding:10px 6px}
+.wxi{display:block;font-style:normal;font-size:26px;line-height:1;margin-bottom:4px}
+.wxi:empty{display:none}
+.deck .wxh b::before{content:"\2600\FE0F  "}
+@media (min-width:901px){
+  .deck .acar .areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .deck .acar .areacard img{width:150px;flex-basis:150px}
+  .deck .xcar .areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .deck .wx{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
