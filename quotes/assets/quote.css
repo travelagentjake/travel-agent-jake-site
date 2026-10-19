@@ -695,3 +695,4 @@ body.deck[data-v=final] #app{flex:1;display:flex;flex-direction:column;min-heigh
 .bkagree{margin:14px 0 10px;font-size:13px;line-height:1.35;gap:8px}
 .bkagree input{width:18px;height:18px}
 @media (max-width:640px){.book{padding:14px}.book .paxg{grid-template-columns:repeat(2,minmax(0,1fr))}.book .paxg .wide{grid-column:1/-1}.book .fbopt{font-size:13px;padding:6px 10px}}
+.book input[type=text],.book input[type=tel],.book input[type=email],.book input[type=date],.book input[type=number],.book select{line-height:1.25;height:38px}.book textarea{line-height:1.35}.paxrow .paxn{margin-bottom:4px}
