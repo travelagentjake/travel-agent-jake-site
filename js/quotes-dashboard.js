@@ -231,9 +231,19 @@
     var rows = [['Name', [e.firstName, e.lastName].join(' ')], ['Email', e.email], ['Mobile', e.phone], ['Enquiry ref', String(e.id || '').toUpperCase()], ['Type of holiday', e.holidayType], ['Where', e.destination], ['Departure date', e.departDate], ['Date flexibility', e.dateFlex], ['Date notes', e.dateNotes], ['Nights', e.nights], ['Airports', (e.airports || []).join(', ')], ['Rooms', rooms], ['Adults', e.adults], ['Children', e.children], ['Accommodation', e.accommodation], ['Minimum stars', e.stars], ['Board', e.board], ['Budget', e.budget], ['Booking timescale', e.whenBook], ['Anything else', e.notes], ['Jake\'s enquiry notes', e.adminNotes]];
     return rows.filter(function (r) { return r[1]; }).map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
   }
+  function chatTitle(r, e) {
+    var name = e ? [e.firstName, e.lastName].filter(Boolean).join(' ') : '';
+    var when = '';
+    if (e && e.departDate) { var t = Date.parse(e.departDate); if (!isNaN(t)) when = new Date(t).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }); }
+    return [name || r.customerName || 'Customer', (e && e.destination) || r.title || '', when].filter(Boolean).join(' | ');
+  }
   function brief(r) {
     var e = enq(r.enquiryId);
+    var title = chatTitle(r, e);
     return [
+      'CHAT TITLE: ' + title,
+      'Start your first reply with this exact line in bold as a heading so this chat can be found later: ' + title,
+      '',
       'Build a Travel Agent Jake interactive quote page using the quotes system on travelagentjake.co.uk (quotes/assets/quote.js renderer, data only).',
       'Quote link: ' + QUOTE_HOST + r.slug,
       'Quote request ID: ' + r.id + (r.enquiryId ? '   Enquiry ID: ' + r.enquiryId : ''),
