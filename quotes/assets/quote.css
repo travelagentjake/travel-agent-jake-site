@@ -325,7 +325,7 @@ html,body{overflow-x:clip}
 .hotel.pk.xmore .why{display:block;-webkit-line-clamp:unset}
 .hotel.pk:not(.xmore) .feat{display:none}
 @media (max-width:900px){
- .hotel.pk .slider{min-height:0}.hotel.pk .track img{min-height:0;height:170px;max-height:170px}
+ .hotel.pk .slider{min-height:0}.hotel.pk .track img{min-height:0;height:250px;max-height:250px;object-fit:cover}
  .hotel.pk .hb{padding:14px 16px;gap:8px}.hotel.pk .hb h3{font-size:20px}.hotel.pk .hb p{font-size:14px}.hotel.pk .rating{font-size:12.5px}.hotel.pk .area{font-size:12.5px}
  .hotel.pk .rooms{font-size:12.5px}
  .hotel.pk .price{padding:10px 14px;border-radius:16px;gap:8px;margin-top:0}.hotel.pk .price .big{font-size:24px}.hotel.pk .price .r{font-size:12.5px}.hotel.pk .price p.tax{margin-top:6px;padding-top:6px;font-size:11.5px}
