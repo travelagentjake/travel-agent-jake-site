@@ -205,9 +205,7 @@
     return out.slice(0, 8);
   }
   var h = '';
-  h += '<header class="top"><div class="wrap"><a href="https://travelagentjake.co.uk" aria-label="Travel Agent Jake home"><img src="https://travelagentjake.co.uk/images/logo.png" alt="Travel Agent Jake"></a>'
-    + '<a class="btn btn-wa" href="' + wa('Hi Jake, it’s ' + who + '. I’ve had a look at my quote and ') + '" target="_blank" rel="noopener">WhatsApp Jake</a></div></header>';
-  h += '<div class="hero"><img class="hero-img" src="' + esc(img(Q.heroImg, 2000)) + '" alt="' + esc(Q.heroAlt) + '"' + (Q.heroPos ? ' style="object-position:' + esc(Q.heroPos) + '"' : '') + '><div class="wrap"><div class="hero-card">'
+  h += '<div class="hero"><img class="hero-img" src="' + esc(img(Q.heroImg, 2000)) + '" alt="' + esc(Q.heroAlt) + '"' + (Q.heroPos ? ' style="object-position:' + esc(Q.heroPos) + '"' : '') + '><img class="hero-logo" src="/assets/logo-light.png" alt="Travel Agent Jake"><div class="wrap"><div class="hero-card">'
     + '<span class="tag">' + esc(Q.tag || 'YOUR PERSONAL QUOTE') + '</span><h1>' + esc(Q.title) + '</h1><div class="sub">' + esc(Q.subtitle) + '</div>'
     + '<p class="lead">' + esc(Q.intro) + '</p><div class="facts">'
     + (Q.facts || []).map(function (f) { return '<div class="fact"><small>' + esc(f[0]) + '</small><b>' + esc(f[1]) + '</b></div>'; }).join('')
@@ -891,6 +889,15 @@
       art.style.setProperty('--ph', Math.max(150, Math.min(340, Math.floor(avail - rest))) + 'px');
     }
     window.addEventListener('resize', fitPhoto);
+    /* keep the bottom bar on the visible screen when the browser bars hide */
+    function dockBar() {
+      var vv = window.visualViewport; if (!vv) return;
+      var d = Math.round(vv.offsetTop + vv.height - document.documentElement.clientHeight);
+      bar.style.transform = Math.abs(d) > 2 ? 'translateY(' + d + 'px)' : '';
+    }
+    if (window.visualViewport) { window.visualViewport.addEventListener('resize', dockBar); window.visualViewport.addEventListener('scroll', dockBar); }
+    window.addEventListener('scroll', dockBar, { passive: true }); window.addEventListener('resize', dockBar);
+    setTimeout(dockBar, 300);
     /* open like an app when saved to the home screen */
     (function () {
       function meta(n, c) { if (document.querySelector('meta[name="' + n + '"]')) return; var m = document.createElement('meta'); m.name = n; m.content = c; document.head.appendChild(m); }
