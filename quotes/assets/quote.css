@@ -472,3 +472,22 @@ body.deck{padding-bottom:70px}
 .deck[data-v=welcome] .hero{min-height:0}
 .deck .note.top:not(.open) p:first-of-type{-webkit-line-clamp:2}
 .abt .feat span{font-size:11.5px;padding:3px 9px}.abt .feat{gap:4px}.abt p{font-size:13px;line-height:1.4}
+
+.readmore{display:none;font:inherit;font-weight:800;font-size:14px;color:#0b1b3a;background:var(--yellow);border:0;border-radius:999px;padding:9px 20px;margin-top:14px;cursor:pointer;align-self:flex-start}
+.deck[data-v=welcome] .readmore{display:inline-block}
+.deck[data-v=welcome] .hero{min-height:calc(100vh - 44px - 70px);min-height:calc(100svh - 44px - 70px);display:flex;flex-direction:column}
+.deck[data-v=welcome] .hero-card{flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:0;border-radius:0;width:100%;box-sizing:border-box}
+.deck[data-v=welcome] .hero-img{height:30vh;min-height:150px}
+.deck[data-v=welcome] .hero p.lead{-webkit-line-clamp:4}
+.deck .note.top .notemore{display:none!important}
+.deck.hero-open .note.top p,.deck.hero-open .note.top .sig{display:block}
+.deck.hero-open .hero p.lead{display:block;-webkit-line-clamp:unset}
+.deck.hero-open .note.top p:first-of-type{display:block;-webkit-line-clamp:unset}
+.deck.hero-open[data-v=welcome] .hero-img{height:90px;min-height:90px}
+.deck[data-v=welcome] .hero-img{height:22vh;min-height:120px}
+.deck[data-v=welcome] .hero-card{justify-content:flex-start;padding-top:20px}
+.deck[data-v=welcome] .hero-card .tag{align-self:flex-start}
+.deck[data-v=welcome] .hero p.lead{-webkit-line-clamp:3}
+.deck .note.top{margin-top:10px}
+.deck .hotel.pk .mbtn[data-tog=more]{display:none!important}
+.deck .hotel.pk .track img{height:var(--ph,150px);max-height:none;min-height:0}

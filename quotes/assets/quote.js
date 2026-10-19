@@ -688,7 +688,6 @@
       if (r.eat && r.eat.length) h += '<div class="pkgr"><b>Eating out</b><span>' + r.eat.map(esc).join(' &#183; ') + '</span></div>';
       if (r.bars && r.bars.length) h += '<div class="pkgr"><b>Bars</b><span>' + r.bars.map(esc).join(' &#183; ') + '</span></div>';
       if (r.nearby && r.nearby.length) h += '<div class="pkgr"><b>Nearby</b><span>' + r.nearby.map(esc).join(' &#183; ') + '</span></div>';
-      if (x.site) h += '<a class="btn btn-o" style="justify-self:start" target="_blank" rel="noopener" href="' + esc(x.site) + '">Hotel website</a>';
       return h + '</div>';
     }
     function render() {
@@ -711,21 +710,31 @@
       back.hidden = view === 0; next.hidden = view === LAST;
       back.innerHTML = '&#8249; ' + (view === 1 ? 'Welcome' : view === 2 ? 'All options' : view === LAST ? 'Options' : view === 0 ? '' : 'Option ' + (view - 2));
       next.innerHTML = (view === 0 ? 'See your options' : view === 1 ? 'Option 1' : view === N + 1 ? 'Decide' : 'Option ' + (view - 0)) + ' &#8250;';
-      mid.textContent = view === 0 ? 'Welcome' : view === 1 ? 'At a glance' : view === LAST ? 'Decide' : 'Option ' + (view - 1) + ' of ' + N;
+      mid.textContent = view === 0 ? '' : view === 1 ? 'At a glance' : view === LAST ? 'Decide' : 'Option ' + (view - 1) + ' of ' + N;
     }
+    /* make the photo as big as the screen allows so the whole card fits above the bottom bar */
+    function fitPhoto() {
+      if (view < 2 || view > N + 1 || tab !== 'stay') return;
+      var art = A()[view - 2]; if (!art) return; var im = art.querySelector('.track img'); if (!im) return;
+      art.style.setProperty('--ph', '150px');
+      var top = art.getBoundingClientRect().top + window.scrollY - window.scrollY, avail = bar.getBoundingClientRect().top - top - 10;
+      var rest = art.getBoundingClientRect().height - art.querySelector('.slider').getBoundingClientRect().height;
+      art.style.setProperty('--ph', Math.max(150, Math.min(340, Math.floor(avail - rest))) + 'px');
+    }
+    window.addEventListener('resize', fitPhoto);
     var stage = document.getElementById('app');
     function go(v, dir) {
       v = Math.max(0, Math.min(LAST, v)); dir = dir || (v > view ? 1 : -1); view = v; tab = 'stay';
       stage.classList.remove('dgor', 'dgol'); void stage.offsetWidth; stage.classList.add(dir > 0 ? 'dgor' : 'dgol');
-      render(); window.scrollTo(0, 0);
+      render(); window.scrollTo(0, 0); fitPhoto();
     }
-    function setTab(t) { tab = t; render(); window.scrollTo(0, 0); }
+    function setTab(t) { tab = t; render(); window.scrollTo(0, 0); fitPhoto(); }
     document.getElementById('dBack').addEventListener('click', function () { go(view - 1); });
     document.getElementById('dNext').addEventListener('click', function () { go(view + 1); });
     tabs.addEventListener('click', function (e) { var b = e.target.closest('[data-dt]'); if (b) setTab(b.dataset.dt); });
     prog.addEventListener('click', function (e) { var d = e.target.closest('[data-go]'); if (d) go(Number(d.dataset.go)); });
-    var note = document.querySelector('.note.top');
-    if (note) { var nb = document.createElement('button'); nb.type = 'button'; nb.className = 'notemore'; nb.textContent = 'Read the full note'; nb.addEventListener('click', function () { note.classList.toggle('open'); nb.textContent = note.classList.contains('open') ? 'Show less' : 'Read the full note'; }); note.appendChild(nb); }
+    var heroEl = document.querySelector('.hero .hero-card');
+    if (heroEl) { var nb = document.createElement('button'); nb.type = 'button'; nb.className = 'readmore'; nb.textContent = 'Read more'; nb.addEventListener('click', function () { var o = document.body.classList.toggle('hero-open'); nb.textContent = o ? 'Show less' : 'Read more'; }); heroEl.appendChild(nb); }
     document.addEventListener('click', function (e) {
       var a = e.target.closest('a[href]'); var p = e.target.closest('[data-pick]'); var ab = e.target.closest('[data-tog=more]');
       if (ab) { e.stopImmediatePropagation(); setTab('about'); return; }
@@ -743,8 +752,8 @@
       if (sx == null) return; var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy; sx = null;
       if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.8) go(view + (dx < 0 ? 1 : -1));
     }, { passive: true });
-    deckRefresh = function () { render(); };
-    render();
+    deckRefresh = function () { render(); fitPhoto(); };
+    render(); fitPhoto();
   }
   var deckRefresh = null;
   if (pkgAll) deck();
