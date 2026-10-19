@@ -538,7 +538,7 @@
           var stat = function (n, v, s) { return '<div class="wxs"><small>' + n + '</small><b>' + v + '</b>' + (s ? '<span>' + s + '</span>' : '') + '</div>'; };
           el.innerHTML = '<div class="wxh"><b>' + esc(w.label) + '</b><span>' + esc(d.monthName) + (w.hotels.length > 1 && wxPlaces.length > 1 ? ' · ' + esc(w.hotels.join(', ')) : '') + '</span></div>'
             + '<div class="wxg">' + stat('Daytime high', Math.round(d.high) + '°C', 'average') + stat('Night low', Math.round(d.low) + '°C', 'average')
-            + stat('Sunshine', (d.sun != null ? Math.round(d.sun) + ' hrs' : 'n/a'), 'a day') + stat('Rain', d.rainDays + (d.rainDays === 1 ? ' day' : ' days'), 'about ' + d.rainMm + 'mm')
+            + stat('Sunshine', (d.sun != null ? Math.round(d.sun) + ' hrs' : 'n/a'), 'a day') + stat('Rain', d.rainDays + (d.rainDays === 1 ? ' day' : ' days'), d.tropical ? 'with a shower, mostly short bursts' : 'about ' + d.rainMm + 'mm')
             + (d.sea != null ? stat('Sea', Math.round(d.sea) + '°C', 'average') : '') + '</div>'
             + '<ul class="wxa">' + (d.advice || []).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>';
         })
