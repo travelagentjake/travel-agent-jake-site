@@ -345,7 +345,7 @@
       + '<div id="cOut"></div></div>' : '')
     + '<div class="fb" id="feedback"><h3>What would you like to do?</h3><p class="intro" style="margin:4px 0 14px">Pick one. Booking is done right here. Questions and changes go to me on WhatsApp with your message ready to send.</p>'
     + '<div class="fbopts" role="radiogroup" aria-label="What would you like to do?">'
-    + (hotels.length ? [['book', 'We would like to book']] : []).concat([['changes', 'We would like some changes'], ['question', 'I have a question']]).map(function (o) { return '<label class="fbopt"><input type="radio" name="fbType" value="' + o[0] + '"><span>' + o[1] + '</span></label>'; }).join('')
+    + (hotels.length ? [['book', 'We would like to book', 'Book']] : []).concat([['changes', 'We would like some changes', 'Changes'], ['question', 'I have a question', 'Question']]).map(function (o) { return '<label class="fbopt"><input type="radio" name="fbType" value="' + o[0] + '"><span class="fl">' + o[1] + '</span><span class="fs">' + o[2] + '</span></label>'; }).join('')
     + '</div>'
     + (hotels.length ? bookForm() : '')
     + '<div id="fbWrap" hidden>'
