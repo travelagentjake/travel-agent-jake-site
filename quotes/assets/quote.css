@@ -649,8 +649,8 @@ html{-webkit-text-size-adjust:100%}
 body{overscroll-behavior-y:none}
 @media (display-mode:standalone){.deck .top{padding-top:env(safe-area-inset-top)}}
 
-.hero::before{content:"";position:absolute;left:0;right:0;top:0;height:max(170px,30vh);z-index:1;pointer-events:none;background:linear-gradient(rgba(255,255,255,.62),rgba(255,255,255,.5) 55%,rgba(255,255,255,.28))}
+.hero::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(max(170px,30vh) - 46px);z-index:1;pointer-events:none;background:linear-gradient(rgba(255,255,255,.62),rgba(255,255,255,.5) 55%,rgba(255,255,255,.28))}
 .hero-logo{position:absolute;left:50%;top:calc((max(170px,30vh) - 46px) / 2);transform:translate(-50%,-50%);z-index:2}
 .hero-logo img{height:88px;width:auto;max-width:70vw;display:block}
-@media (min-width:901px){.hero::before{height:max(260px,38vh)}.hero-logo{top:calc((max(260px,38vh) - 60px) / 2)}.hero-logo img{height:128px}}
+@media (min-width:901px){.hero::before{height:calc(max(260px,38vh) - 60px)}.hero-logo{top:calc((max(260px,38vh) - 60px) / 2)}.hero-logo img{height:128px}}
 .deck.hero-open .hero-logo,.deck.hero-open .hero::before{display:none}
