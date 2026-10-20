@@ -1,6 +1,17 @@
 {
   "quotes": [
     {
+      "slug": "justindodd",
+      "url": "https://quotes.travelagentjake.co.uk/justindodd",
+      "customer": "Justin Dodd",
+      "enquiryId": "mvgibz9odbt7",
+      "quoteRequestId": "mvgibzcvv2o7",
+      "title": "Justin's Christmas Break, Italy from Gatwick or the Algarve from Bristol, 8 options",
+      "created": "2026-10-20",
+      "departs": "2026-12-24",
+      "fromPrice": 988.26
+    },
+    {
       "slug": "samtenerife",
       "url": "https://quotes.travelagentjake.co.uk/samtenerife",
       "customer": "Sam",
