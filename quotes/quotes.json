@@ -160,6 +160,17 @@
       "created": "2026-10-19",
       "departs": "2027-05-06",
       "fromPrice": 1120
+    },
+    {
+      "slug": "arabellaholiday",
+      "url": "https://quotes.travelagentjake.co.uk/arabellaholiday",
+      "customer": "Arabella Davison",
+      "enquiryId": "mvgcyt4iciek",
+      "quoteRequestId": "mvgerhb2nny2",
+      "title": "Birthday winter sun and city breaks from Newcastle, 3 nights, November 2026",
+      "created": "2026-10-20",
+      "departs": "2026-11-08",
+      "fromPrice": 520
     }
   ]
 }
