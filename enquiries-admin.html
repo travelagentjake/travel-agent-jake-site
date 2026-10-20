@@ -111,6 +111,13 @@
 .ea-detail div{font-size:14px;}
 .ea-detail small{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#6b7190;}
 .ea-detail .full{grid-column:1/-1;}
+.ea-detail label{display:block;font-size:14px;}
+.ea-edit input,.ea-edit textarea{width:100%;box-sizing:border-box;margin-top:3px;padding:8px 10px;border:2px solid #d9def0;border-radius:10px;font:inherit;font-size:14px;background:#fff;}
+.ea-room{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:flex-end;background:#f3f5fb;border-radius:12px;padding:10px;margin:0 0 8px;}
+.ea-room b{flex:0 0 100%;font-size:13px;}.ea-room label{flex:0 0 90px;}.ea-room label.grow{flex:1 1 180px;}
+.ea-editnote{background:#fff8db;border:2px solid #ffd21f;border-radius:12px;padding:8px 12px;font-size:13px;}
+.ea-editedtag{font-size:12px;color:#6b7190;}
+.ea-editbtns{display:flex;gap:8px;}.ea-btn.save{background:#004AAD;border-color:#004AAD;color:#fff;}
 .ea-ctl{display:grid;grid-template-columns:200px 1fr;gap:12px;margin-top:14px;}
 .ea-ctl select,.ea-ctl textarea{width:100%;box-sizing:border-box;padding:10px 12px;border:2px solid #d5dbea;border-radius:10px;font:inherit;font-size:15px;background:#fff;}
 .ea-ctl textarea{min-height:46px;resize:vertical;}
@@ -159,7 +166,8 @@
 <script>
 (function(){
   var KEY_NAME='taj-enq-admin-key', STATUSES=[['new','New'],['contacted','Contacted'],['quoted','Quote sent'],['booked','Booked'],['done','Done'],['closed','Closed']];
-  var data=[], filter='open', open={}, key='';
+  var data=[], filter='open', open={}, editing={}, key='';
+  function anyEditing(){for(var k in editing){if(editing[k])return true;}return false;}
   function $(i){return document.getElementById(i);}
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function toast(m){var t=$('eaToast');t.textContent=m;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(function(){t.hidden=true;},2600);}
@@ -200,6 +208,22 @@
     if(q.notes)h+='<div class="full"><small>'+(pre(q)?'Anything else I should know?':'Anything else?')+'</small>'+esc(q.notes).replace(/\n/g,'<br>')+'</div>';
     return h;
   }
+  function editForm(q){
+    function f(k,label,val,type,wide){return '<label class="'+(wide?'full':'')+'"><small>'+label+'</small><input data-f="'+k+'" type="'+(type||'text')+'" value="'+esc(val==null?'':val)+'"></label>';}
+    function room(r,i){return '<div class="ea-room full" data-room><b>Room '+(i+1)+'</b><label><small>Adults</small><input type="number" min="1" max="20" data-r="adults" value="'+esc(r.adults)+'"></label><label><small>Children</small><input type="number" min="0" max="10" data-r="children" value="'+esc(r.children)+'"></label><label class="grow"><small>Child ages (comma separated)</small><input type="text" data-r="childAges" value="'+esc((r.childAges||[]).join(', '))+'"></label><button type="button" class="ea-btn" data-act="delroom">Remove room</button></div>';}
+    var h='<div class="full ea-editnote">Editing. Check with the customer, then save. The original details they sent are kept.</div>';
+    h+=f('firstName','First name',q.firstName)+f('lastName','Last name',q.lastName)+f('email','Email',q.email,'email')+f('phone','Mobile',q.phone,'tel');
+    h+=f('holidayType','Type of holiday',q.holidayType)+f('destination','Where would you like to go?',q.destination);
+    if(pre(q)){h+=f('month','Month',q.month)+f('hotel','Hotel in mind',q.hotel);}
+    h+=f('departDate','Preferred departure date',q.departDate,'date')+f('dateFlex','How flexible are the dates?',q.dateFlex)+f('dateNotes','Date notes',q.dateNotes)+f('nights','How many nights?',q.nights)+f('airports','Airports (comma separated)',(q.airports||[]).join(', '),'text',true);
+    h+='<div class="full ea-roomhead"><b>Who is travelling</b></div>';
+    if(q.rooms&&q.rooms.length){h+='<div class="full" id="eaRooms-'+esc(q.id)+'">'+q.rooms.map(room).join('')+'</div><div class="full"><button type="button" class="ea-btn" data-act="addroom">Add a room</button></div>';}
+    else{h+=f('adults','Adults',q.adults||1,'number')+f('children','Children',q.children||0,'number')+f('childAges','Child ages (comma separated)',(q.childAges||[]).join(', '),'text',true)+'<div class="full"><button type="button" class="ea-btn" data-act="addroom">Switch to room by room</button></div>';}
+    h+=f('accommodation','Type of accommodation',q.accommodation)+f('stars','Minimum star rating',q.stars)+f('board','Board basis',q.board)+f('budget','Budget',q.budget)+f('whenBook','When are you looking to book?',q.whenBook)+f('source','How did you hear about me?',q.source);
+    h+='<label class="full"><small>Anything else?</small><textarea data-f="notes" rows="3">'+esc(q.notes||'')+'</textarea></label>';
+    h+='<div class="full ea-editbtns"><button type="button" class="ea-btn save" data-act="saveedit">Save changes</button><button type="button" class="ea-btn" data-act="canceledit">Cancel</button></div>';
+    return h;
+  }
   function card(q){
     var s=q.status||'new', id=esc(q.id);
     var hello=encodeURIComponent('Hi '+q.firstName+", it's Jake from Travel Agent Jake. Thanks for "+(pre(q)?'registering for 2028 holidays':'your holiday enquiry')+(q.destination?(pre(q)?' (':' about ')+q.destination+(pre(q)?')':''):'')+'! ');
@@ -213,9 +237,10 @@
       +'<a class="ea-btn" href="mailto:'+esc(q.email)+'">Email</a>'
       +'<a class="ea-btn" href="tel:'+esc(String(q.phone||'').replace(/[^\d+]/g,''))+'">Call</a>'
       +'<button class="ea-btn" type="button" data-act="toggle">'+(open[q.id]?'Hide details':'Show details')+'</button>'
+      +'<button class="ea-btn" type="button" data-act="edit">Edit details</button>'
       +'<button class="ea-btn" type="button" data-act="pdf">Download PDF</button>'
       +'<button class="ea-btn danger" type="button" data-act="delete">Delete</button></div>'
-      +'<div class="ea-detail"'+(open[q.id]?'':' hidden')+'>'+detail(q)+'</div>'
+      +'<div class="ea-detail'+(editing[q.id]?' ea-edit':'')+'"'+(open[q.id]||editing[q.id]?'':' hidden')+'>'+(editing[q.id]?editForm(q):detail(q))+(q.editedAt&&!editing[q.id]?'<div class="full ea-editedtag">Details edited '+esc(nice(q.editedAt))+'. Original kept.</div>':'')+'</div>'
       +'<div class="ea-ctl"><select data-act="status" aria-label="Status">'+STATUSES.map(function(x){return '<option value="'+x[0]+'"'+(x[0]===s?' selected':'')+'>'+x[1]+'</option>';}).join('')+'</select>'
       +'<textarea data-act="notes" placeholder="Your notes (saved when you click away)">'+esc(q.adminNotes||'')+'</textarea></div></article>';
   }
@@ -231,6 +256,24 @@
     var b=e.target.closest('[data-act]'); if(!b||b.tagName==='SELECT'||b.tagName==='TEXTAREA')return;
     var c=b.closest('.ea-card'); if(!c)return; var q=find(c.dataset.id); if(!q)return; var act=b.dataset.act;
     if(act==='toggle'){open[q.id]=!open[q.id];render();}
+    else if(act==='edit'){editing[q.id]=true;open[q.id]=true;render();}
+    else if(act==='canceledit'){editing[q.id]=false;render();}
+    else if(act==='addroom'){
+      if(!(q.rooms&&q.rooms.length)){var tmp={adults:Number(q.adults)||1,children:Number(q.children)||0,childAges:q.childAges||[]};
+        q.rooms=[tmp];render();return;}
+      var box=c.querySelector('[id^="eaRooms-"]');var n=box.querySelectorAll('[data-room]').length;
+      var d=document.createElement('div');d.innerHTML='<div class="ea-room full" data-room><b>Room '+(n+1)+'</b><label><small>Adults</small><input type="number" min="1" max="20" data-r="adults" value="2"></label><label><small>Children</small><input type="number" min="0" max="10" data-r="children" value="0"></label><label class="grow"><small>Child ages (comma separated)</small><input type="text" data-r="childAges" value=""></label><button type="button" class="ea-btn" data-act="delroom">Remove room</button></div>';
+      box.appendChild(d.firstChild);
+    }
+    else if(act==='delroom'){var rm=b.closest('[data-room]');var bx=rm.parentNode;rm.remove();Array.prototype.forEach.call(bx.querySelectorAll('[data-room]'),function(r,i){r.querySelector('b').textContent='Room '+(i+1);});}
+    else if(act==='saveedit'){
+      var fields={};Array.prototype.forEach.call(c.querySelectorAll('[data-f]'),function(el){fields[el.dataset.f]=el.value;});
+      var rooms=null,rb=c.querySelector('[id^="eaRooms-"]');
+      if(rb){rooms=Array.prototype.map.call(rb.querySelectorAll('[data-room]'),function(r){return {adults:r.querySelector('[data-r=adults]').value,children:r.querySelector('[data-r=children]').value,childAges:r.querySelector('[data-r=childAges]').value};});}
+      var body={action:'edit',id:q.id,fields:fields};if(rooms)body.rooms=rooms;
+      b.disabled=true;
+      api('POST',body).then(function(r){b.disabled=false;if(r.j&&r.j.ok){Object.keys(q).forEach(function(k){delete q[k];});Object.assign(q,r.j.enquiry);editing[q.id]=false;render();toast('Details saved');}else toast((r.j&&r.j.error)||'Could not save');});
+    }
     else if(act==='pdf'){b.disabled=true;api('POST',{action:'pdf',id:q.id}).then(function(r){b.disabled=false;if(r.j&&r.j.ok)dlPdf(r.j.name,r.j.pdf);else toast('Could not make the PDF');});}
     else if(act==='delete'){
       if(b.dataset.armed!=='1'){b.dataset.armed='1';b.textContent='Tap again to delete';b.classList.add('armed');setTimeout(function(){if(b.isConnected){b.dataset.armed='';b.textContent='Delete';b.classList.remove('armed');}},3500);return;}
@@ -252,7 +295,7 @@
       if(r.s===401){ if(first){$('eaGateErr').textContent='That admin key was not recognised.';$('eaGateErr').hidden=false;} try{localStorage.removeItem(KEY_NAME);}catch(e){} $('eaApp').hidden=true;$('eaGate').hidden=false;return false; }
       if(!r.j||!r.j.enquiries){toast('Could not load enquiries');return false;}
       data=r.j.enquiries;$('eaGate').hidden=true;$('eaApp').hidden=false;
-      var focus=document.activeElement; if(!(focus&&focus.dataset&&focus.dataset.act==='notes'))render();
+      var focus=document.activeElement; if(!(focus&&focus.dataset&&focus.dataset.act==='notes')&&!anyEditing())render();
       return true;
     }).catch(function(){toast('Could not load enquiries');return false;});
   }

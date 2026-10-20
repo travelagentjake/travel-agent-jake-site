@@ -1,6 +1,6 @@
 // Jake-only API for the enquiries dashboard (/enquiries-admin.html), behind env PW_ADMIN_KEY (header x-admin-key).
 //   GET  -> all enquiries, newest first
-//   POST { action: "update", id, status?, adminNotes? } | { action: "note", id, text } | { action: "pdf", id } | { action: "delete", id }
+//   POST { action: "edit", id, fields, rooms? } (correct the details) | { action: "update", id, status?, adminNotes? } | { action: "note", id, text } | { action: "pdf", id } | { action: "delete", id }
 // Every note and status change is kept in notesLog [{ t, text, auto }] so there is a full history of what was done.
 import { getStore } from "@netlify/blobs";
 import { json } from "../lib/pw.mjs";
@@ -33,6 +33,38 @@ export default async (req) => {
       q.statusAt = new Date().toISOString();
     }
     if (b.adminNotes !== undefined) q.adminNotes = String(b.adminNotes).slice(0, 2000);
+    await s.setJSON(q.id, q);
+    return json({ ok: true, enquiry: q });
+  }
+  if (b.action === "edit") {
+    // Jake corrects an enquiry after checking with the client. The first version the customer sent is kept in originalDetails.
+    const clean = (v, n) => String(v ?? "").replace(/[\u0000-\u001f]/g, " ").trim().slice(0, n);
+    const LIM = { firstName: 60, lastName: 60, email: 160, phone: 40, holidayType: 60, destination: 300, dateFlex: 60, dateNotes: 300, nights: 20, accommodation: 40, stars: 30, board: 120, budget: 80, whenBook: 40, notes: 2000, source: 60, month: 30, hotel: 200, deposit: 80 };
+    const f = b.fields && typeof b.fields === "object" ? b.fields : {};
+    if (f.email !== undefined && clean(f.email, 160) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean(f.email, 160))) return json({ error: "That email address does not look right" }, 400);
+    if (f.departDate !== undefined && clean(f.departDate, 10) && !/^\d{4}-\d{2}-\d{2}$/.test(clean(f.departDate, 10))) return json({ error: "Use a date like 2027-05-01" }, 400);
+    if (!q.originalDetails) q.originalDetails = JSON.parse(JSON.stringify({ ...Object.fromEntries([...Object.keys(LIM), "departDate", "airports", "rooms", "adults", "children", "childAges"].map((k) => [k, q[k]])) }));
+    for (const k of Object.keys(LIM)) if (f[k] !== undefined) q[k] = clean(f[k], LIM[k]);
+    if (f.departDate !== undefined) q.departDate = clean(f.departDate, 10);
+    if (f.airports !== undefined) q.airports = (Array.isArray(f.airports) ? f.airports : String(f.airports).split(",")).map((a) => clean(a, 40)).filter(Boolean).slice(0, 10);
+    const num = (v, lo, hi, d) => { const n = parseInt(v, 10); return Number.isFinite(n) ? Math.min(Math.max(n, lo), hi) : d; };
+    if (Array.isArray(b.rooms)) {
+      const rooms = [];
+      for (const r of b.rooms.slice(0, 10)) {
+        const ra = num(r.adults, 1, 20, 1), rc = num(r.children, 0, 10, 0);
+        const ages = (Array.isArray(r.childAges) ? r.childAges : String(r.childAges || "").split(",")).map((a) => clean(a, 20)).filter(Boolean).slice(0, rc);
+        rooms.push({ adults: ra, children: rc, childAges: ages });
+      }
+      q.rooms = rooms;
+      if (rooms.length) { q.adults = rooms.reduce((n, r) => n + r.adults, 0); q.children = rooms.reduce((n, r) => n + r.children, 0); q.childAges = rooms.flatMap((r) => r.childAges); }
+    }
+    if (!(q.rooms && q.rooms.length)) {
+      if (f.adults !== undefined) q.adults = num(f.adults, 1, 40, q.adults || 1);
+      if (f.children !== undefined) q.children = num(f.children, 0, 20, q.children || 0);
+      if (f.childAges !== undefined) q.childAges = String(f.childAges).split(",").map((a) => clean(a, 20)).filter(Boolean).slice(0, 20);
+    }
+    q.editedAt = new Date().toISOString();
+    (q.notesLog = q.notesLog || []).push({ t: q.editedAt, text: "Details edited by Jake. Now " + q.adults + " adult" + (q.adults === 1 ? "" : "s") + (q.children ? ", " + q.children + " child" + (q.children === 1 ? "" : "ren") : "") + " travelling.", auto: true });
     await s.setJSON(q.id, q);
     return json({ ok: true, enquiry: q });
   }
