@@ -844,7 +844,7 @@
     bar.innerHTML = '<button type="button" class="dback" id="dBack"></button><div class="dmid" id="dMid"></div><button type="button" class="dnext" id="dNext"></button>';
     document.body.appendChild(bar);
     var tabs = document.createElement('div'); tabs.className = 'dtabs'; tabs.id = 'dTabs';
-    tabs.innerHTML = [['stay', 'Stay and flights'], ['about', 'About this holiday'], ['extras', 'Extras'], ['more', 'More info'], ['pay', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '">' + t[1] + '</button>'; }).join('');
+    tabs.innerHTML = [['stay', 'Package', 'Package: stay and flights'], ['about', 'About', 'About this holiday'], ['extras', 'Extras', 'Extras'], ['more', 'More', 'More info'], ['pay', 'Price', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '" aria-label="' + t[2] + '">' + t[1] + '</button>'; }).join('');
     var KNOWN = ['compare', 'hotels', 'trip', 'weather', 'todo', 'extras', 'next'];
     Array.prototype.forEach.call(document.querySelectorAll('#app > section'), function (s) { if (KNOWN.indexOf(s.id) < 0 && !s.querySelector('.custom .ag')) s.classList.add('xsec'); });
     var hasMore = !!document.querySelector('.xsec');

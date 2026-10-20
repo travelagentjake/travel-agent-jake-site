@@ -738,3 +738,8 @@ html.a11y-hc .hotel,html.a11y-hc .fbopt,html.a11y-hc .wxc,html.a11y-hc .areacard
 html.a11y-hc .book input,html.a11y-hc .book select,html.a11y-hc .book textarea,html.a11y-hc .fb select,html.a11y-hc .fb textarea{border-color:#000!important}
 html.a11y-hc .btn-y,html.a11y-hc .btn{border:2px solid #000}
 @media print{#a11yBtn,#a11yPanel{display:none!important}}
+
+/* option tabs: short names so all fit on one phone screen without sideways scrolling */
+.dtabs{gap:4px;padding:8px 58px 8px 10px;justify-content:space-between}
+.dtabs button{flex:1 1 auto;padding:8px 6px;font-size:13px;text-align:center;white-space:nowrap}
+@media (min-width:901px){.dtabs{justify-content:center;padding:8px 14px;gap:8px}.dtabs button{flex:none;padding:8px 22px;font-size:14px}}
