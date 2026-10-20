@@ -25,7 +25,7 @@
      areas: [{ img, title, text, alt, link (GetYourGuide page, affiliate code added automatically), linkLabel }],
      departDate (YYYY-MM-DD), depositTotal, partyCount   // used by the built in monthly payment calculator
      priceIntro, steps: [[title, text]], smallprint, prepared,
-     weatherIntro (optional), noWeather (true to leave the weather section off), fullPayment (true when the holiday is paid in full at booking)
+     hideCols (optional, ['transfer'] leaves the Transfer column off the comparison table), weatherIntro (optional), noWeather (true to leave the weather section off), fullPayment (true when the holiday is paid in full at booking)
    }
 */
 (function () {
@@ -192,6 +192,8 @@
   nav.push(['feedback', hotels.length ? 'Book or ask' : 'Send feedback']);
 
   /* paid in full at booking when travel is within 14 weeks, or when Jake marks the quote fullPayment */
+  /* hideCols: ['transfer'] leaves the Transfer column off the comparison table when it cannot be filled for every option */
+  var hideTransfer = (Q.hideCols || []).indexOf('transfer') >= 0;
   var fullOnly = Q.fullPayment === true || !!(Q.departDate && (Date.parse(Q.departDate) - Date.now()) < 98 * 86400000);
   /* monthly direct debit only offered when travel is at least 22 weeks away (grace time for customers to decide) */
   var ddOK = !fullOnly && Q.noDirectDebit !== true && !!(Q.departDate && (Date.parse(Q.departDate + 'T00:00:00') - Date.now()) >= 22 * 7 * 86400000);
@@ -230,7 +232,7 @@
       + '<button class="chipbtn" type="button" data-sort="rating" aria-pressed="false">Top rated</button>'
       + '<button class="chipbtn" type="button" data-sort="transfer" aria-pressed="false">Shortest transfer</button>'
       + (anySlides ? '<button class="chipbtn" type="button" id="slidesOnly" aria-pressed="false">Slides only</button>' : '')
-      + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th><th>Tripadvisor</th><th>Transfer</th>' + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div><div class="cmob" id="cmob"></div>' + (Q.touristTax && Q.touristTax.amount ? '<p class="taxnote">' + esc('Prices do not include tourist tax of about ' + gbp(Q.touristTax.amount) + ', paid locally at the hotel.') + '</p>' : '') + '</div></section>';
+      + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th><th>Tripadvisor</th>' + (hideTransfer ? '' : '<th>Transfer</th>') + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div><div class="cmob" id="cmob"></div>' + (Q.touristTax && Q.touristTax.amount ? '<p class="taxnote">' + esc('Prices do not include tourist tax of about ' + gbp(Q.touristTax.amount) + ', paid locally at the hotel.') + '</p>' : '') + '</div></section>';
   }
   if (hotels.length) {
     h += '<section id="hotels" class="alt"><div class="wrap"><h2 class="h2">' + esc(Q.hotelsTitle || (multi ? 'The hotels' : 'Your hotel')) + '</h2>'
@@ -640,13 +642,13 @@
   function renderTable() {
     var t = document.getElementById('ctable'); if (!t) return;
     t.innerHTML = ordered().map(function (x) {
-      return '<tr><td><a href="#h-' + esc(x.id) + '">' + esc(x.name) + '</a>' + optLine(x) + '</td><td>' + esc(x.area) + '</td><td><span class="stars">' + (x.rating ? x.rating.toFixed(1) : '') + '</span>' + (x.rating ? ' / 5' : '') + '</td><td>' + mins(x.transfer) + '</td>'
+      return '<tr><td><a href="#h-' + esc(x.id) + '">' + esc(x.name) + '</a>' + optLine(x) + '</td><td>' + esc(x.area) + '</td><td><span class="stars">' + (x.rating ? x.rating.toFixed(1) : '') + '</span>' + (x.rating ? ' / 5' : '') + '</td>' + (hideTransfer ? '' : '<td>' + mins(x.transfer) + '</td>')
         + (anySlides ? '<td>' + (x.slides ? '<span class="yes">Yes</span>' : '<span class="no">No</span>') + '</td>' : '') + '<td class="n"><b>' + gbp(x.total) + '</b></td><td class="n">' + gbp(x.pp) + (x.free ? '<br><small>' + x.free + ' kids free</small>' : '') + '</td></tr>';
     }).join('');
     /* phones get a stacked list instead of the wide table */
     var m = document.getElementById('cmob'); if (m) m.innerHTML = ordered().map(function (x) {
       return '<a class="crow" href="#h-' + esc(x.id) + '"><span class="cn"><b>' + esc(x.name) + '</b>' + (x.package && !x.package.auto ? '<span class="cpk">' + esc(optName(x)) + '</span>' : '') + '<span>' + esc(x.area)
-        + (x.rating ? ' &#183; ' + x.rating.toFixed(1) + '/5' : '') + (x.transfer ? ' &#183; ' + mins(x.transfer) + ' transfer' : '') + (anySlides && x.slides ? ' &#183; Slides' : '') + '</span></span>'
+        + (x.rating ? ' &#183; ' + x.rating.toFixed(1) + '/5' : '') + (x.transfer && !hideTransfer ? ' &#183; ' + mins(x.transfer) + ' transfer' : '') + (anySlides && x.slides ? ' &#183; Slides' : '') + '</span></span>'
         + '<span class="cp"><b>' + gbp(x.total) + '</b>' + (x.pp ? '<span>' + gbp(x.pp) + 'pp' + (x.free ? ', ' + x.free + ' kids free' : '') + '</span>' : '') + '</span></a>';
     }).join('');
   }
