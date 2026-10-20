@@ -1189,3 +1189,72 @@
   })();
   }
 })();
+
+/* Accessibility menu: text size, high contrast, calmer view and Listen (read aloud). Works on every quote. */
+(function () {
+  var KEY = 'taj-a11y', st = { size: 0, hc: false, calm: false };
+  try { var sv = JSON.parse(localStorage.getItem(KEY) || '{}'); if (sv) { st.size = Number(sv.size) || 0; st.hc = !!sv.hc; st.calm = !!sv.calm; } } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} }
+  var ZOOMS = [1, 1.15, 1.3], canZoom = false;
+  try { canZoom = !!(window.CSS && CSS.supports && CSS.supports('zoom', '1.2')); } catch (e) {}
+  var root = document.documentElement;
+  function app() { return document.getElementById('app') || document.body; }
+  function apply() {
+    root.classList.toggle('a11y-hc', st.hc); root.classList.toggle('a11y-calm', st.calm);
+    var z = ZOOMS[st.size] || 1; var a = app(); if (a) a.style.zoom = (canZoom && z !== 1) ? String(z) : '';
+    var btns = document.querySelectorAll('#a11yPanel [data-size]');
+    Array.prototype.forEach.call(btns, function (b) { b.setAttribute('aria-pressed', String(Number(b.dataset.size) === st.size)); });
+    var h = document.getElementById('a11yHC'), c = document.getElementById('a11yCalm');
+    if (h) h.setAttribute('aria-pressed', String(st.hc)); if (c) c.setAttribute('aria-pressed', String(st.calm));
+  }
+  var speaking = false, queue = [], tts = ('speechSynthesis' in window) ? window.speechSynthesis : null;
+  function stop() { speaking = false; queue = []; try { if (tts) tts.cancel(); } catch (e) {} var l = document.getElementById('a11yListen'); if (l) { l.textContent = 'Listen to this page'; l.setAttribute('aria-pressed', 'false'); } }
+  function pageText() {
+    var a = app(), t = (a.innerText || '');
+    t = t.replace(/[←-⇿■-➿⬀-⯿️]/g, ' ').replace(/[\uD83C-\uD83E][\uDC00-\uDFFF]/g, ' ').replace(/\s*\n\s*/g, '. ').replace(/\.\s*\./g, '.').replace(/\s+/g, ' ').trim();
+    return t;
+  }
+  function chunks(t) { var out = [], parts = (t.match(/[^.!?]+[.!?]*\s*/g) || [t]).map(function (x) { return x.trim(); }).filter(Boolean), cur = ''; parts.forEach(function (p) { if ((cur + ' ' + p).length > 180 && cur) { out.push(cur); cur = p; } else cur = cur ? cur + ' ' + p : p; }); if (cur) out.push(cur); return out; }
+  function next() {
+    if (!speaking || !queue.length) { stop(); return; }
+    var u = new SpeechSynthesisUtterance(queue.shift()); u.lang = 'en-GB'; u.rate = 0.95;
+    u.onend = next; u.onerror = function () { stop(); }; tts.speak(u);
+  }
+  function listen() {
+    if (!tts) return;
+    if (speaking) { stop(); return; }
+    queue = chunks(pageText()); if (!queue.length) return; speaking = true;
+    var l = document.getElementById('a11yListen'); l.textContent = 'Stop listening'; l.setAttribute('aria-pressed', 'true'); next();
+  }
+  function build() {
+    if (document.getElementById('a11yBtn')) return;
+    var b = document.createElement('button'); b.id = 'a11yBtn'; b.type = 'button'; b.setAttribute('aria-label', 'Accessibility options: text size, contrast and listen'); b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-controls', 'a11yPanel'); b.innerHTML = '<span aria-hidden="true">Aa</span>';
+    var p = document.createElement('div'); p.id = 'a11yPanel'; p.setAttribute('role', 'dialog'); p.setAttribute('aria-label', 'Accessibility options'); p.hidden = true;
+    p.innerHTML = '<h2>Make this easier to read</h2>'
+      + '<div class="a11yrow"><span id="a11yTs">Text size</span><div class="a11ysz" role="group" aria-labelledby="a11yTs">' + (canZoom ? '<button type="button" data-size="0" aria-label="Normal text">A</button><button type="button" data-size="1" aria-label="Large text">A+</button><button type="button" data-size="2" aria-label="Extra large text">A++</button>' : '<span class="a11ysm">Use your browser or phone settings to enlarge text.</span>') + '</div></div>'
+      + '<button type="button" id="a11yHC" class="a11yt" aria-pressed="false">High contrast</button>'
+      + '<button type="button" id="a11yCalm" class="a11yt" aria-pressed="false">Calmer view (no animation)</button>'
+      + (tts ? '<button type="button" id="a11yListen" class="a11yt a11yl" aria-pressed="false">Listen to this page</button>' : '')
+      + '<button type="button" id="a11yClose" class="a11yx">Close</button>';
+    document.body.appendChild(b); document.body.appendChild(p);
+    function close() { p.hidden = true; b.setAttribute('aria-expanded', 'false'); }
+    b.addEventListener('click', function () { var o = p.hidden; p.hidden = !o; b.setAttribute('aria-expanded', String(o)); if (o) { var f = p.querySelector('button'); if (f) f.focus(); } });
+    p.addEventListener('click', function (e) {
+      var t = e.target.closest('button'); if (!t) return;
+      if (t.dataset.size != null) { st.size = Number(t.dataset.size); save(); apply(); }
+      else if (t.id === 'a11yHC') { st.hc = !st.hc; save(); apply(); }
+      else if (t.id === 'a11yCalm') { st.calm = !st.calm; save(); apply(); }
+      else if (t.id === 'a11yListen') listen();
+      else if (t.id === 'a11yClose') { close(); b.focus(); }
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !p.hidden) { close(); b.focus(); } });
+    document.addEventListener('click', function (e) { if (!p.hidden && !p.contains(e.target) && !b.contains(e.target)) close(); });
+    try { new MutationObserver(function () { if (speaking) stop(); syncTabs(); }).observe(document.body, { attributes: true, attributeFilter: ['data-v', 'data-tab'] }); } catch (e) {}
+    apply(); syncTabs();
+  }
+  function syncTabs() {
+    var tabs = document.querySelectorAll('#dTabs button, #dTabs a'); Array.prototype.forEach.call(tabs, function (t) { t.setAttribute('aria-current', t.classList.contains('on') || t.classList.contains('active') || t.getAttribute('aria-pressed') === 'true' ? 'page' : 'false'); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
+  window.addEventListener('pageshow', apply);
+})();
