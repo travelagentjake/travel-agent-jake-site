@@ -1215,9 +1215,23 @@
     return t;
   }
   function chunks(t) { var out = [], parts = (t.match(/[^.!?]+[.!?]*\s*/g) || [t]).map(function (x) { return x.trim(); }).filter(Boolean), cur = ''; parts.forEach(function (p) { if ((cur + ' ' + p).length > 180 && cur) { out.push(cur); cur = p; } else cur = cur ? cur + ' ' + p : p; }); if (cur) out.push(cur); return out; }
+  /* pick the most natural sounding British English voice the device has (enhanced, premium or neural ones first) */
+  function bestVoice() {
+    var vs = []; try { vs = tts.getVoices() || []; } catch (e) {} var best = null, bs = -99;
+    vs.forEach(function (v) {
+      var n = (v.name || '') + ' ' + (v.voiceURI || ''), l = String(v.lang || '').replace('_', '-').toLowerCase(), sc = -50;
+      if (l === 'en-gb') sc = 0; else if (l.indexOf('en') === 0) sc = -20; else return;
+      if (/premium|enhanced|neural|natural|siri|online/i.test(n)) sc += 12;
+      if (/google uk english|microsoft (sonia|libby|ryan|maisie)|serena|daniel|kate|stephanie|martha|arthur|oliver|jenny/i.test(n)) sc += 6;
+      if (/compact|espeak|novelty|bad news|bubbles|cellos|whisper|zarvox|trinoids|organ|bells|boing|albert|junior|ralph|fred|good news|hysterical/i.test(n)) sc -= 30;
+      if (sc > bs) { bs = sc; best = v; }
+    });
+    return best;
+  }
+  try { if (tts && tts.addEventListener) tts.addEventListener('voiceschanged', function () {}); } catch (e) {}
   function next() {
     if (!speaking || !queue.length) { stop(); return; }
-    var u = new SpeechSynthesisUtterance(queue.shift()); u.lang = 'en-GB'; u.rate = 0.95;
+    var u = new SpeechSynthesisUtterance(queue.shift()); u.lang = 'en-GB'; u.rate = 0.95; var v = bestVoice(); if (v) u.voice = v;
     u.onend = next; u.onerror = function () { stop(); }; tts.speak(u);
   }
   function listen() {
