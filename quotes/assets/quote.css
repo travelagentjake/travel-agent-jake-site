@@ -743,3 +743,4 @@ html.a11y-hc .btn-y,html.a11y-hc .btn{border:2px solid #000}
 .dtabs{gap:4px;padding:8px 58px 8px 10px;justify-content:space-between}
 .dtabs button{flex:1 1 auto;padding:8px 6px;font-size:13px;text-align:center;white-space:nowrap}
 @media (min-width:901px){.dtabs{justify-content:center;padding:8px 14px;gap:8px}.dtabs button{flex:none;padding:8px 22px;font-size:14px}}
+@media (max-width:900px){body .dtabs,.deck .dtabs{padding-right:58px!important;padding-left:10px!important}}
