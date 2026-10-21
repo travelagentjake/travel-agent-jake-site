@@ -7,7 +7,7 @@
      facts: [[label, value]], partyLabel ("all 11"), whatsappName,
      compareIntro, hotelsIntro, compareTitle, hotelsTitle, pickTitle (optional heading overrides, e.g. when every option is the same hotel),
      hotels: [{ id, match, name, area, country, rating, reviews, transfer (minutes), slides (bool),
-                badge, total, pp (per paying person when free > 0), free (number of free child places), depositAmt (this hotel's deposit for the party, when it differs from depositTotal), tax (tourist tax paid at the hotel, £ for the party), taxNote, rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
+                badge, total, pp (per paying person when free > 0), free (number of free child places), depositAmt (this hotel's deposit for the party, when it differs from depositTotal), tax (tourist tax paid at the hotel, £ for the party), taxNote, taxLabel (e.g. 'resort fee' when the local charge is not a tourist tax), rooms, board, why, feats: [], site, imgs: [full image URLs], deposit }],
      extras: [{ id, cat, title, text, price (unit price), unit ("per person", "per car for 8 days"),
                 units (defaults to partyCount for "per person", else 1), separate (bool: not part of the tour operator booking, so not in the direct debits),
                 prices: { <hotel id>: total for the party } for prices that change by hotel (room upgrades, private transfers),
@@ -71,10 +71,12 @@
   /* tourist tax payable locally at the hotel (CMA rules): shown next to every price when the supplier lists one.
      When the supplier lists none, nothing is shown and the standard small print covers it. */
   function taxAmt(x) { var d = Q.touristTax || {}; return x && x.tax != null && x.tax !== '' ? Number(x.tax) : (d.amount ? Number(d.amount) : null); }
+  /* taxLabel (hotel or touristTax.label) names a local charge that is not a tourist tax, e.g. a US resort fee. Defaults to tourist tax. */
+  function taxLabel(x) { var d = Q.touristTax || {}; return (x && x.taxLabel) || d.label || 'tourist tax'; }
   function taxText(x) {
     var d = Q.touristTax || {}, amt = taxAmt(x), note = x.taxNote || d.note;
     if (amt == null) return '';
-    return 'Plus about ' + gbp(amt) + ' tourist tax, paid locally at the hotel' + (note ? ' (' + note + ')' : '') + '.';
+    return 'Plus about ' + gbp(amt) + ' ' + taxLabel(x) + ', paid locally at the hotel' + (note ? ' (' + note + ')' : '') + '.';
   }
   function wa(text) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text); }
   function img(u, w) {
@@ -378,7 +380,7 @@
     var rows = '<tr><td>' + esc(x.name) + ', ' + esc(party) + '</td><td class="n">' + gbp(x.total) + '</td></tr>';
     list.forEach(function (e) { var t = xTotal(e, x); if (t == null) return; sum += t; rows += '<tr><td>' + esc(e.title) + '</td><td class="n">' + fmt(t) + '</td></tr>'; });
     if (tax != null) sum += tax;
-    if (tax != null) rows += '<tr><td>Tourist tax, paid locally at the hotel</td><td class="n">about ' + gbp(tax) + '</td></tr>';
+    if (tax != null) rows += '<tr><td>' + esc(taxLabel(x).charAt(0).toUpperCase() + taxLabel(x).slice(1)) + ', paid locally at the hotel</td><td class="n">about ' + gbp(tax) + '</td></tr>';
     var today = paidToday(x);
     el.innerHTML = '<h3>Your full holiday cost</h3>'
       + (multi ? '<label class="fbl" for="fHotel">Hotel</label><select id="fHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '')
