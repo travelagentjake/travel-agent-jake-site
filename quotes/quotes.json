@@ -215,6 +215,16 @@
       "created": "2026-10-21",
       "departs": "2027-06-09",
       "fromPrice": 3325
+    },
+    {
+      "slug": "elizabethspainportugal",
+      "url": "https://quotes.travelagentjake.co.uk/elizabethspainportugal",
+      "customer": "Elizabeth Urquhart",
+      "enquiryId": "mvfk25jhoqig",
+      "title": "Spain or Portugal, 4 nights B&B from Glasgow, May 2027 (Praia da Rocha, Albufeira, Benidorm, Torremolinos, Benalmadena)",
+      "created": "2026-10-21",
+      "departs": "2027-05-04",
+      "fromPrice": 860
     }
   ]
 }
