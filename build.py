@@ -12141,6 +12141,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1787839137485-da1cc270d970?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "People walking through a busy airport terminal with flight departure boards and signage",
     },
+    {
+        "slug": "uk-egates-changes-2026.html",
+        "meta": "Border rules",
+        "title": "UK eGates are changing: what you need to know before you fly home",
+        "excerpt": "Children as young as 8 can now use the eGates, and a new contactless system that skips the passport scan has started rolling out across UK airports. Here's exactly what's changed, and where.",
+        "image": "https://images.unsplash.com/photo-1776329255945-15212b50cd7f?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Facial recognition technology displaying a scanned image",
+    },
 ]
 
 
@@ -18357,6 +18365,164 @@ with open(os.path.join(SITE, "eu261-flight-compensation-reform-2026.html"), "w",
     ))
 print("eu261-flight-compensation-reform-2026.html written")
 
+egates_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>UK EGATES ARE CHANGING: WHAT YOU NEED TO KNOW BEFORE YOU FLY HOME</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Two genuine changes have landed at UK Border Force eGates this year. Children as young as 8 can now use them without queuing at a desk, and a handful of airports have started testing a contactless system that doesn't need your passport at all. Here's exactly what's changed, where it applies, and what it means for your next trip home.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <img src="https://images.unsplash.com/photo-1776329255945-15212b50cd7f?auto=format&fit=crop&w=1600&h=700&q=80" alt="Facial recognition technology displaying a scanned image" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Two separate changes, not one</h2>
+    <p style="margin-top:14px;">It's easy to see "eGates" mentioned in the news twice this year and assume it's the same story. It isn't. In July 2026, the Home Office lowered the minimum age to use the eGates from 10 to 8. In October 2026, a completely separate rollout began testing a new contactless version of the eGates themselves, where eligible passengers don't need to place their passport on the reader at all. Both only apply when you're coming back into the UK, not when you're going through border control somewhere like Spain, Greece or Turkey on the way out. If it's the EU side of things you're after, I've covered the EES and ETIAS systems that affect travel into the Schengen area separately.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Since 8 July 2026</div>
+        <h3 style="font-size:18px;">Younger children can use the eGates</h3>
+        <p>The minimum age dropped from 10 to 8, as long as the child is at least 120cm tall and travelling with an adult. Around 1.5 million more children are now expected to be eligible each year.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Since 6 October 2026</div>
+        <h3 style="font-size:18px;">Contactless eGates are being trialled</h3>
+        <p>A new system checks your face against your immigration and passport record automatically, no passport on the reader needed. It launched at East Midlands Airport first, for British citizens only, and is rolling out further.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Your 8 and 9 year old can now skip the desk</h2>
+    <img src="https://images.unsplash.com/photo-1558413203-528a11565bf4?auto=format&fit=crop&w=1600&h=700&q=80" alt="Child pulling a suitcase while walking through an airport" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Until July this year, any child under 10 had to go through a manned Border Force desk with you when you landed back in the UK, even if the rest of the family could use the eGates. From 8 July 2026, that minimum age dropped to 8, which the Home Office estimates makes about 1.5 million more children eligible each year, based on 2025 arrival figures.</p>
+    <p style="margin-top:14px;">There are two conditions worth knowing before you get to the gate. The child needs to be at least 120cm tall (roughly 3ft 11in), since that's the minimum height the camera and scanner can reliably read, and they still need to be travelling with an adult, the gates aren't designed for an unaccompanied child to use alone. Alex Norris, the Minister for Border Security and Asylum, said the change was designed to "make journeys easier for families with small children" and free up more time for people to actually enjoy being back, rather than queuing.</p>
+    {jake_tip("If your child is right around 120cm, it's worth measuring them properly before you fly rather than guessing. If they don't quite make the height on the day, Border Force staff will simply direct your family to a manned desk instead, it isn't a problem, just a few extra minutes.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The new contactless eGates: no passport on the reader</h2>
+    <img src="https://images.unsplash.com/photo-1704794708120-97d4f6894ce0?auto=format&fit=crop&w=1600&h=700&q=80" alt="UK airport terminal signage" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This is the newer, and genuinely bigger, change. From 6 October 2026, the Home Office began rolling out a contactless version of the eGates. Instead of placing your passport on the reader, the gate takes a photo of you and checks it against your immigration, travel and passport information automatically. If everything matches, the gate just opens. Testing shows it's up to 25% faster than the standard passport-on-reader process.</p>
+    <p style="margin-top:14px;">East Midlands Airport was first, with a small number of contactless gates live from day one. The plan is to upgrade every eGate across the UK by early 2027, with the rollout reaching Birmingham, Bristol, Cardiff, Edinburgh, Gatwick, Glasgow, Heathrow, London City, Luton, Manchester, Newcastle and Stansted over the coming months. For now, it's only open to British citizens, with the Home Office saying other eGate eligible nationalities will be added later.</p>
+    <div class="jake-card" style="margin-top:18px;">
+      <p style="margin:0;"><b>Two things to keep in mind.</b> You still need to carry your passport with you at all times, even if you don't end up placing it on a reader, since you'll be asked for it if any further checks are needed or if you're sent to a Border Force officer. And if you hold dual British nationality, travel on a valid British passport, or carry a Certificate of Entitlement, to avoid potential delays at the border.</p>
+    </div>
+    {jake_tip("Don't go looking for a contactless gate specifically on your next trip home unless you're flying into East Midlands. Everywhere else is still running the standard eGates for now, and Border Force officers will be on hand at every gate either way if anything doesn't go through automatically.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>At a glance</h2>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>What changed</th><th>Before</th><th>Now</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Minimum age to use an eGate</td><td>10 years old</td><td>8 years old, must be at least 120cm tall and with an adult</td></tr>
+          <tr><td>How you're checked</td><td>Passport placed on the reader at every gate</td><td>At trial airports, a photo checked automatically, no passport on the reader needed for eligible passengers</td></tr>
+          <tr><td>Who can use the new contactless system</td><td>N/A</td><td>British citizens only for now, other eGate eligible nationalities to follow</td></tr>
+          <tr><td>Where it's available</td><td>N/A</td><td>East Midlands Airport first, expanding to 12 more airports by early 2027</td></tr>
+          <tr><td>Claimed speed improvement</td><td>N/A</td><td>Up to 25% faster than a standard passport eGate, per Home Office testing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures reflect the Home Office's own announcements at the time of writing. The contactless rollout is ongoing, so check which system is in use at your specific airport closer to your travel date.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What this actually means for your next holiday</h2>
+    <img src="https://images.unsplash.com/photo-1532188142562-df556b861e6a?auto=format&fit=crop&w=1600&h=700&q=80" alt="Person holding a passport" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">If you've been travelling with an 8 or 9 year old and automatically heading for the manned desk out of habit, it's worth checking the eGates instead now, it could save your family a genuinely long wait, especially coming back on a busy half term or summer holiday flight. If your airport is one of the 13 getting the contactless upgrade, don't expect to notice much difference yet unless you're flying into East Midlands specifically, and don't worry if your passport never leaves your pocket there, that's the system working as intended.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Measure your child properly if they're borderline on height.</b> 120cm is the cut off, and it's an easy thing to get wrong by eye.</span></li>
+      <li><span class="num">2</span><span><b>Keep your passport on you regardless.</b> Contactless doesn't mean passport free, it still needs to be with you in case further checks are needed.</span></li>
+      <li><span class="num">3</span><span><b>Dual nationals, travel on your British passport.</b> Or carry a Certificate of Entitlement, to avoid delays specifically flagged by the Home Office.</span></li>
+      <li><span class="num">4</span><span><b>Don't expect contactless everywhere yet.</b> It's a phased rollout running through to early 2027, so most airports are still on the standard system for now.</span></li>
+      <li><span class="num">5</span><span><b>This is only about coming home.</b> Going through border control in an EU country still works the way it always has, plus the new EES system I've written about separately.</span></li>
+    </ul>
+    {jake_tip("None of this changes anything about booking your actual holiday, it's purely about the few minutes at the UK border on the way back. But if you've got young children and have been dreading that queue, it's genuinely worth knowing it's a shorter one than it used to be.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Can my 8 or 9 year old really use the eGates now?</h3>
+      <p>Yes, since 8 July 2026, as long as they're at least 120cm tall and travelling with an adult. Before that, the minimum age was 10, and younger children had to go through a manned Border Force desk.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do I need to do anything differently to use the new contactless eGates?</h3>
+      <p>No. If you're eligible, currently British citizens only, you simply walk up to the gate and have your photo taken, the same as you would with any eGate. There's no app, booking or extra step involved.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do I still need to carry my passport if I use a contactless eGate?</h3>
+      <p>Yes. You should always keep a valid passport with you, even though you may not need to place it on the reader. If further checks are needed, you'll be asked to use your passport or you'll be directed to a Border Force officer.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Which airports have contactless eGates right now?</h3>
+      <p>Only East Midlands Airport has them live at the time of writing, from 6 October 2026. The Home Office plans to extend the system to Birmingham, Bristol, Cardiff, Edinburgh, Gatwick, Glasgow, Heathrow, London City, Luton, Manchester, Newcastle and Stansted, with every UK eGate upgraded by early 2027.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does any of this affect going through border control in Spain, Greece or Turkey?</h3>
+      <p>No, both of these changes are about Border Force checks when you arrive back in the UK, not the border checks you go through abroad. Entry into EU and Schengen area countries works the way it always has, alongside the new EES system, which I've covered in a separate guide.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1736966431604-f2e7ac8997cc?auto=format&fit=crop&w=1600&h=700&q=80" alt="Family walking through a busy airport with luggage" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Booking your next holiday?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">A smoother trip home is one less thing to think about. Tell me where you fancy going and I'll take care of the rest, honestly and without the pressure.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+egates_body = egates_body.replace("::NEWSLETTER::", newsletter_section())
+
+EGATES_SCHEMA = article_and_faq_schema(
+    "UK eGates Are Changing: What You Need to Know Before You Fly Home",
+    "Children as young as 8 can now use UK eGates, and a new contactless system that skips the passport scan has started rolling out across UK airports. Here's exactly what's changed, where, and what it means for your next trip home.",
+    "uk-egates-changes-2026.html",
+    "https://images.unsplash.com/photo-1776329255945-15212b50cd7f?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("Can my 8 or 9 year old really use the eGates now?", "Yes, since 8 July 2026, as long as they're at least 120cm tall and travelling with an adult. Before that, the minimum age was 10, and younger children had to go through a manned Border Force desk."),
+        ("Do I need to do anything differently to use the new contactless eGates?", "No. If you're eligible, currently British citizens only, you simply walk up to the gate and have your photo taken, the same as you would with any eGate. There's no app, booking or extra step involved."),
+        ("Do I still need to carry my passport if I use a contactless eGate?", "Yes. You should always keep a valid passport with you, even though you may not need to place it on the reader. If further checks are needed, you'll be asked to use your passport or you'll be directed to a Border Force officer."),
+        ("Which airports have contactless eGates right now?", "Only East Midlands Airport has them live at the time of writing, from 6 October 2026. The Home Office plans to extend the system to Birmingham, Bristol, Cardiff, Edinburgh, Gatwick, Glasgow, Heathrow, London City, Luton, Manchester, Newcastle and Stansted, with every UK eGate upgraded by early 2027."),
+    ]
+)
+
+with open(os.path.join(SITE, "uk-egates-changes-2026.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "UK eGates Are Changing: What You Need to Know Before You Fly Home | Travel Agent Jake",
+        "Children as young as 8 can now use UK eGates, and a new contactless system that skips the passport scan has started rolling out across UK airports. Here's exactly what's changed, where, and what it means for your next trip home.",
+        "travel-tips.html",
+        egates_body,
+        extra_schema=EGATES_SCHEMA,
+        canonical_path="uk-egates-changes-2026.html"
+    ))
+print("uk-egates-changes-2026.html written")
+
+
 
 
 
@@ -18432,6 +18598,7 @@ SITEMAP_PAGES = [
     ("esta-usa-fee-rise-2026.html", "0.7"),
     ("eu-pet-travel-rules-2026.html", "0.7"),
     ("eu261-flight-compensation-reform-2026.html", "0.7"),
+    ("uk-egates-changes-2026.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
