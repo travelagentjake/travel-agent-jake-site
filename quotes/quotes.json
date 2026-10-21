@@ -236,6 +236,17 @@
       "created": "2026-10-21",
       "departs": "2027-05-04",
       "fromPrice": 860
+    },
+    {
+      "slug": "pamgrancanaria",
+      "url": "https://quotes.travelagentjake.co.uk/pamgrancanaria",
+      "customer": "Pam",
+      "enquiryId": "mvijtzzvxlc5",
+      "quoteRequestId": "mviju02326a4",
+      "title": "Gran Canaria, 7 nights B&B from Newcastle, December 2026 (Radisson Blu Resort & Spa, Puerto Mogan)",
+      "created": "2026-10-21",
+      "departs": "2026-12-08",
+      "fromPrice": 1516
     }
   ]
 }
