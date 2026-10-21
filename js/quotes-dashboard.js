@@ -325,7 +325,7 @@
     btn.disabled = true;
     api('/api/enquiry-admin', 'POST', { action: 'note', id: c.dataset.id, text: text }).then(function (x) {
       btn.disabled = false;
-      if (x.j && x.j.ok) { inp.value = ''; var en = enq(c.dataset.id); if (en) en.notesLog = x.j.enquiry.notesLog; else S.enquiries.push(x.j.enquiry); decorate(); toast('Note saved'); }
+      if (x.j && x.j.ok) { inp.value = ''; var en = enq(c.dataset.id); if (en) en.notesLog = x.j.enquiry.notesLog; else S.enquiries.push(x.j.enquiry); if (window.__eaTouch) window.__eaTouch(c.dataset.id, x.j.enquiry.notesLog); decorate(); toast('Note saved'); }
       else toast((x.j && x.j.error) || 'Could not save the note');
     });
   }

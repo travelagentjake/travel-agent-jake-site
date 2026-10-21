@@ -98,6 +98,9 @@
 .ea-badge.s-quoted{background:#e3f4ea;border-color:#118A5B;color:#0a5c3b;}
 .ea-badge.s-booked{background:#118A5B;border-color:#118A5B;color:#fff;}
 .ea-badge.s-done{background:#118A5B;border-color:#118A5B;color:#fff;}
+.ea-badge.chase{background:#fde8e4;border-color:#c2412d;color:#c2412d;}
+.ea-card.is-chase{box-shadow:5px 5px 0 #f3b8ad;}
+.ea-last{font-size:13px;color:#5b6478;margin-top:2px;}.ea-last.chase{color:#c2412d;font-weight:700;}
 .ea-badge.s-closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478;}
 .ea-sum{margin:12px 0 0;font-size:15px;}
 .ea-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
@@ -182,9 +185,31 @@
   function label(s){for(var i=0;i<STATUSES.length;i++){if(STATUSES[i][0]===s)return STATUSES[i][1];}return s;}
   function pre(q){return q.kind==='prereg2028';}
 
-  function counts(){var c={open:0,all:data.length};STATUSES.forEach(function(s){c[s[0]]=0;});data.forEach(function(q){var s=q.status||'new';c[s]=(c[s]||0)+1;if(s!=='done'&&s!=='closed'&&s!=='booked')c.open++;});return c;}
+  /* Chasing: the last time Jake added a note or changed the status. 2 days or more without one means it is time to follow up. */
+  var CHASE_HOURS=48;
+  function lastTouch(q){
+    var best=0,kind='';
+    (q.notesLog||[]).forEach(function(n){
+      var isNote=!n.auto, isStatus=n.auto&&/^Status changed/.test(n.text||'');
+      if(!isNote&&!isStatus)return;
+      var t=Date.parse(n.t); if(!isNaN(t)&&t>=best){best=t;kind=isNote?'note':'update';}
+    });
+    if(!best){var c=Date.parse(q.createdAt);if(!isNaN(c)){best=c;kind='none';}}
+    return {t:best,kind:kind};
+  }
+  function isOpenStatus(q){var s=q.status||'new';return s!=='done'&&s!=='closed'&&s!=='booked';}
+  function needsChase(q){if(!isOpenStatus(q))return false;var lt=lastTouch(q);return !!lt.t&&(Date.now()-lt.t)>=CHASE_HOURS*3600000;}
+  function dayWords(t){var h=Math.floor((Date.now()-t)/3600000);if(h<1)return 'just now';if(h<24)return h+' hr ago';var d=Math.floor(h/24);return d===1?'yesterday':d+' days ago';}
+  function lastLine(q){
+    if(!isOpenStatus(q))return '';
+    var lt=lastTouch(q); if(!lt.t)return '';
+    var chase=needsChase(q);
+    var txt=lt.kind==='note'?'Last note '+dayWords(lt.t):lt.kind==='update'?'Last update '+dayWords(lt.t):'No notes yet, came in '+dayWords(lt.t);
+    return '<div class="ea-last'+(chase?' chase':'')+'">'+(chase?'Time to chase. ':'')+esc(txt)+'</div>';
+  }
+  function counts(){var c={open:0,chase:0,all:data.length};STATUSES.forEach(function(s){c[s[0]]=0;});data.forEach(function(q){var s=q.status||'new';c[s]=(c[s]||0)+1;if(isOpenStatus(q)){c.open++;if(needsChase(q))c.chase++;}});return c;}
   function renderStats(){
-    var c=counts();var items=[['open','Open',c.open],['new','New',c['new']],['contacted','Contacted',c.contacted],['quoted','Quote sent',c.quoted],['booked','Booked',c.booked],['done','Done',c.done],['closed','Closed',c.closed],['all','All',c.all]];
+    var c=counts();var items=[['open','Open',c.open],['chase','To chase',c.chase],['new','New',c['new']],['contacted','Contacted',c.contacted],['quoted','Quote sent',c.quoted],['booked','Booked',c.booked],['done','Done',c.done],['closed','Closed',c.closed],['all','All',c.all]];
     $('eaStats').innerHTML=items.map(function(i){return '<button type="button" class="ea-stat" data-f="'+i[0]+'" aria-pressed="'+(filter===i[0])+'"><b>'+i[2]+'</b><span>'+i[1]+'</span></button>';}).join('');
     Array.prototype.forEach.call($('eaStats').querySelectorAll('button'),function(b){b.addEventListener('click',function(){filter=b.dataset.f;render();});});
   }
@@ -192,10 +217,10 @@
     var term=$('eaSearch').value.trim().toLowerCase(), type=$('eaType').value;
     return data.filter(function(q){
       var s=q.status||'new';
-      if(filter==='open'){if(s==='done'||s==='closed'||s==='booked')return false;}else if(filter!=='all'&&s!==filter)return false;
+      if(filter==='open'){if(s==='done'||s==='closed'||s==='booked')return false;}else if(filter==='chase'){if(!needsChase(q))return false;}else if(filter!=='all'&&s!==filter)return false;
       if(type==='enquiry'&&pre(q))return false; if(type==='prereg2028'&&!pre(q))return false;
       if(term){var hay=[q.firstName,q.lastName,q.email,q.phone,q.destination,q.holidayType].join(' ').toLowerCase();if(hay.indexOf(term)<0)return false;}
-      return true;});
+      return true;}).sort(function(a,b){return filter==='chase'?lastTouch(a).t-lastTouch(b).t:0;});
   }
   function detail(q){
     var party=(q.adults||1)+' adult'+(Number(q.adults)===1?'':'s')+(Number(q.children)?', '+q.children+' child'+(Number(q.children)===1?'':'ren')+(q.childAges&&q.childAges.length?' (ages '+q.childAges.join(', ')+')':''):'');
@@ -228,10 +253,10 @@
     var s=q.status||'new', id=esc(q.id);
     var hello=encodeURIComponent('Hi '+q.firstName+", it's Jake from Travel Agent Jake. Thanks for "+(pre(q)?'registering for 2028 holidays':'your holiday enquiry')+(q.destination?(pre(q)?' (':' about ')+q.destination+(pre(q)?')':''):'')+'! ');
     var sum=[q.destination||q.holidayType, pre(q)?q.month:niceDate(q.departDate), (q.adults||1)+(Number(q.children)?'+'+q.children:'')+' travelling', q.budget].filter(Boolean).join(' · ');
-    return '<article class="ea-card'+(s==='new'?' is-new':'')+'" data-id="'+id+'">'
+    return '<article class="ea-card'+(s==='new'?' is-new':'')+(needsChase(q)?' is-chase':'')+'" data-id="'+id+'">'
       +'<div class="ea-head"><div><h3 class="ea-name">'+esc(q.firstName+' '+q.lastName)+'</h3><div class="ea-meta">'+esc(nice(q.createdAt))+' ('+esc(ago(q.createdAt))+')</div></div>'
-      +'<div class="ea-badges">'+(pre(q)?'<span class="ea-badge pre">2028 pre-reg</span>':'<span class="ea-badge">Enquiry</span>')+'<span class="ea-badge s-'+esc(s)+'">'+esc(label(s))+'</span></div></div>'
-      +'<p class="ea-sum">'+esc(sum)+'</p>'
+      +'<div class="ea-badges">'+(needsChase(q)?'<span class="ea-badge chase">Chase</span>':'')+(pre(q)?'<span class="ea-badge pre">2028 pre-reg</span>':'<span class="ea-badge">Enquiry</span>')+'<span class="ea-badge s-'+esc(s)+'">'+esc(label(s))+'</span></div></div>'
+      +'<p class="ea-sum">'+esc(sum)+'</p>'+lastLine(q)
       +'<div class="ea-actions">'
       +'<a class="ea-btn wa" target="_blank" rel="noopener" href="https://wa.me/'+waNum(q.phone)+'?text='+hello+'">WhatsApp</a>'
       +'<a class="ea-btn" href="mailto:'+esc(q.email)+'">Email</a>'
@@ -282,12 +307,13 @@
   });
   $('eaList').addEventListener('change',function(e){
     if(e.target.dataset.act!=='status')return; var q=find(e.target.closest('.ea-card').dataset.id); if(!q)return;
-    var v=e.target.value; api('POST',{action:'update',id:q.id,status:v}).then(function(r){if(r.j&&r.j.ok){q.status=v;render();toast('Marked '+label(v));}else toast('Could not save');});
+    var v=e.target.value; api('POST',{action:'update',id:q.id,status:v}).then(function(r){if(r.j&&r.j.ok){q.status=v;if(r.j.enquiry&&r.j.enquiry.notesLog)q.notesLog=r.j.enquiry.notesLog;render();toast('Marked '+label(v));}else toast('Could not save');});
   });
   $('eaList').addEventListener('focusout',function(e){
     if(e.target.dataset.act!=='notes')return; var q=find(e.target.closest('.ea-card').dataset.id); if(!q||(q.adminNotes||'')===e.target.value)return;
     var v=e.target.value; api('POST',{action:'update',id:q.id,adminNotes:v}).then(function(r){if(r.j&&r.j.ok){q.adminNotes=v;toast('Note saved');}else toast('Could not save note');});
   });
+  window.__eaTouch=function(id,log){var q=find(id);if(q){q.notesLog=log;render();}};
   $('eaSearch').addEventListener('input',render); $('eaType').addEventListener('change',render);
 
   function load(first){
@@ -307,7 +333,7 @@
   setInterval(function(){if(key&&!$('eaApp').hidden&&document.visibilityState==='visible')load(false);},60000);
 })();
 </script>
-<script src="js/quotes-dashboard.js?v=20261019b" defer></script>
+<script src="js/quotes-dashboard.js?v=20261021a" defer></script>
 
 <footer class="site-footer">
   <div class="jake-dash-yellow"></div>
