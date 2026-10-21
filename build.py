@@ -1939,6 +1939,13 @@ DESTINATION_POSTS = [
         "excerpt": "The Strip as a standalone city break versus TUI's real Western USA tours, weather by month, and what a trip to Las Vegas actually costs.",
         "image": "https://images.unsplash.com/photo-1600616366660-ba86bf0b3dfc?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "california.html",
+        "meta": "California",
+        "title": "California",
+        "excerpt": "The three real TUI tours that cover LA, San Francisco, Yosemite and the desert, weather by month, and what a trip to California actually costs.",
+        "image": "https://images.unsplash.com/photo-1581390114939-946f9a890a7f?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -11672,6 +11679,253 @@ with open(os.path.join(SITE, "las-vegas.html"), "w", encoding="utf-8") as f:
 print("las-vegas.html written")
 
 
+california_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>CALIFORNIA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Hollywood and the Strip, Yosemite and Big Sur, the Golden Gate Bridge and the desert, all on one trip. Here's exactly how I book California, the three real TUI tours that cover it, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about California</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1581390114939-946f9a890a7f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Hollywood sign on a hillside in Los Angeles" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>California is one of the most requested trips I get and also one of the most misunderstood, because there isn't currently a flight and hotel package to Los Angeles or San Francisco on any of my three main operators, TUI, Jet2holidays and easyJet holidays. Neither Jet2holidays nor easyJet holidays flies long haul at all at the moment, and TUI, the only one of the three that does, doesn't currently sell a standalone California city break either. What TUI does sell is three genuinely good escorted and self drive tours, all starting and finishing in Los Angeles, that between them cover the whole state and more.</p>
+    <p style="margin-top:14px;">That isn't a compromise. California is enormous, Los Angeles to San Francisco alone is further than London to Edinburgh twice over, and a tour with flights, transfers, accommodation and a hire car or a guide already sorted is honestly the easier way to see it properly rather than trying to piece together three or four separate city stays yourself.</p>
+    {jake_tip("The first thing I ask a client who wants California is whether they want a guided coach tour, a self drive road trip, or the full two week version with San Diego and the national parks thrown in. All three are real, bookable TUI tours, not something I've had to improvise.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">The shortest of the three tours runs 8 nights, the other two run 14, so California isn't really a one week destination once you factor in the distances involved. The 8 night escorted tour suits first time visitors who want the big three, Los Angeles, Las Vegas and San Francisco, covered properly without driving themselves. The 14 night self drive suits independent, confident drivers who want to set their own pace on the Pacific Coast Highway. The 14 night escorted Western Discovery Tour suits clients who want the full sweep, San Diego, the Grand Canyon, Zion and Bryce Canyon included, without picking up a hire car at all.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1606608503505-679bda1b80fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees silhouetted against a California sunset" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>All three tours fly into Los Angeles International Airport and include international flights, taxes and transfers in the price, flying from London Heathrow as standard with alternative UK departure airports available on an indirect basis. Flight time to Los Angeles from Heathrow runs around 11 hours direct. UK passport holders don't need a visa for a short US holiday, but do need to apply for an ESTA before flying, which I always point clients towards on the official US government site only. My full <a href="esta-usa-fee-rise-2026.html">ESTA fee guide</a> has the current costs and how to apply safely.</p>
+    {jake_tip("Always apply for an ESTA through the official US government site, esta.cbp.dhs.gov, or the official mobile app. I've seen clients overcharged on copycat sites that have nothing to do with the US government.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">California's climate varies hugely by region. The table below is for Los Angeles, the gateway city on all three tours. Expect San Francisco to run noticeably cooler and foggier year round, and the desert legs, Palm Springs, Death Valley and Las Vegas, to run significantly hotter in summer, Death Valley is one of the hottest places on earth.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>20&deg;C</td><td>8&deg;C</td><td>Mild and often sunny, the wettest month alongside February</td></tr>
+          <tr><td>February</td><td>20&deg;C</td><td>9&deg;C</td><td>Still mild, rain possible but brief</td></tr>
+          <tr><td>March</td><td>21&deg;C</td><td>10&deg;C</td><td>Warming up, a good value month</td></tr>
+          <tr><td>April</td><td>22&deg;C</td><td>11&deg;C</td><td>Dry, sunny and comfortable</td></tr>
+          <tr><td>May</td><td>23&deg;C</td><td>13&deg;C</td><td>Warm with long sunny days</td></tr>
+          <tr><td>June</td><td>26&deg;C</td><td>15&deg;C</td><td>Hot and dry, the desert legs start to bite</td></tr>
+          <tr><td>July</td><td>29&deg;C</td><td>17&deg;C</td><td>Hot in LA, extreme heat inland in Death Valley and Palm Springs</td></tr>
+          <tr><td>August</td><td>30&deg;C</td><td>18&deg;C</td><td>The hottest month, same extreme desert heat inland</td></tr>
+          <tr><td>September</td><td>28&deg;C</td><td>17&deg;C</td><td>Still warm, a popular and reliable month</td></tr>
+          <tr><td>October</td><td>26&deg;C</td><td>15&deg;C</td><td>Warm days, cooling nights, a strong value month</td></tr>
+          <tr><td>November</td><td>22&deg;C</td><td>11&deg;C</td><td>Mild, rain becomes more likely</td></tr>
+          <tr><td>December</td><td>20&deg;C</td><td>8&deg;C</td><td>Cool and occasionally wet, busy over the holidays</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Average high and low temperatures for Los Angeles, via weather2travel.com (long term averages).</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">Spring, from March to May, and autumn, from September to October, give the best balance of warm weather, lower prices and comfortable desert temperatures for the Death Valley and Grand Canyon legs. Summer, June to August, is still popular and the surest bet for consistently dry weather in San Francisco, but it's also when Death Valley and Palm Springs become genuinely dangerous to be outdoors in for long, so I always flag that to clients on the self drive and Western Discovery tours. Winter is mild in Los Angeles and San Diego but wetter, and this is when San Francisco sees the most rain.</p>
+    {jake_tip("If a client is set on the self drive tour, I steer them towards spring or autumn departures rather than summer. Death Valley in July regularly tops 45 degrees, and that's not a pleasant place to be stuck with a flat tyre.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three ways I book California</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1610312278520-bcc893a3ff1d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Golden Gate Bridge in San Francisco at sunset" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>All three are real, bookable TUI tours, not something I've pieced together myself, and all three start and finish in Los Angeles.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1516687401797-25297ff1462c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Granite cliffs and a waterfall in Yosemite Valley" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Western Panorama</h3>
+        <p>8 nights. Los Angeles, Las Vegas, Death Valley, Mammoth Lakes, Yosemite, San Francisco, Monterey, Carmel by the Sea and Santa Barbara before finishing back in LA. Moderate pace, 9 included experiences, hotels of a 4 star and 3 star standard. From &pound;1856pp. Minimum age 7.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1623169840544-0982db65d00e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bixby Bridge on the Big Sur coastline" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">USA Best of the West Self Drive</h3>
+        <p>14 nights. Los Angeles, Palm Springs, Phoenix and Scottsdale, the Grand Canyon, Las Vegas, Death Valley, Yosemite, San Francisco, Monterey, the Pacific Coast Highway and Ventura before returning to LA. Hire car included, hotels of a 2, 3 and 4 star standard on a self catering basis. From &pound;2109pp. No minimum age.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1607101435453-e6a1327f1c73?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The colourful Artists Palette rock formations in Death Valley" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">USA Western Discovery Tour</h3>
+        <p>14 nights. Los Angeles, San Diego, Palm Springs, Phoenix, Sedona, the Grand Canyon, Monument Valley, Bryce Canyon, Zion, Las Vegas, Death Valley, Yosemite, San Francisco, Monterey and Santa Barbara before finishing in LA. Moderate pace, 13 included experiences, hotels of a 4 star and 3 star standard. From &pound;2569pp. Minimum age 7.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each tour, correct at the time of writing and subject to change. All three are ATOL protected under TUI's licence (ATOL 2524).</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1574876999742-a8be3a43f151?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A house among palm trees in Palm Springs, California" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Because all three options are tours rather than a flight and hotel package, TUI picks hotels for location and standard rather than naming them in advance, the same as its Japan and Canada tours. What TUI does confirm is the overall standard. Western Panorama splits its 8 nights across 6 hotels of a 4 star and 3 star standard. The Best of the West Self Drive spreads its 14 nights across 11 hotels of a 2, 3 and 4 star standard on a self catering basis, since it's a self drive route with no tour guide. The Western Discovery Tour splits its 14 nights across 11 hotels of a 4 star standard and 3 hotels of a 3 star standard, with breakfast included on 3 mornings. I'll confirm the exact named hotels with you once a specific departure date is booked.</p>
+    {jake_tip("None of the three tours name hotels upfront, TUI confirms them closer to departure once the exact route for your dates is finalised. I always flag that honestly rather than guessing a specific hotel.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">On Western Panorama and the Western Discovery Tour, coach transport and an English speaking guide are included throughout, so there's nothing to arrange yourself. On the Best of the West Self Drive, a hire car is included in the price, a Volkswagen Jetta or similar from Alamo, picked up at Los Angeles International Airport. You'll need a full UK driving licence and be at least 21, with a surcharge for drivers aged 21 to 24, since you'll be covering real distance most days. If you add pre or post tour nights in Los Angeles yourself, the city is very spread out and really needs a car or ride share app to get around comfortably, it isn't a walkable city in the way London or even Las Vegas is.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1594663805807-29a7cc1847c0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Hollywood sign at sunset" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Beyond what's included on the tours themselves, these are some of the best rated things to do in and around Los Angeles, useful whether you're adding extra nights before or after your tour.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="55864,432646,206796,411252"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/los-angeles-l179/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/los-angeles-l179/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Los Angeles &rarr;</a>
+      </div>
+    </div>
+    <p style="margin-top:18px;">On the tours themselves, free time in San Francisco usually means a cable car ride, Fisherman's Wharf, or a trip out to Alcatraz, while a free day on the Strip in Las Vegas works exactly as it does on my standalone <a href="las-vegas.html">Las Vegas guide</a>. In Los Angeles itself, the Hollywood sign, Griffith Observatory and Rodeo Drive are easy additions either side of your tour dates.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1669643829611-86d8b332fc34?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Griffith Observatory overlooking Los Angeles" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Griffith Observatory, Los Angeles</h3>
+        <p>Free to enter, with some of the best views in the city over Los Angeles and the Hollywood sign, especially at sunset. A popular add on for anyone spending extra nights in LA either side of their tour.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1521747116042-5a810fda9664?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Golden Gate Bridge in San Francisco" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Golden Gate Bridge, San Francisco</h3>
+        <p>Covered on all three tours' free time in San Francisco, walkable across or viewable from several spots around the bay, including Crissy Field and the Marin Headlands on the far side.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1631098653271-c8aeb0e75dab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Venice Beach in Los Angeles" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Venice Beach &amp; Santa Monica Pier</h3>
+        <p>The classic LA boardwalk scene, street performers, muscle beach and the Santa Monica Pier Ferris wheel right next door. Easiest reached with extra nights tacked on to either end of a tour.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1514939775307-d44e7f10cabd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The San Diego skyline at night" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">San Diego</h3>
+        <p>Covered on the Western Discovery Tour, a relaxed coastal city with a famous zoo, Old Town and the USS Midway Museum, and a noticeably different, more laid back pace than LA just up the coast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">The USA uses the US Dollar. Flights, transfers and accommodation are already covered in a TUI tour price, but meals, drinks and extras add up fast, so these are typical costs for everyday items in Los Angeles, converted to pounds sterling at a rate of roughly &pound;1 to $1.34.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;19.82 (about $26.50)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;4.45 (about $5.95)</td></tr>
+          <tr><td>Domestic draught beer, a pint</td><td>&pound;5.98 (about $8.00)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;2.03 (about $2.72)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;2.32 (about $3.10)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd sourced averages via Numbeo (Los Angeles), checked at time of writing. Dollar to pound sterling conversion is approximate and moves around day to day, so treat these as a guide rather than an exact figure.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>US Dollar (USD)</td></tr>
+          <tr><td>Plug type</td><td>Types A and B, different from the UK's Type G, so you'll need a travel adaptor, and the US runs on 120V against the UK's 230V</td></tr>
+          <tr><td>Language</td><td>English</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 11 hours direct from London Heathrow, with alternative UK departure airports available on an indirect basis</td></tr>
+          <tr><td>Time difference</td><td>8 hours behind the UK</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders travel under the ESTA scheme rather than a full visa, applied for online in advance of travel. See my full <a href="esta-usa-fee-rise-2026.html">ESTA fee guide</a> for current costs and how to apply through the official site only</td></tr>
+          <tr><td>Driving</td><td>Right hand side, the opposite of the UK. Only relevant on the Best of the West Self Drive tour, which needs a full UK licence and a minimum age of 21</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Vincentas Liskauskas, Riccardo Tuninato, Justin Scocchio, Varun Yadav, Aniket Deole, George Cox, Carter Baran, Cody Board, Steve Wrzeszczynski, Venti Views, Nils Huenerfuerst, Joonyeop Baek, Benny Rotlevy and Lucas Davies via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy California for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can talk you through all three real TUI tours, the escorted options, the self drive, and which one actually fits what you want to see.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+california_body = california_body.replace("::NEWSLETTER::", newsletter_section())
+
+CALIFORNIA_SCHEMA = article_and_faq_schema(
+    "California: Jake's Destination Guide",
+    "Jake's honest guide to California: the three real TUI tours that cover it, weather by month, and what a trip from Los Angeles to San Francisco actually costs.",
+    "california.html",
+    "https://images.unsplash.com/photo-1581390114939-946f9a890a7f?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator sells California package holidays?", "TUI is currently the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that flies this far west. Neither Jet2holidays nor easyJet holidays flies long haul at all at the moment."),
+        ("Is California sold as a flight and hotel package or a tour?", "Currently it's tours only. TUI sells three real escorted and self drive tours, Western Panorama, the USA Best of the West Self Drive, and the USA Western Discovery Tour, all starting and finishing in Los Angeles, but there isn't a flexible standalone Los Angeles or San Francisco package at the moment."),
+        ("Do I need a visa for California?", "No, UK passport holders don't need a visa for a short US holiday, but you do need to apply for an ESTA online before you fly, through the official US government site only."),
+        ("Is there a minimum age for the California tours?", "It depends on the tour. Western Panorama and the USA Western Discovery Tour both have a minimum age of 7. The Best of the West Self Drive has no minimum age, though drivers must be at least 21."),
+        ("Which California tour should I book?", "It depends what you want to see. Western Panorama is the shortest at 8 nights and covers LA, Las Vegas and San Francisco. The Best of the West Self Drive suits independent drivers wanting the Pacific Coast Highway at their own pace. The Western Discovery Tour is the full two week version with San Diego, the Grand Canyon, Zion and Bryce Canyon included. I always talk clients through all three before they decide."),
+    ]
+)
+with open(os.path.join(SITE, "california.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "California: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to California: the three real TUI tours that cover it, weather by month, and what a trip from Los Angeles to San Francisco actually costs.",
+        "destinations.html",
+        california_body,
+        extra_schema=CALIFORNIA_SCHEMA,
+        canonical_path="california.html"
+    ))
+print("california.html written")
+
+
 
 
 
@@ -18150,6 +18404,7 @@ SITEMAP_PAGES = [
     ("china.html", "0.6"),
     ("canada.html", "0.6"),
     ("las-vegas.html", "0.6"),
+    ("california.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
