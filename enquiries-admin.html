@@ -198,15 +198,34 @@
     return {t:best,kind:kind};
   }
   function isOpenStatus(q){var s=q.status||'new';return s!=='done'&&s!=='closed'&&s!=='booked';}
-  function needsChase(q){if(!isOpenStatus(q))return false;var lt=lastTouch(q);return !!lt.t&&(Date.now()-lt.t)>=CHASE_HOURS*3600000;}
+  function qAct(q){try{return window.__eaQuoteActivity?window.__eaQuoteActivity(q.id):null;}catch(e){return null;}}
+  /* Reasons to chase: (1) no note or update for 2 days, (2) the customer opened their quote after your last note, (3) quote sent over 2 days ago and never opened */
+  function chaseInfo(q){
+    var r={quiet:false,hot:false,unopened:false,any:false,act:null,lt:null};
+    if(!isOpenStatus(q))return r;
+    var lt=lastTouch(q), act=qAct(q); r.lt=lt; r.act=act;
+    var now=Date.now(), lim=CHASE_HOURS*3600000;
+    if(lt.t&&now-lt.t>=lim)r.quiet=true;
+    if(act&&act.views>0&&act.lastView&&act.lastView>lt.t)r.hot=true;
+    if(act&&act.quotes>0&&act.views===0&&act.sentAt&&now-act.sentAt>=lim)r.unopened=true;
+    r.any=r.quiet||r.hot||r.unopened;
+    return r;
+  }
+  function needsChase(q){return chaseInfo(q).any;}
   function dayWords(t){var h=Math.floor((Date.now()-t)/3600000);if(h<1)return 'just now';if(h<24)return h+' hr ago';var d=Math.floor(h/24);return d===1?'yesterday':d+' days ago';}
   function lastLine(q){
     if(!isOpenStatus(q))return '';
-    var lt=lastTouch(q); if(!lt.t)return '';
-    var chase=needsChase(q);
+    var c=chaseInfo(q), lt=c.lt, act=c.act; if(!lt||!lt.t)return '';
+    var out='';
     var txt=lt.kind==='note'?'Last note '+dayWords(lt.t):lt.kind==='update'?'Last update '+dayWords(lt.t):'No notes yet, came in '+dayWords(lt.t);
-    return '<div class="ea-last'+(chase?' chase':'')+'">'+(chase?'Time to chase. ':'')+esc(txt)+'</div>';
+    out+='<div class="ea-last'+(c.quiet?' chase':'')+'">'+(c.quiet?'Time to chase. ':'')+esc(txt)+'</div>';
+    if(act&&act.quotes>0){
+      var vt=act.views>0?'Quote opened '+act.views+(act.views===1?' time':' times')+', last '+dayWords(act.lastView)+(c.hot?'. After your last note, so follow up':''):'Quote sent '+(act.sentAt?dayWords(act.sentAt)+' and ':'')+'not opened yet';
+      out+='<div class="ea-last'+(c.hot||c.unopened?' chase':'')+'">'+esc(vt)+'</div>';
+    }
+    return out;
   }
+  function sortKey(q){var c=chaseInfo(q);return c.hot?-1e15+(-c.act.lastView):c.lt.t;}
   function counts(){var c={open:0,chase:0,all:data.length};STATUSES.forEach(function(s){c[s[0]]=0;});data.forEach(function(q){var s=q.status||'new';c[s]=(c[s]||0)+1;if(isOpenStatus(q)){c.open++;if(needsChase(q))c.chase++;}});return c;}
   function renderStats(){
     var c=counts();var items=[['open','Open',c.open],['chase','To chase',c.chase],['new','New',c['new']],['contacted','Contacted',c.contacted],['quoted','Quote sent',c.quoted],['booked','Booked',c.booked],['done','Done',c.done],['closed','Closed',c.closed],['all','All',c.all]];
@@ -220,7 +239,7 @@
       if(filter==='open'){if(s==='done'||s==='closed'||s==='booked')return false;}else if(filter==='chase'){if(!needsChase(q))return false;}else if(filter!=='all'&&s!==filter)return false;
       if(type==='enquiry'&&pre(q))return false; if(type==='prereg2028'&&!pre(q))return false;
       if(term){var hay=[q.firstName,q.lastName,q.email,q.phone,q.destination,q.holidayType].join(' ').toLowerCase();if(hay.indexOf(term)<0)return false;}
-      return true;}).sort(function(a,b){return filter==='chase'?lastTouch(a).t-lastTouch(b).t:0;});
+      return true;}).sort(function(a,b){return filter==='chase'?sortKey(a)-sortKey(b):0;});
   }
   function detail(q){
     var party=(q.adults||1)+' adult'+(Number(q.adults)===1?'':'s')+(Number(q.children)?', '+q.children+' child'+(Number(q.children)===1?'':'ren')+(q.childAges&&q.childAges.length?' (ages '+q.childAges.join(', ')+')':''):'');
@@ -255,7 +274,7 @@
     var sum=[q.destination||q.holidayType, pre(q)?q.month:niceDate(q.departDate), (q.adults||1)+(Number(q.children)?'+'+q.children:'')+' travelling', q.budget].filter(Boolean).join(' · ');
     return '<article class="ea-card'+(s==='new'?' is-new':'')+(needsChase(q)?' is-chase':'')+'" data-id="'+id+'">'
       +'<div class="ea-head"><div><h3 class="ea-name">'+esc(q.firstName+' '+q.lastName)+'</h3><div class="ea-meta">'+esc(nice(q.createdAt))+' ('+esc(ago(q.createdAt))+')</div></div>'
-      +'<div class="ea-badges">'+(needsChase(q)?'<span class="ea-badge chase">Chase</span>':'')+(pre(q)?'<span class="ea-badge pre">2028 pre-reg</span>':'<span class="ea-badge">Enquiry</span>')+'<span class="ea-badge s-'+esc(s)+'">'+esc(label(s))+'</span></div></div>'
+      +'<div class="ea-badges">'+(chaseInfo(q).hot?'<span class="ea-badge s-new">Opened quote</span>':'')+(needsChase(q)?'<span class="ea-badge chase">Chase</span>':'')+(pre(q)?'<span class="ea-badge pre">2028 pre-reg</span>':'<span class="ea-badge">Enquiry</span>')+'<span class="ea-badge s-'+esc(s)+'">'+esc(label(s))+'</span></div></div>'
       +'<p class="ea-sum">'+esc(sum)+'</p>'+lastLine(q)
       +'<div class="ea-actions">'
       +'<a class="ea-btn wa" target="_blank" rel="noopener" href="https://wa.me/'+waNum(q.phone)+'?text='+hello+'">WhatsApp</a>'
@@ -313,6 +332,7 @@
     if(e.target.dataset.act!=='notes')return; var q=find(e.target.closest('.ea-card').dataset.id); if(!q||(q.adminNotes||'')===e.target.value)return;
     var v=e.target.value; api('POST',{action:'update',id:q.id,adminNotes:v}).then(function(r){if(r.j&&r.j.ok){q.adminNotes=v;toast('Note saved');}else toast('Could not save note');});
   });
+  window.__eaRerender=function(){var f=document.activeElement;if(f&&f.matches&&f.matches('[data-note-in]')&&f.value)return;if(!anyEditing())render();};
   window.__eaTouch=function(id,log){var q=find(id);if(q){q.notesLog=log;render();}};
   $('eaSearch').addEventListener('input',render); $('eaType').addEventListener('change',render);
 
@@ -333,7 +353,7 @@
   setInterval(function(){if(key&&!$('eaApp').hidden&&document.visibilityState==='visible')load(false);},60000);
 })();
 </script>
-<script src="js/quotes-dashboard.js?v=20261021a" defer></script>
+<script src="js/quotes-dashboard.js?v=20261021b" defer></script>
 
 <footer class="site-footer">
   <div class="jake-dash-yellow"></div>
