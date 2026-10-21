@@ -199,16 +199,21 @@
   }
   function isOpenStatus(q){var s=q.status||'new';return s!=='done'&&s!=='closed'&&s!=='booked';}
   function qAct(q){try{return window.__eaQuoteActivity?window.__eaQuoteActivity(q.id):null;}catch(e){return null;}}
-  /* Reasons to chase: (1) no note or update for 2 days, (2) the customer opened their quote after your last note, (3) quote sent over 2 days ago and never opened */
+  /* Chase rule: nothing is flagged until 48 hours after your last note, status change or quote sent (whichever is latest).
+     Once it is due, a customer who has opened their quote since your last note is marked hot, and one who never opened it is marked unopened. */
   function chaseInfo(q){
-    var r={quiet:false,hot:false,unopened:false,any:false,act:null,lt:null};
+    var r={due:false,quiet:false,hot:false,unopened:false,any:false,act:null,lt:null};
     if(!isOpenStatus(q))return r;
     var lt=lastTouch(q), act=qAct(q); r.lt=lt; r.act=act;
     var now=Date.now(), lim=CHASE_HOURS*3600000;
-    if(lt.t&&now-lt.t>=lim)r.quiet=true;
-    if(act&&act.views>0&&act.lastView&&act.lastView>lt.t)r.hot=true;
-    if(act&&act.quotes>0&&act.views===0&&act.sentAt&&now-act.sentAt>=lim)r.unopened=true;
-    r.any=r.quiet||r.hot||r.unopened;
+    var base=Math.max(lt.t||0,(act&&act.quotes>0&&act.sentAt)||0);
+    if(base&&now-base>=lim)r.due=true;
+    if(r.due){
+      r.quiet=true;
+      if(act&&act.views>0&&act.lastView&&act.lastView>lt.t)r.hot=true;
+      if(act&&act.quotes>0&&act.views===0)r.unopened=true;
+    }
+    r.any=r.due;
     return r;
   }
   function needsChase(q){return chaseInfo(q).any;}
@@ -220,7 +225,7 @@
     var txt=lt.kind==='note'?'Last note '+dayWords(lt.t):lt.kind==='update'?'Last update '+dayWords(lt.t):'No notes yet, came in '+dayWords(lt.t);
     out+='<div class="ea-last'+(c.quiet?' chase':'')+'">'+(c.quiet?'Time to chase. ':'')+esc(txt)+'</div>';
     if(act&&act.quotes>0){
-      var vt=act.views>0?'Quote opened '+act.views+(act.views===1?' time':' times')+', last '+dayWords(act.lastView)+(c.hot?'. After your last note, so follow up':''):'Quote sent '+(act.sentAt?dayWords(act.sentAt)+' and ':'')+'not opened yet';
+      var vt=act.views>0?'Quote opened '+act.views+(act.views===1?' time':' times')+', last '+dayWords(act.lastView)+(c.hot?'. Opened since your last note, so follow up':''):'Quote sent '+(act.sentAt?dayWords(act.sentAt)+' and ':'')+'not opened yet';
       out+='<div class="ea-last'+(c.hot||c.unopened?' chase':'')+'">'+esc(vt)+'</div>';
     }
     return out;
@@ -353,7 +358,7 @@
   setInterval(function(){if(key&&!$('eaApp').hidden&&document.visibilityState==='visible')load(false);},60000);
 })();
 </script>
-<script src="js/quotes-dashboard.js?v=20261021c" defer></script>
+<script src="js/quotes-dashboard.js?v=20261021d" defer></script>
 
 <footer class="site-footer">
   <div class="jake-dash-yellow"></div>
