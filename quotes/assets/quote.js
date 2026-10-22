@@ -199,6 +199,17 @@
   var fullOnly = Q.fullPayment === true || !!(Q.departDate && (Date.parse(Q.departDate) - Date.now()) < 98 * 86400000);
   /* monthly direct debit only offered when travel is at least 22 weeks away (grace time for customers to decide) */
   var ddOK = !fullOnly && Q.noDirectDebit !== true && !!(Q.departDate && (Date.parse(Q.departDate + 'T00:00:00') - Date.now()) >= 22 * 7 * 86400000);
+  /* zeroDeposit: { until: 'YYYY-MM-DD' } offers the whole group a choice of no deposit with a monthly direct debit, or paying the deposit. Switches itself off after the until date. */
+  var zeroOK = !!(Q.zeroDeposit && ddOK && Q.zeroDeposit.until && Date.now() <= Date.parse(Q.zeroDeposit.until + 'T23:59:59'));
+  var zeroDep = zeroOK;
+  function zdBox(p) {
+    if (!zeroOK) return '';
+    var u = new Date(Q.zeroDeposit.until + 'T12:00:00');
+    return '<div class="zdbox"><h4>How would the group like to secure it?</h4><div class="bkopts">'
+      + '<label class="fbopt"><input type="radio" name="zd' + p + '" data-zd value="zero"' + (zeroDep ? ' checked' : '') + '><span>&pound;0 deposit with a monthly direct debit</span></label>'
+      + '<label class="fbopt"><input type="radio" name="zd' + p + '" data-zd value="dep"' + (zeroDep ? '' : ' checked') + '><span>Pay the deposit' + (Q.depositTotal ? ' of ' + gbp(Q.depositTotal) : '') + '</span></label></div>'
+      + '<p class="small" style="margin:8px 0 0">' + esc(Q.zeroDeposit.note || ('Whichever you choose applies to the whole group, so everyone either pays no deposit or everyone pays the deposit. The \u00a30 deposit is available when you book by ' + dmy(u) + '.')) + '</p></div>';
+  }
   function wxMonthName() { var m = Q.departDate ? new Date(Q.departDate + 'T12:00:00Z').toLocaleDateString('en-GB', { month: 'long', timeZone: 'UTC' }) : ''; return m; }
   function wxList() {
     if (!Q.departDate || Q.noWeather) return [];
@@ -345,7 +356,7 @@
     + '<div class="pay">' + (Q.steps || []).filter(function (s) { return ddOK || String(s[1]).indexOf('{monthlyPlan}') < 0; }).map(function (s, i) { return '<div class="step"><div class="sn">' + (i + 1) + '</div><h3>' + esc(s[0]) + '</h3><p>' + stepText(s[1]) + '</p></div>'; }).join('') + '</div>'
     + '<p style="margin:22px 0 0;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-y" href="#feedback" data-pick="book">I want to book</a><a class="btn btn-o" href="#feedback" data-pick="question">I have a question</a></p>'
     + (hotels.length ? '<div class="full" id="fullCost"></div>' : '')
-    + (ddOK && hotels.length ? '<div class="calc" id="calc"><h3>Your monthly payments</h3><p class="intro" style="margin:4px 0 16px">Pick a hotel and the day of the month that suits you, and see how the balance could be spread by direct debit.</p>'
+    + (ddOK && hotels.length ? '<div class="calc" id="calc">' + zdBox('c') + '<h3>Your monthly payments</h3><p class="intro" style="margin:4px 0 16px">Pick a hotel and the day of the month that suits you, and see how the balance could be spread by direct debit.</p>'
       + '<div class="calcgrid">' + (multi ? '<div><label class="fbl" for="cHotel">Hotel</label><select id="cHotel">' + hotels.map(function (x, i) { return '<option value="' + i + '">' + esc(x.name) + ' (' + gbp(x.total) + ')</option>'; }).join('') + '</select></div>' : '')
       + '<div><label class="fbl" for="cDay">Payment day each month</label><select id="cDay">' + Array.apply(null, Array(28)).map(function (_, i) { var d = i + 1; return '<option value="' + d + '"' + (d === 1 ? ' selected' : '') + '>' + d + ordinal(d) + '</option>'; }).join('') + '</select></div></div>'
       + '<div id="cOut"></div></div>' : '')
@@ -371,7 +382,9 @@
   document.getElementById('app').innerHTML = h;
   var people = Number(Q.partyCount || 0);
   /* deposit for the party: a hotel's own depositAmt wins over the quote wide depositTotal (operators differ) */
-  function depOf(x) { return x && x.depositAmt != null ? Number(x.depositAmt) : Number(Q.depositTotal || 0); }
+  function depOf(x) { if (zeroDep) return 0; return x && x.depositAmt != null ? Number(x.depositAmt) : Number(Q.depositTotal || 0); }
+  /* a hotel can carry its own departDate when options travel on different dates */
+  function dOf(x) { return (x && x.departDate) || Q.departDate; }
   function taxOf(x) { return taxAmt(x); }
   function inBooking(x) { return xFor(x).reduce(function (a, e) { var t = xTotal(e, x); return a + (t != null && !e.separate ? t : 0); }, 0); }
   function full() {
@@ -404,7 +417,7 @@
     var out = document.getElementById('cOut'); if (!out || !Q.departDate) return;
     var x = curHotel(), extra = inBooking(x), deposit = depOf(x);
     var day = Number(document.getElementById('cDay').value), bal = Math.max(0, x.total + extra - deposit);
-    var p = ddPlan(bal, Q.departDate, day);
+    var p = ddPlan(bal, dOf(x), day);
     if (!p.ok) { out.innerHTML = '<p class="intro">Your holiday is too close for monthly payments, but I can send you a secure payment link instead.</p>'; return; }
     var pl = document.getElementById('planLine'); if (pl) pl.textContent = (multi ? 'for ' + x.name + ', ' : '') + p.n + ' monthly payments of ' + money(p.each) + ' with the final payment on ' + dmy(p.end);
     out.innerHTML = '<div class="tiles">'
@@ -414,7 +427,7 @@
       + '<details class="sched"><summary>See every payment date</summary><table><tbody>'
       + p.rows.map(function (d, i) { return '<tr><td>Payment ' + (i + 1) + '</td><td>' + dmy(d) + '</td><td class="n">' + money(i === p.n - 1 ? p.last : p.each) + '</td></tr>'; }).join('')
       + '</tbody></table></details>'
-      + '<p class="small" style="margin:12px 0 0">Based on ' + esc(x.name) + ' at ' + gbp(x.total) + ' for ' + esc(party) + (extra ? ' plus ' + fmt(Math.round(extra * 100) / 100) + ' of extras added to the booking' : '') + ', with a ' + gbp(deposit) + ' deposit and the balance cleared 6 weeks before you fly. This is an estimate to help you budget, and I confirm the exact plan when you book. Payments falling on a weekend move to the next working day.</p>';
+      + '<p class="small" style="margin:12px 0 0">Based on ' + esc(x.name) + ' at ' + gbp(x.total) + ' for ' + esc(party) + (extra ? ' plus ' + fmt(Math.round(extra * 100) / 100) + ' of extras added to the booking' : '') + (deposit ? ', with a ' + gbp(deposit) + ' deposit' : ', with no deposit') + ' and the balance cleared 6 weeks before you fly. This is an estimate to help you budget, and I confirm the exact plan when you book. Payments falling on a weekend move to the next working day.</p>';
   }
   /* carousel arrows: things to do, extras and other dates */
   Array.prototype.forEach.call(document.querySelectorAll('[data-adir],[data-xdir],[data-ddir]'), function (b) {
@@ -439,6 +452,13 @@
   var cD = document.getElementById('cDay'); if (cD) cD.addEventListener('change', calc);
   var fc = document.getElementById('fullCost');
   if (fc) fc.addEventListener('change', function (ev) { if (ev.target.id !== 'fHotel') return; hIdx = Number(ev.target.value) || 0; if (cH) cH.value = hIdx; calc(); });
+  document.addEventListener('change', function (ev) {
+    var t = ev.target; if (!t || !t.hasAttribute || !t.hasAttribute('data-zd')) return;
+    zeroDep = t.value === 'zero';
+    Array.prototype.forEach.call(document.querySelectorAll('[data-zd]'), function (o) { o.checked = (o.value === 'zero') === zeroDep; });
+    if (zeroDep) { var dr = document.querySelector('input[name="payNow"][value="deposit"]'); if (dr) dr.checked = true; }
+    calc();
+  });
   calc();
   Array.prototype.forEach.call(document.querySelectorAll('[data-x]'), function (c) {
     c.addEventListener('change', function () {
@@ -471,16 +491,16 @@
       + '<label>Postcode<input type="text" name="postcode" autocomplete="postal-code" required></label>'
       + '<label>Mobile number<input type="tel" name="mobile" autocomplete="tel" required></label>'
       + '<label class="wide">Email address<input type="email" name="email" autocomplete="email" required></label></div>'
-      + '<h4>How much would you like to pay today?</h4>' + (fullOnly
+      + zdBox('b') + '<div id="bkPayNowWrap"><h4>How much would you like to pay today?</h4>' + (fullOnly
         ? '<p class="bkfull" id="bkFullNote">' + (Q.fullPayment === true ? 'This holiday is paid in full at the time of booking.' : 'As you travel within 14 weeks, this holiday is paid in full at the time of booking.') + '</p><input type="hidden" name="payNow" value="full" checked>'
         : '<div class="bkopts" id="bkPayNow"><label class="fbopt"><input type="radio" name="payNow" value="deposit" checked><span>Just the deposit</span></label>'
         + '<label class="fbopt"><input type="radio" name="payNow" value="full"><span>The full amount</span></label>'
         + '<label class="fbopt"><input type="radio" name="payNow" value="other"><span>Another amount</span></label></div>'
         + '<div id="bkOther" hidden style="margin-top:10px"><label>Enter the amount (&pound;)<input type="number" id="bkOtherAmt" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 1000" autocomplete="off"></label><p class="small" id="bkOtherNote" style="margin:6px 0 0"></p></div>')
-      + '<h4 style="margin-top:18px">How would you like to pay?</h4><div class="bkopts"><label class="fbopt"><input type="radio" name="payHow" value="bank" checked><span>Bank transfer</span></label>'
+      + '</div><div id="bkHowWrap"><h4 style="margin-top:18px">How would you like to pay?</h4><div class="bkopts"><label class="fbopt"><input type="radio" name="payHow" value="bank" checked><span>Bank transfer</span></label>'
       + '<label class="fbopt"><input type="radio" name="payHow" value="debit"><span>Debit card</span></label>'
       + '<label class="fbopt"><input type="radio" name="payHow" value="credit"><span>Credit card</span></label></div>'
-      + '<p class="small" style="margin:8px 0 0">Either way I text you a secure payment link, so nothing is paid on this page.</p>'
+      + '<p class="small" style="margin:8px 0 0">Either way I text you a secure payment link, so nothing is paid on this page.</p></div>'
       + (fullOnly ? '' : '<div id="bkDD"><h4>The rest of the balance</h4>'
       + '<div class="bkopts"><label class="fbopt"><input type="checkbox" id="bkWantDD"' + (ddOK ? ' checked' : '') + '><span>Set up a monthly direct debit</span></label><label class="fbopt"><input type="checkbox" id="bkPayGo"><span>I will pay as I go</span></label></div>'
       + '<div id="bkDDFields" class="paxg" style="margin-top:12px">'
@@ -511,11 +531,14 @@
       if (other && oOk) dep = oa;
       var el = document.getElementById('bkSum');
       el.innerHTML = '<div><span>Holiday' + (list.length ? ' with ' + list.length + ' extra' + (list.length > 1 ? 's' : '') : '') + '</span><b>' + fmt(Math.round(total * 100) / 100) + '</b></div>'
-        + '<div><span>' + (full ? 'To pay today, the full amount' : other && oOk ? 'To pay today, the amount you chose' : 'To pay today' + (today ? ' (deposit plus airport extras)' : ', your deposit')) + '</span><b>' + fmt(Math.round((full ? total : dep) * 100) / 100) + '</b></div>'
+        + '<div><span>' + (full ? 'To pay today, the full amount' : other && oOk ? 'To pay today, the amount you chose' : 'To pay today' + (zeroDep ? (today ? ' (airport extras)' : ', no deposit') : (today ? ' (deposit plus airport extras)' : ', your deposit'))) + '</span><b>' + fmt(Math.round((full ? total : dep) * 100) / 100) + '</b></div>'
         + (full ? '' : '<div><span>Balance to follow</span><b>' + fmt(Math.round((total - dep) * 100) / 100) + '</b></div>')
         + (list.length ? '<p class="small" style="margin:8px 0 0">Extras: ' + list.map(function (e) { return esc(e.title); }).join(', ') + '. Change them in <a href="#extras">Add extras</a>.</p>' : '');
       var dd = document.getElementById('bkDD'); if (dd) dd.hidden = full;
-      var ddp = document.getElementById('bkDDPlan'); if (ddp) { var dday = Number((f.querySelector('[name=ddDay]') || {}).value) || 1, pl2 = Q.departDate ? ddPlan(Math.max(0, total - dep), Q.departDate, dday) : { ok: false }; ddp.textContent = pl2.ok ? 'Your balance of ' + fmt(Math.round((total - dep) * 100) / 100) + ' is ' + pl2.n + ' monthly payments of ' + money(pl2.each) + ', from ' + dmy(pl2.first) + ', with the final payment on ' + dmy(pl2.end) + '.' : ''; }
+      var zpw = document.getElementById('bkPayNowWrap'), zhw = document.getElementById('bkHowWrap'), zpg = document.getElementById('bkPayGo');
+      if (zpw) zpw.hidden = zeroDep; if (zhw) zhw.hidden = zeroDep && !today; if (zpg) zpg.closest('label').style.display = zeroDep ? 'none' : '';
+      if (zeroDep) { var zwd = document.getElementById('bkWantDD'); if (zwd) zwd.checked = true; if (zpg) zpg.checked = false; }
+      var ddp = document.getElementById('bkDDPlan'); if (ddp) { var dday = Number((f.querySelector('[name=ddDay]') || {}).value) || 1, pl2 = Q.departDate ? ddPlan(Math.max(0, total - dep), dOf(x), dday) : { ok: false }; ddp.textContent = pl2.ok ? 'Your balance of ' + fmt(Math.round((total - dep) * 100) / 100) + ' is ' + pl2.n + ' monthly payments of ' + money(pl2.each) + ', from ' + dmy(pl2.first) + ', with the final payment on ' + dmy(pl2.end) + '.' : ''; }
       var w = document.getElementById('bkWantDD'), ff = document.getElementById('bkDDFields'), pg = document.getElementById('bkPayGo'), nt = document.getElementById('bkDDNote'); if (w && ff) { ff.hidden = !w.checked; if (ddp) ddp.hidden = !w.checked; } if (pg && nt) nt.hidden = !pg.checked;
       if (!ddOK && dd) { var ob = dd.querySelector('.bkopts'); if (ob) ob.style.display = 'none'; if (ff) ff.hidden = true; if (ddp) ddp.hidden = true; if (nt) nt.hidden = false; }
       var opt = document.querySelector('input[name="payNow"][value="deposit"]'); if (opt) opt.nextSibling.textContent = 'Just the deposit, ' + fmt(Math.round((deposit + today) * 100) / 100);
@@ -559,7 +582,7 @@
       var body = {
         slug: Q.slug, customer: Q.customer, title: Q.title, hotel: x.name, hotelTotal: x.total, extras: list.map(function (e) { return { title: e.title, total: xTotal(e, x), separate: !!e.separate }; }),
         total: Math.round((x.total + ex) * 100) / 100, deposit: deposit, payToday: Math.round(((full ? x.total + ex : isOther ? otherAmt : deposit + paidToday(x))) * 100) / 100,
-        payNow: full ? 'full' : isOther ? 'other' : 'deposit', ddPlan: (wantDD && document.getElementById('bkDDPlan')) ? document.getElementById('bkDDPlan').textContent : '', payHow: (document.querySelector('input[name="payHow"]:checked') || {}).value || 'card',
+        payNow: full ? 'full' : isOther ? 'other' : 'deposit', depositChoice: zeroOK ? (zeroDep ? 'zero' : 'deposit') : '', ddPlan: (wantDD && document.getElementById('bkDDPlan')) ? document.getElementById('bkDDPlan').textContent : '', payHow: (document.querySelector('input[name="payHow"]:checked') || {}).value || 'card',
         dd: wantDD ? { day: Number(g('ddDay')), name: g('ddName'), sort: g('ddSort').replace(/\D/g, ''), account: g('ddAcc').replace(/\D/g, '') } : null,
         passengers: pax, address: g('address'), postcode: g('postcode'), mobile: g('mobile'), email: g('email'), agreed: true, website: g('website'), departDate: Q.departDate || ''
       };
@@ -686,7 +709,7 @@
         + '<p class="why">' + esc(x.why) + '</p>' + ((x.story || (base && base.story)) ? '<p class="story">' + esc(x.story || base.story) + '</p>' : '') + (x.package ? '<button class="mbtn" type="button" data-tog="more" aria-expanded="false"><span class="m1">About the resort</span><span class="m2">About the resort</span></button>' : '')
         + '<div class="feat">' + (x.feats || []).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + (x.transfer ? '<span>Transfer ' + mins(x.transfer) + '</span>' : '') + '</div>'
         + (x.rooms ? '<p class="rooms"><b>Your rooms:</b> ' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</p>' : '')
-        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + (x.free ? ' per paying person<br><span class="freec">' + x.free + ' free child place' + (Number(x.free) === 1 ? '' : 's') + ' included</span><br>' : ' per person<br>') : '') + esc(x.deposit || '') + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - depOf(x)), Q.departDate, 1); return mp.ok ? '<br><a href="#calc" class="monthly">then about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
+        + '<div class="price"><div><small>TOTAL FOR ' + esc(party.toUpperCase()) + '</small><div class="big">' + gbp(x.total) + '</div></div><div class="r">' + (x.pp ? gbp(x.pp) + (x.free ? ' per paying person<br><span class="freec">' + x.free + ' free child place' + (Number(x.free) === 1 ? '' : 's') + ' included</span><br>' : ' per person<br>') : '') + (zeroOK ? '\u00a30 deposit with a monthly direct debit, or ' + gbp(Number(x.depositAmt != null ? x.depositAmt : Q.depositTotal || 0)) + ' deposit' : esc(x.deposit || '')) + (function () { if (!Q.departDate) return ''; var mp = ddPlan(Math.max(0, x.total - depOf(x)), dOf(x), 1); return mp.ok ? '<br><a href="#calc" class="monthly">then about ' + money(mp.each) + ' a month</a>' : ''; })() + '</div>' + (taxText(x) ? '<p class="tax">' + esc(taxText(x)) + '</p>' : '') + '</div>'
         /* optional in-card upgrade, e.g. a resort's deluxe collection: { title, text, perks: [], options: [{ name, price }], note } */
         /* upgrade.button (optional): the upgrade box stays closed behind a button on the card. option.extra links an option to an extras id so it can be added straight from the card */
         + (x.upgrade && x.upgrade.options && x.upgrade.options.length && x.upgrade.button ? '<button class="btn btn-upg" type="button" data-upg="' + esc(x.id) + '" aria-expanded="false">' + esc(x.upgrade.button) + ' <span class="upgc" aria-hidden="true">&#9662;</span></button>' : '')

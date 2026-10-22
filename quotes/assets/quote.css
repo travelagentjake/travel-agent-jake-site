@@ -744,3 +744,8 @@ html.a11y-hc .btn-y,html.a11y-hc .btn{border:2px solid #000}
 .dtabs button{flex:1 1 auto;padding:8px 6px;font-size:13px;text-align:center;white-space:nowrap}
 @media (min-width:901px){.dtabs{justify-content:center;padding:8px 14px;gap:8px}.dtabs button{flex:none;padding:8px 22px;font-size:14px}}
 @media (max-width:900px){body .dtabs,.deck .dtabs{padding-right:58px!important;padding-left:10px!important}}
+
+/* whole group deposit choice (zeroDeposit quotes) */
+.zdbox{margin:0 0 18px;padding:16px 18px;border:2px solid #DCE3FF;border-radius:18px;background:#fff}
+.zdbox h4{margin:0 0 10px}
+#bkPayNowWrap[hidden],#bkHowWrap[hidden]{display:none!important}
