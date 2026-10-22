@@ -258,6 +258,16 @@
       "created": "2026-10-22",
       "departs": "2028-08-02",
       "fromPrice": 3850
+    },
+    {
+      "slug": "shelbyfurnessmum",
+      "url": "https://quotes.travelagentjake.co.uk/shelbyfurnessmum",
+      "customer": "Shelby Furness's mum",
+      "enquiryId": "muzni803tii4",
+      "title": "Rhodes for Shelby's wedding, 14 nights B&B in Pefkos from East Midlands, July 2028 (Island Blue, Lindia Thalassa, Pefki Islands)",
+      "created": "2026-10-22",
+      "departs": "2028-07-30",
+      "fromPrice": 3376
     }
   ]
 }
