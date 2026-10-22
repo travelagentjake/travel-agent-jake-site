@@ -196,6 +196,8 @@
   /* paid in full at booking when travel is within 14 weeks, or when Jake marks the quote fullPayment */
   /* hideCols: ['transfer'] leaves the Transfer column off the comparison table when it cannot be filled for every option */
   var hideTransfer = (Q.hideCols || []).indexOf('transfer') >= 0;
+  /* hideCols: ['rating'] leaves the Tripadvisor column and the Top rated sort off, e.g. for cruise packages */
+  var hideRating = (Q.hideCols || []).indexOf('rating') >= 0;
   var fullOnly = Q.fullPayment === true || !!(Q.departDate && (Date.parse(Q.departDate) - Date.now()) < 98 * 86400000);
   /* monthly direct debit only offered when travel is at least 22 weeks away (grace time for customers to decide) */
   var ddOK = !fullOnly && Q.noDirectDebit !== true && !!(Q.departDate && (Date.parse(Q.departDate + 'T00:00:00') - Date.now()) >= 22 * 7 * 86400000);
@@ -239,13 +241,13 @@
     h += '<section id="compare"><div class="wrap"><h2 class="h2">' + (Q.compareTitle ? esc(Q.compareTitle) : 'Your ' + (hotels.length === 2 ? 'two' : hotels.length === 3 ? 'three' : hotels.length === 4 ? 'four' : hotels.length === 5 ? 'five' : hotels.length === 6 ? 'six' : hotels.length) + ' hotels at a glance') + '</h2>'
       + (Q.compareIntro ? '<p class="intro">' + esc(Q.compareIntro) + '</p>' : '')
       + '<div class="ctrl" role="group" aria-label="Sort hotels"><span>Sort by</span>'
-      + '<select id="sortSel" class="sortsel" aria-label="Sort hotels"><option value="match">Sort: Best match</option><option value="price">Sort: Lowest price</option><option value="rating">Sort: Top rated</option><option value="transfer">Sort: Shortest transfer</option></select>'
+      + '<select id="sortSel" class="sortsel" aria-label="Sort hotels"><option value="match">Sort: Best match</option><option value="price">Sort: Lowest price</option>' + (hideRating ? '' : '<option value="rating">Sort: Top rated</option>') + (hideTransfer ? '' : '<option value="transfer">Sort: Shortest transfer</option>') + '</select>'
       + '<button class="chipbtn" type="button" data-sort="match" aria-pressed="true">Best match</button>'
       + '<button class="chipbtn" type="button" data-sort="price" aria-pressed="false">Lowest price</button>'
-      + '<button class="chipbtn" type="button" data-sort="rating" aria-pressed="false">Top rated</button>'
-      + '<button class="chipbtn" type="button" data-sort="transfer" aria-pressed="false">Shortest transfer</button>'
+      + (hideRating ? '' : '<button class="chipbtn" type="button" data-sort="rating" aria-pressed="false">Top rated</button>')
+      + (hideTransfer ? '' : '<button class="chipbtn" type="button" data-sort="transfer" aria-pressed="false">Shortest transfer</button>')
       + (anySlides ? '<button class="chipbtn" type="button" id="slidesOnly" aria-pressed="false">Slides only</button>' : '')
-      + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th><th>Tripadvisor</th>' + (hideTransfer ? '' : '<th>Transfer</th>') + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div><div class="cmob" id="cmob"></div>' + (Q.touristTax && Q.touristTax.amount ? '<p class="taxnote">' + esc('Prices do not include tourist tax of about ' + gbp(Q.touristTax.amount) + ', paid locally at the hotel.') + '</p>' : '') + '</div></section>';
+      + '</div><div class="tablebox"><table><thead><tr><th>Hotel</th><th>Resort</th>' + (hideRating ? '' : '<th>Tripadvisor</th>') + (hideTransfer ? '' : '<th>Transfer</th>') + (anySlides ? '<th>Slides</th>' : '') + '<th class="n">Total for ' + esc(party.replace(/^all /, '')) + '</th><th class="n">Per person</th></tr></thead><tbody id="ctable"></tbody></table></div><div class="cmob" id="cmob"></div>' + (Q.touristTax && Q.touristTax.amount ? '<p class="taxnote">' + esc('Prices do not include tourist tax of about ' + gbp(Q.touristTax.amount) + ', paid locally at the hotel.') + '</p>' : '') + '</div></section>';
   }
   if (hotels.length) {
     h += '<section id="hotels" class="alt"><div class="wrap"><h2 class="h2">' + esc(Q.hotelsTitle || (multi ? 'The hotels' : 'Your hotel')) + '</h2>'
@@ -667,7 +669,7 @@
   function renderTable() {
     var t = document.getElementById('ctable'); if (!t) return;
     t.innerHTML = ordered().map(function (x) {
-      return '<tr><td><a href="#h-' + esc(x.id) + '">' + esc(x.name) + '</a>' + optLine(x) + '</td><td>' + esc(x.area) + '</td><td><span class="stars">' + (x.rating ? x.rating.toFixed(1) : '') + '</span>' + (x.rating ? ' / 5' : '') + '</td>' + (hideTransfer ? '' : '<td>' + mins(x.transfer) + '</td>')
+      return '<tr><td><a href="#h-' + esc(x.id) + '">' + esc(x.name) + '</a>' + optLine(x) + '</td><td>' + esc(x.area) + '</td>' + (hideRating ? '' : '<td><span class="stars">' + (x.rating ? x.rating.toFixed(1) : '') + '</span>' + (x.rating ? ' / 5' : '') + '</td>') + (hideTransfer ? '' : '<td>' + mins(x.transfer) + '</td>')
         + (anySlides ? '<td>' + (x.slides ? '<span class="yes">Yes</span>' : '<span class="no">No</span>') + '</td>' : '') + '<td class="n"><b>' + gbp(x.total) + '</b></td><td class="n">' + gbp(x.pp) + (x.free ? '<br><small>' + x.free + ' kids free</small>' : '') + '</td></tr>';
     }).join('');
     /* phones get a stacked list instead of the wide table */
