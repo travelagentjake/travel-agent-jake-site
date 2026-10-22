@@ -690,19 +690,6 @@ home_body = """
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
-    <div class="jake-card" style="border-color:var(--yellow); border-width:3px;">
-      <img src="images/logo-jet2holidays.png" alt="Jet2holidays" width="500" height="129" style="height:46px; width:auto; display:block; margin-bottom:14px;">
-      <h2>THE SAME PACKAGE, FOR LESS.</h2>
-      <p style="margin:12px 0 22px;">Search package prices here. Same flights, same hotels and same ATOL protection as booking direct. <a class="body-copy" href="jet2holidays.html">See how it works</a>.</p>
-      <div id="agendas-search-widget" data-agendas-widget="search">
-        <travel-searchbox-v3 widgetid="19407" language="en" class="travelify-widget"></travel-searchbox-v3>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="theme-light" style="padding-top:0;">
-  <div class="wrap">
     <div class="eyebrow">What customers say</div>
     <h2>Don't just take my word for it.</h2>
     <p style="margin-top:14px; max-width:60ch;">Real reviews from real customers. <a class="body-copy" href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">See all reviews on Trustpilot &rarr;</a></p>
@@ -1025,8 +1012,7 @@ with open(os.path.join(SITE, "index.html"), "w", encoding="utf-8") as f:
         "Travel Agent Jake | Holidays booked by someone who actually goes",
         "Independent ABTA protected UK travel agent. 15+ years booking family holidays, all-inclusive holidays and package holidays. Message Jake for honest, no-pressure holiday planning.",
         "index.html",
-        home_body,
-        extra_head=WIDGET_ELEMENTS_SCRIPT
+        home_body
     ))
 print("index.html written")
 
