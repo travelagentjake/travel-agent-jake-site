@@ -17224,8 +17224,8 @@ airport_extras_body = """
   </div>
 </section>
 
-<section class="theme-light">
-  <div style="width:100%; box-sizing:border-box; padding:0 16px;">
+<section class="theme-light" style="padding-bottom:0;">
+  <div class="wrap">
     <div id="agendas-airport-extras-widget" data-agendas-widget="airport-extras">
       <travel-searchbox-v3 widgetid="19523" language="en" class="travelify-widget"></travel-searchbox-v3>
     </div>
@@ -17234,8 +17234,7 @@ airport_extras_body = """
 
 <section class="theme-light">
   <div class="wrap">
-    <h2 style="font-size:22px;">Airport extras explained</h2>
-    <div class="grid-3 equal-cards" style="margin-top:20px;">
+    <div class="grid-3 equal-cards">
       <div class="jake-card dest-card">
         <img class="dest-card-img" src="https://images.unsplash.com/photo-1772461355574-3fcd84c6016b?auto=format&fit=crop&w=1200&q=80" alt="Airport parking car park">
         <div class="dest-card-body">
@@ -17297,9 +17296,12 @@ jet2holidays_body = """
 </section>
 
 <section class="theme-light">
-  <div style="width:100%; box-sizing:border-box; padding:0 16px;">
+  <div class="wrap">
     <div class="jake-card" style="border-color:var(--yellow); border-width:3px;">
-      <div class="eyebrow" style="justify-content:center;">Search Jet2holidays</div>
+      <div style="text-align:center; margin-bottom:22px;">
+        <img src="images/logo-jet2holidays.png" alt="Jet2holidays" width="500" height="129" style="height:56px; width:auto; display:block; margin:0 auto 12px;">
+        <div class="eyebrow" style="justify-content:center; text-align:center;">Official Jet2holidays discount website</div>
+      </div>
       <div id="agendas-search-widget" data-agendas-widget="search">
         <travel-searchbox-v3 widgetid="19407" language="en" class="travelify-widget"></travel-searchbox-v3>
       </div>
