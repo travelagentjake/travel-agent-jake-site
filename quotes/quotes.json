@@ -312,6 +312,17 @@
       "created": "2026-10-22",
       "departs": "2027-08-04",
       "fromPrice": 3633
+    },
+    {
+      "slug": "karen",
+      "url": "https://quotes.travelagentjake.co.uk/karen",
+      "customer": "Karen",
+      "enquiryId": "mvjjvikykoao",
+      "quoteRequestId": "mvjjvinfqxud",
+      "title": "Pirates Village, Santa Ponsa, Majorca, 14 nights all inclusive from Glasgow, Tue 7 September 2027 (Large Terrace room, with and without baby)",
+      "created": "2026-10-22",
+      "departs": "2027-09-07",
+      "fromPrice": 5234
     }
   ]
 }
