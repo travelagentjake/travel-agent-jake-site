@@ -749,3 +749,44 @@ html.a11y-hc .btn-y,html.a11y-hc .btn{border:2px solid #000}
 .zdbox{margin:0 0 18px;padding:16px 18px;border:2px solid #DCE3FF;border-radius:18px;background:#fff}
 .zdbox h4{margin:0 0 10px}
 #bkPayNowWrap[hidden],#bkHowWrap[hidden]{display:none!important}
+
+/* cruise and stay itinerary tab */
+#cruiseP{display:none}
+.deck[data-v=opt][data-tab=cruise] #cruiseP{display:block}
+.cruisep{padding:12px 14px 16px}
+.czw{display:grid;gap:14px}.czw[hidden]{display:none!important}
+.czb{background:#fff;border:2px solid var(--line,#DCE3FF);border-radius:24px;padding:22px}
+.czb h3{font-family:'Archivo Black',sans-serif;color:var(--blue,#004AAD);font-size:24px;line-height:1.15;margin:6px 0 0}
+.czb .czs{font-weight:700;color:var(--muted,#55607A);margin:4px 0 14px;font-size:15px}
+.czb p{font-size:16px;margin:0 0 14px}.czb .czsm{font-size:14px;color:var(--muted,#55607A);margin:12px 0 0}
+.czb .aggrid{margin-top:4px}
+.czpill{display:inline-block;background:#FFD21F;color:var(--blue,#004AAD);font-weight:800;font-size:12.5px;border-radius:999px;padding:4px 12px;text-transform:uppercase;letter-spacing:.03em}
+.czh4{margin:4px 0 10px;color:var(--blue,#004AAD);font-family:'Archivo',sans-serif;font-weight:800;font-size:17px}
+.czsteps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.czstep{background:var(--blue,#004AAD);color:#fff;border-radius:18px;padding:14px 16px}
+.czstep small{display:block;color:#FFD21F;font-weight:800;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em}
+.czstep b{display:block;font-size:16.5px;margin:4px 0 2px}.czstep span{font-size:14px;opacity:.92}
+.czdays{list-style:none;margin:0;padding:0;position:relative}
+.czdays:before{content:'';position:absolute;left:27px;top:14px;bottom:14px;border-left:3px dashed #99ACFF}
+.czd{display:flex;gap:14px;align-items:center;position:relative;padding:6px 0}
+.czn{flex:0 0 56px;height:56px;border-radius:50%;background:#FFD21F;color:var(--blue,#004AAD);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;z-index:1;border:3px solid #fff;box-shadow:0 0 0 2px #FFD21F}
+.czn small{font-size:10px;font-weight:800;text-transform:uppercase}.czn b{font-size:21px;font-weight:800}
+.czd.sea .czn{background:#E8EDFF;box-shadow:0 0 0 2px #99ACFF}
+.czc{flex:1;min-width:0;border:2px solid var(--line,#DCE3FF);border-radius:16px;padding:10px 14px;display:flex;gap:14px;align-items:center;background:#fff}
+.czd.sea .czc{background:var(--pill,#F1F4FD)}
+.czc img{width:120px;height:84px;object-fit:cover;border-radius:12px;flex:0 0 auto}
+.czc .czdt{display:block;font-size:12.5px;font-weight:800;color:var(--muted,#55607A);text-transform:uppercase;letter-spacing:.03em}
+.czc b.czp{display:block;color:var(--blue,#004AAD);font-size:17.5px;font-weight:800;margin:1px 0}
+.czc .cztm{display:inline-block;background:#E8EDFF;color:var(--blue,#004AAD);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700;margin:3px 0}
+.czc .czx{display:block;font-size:14.5px}
+.czf{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:0 0 14px}
+.czt{display:flex;gap:10px;align-items:center;background:var(--pill,#F1F4FD);border-radius:14px;padding:10px 12px}
+.czt .czi{font-size:22px;flex:0 0 auto}
+.czt small{display:block;font-size:11.5px;font-weight:800;color:var(--muted,#55607A);text-transform:uppercase;letter-spacing:.03em}
+.czt b{display:block;font-size:14.5px;color:var(--ink,#10142B)}
+.czplan figure{background:#fff;border:2px solid var(--line,#DCE3FF)}
+.czplan img{object-fit:contain!important;background:#fff}
+.czplan figcaption{background:linear-gradient(transparent,rgba(16,20,43,.6))}
+@media (min-width:901px){.deck .cruisep{max-width:1100px;margin:0 auto;padding:24px 20px 16px}}
+@media (max-width:900px){.czb{padding:16px}.czb h3{font-size:19px}.czc img{width:84px;height:64px}.czsteps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.czc img{display:none}.czsteps{grid-template-columns:1fr}.czn{flex-basis:48px;height:48px}.czdays:before{left:23px}.czf{grid-template-columns:1fr 1fr}}

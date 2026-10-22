@@ -873,7 +873,10 @@
     bar.innerHTML = '<button type="button" class="dback" id="dBack"></button><div class="dmid" id="dMid"></div><button type="button" class="dnext" id="dNext"></button>';
     document.body.appendChild(bar);
     var tabs = document.createElement('div'); tabs.className = 'dtabs'; tabs.id = 'dTabs';
-    tabs.innerHTML = [['stay', 'Package', 'Package: stay and flights'], ['about', 'About', 'About this holiday'], ['extras', 'Extras', 'Extras'], ['more', 'More', 'More info'], ['pay', 'Price', 'Price and payments']].map(function (t) { return '<button type="button" data-dt="' + t[0] + '" aria-label="' + t[2] + '">' + t[1] + '</button>'; }).join('');
+    var anyCruise = hotels.some(function (h) { return h.cruise; });
+    var TABS = [['stay', 'Package', 'Package: stay and flights'], ['about', 'About', 'About this holiday'], ['extras', 'Extras', 'Extras'], ['more', 'More', 'More info'], ['pay', 'Price', 'Price and payments']];
+    if (anyCruise) TABS.splice(1, 0, ['cruise', 'Itinerary', 'Your cruise and stay, day by day']);
+    tabs.innerHTML = TABS.map(function (t) { return '<button type="button" data-dt="' + t[0] + '" aria-label="' + t[2] + '">' + t[1] + '</button>'; }).join('');
     var KNOWN = ['compare', 'hotels', 'trip', 'weather', 'todo', 'extras', 'next'];
     Array.prototype.forEach.call(document.querySelectorAll('#app > section'), function (s) { if (KNOWN.indexOf(s.id) < 0 && !s.querySelector('.custom .ag')) s.classList.add('xsec'); });
     var hasMore = !!document.querySelector('.xsec');
@@ -888,6 +891,45 @@
     var anchor = document.getElementById('todo') || document.getElementById('weather') || about;
     if (!cgs || anchor) anchor.parentNode.insertBefore(areaG, anchor.nextSibling);
     var gtk = document.createElement('div'); gtk.id = 'goodToKnow'; gtk.className = 'areag gtk'; gtk.hidden = true; areaG.parentNode.insertBefore(gtk, areaG.nextSibling);
+
+    /* cruise and stay quotes: an Itinerary tab built from hotels[].cruise and hotels[].stay.
+       cruise: { title, ship, nights, dates, order ('cruise' first or 'stay' first), summary, plan: [[when, what, detail]],
+                 days: [{ day, date, port, country, arrive, depart, sea, note, img }],
+                 cabin: { name, deck, size, balcony, beds, bathroom, sleeps, text, imgs: [[url, caption]], plans: [[url, caption]] },
+                 board: { name, items: [], extra },
+                 shipText, shipFacts: [], shipImgs: [[url, caption]] }
+       stay: { hotel, place, dates, nights, room, board, transfer, text, room_items: [], hotel_items: [], meals: [], imgs: [[url, caption]] } */
+    function czStrip(list, cls) { return list && list.length ? '<div class="agstrip' + (cls ? ' ' + cls : '') + '">' + list.map(function (p) { return '<figure><img src="' + esc(img(p[0], 1200)) + '" alt="' + esc(p[1] || '') + '" loading="lazy">' + (p[1] ? '<figcaption>' + esc(p[1]) + '</figcaption>' : '') + '</figure>'; }).join('') + '</div>' : ''; }
+    function czTiles(list) { list = list.filter(function (f) { return f && f[2]; }); return list.length ? '<div class="czf">' + list.map(function (f) { return '<div class="czt"><span class="czi" aria-hidden="true">' + f[0] + '</span><span><small>' + esc(f[1]) + '</small><b>' + esc(f[2]) + '</b></span></div>'; }).join('') + '</div>' : ''; }
+    function czList(t, items) { return items && items.length ? '<div class="agb"><h4>' + esc(t) + '</h4><ul>' + items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul></div>' : ''; }
+    function cruiseHtml(x) {
+      var c = x.cruise, st = x.stay || {}, h = '';
+      if (c.plan && c.plan.length) h += '<div class="czb"><h3>Your ' + esc(String(c.nightsTotal || '')) + (c.nightsTotal ? ' nights' : 'holiday') + ' in order</h3><p class="czs">' + esc(c.orderText || '') + '</p><div class="czsteps">' + c.plan.map(function (p, i) { return '<div class="czstep"><small>' + esc(p[0]) + '</small><b>' + esc(p[1]) + '</b><span>' + esc(p[2] || '') + '</span></div>'; }).join('') + '</div></div>';
+      var cr = '<div class="czb"><span class="czpill">Your cruise</span><h3>' + esc(c.title) + '</h3><p class="czs">' + esc([c.ship, c.nights ? c.nights + ' nights' : '', c.dates].filter(Boolean).join(', ')) + '</p>'
+        + (c.summary ? '<p>' + esc(c.summary) + '</p>' : '')
+        + '<ol class="czdays">' + (c.days || []).map(function (d) {
+            var tm = d.sea ? 'A day at sea' : [d.arrive ? 'Arrive ' + d.arrive : '', d.depart ? 'Depart ' + d.depart : ''].filter(Boolean).join(', ');
+            return '<li class="czd' + (d.sea ? ' sea' : '') + '"><span class="czn"><small>Day</small><b>' + esc(String(d.day)) + '</b></span><div class="czc">' + (d.img ? '<img src="' + esc(img(d.img, 400)) + '" alt="' + esc(d.port) + '" loading="lazy">' : '') + '<div><span class="czdt">' + esc(d.date) + '</span><b class="czp">' + esc(d.port) + (d.country ? ', ' + esc(d.country) : '') + '</b>' + (tm ? '<span class="cztm">' + esc(tm) + '</span>' : '') + (d.note ? '<span class="czx">' + esc(d.note) + '</span>' : '') + '</div></div></li>';
+          }).join('') + '</ol></div>';
+      var cb = c.cabin || {};
+      if (cb.name) cr += '<div class="czb"><span class="czpill">Included in your price</span><h3>Your cabin: ' + esc(cb.name) + '</h3><p class="czs">' + esc(c.ship || '') + '</p>' + czStrip(cb.imgs)
+        + czTiles([['🛳️', 'Deck', cb.deck], ['📐', 'Cabin size', cb.size], ['🌅', 'Balcony', cb.balcony], ['🛏️', 'Beds', cb.beds], ['🚿', 'Bathroom', cb.bathroom], ['👥', 'Sleeps', cb.sleeps]])
+        + (cb.text ? '<p>' + esc(cb.text) + '</p>' : '') + (cb.plans && cb.plans.length ? '<h4 class="czh4">Cabin layout and deck plan</h4>' + czStrip(cb.plans, 'czplan') : '') + '</div>';
+      var bd = c.board || {};
+      if (bd.items || c.shipFacts) cr += '<div class="czb"><span class="czpill">On board</span><h3>Your ship: ' + esc(c.ship || '') + '</h3>' + (c.shipText ? '<p class="czs" style="font-weight:500;color:inherit">' + esc(c.shipText) + '</p>' : '') + czStrip(c.shipImgs)
+        + '<div class="aggrid">' + czList(bd.name || 'Included on board', bd.items) + czList('About the ship', c.shipFacts) + '</div>' + (bd.extra ? '<p class="czsm">' + esc(bd.extra) + '</p>' : '') + '</div>';
+      var sy = '';
+      if (st.hotel) sy = '<div class="czb"><span class="czpill">Your hotel stay</span><h3>' + esc(st.hotel) + '</h3><p class="czs">' + esc([st.place, st.dates].filter(Boolean).join(', ')) + '</p>' + czStrip(st.imgs)
+        + czTiles([['📅', 'Dates', st.dates], ['🌙', 'Nights', st.nights], ['🛏️', 'Your room', st.room], ['🍽️', 'Board', st.board], ['🚌', 'Transfers', st.transfer]])
+        + (st.text ? '<p>' + esc(st.text) + '</p>' : '') + '<div class="aggrid">' + czList('In your room', st.room_items) + czList('At the hotel', st.hotel_items) + czList('Meals', st.meals) + '</div></div>';
+      return h + (c.order === 'stay' ? sy + cr : cr + sy);
+    }
+    var cruiseP = null;
+    if (anyCruise) {
+      cruiseP = document.createElement('div'); cruiseP.id = 'cruiseP'; cruiseP.className = 'cruisep custom';
+      cruiseP.innerHTML = hotels.map(function (x) { return x.cruise ? '<div class="czw" data-cz="' + esc(x.id) + '">' + cruiseHtml(x) + '</div>' : ''; }).join('');
+      hs.parentNode.insertBefore(cruiseP, hs.nextSibling);
+    }
     function has(id) { var s = document.getElementById(id); return !!s && !s.hidden; }
 
     /* useful facts by country (new quotes switch this on with "travelFacts" in the quote data) */
@@ -1030,7 +1072,8 @@
         Array.prototype.forEach.call(document.querySelectorAll('.custom .agjump'), function (j) { j.hidden = hit; });
         var lk = art.querySelector('.links'), mb = art.querySelector('[data-tog=more]'); if (lk && mb && mb.parentNode !== lk) lk.appendChild(mb);
         wxPlaces.forEach(function (w) { var el = document.querySelector('[data-wx="' + w.key.replace(/"/g, '') + '"]'); if (el) el.hidden = w.hotels.indexOf(x.name) < 0; });
-        var avail = { stay: true, about: true, extras: has('extras'), more: hasMore, pay: true };
+        var avail = { stay: true, cruise: !!x.cruise, about: true, extras: has('extras'), more: hasMore, pay: true };
+        if (cruiseP) Array.prototype.forEach.call(cruiseP.children, function (cz) { cz.hidden = cz.getAttribute('data-cz') !== x.id; });
         if (!avail[tab]) tab = 'stay'; body.setAttribute('data-tab', tab);
         Array.prototype.forEach.call(tabs.children, function (b) { b.hidden = !avail[b.dataset.dt]; b.classList.toggle('on', b.dataset.dt === tab); });
       }
