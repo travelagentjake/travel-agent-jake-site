@@ -290,6 +290,17 @@
       "created": "2026-10-22",
       "departs": "2027-04-25",
       "fromPrice": 2348.86
+    },
+    {
+      "slug": "jessicagroupholiday",
+      "url": "https://quotes.travelagentjake.co.uk/jessicagroupholiday",
+      "customer": "Jessica Harper",
+      "enquiryId": "mvigawdmfjoj",
+      "quoteRequestId": "mvjh4465uiwr",
+      "title": "Greece group holiday for 27 (8 rooms), 5 nights all inclusive with water slides from Stansted, August 2027 (Akti Zeus, Gouves Waterpark, Caretta Paradise, Star Beach, Marine Palace)",
+      "created": "2026-10-22",
+      "departs": "2027-08-07",
+      "fromPrice": 3990
     }
   ]
 }
