@@ -689,6 +689,19 @@ home_body = """
 </script>
 
 <section class="theme-light" style="padding-top:0;">
+  <div style="width:100%; box-sizing:border-box; padding:0 16px;">
+    <div class="jake-card" style="border-color:var(--yellow); border-width:3px;">
+      <div class="eyebrow" style="justify-content:center; text-align:center;">Search Jet2holidays</div>
+      <h2 style="text-align:center; margin-top:8px;">THE SAME JET2HOLIDAYS PACKAGE, FOR LESS.</h2>
+      <p style="text-align:center; margin:12px auto 22px; max-width:62ch;">Search Jet2holidays package prices here. Same flights, same hotels, same ATOL protection. <a class="body-copy" href="jet2holidays.html">See how it works</a>.</p>
+      <div id="agendas-search-widget" data-agendas-widget="search">
+        <travel-searchbox-v3 widgetid="19407" language="en" class="travelify-widget"></travel-searchbox-v3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <div class="eyebrow">What customers say</div>
     <h2>Don't just take my word for it.</h2>
@@ -998,6 +1011,11 @@ home_body = """
   </div>
 </section>
 """
+WIDGET_ELEMENTS_SCRIPT = """<link rel="preconnect" href="https://static.travelify.io/" crossorigin />
+<link rel="preconnect" href="https://api.travelify.io/" crossorigin />
+<script src="https://static.travelify.io/travelify-elements-v2.4.min.js" integrity="sha256-U5kp/mYRwwfvHho+736vE1wljn7URYGIqjMS9kiDa6E=" crossorigin="anonymous" defer="defer"></script>
+"""
+
 home_body = home_body.replace("::NEWSLETTER::", newsletter_section(wrap_style="padding-top:44px;"))
 home_body = home_body.replace("::LOGO_CARDS::", LOGO_CARDS_HTML)
 home_body = home_body.replace("::HOW_IT_WORKS::", how_it_works_html(False))
@@ -1007,7 +1025,8 @@ with open(os.path.join(SITE, "index.html"), "w", encoding="utf-8") as f:
         "Travel Agent Jake | Holidays booked by someone who actually goes",
         "Independent ABTA protected UK travel agent. 15+ years booking family holidays, all-inclusive holidays and package holidays. Message Jake for honest, no-pressure holiday planning.",
         "index.html",
-        home_body
+        home_body,
+        extra_head=WIDGET_ELEMENTS_SCRIPT
     ))
 print("index.html written")
 
@@ -1207,6 +1226,18 @@ book_body = """
   </div>
 </section>
 
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <div class="jake-card" style="display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between; border-color:var(--yellow); border-width:3px;">
+      <div style="flex:1 1 360px;">
+        <div class="eyebrow" style="margin-bottom:6px;">Looking at Jet2holidays?</div>
+        <h3 style="margin:0 0 6px;">Search Jet2holidays and book through me</h3>
+        <p style="margin:0;">Same flights, same hotels and same ATOL protection as booking direct, with me looking after you from search to suitcase. Search prices yourself and book it through me.</p>
+      </div>
+      <a class="btn btn-primary" href="jet2holidays.html">Search Jet2holidays</a>
+    </div>
+  </div>
+</section>
 
 """
 
@@ -17111,10 +17142,6 @@ print("eu-roaming-charges-uk-networks-2026.html written")
 # panel, 30 Sept 2026): every widget's install panel gave this exact same
 # script, it only needs to load once per page no matter how many widgets
 # are on it.
-WIDGET_ELEMENTS_SCRIPT = """<link rel="preconnect" href="https://static.travelify.io/" crossorigin />
-<link rel="preconnect" href="https://api.travelify.io/" crossorigin />
-<script src="https://static.travelify.io/travelify-elements-v2.4.min.js" integrity="sha256-U5kp/mYRwwfvHho+736vE1wljn7URYGIqjMS9kiDa6E=" crossorigin="anonymous" defer="defer"></script>
-"""
 
 def booking_widget_page(widget_name, heading, intro, widget_tag, cta=None):
     # cta: optional (button_label, url_encoded_whatsapp_message) tuple. The
