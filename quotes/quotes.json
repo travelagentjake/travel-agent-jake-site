@@ -247,6 +247,17 @@
       "created": "2026-10-21",
       "departs": "2026-12-08",
       "fromPrice": 1516
+    },
+    {
+      "slug": "shelbyfurness",
+      "url": "https://quotes.travelagentjake.co.uk/shelbyfurness",
+      "customer": "Shelby Furness",
+      "enquiryId": "muzni803tii4",
+      "quoteRequestId": "mvj7bbick529",
+      "title": "Rhodes wedding holiday, 17 nights B&B in Pefkos from Manchester, August 2028, 2 extra 22kg cases included (Island Blue, Lindia Thalassa, Pefki Islands)",
+      "created": "2026-10-22",
+      "departs": "2028-08-02",
+      "fromPrice": 3850
     }
   ]
 }
