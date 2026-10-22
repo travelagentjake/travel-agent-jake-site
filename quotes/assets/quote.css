@@ -790,3 +790,5 @@ html.a11y-hc .btn-y,html.a11y-hc .btn{border:2px solid #000}
 @media (min-width:901px){.deck .cruisep{max-width:1100px;margin:0 auto;padding:24px 20px 16px}}
 @media (max-width:900px){.czb{padding:16px}.czb h3{font-size:19px}.czc img{width:84px;height:64px}.czsteps{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.czc img{display:none}.czsteps{grid-template-columns:1fr}.czn{flex-basis:48px;height:48px}.czdays:before{left:23px}.czf{grid-template-columns:1fr 1fr}}
+
+.areacard[hidden]{display:none!important}

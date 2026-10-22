@@ -310,7 +310,9 @@
     h += '<section id="todo" class="alt"><div class="wrap"><h2 class="h2">Things to do</h2>' + (Q.todoIntro ? '<p class="intro">' + esc(Q.todoIntro) + '</p>' : '');
     h += '<div class="acar"><button class="arr l" type="button" data-adir="-1" aria-label="Previous">&#8249;</button><button class="arr r" type="button" data-adir="1" aria-label="Next">&#8250;</button><div class="areas" id="areaTrack">' + Q.areas.map(function (a) {
       var inner = '<img loading="lazy" src="' + esc(img(a.img, 800)) + '" alt="' + esc(a.alt || a.title) + '"><div><b>' + esc(a.title) + '</b><p>' + esc(a.text) + '</p>' + (a.link ? '<span class="see">' + esc(a.linkLabel || 'See tours and prices') + '</span>' : '') + '</div>';
-      return a.link ? '<a class="areacard" href="' + esc(gygLink(a.link)) + '" target="_blank" rel="noopener sponsored">' + inner + '</a>' : '<div class="areacard">' + inner + '</div>';
+      /* areas[].hotels: optional list of hotel ids, so a card only shows on the options it belongs to */
+      var hd = a.hotels && a.hotels.length ? ' data-hotels="' + esc(a.hotels.join(' ')) + '"' : '';
+      return a.link ? '<a class="areacard"' + hd + ' href="' + esc(gygLink(a.link)) + '" target="_blank" rel="noopener sponsored">' + inner + '</a>' : '<div class="areacard"' + hd + '>' + inner + '</div>';
     }).join('') + '</div></div>';
     h += '</div></section>';
   }
@@ -1074,6 +1076,8 @@
         wxPlaces.forEach(function (w) { var el = document.querySelector('[data-wx="' + w.key.replace(/"/g, '') + '"]'); if (el) el.hidden = w.hotels.indexOf(x.name) < 0; });
         var avail = { stay: true, cruise: !!x.cruise, about: true, extras: has('extras'), more: hasMore, pay: true };
         if (cruiseP) Array.prototype.forEach.call(cruiseP.children, function (cz) { cz.hidden = cz.getAttribute('data-cz') !== x.id; });
+        Array.prototype.forEach.call(document.querySelectorAll('#todo .areacard[data-hotels]'), function (c) { c.hidden = (' ' + c.getAttribute('data-hotels') + ' ').indexOf(' ' + x.id + ' ') < 0; });
+        if (typeof evenTodo === 'function') evenTodo();
         if (!avail[tab]) tab = 'stay'; body.setAttribute('data-tab', tab);
         Array.prototype.forEach.call(tabs.children, function (b) { b.hidden = !avail[b.dataset.dt]; b.classList.toggle('on', b.dataset.dt === tab); });
       }
@@ -1117,7 +1121,7 @@
     })();
     /* things to do: two columns on desktop, so show an even number (the last one drops out if the count is odd) */
     function evenTodo() {
-      var cs = document.querySelectorAll('#todo .areacard'), wide = window.innerWidth > 900;
+      var cs = Array.prototype.filter.call(document.querySelectorAll('#todo .areacard'), function (c) { return !c.hidden; }), wide = window.innerWidth > 900;
       Array.prototype.forEach.call(cs, function (c) { c.classList.remove('evenhide'); });
       if (wide && cs.length % 2) cs[cs.length - 1].classList.add('evenhide');
     }
