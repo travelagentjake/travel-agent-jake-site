@@ -411,6 +411,17 @@
    "created": "2026-10-23",
    "departs": "2026-11-24",
    "fromPrice": 2079
+  },
+  {
+   "slug": "lauravillaholiday",
+   "url": "https://quotes.travelagentjake.co.uk/lauravillaholiday",
+   "customer": "Laura",
+   "enquiryId": "mvl01hduczns",
+   "quoteRequestId": "mvl01hgrn791",
+   "title": "Private pool villas near Fig Tree Bay, Protaras, Cyprus, 14 nights self catering with car hire for 4 from Manchester, Fri 24 or Mon 27 September 2027 (4 villa options)",
+   "created": "2026-10-23",
+   "departs": "2027-09-24",
+   "fromPrice": 6064
   }
  ]
 }
