@@ -1,6 +1,17 @@
 {
  "quotes": [
   {
+   "slug": "paulgray",
+   "url": "https://quotes.travelagentjake.co.uk/paulgray",
+   "customer": "Paul Gray",
+   "enquiryId": "mvkvnf0l34qn",
+   "quoteRequestId": "mvkvrp26ebnc",
+   "title": "Dubrovnik, 14 nights all inclusive from Leeds Bradford with TUI, Thu 31 Aug to Thu 14 Sep 2028 (Sunny Dubrovnik by Valamar)",
+   "created": "2026-10-23",
+   "departs": "2028-08-31",
+   "fromPrice": 4398.24
+  },
+  {
    "slug": "ayslinnmack",
    "url": "https://quotes.travelagentjake.co.uk/ayslinnmack",
    "customer": "Ayslinn Mack",
