@@ -197,17 +197,77 @@
     if(!best){var c=Date.parse(q.createdAt);if(!isNaN(c)){best=c;kind='none';}}
     return {t:best,kind:kind};
   }
+  /* Notes can say when to chase, e.g. "Booking 30th October", "ring back next Friday". The latest note that names a future date puts the customer on hold until that day. */
+  var HOLD_CUES=/\b(book|booking|call|ring|chase|follow|chat|speak|message|text|contact|decide|decision|deposit|pay|payment|payday|paid|back to me|get back|revisit|wait|waiting|until|after|touch base|remind|come back|confirm|check in|check back|hold off|next|try)\b/i;
+  var MONTHS={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+  var WEEKDAYS={sun:0,mon:1,tue:2,wed:3,thu:4,fri:5,sat:6};
+  var NUMWORDS={a:1,one:1,two:2,three:3,four:4,five:5,six:6};
+  function dayStart(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime();}
+  function mkDate(y,m,d){var x=new Date(y,m,d);return (x.getMonth()===m&&x.getDate()===d)?x.getTime():null;}
+  function parseHoldDate(text,refMs){
+    var s=String(text||'').toLowerCase().replace(/[,]/g,' ').replace(/\s+/g,' ');
+    if(!HOLD_CUES.test(s))return null;
+    var ref=new Date(refMs), refDay=dayStart(ref), m, t=null, DAY=86400000;
+    var mon='(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*';
+    function withYear(mo,d,y){
+      if(y){y=+y;if(y<100)y+=2000;return mkDate(y,mo,d);}
+      var c=mkDate(ref.getFullYear(),mo,d); if(c===null)return null;
+      if(c<refDay){ if(refDay-c>150*DAY)c=mkDate(ref.getFullYear()+1,mo,d); else return -1; }
+      return c;
+    }
+    if((m=s.match(new RegExp('\\b(\\d{1,2})(?:st|nd|rd|th)?\\s*(?:of\\s+)?'+mon+'(?:\\s+(\\d{4}))?\\b')))){t=withYear(MONTHS[m[2]],+m[1],m[3]);}
+    else if((m=s.match(new RegExp('\\b'+mon+'\\s+(\\d{1,2})(?:st|nd|rd|th)?\\b(?:\\s+(\\d{4}))?')))){t=withYear(MONTHS[m[1]],+m[2],m[3]);}
+    else if((m=s.match(/\b(\d{1,2})[\/.](\d{1,2})(?:[\/.](\d{2,4}))?\b/))&&(m[0].indexOf('/')>-1||m[3])){t=withYear(+m[2]-1,+m[1],m[3]);}
+    else if(/\btomorrow\b/.test(s)){t=refDay+DAY;}
+    else if((m=s.match(/\bin (\d+|a|one|two|three|four|five|six) (day|week|fortnight|month)s?\b/))){
+      var n=isNaN(+m[1])?NUMWORDS[m[1]]:+m[1];
+      if(m[2]==='day')t=refDay+n*DAY;else if(m[2]==='week')t=refDay+n*7*DAY;else if(m[2]==='fortnight')t=refDay+n*14*DAY;else{var mm=new Date(ref.getFullYear(),ref.getMonth()+n,ref.getDate());t=dayStart(mm);}
+    }
+    else if(/\bin a fortnight\b/.test(s)){t=refDay+14*DAY;}
+    else if(/\bnext week\b/.test(s)){t=refDay+7*DAY;}
+    else if(/\bnext month\b/.test(s)){t=dayStart(new Date(ref.getFullYear(),ref.getMonth()+1,ref.getDate()));}
+    else if(/\bend of (the )?month\b/.test(s)){t=dayStart(new Date(ref.getFullYear(),ref.getMonth()+1,0));}
+    else if((m=s.match(/\b(?:next |on |this )?(sun|mon|tue|wed|thu|fri|sat)[a-z]*\b/))&&/\b(next|on|this)\s+(sun|mon|tue|wed|thu|fri|sat)|\b(sun|mon|tue|wed|thu|fri|sat)(day|sday|nesday|rsday|urday)\b/.test(s)){
+      var wd=WEEKDAYS[m[1]], add=(wd-ref.getDay()+7)%7; if(add===0)add=7;
+      if(/\bnext (sun|mon|tue|wed|thu|fri|sat)/.test(s)){var toMon=((8-ref.getDay())%7)||7;add=toMon+((wd+6)%7);}
+      t=refDay+add*DAY;
+    }
+    else if((m=s.match(/\bthe (\d{1,2})(?:st|nd|rd|th)\b/))){
+      var d=+m[1], c=mkDate(ref.getFullYear(),ref.getMonth(),d);
+      if(c===null||c<=refDay){var nx=new Date(ref.getFullYear(),ref.getMonth()+1,d);c=(nx.getDate()===d)?dayStart(nx):null;}
+      t=c;
+    }
+    if(t===null||t===-1||t<=refDay)return null;
+    if(t-refDay>400*DAY)return null;
+    return t;
+  }
+  function holdInfo(q){
+    var best=null,bt=0;
+    (q.notesLog||[]).forEach(function(n){
+      if(n.auto)return;
+      var nt=Date.parse(n.t); if(isNaN(nt))return;
+      if(nt<bt)return;
+      var d=parseHoldDate(n.text,nt);
+      if(d!==null){best={date:d,noteT:nt,text:n.text};bt=nt;}
+    });
+    return best;
+  }
+  var DAYNAMES=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MONNAMES=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function holdLabel(ms){var d=new Date(ms);return DAYNAMES[d.getDay()]+' '+d.getDate()+' '+MONNAMES[d.getMonth()];}
   function isOpenStatus(q){var s=q.status||'new';return s!=='done'&&s!=='closed'&&s!=='booked';}
   function qAct(q){try{return window.__eaQuoteActivity?window.__eaQuoteActivity(q.id):null;}catch(e){return null;}}
   /* Chase rule: nothing is flagged until 48 hours after your last note, status change or quote sent (whichever is latest).
      Once it is due, a customer who has opened their quote since your last note is marked hot, and one who never opened it is marked unopened. */
   function chaseInfo(q){
-    var r={due:false,quiet:false,hot:false,unopened:false,any:false,act:null,lt:null};
+    var r={due:false,quiet:false,hot:false,unopened:false,any:false,act:null,lt:null,hold:null,fromHold:null};
     if(!isOpenStatus(q))return r;
     var lt=lastTouch(q), act=qAct(q); r.lt=lt; r.act=act;
     var now=Date.now(), lim=CHASE_HOURS*3600000;
+    var hold=holdInfo(q);
+    if(hold&&hold.date>now){r.hold=hold;return r;}
     var base=Math.max(lt.t||0,(act&&act.quotes>0&&act.sentAt)||0);
-    if(base&&now-base>=lim)r.due=true;
+    if(hold&&lt.t<hold.date){r.due=true;r.fromHold=hold;}
+    else if(base&&now-base>=lim)r.due=true;
     if(r.due){
       r.quiet=true;
       if(act&&act.views>0&&act.lastView&&act.lastView>lt.t)r.hot=true;
@@ -224,6 +284,8 @@
     var out='';
     var txt=lt.kind==='note'?'Last note '+dayWords(lt.t):lt.kind==='update'?'Last update '+dayWords(lt.t):'No notes yet, came in '+dayWords(lt.t);
     out+='<div class="ea-last'+(c.quiet?' chase':'')+'">'+(c.quiet?'Time to chase. ':'')+esc(txt)+'</div>';
+    if(c.hold)out+='<div class="ea-last">On hold until '+esc(holdLabel(c.hold.date))+'. Your note on '+esc(holdLabel(c.hold.noteT))+' says: '+esc(String(c.hold.text||'').slice(0,90))+'</div>';
+    if(c.fromHold)out+='<div class="ea-last chase">Your note on '+esc(holdLabel(c.fromHold.noteT))+' said: '+esc(String(c.fromHold.text||'').slice(0,90))+'</div>';
     if(act&&act.quotes>0){
       var vt=act.views>0?'Quote opened '+act.views+(act.views===1?' time':' times')+', last '+dayWords(act.lastView)+(c.hot?'. Opened since your last note, so follow up':''):'Quote sent '+(act.sentAt?dayWords(act.sentAt)+' and ':'')+'not opened yet';
       out+='<div class="ea-last'+(c.hot||c.unopened?' chase':'')+'">'+esc(vt)+'</div>';
@@ -279,7 +341,7 @@
     var sum=[q.destination||q.holidayType, pre(q)?q.month:niceDate(q.departDate), (q.adults||1)+(Number(q.children)?'+'+q.children:'')+' travelling', q.budget].filter(Boolean).join(' · ');
     return '<article class="ea-card'+(s==='new'?' is-new':'')+(needsChase(q)?' is-chase':'')+'" data-id="'+id+'">'
       +'<div class="ea-head"><div><h3 class="ea-name">'+esc(q.firstName+' '+q.lastName)+'</h3><div class="ea-meta">'+esc(nice(q.createdAt))+' ('+esc(ago(q.createdAt))+')</div></div>'
-      +'<div class="ea-badges">'+(chaseInfo(q).hot?'<span class="ea-badge s-new">Opened quote</span>':'')+(needsChase(q)?'<span class="ea-badge chase">Chase</span>':'')+(pre(q)?'<span class="ea-badge pre">2028 pre-reg</span>':'<span class="ea-badge">Enquiry</span>')+'<span class="ea-badge s-'+esc(s)+'">'+esc(label(s))+'</span></div></div>'
+      +'<div class="ea-badges">'+(chaseInfo(q).hot?'<span class="ea-badge s-new">Opened quote</span>':'')+(needsChase(q)?'<span class="ea-badge chase">Chase</span>':(chaseInfo(q).hold?'<span class="ea-badge">Chase '+esc(holdLabel(chaseInfo(q).hold.date))+'</span>':''))+(pre(q)?'<span class="ea-badge pre">2028 pre-reg</span>':'<span class="ea-badge">Enquiry</span>')+'<span class="ea-badge s-'+esc(s)+'">'+esc(label(s))+'</span></div></div>'
       +'<p class="ea-sum">'+esc(sum)+'</p>'+lastLine(q)
       +'<div class="ea-actions">'
       +'<a class="ea-btn wa" target="_blank" rel="noopener" href="https://wa.me/'+waNum(q.phone)+'?text='+hello+'">WhatsApp</a>'
@@ -358,7 +420,7 @@
   setInterval(function(){if(key&&!$('eaApp').hidden&&document.visibilityState==='visible')load(false);},60000);
 })();
 </script>
-<script src="js/quotes-dashboard.js?v=20261021d" defer></script>
+<script src="js/quotes-dashboard.js?v=20261023a" defer></script>
 
 <footer class="site-footer">
   <div class="jake-dash-yellow"></div>
