@@ -488,6 +488,7 @@
       + '<h4>' + esc(Q.pickTitle || 'Which hotel') + '</h4>'
       + (multi ? '<select id="bkHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '<p class="bkh"><b>' + esc(hotels[0].name) + '</b>, ' + gbp(hotels[0].total) + '</p>')
       + '<div id="bkSum" class="bksum"></div>'
+      + (extras.length ? '<div id="bkXtras" class="bkx" hidden></div>' : '')
       + '<h4>Who is travelling</h4><p class="small bkpp" style="margin:-2px 0 8px"><b>Names must be as they appear on your passport.</b></p><div id="bkPax">' + rows + '</div>'
       + '<p><button class="btn btn-o" type="button" id="bkAdd">Add another passenger</button></p>'
       + '<h4>Your contact details</h4><div class="paxg">'
@@ -533,6 +534,20 @@
       var oa = other ? Math.round(parseFloat((document.getElementById('bkOtherAmt') || {}).value) * 100) / 100 : 0, oOk = other && oa >= dep && oa < total;
       var oNote = document.getElementById('bkOtherNote'); if (oNote) oNote.textContent = other ? (oOk || !document.getElementById('bkOtherAmt').value ? 'The minimum is ' + fmt(Math.round(dep * 100) / 100) + ' (your deposit). The rest becomes your balance.' : 'Please enter an amount from ' + fmt(Math.round(dep * 100) / 100) + ' up to ' + fmt(Math.round((total - 0.01) * 100) / 100) + ', or choose the full amount.') : '';
       if (other && oOk) dep = oa;
+      /* extras to tick here too: same choices as the Extras tab, kept in step both ways */
+      var bx = document.getElementById('bkXtras');
+      if (bx) {
+        var fitList = extras.filter(function (e) { return fits(e, x) && xTotal(e, x) != null; });
+        var sig = x.id + '|' + fitList.map(function (e) { return e.id; }).join(',');
+        if (bx.getAttribute('data-sig') !== sig) {
+          bx.setAttribute('data-sig', sig);
+          bx.innerHTML = fitList.length ? '<h4>Any extras you would like?</h4><div class="bkxl">' + fitList.map(function (e) {
+            return '<label class="bkxi"><input type="checkbox" data-bx="' + esc(e.id) + '"><span><b>' + esc(e.title) + '</b><i>' + fmt(xTotal(e, x)) + (e.separate ? ' &#183; paid when you book' : '') + '</i></span></label>';
+          }).join('') + '</div>' : '';
+        }
+        bx.hidden = !fitList.length;
+        Array.prototype.forEach.call(bx.querySelectorAll('[data-bx]'), function (c) { c.checked = !!sel[c.getAttribute('data-bx')]; });
+      }
       var el = document.getElementById('bkSum');
       el.innerHTML = '<div><span>Holiday' + (list.length ? ' with ' + list.length + ' extra' + (list.length > 1 ? 's' : '') : '') + '</span><b>' + fmt(Math.round(total * 100) / 100) + '</b></div>'
         + '<div><span>' + (full ? 'To pay today, the full amount' : other && oOk ? 'To pay today, the amount you chose' : 'To pay today' + (zeroDep ? (today ? ' (airport extras)' : ', no deposit') : (today ? ' (deposit plus airport extras)' : ', your deposit'))) + '</span><b>' + fmt(Math.round((full ? total : dep) * 100) / 100) + '</b></div>'
@@ -548,6 +563,13 @@
       var opt = document.querySelector('input[name="payNow"][value="deposit"]'); if (opt && opt.nextSibling) opt.nextSibling.textContent = 'Just the deposit, ' + fmt(Math.round((deposit + today) * 100) / 100);
       var opt2 = document.querySelector('input[name="payNow"][value="full"]'); if (opt2 && opt2.nextSibling) opt2.nextSibling.textContent = 'The full amount, ' + fmt(Math.round(total * 100) / 100);
     }
+    var bxe = document.getElementById('bkXtras');
+    if (bxe) bxe.addEventListener('change', function (ev) {
+      var t = ev.target; if (!t || !t.getAttribute || !t.getAttribute('data-bx')) return;
+      var m = document.querySelector('[data-x="' + t.getAttribute('data-bx') + '"]');
+      if (m) { m.checked = t.checked; m.dispatchEvent(new Event('change', { bubbles: true })); }
+      sum();
+    });
     if (hs) hs.addEventListener('change', function () { hIdx = Number(hs.value); calc(); var c = document.getElementById('cHotel'); if (c) c.value = hs.value; var fh = document.getElementById('fHotel'); if (fh) fh.value = hs.value; sum(); });
     f.addEventListener('change', function (ev) { var a = document.getElementById('bkWantDD'), b = document.getElementById('bkPayGo'); if (a && b) { if (ev.target === a && a.checked) b.checked = false; if (ev.target === b && b.checked) a.checked = false; } sum(); });
     document.addEventListener('taj-calc', function () { if (hs && Number(hs.value) !== hIdx) hs.value = String(hIdx); sum(); });
