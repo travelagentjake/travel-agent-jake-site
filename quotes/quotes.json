@@ -400,6 +400,17 @@
    "created": "2026-10-23",
    "departs": "2027-09-03",
    "fromPrice": 6680
+  },
+  {
+   "slug": "jemmaknox",
+   "url": "https://quotes.travelagentjake.co.uk/jemmaknox",
+   "customer": "Jemma Knox",
+   "enquiryId": "mvkzwbf1iscc",
+   "quoteRequestId": "mvkzwbhkjpiz",
+   "title": "Playaolid Suites & Apartments & Siam Park, Costa Adeje, Tenerife, 7 nights all inclusive for 2 adults and 2 children from Belfast, Tue 24 November 2026",
+   "created": "2026-10-23",
+   "departs": "2026-11-24",
+   "fromPrice": 2079
   }
  ]
 }
