@@ -367,6 +367,17 @@
    "created": "2026-10-23",
    "departs": "2027-10-07",
    "fromPrice": 2639.52
+  },
+  {
+   "slug": "michaelaharpham",
+   "url": "https://quotes.travelagentjake.co.uk/michaelaharpham",
+   "customer": "Michaela Harpham",
+   "enquiryId": "mvkp8ltat3lk",
+   "quoteRequestId": "mvkpbwzb45c5",
+   "title": "Cook's Club Hersonissos, Crete, 7 nights B&B for 16 (8 rooms, TUI group price) from East Midlands, Thu 2 or Sun 5 September 2027 (60th birthday group)",
+   "created": "2026-10-23",
+   "departs": "2027-09-02",
+   "fromPrice": 15179.44
   }
  ]
 }
