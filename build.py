@@ -12166,6 +12166,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1776329255945-15212b50cd7f?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Facial recognition technology displaying a scanned image",
     },
+    {
+        "slug": "thailand-entry-rules-2026.html",
+        "meta": "Entry requirements",
+        "title": "Thailand's entry rules just got stricter: what to know before you fly",
+        "excerpt": "Thailand has halved its visa free stay to 30 days, the arrival card is still mandatory, and officials say thousands of travellers are being caught out by fake websites charging for something that's free. Here's what's actually changed.",
+        "image": "https://images.unsplash.com/photo-1613672803979-a6edfc5a179b?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Wat Arun temple on the Chao Phraya river in Bangkok",
+    },
 ]
 
 
@@ -18539,6 +18547,178 @@ print("uk-egates-changes-2026.html written")
 
 
 
+thailand_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>THAILAND'S ENTRY RULES JUST GOT STRICTER: WHAT TO KNOW BEFORE YOU FLY</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Three separate things have changed for anyone travelling to Thailand this year, and it's easy to only hear about one of them. The standard visa free stay has been cut in half, the digital arrival card that's been mandatory since last year still catches plenty of people out, and Thai immigration is now actively warning that thousands of travellers are being charged for something that's supposed to be free. Here's exactly what's changed, and what to actually do before you fly.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <img src="https://images.unsplash.com/photo-1613672803979-a6edfc5a179b?auto=format&fit=crop&w=1600&h=700&q=80" alt="Wat Arun temple on the Chao Phraya river in Bangkok" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Three changes, not one</h2>
+    <p style="margin-top:14px;">It's worth untangling these properly, because they come from different dates and affect different things. One is about how long you're allowed to stay, one is about registering before you even land, and one is a straightforward warning about being careful where you hand over your details.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Since 15 September 2026</div>
+        <h3 style="font-size:18px;">The visa free stay was halved</h3>
+        <p>Standard tourist entry dropped from up to 60 days to up to 30, as part of a wider overhaul of Thailand's entry rules.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Since 1 May 2025</div>
+        <h3 style="font-size:18px;">The arrival card became mandatory</h3>
+        <p>Every visitor has had to complete a free Digital Arrival Card (TDAC) online before arrival for well over a year now, and it still trips up plenty of first timers.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Ongoing</div>
+        <h3 style="font-size:18px;">Fake websites charging a fee</h3>
+        <p>Thai immigration says at least 1 in 10 foreign arrivals have used a fraudulent TDAC website that has nothing to do with the government.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>The visa free stay has been cut from 60 days to 30</h2>
+    <img src="https://images.unsplash.com/photo-1563463149242-bd378d9ab05c?auto=format&fit=crop&w=1600&h=700&q=80" alt="Passport control signage at an airport" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">From 15 September 2026, the standard visa free entry for tourists dropped from up to 60 days to up to 30, for tourism purposes only. Four Ministry of Interior announcements confirming the change were published in Thailand's Royal Gazette on 31 August 2026, taking effect 15 days later. Thailand's Cabinet had approved the framework on 14 July 2026, with the announcements signed off by Anutin Charnvirakul in his role as both Prime Minister and Interior Minister.</p>
+    <p style="margin-top:14px;">The list of nationalities covered by the exemption also shrank, from 93 countries and territories down to 60, though British nationals remain on the new list. If you're travelling on a British passport purely for a holiday, this is the rule that now applies to you. Business travel still needs the correct visa arranged in advance, visa free entry doesn't cover it.</p>
+    <p style="margin-top:14px;">If you'd already arrived in Thailand before 15 September 2026, you're generally still allowed to stay for whatever length you were granted on arrival at the time, this isn't retroactive. It only affects stays that begin from that date onwards.</p>
+    {jake_tip("The Thai government's own stated reasons were national security, promoting tourism and economic interests, reciprocity with other countries' rules, and cutting down on what it called overlapping visa exemption privileges that could confuse visitors. If you genuinely need longer than 30 days in Thailand, the e-Visa system is the proper route now, not just turning up and hoping.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The Digital Arrival Card: still mandatory, still free</h2>
+    <img src="https://images.unsplash.com/photo-1566137178917-285684132085?auto=format&fit=crop&w=1600&h=700&q=80" alt="Person checking travel details on a phone" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Since 1 May 2025, every foreign national entering Thailand by air, land or sea has had to complete the Thailand Digital Arrival Card, known as the TDAC, online before they arrive. It's been in place for well over a year now, but it still catches people out simply because it isn't something you'd necessarily expect for a package holiday. It isn't a visa, and it isn't something your airline or tour operator fills in on your behalf.</p>
+    <p style="margin-top:14px;">Registration opens 3 days before your arrival date, takes a few minutes, and the official version is completely free. You'll get a confirmation by email once it's submitted, worth saving or screenshotting alongside your other travel documents.</p>
+    {jake_tip("Set a reminder for 3 days before you land, not before you fly out. Register too early and the system won't have your arrival in its window yet, and leaving it until you're stood at the airport is cutting it closer than you need to.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>The fake websites Thai immigration is actively warning about</h2>
+    <img src="https://images.unsplash.com/photo-1619149769183-01fc5bccc153?auto=format&fit=crop&w=1600&h=700&q=80" alt="Thai baht banknote" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Because the TDAC is a genuine requirement, it's created an opening for copycat websites. Thailand's Immigration Bureau has said that at least 1 in 10 foreign arrivals have used a fraudulent TDAC website, based on figures reported in March 2026. These sites have no connection to the Thai government, and some charge a fee for what's actually a free form.</p>
+    <p style="margin-top:14px;">Beyond losing money for nothing, the real risk is what happens to your information afterwards. Data entered on a fake site doesn't reach Thailand's actual immigration system, and officials have warned it can be misused, including by scammers. Some of these sites compound the problem by claiming to process e-visa applications too, with the same issue. Authorities say they're working to track down and shut off the fake sites, but many are based overseas, which makes enforcement difficult.</p>
+    <div class="jake-card" style="margin-top:18px;">
+      <p style="margin:0;"><b>The giveaway is the fee.</b> The real TDAC is free, full stop. If a website asks you to pay to submit your arrival card, you're in the wrong place. Close it and go directly to tdac.immigration.go.th, or reach it through Thailand's official Immigration Bureau site instead.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>At a glance</h2>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>What</th><th>Before 15 September 2026</th><th>Now</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Standard tourist visa free stay</td><td>Up to 60 days</td><td>Up to 30 days, tourism only</td></tr>
+          <tr><td>Nationalities covered</td><td>93 countries and territories</td><td>60 countries and territories, British nationals still included</td></tr>
+          <tr><td>Digital Arrival Card (TDAC)</td><td>Mandatory since 1 May 2025</td><td>Still mandatory, still free, register within 3 days of arrival</td></tr>
+          <tr><td>Proof of funds if asked</td><td>10,000 baht per person, 20,000 baht per family</td><td>Unchanged, roughly £221 or £442 at today's rate</td></tr>
+          <tr><td>Overstaying your visa free stay</td><td>500 baht per day, up to 20,000 baht, plus possible deportation and a re-entry ban of up to 10 years</td><td>Unchanged, roughly £11 a day up to £442</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures reflect official UK and Thai government announcements at the time of writing. Currency conversions are approximate, based on the mid market rate, and will move around.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What this actually means before you book</h2>
+    <img src="https://images.unsplash.com/photo-1786511830423-5b3c112dd74e?auto=format&fit=crop&w=1600&h=700&q=80" alt="Longtail boat anchored in turquoise water near Koh Phi Phi, Thailand" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">None of this should put you off a trip to Thailand, but a few things are worth sorting before you travel rather than discovering them at the airport.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Check your passport.</b> It needs at least 6 months left on it from your arrival date, and at least one completely blank page. Thailand will refuse entry without both.</span></li>
+      <li><span class="num">2</span><span><b>Register your Digital Arrival Card within 3 days of landing,</b> directly at tdac.immigration.go.th. It's free, and no other website should be asking you for payment to do it.</span></li>
+      <li><span class="num">3</span><span><b>Carry evidence of onward or return travel,</b> and be ready to show at least 10,000 baht per person or 20,000 baht per family if asked, roughly £221 or £442 at today's rate. British nationals have been refused entry before for not being able to provide this.</span></li>
+      <li><span class="num">4</span><span><b>Don't overstay your 30 days without sorting an extension first.</b> The fine is 500 baht for every day over, up to 20,000 baht, roughly £11 a day up to £442, and you also risk detention, deportation at your own expense, and a re-entry ban of up to 10 years.</span></li>
+      <li><span class="num">5</span><span><b>If you want longer than 30 days in Thailand,</b> that now has to be arranged in advance through the correct visa, not assumed on arrival.</span></li>
+    </ul>
+    {jake_tip("I always tell clients booking long haul trips like this to deal with the paperwork the moment the booking's confirmed, not the week before you fly. The arrival card and the funds you might need to show are genuinely quick to sort, there's just no good reason to leave either until you're already at the airport.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Has Thailand really cut its visa free stay from 60 days to 30 days?</h3>
+      <p>Yes, since 15 September 2026, for tourism only. It applies to the main list of visa exempt nationalities, which was also cut from 93 countries and territories to 60, though British nationals are still on the new list. Anyone who entered before 15 September 2026 usually keeps the stay length they were given on arrival.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do I still need to fill in the TDAC if I've already got a booking?</h3>
+      <p>Yes. The Thailand Digital Arrival Card has been mandatory for everyone entering by air, land or sea since 1 May 2025, regardless of when you booked. Register online for free, within 3 days of your arrival date.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is there a fee for the Digital Arrival Card, and how do I avoid the fake sites?</h3>
+      <p>No, it's completely free. Thai immigration has warned that at least 1 in 10 foreign arrivals have used a fraudulent website that charges a fee and has no connection to the government. Only register directly at tdac.immigration.go.th.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What happens if I overstay my 30 days in Thailand?</h3>
+      <p>You'll be fined 500 baht for every day you overstay, up to a maximum of 20,000 baht, and you risk detention, deportation at your own expense, and a re-entry ban of up to 10 years.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do I need to show proof of money to get into Thailand?</h3>
+      <p>You may be asked to show at least 10,000 baht per person, or 20,000 baht per family, plus evidence of onward or return travel. British nationals have been refused entry in the past for not being able to provide this, so it's worth having to hand.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1687992176093-6417a93fa3d0?auto=format&fit=crop&w=1600&h=700&q=80" alt="Couple walking through an airport with luggage" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Booking a trip to Thailand?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">The paperwork is easy once you know what's actually required. Tell me where you fancy going and I'll take care of the rest, honestly and without the pressure.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+thailand_body = thailand_body.replace("::NEWSLETTER::", newsletter_section())
+
+THAILAND_SCHEMA = article_and_faq_schema(
+    "Thailand's Entry Rules Just Got Stricter: What to Know Before You Fly",
+    "Thailand has halved its visa free stay to 30 days, the digital arrival card is still mandatory, and officials say thousands of travellers are being caught out by fake websites charging for something that's free. Here's exactly what's changed.",
+    "thailand-entry-rules-2026.html",
+    "https://images.unsplash.com/photo-1613672803979-a6edfc5a179b?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("Has Thailand really cut its visa free stay from 60 days to 30 days?", "Yes, since 15 September 2026, for tourism only. It applies to the main list of visa exempt nationalities, which was also cut from 93 countries and territories to 60, though British nationals are still on the new list. Anyone who entered before 15 September 2026 usually keeps the stay length they were given on arrival."),
+        ("Do I still need to fill in the TDAC if I've already got a booking?", "Yes. The Thailand Digital Arrival Card has been mandatory for everyone entering by air, land or sea since 1 May 2025, regardless of when you booked. Register online for free, within 3 days of your arrival date."),
+        ("Is there a fee for the Digital Arrival Card, and how do I avoid the fake sites?", "No, it's completely free. Thai immigration has warned that at least 1 in 10 foreign arrivals have used a fraudulent website that charges a fee and has no connection to the government. Only register directly at tdac.immigration.go.th."),
+        ("What happens if I overstay my 30 days in Thailand?", "You'll be fined 500 baht for every day you overstay, up to a maximum of 20,000 baht, and you risk detention, deportation at your own expense, and a re-entry ban of up to 10 years."),
+    ]
+)
+
+with open(os.path.join(SITE, "thailand-entry-rules-2026.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Thailand's Entry Rules Just Got Stricter: What to Know Before You Fly | Travel Agent Jake",
+        "Thailand has halved its visa free stay to 30 days, the digital arrival card is still mandatory, and officials say thousands of travellers are being caught out by fake websites charging for something that's free. Here's exactly what's changed.",
+        "travel-tips.html",
+        thailand_body,
+        extra_schema=THAILAND_SCHEMA,
+        canonical_path="thailand-entry-rules-2026.html"
+    ))
+print("thailand-entry-rules-2026.html written")
+
 
 
 # ---------------- sitemap.xml ----------------
@@ -18614,6 +18794,7 @@ SITEMAP_PAGES = [
     ("eu-pet-travel-rules-2026.html", "0.7"),
     ("eu261-flight-compensation-reform-2026.html", "0.7"),
     ("uk-egates-changes-2026.html", "0.7"),
+    ("thailand-entry-rules-2026.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
