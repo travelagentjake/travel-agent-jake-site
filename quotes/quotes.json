@@ -422,6 +422,17 @@
    "created": "2026-10-23",
    "departs": "2027-09-24",
    "fromPrice": 6064
+  },
+  {
+   "slug": "danibenidorm1",
+   "url": "https://quotes.travelagentjake.co.uk/danibenidorm1",
+   "customer": "Dani",
+   "enquiryId": "mvl0usivnqu7",
+   "quoteRequestId": "mvl0uske89dk",
+   "title": "Benidorm, 5 nights from Glasgow with Jet2holidays, Sun 1 to Fri 6 November 2026, 1 adult (Servigroup Rialto, RH Sol, Climia 2Sleep Apartments)",
+   "created": "2026-10-23",
+   "departs": "2026-11-01",
+   "fromPrice": 446
   }
  ]
 }
