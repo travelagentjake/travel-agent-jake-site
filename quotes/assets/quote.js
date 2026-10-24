@@ -55,12 +55,20 @@
     if (a.touristTax && (a.touristTax.amount != null || a.touristTax.note)) Q.touristTax = a.touristTax;
     return Q;
   }
-  var done = false;
+  var done = false, shut = false;
+  /* a quote Jake has closed in the dashboard is taken away from the customer: nothing of it is shown */
+  function closedScreen() {
+    if (shut) return; shut = true; done = true;
+    document.title = 'This quote is no longer available | Travel Agent Jake';
+    document.body.className = '';
+    document.body.innerHTML = '<div style="font-family:Archivo,Arial,sans-serif;max-width:520px;margin:12vh auto;padding:0 20px;text-align:center;color:#10142B"><h1 style="color:#004AAD;font-size:26px;margin:0 0 12px">This quote is no longer available</h1><p style="font-size:17px;line-height:1.5;margin:0 0 20px">Quotes are only kept open for a limited time. If you are still thinking about this holiday, message Jake and he will gladly look at it again for you.</p><a href="https://wa.me/447899290262?text=' + encodeURIComponent('Hi Jake, I was looking at my holiday quote and it has closed. Could you help me please?') + '" style="display:inline-block;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:14px 24px;border-radius:999px">Message Jake on WhatsApp</a></div>';
+    try { var k = localStorage.getItem('taj-jake') === '1' || /[?&]jake/.test(location.search); if (!k) navigator.sendBeacon('https://travelagentjake.co.uk/api/quote-view', new Blob([JSON.stringify({ slug: BASE.slug, ref: (document.referrer || '').slice(0, 200) })], { type: 'text/plain' })); } catch (e) {}
+  }
   function go(a) { if (done) return; done = true; render(applyAmendments(BASE, a)); }
   setTimeout(function () { go(null); }, 2500);
   try {
     fetch(CONFIG_URL + encodeURIComponent(BASE.slug), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (j) { go(j && j.amendments); }, function () { go(null); });
+      .then(function (j) { if (j && j.closed) closedScreen(); else go(j && j.amendments); }, function () { go(null); });
   } catch (e) { go(null); }
 
   function render(Q) {

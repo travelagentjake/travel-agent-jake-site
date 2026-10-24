@@ -17,10 +17,19 @@ export default async (req) => {
   const store = getStore({ name: "quote-config", consistency: "strong" });
 
   if (req.method === "GET") {
-    const slug = clean(new URL(req.url).searchParams.get("slug"), 40).toLowerCase();
+    const sp = new URL(req.url).searchParams, status = getStore({ name: "quote-status", consistency: "strong" });
+    // ?closed=1 lists the links Jake has closed (slugs only). The "Close quotes" GitHub Action uses it to remove their pages.
+    if (sp.get("closed")) {
+      const list = (await status.list().catch(() => ({ blobs: [] }))).blobs;
+      const closed = [];
+      await Promise.all(list.map(async (b) => { const r = await status.get(b.key, { type: "json" }).catch(() => null); if (r && r.status === "closed") closed.push(b.key); }));
+      return out({ closed });
+    }
+    const slug = clean(sp.get("slug"), 40).toLowerCase();
     if (!okSlug(slug)) return out({ error: "Bad slug" }, 400);
     const a = await store.get(slug, { type: "json" }).catch(() => null);
-    return out({ amendments: a || null });
+    const stat = await status.get(slug, { type: "json" }).catch(() => null);
+    return out({ amendments: a || null, closed: !!(stat && stat.status === "closed") });
   }
 
   if (req.method !== "POST") return out({ error: "Method not allowed" }, 405);

@@ -4,6 +4,7 @@
 // Every note and status change is kept in notesLog [{ t, text, auto }] so there is a full history of what was done.
 import { getStore } from "@netlify/blobs";
 import { json } from "../lib/pw.mjs";
+import { closeEnquiryQuotes } from "../lib/quote-close.mjs";
 import { loadLogo, pdfName, b64 } from "../lib/enquiry-lib.mjs";
 import { buildEnquiryPdf } from "../lib/enquiry-pdf.mjs";
 
@@ -33,6 +34,10 @@ export default async (req) => {
       q.statusAt = new Date().toISOString();
     }
     if (b.adminNotes !== undefined) q.adminNotes = String(b.adminNotes).slice(0, 2000);
+    if (b.status === "closed") {
+      const gone = await closeEnquiryQuotes(q.id).catch(() => []);
+      if (gone.length) (q.notesLog = q.notesLog || []).push({ t: new Date().toISOString(), text: "Quote link closed for the customer: " + gone.join(", "), auto: true });
+    }
     await s.setJSON(q.id, q);
     return json({ ok: true, enquiry: q });
   }

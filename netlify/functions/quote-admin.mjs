@@ -11,6 +11,7 @@
 // A request for someone who is not already in the dashboard also creates their customer profile in "enquiries".
 import { getStore } from "@netlify/blobs";
 import { json, SITE } from "../lib/pw.mjs";
+import { closeSlug } from "../lib/quote-close.mjs";
 
 const STATUSES = ["requested", "building", "sent", "booked", "closed"];
 const st = (name) => getStore({ name, consistency: "strong" });
@@ -80,6 +81,7 @@ export default async (req) => {
     if (!["open", "booked", "closed"].includes(b.status)) return json({ error: "Unknown status" }, 400);
     const rec = { status: b.status, at: new Date().toISOString(), via: "dashboard" };
     await st("quote-status").setJSON(slug, rec);
+    if (b.status === "closed") await closeSlug(slug, "quote closed");
     if (b.status === "booked") {
       const reg = await fetch("https://taj-quotes.pages.dev/quotes.json?cb=" + Date.now()).then((x) => x.json()).catch(() => ({ quotes: [] }));
       const q = (reg.quotes || []).find((x) => x.slug === slug);
@@ -115,6 +117,7 @@ export default async (req) => {
     if (b.slug !== undefined) rq.slug = clean(b.slug, 40).toLowerCase();
     if (b.adminNotes !== undefined) rq.adminNotes = clean(b.adminNotes, 4000);
     await reqs.setJSON(rq.id, rq);
+    if (b.status === "closed" && rq.slug) await closeSlug(rq.slug, "request closed");
     return json({ ok: true, request: rq });
   }
   if (b.action === "request-file") {
