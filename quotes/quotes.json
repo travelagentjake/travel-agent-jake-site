@@ -455,6 +455,17 @@
    "created": "2026-10-24",
    "departs": "2026-11-12",
    "fromPrice": 2382
+  },
+  {
+   "slug": "lisalanza",
+   "url": "https://quotes.travelagentjake.co.uk/lisalanza",
+   "customer": "Lisa",
+   "enquiryId": "mvm482azyb6w",
+   "quoteRequestId": "mvm482cm9myv",
+   "title": "Iberostar Selection Lanzarote Park, Playa Blanca, 7 nights all inclusive, 2 adults, Jan 2027 (TUI Gatwick 7 Jan price match, TUI Gatwick 14 Jan, easyJet holidays Luton 7 Jan)",
+   "created": "2026-10-24",
+   "departs": "2027-01-07",
+   "fromPrice": 2103.72
   }
  ]
 }
