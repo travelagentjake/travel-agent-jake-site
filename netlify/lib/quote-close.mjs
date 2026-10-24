@@ -29,5 +29,11 @@ export async function slugsForEnquiry(enquiryId) {
 export async function closeEnquiryQuotes(enquiryId) {
   const slugs = await slugsForEnquiry(enquiryId);
   for (const s of slugs) await closeSlug(s, "enquiry closed");
+  // the quote requests for this customer move to Closed too, so they sit in the closed section of the Quotes tab
+  const reqs = st("quote-requests"), list = (await reqs.list().catch(() => ({ blobs: [] }))).blobs;
+  await Promise.all(list.map(async (b) => {
+    const r = await reqs.get(b.key, { type: "json" }).catch(() => null);
+    if (r && r.enquiryId === enquiryId && r.status !== "closed" && r.status !== "booked") { r.status = "closed"; r.statusAt = new Date().toISOString(); await reqs.setJSON(r.id, r); }
+  }));
   return slugs;
 }
