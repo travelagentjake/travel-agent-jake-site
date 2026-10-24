@@ -466,6 +466,17 @@
    "created": "2026-10-24",
    "departs": "2027-01-07",
    "fromPrice": 2103.72
+  },
+  {
+   "slug": "mandeepbadhen",
+   "url": "https://quotes.travelagentjake.co.uk/mandeepbadhen",
+   "customer": "Mandeep Badhen",
+   "enquiryId": "mvmeopbmm92u",
+   "quoteRequestId": "mvmo73a54q8t",
+   "title": "Savoy Sharm El Sheikh, 10 nights all inclusive with private transfers for 2 adults, direct from Birmingham with easyJet holidays, Sat 5 to Tue 15 June 2027",
+   "created": "2026-10-24",
+   "departs": "2027-06-05",
+   "fromPrice": 2739
   }
  ]
 }
