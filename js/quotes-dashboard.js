@@ -69,6 +69,7 @@
     + '.qd-pre{white-space:pre-wrap;font-size:14px;margin:8px 0 0;background:#f4f6fb;border-radius:10px;padding:10px 12px}'
     + '.qd-small{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#6b7190;margin-top:10px}'
     + '.qd-block{margin-top:14px;border-top:1px solid #e6eaf3;padding-top:12px}'
+    + '.qd-flash{box-shadow:0 0 0 4px var(--yellow)!important;transition:box-shadow .3s}'
     + '.qd-block .qd-mini{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:14px;padding:6px 0}'
     + '.qd-empty{color:#5b6478;font-size:14px}'
     + '.qd-modal{position:fixed;inset:0;z-index:80;background:rgba(16,20,43,.55);display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding:24px 12px}'
@@ -284,11 +285,14 @@
       var bks = S.bookings.filter(function (k) { return k.email && en && String(k.email).toLowerCase() === String(en.email || '').toLowerCase() || (en && en.wantsToBook && k.id === en.wantsToBook.bookingId); });
       var html = bks.map(bookingPanel).join('')
         + (en && en.status === 'booked' && en.booked ? '<div class="qd-booked">Booked' + (en.booked.ref ? ', ref ' + esc(en.booked.ref) : '') + (en.booked.supplier ? ' with ' + esc(en.booked.supplier) : '') + (en.booked.via ? ' (found in your ' + esc(en.booked.via) + ')' : '') + '</div>' : '')
-        + '<div class="qd-small">Quotes</div>'
-        + qs.map(function (q) { var v = viewsOf(q.slug); return '<div class="qd-mini"><a href="' + esc(quoteUrl(q)) + '?jake=1" target="_blank" rel="noopener"><b>' + esc(q.title || q.slug) + '</b></a><span class="qd-meta">' + (v.views || 0) + ' view' + (v.views === 1 ? '' : 's') + (v.lastView ? ', last ' + esc(ago(v.lastView)) : ', not opened yet') + '</span></div>'; }).join('')
-        + rs.map(function (r) { return '<div class="qd-mini"><span>' + esc(r.title || ('Quote for ' + r.customerName)) + '</span><span class="qd-pill ' + esc(r.status) + '">' + esc(r.status) + '</span></div>'; }).join('')
-        + (qs.length || rs.length ? '' : '<div class="qd-empty">No quotes yet.</div>')
-        + '<div class="qd-act"><button class="ea-btn" type="button" data-qgen="' + esc(c.dataset.id) + '" style="background:var(--yellow)">Generate quote</button></div>';
+        + (function () {
+          var v = 0, last = 0;
+          qs.forEach(function (q) { var w = viewsOf(q.slug); v += w.views || 0; var t = w.lastView ? Date.parse(w.lastView) : 0; if (t > last) last = t; });
+          var line = qs.length ? '<span class="qd-meta"><b>' + qs.length + ' quote' + (qs.length === 1 ? '' : 's') + '</b> &#183; ' + v + ' view' + (v === 1 ? '' : 's') + (last ? ', last ' + esc(ago(new Date(last).toISOString())) : ', not opened yet') + '</span>'
+            : rs.length ? '<span class="qd-meta">' + rs.map(function (r) { return esc(r.status); }).join(', ') + ' quote request' + (rs.length === 1 ? '' : 's') + '</span>' : '<span class="qd-meta">No quotes yet</span>';
+          return line + (qs.length ? '<button class="ea-btn" type="button" data-qview="' + esc(c.dataset.id) + '">View quote' + (qs.length === 1 ? '' : 's') + '</button>' : '')
+            + '<button class="ea-btn" type="button" data-qgen="' + esc(c.dataset.id) + '" style="background:var(--yellow)">Generate quote</button>';
+        })();
       notesBlock(c, en);
       var blk = c.querySelector('.qd-block');
       if (!blk) { blk = document.createElement('div'); blk.className = 'qd-block'; var ctl = c.querySelector('.ea-ctl'); c.insertBefore(blk, ctl || null); }
@@ -351,6 +355,20 @@
     list.addEventListener('change', function (e) { if (e.target.matches('select[data-act="status"]')) setTimeout(load, 1500); });
     new MutationObserver(function () { decorate(); }).observe(list, { childList: true });
     list.addEventListener('click', function (e) { var b = e.target.closest('[data-qgen]'); if (b) openForm(b.dataset.qgen); });
+    /* "View quotes" on a customer card: jump to the Quotes tab and land on that customer's quote(s) */
+    list.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-qview]'); if (!b) return;
+      var id = String(b.dataset.qview || '').toLowerCase();
+      tabs.querySelector('[data-tab="quotes"]').click();
+      load().then(function () {
+        var qs = S.quotes.filter(function (q) { return String(q.enquiryId || '').toLowerCase() === id; });
+        if (!qs.length) return;
+        S.qSearch = ''; S.qFilter = 'all'; var si = $('qdSearch'); if (si) si.value = ''; var sf = $('qdFilter'); if (sf) sf.value = 'all';
+        if (qs.some(function (q) { return qState(q) !== 'open'; })) S.showDone = true;
+        renderPane();
+        qs.forEach(function (q, i) { var card = paneQ.querySelector('[data-slug="' + q.slug + '"]'); if (!card) return; card.classList.add('qd-flash'); if (i === 0) card.scrollIntoView({ behavior: 'smooth', block: 'start' }); setTimeout(function () { card.classList.remove('qd-flash'); }, 2500); });
+      });
+    });
   }
 
   /* ---------- Generate quote form ---------- */
