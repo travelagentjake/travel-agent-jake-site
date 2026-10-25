@@ -482,8 +482,11 @@
   /* booking form: passengers, contact, how they want to pay, optional direct debit, T&Cs. Posts to /api/quote-book which emails Jake. */
   function bookForm() {
     var n = Math.max(1, Number(Q.partyCount || 1));
+    var TITLES = ['Mr', 'Mrs', 'Miss', 'Ms', 'Mx', 'Dr', 'Master'];
+    function titleSel() { return '<label>Title<select name="title" autocomplete="honorific-prefix" required><option value="">Select</option>' + TITLES.map(function (t) { return '<option>' + t + '</option>'; }).join('') + '</select></label>'; }
     function paxRow(i) {
       return '<div class="paxrow"><div class="paxn">Passenger ' + (i + 1) + (i === 0 ? ' (lead passenger)' : '') + '</div><div class="paxg">'
+        + titleSel()
         + '<label>First name<input type="text" name="first" autocomplete="given-name" required></label>'
         + '<label>Middle name (if any)<input type="text" name="middle" autocomplete="additional-name"></label>'
         + '<label>Surname<input type="text" name="last" autocomplete="family-name" required></label>'
@@ -583,7 +586,7 @@
     document.addEventListener('taj-calc', function () { if (hs && Number(hs.value) !== hIdx) hs.value = String(hIdx); sum(); });
     document.getElementById('bkAdd').addEventListener('click', function () {
       var box = document.getElementById('bkPax'), i = box.children.length;
-      var d = document.createElement('div'); d.innerHTML = '<div class="paxrow"><div class="paxn">Passenger ' + (i + 1) + ' <button type="button" class="paxdel" aria-label="Remove passenger">Remove</button></div><div class="paxg"><label>First name<input type="text" name="first" required></label><label>Middle name (if any)<input type="text" name="middle"></label><label>Surname<input type="text" name="last" required></label><label>Date of birth<input type="date" name="dob" required></label></div></div>';
+      var d = document.createElement('div'); d.innerHTML = '<div class="paxrow"><div class="paxn">Passenger ' + (i + 1) + ' <button type="button" class="paxdel" aria-label="Remove passenger">Remove</button></div><div class="paxg">' + titleSel() + '<label>First name<input type="text" name="first" required></label><label>Middle name (if any)<input type="text" name="middle"></label><label>Surname<input type="text" name="last" required></label><label>Date of birth<input type="date" name="dob" required></label></div></div>';
       box.appendChild(d.firstChild);
     });
     document.getElementById('bkPax').addEventListener('click', function (e) { if (e.target.classList.contains('paxdel')) e.target.closest('.paxrow').remove(); });
@@ -592,7 +595,7 @@
       var err = document.getElementById('bkErr'); err.hidden = true;
       var x = bkHotel(), pax = [];
       Array.prototype.forEach.call(document.querySelectorAll('#bkPax .paxrow'), function (r) {
-        pax.push({ first: r.querySelector('[name=first]').value.trim(), middle: r.querySelector('[name=middle]').value.trim(), last: r.querySelector('[name=last]').value.trim(), dob: r.querySelector('[name=dob]').value });
+        pax.push({ title: r.querySelector('[name=title]').value, first: r.querySelector('[name=first]').value.trim(), middle: r.querySelector('[name=middle]').value.trim(), last: r.querySelector('[name=last]').value.trim(), dob: r.querySelector('[name=dob]').value });
       });
       var g = function (n) { var el = f.querySelector('[name=' + n + ']'); return el ? el.value.trim() : ''; };
       var pnv = (document.querySelector('input[name="payNow"]:checked') || {}).value, full = fullOnly || pnv === 'full', isOther = !full && pnv === 'other';
