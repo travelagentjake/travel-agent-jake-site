@@ -24,6 +24,7 @@
      areas: [{ img, title, text }],
      areas: [{ img, title, text, alt, link (GetYourGuide page, affiliate code added automatically), linkLabel }],
      departDate (YYYY-MM-DD), depositTotal, partyCount   // used by the built in monthly payment calculator
+     roomCount (optional, number of rooms in the party: the booking form then asks who is in which room straight away)
      priceIntro, steps: [[title, text]], smallprint, prepared,
      hideCols (optional, ['transfer'] leaves the Transfer column off the comparison table), weatherIntro (optional), noWeather (true to leave the weather section off), fullPayment (true when the holiday is paid in full at booking)
    }
@@ -483,6 +484,8 @@
   function bookForm() {
     var n = Math.max(1, Number(Q.partyCount || 1));
     var TITLES = ['Mr', 'Mrs', 'Miss', 'Ms', 'Mx', 'Dr', 'Master'];
+    var defRooms = Math.max(1, Math.min(8, Number(Q.roomCount || 1)));
+    function roomSel() { var o = ''; for (var r = 1; r <= 8; r++) o += '<option value="' + r + '">Room ' + r + '</option>'; return '<label class="bkroomf"' + (defRooms > 1 ? '' : ' hidden') + '>Room<select name="room">' + o + '</select></label>'; }
     function titleSel() { return '<label>Title<select name="title" autocomplete="honorific-prefix" required><option value="">Select</option>' + TITLES.map(function (t) { return '<option>' + t + '</option>'; }).join('') + '</select></label>'; }
     function paxRow(i) {
       return '<div class="paxrow"><div class="paxn">Passenger ' + (i + 1) + (i === 0 ? ' (lead passenger)' : '') + '</div><div class="paxg">'
@@ -490,7 +493,7 @@
         + '<label>First name<input type="text" name="first" autocomplete="given-name" required></label>'
         + '<label>Middle name (if any)<input type="text" name="middle" autocomplete="additional-name"></label>'
         + '<label>Surname<input type="text" name="last" autocomplete="family-name" required></label>'
-        + '<label>Date of birth<input type="date" name="dob" required max="' + new Date().toISOString().slice(0, 10) + '"></label></div></div>';
+        + '<label>Date of birth<input type="date" name="dob" required max="' + new Date().toISOString().slice(0, 10) + '"></label>' + roomSel() + '</div></div>';
     }
     var rows = ''; for (var i = 0; i < n; i++) rows += paxRow(i);
     return '<div class="book" id="book" hidden><h3>Book this holiday</h3>'
@@ -500,7 +503,7 @@
       + (multi ? '<select id="bkHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '<p class="bkh"><b>' + esc(hotels[0].name) + '</b>, ' + gbp(hotels[0].total) + '</p>')
       + '<div id="bkSum" class="bksum"></div>'
       + (extras.length ? '<div id="bkXtras" class="bkx" hidden></div>' : '')
-      + '<h4>Who is travelling</h4><p class="small bkpp" style="margin:-2px 0 8px"><b>Names must be as they appear on your passport.</b></p><div id="bkPax">' + rows + '</div>'
+      + '<h4>Who is travelling</h4><p class="small bkpp" style="margin:-2px 0 8px"><b>Names must be as they appear on your passport.</b></p>' + (n >= 2 ? '<div class="bkrooms"><label>How many rooms are you booking?<select id="bkRoomCount">' + [1, 2, 3, 4, 5, 6, 7, 8].filter(function (k) { return k <= Math.max(n, defRooms); }).map(function (k) { return '<option value="' + k + '"' + (k === defRooms ? ' selected' : '') + '>' + k + '</option>'; }).join('') + '</select></label><p class="small" style="margin:4px 0 0" id="bkRoomHint" hidden>Choose which room each person is in.</p></div>' : '') + '<div id="bkPax">' + rows + '</div>'
       + '<p><button class="btn btn-o" type="button" id="bkAdd">Add another passenger</button></p>'
       + '<h4>Your contact details</h4><div class="paxg">'
       + '<label class="wide">Home address<textarea name="address" rows="3" autocomplete="street-address" required placeholder="House number, street, town"></textarea></label>'
@@ -584,10 +587,23 @@
     if (hs) hs.addEventListener('change', function () { hIdx = Number(hs.value); calc(); var c = document.getElementById('cHotel'); if (c) c.value = hs.value; var fh = document.getElementById('fHotel'); if (fh) fh.value = hs.value; sum(); });
     f.addEventListener('change', function (ev) { var a = document.getElementById('bkWantDD'), b = document.getElementById('bkPayGo'); if (a && b) { if (ev.target === a && a.checked) b.checked = false; if (ev.target === b && b.checked) a.checked = false; } sum(); });
     document.addEventListener('taj-calc', function () { if (hs && Number(hs.value) !== hIdx) hs.value = String(hIdx); sum(); });
+    function syncRooms() {
+      var rc = document.getElementById('bkRoomCount'), nr = rc ? Number(rc.value) : 1, many = nr > 1;
+      var hint = document.getElementById('bkRoomHint'); if (hint) hint.hidden = !many;
+      Array.prototype.forEach.call(document.querySelectorAll('#bkPax .paxrow'), function (r, idx) {
+        var lab = r.querySelector('.bkroomf'), sel = r.querySelector('[name=room]'); if (!lab || !sel) return;
+        lab.hidden = !many;
+        Array.prototype.forEach.call(sel.options, function (op) { op.hidden = op.disabled = Number(op.value) > nr; });
+        if (Number(sel.value) > nr) sel.value = '1';
+        sel.required = many;
+      });
+    }
+    var rcEl = document.getElementById('bkRoomCount'); if (rcEl) rcEl.addEventListener('change', syncRooms);
+    syncRooms();
     document.getElementById('bkAdd').addEventListener('click', function () {
       var box = document.getElementById('bkPax'), i = box.children.length;
-      var d = document.createElement('div'); d.innerHTML = '<div class="paxrow"><div class="paxn">Passenger ' + (i + 1) + ' <button type="button" class="paxdel" aria-label="Remove passenger">Remove</button></div><div class="paxg">' + titleSel() + '<label>First name<input type="text" name="first" required></label><label>Middle name (if any)<input type="text" name="middle"></label><label>Surname<input type="text" name="last" required></label><label>Date of birth<input type="date" name="dob" required></label></div></div>';
-      box.appendChild(d.firstChild);
+      var d = document.createElement('div'); d.innerHTML = '<div class="paxrow"><div class="paxn">Passenger ' + (i + 1) + ' <button type="button" class="paxdel" aria-label="Remove passenger">Remove</button></div><div class="paxg">' + titleSel() + '<label>First name<input type="text" name="first" required></label><label>Middle name (if any)<input type="text" name="middle"></label><label>Surname<input type="text" name="last" required></label><label>Date of birth<input type="date" name="dob" required></label>' + roomSel() + '</div></div>';
+      box.appendChild(d.firstChild); syncRooms();
     });
     document.getElementById('bkPax').addEventListener('click', function (e) { if (e.target.classList.contains('paxdel')) e.target.closest('.paxrow').remove(); });
     f.addEventListener('submit', function (e) {
@@ -595,7 +611,7 @@
       var err = document.getElementById('bkErr'); err.hidden = true;
       var x = bkHotel(), pax = [];
       Array.prototype.forEach.call(document.querySelectorAll('#bkPax .paxrow'), function (r) {
-        pax.push({ title: r.querySelector('[name=title]').value, first: r.querySelector('[name=first]').value.trim(), middle: r.querySelector('[name=middle]').value.trim(), last: r.querySelector('[name=last]').value.trim(), dob: r.querySelector('[name=dob]').value });
+        pax.push({ room: (r.querySelector('[name=room]') && !r.querySelector('.bkroomf').hidden) ? Number(r.querySelector('[name=room]').value) || 1 : 1, title: r.querySelector('[name=title]').value, first: r.querySelector('[name=first]').value.trim(), middle: r.querySelector('[name=middle]').value.trim(), last: r.querySelector('[name=last]').value.trim(), dob: r.querySelector('[name=dob]').value });
       });
       var g = function (n) { var el = f.querySelector('[name=' + n + ']'); return el ? el.value.trim() : ''; };
       var pnv = (document.querySelector('input[name="payNow"]:checked') || {}).value, full = fullOnly || pnv === 'full', isOther = !full && pnv === 'other';

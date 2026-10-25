@@ -24,7 +24,7 @@ export default async (req) => {
   const slug = clean(b.slug, 40).toLowerCase();
   if (!/^[a-z0-9][a-z0-9-]{0,39}$/.test(slug)) return json({ error: "Unknown quote" }, 400);
   const pax = (Array.isArray(b.passengers) ? b.passengers : []).slice(0, 30).map((p) => ({
-    title: ["Mr", "Mrs", "Miss", "Ms", "Mx", "Dr", "Master"].includes(clean(p.title, 10)) ? clean(p.title, 10) : "", first: clean(p.first, 60), middle: clean(p.middle, 60), last: clean(p.last, 60), dob: clean(p.dob, 10),
+    room: Math.min(8, Math.max(1, parseInt(p.room, 10) || 1)), title: ["Mr", "Mrs", "Miss", "Ms", "Mx", "Dr", "Master"].includes(clean(p.title, 10)) ? clean(p.title, 10) : "", first: clean(p.first, 60), middle: clean(p.middle, 60), last: clean(p.last, 60), dob: clean(p.dob, 10),
   })).filter((p) => p.first && p.last && /^\d{4}-\d{2}-\d{2}$/.test(p.dob));
   const email = clean(b.email, 120).toLowerCase(), mobile = clean(b.mobile, 20);
   const address = clean(b.address, 400), postcode = clean(b.postcode, 12).toUpperCase();
@@ -71,7 +71,10 @@ export default async (req) => {
   const row = (k, v) => `<tr><td style="padding:7px 10px 7px 0;color:#5b6478;vertical-align:top;white-space:nowrap;">${k}</td><td style="padding:7px 0;font-weight:bold;vertical-align:top;">${v}</td></tr>`;
   const paxRows = pax.map((p, i) => row("Passenger " + (i + 1), esc([p.first, p.middle, p.last].filter(Boolean).join(" ")) + `<br><span style="font-weight:normal">born ${nice(p.dob)}</span>`)).join("");
   const th = 'style="padding:6px 10px;text-align:left;font-size:12px;color:#5b6478;border-bottom:2px solid #004AAD;white-space:nowrap;"', td = 'style="padding:7px 10px;border-bottom:1px solid #e3e7f5;font-weight:bold;vertical-align:top;"';
-  const paxTable = `<table cellpadding="0" cellspacing="0" style="font-size:15px;border-collapse:collapse;width:100%;max-width:560px;margin:4px 0 6px;"><tr><th ${th}>#</th><th ${th}>Title</th><th ${th}>First name</th><th ${th}>Middle name</th><th ${th}>Surname</th><th ${th}>Date of birth</th></tr>${pax.map((p, i) => `<tr><td ${td}>${i + 1}</td><td ${td}>${esc(p.title || "")}</td><td ${td}>${esc(p.first)}</td><td ${td}>${p.middle ? esc(p.middle) : '&nbsp;'}</td><td ${td}>${esc(p.last)}</td><td ${td}>${nice(p.dob)}</td></tr>`).join("")}</table>`;
+  const manyRooms = new Set(pax.map((p) => p.room)).size > 1, roomOrder = [...new Set(pax.map((p) => p.room))].sort((a, b) => a - b);
+  const paxRowHtml = (p, i) => `<tr><td ${td}>${i + 1}</td><td ${td}>${esc(p.title || "")}</td><td ${td}>${esc(p.first)}</td><td ${td}>${p.middle ? esc(p.middle) : '&nbsp;'}</td><td ${td}>${esc(p.last)}</td><td ${td}>${nice(p.dob)}</td></tr>`;
+  const paxBody = manyRooms ? roomOrder.map((r) => `<tr><td colspan="6" style="padding:9px 10px 5px;background:#f1f4fc;color:#004AAD;font-weight:bold;border-bottom:1px solid #e3e7f5;">Room ${r}</td></tr>` + pax.map((p, i) => [p, i]).filter(([p]) => p.room === r).map(([p, i]) => paxRowHtml(p, i)).join("")).join("") : pax.map(paxRowHtml).join("");
+  const paxTable = `<table cellpadding="0" cellspacing="0" style="font-size:15px;border-collapse:collapse;width:100%;max-width:560px;margin:4px 0 6px;"><tr><th ${th}>#</th><th ${th}>Title</th><th ${th}>First name</th><th ${th}>Middle name</th><th ${th}>Surname</th><th ${th}>Date of birth</th></tr>${paxBody}</table>`;
   const addressRow = row("Address", esc(address).replace(/\n/g, "<br>") + "<br>" + esc(postcode));
   const money = `${row("Hotel", esc(rec.hotel) + " " + gbp(rec.hotelTotal))}${extras.length ? row("Extras", extras.map((e) => esc(e.title) + " " + gbp(e.total) + (e.separate ? " (paid in full at booking)" : "")).join("<br>")) : ""}${row("Total", gbp(rec.total))}${row("Paying today", gbp(rec.payToday) + (payNow === "full" ? ", the full amount" : payNow === "other" ? ", the amount chosen (more than the deposit)" : ", the deposit") + " by " + payLabel)}`;
   const quoteUrl = "https://quotes.travelagentjake.co.uk/" + slug;

@@ -69,7 +69,7 @@
     + '.qd-pre{white-space:pre-wrap;font-size:14px;margin:8px 0 0;background:#f4f6fb;border-radius:10px;padding:10px 12px}'
     + '.qd-small{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#6b7190;margin-top:10px}'
     + '.qd-block{margin-top:14px;border-top:1px solid #e6eaf3;padding-top:12px}'
-    + '.bk-pax{background:#fff;border-radius:10px;padding:12px;margin-top:10px;font-size:13px}.bk-pax>b{display:block;color:#004AAD;margin-bottom:6px}.bk-ptab{border-collapse:collapse;width:100%}.bk-ptab th{text-align:left;font-size:12px;color:#5b6478;border-bottom:2px solid #004AAD;padding:4px 8px}.bk-ptab td{padding:6px 8px;border-bottom:1px solid #e3e7f5;font-weight:700}.bk-none{font-weight:400;color:#9aa0b8}@media(max-width:640px){.bk-ptab th,.bk-ptab td{padding:5px 4px;font-size:12px}}'
+    + '.bk-pax{background:#fff;border-radius:10px;padding:12px;margin-top:10px;font-size:13px}.bk-pax>b{display:block;color:#004AAD;margin-bottom:6px}.bk-ptab{border-collapse:collapse;width:100%}.bk-ptab th{text-align:left;font-size:12px;color:#5b6478;border-bottom:2px solid #004AAD;padding:4px 8px}.bk-ptab td{padding:6px 8px;border-bottom:1px solid #e3e7f5;font-weight:700}.bk-room td{background:#f1f4fc;color:#004AAD;font-weight:800!important}.bk-none{font-weight:400;color:#9aa0b8}@media(max-width:640px){.bk-ptab th,.bk-ptab td{padding:5px 4px;font-size:12px}}'
     + '.qd-flash{box-shadow:0 0 0 4px var(--yellow)!important;transition:box-shadow .3s}'
     + '.qd-block .qd-mini{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:14px;padding:6px 0}'
     + '.qd-empty{color:#5b6478;font-size:14px}'
@@ -309,7 +309,12 @@
     var h = '<div class="qd-booked qd-wants" id="bk-' + esc(k.id) + '"><div class="bk-top"><span>Wants to book! Booking form sent ' + esc(ago(k.at)) + ': ' + esc(k.hotel) + ', ' + gbp(k.total) + ', paying ' + gbp(k.payToday) + ' today by ' + (k.payHow === 'bank' ? 'bank transfer' : 'card') + '.</span>'
       + '<span class="bk-btns"><button class="ea-btn" type="button" data-bk="toggle" data-id="' + esc(k.id) + '">' + (open ? 'Hide details' : 'Show details') + '</button></span></div>';
     if (open) {
-      h += '<div class="bk-pax"><b>Who is travelling</b><table class="bk-ptab"><thead><tr><th>#</th><th>Title</th><th>First name</th><th>Middle name</th><th>Surname</th><th>Date of birth</th></tr></thead><tbody>' + (k.passengers || []).map(function (p, i) { return '<tr><td>' + (i + 1) + '</td><td>' + esc(p.title || '') + '</td><td>' + esc(p.first) + '</td><td>' + (p.middle ? esc(p.middle) : '') + '</td><td>' + esc(p.last) + '</td><td>' + dmy(p.dob) + '</td></tr>'; }).join('') + '</tbody></table></div>'
+      h += '<div class="bk-pax"><b>Who is travelling</b><table class="bk-ptab"><thead><tr><th>#</th><th>Title</th><th>First name</th><th>Middle name</th><th>Surname</th><th>Date of birth</th></tr></thead><tbody>' + (function () {
+          var ps = k.passengers || [], rooms = []; ps.forEach(function (p) { var r = p.room || 1; if (rooms.indexOf(r) < 0) rooms.push(r); }); rooms.sort(function (a, b) { return a - b; });
+          function row(p, i) { return '<tr><td>' + (i + 1) + '</td><td>' + esc(p.title || '') + '</td><td>' + esc(p.first) + '</td><td>' + (p.middle ? esc(p.middle) : '') + '</td><td>' + esc(p.last) + '</td><td>' + dmy(p.dob) + '</td></tr>'; }
+          if (rooms.length < 2) return ps.map(row).join('');
+          return rooms.map(function (r) { return '<tr class="bk-room"><td colspan="6">Room ' + r + '</td></tr>' + ps.map(function (p, i) { return [p, i]; }).filter(function (x) { return (x[0].room || 1) === r; }).map(function (x) { return row(x[0], x[1]); }).join(''); }).join('');
+        })() + '</tbody></table></div>'
         + '<div class="bk-grid">'
         + '<div><b>Contact</b><div>' + esc(k.address).replace(/\n/g, '<br>') + '<br>' + esc(k.postcode) + '</div><div>' + esc(k.mobile) + '</div><div>' + esc(k.email) + '</div></div>'
         + '<div><b>Holiday</b><div>' + esc(k.hotel) + ', ' + gbp(k.hotelTotal) + '</div>' + (k.extras || []).map(function (e) { return '<div>+ ' + esc(e.title) + ', ' + gbp(e.total) + (e.separate ? ' (paid in full at booking)' : '') + '</div>'; }).join('') + '<div>Total ' + gbp(k.total) + (k.departDate ? ', departs ' + dmy(k.departDate) : '') + '</div></div>'

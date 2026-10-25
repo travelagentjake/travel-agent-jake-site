@@ -801,3 +801,8 @@ html.a11y-hc .btn-y,html.a11y-hc .btn{border:2px solid #000}
 .bkxi input{accent-color:var(--blue);width:18px;height:18px;margin:1px 0 0;flex:0 0 18px}
 .bkxi b{display:block;font-weight:700}.bkxi i{display:block;font-style:normal;font-size:13px;color:#5b6478}
 .bkx[hidden]{display:none!important}
+
+/* rooms: who sleeps in which room */
+.bkrooms{margin:0 0 8px}.bkrooms label{font-weight:700;font-size:14px;display:block}.bkrooms select{margin-top:4px;max-width:120px}
+.bkroomf[hidden]{display:none!important}
+@media (min-width:560px){.paxrow .paxg{grid-template-columns:minmax(0,.7fr) repeat(4,minmax(0,1fr))}.paxrow .paxg .bkroomf:not([hidden]){grid-column:1/-1;max-width:200px}}
