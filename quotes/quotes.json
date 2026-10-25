@@ -499,6 +499,17 @@
    "created": "2026-10-25",
    "departs": "2027-10-09",
    "fromPrice": 3268
+  },
+  {
+   "slug": "rosalynbland",
+   "url": "https://quotes.travelagentjake.co.uk/rosalynbland",
+   "customer": "Rosalyn Bland",
+   "enquiryId": "mvnmrkt4lo7x",
+   "quoteRequestId": "mvnnf94u2hy6",
+   "title": "Canaries February half term, 6 nights all inclusive from Stansted or East Midlands with Jet2holidays, 14 or 15 Feb 2027, 2 adults 1 child (Costa Calero Thalasso & Spa, Barcelo Fuerteventura Mar, Seaside Los Jameos)",
+   "created": "2026-10-25",
+   "departs": "2027-02-14",
+   "fromPrice": 3207
   }
  ]
 }
