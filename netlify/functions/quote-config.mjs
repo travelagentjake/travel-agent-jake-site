@@ -29,7 +29,15 @@ export default async (req) => {
     if (!okSlug(slug)) return out({ error: "Bad slug" }, 400);
     const a = await store.get(slug, { type: "json" }).catch(() => null);
     const stat = await status.get(slug, { type: "json" }).catch(() => null);
-    return out({ amendments: a || null, closed: !!(stat && stat.status === "closed") });
+    // the rooms the customer asked for (counts only, no names): the booking form groups the passengers into them
+    let party = null;
+    try {
+      const reg = await fetch("https://taj-quotes.pages.dev/quotes.json", { signal: AbortSignal.timeout(2500) }).then((r) => r.json());
+      const q = (reg.quotes || []).find((x) => x.slug === slug);
+      const enq = q && q.enquiryId ? await getStore({ name: "enquiries", consistency: "strong" }).get(q.enquiryId, { type: "json" }).catch(() => null) : null;
+      if (enq && Array.isArray(enq.rooms) && enq.rooms.length > 1) party = enq.rooms.slice(0, 8).map((r) => ({ adults: Math.min(20, Number(r.adults) || 0), children: Math.min(10, Number(r.children) || 0) }));
+    } catch {}
+    return out({ amendments: a || null, closed: !!(stat && stat.status === "closed"), party });
   }
 
   if (req.method !== "POST") return out({ error: "Method not allowed" }, 405);

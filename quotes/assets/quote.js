@@ -24,7 +24,7 @@
      areas: [{ img, title, text }],
      areas: [{ img, title, text, alt, link (GetYourGuide page, affiliate code added automatically), linkLabel }],
      departDate (YYYY-MM-DD), depositTotal, partyCount   // used by the built in monthly payment calculator
-     roomCount (optional, number of rooms in the party: the booking form then asks who is in which room straight away)
+     roomCount (optional, number of rooms; normally left out because the rooms come from the customer's enquiry. A hotel can also have its own roomCount when that option needs a different number of rooms)
      priceIntro, steps: [[title, text]], smallprint, prepared,
      hideCols (optional, ['transfer'] leaves the Transfer column off the comparison table), weatherIntro (optional), noWeather (true to leave the weather section off), fullPayment (true when the holiday is paid in full at booking)
    }
@@ -65,11 +65,12 @@
     document.body.innerHTML = '<div style="font-family:Archivo,Arial,sans-serif;max-width:520px;margin:12vh auto;padding:0 20px;text-align:center;color:#10142B"><h1 style="color:#004AAD;font-size:26px;margin:0 0 12px">This quote is no longer available</h1><p style="font-size:17px;line-height:1.5;margin:0 0 20px">Quotes are only kept open for a limited time. If you are still thinking about this holiday, message Jake and he will gladly look at it again for you.</p><a href="https://wa.me/447899290262?text=' + encodeURIComponent('Hi Jake, I was looking at my holiday quote and it has closed. Could you help me please?') + '" style="display:inline-block;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:14px 24px;border-radius:999px">Message Jake on WhatsApp</a></div>';
     try { var k = localStorage.getItem('taj-jake') === '1' || /[?&]jake/.test(location.search); if (!k) navigator.sendBeacon('https://travelagentjake.co.uk/api/quote-view', new Blob([JSON.stringify({ slug: BASE.slug, ref: (document.referrer || '').slice(0, 200) })], { type: 'text/plain' })); } catch (e) {}
   }
-  function go(a) { if (done) return; done = true; render(applyAmendments(BASE, a)); }
+  var partyRooms = null;
+  function go(a) { if (done) return; done = true; if (partyRooms && !BASE.party) BASE.party = partyRooms; render(applyAmendments(BASE, a)); }
   setTimeout(function () { go(null); }, 2500);
   try {
     fetch(CONFIG_URL + encodeURIComponent(BASE.slug), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (j) { if (j && j.closed) closedScreen(); else go(j && j.amendments); }, function () { go(null); });
+      .then(function (j) { if (j && j.closed) closedScreen(); else { if (j && Array.isArray(j.party)) partyRooms = j.party; go(j && j.amendments); } }, function () { go(null); });
   } catch (e) { go(null); }
 
   function render(Q) {
@@ -484,16 +485,14 @@
   function bookForm() {
     var n = Math.max(1, Number(Q.partyCount || 1));
     var TITLES = ['Mr', 'Mrs', 'Miss', 'Ms', 'Mx', 'Dr', 'Master'];
-    var defRooms = Math.max(1, Math.min(8, Number(Q.roomCount || 1)));
-    function roomSel() { var o = ''; for (var r = 1; r <= 8; r++) o += '<option value="' + r + '">Room ' + r + '</option>'; return '<label class="bkroomf"' + (defRooms > 1 ? '' : ' hidden') + '>Room<select name="room">' + o + '</select></label>'; }
     function titleSel() { return '<label>Title<select name="title" autocomplete="honorific-prefix" required><option value="">Select</option>' + TITLES.map(function (t) { return '<option>' + t + '</option>'; }).join('') + '</select></label>'; }
     function paxRow(i) {
-      return '<div class="paxrow"><div class="paxn">Passenger ' + (i + 1) + (i === 0 ? ' (lead passenger)' : '') + '</div><div class="paxg">'
+      return '<div class="paxrow"><div class="paxn"><span class="paxroom"></span>Passenger ' + (i + 1) + (i === 0 ? ' (lead passenger)' : '') + '</div><div class="paxg">'
         + titleSel()
         + '<label>First name<input type="text" name="first" autocomplete="given-name" required></label>'
         + '<label>Middle name (if any)<input type="text" name="middle" autocomplete="additional-name"></label>'
         + '<label>Surname<input type="text" name="last" autocomplete="family-name" required></label>'
-        + '<label>Date of birth<input type="date" name="dob" required max="' + new Date().toISOString().slice(0, 10) + '"></label>' + roomSel() + '</div></div>';
+        + '<label>Date of birth<input type="date" name="dob" required max="' + new Date().toISOString().slice(0, 10) + '"></label></div></div>';
     }
     var rows = ''; for (var i = 0; i < n; i++) rows += paxRow(i);
     return '<div class="book" id="book" hidden><h3>Book this holiday</h3>'
@@ -503,7 +502,7 @@
       + (multi ? '<select id="bkHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '<p class="bkh"><b>' + esc(hotels[0].name) + '</b>, ' + gbp(hotels[0].total) + '</p>')
       + '<div id="bkSum" class="bksum"></div>'
       + (extras.length ? '<div id="bkXtras" class="bkx" hidden></div>' : '')
-      + '<h4>Who is travelling</h4><p class="small bkpp" style="margin:-2px 0 8px"><b>Names must be as they appear on your passport.</b></p>' + (n >= 2 ? '<div class="bkrooms"><label>How many rooms are you booking?<select id="bkRoomCount">' + [1, 2, 3, 4, 5, 6, 7, 8].filter(function (k) { return k <= Math.max(n, defRooms); }).map(function (k) { return '<option value="' + k + '"' + (k === defRooms ? ' selected' : '') + '>' + k + '</option>'; }).join('') + '</select></label><p class="small" style="margin:4px 0 0" id="bkRoomHint" hidden>Choose which room each person is in.</p></div>' : '') + '<div id="bkPax">' + rows + '</div>'
+      + '<h4>Who is travelling</h4><p class="small bkpp" style="margin:-2px 0 8px"><b>Names must be as they appear on your passport.</b></p><div id="bkPax">' + rows + '</div>'
       + '<p><button class="btn btn-o" type="button" id="bkAdd">Add another passenger</button></p>'
       + '<h4>Your contact details</h4><div class="paxg">'
       + '<label class="wide">Home address<textarea name="address" rows="3" autocomplete="street-address" required placeholder="House number, street, town"></textarea></label>'
@@ -541,6 +540,7 @@
     var hs = document.getElementById('bkHotel');
     function bkHotel() { return hs ? hotels[Number(hs.value)] || hotels[0] : hotels[0]; }
     function sum() {
+      syncRooms();
       var x = bkHotel(), list = xFor(x), ex = list.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0);
       var total = x.total + ex, today = paidToday(x), deposit = depOf(x), dep = deposit + today;
       var pn = (document.querySelector('input[name="payNow"]:checked') || {}).value, full = fullOnly || pn === 'full', other = !full && pn === 'other';
@@ -587,22 +587,29 @@
     if (hs) hs.addEventListener('change', function () { hIdx = Number(hs.value); calc(); var c = document.getElementById('cHotel'); if (c) c.value = hs.value; var fh = document.getElementById('fHotel'); if (fh) fh.value = hs.value; sum(); });
     f.addEventListener('change', function (ev) { var a = document.getElementById('bkWantDD'), b = document.getElementById('bkPayGo'); if (a && b) { if (ev.target === a && a.checked) b.checked = false; if (ev.target === b && b.checked) a.checked = false; } sum(); });
     document.addEventListener('taj-calc', function () { if (hs && Number(hs.value) !== hIdx) hs.value = String(hIdx); sum(); });
+    /* rooms come from the option being booked: the hotel's own roomCount, else the quote's roomCount, else the rooms on the enquiry (Q.party), else one room */
+    function roomsFor(x) {
+      var party = Array.isArray(Q.party) ? Q.party : [];
+      var n = Number((x && x.roomCount) || Q.roomCount || party.length || 1);
+      return Math.max(1, Math.min(8, n));
+    }
+    function roomSizes(x, people) {
+      var nr = roomsFor(x), party = Array.isArray(Q.party) ? Q.party : [], sizes = [];
+      if (party.length === nr && !(x && x.roomCount)) sizes = party.map(function (r) { return Math.max(1, (Number(r.adults) || 0) + (Number(r.children) || 0)); });
+      else { var base = Math.floor(people / nr), extra = people % nr; for (var k = 0; k < nr; k++) sizes.push(Math.max(1, base + (k < extra ? 1 : 0))); }
+      return sizes;
+    }
     function syncRooms() {
-      var rc = document.getElementById('bkRoomCount'), nr = rc ? Number(rc.value) : 1, many = nr > 1;
-      var hint = document.getElementById('bkRoomHint'); if (hint) hint.hidden = !many;
-      Array.prototype.forEach.call(document.querySelectorAll('#bkPax .paxrow'), function (r, idx) {
-        var lab = r.querySelector('.bkroomf'), sel = r.querySelector('[name=room]'); if (!lab || !sel) return;
-        lab.hidden = !many;
-        Array.prototype.forEach.call(sel.options, function (op) { op.hidden = op.disabled = Number(op.value) > nr; });
-        if (Number(sel.value) > nr) sel.value = '1';
-        sel.required = many;
+      var rows = document.querySelectorAll('#bkPax .paxrow'), sizes = roomSizes(bkHotel(), rows.length), many = sizes.length > 1, room = 1, left = sizes[0];
+      Array.prototype.forEach.call(rows, function (r, idx) {
+        while (left <= 0 && room < sizes.length) { room++; left = sizes[room - 1]; }
+        r.setAttribute('data-room', many ? String(room) : '1'); left--;
+        var tag = r.querySelector('.paxroom'); if (tag) tag.textContent = many ? 'Room ' + room + ' \u00b7 ' : '';
       });
     }
-    var rcEl = document.getElementById('bkRoomCount'); if (rcEl) rcEl.addEventListener('change', syncRooms);
-    syncRooms();
     document.getElementById('bkAdd').addEventListener('click', function () {
       var box = document.getElementById('bkPax'), i = box.children.length;
-      var d = document.createElement('div'); d.innerHTML = '<div class="paxrow"><div class="paxn">Passenger ' + (i + 1) + ' <button type="button" class="paxdel" aria-label="Remove passenger">Remove</button></div><div class="paxg">' + titleSel() + '<label>First name<input type="text" name="first" required></label><label>Middle name (if any)<input type="text" name="middle"></label><label>Surname<input type="text" name="last" required></label><label>Date of birth<input type="date" name="dob" required></label>' + roomSel() + '</div></div>';
+      var d = document.createElement('div'); d.innerHTML = '<div class="paxrow"><div class="paxn"><span class="paxroom"></span>Passenger ' + (i + 1) + ' <button type="button" class="paxdel" aria-label="Remove passenger">Remove</button></div><div class="paxg">' + titleSel() + '<label>First name<input type="text" name="first" required></label><label>Middle name (if any)<input type="text" name="middle"></label><label>Surname<input type="text" name="last" required></label><label>Date of birth<input type="date" name="dob" required></label></div></div>';
       box.appendChild(d.firstChild); syncRooms();
     });
     document.getElementById('bkPax').addEventListener('click', function (e) { if (e.target.classList.contains('paxdel')) e.target.closest('.paxrow').remove(); });
@@ -611,7 +618,7 @@
       var err = document.getElementById('bkErr'); err.hidden = true;
       var x = bkHotel(), pax = [];
       Array.prototype.forEach.call(document.querySelectorAll('#bkPax .paxrow'), function (r) {
-        pax.push({ room: (r.querySelector('[name=room]') && !r.querySelector('.bkroomf').hidden) ? Number(r.querySelector('[name=room]').value) || 1 : 1, title: r.querySelector('[name=title]').value, first: r.querySelector('[name=first]').value.trim(), middle: r.querySelector('[name=middle]').value.trim(), last: r.querySelector('[name=last]').value.trim(), dob: r.querySelector('[name=dob]').value });
+        pax.push({ room: Number(r.getAttribute('data-room')) || 1, title: r.querySelector('[name=title]').value, first: r.querySelector('[name=first]').value.trim(), middle: r.querySelector('[name=middle]').value.trim(), last: r.querySelector('[name=last]').value.trim(), dob: r.querySelector('[name=dob]').value });
       });
       var g = function (n) { var el = f.querySelector('[name=' + n + ']'); return el ? el.value.trim() : ''; };
       var pnv = (document.querySelector('input[name="payNow"]:checked') || {}).value, full = fullOnly || pnv === 'full', isOther = !full && pnv === 'other';
