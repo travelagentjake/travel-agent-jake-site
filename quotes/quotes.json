@@ -1,6 +1,17 @@
 {
  "quotes": [
   {
+   "slug": "louisefranklin",
+   "url": "https://quotes.travelagentjake.co.uk/louisefranklin",
+   "customer": "Louise Franklin",
+   "enquiryId": "mvp3m8gxdmgc",
+   "quoteRequestId": "mvp63zxycoae",
+   "title": "Greece, 7 nights for two families in one bedroom suites, June 2027 from Bristol or Stansted with Jet2holidays (Ikos Oceania, Ikos Olivia, Ikos Aria, Porto Sani)",
+   "created": "2026-10-26",
+   "departs": "2027-06-13",
+   "fromPrice": 13344
+  },
+  {
    "slug": "paulgray",
    "url": "https://quotes.travelagentjake.co.uk/paulgray",
    "customer": "Paul Gray",
