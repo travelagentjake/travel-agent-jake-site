@@ -19,6 +19,12 @@ export default async (req, context) => {
   const ua = String(req.headers.get("user-agent") || "");
   if (/bot|crawl|spider|headless|lighthouse|preview/i.test(ua)) return new Response(null, { status: 204, headers: CORS });
 
+  // The customer removed (or brought back) one of the options on their quote: leave a note on their enquiry.
+  if (b.event === "remove" || b.event === "restore") {
+    try { await optionNote(slug, b.event, String(b.hotel || "").replace(/[\u0000-\u001f]/g, " ").trim().slice(0, 120)); } catch (e) { console.error("option note", e.message); }
+    return new Response(null, { status: 204, headers: CORS });
+  }
+
   const store = getStore({ name: "quote-views", consistency: "strong" });
   const cur = (await store.get(slug, { type: "json" }).catch(() => null)) || { slug, views: 0, opens: [] };
   const geo = (context && context.geo) || {};
@@ -66,4 +72,25 @@ ${closed ? '<p style="font-size:15px;margin:0 0 12px;background:#FFF4CC;padding:
 ${enq && enq.phone ? btn("https://wa.me/" + waNum(enq.phone) + "?text=" + encodeURIComponent(hello), "WhatsApp " + esc(name), "#25D366") : ""}${btn(url + "?jake=1", "View the quote", "#004AAD")}${btn(SITE + "/enquiries-admin.html", "Open dashboard", "#10142B")}
 </div>`;
   await sendEmail({ to: jakeEmail(), toName: "Jake", subject: `${closed ? "Closed quote reopened: " : ""}${name} is looking at their quote again`, html, replyTo: false });
+}
+
+// Adds an automatic note to the enquiry a quote belongs to. The hotel name must really be on that quote, so strangers cannot write arbitrary notes.
+async function optionNote(slug, event, hotel) {
+  if (event === "remove" && !hotel) return;
+  const reg = await fetch("https://taj-quotes.pages.dev/quotes.json", { signal: AbortSignal.timeout(4000) }).then((r) => r.json()).catch(() => ({ quotes: [] }));
+  const q = (reg.quotes || []).find((x) => x.slug === slug);
+  if (!q || !q.enquiryId) return;
+  if (event === "remove") {
+    const html = await fetch("https://taj-quotes.pages.dev/" + slug + "/", { signal: AbortSignal.timeout(5000) }).then((r) => r.text()).catch(() => "");
+    if (!html.includes(hotel)) return;
+  }
+  const es = getStore({ name: "enquiries", consistency: "strong" });
+  const enq = await es.get(q.enquiryId, { type: "json" }).catch(() => null);
+  if (!enq) return;
+  const text = event === "remove" ? "Customer removed an option from their quote: " + hotel + " (quote " + slug + ")" : "Customer showed their removed options again on their quote (" + slug + ")";
+  const log = (enq.notesLog = enq.notesLog || []);
+  const last = log[log.length - 1];
+  if (last && last.text === text && Date.now() - Date.parse(last.t) < 10 * 60 * 1000) return;
+  log.push({ t: new Date().toISOString(), text, auto: true });
+  await es.setJSON(enq.id, enq);
 }

@@ -1210,6 +1210,19 @@
     tabs.addEventListener('click', function (e) { var b = e.target.closest('[data-dt]'); if (b) setTab(b.dataset.dt); });
     prog.addEventListener('click', function (e) { var d = e.target.closest('[data-go]'); if (d) go(Number(d.dataset.go)); });
     var toast = document.createElement('div'); toast.id = 'dtoast'; toast.hidden = true; document.body.appendChild(toast); var toastT = null;
+    /* a note on the enquiry when the customer removes an option (sent a few seconds later, so an Undo cancels it) */
+    var tellT = {};
+    function tellJake(ev, id) {
+      try { if (localStorage.getItem('taj-jake') === '1' || /[?&]jake/.test(location.search)) return; } catch (e) {}
+      var send = function () {
+        var h = hotels.filter(function (z) { return z.id === id; })[0];
+        if (ev === 'remove' && (!h || !removed[id])) return;
+        var body = JSON.stringify({ slug: Q.slug, event: ev, hotel: h ? h.name : '' });
+        try { if (navigator.sendBeacon && navigator.sendBeacon('https://travelagentjake.co.uk/api/quote-view', new Blob([body], { type: 'text/plain' }))) return; } catch (e) {}
+        try { fetch('https://travelagentjake.co.uk/api/quote-view', { method: 'POST', body: body, mode: 'no-cors', keepalive: true }); } catch (e) {}
+      };
+      if (ev === 'remove') { clearTimeout(tellT[id]); tellT[id] = setTimeout(send, 6000); } else send();
+    }
     function showToast(msg, undoId) {
       toast.innerHTML = '<span>' + esc(msg) + '</span>' + (undoId ? '<button type="button" data-undo="' + esc(undoId) + '">Undo</button>' : '');
       toast.hidden = false; clearTimeout(toastT); toastT = setTimeout(function () { toast.hidden = true; }, 5000);
@@ -1229,10 +1242,11 @@
       if (rb) {
         if (N <= 1) { showToast('You need to keep at least one option.'); return; }
         var id = rb.dataset.rm; removed[id] = 1; saveRm(); toast.hidden = true;
+        tellJake('remove', id);
         refreshAll(view); showToast('Option removed', id); return;
       }
       if (ub) { delete removed[ub.dataset.undo]; saveRm(); refreshAll(1); toast.hidden = true; return; }
-      if (rs) { removed = {}; saveRm(); refreshAll(1); return; }
+      if (rs) { removed = {}; saveRm(); tellJake('restore'); refreshAll(1); return; }
     }, true);
     fixTitle(); syncRemovedSel(); var n0 = Object.keys(removed).length; if (n0) { var rl0 = rmNote; rl0.hidden = false; rl0.innerHTML = n0 + ' option' + (n0 > 1 ? 's' : '') + ' removed. <button type="button" data-restore="1">Show them again</button>'; }
     document.addEventListener('click', function (e) {
