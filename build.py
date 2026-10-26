@@ -12181,6 +12181,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1613672803979-a6edfc5a179b?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Wat Arun temple on the Chao Phraya river in Bangkok",
     },
+    {
+        "slug": "ski-travel-insurance-what-to-check-before-you-go.html",
+        "meta": "Travel insurance",
+        "title": "Most travel insurance doesn't cover skiing: what to check before you go",
+        "excerpt": "Only 6% of single trip policies include winter sports cover as standard, and a GHIC card won't fill the gap. Here's exactly what proper ski cover needs to include, and the mistakes that get claims rejected.",
+        "image": "https://images.unsplash.com/photo-1679941734240-5391931fba37?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Skier going down a slope beneath a chairlift",
+    },
 ]
 
 
@@ -18735,6 +18743,224 @@ print("thailand-entry-rules-2026.html written")
 
 
 
+ski_insurance_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>MOST TRAVEL INSURANCE DOESN'T COVER SKIING: WHAT TO CHECK BEFORE YOU GO</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Half term and the start of the main ski season are around the corner, and this is the one thing I see catch people out more than anything else with a winter sports trip. Most standard travel insurance simply doesn't cover skiing or snowboarding unless you've specifically added it, and your GHIC card won't fill the gap either. Here's exactly what proper cover needs to include, and the genuine mistakes that get claims turned down on the mountain.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <img src="https://images.unsplash.com/photo-1553638542-7120ed741871?auto=format&fit=crop&w=1600&h=700&q=80" alt="Snow capped mountain peaks in the Alps" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Three things worth knowing before you book</h2>
+    <p style="margin-top:14px;">A ski holiday is genuinely one of the few trip types where the insurance side deserves more than a tick box glance. There are three separate gaps that catch people out, and they're easy to mix up.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">The policy gap</div>
+        <h3 style="font-size:18px;">Winter sports cover isn't automatic</h3>
+        <p>Most single trip and annual travel insurance policies don't include skiing or snowboarding as standard. It has to be added specifically.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">The health card gap</div>
+        <h3 style="font-size:18px;">A GHIC card doesn't cover mountain rescue</h3>
+        <p>Your free UK Global Health Insurance Card is genuinely useful in Europe, but it was never designed to replace travel insurance on the slopes.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">The claims gap</div>
+        <h3 style="font-size:18px;">Common mistakes get claims rejected</h3>
+        <p>Going off-piste without a qualified guide, or skiing after a few drinks, are two of the most common reasons winter sports claims don't pay out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Only 6% of policies include winter sports cover as standard</h2>
+    <img src="https://images.unsplash.com/photo-1679941734240-5391931fba37?auto=format&fit=crop&w=1600&h=700&q=80" alt="Skier going down a slope beneath a chairlift" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Which? published research in January 2026 showing just how big this gap really is. An analysis of Defaqto data by Go.Compare, covering 923 single trip policies and 923 annual policies, found that only 6% of single trip policies and 11% of annual policies include winter sports cover as standard. Which?'s own separate analysis of 160 policies found the same thing, just 6% included it automatically. For its wider research, Which? surveyed 59 travel insurance companies on their cover levels, analysed 140 winter sports policies including their piste closure terms, and asked more than 1,000 people who'd recently been on a ski holiday to rate their provider.</p>
+    <p style="margin-top:14px;">In practice, that means the vast majority of people heading off skiing or snowboarding this winter need to actively check their policy, and very likely add winter sports cover separately, rather than assuming their usual travel insurance already has them covered.</p>
+    {jake_tip("If skiing or snowboarding is part of your plan, don't assume your existing annual travel insurance already covers it. Check the policy document for the actual words 'winter sports', and if it isn't there, call your insurer and ask what it costs to add before you book anything else.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Why your GHIC card doesn't fill the gap</h2>
+    <img src="https://images.unsplash.com/photo-1581553672347-95d9444c0d2c?auto=format&fit=crop&w=1600&h=700&q=80" alt="A health insurance identification card" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The UK Global Health Insurance Card, the GHIC, which replaced the old EHIC after Brexit, is free and gives you access to state healthcare in the EU and a handful of other countries, on the same terms as a local resident. It's genuinely worth having, and a new card now lasts up to 5 years, with applications open from 9 months before your current one expires through the official NHS overseas healthcare portal. Once approved, it's posted to you within 15 working days, and a Provisional Replacement Certificate is available if it hasn't arrived in time for your trip.</p>
+    <p style="margin-top:14px;">What it doesn't do is cover you for a winter sports injury properly. The NHS is explicit that a GHIC "is not a replacement for travel insurance", and it specifically doesn't cover ski or mountain rescue, treatment in private medical facilities (common at ski resorts), being flown home to the UK if you can't travel as planned, or any cover at all for lost or damaged equipment, cancellation or a trip cut short.</p>
+    <div class="jake-card" style="margin-top:18px;">
+      <p style="margin:0;"><b>Think of it as a free top-up, not a safety net.</b> A GHIC can reduce or remove the cost of state treatment abroad, but the genuinely expensive parts of a ski injury, mountain rescue, a medical escort home, or treatment at a private clinic because the state hospital is further away, are exactly what it leaves out.</p>
+    </div>
+    {jake_tip("A GHIC card is well worth having and renewing before any EU trip, but I always make sure clients skiing in Europe have proper winter sports travel insurance sorted as well. One without the other leaves a genuine gap.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What proper winter sports cover should actually include</h2>
+    <img src="https://images.unsplash.com/photo-1518608774889-b04d2abe7702?auto=format&fit=crop&w=1600&h=700&q=80" alt="Person holding a snowboard in snowy mountains" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Once winter sports cover is confirmed as included, it's worth checking what it actually pays out, not just that the words are there on the policy. Which?'s research points to a handful of areas that vary enormously between providers.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Medical treatment abroad.</b> Covers injury or illness on the slopes. Decent policies set this limit extremely high, sometimes in the millions of pounds, because serious ski injuries can be genuinely expensive to treat.</span></li>
+      <li><span class="num">2</span><span><b>Repatriation.</b> Pays to bring you home if you can't travel as planned, including specialist transport or a medical escort where needed.</span></li>
+      <li><span class="num">3</span><span><b>Piste rescue.</b> Covers being brought off the mountain, by snowmobile or helicopter if needed. This is often capped well below the medical treatment limit, and some policies only pay out once you reach hospital, so it's worth checking the actual figure.</span></li>
+      <li><span class="num">4</span><span><b>Equipment cover.</b> For lost, stolen or damaged skis, boards or boots, and sometimes hire costs too. Limits are usually in the hundreds to low thousands of pounds.</span></li>
+      <li><span class="num">5</span><span><b>Cancellation and curtailment.</b> Recovers unused costs if injury or illness forces you to cancel or cut the trip short. Limits typically range from around £500 to £20,000 depending on the policy.</span></li>
+      <li><span class="num">6</span><span><b>Piste closures and avalanches.</b> Some policies pay out if slopes close or avalanches cause delays, though payouts are usually capped and only apply once closures last a set number of days.</span></li>
+      <li><span class="num">7</span><span><b>Personal liability.</b> Covers you if you injure another skier or damage their property, which is more common than people expect on a busy piste.</span></li>
+    </ul>
+    {jake_tip("Ask your insurer for the actual pound figure on piste rescue and medical cover, not just whether the words 'winter sports' appear on the policy. Some policies technically include it with a rescue payout capped well below what a genuine mountain rescue and hospital bill can run to.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The mistakes that get winter sports claims rejected</h2>
+    <img src="https://images.unsplash.com/photo-1529669851596-ba9a5549af95?auto=format&fit=crop&w=1600&h=700&q=80" alt="Skier standing at the edge of an off-piste slope" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Having winter sports cover on the policy doesn't guarantee a claim pays out. Which?'s research flagged several genuine, common reasons insurers refuse winter sports claims, and they're all avoidable if you know about them in advance.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>What can get a claim rejected</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Skiing off-piste without a qualified guide</td><td>Many policies only cover off-piste skiing when you're with a qualified mountain guide</td></tr>
+          <tr><td>Being injured after drinking or taking drugs</td><td>Standard exclusion across almost all travel insurance, not specific to skiing</td></tr>
+          <tr><td>Leaving equipment unattended</td><td>Insurers expect reasonable care to be taken with hired or owned kit</td></tr>
+          <tr><td>Ignoring posted safety advice or piste closures</td><td>Treated as avoidable risk taking rather than a genuine accident</td></tr>
+          <tr><td>Travelling against official government advice</td><td>Most policies exclude trips taken against the FCDO's current advice for that country or resort</td></tr>
+        </tbody>
+      </table>
+    </div>
+    {jake_tip("If you're planning to go off-piste at all, even just ducking off the marked run for a few minutes, check your policy covers it and whether it needs to be with a qualified guide. It's one of the most common reasons winter sports claims get turned down.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>The small insurance add-on sold with your lift pass</h2>
+    <img src="https://images.unsplash.com/photo-1515442597003-a25e0a78dae9?auto=format&fit=crop&w=1600&h=700&q=80" alt="Two people riding a cable car above the snow" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Most French resorts, and plenty in Switzerland and Italy too, sell a small add-on insurance alongside your lift pass, often known in France as Carr&eacute; Neige. It's usually a small daily supplement, roughly a few euros a day, around &pound;2 to &pound;3.50 based on current resort pricing, or there's often a cheaper season-long version. It's recognised directly by the local rescue services, so you're not paying for a mountain rescue upfront and claiming it back later, and some versions will refund your lift pass for days lost to injury.</p>
+    <div class="jake-card" style="margin-top:18px;">
+      <p style="margin:0;"><b>It's a top-up, not a replacement.</b> This kind of resort insurance is designed to get you off the mountain and cover the rescue itself. It isn't a substitute for proper travel insurance, it won't cover your actual hospital treatment beyond what state healthcare or your GHIC provides, repatriation home, your equipment, or a cancelled or cut short trip.</p>
+    </div>
+    <p style="margin-top:14px;">It's worth taking if it's offered, since it's inexpensive and genuinely useful for the rescue itself, but treat it as one more layer on top of proper winter sports travel insurance, never instead of it.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>GHIC vs proper winter sports travel insurance, at a glance</h2>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>What</th><th>GHIC (free)</th><th>Winter sports travel insurance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>State medical treatment in the EU</td><td>Yes, on local resident terms</td><td>Yes, usually with higher limits and private options too</td></tr>
+          <tr><td>Mountain or piste rescue</td><td>No</td><td>Yes, if winter sports cover is added, check the payout limit</td></tr>
+          <tr><td>Repatriation to the UK</td><td>No</td><td>Yes, usually included</td></tr>
+          <tr><td>Lost, stolen or damaged equipment</td><td>No</td><td>Yes, usually capped from a few hundred to a couple of thousand pounds</td></tr>
+          <tr><td>Cancellation or a trip cut short</td><td>No</td><td>Yes, typically £500 to £20,000 depending on the policy</td></tr>
+          <tr><td>Cost</td><td>Free</td><td>Varies, confirm winter sports cover is added specifically</td></tr>
+          <tr><td>How long it lasts</td><td>Up to 5 years</td><td>Per trip, or annual with renewal</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures reflect NHS guidance and Which?'s January 2026 research at the time of writing. Always check your own policy document for the exact limits that apply to you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What this actually means before you book</h2>
+    <img src="https://images.unsplash.com/photo-1485424103497-0c883b9b2953?auto=format&fit=crop&w=1600&h=700&q=80" alt="Snow covered mountains at a ski resort" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">None of this should put anyone off a ski holiday, it's genuinely one of the best types of trip out there. It just needs a few minutes of actually reading the policy, rather than assuming.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Check the policy document specifically says "winter sports" or "skiing and snowboarding cover".</b> Don't assume your standard travel insurance already includes it, for most people it doesn't.</span></li>
+      <li><span class="num">2</span><span><b>Confirm whether off-piste skiing is included,</b> and whether it only counts when you're with a qualified guide.</span></li>
+      <li><span class="num">3</span><span><b>Check the actual pound figures</b> for piste rescue, medical treatment and repatriation, not just whether the words appear on the policy.</span></li>
+      <li><span class="num">4</span><span><b>Apply for or renew your GHIC for free before you go,</b> but treat it as a helpful top-up, never a replacement for proper travel insurance.</span></li>
+      <li><span class="num">5</span><span><b>Take the resort's own lift pass insurance if it's offered,</b> it's inexpensive and useful for the rescue itself, but it won't cover your hospital bill, your equipment or a cancelled trip on its own.</span></li>
+    </ul>
+    {jake_tip("I always tell clients booking a ski holiday to sort proper winter sports insurance the same day they book, not the week before they fly. It's genuinely one of the quickest things to get right, there's just no good reason to leave it until the last minute.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Does my normal travel insurance cover skiing?</h3>
+      <p>Not usually. Research published by Which? in January 2026 found only around 6% of single trip policies and 11% of annual policies include winter sports cover as standard. Always check the policy document, and add winter sports cover specifically if it isn't already there.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does a GHIC card cover me if I'm injured skiing?</h3>
+      <p>No. A GHIC gives you access to state healthcare in the EU on the same terms as a local resident, but it doesn't cover mountain or piste rescue, treatment at private medical facilities, repatriation to the UK, or any cover for lost equipment, cancellation or a trip cut short. It's free and worth having, but it isn't a substitute for travel insurance.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does winter sports cover include skiing off-piste?</h3>
+      <p>Not always, and it's one of the most common reasons winter sports claims get rejected. Check whether your policy covers off-piste skiing specifically, and whether it only applies when you're with a qualified guide.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is the small insurance offered with my lift pass enough on its own?</h3>
+      <p>No. Many French, Swiss and Italian resorts sell a small add-on insurance with your lift pass that helps get you off the mountain if you're hurt, but it's designed as a top-up to proper travel insurance, not a replacement for it. It won't cover your medical treatment beyond state healthcare, repatriation, or a cancelled trip.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What should I actually check before booking a ski holiday?</h3>
+      <p>Confirm winter sports cover is explicitly included rather than assumed, check the pound limits for medical treatment, piste rescue and repatriation, confirm equipment and cancellation cover, and check whether off-piste needs a separate add-on or a qualified guide.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1523720131524-71ae6dbed986?auto=format&fit=crop&w=1600&h=700&q=80" alt="Snow covered hills and mountains in the Dolomites" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Booking a ski holiday?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I'll always make sure your insurance is sorted properly alongside the booking itself, not left as an afterthought. Tell me where you fancy skiing and I'll take care of the rest, honestly and without the pressure.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+ski_insurance_body = ski_insurance_body.replace("::NEWSLETTER::", newsletter_section())
+
+SKI_INSURANCE_SCHEMA = article_and_faq_schema(
+    "Most Travel Insurance Doesn't Cover Skiing: What to Check Before You Go",
+    "Only 6% of single trip travel insurance policies include winter sports cover as standard, and a GHIC card won't fill the gap. Here's exactly what proper ski cover needs to include, and the mistakes that get claims rejected.",
+    "ski-travel-insurance-what-to-check-before-you-go.html",
+    "https://images.unsplash.com/photo-1679941734240-5391931fba37?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("Does my normal travel insurance cover skiing?", "Not usually. Research published by Which? in January 2026 found only around 6% of single trip policies and 11% of annual policies include winter sports cover as standard. Always check the policy document, and add winter sports cover specifically if it isn't already there."),
+        ("Does a GHIC card cover me if I'm injured skiing?", "No. A GHIC gives you access to state healthcare in the EU on the same terms as a local resident, but it doesn't cover mountain or piste rescue, treatment at private medical facilities, repatriation to the UK, or any cover for lost equipment, cancellation or a trip cut short. It's free and worth having, but it isn't a substitute for travel insurance."),
+        ("Does winter sports cover include skiing off-piste?", "Not always, and it's one of the most common reasons winter sports claims get rejected. Check whether your policy covers off-piste skiing specifically, and whether it only applies when you're with a qualified guide."),
+        ("Is the small insurance offered with my lift pass enough on its own?", "No. Many French, Swiss and Italian resorts sell a small add-on insurance with your lift pass that helps get you off the mountain if you're hurt, but it's designed as a top-up to proper travel insurance, not a replacement for it. It won't cover your medical treatment beyond state healthcare, repatriation, or a cancelled trip."),
+    ]
+)
+
+with open(os.path.join(SITE, "ski-travel-insurance-what-to-check-before-you-go.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Most Travel Insurance Doesn't Cover Skiing: What to Check Before You Go | Travel Agent Jake",
+        "Only 6% of single trip travel insurance policies include winter sports cover as standard, and a GHIC card won't fill the gap. Here's exactly what proper ski cover needs to include, and the mistakes that get claims rejected.",
+        "travel-tips.html",
+        ski_insurance_body,
+        extra_schema=SKI_INSURANCE_SCHEMA,
+        canonical_path="ski-travel-insurance-what-to-check-before-you-go.html"
+    ))
+print("ski-travel-insurance-what-to-check-before-you-go.html written")
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -18809,6 +19035,7 @@ SITEMAP_PAGES = [
     ("eu261-flight-compensation-reform-2026.html", "0.7"),
     ("uk-egates-changes-2026.html", "0.7"),
     ("thailand-entry-rules-2026.html", "0.7"),
+    ("ski-travel-insurance-what-to-check-before-you-go.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
