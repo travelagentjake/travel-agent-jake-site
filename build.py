@@ -698,6 +698,13 @@ home_body = """
       <div class="carousel-row" id="testimonialsCarousel">
         <div class="testimonial-card">
           <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Would definitely recommend his services</h3>
+          <p class="testimonial-quote">"Jake was very helpful in finding a good holiday for my wife's birthday celebration. We had some specific requirements which he was able to accommodate. Would definitely recommend his services for booking holidays."</p>
+          <div class="testimonial-name">Shawn</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <h3>Excellent travel agent</h3>
           <p class="testimonial-quote">"I came across Jake on Facebook and at that time I was struggling to find a holiday that met all our needs. I thought I'd try contacting him and I am so glad I did! He had been so helpful, patient and found us a holiday which has met all our needs and more. Jake clearly wants to do the best for all his customers and that shows by the details and information he asks about your requirements and holiday wishes/needs. I've already recommended him to friends who I know are struggling to find their suitable holidays. Give him a message - you'll be glad you did ✈️☀️"</p>
           <div class="testimonial-name">Michelle</div>
@@ -17337,6 +17344,13 @@ jet2holidays_body = """
     <div class="carousel-wrap">
       <button class="carousel-arrow carousel-prev" type="button" aria-label="Scroll left">&larr;</button>
       <div class="carousel-row" id="testimonialsCarousel">
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Would definitely recommend his services</h3>
+          <p class="testimonial-quote">"Jake was very helpful in finding a good holiday for my wife's birthday celebration. We had some specific requirements which he was able to accommodate. Would definitely recommend his services for booking holidays."</p>
+          <div class="testimonial-name">Shawn</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
         <div class="testimonial-card">
           <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <h3>Excellent travel agent</h3>
