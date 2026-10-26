@@ -712,6 +712,21 @@
   var RMKEY = 'tajrm-' + Q.slug, removed = {};
   try { removed = JSON.parse(localStorage.getItem(RMKEY) || '{}') || {}; } catch (e) { removed = {}; }
   function saveRm() { try { localStorage.setItem(RMKEY, JSON.stringify(removed)); } catch (e) {} }
+  /* options the customer has removed must also leave the hotel pickers in the cost box, calculator and booking form */
+  function syncRemovedSel() {
+    if (!pkgAll) return;
+    var sels = document.querySelectorAll('#cHotel, #fHotel, #bkHotel'), changed = false;
+    Array.prototype.forEach.call(sels, function (sl) {
+      Array.prototype.forEach.call(sl.options, function (o) { var h = hotels[Number(o.value)]; var gone = !!(h && removed[h.id]); o.hidden = gone; o.disabled = gone; });
+    });
+    var cur = hotels[hIdx];
+    if (cur && removed[cur.id]) {
+      var ok = -1; hotels.forEach(function (h, i) { if (ok < 0 && !removed[h.id]) ok = i; });
+      if (ok >= 0) { hIdx = ok; changed = true; }
+    }
+    Array.prototype.forEach.call(sels, function (sl) { if (String(sl.value) !== String(hIdx)) sl.value = String(hIdx); });
+    if (changed) calc();
+  }
   function ordered() {
     var list = hotels.filter(function (x) { return !(pkgAll && removed[x.id]); });
     list.sort(function (a, b) {
@@ -1200,7 +1215,7 @@
       toast.hidden = false; clearTimeout(toastT); toastT = setTimeout(function () { toast.hidden = true; }, 5000);
     }
     function refreshAll(toView) {
-      renderTable(); renderHotels(); sync(); fixTitle();
+      renderTable(); renderHotels(); sync(); fixTitle(); syncRemovedSel();
       var rl = document.getElementById('rmNote');
       var n = Object.keys(removed).length;
       if (rl) { rl.hidden = !n; rl.innerHTML = n ? n + ' option' + (n > 1 ? 's' : '') + ' removed. <button type="button" data-restore="1">Show them again</button>' : ''; }
@@ -1219,7 +1234,7 @@
       if (ub) { delete removed[ub.dataset.undo]; saveRm(); refreshAll(1); toast.hidden = true; return; }
       if (rs) { removed = {}; saveRm(); refreshAll(1); return; }
     }, true);
-    fixTitle(); var n0 = Object.keys(removed).length; if (n0) { var rl0 = rmNote; rl0.hidden = false; rl0.innerHTML = n0 + ' option' + (n0 > 1 ? 's' : '') + ' removed. <button type="button" data-restore="1">Show them again</button>'; }
+    fixTitle(); syncRemovedSel(); var n0 = Object.keys(removed).length; if (n0) { var rl0 = rmNote; rl0.hidden = false; rl0.innerHTML = n0 + ' option' + (n0 > 1 ? 's' : '') + ' removed. <button type="button" data-restore="1">Show them again</button>'; }
     document.addEventListener('click', function (e) {
       var a = e.target.closest('a[href]'); var p = e.target.closest('[data-pick]'); var ab = e.target.closest('[data-tog=more]');
       if (ab) { e.stopImmediatePropagation(); setTab('about'); return; }
