@@ -521,6 +521,17 @@
    "created": "2026-10-26",
    "departs": "2027-06-21",
    "fromPrice": 2776
+  },
+  {
+   "slug": "moragyoungtenerife",
+   "url": "https://quotes.travelagentjake.co.uk/moragyoungtenerife",
+   "customer": "Morag Young",
+   "enquiryId": "mvp31d0mbxde",
+   "quoteRequestId": "mvp31d1zx4pj",
+   "title": "Tenerife, 4 nights all inclusive in a Red Level Suite at the Gran Melia Palacio de Isora for 1 adult from Gatwick with BA Club Europe (Gold Medal), Sat 5 Dec 2026",
+   "created": "2026-10-26",
+   "departs": "2026-12-05",
+   "fromPrice": 3282.65
   }
  ]
 }
