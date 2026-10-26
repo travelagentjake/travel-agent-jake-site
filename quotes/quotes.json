@@ -543,6 +543,17 @@
    "created": "2026-10-26",
    "departs": "2027-05-01",
    "fromPrice": 6599
+  },
+  {
+   "slug": "zoewinter",
+   "url": "https://quotes.travelagentjake.co.uk/zoewinter",
+   "customer": "Zoe Winter",
+   "enquiryId": "mvo5se7eoyr1",
+   "quoteRequestId": "mvp62m2h05os",
+   "title": "Two families, 3 rooms, 10 nights all inclusive from Birmingham with Jet2holidays, 4 or 6 Aug 2027, 6 adults 3 children (Smy Kos Beach & Splash, White Olive Marine Aquapark, Atlantica Akti Zeus)",
+   "created": "2026-10-26",
+   "departs": "2027-08-04",
+   "fromPrice": 12446
   }
  ]
 }
