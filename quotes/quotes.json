@@ -532,6 +532,17 @@
    "created": "2026-10-26",
    "departs": "2026-12-05",
    "fromPrice": 3282.65
+  },
+  {
+   "slug": "kellyegypt",
+   "url": "https://quotes.travelagentjake.co.uk/kellyegypt",
+   "customer": "Kelly",
+   "enquiryId": "mvp3qzy2sjia",
+   "quoteRequestId": "mvp3r01e7o5e",
+   "title": "Hurghada, 7 nights all inclusive for 8 in 3 rooms from Bristol with easyJet holidays, May 2027 (Pickalbatros Aqua Park and Stella Gardens, each on Sat 1, Tue 4 and Sat 22 May)",
+   "created": "2026-10-26",
+   "departs": "2027-05-01",
+   "fromPrice": 7097
   }
  ]
 }
