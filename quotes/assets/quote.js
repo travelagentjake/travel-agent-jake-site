@@ -1145,7 +1145,19 @@
         Array.prototype.forEach.call(document.querySelectorAll('.custom .agjump'), function (j) { j.hidden = hit; });
         var lk = art.querySelector('.links'), mb = art.querySelector('[data-tog=more]'); if (lk && mb && mb.parentNode !== lk) lk.appendChild(mb);
         wxPlaces.forEach(function (w) { var el = document.querySelector('[data-wx="' + w.key.replace(/"/g, '') + '"]'); if (el) el.hidden = w.hotels.indexOf(x.name) < 0; });
-        var avail = { stay: true, cruise: !!x.cruise, about: true, extras: has('extras'), more: hasMore, pay: true };
+        /* other dates grouped by hotel: only show this option's own dates, and hide the section when it has none */
+        var dsec = document.getElementById('dates');
+        if (dsec) {
+          var dgs = dsec.querySelectorAll('[data-dgrp]'), dgrouped = Array.prototype.some.call(dgs, function (g) { return !!g.getAttribute('data-dgrp'); });
+          if (dgrouped) {
+            var dany = false;
+            Array.prototype.forEach.call(dgs, function (g) { var on = g.getAttribute('data-dgrp') === x.id; g.hidden = !on; if (on) dany = true; });
+            dsec.hidden = !dany;
+            var dct = dsec.querySelector('.ctrl'); if (dct) dct.hidden = true;
+          }
+        }
+        var moreNow = hasMore && Array.prototype.some.call(document.querySelectorAll('.xsec'), function (s) { return !s.hidden; });
+        var avail = { stay: true, cruise: !!x.cruise, about: true, extras: has('extras'), more: moreNow, pay: true };
         if (cruiseP) Array.prototype.forEach.call(cruiseP.children, function (cz) { cz.hidden = cz.getAttribute('data-cz') !== x.id; });
         Array.prototype.forEach.call(document.querySelectorAll('#todo .areacard[data-hotels]'), function (c) { c.hidden = (' ' + c.getAttribute('data-hotels') + ' ').indexOf(' ' + x.id + ' ') < 0; });
         if (typeof evenTodo === 'function') evenTodo();
