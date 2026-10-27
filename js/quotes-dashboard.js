@@ -107,7 +107,7 @@
       S.quotes = (res[0] && res[0].quotes) || [];
       if (res[1].j) { S.views = res[1].j.views || {}; S.requests = res[1].j.requests || []; S.statuses = res[1].j.statuses || {}; S.sync = res[1].j.sync || null; S.bookings = res[1].j.bookings || []; }
       if (res[2].j && res[2].j.enquiries) S.enquiries = res[2].j.enquiries;
-      window.__eaQuoteActivity = quoteActivity; if (window.__eaRerender) window.__eaRerender();
+      window.__eaQuoteActivity = quoteActivity; window.__eaChaseReady = true; if (window.__eaRerender) window.__eaRerender();
       renderPane(); decorate();
       /* opening the dashboard also checks for new bookings if the last check was over 15 minutes ago */
       if (!S.autoSynced && (!S.sync || Date.now() - Date.parse(S.sync.at) > 15 * 60000)) { S.autoSynced = true; api('/api/quote-admin', 'POST', { action: 'sync-bookings' }); }
@@ -128,6 +128,18 @@
     return { quotes: qs.length, views: views, lastView: last, sentAt: sent };
   }
   window.__eaQuoteActivity = quoteActivity;
+  /* what the chase rulebook needs about one customer's quotes */
+  window.__eaChaseCtx = function (id) {
+    var k = String(id || '').toLowerCase(), qs = S.quotes.filter(function (q) { return String(q.enquiryId || '').toLowerCase() === k; });
+    var views = 0, last = 0, sent = 0, recent = 0;
+    qs.forEach(function (q) {
+      var v = S.views[q.slug] || {}; views += v.views || 0;
+      var lv = v.lastView ? Date.parse(v.lastView) : 0; if (lv > last) last = lv;
+      var c = q.created ? Date.parse(q.created + 'T12:00:00Z') : 0; if (c > sent) sent = c;
+      (v.opens || []).forEach(function (o) { if (Date.now() - Date.parse(o.t) < 7 * 86400000) recent++; });
+    });
+    return { quotes: qs.map(function (q) { return { slug: q.slug, title: q.title, created: q.created, url: quoteUrl(q) }; }), views: views, lastView: last, sentAt: sent, recentViews: recent };
+  };
   function viewsOf(slug) { return S.views[slug] || { views: 0, opens: [] }; }
   /* a quote is booked or closed when Jake marks it, or booked when its customer's enquiry is booked */
   function qState(q) {

@@ -41,6 +41,30 @@ export default async (req) => {
     await s.setJSON(q.id, q);
     return json({ ok: true, enquiry: q });
   }
+  if (b.action === "chase" || b.action === "replied" || b.action === "snooze") {
+    // The chase plan (js/chase-engine.js) records what Jake has done: a chase sent, a reply from the customer, or a day to come back on.
+    const now = new Date().toISOString(), log = (q.notesLog = q.notesLog || []), ch = (q.chase = q.chase || {});
+    if (b.action === "chase") {
+      const track = ["quote", "noted", "hot", "final", "pay", "new"].includes(b.track) ? b.track : "quote";
+      if (track === "pay") { ch.pay = (ch.pay || 0) + 1; ch.payAt = Date.parse(now); log.push({ t: now, text: "Payment chase " + ch.pay + " sent by WhatsApp", auto: true }); }
+      else if (track === "new") { log.push({ t: now, text: "First reply sent by WhatsApp", auto: true }); }
+      else {
+        const base = (ch.repliedAt || 0) > (ch.lastAt || 0) ? 0 : ch.count || 0;
+        ch.count = Math.min(base + 1, 6); ch.lastAt = Date.parse(now);
+        log.push({ t: now, text: "Chase " + ch.count + " of 6 sent by WhatsApp", auto: true });
+      }
+      if ((q.status || "new") === "new") { q.status = "contacted"; q.statusAt = now; log.push({ t: now, text: "Status changed to contacted", auto: true }); }
+    } else if (b.action === "replied") {
+      ch.repliedAt = Date.parse(now);
+      log.push({ t: now, text: "Customer replied. Chase plan starts again from here.", auto: true });
+    } else {
+      const text = String(b.text || "").replace(/[\u0000-\u001f]/g, " ").trim().slice(0, 200);
+      if (!text) return json({ error: "Nothing to save" }, 400);
+      log.push({ t: now, text });
+    }
+    await s.setJSON(q.id, q);
+    return json({ ok: true, enquiry: q });
+  }
   if (b.action === "edit") {
     // Jake corrects an enquiry after checking with the client. The first version the customer sent is kept in originalDetails.
     const clean = (v, n) => String(v ?? "").replace(/[\u0000-\u001f]/g, " ").trim().slice(0, n);
