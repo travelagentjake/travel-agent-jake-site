@@ -208,10 +208,10 @@
     var act='';
     if(p.due&&p.track==='quoteNeeded'){act='<button class="ea-btn" type="button" data-qgen="'+esc(q.id)+'" style="background:var(--yellow)">Generate quote</button>'+snooze;}
     else if(p.due){
-      var msg=ENG.message(p,q,ctx), enc=encodeURIComponent(msg);
-      act=(q.phone?'<a class="ea-btn wa" target="_blank" rel="noopener" data-chasewa="'+p.track+'" href="https://wa.me/'+waNum(q.phone)+'?text='+enc+'">'+esc(waLabel(p))+'</a>':'<a class="ea-btn wa" data-chasewa="'+p.track+'" href="mailto:'+esc(q.email)+'?subject='+encodeURIComponent('Your holiday')+'&body='+enc+'">Email chase</a>')
+      var msg=ENG.message(p,q,ctx), vp=ENG.voicePrompt(p,q,ctx), enc=encodeURIComponent(msg);
+      act=(q.phone?'<a class="ea-btn wa" target="_blank" rel="noopener" data-chasewa="'+p.track+'" href="https://wa.me/'+waNum(q.phone)+(vp?'':'?text='+enc)+'">'+esc(vp?'Send a voicenote (chase 1 of '+ENG.MAX_CHASES+')':waLabel(p))+'</a>':'<a class="ea-btn wa" data-chasewa="'+p.track+'" href="mailto:'+esc(q.email)+'?subject='+encodeURIComponent('Your holiday')+'&body='+enc+'">Email chase</a>')
         +'<button class="ea-btn" type="button" data-ca="replied">They replied</button>'+snooze+'<button class="ea-btn" type="button" data-ca="close">Close</button>'
-        +'<details class="ea-chm"><summary>See the message</summary><p>'+esc(msg)+'</p></details>';
+        +'<details class="ea-chm"'+(vp?' open':'')+'><summary>'+(vp?'What to say':'See the message')+'</summary><p>'+esc(vp||msg)+'</p>'+(vp?'<p><b>Prefer to type?</b> '+esc(msg)+'</p>':'')+'</details>';
     }
     else if(p.track==='lost'){act='<button class="ea-btn" type="button" data-ca="close">Close it</button><button class="ea-btn" type="button" data-ca="keep">Keep chasing</button>';}
     else if(p.track==='final'||p.track==='wait'||p.track==='quote'){act='<button class="ea-btn" type="button" data-ca="replied">They replied</button>'+snooze;}
@@ -372,7 +372,7 @@
   setInterval(function(){if(key&&!$('eaApp').hidden&&document.visibilityState==='visible')load(false);},60000);
 })();
 </script>
-<script src="js/chase-engine.js?v=20261027a"></script>
+<script src="js/chase-engine.js?v=20261027b"></script>
 <script src="js/quotes-dashboard.js?v=20261027a" defer></script>
 
 <footer class="site-footer">

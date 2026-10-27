@@ -246,6 +246,17 @@
     return hi + 'No worries at all if the timing is not right. I will close ' + (many ? 'your quotes' : 'your quote') + ' now so you are not bothered, but you are always welcome to message me for a fresh one, any time. Wishing you a lovely year ahead!';
   }
 
+  /* Chase 1 is a voicenote, not a text. This gives Jake a few things to say, in his own words. */
+  function voicePrompt(p, q, ctx) {
+    if (!p || p.track !== 'quote' || p.n !== 1 || p.price) return '';
+    ctx = ctx || {}; var many = (ctx.quotes || []).length > 1, dest = (q.destination || '').trim();
+    return 'Voicenote ideas, about 30 to 45 seconds, relaxed and in your own words:\n'
+      + '1. Say hi, who you are, and that you wanted to check ' + (many ? 'the quotes' : 'the ' + (dest ? dest + ' ' : '') + 'quote') + ' came through OK.\n'
+      + '2. Mention one personal thing from their enquiry (the occasion, who is going, a hotel or feature they asked for).\n'
+      + '3. Say you can change dates, hotel, board or airport in minutes, and ask what they think.\n'
+      + ((ctx.views || 0) > 0 ? '4. They have opened it already, so ask if anything stood out.' : '4. They have not opened it yet, so say shout if the link will not work.');
+  }
+
   /* quick snooze choices for the dashboard: write a note the parser understands */
   function snoozeOptions(now) {
     now = now || Date.now();
@@ -259,6 +270,6 @@
   }
   function holdNote(opt) { return 'Chase on ' + label(opt.date) + (opt.key === 'payday' ? ' (after payday)' : opt.key === 'bf' ? ' (Black Friday, re-check the price first)' : '') + '.'; }
 
-  var api = { plan: plan, message: message, parseHold: parseHold, snoozeOptions: snoozeOptions, holdNote: holdNote, label: label, MAX_CHASES: MAX_CHASES, CLOSE_AFTER_DAYS: CLOSE_AFTER_DAYS, GAPS: GAPS, nextPayday: nextPayday, blackFriday: blackFriday, LOST: LOST };
+  var api = { plan: plan, message: message, voicePrompt: voicePrompt, parseHold: parseHold, snoozeOptions: snoozeOptions, holdNote: holdNote, label: label, MAX_CHASES: MAX_CHASES, CLOSE_AFTER_DAYS: CLOSE_AFTER_DAYS, GAPS: GAPS, nextPayday: nextPayday, blackFriday: blackFriday, LOST: LOST };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.TAJChase = api;
 })(typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : {}));
