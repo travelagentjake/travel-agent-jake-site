@@ -620,6 +620,17 @@
    "created": "2026-10-27",
    "departs": "2028-06-01",
    "fromPrice": 4869
+  },
+  {
+   "slug": "leahturkey",
+   "url": "https://quotes.travelagentjake.co.uk/leahturkey",
+   "customer": "Leah",
+   "enquiryId": "mvqtw9y7boj0",
+   "quoteRequestId": "mvqtwa062ush",
+   "title": "Belek, Turkey, The Land of Legends Kingdom Hotel all inclusive plus for 3 adults and 3 children from London Gatwick with easyJet holidays: 7 nts Sat 3 Apr 2027",
+   "created": "2026-10-27",
+   "departs": "2027-04-03",
+   "fromPrice": 6872
   }
  ]
 }
