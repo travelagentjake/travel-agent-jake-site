@@ -587,6 +587,17 @@
    "created": "2026-10-27",
    "departs": "2027-08-10",
    "fromPrice": 2120
+  },
+  {
+   "slug": "geoffreysmith",
+   "url": "https://quotes.travelagentjake.co.uk/geoffreysmith",
+   "customer": "Geoffrey Smith",
+   "enquiryId": "mvqd75jd1puo",
+   "quoteRequestId": "mvqgeapg03d7",
+   "title": "Marmaris, 14 nights self catering at the Aegean Princess Apartments for 2 adults from Liverpool with easyJet holidays, Thu 16 Sep 2027",
+   "created": "2026-10-27",
+   "departs": "2027-09-16",
+   "fromPrice": 1306
   }
  ]
 }
