@@ -576,6 +576,17 @@
    "created": "2026-10-26",
    "departs": "2027-08-04",
    "fromPrice": 12446
+  },
+  {
+   "slug": "samanthaseymour",
+   "url": "https://quotes.travelagentjake.co.uk/samanthaseymour",
+   "customer": "Samantha Seymour",
+   "enquiryId": "mvpgb10oal95",
+   "quoteRequestId": "mvqgfpvk77ts",
+   "title": "Kokkari, Samos, 14 nights bed and breakfast for 2 adults from Manchester with Jet2holidays, Tue 10 Aug 2027 (Kokkari Beach Hotel, Athena Hotel)",
+   "created": "2026-10-27",
+   "departs": "2027-08-10",
+   "fromPrice": 2120
   }
  ]
 }
