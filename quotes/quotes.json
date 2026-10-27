@@ -609,6 +609,17 @@
    "created": "2026-10-27",
    "departs": "2027-09-16",
    "fromPrice": 1306
+  },
+  {
+   "slug": "michellebarrett",
+   "url": "https://quotes.travelagentjake.co.uk/michellebarrett",
+   "customer": "Michelle Barrett",
+   "enquiryId": "mvqpxb0qy5mb",
+   "quoteRequestId": "mvqpxb2qwney",
+   "title": "Playa de las Americas, Tenerife, 14 nights all inclusive at the Gran Oasis Resort for 2 adults and 2 children from Bristol with Jet2holidays, Jul/Aug 2028 (3 dates)",
+   "created": "2026-10-27",
+   "departs": "2028-07-17",
+   "fromPrice": 6828
   }
  ]
 }
