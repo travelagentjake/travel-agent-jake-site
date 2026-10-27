@@ -118,9 +118,30 @@
        "to": "Colombo",
        "toCode": "CMB",
        "dep": "14:05",
-       "arr": "09:45 (Fri)",
-       "dur": "14 hours 10, one change in Doha",
-       "carrier": "Qatar Airways"
+       "arr": "09:45 +1",
+       "dur": "14 hours 10 in total",
+       "carrier": "Qatar Airways",
+       "segments": [
+        {
+         "flight": "Qatar Airways",
+         "dep": "14:05",
+         "from": "Edinburgh",
+         "arr": "23:55",
+         "to": "Doha"
+        },
+        {
+         "wait": "2 hr 45",
+         "at": "Doha"
+        },
+        {
+         "flight": "Qatar Airways",
+         "dep": "02:40",
+         "from": "Doha",
+         "arr": "09:45",
+         "to": "Colombo",
+         "note": "Lands Friday 15 January"
+        }
+       ]
       },
       {
        "tag": "HOME",
@@ -131,8 +152,28 @@
        "toCode": "EDI",
        "dep": "04:15",
        "arr": "12:35",
-       "dur": "13 hours 50, one change in Doha",
-       "carrier": "Qatar Airways"
+       "dur": "13 hours 50 in total",
+       "carrier": "Qatar Airways",
+       "segments": [
+        {
+         "flight": "Qatar Airways",
+         "dep": "04:15",
+         "from": "Colombo",
+         "arr": "06:45",
+         "to": "Doha"
+        },
+        {
+         "wait": "1 hr 10",
+         "at": "Doha"
+        },
+        {
+         "flight": "Qatar Airways",
+         "dep": "07:55",
+         "from": "Doha",
+         "arr": "12:35",
+         "to": "Edinburgh"
+        }
+       ]
       }
      ]
     },
@@ -215,9 +256,30 @@
        "to": "Phuket",
        "toCode": "HKT",
        "dep": "20:50",
-       "arr": "19:50 (Fri)",
-       "dur": "16 hours, one change in Dubai",
-       "carrier": "Emirates"
+       "arr": "19:50 +1",
+       "dur": "16 hours in total",
+       "carrier": "Emirates",
+       "segments": [
+        {
+         "flight": "EK24",
+         "dep": "20:50",
+         "from": "Edinburgh",
+         "arr": "08:05",
+         "to": "Dubai",
+         "note": "Lands Friday 22 January"
+        },
+        {
+         "wait": "2 hr 30",
+         "at": "Dubai"
+        },
+        {
+         "flight": "EK396",
+         "dep": "10:35",
+         "from": "Dubai",
+         "arr": "19:50",
+         "to": "Phuket"
+        }
+       ]
       },
       {
        "tag": "HOME",
@@ -228,8 +290,28 @@
        "toCode": "EDI",
        "dep": "09:20",
        "arr": "18:55",
-       "dur": "16 hours 35, one change in Dubai",
-       "carrier": "Emirates"
+       "dur": "16 hours 35 in total",
+       "carrier": "Emirates",
+       "segments": [
+        {
+         "flight": "EK391",
+         "dep": "09:20",
+         "from": "Phuket",
+         "arr": "12:55",
+         "to": "Dubai"
+        },
+        {
+         "wait": "1 hr 45",
+         "at": "Dubai"
+        },
+        {
+         "flight": "EK23",
+         "dep": "14:40",
+         "from": "Dubai",
+         "arr": "18:55",
+         "to": "Edinburgh"
+        }
+       ]
       }
      ]
     },
@@ -311,9 +393,30 @@
        "to": "Mauritius",
        "toCode": "MRU",
        "dep": "05:50",
-       "arr": "06:35 (Fri)",
-       "dur": "20 hours 45, one change in Paris",
-       "carrier": "Air Mauritius"
+       "arr": "06:35 +1",
+       "dur": "20 hours 45 in total",
+       "carrier": "Air Mauritius",
+       "segments": [
+        {
+         "flight": "MK9371",
+         "dep": "05:50",
+         "from": "Edinburgh",
+         "arr": "08:50",
+         "to": "Paris"
+        },
+        {
+         "wait": "7 hr 30",
+         "at": "Paris"
+        },
+        {
+         "flight": "MK15",
+         "dep": "16:20",
+         "from": "Paris",
+         "arr": "06:35",
+         "to": "Mauritius",
+         "note": "Lands Friday 22 January"
+        }
+       ]
       },
       {
        "tag": "HOME",
@@ -323,9 +426,30 @@
        "to": "Edinburgh",
        "toCode": "EDI",
        "dep": "22:35",
-       "arr": "10:30 (Tue)",
-       "dur": "15 hours 55, one change in Paris",
-       "carrier": "Air Mauritius"
+       "arr": "10:30 +1",
+       "dur": "15 hours 55 in total",
+       "carrier": "Air Mauritius",
+       "segments": [
+        {
+         "flight": "MK14",
+         "dep": "22:35",
+         "from": "Mauritius",
+         "arr": "07:35",
+         "to": "Paris",
+         "note": "Lands Tuesday 2 February"
+        },
+        {
+         "wait": "2 hr 5",
+         "at": "Paris"
+        },
+        {
+         "flight": "MK9370",
+         "dep": "09:40",
+         "from": "Paris",
+         "arr": "10:30",
+         "to": "Edinburgh"
+        }
+       ]
       }
      ]
     },
@@ -538,7 +662,9 @@
  "departDate": "2027-01-14",
  "depositTotal": 500,
  "partyCount": 2,
- "hideCols": ["rating"]
+ "hideCols": [
+  "rating"
+ ]
 }
 </script>
 <script src="/assets/quote.js"></script>
