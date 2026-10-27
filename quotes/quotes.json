@@ -631,6 +631,17 @@
    "created": "2026-10-27",
    "departs": "2027-04-03",
    "fromPrice": 7022
+  },
+  {
+   "slug": "kirsty",
+   "url": "https://quotes.travelagentjake.co.uk/kirsty",
+   "customer": "Kirsty",
+   "enquiryId": "mvqv117lul7a",
+   "quoteRequestId": "mvqv11bvgy22",
+   "title": "Winter sun January 2027 for 2 adults from Edinburgh: Tangerine Beach Kalutara Sri Lanka B&B, Centara Karon Resort Phuket B&B, Mauricia Beachcomber Grand Baie Mauritius half board, 10 nts",
+   "created": "2026-10-27",
+   "departs": "2027-01-14",
+   "fromPrice": 3917
   }
  ]
 }
