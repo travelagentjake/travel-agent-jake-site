@@ -653,6 +653,17 @@
    "created": "2026-10-27",
    "departs": "2027-06-23",
    "fromPrice": 2331.44
+  },
+  {
+   "slug": "benjaminpovey",
+   "url": "https://quotes.travelagentjake.co.uk/benjaminpovey",
+   "customer": "Benjamin Povey",
+   "enquiryId": "mvqwibaqabe2",
+   "quoteRequestId": "mvqwut0y0cj9",
+   "title": "Salou all inclusive for 2 adults from Birmingham, 5 nts Sat 8 May 2027: 4R Regina Gran, Ponient Piramide, Villamarina Club, Best Oasis Park",
+   "created": "2026-10-27",
+   "departs": "2027-05-08",
+   "fromPrice": 1126
   }
  ]
 }
