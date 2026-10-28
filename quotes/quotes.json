@@ -664,6 +664,17 @@
    "created": "2026-10-27",
    "departs": "2027-05-01",
    "fromPrice": 1160
+  },
+  {
+   "slug": "kerryjupp",
+   "url": "https://quotes.travelagentjake.co.uk/kerryjupp",
+   "customer": "Kerry Jupp",
+   "enquiryId": "mvrxs6aj942h",
+   "quoteRequestId": "mvrxs6cm9fdc",
+   "title": "Jamaica, 14 nights all inclusive at Riu Palace Aquarelle for 8 adults in 4 Junior Suites with TUI, 2 to 4 Apr 2028 (Birmingham, Gatwick or Manchester)",
+   "created": "2026-10-28",
+   "departs": "2028-04-02",
+   "fromPrice": 2994
   }
  ]
 }
