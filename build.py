@@ -12189,6 +12189,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1679941734240-5391931fba37?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Skier going down a slope beneath a chairlift",
     },
+    {
+        "slug": "spain-hotel-check-in-id-rules.html",
+        "meta": "Consumer rights",
+        "title": "Spain's hotel check-in rule: what they can actually ask for your ID",
+        "excerpt": "Hotels in Spain must register your details by law, but they can't scan, photograph or photocopy your passport or ID. Here's exactly what to hand over, and what to do if one insists on more.",
+        "image": "https://images.unsplash.com/photo-1768854700546-acedff5393ac?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Aerial view of a coastal resort swimming pool in Spain",
+    },
 ]
 
 
@@ -18961,6 +18969,199 @@ with open(os.path.join(SITE, "ski-travel-insurance-what-to-check-before-you-go.h
     ))
 print("ski-travel-insurance-what-to-check-before-you-go.html written")
 
+
+
+spain_hotel_id_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>SPAIN'S HOTEL CHECK-IN RULE: WHAT THEY CAN ACTUALLY ASK FOR YOUR ID</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Every hotel, apartment and campsite in Spain is legally required to register your details when you check in, that part genuinely isn't optional. What a lot of properties still get wrong, and what Spain's own data protection authority has actually fined hotels for, is scanning, photographing or keeping a photocopy of your passport or ID card itself. Here's exactly what you have to hand over, what you don't, and what to say if a hotel pushes for more than it's allowed to take.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <img src="https://images.unsplash.com/photo-1768854700546-acedff5393ac?auto=format&fit=crop&w=1600&h=700&q=80" alt="Aerial view of a coastal resort swimming pool in Spain" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Why this comes up on every single Spain booking</h2>
+    <p style="margin-top:14px;">This isn't a Costa del Sol thing, or a Majorca thing, or something specific to one hotel chain. Since Royal Decree 933/2021 came into force, every type of tourist accommodation in Spain, hotels, apartments, campsites and rural tourism properties, along with vehicle hire firms, has to record a set list of guest details and submit them to a central government database used by Spanish police. It applies nationwide, so it's exactly the same rule whether you're staying on the mainland Costas, in the Balearics or out in the Canary Islands.</p>
+    <p style="margin-top:14px;">Giving those details isn't up for debate, and I wouldn't want anyone thinking this is a rule to try and get out of. What is genuinely optional, and what a consumer group and Spain's data protection authority have both said plainly in the last year, is letting a hotel take and keep an actual copy of your passport or ID document.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Required by law</div>
+        <h3 style="font-size:18px;">Your personal details</h3>
+        <p>Name, date of birth, nationality, document number and a handful of other fields, collected on a form.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Not required</div>
+        <h3 style="font-size:18px;">A copy of your document</h3>
+        <p>A hotel cannot lawfully scan, photograph or photocopy your passport or ID card to meet this requirement.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">If a hotel insists</div>
+        <h3 style="font-size:18px;">You can say no</h3>
+        <p>Offer to fill in a form instead, or show the document for a visual check without handing over a copy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What Spanish law actually requires you to hand over</h2>
+    <img src="https://images.unsplash.com/photo-1759038085950-1234ca8f5fed?auto=format&fit=crop&w=1600&h=700&q=80" alt="Hotel reception desk" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Royal Decree 933/2021, of 26 October, sets out exactly what accommodation providers in Spain need to record for every guest. According to Spain's consumer organisation OCU, the required fields are your full name, sex, the type of document you're travelling on, DNI, passport or TIE, the document number, its support or reference number, your nationality, date of birth, full home address, phone number, email address and the total number of travellers. If anyone in your party is a minor, the relationship between travellers is also needed.</p>
+    <p style="margin-top:14px;">That's a genuinely long list, and it's worth knowing it exists so a hotel asking for your email address or home address at check-in doesn't feel like an odd overreach, it's the same form every other guest is filling in. The data gets submitted to a central government system, generally known as SES Hospedajes, that Spanish police and the Guardia Civil can access.</p>
+    {jake_tip("None of this is anything to worry about or try to avoid, it's a standard legal requirement and every hotel, apartment or campsite in Spain asks the same of every guest. The only thing worth knowing is where the line sits between this and what comes next.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The bit hotels keep getting wrong: copying your ID</h2>
+    <img src="https://images.unsplash.com/photo-1655722725332-9925c96dd627?auto=format&fit=crop&w=1600&h=700&q=80" alt="An open passport with travel stamps" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Plenty of hotels across Spain have got into the habit of scanning, photographing or photocopying a guest's passport or ID card at check-in, often without even asking. The Spanish Data Protection Agency, the AEPD, put out a clear informative note on this in June 2025, and it was reaffirmed just as plainly by the consumer group FACUA in July 2026: hotels can ask to see your document to check the details match, but they are not permitted to keep a copy of it.</p>
+    <p style="margin-top:14px;">The reasoning comes down to data minimisation under GDPR. A passport or ID card carries far more information than the registration form actually needs, your photo, signature, and on a Spanish DNI, your parents' names and a security CAN code. None of that is on the required list above, so keeping a copy means holding data the hotel has no legal basis to store, and it creates a genuine identity theft risk if that copy is ever lost or leaked.</p>
+    <div class="jake-card" style="margin-top:18px;">
+      <p style="margin:0;"><b>This isn't just guidance on paper.</b> The AEPD has actually fined a hotel over it. A four star hotel in Girona was fined &euro;9,000, reduced to &euro;5,400 after discounts for accepting responsibility and paying promptly, roughly &pound;7,450 reduced to roughly &pound;4,480 at today's rate, after it scanned a guest's DNI when the guest had specifically objected.</p>
+    </div>
+    {jake_tip("If a hotel scans or photographs your document without asking, it's worth politely flagging that you'd rather they didn't keep a copy. Most of the time it's just a habit on their end rather than anything deliberate, and a lot of properties genuinely don't realise it's not allowed.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What to actually do if a hotel insists on a copy</h2>
+    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&h=700&q=80" alt="Person filling in a form at a desk" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">In practice, most check-ins go smoothly and nobody ends up needing to push back on anything. But if a hotel does insist on taking a scan, photo or photocopy as a condition of letting you check in, both the AEPD and OCU set out the same practical options.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Offer to fill in a form instead.</b> The AEPD has said a paper or digital form covering the required fields is enough to meet the legal requirement, no copy needed.</span></li>
+      <li><span class="num">2</span><span><b>Let them check your document visually,</b> rather than handing it over to be scanned or photographed. Showing it so staff can confirm the details match is allowed, keeping a copy isn't.</span></li>
+      <li><span class="num">3</span><span><b>Say so plainly if asked to send a copy by email, WhatsApp or any messaging app.</b> You're not obliged to, and it's one of the more common ways a copy ends up stored somewhere it shouldn't.</span></li>
+      <li><span class="num">4</span><span><b>If a hotel won't budge, it's not a reason to walk away from your holiday.</b> You can mention that the AEPD's own guidance says a copy isn't required, and most staff will simply switch to the form.</span></li>
+      <li><span class="num">5</span><span><b>If you want to take it further,</b> a complaint can be made directly to the AEPD, or the consumer group FACUA can advise. For most holidaymakers this genuinely won't be necessary, it's worth knowing more as reassurance than as something you'll actually need to use.</span></li>
+    </ul>
+    {jake_tip("I always tell clients not to stress about this one. The vast majority of hotels I book get check-in right without any fuss. It's just genuinely useful to know where the line sits, so if a property does ask for more than it should, you know you're allowed to say no.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Why this is still a live issue in Spain right now</h2>
+    <img src="https://images.unsplash.com/photo-1486591913781-4bee9ed65bfe?auto=format&fit=crop&w=1600&h=700&q=80" alt="A street in Barcelona, Spain" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Separately from the photocopy rule, the wider traveller registration scheme itself is currently being challenged. In June 2026, the European Commission opened infringement proceedings against Spain over the system, arguing that collecting payment details and information about travelling companions goes further than necessary, that the three year data retention period is too long, and that police access to the database is too broad. Spain was given two months to respond or amend the system.</p>
+    <p style="margin-top:14px;">That dispute is about the scope of the wider scheme, not about whether hotels can copy your ID, which is a separate, already settled point. As of now it hasn't been resolved either way, so it's genuinely one to watch rather than something that changes what you need to do on your next trip. Whatever happens with that case, you'll still need to provide your registration details at check-in, and a hotel still won't be entitled to keep a copy of your passport.</p>
+    {jake_tip("This dispute is worth knowing about if you follow Spanish travel news, but it doesn't change anything you need to do before your next holiday. The required details and the photocopy rule both stay exactly as they are regardless of how that case plays out.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>At a glance</h2>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>What</th><th>Can a hotel ask for it</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Name, date of birth, nationality, document number and the other required fields</td><td>Yes, required by law</td><td>Collected on a paper or digital form</td></tr>
+          <tr><td>Seeing your passport or ID to check the details match</td><td>Yes</td><td>A visual check is allowed</td></tr>
+          <tr><td>A scan, photo or photocopy of your passport or ID</td><td>No</td><td>Not permitted under AEPD guidance, enforced with real fines</td></tr>
+          <tr><td>Sending a copy by email or messaging app</td><td>No</td><td>Same rule, just a different way of taking a copy</td></tr>
+          <tr><td>Filling in a form instead of showing ID at all</td><td>Yes</td><td>AEPD has confirmed a form alone meets the requirement</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Based on Royal Decree 933/2021 and AEPD guidance at the time of writing. Rules can be updated, so check the current official guidance for anything that matters to your specific trip.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What this actually means before you book</h2>
+    <img src="https://images.unsplash.com/photo-1768854700546-acedff5393ac?auto=format&fit=crop&w=1600&h=700&q=80" alt="Swimming pool at a Spanish resort hotel" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">None of this should put anyone off booking Spain, it's genuinely still one of the easiest and best value places for UK holidaymakers to visit. It's just worth knowing the basics before you travel.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Expect to give your personal details at check-in,</b> name, date of birth, nationality, document number and the rest. That part is a genuine legal requirement, not something to push back on.</span></li>
+      <li><span class="num">2</span><span><b>You don't have to let a hotel scan, photograph or photocopy your passport or ID,</b> and you're within your rights to say so.</span></li>
+      <li><span class="num">3</span><span><b>Ask for a form instead</b> if a hotel reaches for a scanner, the AEPD has confirmed that's enough to meet the requirement.</span></li>
+      <li><span class="num">4</span><span><b>Never send a photo of your ID by email or WhatsApp</b> just because a hotel asks for one before you arrive.</span></li>
+      <li><span class="num">5</span><span><b>Keep an eye on the wider EU dispute if you're curious,</b> but don't wait on it. It doesn't change anything about your next trip either way.</span></li>
+    </ul>
+    {jake_tip("If anything about check-in on a holiday I've booked for you ever feels off, message me. I can't change Spain's own rules, but I'm always happy to help you work out what's reasonable and what isn't.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Do hotels in Spain really need my ID details?</h3>
+      <p>Yes. Royal Decree 933/2021 requires every type of tourist accommodation in Spain to record a set list of guest details, including your name, date of birth, nationality and document number, and submit them to a central government database. It applies nationwide, including the mainland Costas, the Balearics and the Canary Islands.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Can a hotel in Spain scan or photocopy my passport?</h3>
+      <p>No. Spain's Data Protection Agency, the AEPD, confirmed in June 2025 that hotels cannot keep a scan, photo or photocopy of your passport or ID card. They can only ask to see it for a visual check, or collect the required details on a form.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What should I do if a hotel insists on taking a copy of my ID?</h3>
+      <p>Offer to fill in a form instead, since the AEPD has confirmed that's enough to meet the requirement. You can also mention that a copy isn't required under the AEPD's own guidance. If a hotel still won't budge, a complaint can be made to the AEPD or the consumer group FACUA.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Has a hotel actually been fined for this?</h3>
+      <p>Yes. The AEPD fined a four star hotel in Girona &euro;9,000, reduced to &euro;5,400 after discounts, after it scanned a guest's DNI despite the guest's objection. The fine was based on Royal Decree 933/2021 not permitting the collection of data beyond what's required.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is Spain's whole traveller registration system being challenged?</h3>
+      <p>The European Commission opened infringement proceedings against Spain in June 2026 over the wider scheme, citing concerns about payment data, travelling companion information, a three year retention period and broad police access. That's a separate issue from the photocopy rule, and it hadn't been resolved at the time of writing. Either way, it doesn't change what you need to do at check-in right now.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1738680979985-48bd7e5cfdd5?auto=format&fit=crop&w=1600&h=700&q=80" alt="Beach near Malaga on Spain's Costa del Sol" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Booking a holiday to Spain?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">From the Costa del Sol to the Canaries, I'll always give you the honest practical details alongside the booking itself. Tell me where you fancy going and I'll take care of the rest, honestly and without the pressure.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+spain_hotel_id_body = spain_hotel_id_body.replace("::NEWSLETTER::", newsletter_section())
+
+SPAIN_HOTEL_ID_SCHEMA = article_and_faq_schema(
+    "Spain's Hotel Check-In Rule: What They Can Actually Ask for Your ID",
+    "Hotels in Spain must register your details by law, but they can't scan, photograph or photocopy your passport or ID. Here's exactly what to hand over, and what to do if one insists on more.",
+    "spain-hotel-check-in-id-rules.html",
+    "https://images.unsplash.com/photo-1768854700546-acedff5393ac?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("Do hotels in Spain really need my ID details?", "Yes. Royal Decree 933/2021 requires every type of tourist accommodation in Spain to record a set list of guest details, including your name, date of birth, nationality and document number, and submit them to a central government database. It applies nationwide, including the mainland Costas, the Balearics and the Canary Islands."),
+        ("Can a hotel in Spain scan or photocopy my passport?", "No. Spain's Data Protection Agency, the AEPD, confirmed in June 2025 that hotels cannot keep a scan, photo or photocopy of your passport or ID card. They can only ask to see it for a visual check, or collect the required details on a form."),
+        ("What should I do if a hotel insists on taking a copy of my ID?", "Offer to fill in a form instead, since the AEPD has confirmed that's enough to meet the requirement. You can also mention that a copy isn't required under the AEPD's own guidance. If a hotel still won't budge, a complaint can be made to the AEPD or the consumer group FACUA."),
+        ("Has a hotel actually been fined for this?", "Yes. The AEPD fined a four star hotel in Girona €9,000, reduced to €5,400 after discounts, after it scanned a guest's DNI despite the guest's objection. The fine was based on Royal Decree 933/2021 not permitting the collection of data beyond what's required."),
+        ("Is Spain's whole traveller registration system being challenged?", "The European Commission opened infringement proceedings against Spain in June 2026 over the wider scheme, citing concerns about payment data, travelling companion information, a three year retention period and broad police access. That's a separate issue from the photocopy rule, and it hadn't been resolved at the time of writing. Either way, it doesn't change what you need to do at check-in right now."),
+    ]
+)
+
+with open(os.path.join(SITE, "spain-hotel-check-in-id-rules.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Spain's Hotel Check-In Rule: What They Can Actually Ask for Your ID | Travel Agent Jake",
+        "Hotels in Spain must register your details by law, but they can't scan, photograph or photocopy your passport or ID. Here's exactly what to hand over, and what to do if one insists on more.",
+        "travel-tips.html",
+        spain_hotel_id_body,
+        extra_schema=SPAIN_HOTEL_ID_SCHEMA,
+        canonical_path="spain-hotel-check-in-id-rules.html"
+    ))
+print("spain-hotel-check-in-id-rules.html written")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -19036,6 +19237,7 @@ SITEMAP_PAGES = [
     ("uk-egates-changes-2026.html", "0.7"),
     ("thailand-entry-rules-2026.html", "0.7"),
     ("ski-travel-insurance-what-to-check-before-you-go.html", "0.7"),
+    ("spain-hotel-check-in-id-rules.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
