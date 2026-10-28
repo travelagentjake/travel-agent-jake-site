@@ -697,6 +697,17 @@
    "created": "2026-10-28",
    "departs": "2027-10-20",
    "fromPrice": 3102
+  },
+  {
+   "slug": "mikecitybreak",
+   "url": "https://quotes.travelagentjake.co.uk/mikecitybreak",
+   "customer": "Mike",
+   "enquiryId": "mvsg2dl8capl",
+   "quoteRequestId": "mvsg2dp7bdlp",
+   "title": "Krakow city break, 3 nights 15 to 18 January 2027 for 4 adults in 2 rooms from Birmingham: Best Western Plus Krakow Old Town, Holiday Inn Krakow City Center, Hotel Alexander",
+   "created": "2026-10-28",
+   "departs": "2027-01-15",
+   "fromPrice": 1241
   }
  ]
 }

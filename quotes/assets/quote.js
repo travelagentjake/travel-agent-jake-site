@@ -814,6 +814,10 @@
   renderTable(); renderHotels();
   /* area guides: written once, matched to a hotel by its name and area. A hotel can override with areaKey, or with its own resort details. */
   var AREA_GUIDES = [
+    { k: 'krakow', m: /krakow|krak\u00f3w|cracow/, t: 'Krakow Old Town, Poland', i: 'One of the best preserved medieval old towns in Europe, ringed by the leafy Planty park. Everything centres on the Main Market Square, with the Cloth Hall and St Mary\'s Basilica, and the cobbled streets around it are packed with cellar bars, cafes and restaurants. Wawel Castle and the Kazimierz quarter are an easy walk away.',
+      eat: ['Pierogi, zurek soup and hearty Polish plates in the milk bars and cellar restaurants', 'Zapiekanka, the famous open baguette, from the hatches in Kazimierz', 'Hot mulled wine and grilled oscypek cheese in winter'],
+      feel: ['Compact and very walkable, you rarely need a taxi in the centre', 'Brilliant nightlife, from vodka bars to live jazz in vaulted cellars', 'Cold in January, so pack warm layers, a hat and comfy boots'],
+      near: [['about 10 mins walk', 'Wawel Castle', 'The royal castle and cathedral on the hill above the river'], ['about 15 mins walk', 'Kazimierz', 'The old Jewish quarter, full of quirky bars and street food'], ['about 30 mins', 'Wieliczka Salt Mine', 'Underground chapels and lakes carved from salt'], ['about 1.5 hours', 'Auschwitz Birkenau', 'The memorial and museum, best visited on a guided tour']] },
     { k: 'ovacik', m: /ovacik|hisaronu|oludeniz/, t: 'Ovacik and Oludeniz, Turkey', i: 'A hillside village a few minutes inland from the famous Oludeniz lagoon, with its own little strip of shops, restaurants and bars. It is greener and calmer than the beach resorts, with mountain views all around.',
       eat: ['Turkish grills, pide and gozleme in the village restaurants', 'Fresh fish and sea view dinners down at Oludeniz', 'Turkish tea, baklava and ice cream from the village cafes'],
       feel: ['Relaxed and friendly, with a lively little strip for the evenings', 'Hilly, so most people use the dolmus minibus or a taxi to reach the beach', 'Mountain scenery and cooler evenings than the coast'],
@@ -1013,6 +1017,7 @@
       turkey: ['Turkey', 'Turkish lira (TRY)', 'Type C and F, 230V', 'Right', 'Turkish', 'turkey'],
       cyprus: ['Cyprus', 'Euro (€)', 'UK style Type G, 240V', 'Left', 'Greek and Turkish, English is widely spoken', 'cyprus'],
       malta: ['Malta', 'Euro (€)', 'UK style Type G, 230V', 'Left', 'Maltese and English', 'malta'],
+      poland: ['Poland', 'Polish zloty (PLN)', 'Type C and E, 230V', 'Right', 'Polish, English is widely spoken in Krakow', 'poland'],
       italy: ['Italy', 'Euro (€)', 'Type C, F and L, 230V', 'Right', 'Italian', 'italy'],
       france: ['France', 'Euro (€)', 'Type C and E, 230V', 'Right', 'French', 'france'],
       croatia: ['Croatia', 'Euro (€)', 'Type C and F, 230V', 'Right', 'Croatian', 'croatia'],
@@ -1097,9 +1102,10 @@
       'sri lanka': ['Usually 4 or 5 hours ahead of the UK', 'Bottled water only', 'Around 10% if no service charge is added', '119'],
       india: ['Usually 4.5 or 5.5 hours ahead of the UK', 'Bottled water only', 'Around 10% in restaurants, and tips for drivers and guides', '112'],
       indonesia: ['Between 6 and 8 hours ahead of the UK, depending on the island', 'Bottled water only', 'Around 10% if service is not included', ''],
-      andorra: ['Usually 1 hour ahead of the UK', 'Safe to drink', 'Not expected, round up in restaurants', '112']
+      andorra: ['Usually 1 hour ahead of the UK', 'Safe to drink', 'Not expected, round up in restaurants', '112'],
+      poland: ['Usually 1 hour ahead of the UK', 'Safe to drink, though many visitors prefer bottled for taste', 'Around 10% in restaurants for good service', '112']
     };
-    var GHIC = { spain: 1, portugal: 1, greece: 1, cyprus: 1, malta: 1, italy: 1, france: 1, croatia: 1, netherlands: 1, belgium: 1, germany: 1, austria: 1, finland: 1, switzerland: 1, norway: 1, iceland: 1 };
+    var GHIC = { poland: 1, spain: 1, portugal: 1, greece: 1, cyprus: 1, malta: 1, italy: 1, france: 1, croatia: 1, netherlands: 1, belgium: 1, germany: 1, austria: 1, finland: 1, switzerland: 1, norway: 1, iceland: 1 };
     var CF_ALIAS = { 'united states': 'usa', 'united states of america': 'usa', us: 'usa', america: 'usa', florida: 'usa', california: 'usa', 'new jersey': 'usa', 'new york': 'usa', orlando: 'usa', 'las vegas': 'usa', nevada: 'usa', hawaii: 'usa', madeira: 'portugal', azores: 'portugal', algarve: 'portugal', tenerife: 'spain', lanzarote: 'spain', fuerteventura: 'spain', 'gran canaria': 'spain', 'canary islands': 'spain', mallorca: 'spain', majorca: 'spain', menorca: 'spain', ibiza: 'spain', 'costa del sol': 'spain', crete: 'greece', rhodes: 'greece', corfu: 'greece', kos: 'greece', zante: 'greece', zakynthos: 'greece', santorini: 'greece', bali: 'indonesia', 'united arab emirates': 'uae', dubai: 'uae', 'abu dhabi': 'uae', 'the maldives': 'maldives', 'the netherlands': 'netherlands', 'the usa': 'usa', cabo: 'mexico', cancun: 'mexico' };
     function cfFor(x) {
       var raw = String((x && x.country) || '').toLowerCase().trim(), k = CF_ALIAS[raw] || raw;
