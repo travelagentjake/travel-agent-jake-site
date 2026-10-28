@@ -103,6 +103,7 @@
 .ea-ch{margin:10px 0 0;padding:10px 12px;border-radius:12px;background:#f3f6ff;border:2px solid #dbe3f8;font-size:14px}.ea-ch.due{background:#fff7e0;border-color:#f2d27a}.ea-ch.hot{background:#fde8e4;border-color:#e9a79b}.ea-ch.lost{background:#eceef5;border-color:#c5cadb}
 .ea-chh{font-weight:800;font-size:15px}.ea-chr{color:#3b4258;margin-top:2px}.ea-cha{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}.ea-cha select{padding:6px 10px;border:2px solid #d5dbea;border-radius:999px;font:inherit;font-size:13px;background:#fff}
 .ea-chm{flex-basis:100%;font-size:13px}.ea-chm summary{cursor:pointer;color:#004AAD;font-weight:700}.ea-chm p{margin:6px 0 0;background:#fff;border-radius:8px;padding:8px 10px;white-space:pre-wrap}
+.ea-ttb{margin:6px 2px 0;font-size:14px;color:#3b4258}
 .ea-gh{font-size:17px;margin:22px 0 8px}
 .ea-last{font-size:13px;color:#5b6478;margin-top:2px;}.ea-last.chase{color:#c2412d;font-weight:700;}
 .ea-badge.s-closed{background:#eceef5;border-color:#9aa0b8;color:#5b6478;}
@@ -157,6 +158,7 @@
       
       <div id="eaPaneEnq">
       <div class="ea-stats" id="eaStats"></div>
+      <p class="ea-ttb" id="eaTtb"></p>
       <div class="ea-tools">
         <input id="eaSearch" type="search" placeholder="Search name, email, phone or destination">
         <select id="eaType"><option value="all">Enquiries and pre-regs</option><option value="enquiry">Enquiries only</option><option value="prereg2028">2028 pre-regs only</option></select>
@@ -221,7 +223,23 @@
   var DAYNAMES=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MONNAMES=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   function holdLabel(ms){var d=new Date(ms);return DAYNAMES[d.getDay()]+' '+d.getDate()+' '+MONNAMES[d.getMonth()];}
   function counts(){var c={open:0,chase:0,all:data.length};STATUSES.forEach(function(s){c[s[0]]=0;});data.forEach(function(q){var s=q.status||'new';c[s]=(c[s]||0)+1;if(isOpenStatus(q)){c.open++;if(needsChase(q))c.chase++;}});return c;}
+  /* how long customers take to book, from the day the enquiry came in to the day it was first marked Booked */
+  function ttbLine(){
+    var days=[];
+    data.forEach(function(q){
+      if(pre(q))return; var c=Date.parse(q.createdAt); if(isNaN(c))return; var b=0;
+      (q.notesLog||[]).forEach(function(n){if(!b&&/^Status changed to booked/i.test(n.text||''))b=Date.parse(n.t);});
+      if(!b&&q.status==='booked'&&q.statusAt)b=Date.parse(q.statusAt);
+      if(b&&b>=c)days.push((b-c)/86400000);
+    });
+    if(!days.length)return 'Average time to book: not enough data yet. It fills in as you mark enquiries Booked.';
+    days.sort(function(a,b){return a-b;});
+    var avg=days.reduce(function(a,b){return a+b;},0)/days.length, mid=days.length%2?days[(days.length-1)/2]:(days[days.length/2-1]+days[days.length/2])/2;
+    function f(x){return x<1?'under a day':(Math.round(x*10)/10)+(Math.round(x*10)/10===1?' day':' days');}
+    return 'Average time to book: '+f(avg)+' (typical '+f(mid)+', quickest '+f(days[0])+', slowest '+f(days[days.length-1])+') from '+days.length+' booked '+(days.length===1?'enquiry':'enquiries')+'.';
+  }
   function renderStats(){
+    if($('eaTtb'))$('eaTtb').textContent=ttbLine();
     var c=counts();var items=[['open','Open',c.open],['chase','To chase',c.chase],['new','New',c['new']],['contacted','Contacted',c.contacted],['quoted','Quote sent',c.quoted],['booked','Booked',c.booked],['done','Done',c.done],['closed','Closed',c.closed],['all','All',c.all]];
     $('eaStats').innerHTML=items.map(function(i){return '<button type="button" class="ea-stat" data-f="'+i[0]+'" aria-pressed="'+(filter===i[0])+'"><b>'+i[2]+'</b><span>'+i[1]+'</span></button>';}).join('');
     Array.prototype.forEach.call($('eaStats').querySelectorAll('button'),function(b){b.addEventListener('click',function(){filter=b.dataset.f;render();});});
