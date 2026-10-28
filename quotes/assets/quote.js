@@ -16,6 +16,7 @@
      dates: [{ id, label, total, pp, note, current (bool) }], datesIntro   // other dates with their prices, editable from the dashboard
      hotels[].upgrade: { title, text, perks, options: [{ name, price, extra (extras id, adds it from the card) }], note, button (label: keeps the box closed behind a button on the card) }
      extras may also have group: extras in the same group are either or (one villa upgrade at a time)
+     extras may also have qty: { max, label } for items bought one at a time (bags): price is per item and the customer picks how many
      touristTax: { amount, note }   // default tourist tax for every hotel; a hotel's own tax/taxNote wins. Required on every quote (CMA).
      sections: [{ id, title, intro, html, after: "hotels" | "trip" | "todo" }],   // custom sections from Jake's notes
      flights: { intro, legs: [{ group (optional heading, e.g. the hotels these flights are for), tag, date, from, fromCode, to, toCode, dep, arr, dur, carrier }] },
@@ -332,7 +333,9 @@
   var SKEY = 'tajx-' + Q.slug, sel = {};
   try { sel = JSON.parse(localStorage.getItem(SKEY) || '{}') || {}; } catch (e) { sel = {}; }
   function fmt(n) { return Number(n) % 1 ? money(n) : gbp(n); }
-  function xUnits(e) { return e.units ? Number(e.units) : (/per person/i.test(e.unit || '') && Number(Q.partyCount) ? Number(Q.partyCount) : 1); }
+  function xQty(e) { return Math.max(1, Math.min(Number((e.qty && e.qty.max) || 9), Number(sel[e.id]) || 1)); }
+  function xTitle(e) { return e.title + (e.qty ? ' x ' + xQty(e) : ''); }
+  function xUnits(e) { if (e.qty) return xQty(e); return e.units ? Number(e.units) : (/per person/i.test(e.unit || '') && Number(Q.partyCount) ? Number(Q.partyCount) : 1); }
   function xTotal(e, x) {
     if (e.prices) { x = x || curHotel(); var v = x && e.prices[x.id]; return v == null || isNaN(Number(v)) ? null : Number(v); }
     return e.price === '' || e.price == null || isNaN(Number(e.price)) ? null : Math.round(Number(e.price) * xUnits(e) * 100) / 100;
@@ -349,6 +352,7 @@
       return fmt(v) + (e.unit ? ' ' + esc(e.unit) : '') + (multi ? ' <span class="xwith">with ' + esc(x.name) + '</span>' : '');
     }
     var t = xTotal(e), u = xUnits(e);
+    if (e.qty) return fmt(e.price) + (e.unit ? ' ' + esc(e.unit) : ' each') + (u > 1 ? ' &#183; ' + fmt(t) + ' for ' + u : '');
     return fmt(e.price) + (e.unit ? ' ' + esc(e.unit) : '') + (u > 1 ? ' &#183; ' + fmt(t) + ' for ' + esc(party) : '');
   }
   if (extras.length) {
@@ -360,7 +364,8 @@
           return '<label class="xcard"><input type="checkbox" data-x="' + esc(e.id) + '"' + (sel[e.id] ? ' checked' : '') + '><span class="xbody"><span class="xcat">' + esc(e.cat || 'Extras') + '</span><b>' + esc(e.title) + '</b>'
             + (e.text ? '<span class="xt">' + esc(e.text) + '</span>' : '')
             + (hs.length && multi ? '<span class="xh">With ' + esc(hs.join(' or ')) + '</span>' : '')
-            + '<span class="xp" data-xp="' + esc(e.id) + '">' + xPriceLine(e) + '</span>' + (e.separate ? '<span class="xh">Paid in full when you book</span>' : '<span class="xh">Added to your holiday balance</span>')
+            + '<span class="xp" data-xp="' + esc(e.id) + '">' + xPriceLine(e) + '</span>'
+            + (e.qty ? '<span class="xq">How many ' + esc(e.qty.label || 'would you like') + '? <select data-xq="' + esc(e.id) + '" aria-label="How many">' + Array.apply(null, Array(Number(e.qty.max) || 4)).map(function (_, i) { return '<option value="' + (i + 1) + '"' + (xQty(e) === i + 1 ? ' selected' : '') + '>' + (i + 1) + '</option>'; }).join('') + '</select></span>' : '') + (e.separate ? '<span class="xh">Paid in full when you book</span>' : '<span class="xh">Added to your holiday balance</span>')
             + '</span></label>';
         }).join('') + '</div></div>'
       + '<div class="xsum" id="xSum"></div></div></section>';
@@ -405,7 +410,7 @@
     var el = document.getElementById('fullCost'); if (!el || !hotels.length) return;
     var x = curHotel(), list = xFor(x), tax = taxOf(x), sum = x.total, pending = 0, deposit = depOf(x);
     var rows = '<tr><td>' + esc(x.name) + ', ' + esc(party) + '</td><td class="n">' + gbp(x.total) + '</td></tr>';
-    list.forEach(function (e) { var t = xTotal(e, x); if (t == null) return; sum += t; rows += '<tr><td>' + esc(e.title) + '</td><td class="n">' + fmt(t) + '</td></tr>'; });
+    list.forEach(function (e) { var t = xTotal(e, x); if (t == null) return; sum += t; rows += '<tr><td>' + esc(xTitle(e)) + '</td><td class="n">' + fmt(t) + '</td></tr>'; });
     if (tax != null) sum += tax;
     if (tax != null) rows += '<tr><td>' + esc(taxLabel(x).charAt(0).toUpperCase() + taxLabel(x).slice(1)) + ', paid locally at the hotel</td><td class="n">about ' + gbp(tax) + '</td></tr>';
     var today = paidToday(x);
@@ -478,7 +483,16 @@
     c.addEventListener('change', function () {
       var me = extras.filter(function (z) { return z.id === c.dataset.x; })[0];
       if (c.checked && me && me.group) extras.forEach(function (z) { if (z.group === me.group && z.id !== me.id) { delete sel[z.id]; var o = document.querySelector('[data-x="' + z.id + '"]'); if (o) o.checked = false; } });
-      if (c.checked) sel[c.dataset.x] = 1; else delete sel[c.dataset.x]; try { localStorage.setItem(SKEY, JSON.stringify(sel)); } catch (e) {} calc(); });
+      if (c.checked) { var qs = document.querySelector('[data-xq="' + c.dataset.x + '"]'); sel[c.dataset.x] = me && me.qty && qs ? Number(qs.value) || 1 : 1; } else delete sel[c.dataset.x]; try { localStorage.setItem(SKEY, JSON.stringify(sel)); } catch (e) {} calc(); });
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-xq]'), function (q) {
+    q.addEventListener('change', function () {
+      var id = q.getAttribute('data-xq'), c = document.querySelector('[data-x="' + id + '"]'), e = extras.filter(function (z) { return z.id === id; })[0];
+      sel[id] = Number(q.value) || 1; if (c) c.checked = true;
+      Array.prototype.forEach.call(document.querySelectorAll('[data-xp="' + id + '"]'), function (el) { if (e) el.innerHTML = xPriceLine(e); });
+      try { localStorage.setItem(SKEY, JSON.stringify(sel)); } catch (er) {} calc();
+    });
   });
 
   /* booking form: passengers, contact, how they want to pay, optional direct debit, T&Cs. Posts to /api/quote-book which emails Jake. */
@@ -556,7 +570,7 @@
         if (bx.getAttribute('data-sig') !== sig) {
           bx.setAttribute('data-sig', sig);
           bx.innerHTML = fitList.length ? '<h4>Any extras you would like?</h4><div class="bkxl">' + fitList.map(function (e) {
-            return '<label class="bkxi"><input type="checkbox" data-bx="' + esc(e.id) + '"><span><b>' + esc(e.title) + '</b><i>' + fmt(xTotal(e, x)) + (e.separate ? ' &#183; paid when you book' : '') + '</i></span></label>';
+            return '<label class="bkxi"><input type="checkbox" data-bx="' + esc(e.id) + '"><span><b>' + esc(xTitle(e)) + '</b><i>' + fmt(xTotal(e, x)) + (e.separate ? ' &#183; paid when you book' : '') + '</i></span></label>';
           }).join('') + '</div>' : '';
         }
         bx.hidden = !fitList.length;
@@ -566,7 +580,7 @@
       el.innerHTML = '<div><span>Holiday' + (list.length ? ' with ' + list.length + ' extra' + (list.length > 1 ? 's' : '') : '') + '</span><b>' + fmt(Math.round(total * 100) / 100) + '</b></div>'
         + '<div><span>' + (full ? 'To pay today, the full amount' : other && oOk ? 'To pay today, the amount you chose' : 'To pay today' + (zeroDep ? (today ? ' (airport extras)' : ', no deposit') : (today ? ' (deposit plus airport extras)' : ', your deposit'))) + '</span><b>' + fmt(Math.round((full ? total : dep) * 100) / 100) + '</b></div>'
         + (full ? '' : '<div><span>Balance to follow</span><b>' + fmt(Math.round((total - dep) * 100) / 100) + '</b></div>')
-        + (list.length ? '<p class="small" style="margin:8px 0 0">Extras: ' + list.map(function (e) { return esc(e.title); }).join(', ') + '. Change them in <a href="#extras">Add extras</a>.</p>' : '');
+        + (list.length ? '<p class="small" style="margin:8px 0 0">Extras: ' + list.map(function (e) { return esc(xTitle(e)); }).join(', ') + '. Change them in <a href="#extras">Add extras</a>.</p>' : '');
       var dd = document.getElementById('bkDD'); if (dd) dd.hidden = full;
       var zpw = document.getElementById('bkPayNowWrap'), zhw = document.getElementById('bkHowWrap'), zpg = document.getElementById('bkPayGo');
       if (zpw) zpw.hidden = zeroDep; if (zhw) zhw.hidden = zeroDep && !today; if (zpg) zpg.closest('label').style.display = zeroDep ? 'none' : '';
@@ -640,7 +654,7 @@
       if (problems.length) { err.textContent = 'Please check: ' + problems.join(', ') + '.'; err.hidden = false; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
       var list = xFor(x), ex = list.reduce(function (a, e) { var t = xTotal(e, x); return a + (t || 0); }, 0), deposit = depOf(x);
       var body = {
-        slug: Q.slug, customer: Q.customer, title: Q.title, hotel: x.name, hotelTotal: x.total, extras: list.map(function (e) { return { title: e.title, total: xTotal(e, x), separate: !!e.separate }; }),
+        slug: Q.slug, customer: Q.customer, title: Q.title, hotel: x.name, hotelTotal: x.total, extras: list.map(function (e) { return { title: xTitle(e), total: xTotal(e, x), separate: !!e.separate }; }),
         total: Math.round((x.total + ex) * 100) / 100, deposit: deposit, payToday: Math.round(((full ? x.total + ex : isOther ? otherAmt : deposit + paidToday(x))) * 100) / 100,
         payNow: full ? 'full' : isOther ? 'other' : 'deposit', depositChoice: zeroOK ? (zeroDep ? 'zero' : 'deposit') : '', ddPlan: (wantDD && document.getElementById('bkDDPlan')) ? document.getElementById('bkDDPlan').textContent : '', payHow: (document.querySelector('input[name="payHow"]:checked') || {}).value || 'card',
         dd: wantDD ? { day: Number(g('ddDay')), name: g('ddName'), sort: g('ddSort').replace(/\D/g, ''), account: g('ddAcc').replace(/\D/g, '') } : null,
@@ -702,7 +716,7 @@
     var msg = document.getElementById('fbMsg').value.trim();
     var head = { changes: 'we would like some changes to our quote.', question: 'I have a question about our quote.' }[t];
     var text = 'Hi Jake, it\u2019s ' + who + ' (quote: quotes.travelagentjake.co.uk/' + Q.slug + '). ' + head
-      + (hotel ? '\nHotel: ' + hotel : '') + (xFor(null).length ? '\nExtras: ' + xFor(null).map(function (e) { return e.title; }).join(', ') : '') + (msg ? '\n\n' + msg : '');
+      + (hotel ? '\nHotel: ' + hotel : '') + (xFor(null).length ? '\nExtras: ' + xFor(null).map(function (e) { return xTitle(e); }).join(', ') : '') + (msg ? '\n\n' + msg : '');
     window.open(wa(text), '_blank', 'noopener');
   });
   Array.prototype.forEach.call(document.querySelectorAll('#app a[href*="getyourguide."]'), function (a) { a.href = gygLink(a.href); a.rel = 'noopener sponsored'; a.target = '_blank'; });

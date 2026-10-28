@@ -804,3 +804,4 @@ html.a11y-hc .btn-y,html.a11y-hc .btn{border:2px solid #000}
 
 /* rooms come from the option booked */
 .paxroom{color:var(--blue);font-weight:800}
+.xq{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ink,#10142B);margin-top:4px}.xq select{font:inherit;font-weight:800;padding:4px 8px;border:2px solid #E3E7F5;border-radius:10px;background:#fff;color:var(--blue)}
