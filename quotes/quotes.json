@@ -686,6 +686,17 @@
    "created": "2026-10-28",
    "departs": "2027-07-28",
    "fromPrice": 4392
+  },
+  {
+   "slug": "tonidelaney",
+   "url": "https://quotes.travelagentjake.co.uk/tonidelaney",
+   "customer": "Toni Delaney",
+   "enquiryId": "mvr7bdagrifv",
+   "quoteRequestId": "mvs348pi451c",
+   "title": "October half term 2027, 7 nights all inclusive for 2 adults and 2 children (8, 16), £0 deposit: Villa De Adeje Beach and Playaolid & Siam Park (Tenerife, Manchester), Narcissos Waterpark (Cyprus, East Midlands), HL Club Playa Blanca & Waterpark (Lanzarote, Newcastle)",
+   "created": "2026-10-28",
+   "departs": "2027-10-20",
+   "fromPrice": 3102
   }
  ]
 }
