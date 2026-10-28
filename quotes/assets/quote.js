@@ -566,11 +566,13 @@
       var bx = document.getElementById('bkXtras');
       if (bx) {
         var fitList = extras.filter(function (e) { return fits(e, x) && xTotal(e, x) != null; });
-        var sig = x.id + '|' + fitList.map(function (e) { return e.id; }).join(',');
+        var sig = x.id + '|' + fitList.map(function (e) { return e.id + (e.qty ? ':' + xQty(e) : ''); }).join(',');
         if (bx.getAttribute('data-sig') !== sig) {
           bx.setAttribute('data-sig', sig);
           bx.innerHTML = fitList.length ? '<h4>Any extras you would like?</h4><div class="bkxl">' + fitList.map(function (e) {
-            return '<label class="bkxi"><input type="checkbox" data-bx="' + esc(e.id) + '"><span><b>' + esc(xTitle(e)) + '</b><i>' + fmt(xTotal(e, x)) + (e.separate ? ' &#183; paid when you book' : '') + '</i></span></label>';
+            return '<label class="bkxi"><input type="checkbox" data-bx="' + esc(e.id) + '"><span><b>' + esc(e.qty ? e.title : xTitle(e)) + '</b><i>' + (e.qty ? fmt(e.price) + ' ' + esc(e.unit || 'each') + (xQty(e) > 1 ? ' &#183; ' + fmt(xTotal(e, x)) + ' for ' + xQty(e) : '') : fmt(xTotal(e, x))) + (e.separate ? ' &#183; paid when you book' : '') + '</i>'
+              + (e.qty ? '<span class="bkxq">How many? <select data-bxq="' + esc(e.id) + '" aria-label="How many">' + Array.apply(null, Array(Number(e.qty.max) || 4)).map(function (_, i) { return '<option value="' + (i + 1) + '"' + (xQty(e) === i + 1 ? ' selected' : '') + '>' + (i + 1) + '</option>'; }).join('') + '</select></span>' : '')
+              + '</span></label>';
           }).join('') + '</div>' : '';
         }
         bx.hidden = !fitList.length;
@@ -593,7 +595,15 @@
     }
     var bxe = document.getElementById('bkXtras');
     if (bxe) bxe.addEventListener('change', function (ev) {
-      var t = ev.target; if (!t || !t.getAttribute || !t.getAttribute('data-bx')) return;
+      var t = ev.target; if (!t || !t.getAttribute) return;
+      var qid = t.getAttribute('data-bxq');
+      if (qid) {
+        var xq = document.querySelector('[data-xq="' + qid + '"]');
+        if (xq) { xq.value = t.value; xq.dispatchEvent(new Event('change', { bubbles: true })); }
+        else { sel[qid] = Number(t.value) || 1; try { localStorage.setItem(SKEY, JSON.stringify(sel)); } catch (er) {} calc(); }
+        sum(); return;
+      }
+      if (!t.getAttribute('data-bx')) return;
       var m = document.querySelector('[data-x="' + t.getAttribute('data-bx') + '"]');
       if (m) { m.checked = t.checked; m.dispatchEvent(new Event('change', { bubbles: true })); }
       sum();
