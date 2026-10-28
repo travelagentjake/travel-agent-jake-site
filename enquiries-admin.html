@@ -193,25 +193,25 @@
 
   /* Chasing. The rules live in js/chase-engine.js (6 chases over about 3 weeks, replies first, payment links first, notes like "payday" or
      "Black Friday" put a customer on hold until the right day, closes 4 days after the last chase). This page just shows the plan. */
-  var ENG=window.TAJChase;
+  /* chase-engine.js loads after this script, so always reach it through window.TAJChase at the moment of use */
   function isOpenStatus(q){var s=q.status||'new';return s!=='done'&&s!=='closed'&&s!=='booked';}
   function dayWords(t){var h=Math.floor((Date.now()-t)/3600000);if(h<1)return 'just now';if(h<24)return h+' hr ago';var d=Math.floor(h/24);return d===1?'yesterday':d+' days ago';}
   function ctxOf(q){try{return window.__eaChaseCtx?window.__eaChaseCtx(q.id):{quotes:[]};}catch(e){return {quotes:[]};}}
-  function planOf(q){if(!window.__eaChaseReady||!ENG||!isOpenStatus(q)||pre(q))return null;var p=ENG.plan(q,ctxOf(q),Date.now());return p.track?p:null;}
+  function planOf(q){if(!window.__eaChaseReady||!window.TAJChase||!isOpenStatus(q)||pre(q))return null;var p=window.TAJChase.plan(q,ctxOf(q),Date.now());return p.track?p:null;}
   function needsChase(q){var p=planOf(q);return !!(p&&p.due);}
   function chaseGroup(q){var p=planOf(q);if(!p)return '';if(p.due)return 'due';if(p.track==='lost')return 'lost';if(p.track==='final')return 'final';return 'wait';}
   function sortKey(q){var p=planOf(q);return p?p.priority*1e13+(p.dueAt||0):9e13;}
-  function waLabel(p){return p.track==='pay'?'WhatsApp payment check':p.track==='new'?'WhatsApp reply':p.track==='hot'?'WhatsApp now':p.track==='noted'?'WhatsApp chase':p.track==='final'?'WhatsApp':(p.n===ENG.MAX_CHASES?'WhatsApp final message':'WhatsApp chase '+p.n+' of '+ENG.MAX_CHASES);}
+  function waLabel(p){return p.track==='pay'?'WhatsApp payment check':p.track==='new'?'WhatsApp reply':p.track==='hot'?'WhatsApp now':p.track==='noted'?'WhatsApp chase':p.track==='final'?'WhatsApp':(p.n===window.TAJChase.MAX_CHASES?'WhatsApp final message':'WhatsApp chase '+p.n+' of '+window.TAJChase.MAX_CHASES);}
   function chaseBlock(q){
     var p=planOf(q); if(!p)return '';
     var ctx=ctxOf(q), cls=p.due?(p.priority<=2?' hot':' due'):(p.track==='lost'?' lost':'');
     var h='<div class="ea-ch'+cls+'"><div class="ea-chh">'+esc(p.headline)+'</div><div class="ea-chr">'+esc(p.reason)+'</div>';
-    var snooze='<select data-snooze aria-label="Snooze this chase"><option value="">Snooze...</option>'+ENG.snoozeOptions().map(function(o){return '<option value="'+o.key+'">'+esc(o.label+' ('+ENG.label(o.date)+')')+'</option>';}).join('')+'</select>';
+    var snooze='<select data-snooze aria-label="Snooze this chase"><option value="">Snooze...</option>'+window.TAJChase.snoozeOptions().map(function(o){return '<option value="'+o.key+'">'+esc(o.label+' ('+window.TAJChase.label(o.date)+')')+'</option>';}).join('')+'</select>';
     var act='';
     if(p.due&&p.track==='quoteNeeded'){act='<button class="ea-btn" type="button" data-qgen="'+esc(q.id)+'" style="background:var(--yellow)">Generate quote</button>'+snooze;}
     else if(p.due){
-      var msg=ENG.message(p,q,ctx), vp=ENG.voicePrompt(p,q,ctx), enc=encodeURIComponent(msg);
-      act=(q.phone?'<a class="ea-btn wa" target="_blank" rel="noopener" data-chasewa="'+p.track+'" href="https://wa.me/'+waNum(q.phone)+(vp?'':'?text='+enc)+'">'+esc(vp?'Send a voicenote (chase 1 of '+ENG.MAX_CHASES+')':waLabel(p))+'</a>':'<a class="ea-btn wa" data-chasewa="'+p.track+'" href="mailto:'+esc(q.email)+'?subject='+encodeURIComponent('Your holiday')+'&body='+enc+'">Email chase</a>')
+      var msg=window.TAJChase.message(p,q,ctx), vp=window.TAJChase.voicePrompt(p,q,ctx), enc=encodeURIComponent(msg);
+      act=(q.phone?'<a class="ea-btn wa" target="_blank" rel="noopener" data-chasewa="'+p.track+'" href="https://wa.me/'+waNum(q.phone)+(vp?'':'?text='+enc)+'">'+esc(vp?'Send a voicenote (chase 1 of '+window.TAJChase.MAX_CHASES+')':waLabel(p))+'</a>':'<a class="ea-btn wa" data-chasewa="'+p.track+'" href="mailto:'+esc(q.email)+'?subject='+encodeURIComponent('Your holiday')+'&body='+enc+'">Email chase</a>')
         +'<button class="ea-btn" type="button" data-ca="replied">They replied</button>'+snooze+'<button class="ea-btn" type="button" data-ca="close">Close</button>'
         +'<details class="ea-chm"'+(vp?' open':'')+'><summary>'+(vp?'What to say':'See the message')+'</summary><p>'+esc(vp||msg)+'</p>'+(vp?'<p><b>Prefer to type?</b> '+esc(msg)+'</p>':'')+'</details>';
     }
@@ -358,8 +358,8 @@
   });
   $('eaList').addEventListener('change',function(e){
     if(!e.target.hasAttribute('data-snooze')||!e.target.value)return; var c=e.target.closest('.ea-card'),q=c&&find(c.dataset.id); if(!q)return;
-    var opt=ENG.snoozeOptions().filter(function(o){return o.key===e.target.value;})[0]; if(!opt)return;
-    api('POST',{action:'snooze',id:q.id,text:ENG.holdNote(opt)}).then(function(r){if(r.j&&r.j.ok){applyEnq(q,r.j.enquiry);render();toast('Snoozed until '+ENG.label(opt.date));}else toast('Could not save');});
+    var opt=window.TAJChase.snoozeOptions().filter(function(o){return o.key===e.target.value;})[0]; if(!opt)return;
+    api('POST',{action:'snooze',id:q.id,text:window.TAJChase.holdNote(opt)}).then(function(r){if(r.j&&r.j.ok){applyEnq(q,r.j.enquiry);render();toast('Snoozed until '+window.TAJChase.label(opt.date));}else toast('Could not save');});
   });
   $('eaList').addEventListener('change',function(e){
     if(e.target.dataset.act!=='status')return; var q=find(e.target.closest('.ea-card').dataset.id); if(!q)return;
