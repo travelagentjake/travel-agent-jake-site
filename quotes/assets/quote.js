@@ -365,7 +365,7 @@
             + (e.text ? '<span class="xt">' + esc(e.text) + '</span>' : '')
             + (hs.length && multi ? '<span class="xh">With ' + esc(hs.join(' or ')) + '</span>' : '')
             + '<span class="xp" data-xp="' + esc(e.id) + '">' + xPriceLine(e) + '</span>'
-            + (e.qty ? '<span class="xq">How many ' + esc(e.qty.label || 'would you like') + '? <select data-xq="' + esc(e.id) + '" aria-label="How many">' + Array.apply(null, Array(Number(e.qty.max) || 4)).map(function (_, i) { return '<option value="' + (i + 1) + '"' + (xQty(e) === i + 1 ? ' selected' : '') + '>' + (i + 1) + '</option>'; }).join('') + '</select></span>' : '') + (e.separate ? '<span class="xh">Paid in full when you book</span>' : '<span class="xh">Added to your holiday balance</span>')
+            + (e.qty ? '<span class="xq">How many ' + esc(e.qty.label || 'would you like') + '? <select data-xq="' + esc(e.id) + '" aria-label="How many">' + Array.apply(null, Array(Number(e.qty.max) || 4)).map(function (_, i) { return '<option value="' + (i + 1) + '"' + (xQty(e) === i + 1 ? ' selected' : '') + '>' + (i + 1) + '</option>'; }).join('') + '</select></span>' : '') + (e.separate ? '<span class="xh">Paid in full when you book</span>' : '<span class="xh">' + (fullOnly ? 'Added to your holiday cost' : 'Added to your holiday balance') + '</span>')
             + '</span></label>';
         }).join('') + '</div></div>'
       + '<div class="xsum" id="xSum"></div></div></section>';
