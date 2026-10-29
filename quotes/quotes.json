@@ -873,6 +873,17 @@
    "created": "2026-10-29",
    "departs": "2027-08-04",
    "fromPrice": 4152
+  },
+  {
+   "slug": "russellrhodes",
+   "url": "https://quotes.travelagentjake.co.uk/russellrhodes",
+   "customer": "Russell Rhodes",
+   "enquiryId": "mvtrhxsna44z",
+   "quoteRequestId": "mvtrhxubjksm",
+   "title": "Price match: Green Nature Sarigerme, 8 nights All Inclusive Plus from Leeds Bradford, Sat 12 Jun 2027, 2 adults 2 children (10 and 7)",
+   "created": "2026-10-29",
+   "departs": "2027-06-12",
+   "fromPrice": 3651
   }
  ]
 }
