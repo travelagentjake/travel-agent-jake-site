@@ -926,6 +926,17 @@
    "created": "2026-10-29",
    "departs": "2026-11-14",
    "fromPrice": 1752.16
+  },
+  {
+   "slug": "laurahughesroberts",
+   "url": "https://quotes.travelagentjake.co.uk/laurahughesroberts",
+   "customer": "Laura Hughes-Roberts",
+   "enquiryId": "mvtuze6wk97x",
+   "quoteRequestId": "mvtv2m19dub3",
+   "title": "Hurghada, 7 nights all inclusive for 7 adults in 5 rooms from Liverpool, Tue 28 Mar 2028: Titanic Resort and Aqua Park, Titanic Palace, Steigenberger Aqua Magic",
+   "created": "2026-10-29",
+   "departs": "2028-03-28",
+   "fromPrice": 6125
   }
  ]
 }
