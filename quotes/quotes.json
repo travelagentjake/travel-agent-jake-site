@@ -906,6 +906,15 @@
    "created": "2026-10-29",
    "departs": "2027-09-11",
    "fromPrice": 1782
+  },
+  {
+   "slug": "judith",
+   "url": "https://quotes.travelagentjake.co.uk/judith",
+   "customer": "Judith",
+   "title": "Skiathos price match, 7 nights self catering at Villa Rosa Apartments (Troulos) for 2 adults, Studio with Balcony, Manchester Mon 10 May 2027 with TUI",
+   "created": "2026-10-29",
+   "departs": "2027-05-10",
+   "fromPrice": 1106.34
   }
  ]
 }
