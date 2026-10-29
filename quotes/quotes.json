@@ -915,6 +915,17 @@
    "created": "2026-10-29",
    "departs": "2027-05-10",
    "fromPrice": 1106.34
+  },
+  {
+   "slug": "leona",
+   "url": "https://quotes.travelagentjake.co.uk/leona",
+   "customer": "Leona Van Antwerp",
+   "enquiryId": "mvtv3a132noo",
+   "quoteRequestId": "mvtvh5s7ipnj",
+   "title": "Malta anniversary, 7 nights B&B for 4 adults in 2 rooms, Stansted Sat 14 Nov 2026 with TUI: Seaview Hotel Adults Only, Maritim Antonine, Hard Rock Hotel Malta",
+   "created": "2026-10-29",
+   "departs": "2026-11-14",
+   "fromPrice": 1752.16
   }
  ]
 }
