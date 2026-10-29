@@ -829,6 +829,17 @@
    "created": "2026-10-29",
    "departs": "2027-06-28",
    "fromPrice": 6828
+  },
+  {
+   "slug": "shaleenmarmaris",
+   "url": "https://quotes.travelagentjake.co.uk/shaleenmarmaris",
+   "customer": "Shaleen",
+   "enquiryId": "",
+   "quoteRequestId": "",
+   "title": "Green Park Apartments Marmaris (Jet2), 2 adults self catering 10 nights from Glasgow, Fri 23 or Fri 30 Jul 2027",
+   "created": "2026-10-29",
+   "departs": "2027-07-23",
+   "fromPrice": 1386
   }
  ]
 }
