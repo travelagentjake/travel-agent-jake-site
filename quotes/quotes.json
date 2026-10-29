@@ -741,6 +741,17 @@
    "created": "2026-10-29",
    "departs": "2027-06-05",
    "fromPrice": 2568
+  },
+  {
+   "slug": "charlotteash",
+   "url": "https://quotes.travelagentjake.co.uk/charlotteash",
+   "customer": "Charlotte Ash",
+   "enquiryId": "mvt9u09agwce",
+   "quoteRequestId": "mvtcu8l9ahr8",
+   "title": "Three half board city break options for 2 adults from Newcastle with Jet2holidays, Marrakech, 4 nights Fri 4 Dec 2026: Kenzi Rose Garden, Rose Aqua Park Club, Barcelo Palmeraie Oasis Resort",
+   "created": "2026-10-29",
+   "departs": "2026-12-04",
+   "fromPrice": 532
   }
  ]
 }
