@@ -730,6 +730,17 @@
    "created": "2026-10-29",
    "departs": "2027-02-06",
    "fromPrice": 4263
+  },
+  {
+   "slug": "michaelacorfu",
+   "url": "https://quotes.travelagentjake.co.uk/michaelacorfu",
+   "customer": "Michaela Nicholson",
+   "enquiryId": "mvt9fnukcw4n",
+   "quoteRequestId": "mvtb6a45wkw6",
+   "title": "Corfu, 11 nights all inclusive Sat 5 June 2027 from Manchester (Jet2holidays, 17:05 out, 13:50 back) for 4 adults in 2 twin garden view rooms: Canvas by Mitsis Messonghi",
+   "created": "2026-10-29",
+   "departs": "2027-06-05",
+   "fromPrice": 5136
   }
  ]
 }
