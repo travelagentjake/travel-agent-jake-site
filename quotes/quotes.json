@@ -884,6 +884,17 @@
    "created": "2026-10-29",
    "departs": "2027-06-12",
    "fromPrice": 3651
+  },
+  {
+   "slug": "laurenbell",
+   "url": "https://quotes.travelagentjake.co.uk/laurenbell",
+   "customer": "Lauren Bell",
+   "enquiryId": "mvtsrx2ab0g1",
+   "quoteRequestId": "mvtt2o5vzzf0",
+   "title": "Palma Nova, Majorca, 7 nights self catering at Aparthotel Playa Cas Saboners for 2 adults and 1 child (6) with Jet2holidays, 4, 13 or 14 Sep 2027 (Newcastle, Glasgow or Edinburgh)",
+   "created": "2026-10-29",
+   "departs": "2027-09-04",
+   "fromPrice": 1618
   }
  ]
 }
