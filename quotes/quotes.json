@@ -774,6 +774,17 @@
    "created": "2026-10-29",
    "departs": "2027-06-18",
    "fromPrice": 6680
+  },
+  {
+   "slug": "sharonmorcom",
+   "url": "https://quotes.travelagentjake.co.uk/sharonmorcom",
+   "customer": "Sharon Morcom",
+   "enquiryId": "mvtdhgs8nrw0",
+   "quoteRequestId": "mvtfqkio5lmj",
+   "title": "Zante and Kos private pool villas, 7 nights self catering plus car hire from Bristol with Jet2Villas, Sept 2027, 4 adults (Villa Helona, Villa Planos, Villa Aelia, Villa Periyali Danae, Villa Marathias, Villa Lilu 2)",
+   "created": "2026-10-29",
+   "departs": "2027-09-13",
+   "fromPrice": 3228
   }
  ]
 }
