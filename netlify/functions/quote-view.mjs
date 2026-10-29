@@ -60,6 +60,9 @@ async function comebackEmail(slug, v, prev, open, closed) {
   const q = (reg.quotes || []).find((x) => x.slug === slug) || { slug, customer: slug };
   let enq = null;
   if (q.enquiryId) enq = await getStore({ name: "enquiries", consistency: "strong" }).get(q.enquiryId, { type: "json" }).catch(() => null);
+  // Already booked (the quote or its enquiry is marked Booked): no alert, there is nothing to chase.
+  const qstat = await getStore({ name: "quote-status", consistency: "strong" }).get(slug, { type: "json" }).catch(() => null);
+  if ((qstat && qstat.status === "booked") || (enq && enq.status === "booked")) return;
   const name = q.customer || (enq && enq.firstName) || slug;
   const url = "https://quotes.travelagentjake.co.uk/" + slug;
   const hello = `Hi ${name}, it's Jake from Travel Agent Jake. Just checking in on your holiday quote, have you had any more thoughts? Happy to answer any questions or tweak anything for you.`;
