@@ -937,6 +937,17 @@
    "created": "2026-10-29",
    "departs": "2028-03-28",
    "fromPrice": 6125
+  },
+  {
+   "slug": "pjayprotaras",
+   "url": "https://quotes.travelagentjake.co.uk/pjayprotaras",
+   "customer": "Pjay",
+   "enquiryId": "",
+   "quoteRequestId": "",
+   "title": "Protaras, 14 nights all inclusive for 2 adults from Manchester, Sun 20 Aug 2028: King Jason Protaras, Suite with Sea View",
+   "created": "2026-10-29",
+   "departs": "2028-08-20",
+   "fromPrice": 6353
   }
  ]
 }
