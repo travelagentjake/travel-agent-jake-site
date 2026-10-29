@@ -752,6 +752,17 @@
    "created": "2026-10-29",
    "departs": "2026-12-04",
    "fromPrice": 532
+  },
+  {
+   "slug": "georgepenfold",
+   "url": "https://quotes.travelagentjake.co.uk/georgepenfold",
+   "customer": "George Penfold",
+   "enquiryId": "mvteqx90oggq",
+   "quoteRequestId": "mvteqxatneix",
+   "title": "Calis, Turkey, 7 nights all inclusive plus from London Stansted with Jet2holidays, Fri 4 Jun 2027, 2 adults 1 child aged 3 (XO Cape Arnna Fethiye, Liberty Signa)",
+   "created": "2026-10-29",
+   "departs": "2027-06-04",
+   "fromPrice": 2668
   }
  ]
 }
