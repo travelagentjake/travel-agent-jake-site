@@ -785,6 +785,17 @@
    "created": "2026-10-29",
    "departs": "2027-09-13",
    "fromPrice": 3228
+  },
+  {
+   "slug": "emmatenerife",
+   "url": "https://quotes.travelagentjake.co.uk/emmatenerife",
+   "customer": "Emma",
+   "enquiryId": "mvtk6q95jbd6",
+   "quoteRequestId": "mvtk6qbdc4fn",
+   "title": "Tenerife, Alua Atlantico Golf Resort, 5 nights All Inclusive sea view room from Belfast, 10 Jan 2027, 2 adults (price match)",
+   "created": "2026-10-29",
+   "departs": "2027-01-10",
+   "fromPrice": 1390
   }
  ]
 }
