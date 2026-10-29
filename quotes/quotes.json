@@ -807,6 +807,17 @@
    "created": "2026-10-29",
    "departs": "2027-07-10",
    "fromPrice": 2674
+  },
+  {
+   "slug": "daveblackwell",
+   "url": "https://quotes.travelagentjake.co.uk/daveblackwell",
+   "customer": "Dave Blackwell",
+   "enquiryId": "mvtlip0f7om7",
+   "quoteRequestId": "mvtlip3x7926",
+   "title": "Verona Apartments Marmaris, 21 nights self catering for 2 adults and 1 child (14) with Jet2holidays: Glasgow Sun 1 Aug, Leeds Bradford Fri 30 Jul or Sat 31 Jul 2027",
+   "created": "2026-10-29",
+   "departs": "2027-07-30",
+   "fromPrice": 2486
   }
  ]
 }
