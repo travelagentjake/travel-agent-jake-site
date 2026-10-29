@@ -796,6 +796,17 @@
    "created": "2026-10-29",
    "departs": "2027-01-10",
    "fromPrice": 1390
+  },
+  {
+   "slug": "emmawaite",
+   "url": "https://quotes.travelagentjake.co.uk/emmawaite",
+   "customer": "Emma Waite",
+   "enquiryId": "mvtjdfwww1st",
+   "quoteRequestId": "mvtk9apxy8ju",
+   "title": "Five family All Inclusive options with water slides, 14 nights from Glasgow early July 2027, 2 adults and 1 child: TUI BLUE Tropical, Bodrum Holiday Resort, Eftalia Aqua, FERGUS Club Pineda Splash, Julian Club",
+   "created": "2026-10-29",
+   "departs": "2027-07-10",
+   "fromPrice": 2674
   }
  ]
 }
