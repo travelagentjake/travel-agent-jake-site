@@ -1003,6 +1003,17 @@
    "created": "2026-10-30",
    "departs": "2027-07-16",
    "fromPrice": 3774
+  },
+  {
+   "slug": "elisabethikos",
+   "url": "https://quotes.travelagentjake.co.uk/elisabethikos",
+   "customer": "Elisabeth",
+   "enquiryId": "",
+   "quoteRequestId": "",
+   "title": "Ikos Olivia, Halkidiki, 7 nights All Inclusive Plus for 2 adults and 2 children from Newcastle, Wed 5 May 2027, Deluxe One Bedroom Bungalow Suite with Private Garden",
+   "created": "2026-10-30",
+   "departs": "2027-05-05",
+   "fromPrice": 5396
   }
  ]
 }
