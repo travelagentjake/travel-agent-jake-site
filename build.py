@@ -1977,6 +1977,13 @@ DESTINATION_POSTS = [
         "excerpt": "Weather by month, where to stay, things to do, real multi centre options with Abu Dhabi and Ras Al Khaimah, and what a trip to Dubai actually costs.",
         "image": "https://images.unsplash.com/photo-1651467606797-e1c660cf3fda?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "norway-fjords-northern-lights.html",
+        "meta": "Norway",
+        "title": "Norway: Fjords & Northern Lights",
+        "excerpt": "Bergen's fjords and colourful harbour against Tromso's Arctic nights and the Northern Lights, three real multi centre options, weather by month and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1544085311-11a028465b03?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -12260,6 +12267,330 @@ with open(os.path.join(SITE, "dubai.html"), "w", encoding="utf-8") as f:
     ))
 print("dubai.html written")
 
+norway_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>NORWAY: FJORDS &amp; NORTHERN LIGHTS</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Bergen's colourful harbour and fjords, Tromso's Arctic nights and a genuine shot at the Northern Lights, three real multi centre options, weather by month and what it actually costs, everything you need to plan a trip to Norway.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Norway</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1544085311-11a028465b03?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Colourful wooden houses along the Bryggen wharf in Bergen" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Norway is really two completely different holidays wearing the same passport stamp. Bergen is a short, pretty city break built around a UNESCO listed wharf and a day out on the fjords, the sort of trip that suits a long weekend any time from spring to autumn. Tromso, 1,000 miles further north and well inside the Arctic Circle, is a dark, cold, genuinely bucket list break built almost entirely around chasing the Northern Lights. Clients ask me for one or the other far more often than both, so the first question I ask is simply which holiday they actually want.</p>
+    <p style="margin-top:14px;">Jet2holidays, through its Jet2CityBreaks brand, and easyJet holidays both now sell Bergen as a flight inclusive package, and easyJet holidays has also added Tromso to its own range. TUI does not currently sell either as a flight and hotel package, though its Crystal Ski brand flies its own charter service into Norway for skiing, and TUI's wider tour and cruise network can still get a client there if a package holiday is not the right shape for the trip.</p>
+    {jake_tip("The single biggest thing I set expectations on with Norway is the weather and the odds. Bergen is one of the wettest cities in Europe whatever month you go, and the Northern Lights are never guaranteed on any one trip to Tromso, only more or less likely depending on when you go. I always build that into the conversation before anyone books.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Bergen suits a short break of three or four nights, flights, a hotel and usually a half day fjord cruise or rail trip built around a long weekend. It works well for couples, first time visitors to Norway and anyone who wants a scenic, walkable city without a long flight. Tromso also suits three or four nights, built around nightly Northern Lights chases rather than a single big day out, and suits clients treating it as a genuine bucket list trip rather than a relaxing holiday. Combine the two and you are looking at six to eight nights total, which suits clients who want to see both faces of Norway in one trip and are happy to fly twice to do it.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Bergen is an easy, short flight, around 1 hour 55 minutes direct from London Gatwick, with Jet2CityBreaks and easyJet holidays both flying there from a range of UK airports including Gatwick, Manchester, Bristol, Newcastle and Leeds Bradford. Tromso is a longer hop at around 3 hours 15 minutes, and easyJet holidays now flies there direct and seasonally from Bristol, Gatwick and Manchester, usually from November through the winter. Outside that direct season, or from an airport that is not on the direct list, Tromso is reached with a connection, most commonly through Oslo on Norwegian or SAS.</p>
+    {jake_tip("The direct Tromso flights are seasonal and route specific, so I always double check which UK airports are actually flying direct for a client's travel dates before promising a non stop option. A one stop route through Oslo is just as reliable and often has far more flexibility on dates.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Bergen and Tromso sit at completely different latitudes and feel like different countries depending on the season, so I've kept their weather separate rather than blending them into one table.</p>
+    <h3 style="font-size:18px; margin-top:28px;">Bergen &amp; the fjords</h3>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>4&deg;C</td><td>1&deg;C</td><td>Mild for the latitude but wet, Bergen's rainiest stretch</td></tr>
+          <tr><td>February</td><td>5&deg;C</td><td>0&deg;C</td><td>Still damp, with the odd snow flurry possible</td></tr>
+          <tr><td>March</td><td>7&deg;C</td><td>1&deg;C</td><td>Spring arriving, slightly less rain</td></tr>
+          <tr><td>April</td><td>11&deg;C</td><td>4&deg;C</td><td>Noticeably brighter, a good value shoulder month</td></tr>
+          <tr><td>May</td><td>15&deg;C</td><td>7&deg;C</td><td>Long daylight hours, one of the drier months</td></tr>
+          <tr><td>June</td><td>18&deg;C</td><td>10&deg;C</td><td>Warm and green, still some rain likely</td></tr>
+          <tr><td>July</td><td>19&deg;C</td><td>12&deg;C</td><td>Warmest month, Bergen's peak holiday season</td></tr>
+          <tr><td>August</td><td>19&deg;C</td><td>12&deg;C</td><td>Still warm, among the city's drier spells</td></tr>
+          <tr><td>September</td><td>16&deg;C</td><td>10&deg;C</td><td>Mild, rain starting to build again</td></tr>
+          <tr><td>October</td><td>12&deg;C</td><td>6&deg;C</td><td>Cooler and wetter, good autumn colour</td></tr>
+          <tr><td>November</td><td>8&deg;C</td><td>3&deg;C</td><td>Damp and mild, days drawing in fast</td></tr>
+          <tr><td>December</td><td>5&deg;C</td><td>1&deg;C</td><td>Mild but typically Bergen's wettest month</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Average high and low temperatures for Bergen (1991 to 2020 averages), sourced via climate-zone.com. Bergen is consistently rated one of Europe's wettest cities, so a decent waterproof earns its place in the case whatever month you travel.</p>
+    <h3 style="font-size:18px; margin-top:32px;">Tromso &amp; the Arctic</h3>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>-1&deg;C</td><td>-6&deg;C</td><td>Deep polar night darkness, prime Northern Lights season</td></tr>
+          <tr><td>February</td><td>-1&deg;C</td><td>-6&deg;C</td><td>Still dark enough for aurora hunting, snow well established</td></tr>
+          <tr><td>March</td><td>1&deg;C</td><td>-4&deg;C</td><td>Days lengthening, still good aurora odds with more daylight to explore in</td></tr>
+          <tr><td>April</td><td>4&deg;C</td><td>-2&deg;C</td><td>Snow starting to thin, aurora season tailing off</td></tr>
+          <tr><td>May</td><td>9&deg;C</td><td>2&deg;C</td><td>Midnight sun beginning, nights stop getting properly dark</td></tr>
+          <tr><td>June</td><td>13&deg;C</td><td>6&deg;C</td><td>Full midnight sun, 24 hours of daylight</td></tr>
+          <tr><td>July</td><td>16&deg;C</td><td>9&deg;C</td><td>Warmest month, still near constant daylight</td></tr>
+          <tr><td>August</td><td>15&deg;C</td><td>8&deg;C</td><td>Mild, proper darkness starting to return late in the month</td></tr>
+          <tr><td>September</td><td>11&deg;C</td><td>5&deg;C</td><td>Aurora season begins again as nights darken</td></tr>
+          <tr><td>October</td><td>5&deg;C</td><td>1&deg;C</td><td>Colder, a good value month for aurora hunting</td></tr>
+          <tr><td>November</td><td>2&deg;C</td><td>-2&deg;C</td><td>Polar night approaching, very short days</td></tr>
+          <tr><td>December</td><td>1&deg;C</td><td>-4&deg;C</td><td>Polar night, the sun doesn't rise for around two months each winter</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Average high and low temperatures for Tromso (1991 to 2020 averages), sourced via climate-zone.com.</p>
+    {jake_tip("Tromso's polar night, when the sun never rises above the horizon, usually runs from late November to mid January. It sounds bleak but it's actually the best stretch for aurora hunting, since the sky barely brightens all day.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">For Bergen, April to September covers the brightest, driest and warmest months, with June to August the most reliable for long daylight hours even if rain is never fully off the table. For Tromso, the Northern Lights season runs roughly September to March, with the long, dark nights of December to February generally rated the best odds, weather and solar activity allowing. There is never a guarantee on any single trip, since it comes down to clear skies and the aurora actually being active that night. September and March are useful shoulder months for Tromso, pairing a reasonable aurora chance with more daylight to see the city and get out on the water.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1609951022212-7aff21c1ab1f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Houses along Bergen's harbour under a blue sky" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <h3 style="font-size:18px;">Bergen</h3>
+        <p>Almost everyone stays in or around the Bryggen wharf area, the colourful old UNESCO listed waterfront that is also Bergen's main sightseeing draw. It puts you within walking distance of the fish market, the Floyen funicular and the harbour where the fjord cruises depart, so there is little reason to base yourself anywhere else for a short break.</p>
+      </div>
+      <div class="jake-card">
+        <h3 style="font-size:18px;">Tromso</h3>
+        <p>The waterfront around the harbour and Storgata is the obvious base, close to the Arctic Cathedral, the Polar Museum and the cable car up Storsteinen. Nearly all Northern Lights tours collect from hotels in this central area, since the whole point is to drive out of the town's own light pollution.</p>
+      </div>
+    </div>
+    {jake_tip("Facilities and board basis vary a lot by hotel in both cities, so I always confirm the live details for a specific hotel before a client books.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Both cities are compact and genuinely walkable. Bergen's Floyen funicular runs right from the city centre up to a viewpoint over the fjords, and the harbour where fjord cruises and day trips depart is a short walk from most central hotels. Tromso's own cable car, Fjellheisen, climbs Mount Storsteinen for a view back over the city, and most Northern Lights tours and whale watching trips collect guests directly from their hotel by minibus or coach, so a hire car is rarely necessary for either leg of the trip.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <h3 style="font-size:18px;">In Bergen</h3>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1694700712077-023514c316dd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A red railway carriage on the Flam Railway through the Norwegian mountains" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A fjord cruise is the one thing almost every visitor to Bergen does, and these are some of the best rated options.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="997576,414903,348771,370276"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/bergen-l1132/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/bergen-l1132/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Bergen &rarr;</a>
+      </div>
+    </div>
+    <h3 style="font-size:18px; margin-top:32px;">In Tromso</h3>
+    <p style="margin-top:14px;">A Northern Lights chase is the main reason most clients book Tromso in the first place, and these are some of the best rated tours.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="495485,525013,558665,871739"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/tromso-l32375/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/tromso-l32375/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Tromso &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three ways to see Norway</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Northern Lights over snow capped mountains near Tromso" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Norway rarely gets booked as one single holiday, since Bergen and Tromso are such different trips. These are the three ways I actually book it.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <h3 style="font-size:17px;">Bergen only, the fjords and harbour break</h3>
+        <p>Three or four nights with Jet2CityBreaks or easyJet holidays, built around the colourful Bryggen wharf and a half day Mostraumen fjord cruise, or a full day out on the Flam Railway and Naeroyfjord. The easiest, shortest option and the one I book most often for first time visitors and couples.</p>
+      </div>
+      <div class="jake-card">
+        <h3 style="font-size:17px;">Tromso only, the Northern Lights break</h3>
+        <p>Three or four nights with easyJet holidays, built around nightly aurora chases out of the city's light pollution, with a whale watching trip or dog sledging added depending on the season. The one I book for clients treating this as a genuine bucket list trip.</p>
+      </div>
+      <div class="jake-card">
+        <h3 style="font-size:17px;">Bergen &amp; Tromso combined</h3>
+        <p>Six to eight nights total, flying into Bergen first for the fjords, then an internal flight, usually around two hours and often via Oslo with Norwegian, SAS or Widerøe, up to Tromso for the Arctic leg. No single operator packages this combination together, so I build it as two separate flight and hotel bookings priced up as one trip.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">As a rough guide, a three night Bergen city break typically starts from around &pound;500 to &pound;750pp including flights, and a three to four night Tromso break, where flights are scarcer and winter demand is high, typically starts from around &pound;700 to &pound;1,100pp. Both move around a great deal with dates, departure airport and hotel, so always confirm current pricing with Jake.</p>
+    {jake_tip("I always ask whether a client wants the easy short break or the full Arctic adventure before suggesting the combined trip. Doing both in one go is a brilliant holiday, but it is a longer, pricier trip than most people picture when they first say 'Norway'.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Two named hotels from each city, all bookable through the operator shown.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Bergen</div>
+        <h3 style="font-size:18px;">Hotel Norge by Scandic</h3>
+        <p>A large, official five star hotel right in the Bergen city centre, first opened in 1885 and modernised with Scandinavian design, with a spa, sauna and indoor pool, two restaurants and two bars. A short walk from Bryggen. Bookable through Jet2CityBreaks.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Bergen</div>
+        <h3 style="font-size:18px;">Home Hotel Havnekontoret with Norwegian Fjords Tour</h3>
+        <p>A 4.5 star rated hotel right in the Bryggen area, with the bonus that a half day Mostraumen fjord cruise past waterfalls and mountain scenery is already bundled into the package price. A genuinely easy way to tick off the fjords without arranging anything separately. Bookable through Jet2CityBreaks.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Tromso</div>
+        <h3 style="font-size:18px;">Scandic Ishavshotel</h3>
+        <p>A well known waterfront hotel on the Tromso quayside, close to the Hurtigruten quay, the Polar Museum and the Arctic Cathedral, with its own Roast Restaurant and Bar looking out over the Tromso Bridge. A reliable, central base for Northern Lights trips. Bookable through easyJet holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Tromso</div>
+        <h3 style="font-size:18px;">Clarion Collection Hotel Aurora</h3>
+        <p>A four star waterfront hotel overlooking Tromso harbour with views of the Arctic Cathedral, plus a gym, sauna and hot tub, many rooms with fjord or mountain views. A fitting name for a Northern Lights base. Bookable through easyJet holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1544085311-11a028465b03?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The colourful wooden buildings of Bryggen wharf in Bergen" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bryggen Wharf</h3>
+        <p>Bergen's UNESCO World Heritage listed row of colourful wooden merchant houses, dating back to the Hanseatic League, and the city's single most photographed spot. Right in the heart of the centre.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1609951022212-7aff21c1ab1f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bergen's harbour beneath the surrounding hills" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Mount Floyen</h3>
+        <p>A short funicular ride from the city centre up to a viewpoint over Bergen's harbour and the seven surrounding hills, with walking trails continuing on from the top for anyone wanting to stretch their legs further.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1694700712077-023514c316dd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A red Flam Railway carriage winding through the Norwegian mountains" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Flam Railway &amp; Naeroyfjord</h3>
+        <p>A full day trip from Bergen combining one of the world's steepest railway journeys with a cruise along the narrow, UNESCO listed Naeroyfjord, often sold as the Norway in a Nutshell route. A proper way to see the fjords beyond Bergen's own harbour.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1639471199975-6fe2e2966740?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The triangular glass Arctic Cathedral in Tromso" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Arctic Cathedral</h3>
+        <p>Tromso's striking, triangular glass fronted church, one of the city's best known landmarks and a short walk or bus ride from the centre across the Tromso Bridge.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1563306542-495d13c4c145?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A whale watching boat in the Arctic waters near Tromso" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Whale watching</h3>
+        <p>Orcas and humpback whales gather in the fjords around Tromso to feed on herring, roughly October to January, making a whale safari a genuine highlight alongside the Northern Lights during the darker months.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1732246059584-b9607a9d4bbd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A clock tower in central Tromso" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Fjellheisen cable car</h3>
+        <p>Tromso's own cable car climbs Mount Storsteinen for a sweeping view back over the city and surrounding islands, and doubles as one of the easiest spots in town to watch for the aurora on a clear night.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Norway uses the Norwegian krone. Most of a Jet2CityBreaks or easyJet holidays package is already paid for upfront, since flights and accommodation are bundled into the package price, but these are typical costs for anything extra, converted to pounds sterling at a rate of roughly &pound;1 to NOK 12.34.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;20.26 (about NOK 250)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;4.43 (about NOK 55)</td></tr>
+          <tr><td>Domestic draught beer, a pint</td><td>&pound;9.73 (about NOK 120)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;2.38 (about NOK 29)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;11.75 (about NOK 145)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages for Bergen via Numbeo, checked at time of writing. Krone to pound sterling conversion is approximate and moves around day to day, so treat these as a guide rather than an exact figure. Norway is consistently one of the more expensive countries in Europe to eat and drink out in, worth factoring into a client's spending money.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Norwegian krone (NOK)</td></tr>
+          <tr><td>Plug type</td><td>Type C and Type F, different from the UK's Type G, so you will need a travel adaptor. Mains supply is 230V</td></tr>
+          <tr><td>Language</td><td>Norwegian is the official language, with English very widely spoken in hotels, airports and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 1 hour 55 minutes direct to Bergen, around 3 hours 15 minutes direct to Tromso on the seasonal easyJet route, or longer via a connection through Oslo</td></tr>
+          <tr><td>Time difference</td><td>1 hour ahead of the UK all year round, since both countries move their clocks forward and back on the same dates</td></tr>
+          <tr><td>Entry requirements</td><td>Norway follows Schengen area rules. UK passport holders can currently visit visa free for up to 90 days in any 180 day period, and your passport needs to have been issued within the last 10 years and have at least 3 months validity remaining beyond your planned departure date</td></tr>
+          <tr><td>Driving</td><td>Right hand side, the opposite of the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Michael Fousert, Agent J, Hongbin, Dana Andreea Gheorghe, Lightscape and Simon Infanger via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Norway for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a short Bergen fjords break, a Tromso trip chasing the Northern Lights, or combine both into one longer holiday, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+norway_body = norway_body.replace("::NEWSLETTER::", newsletter_section())
+
+NORWAY_SCHEMA = article_and_faq_schema(
+    "Norway: Fjords & Northern Lights, Jake's Destination Guide",
+    "Jake's honest guide to Norway: Bergen's fjords and Tromso's Northern Lights compared, three real multi centre options, weather by month, real hotels and what a trip to Norway actually costs.",
+    "norway-fjords-northern-lights.html",
+    "https://images.unsplash.com/photo-1544085311-11a028465b03?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator sells Norway holidays?", "Jet2holidays, through its Jet2CityBreaks brand, and easyJet holidays both sell Bergen as a flight inclusive city break, and easyJet holidays has also added Tromso to its range. TUI does not currently sell either as a flight and hotel package, though TUI's Crystal Ski brand flies its own charter service to Norway for skiing."),
+        ("When is the best time to see the Northern Lights in Tromso?", "The Northern Lights can appear any time the sky is dark enough, roughly September to March, with the long, dark nights of December to February generally rated the best odds. There is never a guarantee on any single trip, since it depends on clear skies and the aurora being active that night."),
+        ("How long is the flight to Norway?", "Bergen is around 1 hour 55 minutes direct from London Gatwick and several other UK airports. Tromso is around 3 hours 15 minutes on the seasonal direct easyJet holidays route from Bristol, Gatwick or Manchester, or longer via a connection through Oslo at other times of year."),
+        ("Do I need a visa for Norway?", "UK passport holders can visit Norway, which follows Schengen area rules, visa free for up to 90 days in any 180 day period. Your passport needs to have been issued within the last 10 years and have at least 3 months validity remaining beyond your planned departure date."),
+        ("Can I visit Bergen and Tromso in the same trip?", "Yes. No single operator packages the two together, so Jake builds it as two separate flight and hotel bookings, flying into Bergen first and then taking an internal flight, usually via Oslo, up to Tromso, priced up as one combined trip."),
+    ]
+)
+with open(os.path.join(SITE, "norway-fjords-northern-lights.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Norway: Fjords & Northern Lights, Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Norway: Bergen's fjords and Tromso's Northern Lights compared, three real multi centre options, weather by month, real hotels and what a trip to Norway actually costs.",
+        "destinations.html",
+        norway_body,
+        extra_schema=NORWAY_SCHEMA,
+        canonical_path="norway-fjords-northern-lights.html"
+    ))
+print("norway-fjords-northern-lights.html written")
+
 
 
 
@@ -19519,6 +19850,7 @@ SITEMAP_PAGES = [
     ("las-vegas.html", "0.6"),
     ("california.html", "0.6"),
     ("dubai.html", "0.6"),
+    ("norway-fjords-northern-lights.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
