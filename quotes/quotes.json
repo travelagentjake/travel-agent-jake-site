@@ -970,6 +970,17 @@
    "created": "2026-10-30",
    "departs": "2028-02-13",
    "fromPrice": 5875
+  },
+  {
+   "slug": "samanthabrook",
+   "url": "https://quotes.travelagentjake.co.uk/samanthabrook",
+   "customer": "Samantha Brook",
+   "enquiryId": "",
+   "quoteRequestId": "",
+   "title": "Kos, Crete or Majorca, 10 nights all inclusive for 8 adults and 3 children in 4 rooms from Manchester, Tue 19 Oct 2027: Smy Kos Beach & Splash, Mitsis Ramira, Katrin Hotel and Bungalows, Gouves Waterpark Holiday Resort, BelleVue Bonita and Club Resort, Eix Lagotel Holiday Resort",
+   "created": "2026-10-30",
+   "departs": "2027-10-19",
+   "fromPrice": 8610
   }
  ]
 }
