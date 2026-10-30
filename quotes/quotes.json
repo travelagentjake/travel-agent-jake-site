@@ -992,6 +992,17 @@
    "created": "2026-10-30",
    "departs": "2027-07-31",
    "fromPrice": 5672
+  },
+  {
+   "slug": "kiannanson",
+   "url": "https://quotes.travelagentjake.co.uk/kiannanson",
+   "customer": "Kian Nanson",
+   "enquiryId": "mvuq943jgr8t",
+   "quoteRequestId": "mvuqju5x6zmp",
+   "title": "Five all inclusive family options for 2 adults and 3 children, 7 nts from Fri 16 or Wed 21 Jul 2027 (Manchester or Liverpool): Avra Beach Rhodes, Blue Aegean Crete, Grand Park Lara Turkey, Eurovillage Achilleas Kos, Golden Sun Zante",
+   "created": "2026-10-30",
+   "departs": "2027-07-16",
+   "fromPrice": 3774
   }
  ]
 }
