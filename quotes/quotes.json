@@ -981,6 +981,17 @@
    "created": "2026-10-30",
    "departs": "2027-10-19",
    "fromPrice": 8610
+  },
+  {
+   "slug": "barrysowersby",
+   "url": "https://quotes.travelagentjake.co.uk/barrysowersby",
+   "customer": "Barry Sowersby",
+   "enquiryId": "mvu230jfptkz",
+   "quoteRequestId": "mvuojuwwx9go",
+   "title": "Protaras or Hersonissos, 11 nights all inclusive for 3 adults and 1 teen from Manchester, Thu 29 Jul 2027: Papouis Protaras, Narcissos Waterpark, Royal & Imperial Belvedere, Arminda Hotel & Spa",
+   "created": "2026-10-30",
+   "departs": "2027-07-29",
+   "fromPrice": 5364
   }
  ]
 }
