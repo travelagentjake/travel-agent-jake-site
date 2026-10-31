@@ -1025,6 +1025,16 @@
    "created": "2026-10-30",
    "departs": "2027-08-21",
    "fromPrice": 5772
+  },
+  {
+   "slug": "carolyncampbell-majorca",
+   "url": "https://quotes.travelagentjake.co.uk/carolyncampbell-majorca",
+   "customer": "Carolyn Campbell",
+   "enquiryId": "mvv754v4ht3j",
+   "title": "Majorca, O7 Be Klub Family Reef (Alcudia), 7 nights all inclusive for 5 adults and 3 children in 3 balcony rooms, Manchester 08:00 Thu 19 Aug 2027",
+   "created": "2026-10-31",
+   "departs": "2027-08-19",
+   "fromPrice": 7760
   }
  ]
 }
