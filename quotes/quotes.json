@@ -1090,6 +1090,17 @@
    "created": "2026-11-01",
    "departs": "2027-09-02",
    "fromPrice": 4824
+  },
+  {
+   "slug": "millydisney",
+   "url": "https://quotes.travelagentjake.co.uk/millydisney",
+   "customer": "Milly Houston-Codling",
+   "enquiryId": "mvy10yqa58rq",
+   "quoteRequestId": "mvy1odrb2guh",
+   "title": "Disneyland Paris 18th birthday, 3 nights room only for 2 adults from Newcastle, July 2027 with easyJet holidays: B&B Hotel Val d'Europe, Akena Serris, Paxton Hotel and Spa",
+   "created": "2026-11-01",
+   "departs": "2027-07-11",
+   "fromPrice": 656
   }
  ]
 }
