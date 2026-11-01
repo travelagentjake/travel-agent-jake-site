@@ -1035,6 +1035,17 @@
    "created": "2026-10-31",
    "departs": "2027-08-19",
    "fromPrice": 6979
+  },
+  {
+   "slug": "annacyprus",
+   "url": "https://quotes.travelagentjake.co.uk/annacyprus",
+   "customer": "Anna",
+   "enquiryId": "mvxlukkcfxh2",
+   "quoteRequestId": "mvxluko2o3e9",
+   "title": "Four beachfront all inclusive options for 2 adults and 2 children (14) in 2 rooms from Manchester, 14 nights from mid July 2028: Kefalos Beach Village, Aquamare Beach Hotel & Spa, Louis Ledra Beach (Paphos), Side Star Elegance (Side)",
+   "created": "2026-11-01",
+   "departs": "2028-07-15",
+   "fromPrice": 7725.9
   }
  ]
 }
