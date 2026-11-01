@@ -1079,6 +1079,17 @@
    "created": "2026-11-01",
    "departs": "2027-09-29",
    "fromPrice": 1036
+  },
+  {
+   "slug": "lizmcmahon",
+   "url": "https://quotes.travelagentjake.co.uk/lizmcmahon",
+   "customer": "Liz McMahon",
+   "enquiryId": "",
+   "quoteRequestId": "",
+   "title": "The Ritz-Carlton Ras Al Khaimah, Al Wadi Desert, 6 nights half board in a Tented Pool Villa for 2 adults, Emirates from Gatwick, Thu 2 Sep 2027",
+   "created": "2026-11-01",
+   "departs": "2027-09-02",
+   "fromPrice": 4824
   }
  ]
 }
