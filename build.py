@@ -1984,6 +1984,20 @@ DESTINATION_POSTS = [
         "excerpt": "Bergen's fjords and colourful harbour against Tromso's Arctic nights and the Northern Lights, three real multi centre options, weather by month and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1544085311-11a028465b03?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "algarve.html",
+        "meta": "Algarve, Portugal",
+        "title": "The Algarve, Portugal",
+        "excerpt": "TUI, Jet2holidays and easyJet holidays all serving Faro, the best areas to stay from Albufeira to Quinta do Lago, weather by month, and what a trip to the Algarve actually costs.",
+        "image": "https://images.unsplash.com/photo-1608649944716-228404a0a8bb?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+        "slug": "fuerteventura.html",
+        "meta": "Fuerteventura",
+        "title": "Fuerteventura",
+        "excerpt": "Corralejo, Caleta de Fuste, Costa Calma, Jandia and El Cotillo: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1663931340881-bf00526cd9f5?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -11716,6 +11730,287 @@ with open(os.path.join(SITE, "las-vegas.html"), "w", encoding="utf-8") as f:
     ))
 print("las-vegas.html written")
 
+fuerteventura_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>FUERTEVENTURA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Fuerteventura, from the surf town of Corralejo in the north to the long white beaches of Costa Calma and Jandia in the south.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Fuerteventura</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1663931340881-bf00526cd9f5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sand dunes near Corralejo, Fuerteventura" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Fuerteventura is the one I send clients to when they want the Canary Islands without the crowds. It is the second largest of the islands but one of the quietest, with huge empty beaches, proper pale sand dunes rather than the volcanic black sand you get on Lanzarote, and some of the best and most reliable wind in Europe. The Atlantic trade winds blow across the island for much of the year, which is exactly why Fuerteventura is a genuine world capital for windsurfing and kitesurfing, but it is just as good for anyone who simply wants a sun lounger and a long stretch of gold sand with nobody on it.</p>
+    <p style="margin-top:14px;">The island is really four or five different holidays depending on where you stay. Corralejo in the north is the liveliest base with the most bars and restaurants, Caleta de Fuste in the east is calm, sheltered and genuinely family friendly, Costa Calma and the Jandia peninsula in the south have the longest beaches and the famous Sotavento lagoon, and El Cotillo in the northwest is the laid back, slightly wilder choice for couples and surfers.</p>
+    {jake_tip("Fuerteventura gets noticeably windier the further south and west you go. If a client gets seasick easily or just wants completely calm water for swimming, I point them at Caleta de Fuste. If they want to learn to windsurf or kitesurf, Costa Calma or Corralejo are the better call.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the standard package length, and the flight is similar to the rest of the Canaries at around four to four and a half hours, so short breaks are less common than longer weeks. Ten to fourteen nights works well if you want to combine a lively base with somewhere quieter, for example a few nights in Corralejo followed by a week in Costa Calma.</p>
+    <p style="margin-top:14px;">Families do well in Caleta de Fuste and Costa Calma, both with calmer water and a good choice of pool hotels and kids' clubs. Couples and surfers are drawn to El Cotillo and Corralejo, watersports fans head for Costa Calma and the Sotavento lagoon, and anyone who likes wide open space and proper nature, the Jandia Natural Park, the Corralejo dunes and the island's mountainous interior, will find plenty to explore beyond the resorts.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Fuerteventura has one airport, Fuerteventura Airport (FUE), a short drive south of the capital, Puerto del Rosario, and close to Caleta de Fuste. It is well served from the UK with direct flights on easyJet, Jet2 and TUI among others, and flight time is typically around four to four and a half hours depending on where you fly from.</p>
+    <p style="margin-top:14px;">Caleta de Fuste is the closest resort to the airport, around 10 minutes away. Corralejo in the north and El Cotillo in the northwest both take around 35 to 45 minutes. Costa Calma, further south on the Jandia peninsula, is around 45 to 55 minutes, and Morro Jable right at the southern tip of the island is the longest transfer at around an hour to an hour and a quarter.</p>
+    {jake_tip("If a client is booking a short notice deal and wants to keep travel time to a minimum, Caleta de Fuste is by far the quickest transfer on the island.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Fuerteventura sits closest of all the Canary Islands to the coast of Africa, which gives it a warm, dry, breezy climate that barely changes through the year. These figures are long term climate averages for the island, so treat them as a guide rather than a forecast for your specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>19&deg;C</td><td>13&deg;C</td><td>19&deg;C</td><td>Mild winter sun, one of the wetter months of the year on average</td></tr>
+          <tr><td>February</td><td>20&deg;C</td><td>13&deg;C</td><td>18&deg;C</td><td>Similar to January, a reliable winter sun pick</td></tr>
+          <tr><td>March</td><td>21&deg;C</td><td>14&deg;C</td><td>18&deg;C</td><td>Warming up, a good value shoulder month</td></tr>
+          <tr><td>April</td><td>22&deg;C</td><td>14&deg;C</td><td>18&deg;C</td><td>Pleasant and mostly dry, popular for Easter holidays</td></tr>
+          <tr><td>May</td><td>23&deg;C</td><td>15&deg;C</td><td>19&deg;C</td><td>Reliable sunshine and strengthening trade winds</td></tr>
+          <tr><td>June</td><td>24&deg;C</td><td>17&deg;C</td><td>20&deg;C</td><td>Warm, dry and increasingly windy, peak watersports season begins</td></tr>
+          <tr><td>July</td><td>27&deg;C</td><td>19&deg;C</td><td>21&deg;C</td><td>Hot with almost no rain, strong trade winds and busy beaches</td></tr>
+          <tr><td>August</td><td>27&deg;C</td><td>20&deg;C</td><td>22&deg;C</td><td>Hottest and busiest month, Spanish school holidays add to the crowds</td></tr>
+          <tr><td>September</td><td>27&deg;C</td><td>20&deg;C</td><td>23&deg;C</td><td>Still hot, sea at its warmest, winds start easing</td></tr>
+          <tr><td>October</td><td>25&deg;C</td><td>18&deg;C</td><td>22&deg;C</td><td>Warm with slightly more rain, a good value month</td></tr>
+          <tr><td>November</td><td>23&deg;C</td><td>16&deg;C</td><td>21&deg;C</td><td>Mild but wetter, especially later in the month</td></tr>
+          <tr><td>December</td><td>20&deg;C</td><td>14&deg;C</td><td>20&deg;C</td><td>Mild winter sun, popular over the Christmas holidays</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long term climate averages for the island, sourced via weather2travel.com.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">Like the rest of the Canaries, Fuerteventura works all year round. June to September is hottest, windiest and busiest, with the highest prices around the Spanish summer holidays in August. October, November, April and May are excellent value shoulder months with warm weather and lighter winds, good for anyone who wants sunshine without quite so much wind. December to March is when the island earns its winter sun reputation, with daytime temperatures still in the high teens and low twenties while the rest of Europe is cold, though this is also when the island sees most of its limited rainfall, usually in short bursts.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Fuerteventura's resorts are spread right across the island, and each one gives you quite a different holiday.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1607729990781-985e34315e16?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sand dunes near Corralejo, Fuerteventura" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Corralejo</h3>
+        <p>The island's liveliest resort, in the north, with the widest choice of bars, restaurants and shops, a proper old harbour and ferries across to the car free island of Lobos. It sits right next to the Corralejo Natural Park's huge sand dunes, and suits first time visitors, groups and anyone who wants plenty to do within walking distance.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1607729990878-d936c0515606?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beach along Fuerteventura's east coast near Caleta de Fuste" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Caleta de Fuste</h3>
+        <p>A sheltered, purpose built resort on the east coast, closest to the airport and built around a large man made beach with calm, shallow water. A genuinely strong choice for families with younger children, and quieter in the evenings than Corralejo.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1615539761455-6ec607713cbd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Costa Calma beach, Fuerteventura" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Costa Calma</h3>
+        <p>One of the island's biggest purpose built resorts, on the narrow Jandia peninsula in the south, with a long sandy beach backing onto the famous Sotavento lagoon. Steady winds make it a magnet for windsurfers and kitesurfers, while the sheltered inner lagoon is calm enough for families too.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1615540046913-40f49b1185a4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Morro Jable beach, Jandia peninsula, Fuerteventura" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Jandia &amp; Morro Jable</h3>
+        <p>The southern tip of the island, a former fishing village turned resort with a long promenade and some of the island's biggest all inclusive hotels. Popular with German and Scandinavian holidaymakers, and the natural base for exploring the wild beaches of the Jandia Natural Park, including Cofete.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1697750747451-8c7a7b358df0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Faro del Toston lighthouse at El Cotillo, Fuerteventura" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">El Cotillo</h3>
+        <p>A small, traditional fishing village in the northwest, with a laid back, slightly wilder feel than the main resorts. Good seafood, a lighthouse at Faro del Toston, and a string of sheltered lagoons alongside the open surf beaches make this the pick for couples and surfers after something quieter.</p>
+      </div>
+    </div>
+    {jake_tip("First time to Fuerteventura and want the classic mix of beach, bars and an easy walk everywhere? Corralejo. Want the calmest water for young children? Caleta de Fuste. Fuerteventura is also one of the few Canary Islands where I would genuinely consider a two centre trip, Corralejo and Costa Calma for example, since the transfer between them is manageable and the two resorts feel so different.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">A local bus network connects the main resorts with Puerto del Rosario, and taxis are metered and easy to find around the resorts, but Fuerteventura is a big island and the distances between resorts are genuinely large, so hiring a car for at least a few days is worth it if you want to see much beyond your base. The Corralejo dunes, Betancuria in the island's mountainous interior, and the wild beaches of the Jandia Natural Park all sit well outside the main resorts.</p>
+    <p style="margin-top:14px;">Fuerteventura drives on the right, and the main roads linking the resorts are in good condition. The road down to Cofete beach in the far south is unsurfaced and best suited to a 4x4 or an organised jeep safari rather than a standard hire car.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;">A shortlist of the bookable tours and activities around Fuerteventura worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="210330,337026,84333,1052592"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/fuerteventura-l419/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/fuerteventura-l419/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Fuerteventura &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets and areas of the island.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1580889024581-1b25ac95156a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Outdoor hotel swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">H10 Ocean Suites</h3>
+        <p>A 4&#9733; hotel in Corralejo, about 500 metres from the beach and 150 metres from the town centre, with three outdoor pools including a freshwater children's pool, five bars and a choice of junior suites that sleep one to four. Half board or all inclusive. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1755597037530-60d9ca3b9879?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Pool loungers overlooking the ocean at a resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">SBH Monica Beach Resort</h3>
+        <p>A 4&#9733; all inclusive hotel in Costa Calma with two heatable outdoor pools, a shallow children's pool with a slide, a kids' club for ages 4 to 12, a mini disco, a teen club in July and August, and four tennis courts. A genuinely well equipped family base on the Jandia peninsula. Bookable through TUI.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for Caleta de Fuste &amp; wellness</div>
+        <img src="https://images.unsplash.com/photo-1761124469507-424d33a0b4f9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of a circular resort swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Barcelo Fuerteventura Mar</h3>
+        <p>A large beachfront family resort in Caleta de Fuste with direct beach access, four outdoor pools including a children's pool, a whirlpool, a thalasso spa, a gym and two restaurants including an a la carte Mexican option. Half board or all inclusive, with guest access to the neighbouring Barcelo Fuerteventura Castillo's facilities. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury &amp; adults only option</div>
+        <img src="https://images.unsplash.com/photo-1780631742225-053ddbd9a9ca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Infinity pool overlooking the ocean at a luxury resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Iberostar Selection Fuerteventura Palace</h3>
+        <p>A 5&#9733; beachfront hotel on Jandia beach in the south, with four outdoor pools plus an indoor pool, a full spa with a water circuit, and three restaurants covering Japanese, international and Spanish menus. The Star Prestige room category has its own adults only (15+) terrace and pool. Half board or all inclusive. Bookable through easyJet holidays and Jet2holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the highlights worth building a day around, beyond just the resort.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1678788762802-0c6c6cdd89fe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sand dunes at Corralejo Natural Park, Fuerteventura" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Corralejo Natural Park</h3>
+        <p>A protected stretch of towering golden sand dunes running along the coast just south of Corralejo, with a huge beach that barely gets crowded even in summer. Boats also leave Corralejo's harbour for Isla de Lobos, a small, mostly uninhabited island with its own beaches and snorkelling spots, a popular half day trip.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1754259959317-b5618ae60789?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Whitewashed buildings in Betancuria, Fuerteventura's historic former capital" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Betancuria</h3>
+        <p>The island's first capital, founded in 1404 and tucked into a sheltered valley in the mountainous interior, deliberately inland to avoid pirate raids. A pretty, whitewashed village with the ruins of its old Franciscan convent and a small archaeological museum, and a genuinely scenic drive to get there.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1613857794632-052edbb98d58?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rugged Atlantic coastline near Cofete, Fuerteventura" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Cofete beach &amp; Villa Winter</h3>
+        <p>A vast, wild, almost always empty beach inside the Jandia Natural Park, reached by an unsurfaced road that needs a 4x4 or an organised jeep safari. The sea here is too rough for swimming, but the scenery is spectacular, and the mysterious Villa Winter, a house built in the 1940s by a German engineer, adds a genuine bit of local folklore to the trip.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1585384367491-4e616eff87ee?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Playa de Sotavento lagoon, Fuerteventura" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sotavento lagoon</h3>
+        <p>A shallow, warm tidal lagoon running behind the beach near Costa Calma, sheltered enough for beginners but consistently windy enough to host international windsurfing and kitesurfing competitions. Even if you have no interest in watersports yourself, it is worth a visit just to watch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Fuerteventura uses the Euro, so prices below are shown in pounds with the Euro equivalent alongside, based on a rate of roughly &pound;1 to &euro;1.20. These are crowd-sourced averages for the island, and prices in resort areas geared towards tourists can run a little higher than this.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;10.00 (about &euro;12.00)</td></tr>
+          <tr><td>Draft beer, half litre, bar or restaurant</td><td>&pound;2.35 (about &euro;2.80)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.90 (about &euro;2.30)</td></tr>
+          <tr><td>Soft drink, canned</td><td>&pound;1.60 (about &euro;1.90)</td></tr>
+          <tr><td>Bottled water, restaurant</td><td>&pound;1.25 (about &euro;1.50)</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;2.50 (about &euro;3.00)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced averages via combien-coute.net for Fuerteventura, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Most all inclusive resorts cover food and local drinks on site, so your spending money is mostly for excursions like a Lobos boat trip or a Cofete jeep safari, car hire, and the odd meal out in Corralejo or Costa Calma.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (&euro;)</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, two round pins, same as most of mainland Europe. UK plugs need an adapter, not a voltage converter</td></tr>
+          <tr><td>Language</td><td>Spanish, with English widely spoken in resort areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 4 to 4.5 hours direct</td></tr>
+          <tr><td>Time difference</td><td>None, Fuerteventura is on the same time as the UK year round</td></tr>
+          <tr><td>Driving</td><td>Right hand side, opposite to the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Sam Williams, Axel Antas-Bergkvist, Paul Treubrodt, Juan Carlos Otero, Anastasia Trofimova, Maria Bobrova, Santiago Lacarta, Star, Michael Da Conceicao, Shahid Mahmud, Vivu Vietnam and Viesturs Broliss via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Fuerteventura for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to this exact part of Spain, or somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+fuerteventura_body = fuerteventura_body.replace("::NEWSLETTER::", newsletter_section())
+
+FUERTEVENTURA_SCHEMA = article_and_faq_schema(
+    "Fuerteventura: Jake's Destination Guide",
+    "Jake's honest guide to Fuerteventura: Corralejo, Caleta de Fuste, Costa Calma, Jandia and El Cotillo, weather by month, where to stay, things to do, recommended hotels and what things cost.",
+    "fuerteventura.html",
+    "https://images.unsplash.com/photo-1663931340881-bf00526cd9f5?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("What's the best time to visit Fuerteventura?", "Like the rest of the Canary Islands, Fuerteventura works year round. June to September is hottest, windiest and busiest, with the highest prices around the Spanish summer holidays. October, November, April and May are excellent value shoulder months with warm weather and lighter winds. December to March is when the island earns its winter sun reputation, with daytime temperatures still in the high teens and low twenties while the rest of Europe is cold, though this is also the wettest stretch of the year."),
+        ("Which area of Fuerteventura should I choose?", "Corralejo in the north is the liveliest resort with the widest choice of bars and restaurants, and suits first time visitors and groups well. Caleta de Fuste in the east is calm, sheltered and close to the airport, a strong choice for families with younger children. Costa Calma and the wider Jandia peninsula in the south have the island's longest beaches and the Sotavento lagoon, popular with watersports fans and families alike. El Cotillo in the northwest is quieter and more traditional, and suits couples and surfers after something less built up."),
+        ("How long is the flight to Fuerteventura, and how far is my hotel from the airport?", "Flight time from the UK is typically around 4 to 4.5 hours direct. Caleta de Fuste is the closest resort to the airport, around 10 minutes away. Corralejo and El Cotillo are both around 35 to 45 minutes, Costa Calma is around 45 to 55 minutes, and Morro Jable at the southern tip of the island is the longest transfer at around an hour to an hour and a quarter."),
+        ("Is Fuerteventura good for windsurfing and kitesurfing?", "Yes, Fuerteventura is one of the best windsurfing and kitesurfing destinations in Europe, thanks to steady Atlantic trade winds that blow across the island for much of the year. Costa Calma and the Sotavento lagoon are the main hub, hosting international competitions, though Corralejo also has a strong windsurfing scene. If you want calmer water for swimming rather than watersports, Caleta de Fuste is the better choice."),
+        ("Which tour operators sell Fuerteventura?", "Fuerteventura is sold as a flight and hotel package by TUI, Jet2holidays and easyJet holidays, with real hotels across Corralejo, Caleta de Fuste, Costa Calma and Jandia. I also have access to a much wider range of hotels and tailor made options through my host agency's supplier network, so these three are a good starting point rather than the full picture."),
+    ]
+)
+with open(os.path.join(SITE, "fuerteventura.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Fuerteventura: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Fuerteventura: Corralejo, Caleta de Fuste, Costa Calma, Jandia and El Cotillo, weather by month, where to stay, things to do and what it actually costs.",
+        "destinations.html",
+        fuerteventura_body,
+        extra_schema=FUERTEVENTURA_SCHEMA,
+        canonical_path="fuerteventura.html"
+    ))
+print("fuerteventura.html written")
+
 
 california_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
@@ -12838,6 +13133,14 @@ TIPS_POSTS = [
         "excerpt": "Hotels in Spain must register your details by law, but they can't scan, photograph or photocopy your passport or ID. Here's exactly what to hand over, and what to do if one insists on more.",
         "image": "https://images.unsplash.com/photo-1768854700546-acedff5393ac?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Aerial view of a coastal resort swimming pool in Spain",
+    },
+    {
+        "slug": "black-friday-holiday-scams-what-to-check-before-you-book.html",
+        "meta": "Scams & fraud",
+        "title": "Black Friday holiday deals: what to check before you book, and the scams to watch for",
+        "excerpt": "Brits lost £11 million to holiday scams in 2024, and fraudsters specifically target big sale events like Black Friday. Here's exactly how the scams work, the genuine checks that catch them out, and what's changed now Action Fraud has become Report Fraud.",
+        "image": "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "A laptop open on a table, used for comparing and booking holidays online",
     },
 ]
 
@@ -19804,6 +20107,481 @@ with open(os.path.join(SITE, "spain-hotel-check-in-id-rules.html"), "w", encodin
 print("spain-hotel-check-in-id-rules.html written")
 
 
+black_friday_scams_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>BLACK FRIDAY HOLIDAY DEALS: WHAT TO CHECK BEFORE YOU BOOK, AND THE SCAMS TO WATCH FOR</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Black Friday and Cyber Monday are two of the busiest weeks of the year for holiday bookings, and fraudsters know it just as well as the genuine operators do. Fake comparison sites, copied hotel listings and too good to be true prices all spike around the big sale events. The reporting system behind it all has also just changed. Here's exactly how the scams actually work, the genuine checks that catch them out, and where to report one now that Action Fraud has become Report Fraud.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three things worth knowing before this year's sales</h2>
+    <p style="margin-top:14px;">None of this should put anyone off a genuine Black Friday holiday deal, there are usually some good ones about. It just pays to know what you're actually looking at.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">The price trap</div>
+        <h3 style="font-size:18px;">Unrealistic prices are the classic lure</h3>
+        <p>Cloned comparison sites and fake listings almost always undercut the genuine price by a significant margin to get you to click and pay quickly.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">The copied listing</div>
+        <h3 style="font-size:18px;">Real photos, fake booking</h3>
+        <p>Scammers regularly lift genuine hotel photos and reviews to dress up a fake listing or a cloned website that looks convincing at a glance.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">The reporting system changed</div>
+        <h3 style="font-size:18px;">Action Fraud has become Report Fraud</h3>
+        <p>Action Fraud closed and was replaced by a new service called Report Fraud, run by the same City of London Police team, with the changeover completed by January 2026.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>&pound;11 million lost to holiday scams, and sale season is one of the riskiest times</h2>
+    <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=1600&h=700&q=80" alt="A laptop open on a table, used for comparing and booking holidays online" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Which? reported in August 2026 that holiday scams stole £11 million from Brits in 2024 alone, across more than 6,000 reports, an average loss of £1,844 per victim. That's not a new problem either. Action Fraud, before it became Report Fraud, logged 6,640 reports of holiday fraud in 2023, with victims losing a combined £12.3 million, an average of £1,851 each, and July and August were the two worst months that year for reports. ABTA's chief executive Mark Tanzer has made the same point every year since: fraudsters target popular destinations and busy times of year, and victims often only discover the fraud just before they travel or while they're already away.</p>
+    <p style="margin-top:14px;">Black Friday and the January sales rush add another peak on top of the usual summer one, because the entire pitch of a flash sale is urgency, which is exactly the environment a fake deal thrives in. Which? also flagged a genuinely striking figure from NordVPN's own research: during February's peak booking period, NordVPN found around 40 new fraudulent Booking.com websites appearing every single day, with Airbnb the second most impersonated travel brand. AI is making these cloned sites noticeably more convincing than they used to be.</p>
+    {jake_tip("If a deal looks significantly cheaper than everywhere else for the exact same hotel and dates, treat that as the first warning sign, not a stroke of luck. Message me the link or a screenshot and I'll tell you honestly whether it's genuine, usually within minutes.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>How the fake listings and cloned websites actually work</h2>
+    <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1600&h=700&q=80" alt="A bungalow style hotel room by the water, the kind of photo often copied into fake listings" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Which?'s research points to a handful of genuinely recurring patterns, rather than one single type of scam.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Cloned comparison or booking websites.</b> Built to look nearly identical to a real travel company, often with a web address that's only subtly different, an extra word, a misspelling, or an unusual character.</span></li>
+      <li><span class="num">2</span><span><b>Fake accommodation listings on real platforms.</b> Scammers post listings using photos and reviews copied from a genuine property. Which? even tested this itself, successfully listing a holiday home on Booking.com without the platform verifying its identity first.</span></li>
+      <li><span class="num">3</span><span><b>Fake messages from a "host" or "hotel".</b> Sent by email, text, phone or WhatsApp, asking you to verify payment details or share personal data to secure a booking, often outside the platform you actually booked through.</span></li>
+      <li><span class="num">4</span><span><b>Fake social media profiles and adverts.</b> New accounts, or accounts with names or locations unrelated to the real company, often pushing a "limited time only" discount code or a competition that mimics a well known brand.</span></li>
+    </ul>
+    {jake_tip("Reverse image search any accommodation photos you're not sure about using Google Images or TinEye. If the exact same photos turn up attached to a completely different property or a different country, that listing isn't genuine.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Action Fraud is gone. Report Fraud is where you report a scam now</h2>
+    <img src="https://images.unsplash.com/photo-1614064642578-7faacdc6336e?auto=format&fit=crop&w=1600&h=700&q=80" alt="A padlock resting on a laptop keyboard" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This is the genuinely new part for this year. Action Fraud, the UK's fraud reporting service for England, Wales and Northern Ireland since 2009, has been replaced. City of London Police, who ran Action Fraud throughout, launched its successor, Report Fraud, in December 2025, with the wider public rollout continuing into January 2026. The old site was widely criticised as hard to use and slow to respond, and the new service was built with three stated aims: reduce the burden on victims, give clearer advice and reassurance, and generate richer intelligence that every police force can actually access.</p>
+    <p style="margin-top:14px;">The practical details that matter if you ever need to use it: report online at reportfraud.police.uk, the old actionfraud.police.uk address now redirects there automatically. The phone number is unchanged, 0300 123 2040. You'll still get a crime reference number and updates by email or post, and you can still report fraud on behalf of someone else. Scotland isn't covered by the new service yet and is expected to join sometime in 2026, so for now people in Scotland should keep reporting to Police Scotland on 101. A suspicious website itself is also worth reporting separately to the National Cyber Security Centre.</p>
+    {jake_tip("If you've already paid and think you've been scammed, call your bank first using the number on the back of your card, before you do anything else. Time matters for getting a payment stopped or reversed, then report it to Report Fraud once you've made that call.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The checks that actually catch a fake holiday deal</h2>
+    <img src="https://images.unsplash.com/photo-1758519291442-6a34815b0ae3?auto=format&fit=crop&w=1600&h=700&q=80" alt="A man checking his phone while holding a payment card" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">None of these take more than a couple of minutes, and together they catch the vast majority of fake deals before any money changes hands.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Check ABTA membership directly.</b> Use the member search tool at abta.com rather than trusting a logo on the page itself, which can simply be copied onto a fake site.</span></li>
+      <li><span class="num">2</span><span><b>Check ATOL protection directly.</b> Search by company name or ATOL number at atol.org/check-for-atol. A genuine ATOL comes with a four or five digit number, which sometimes starts with a T, and the search confirms it's the one actually being advertised.</span></li>
+      <li><span class="num">3</span><span><b>Pay by credit card wherever you can.</b> It gives you added protection under Section 75 of the Consumer Credit Act for purchases over £100 and up to £30,000, protection a bank transfer or debit card doesn't automatically give you. Be especially wary of being asked to pay a private individual's bank account directly.</span></li>
+      <li><span class="num">4</span><span><b>Look properly at the website itself.</b> Check the web address for unusual wording or characters, use a domain checker like who.is to see how recently it was created, and read the most recent reviews rather than just the overall star rating.</span></li>
+      <li><span class="num">5</span><span><b>Treat urgency as a warning, not a bargain.</b> Check any "exclusive" offer directly with the company it claims to be from before paying anything, especially around Black Friday when pressure tactics are everywhere.</span></li>
+    </ul>
+    {jake_tip("Ask me to check a deal before you pay rather than after. I can confirm whether it's genuinely from the operator it claims to be, and genuinely the price advertised, and more often than not I can get you a better one anyway.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>If something's already gone wrong, here's where to go</h2>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>If this happens</th><th>What to do</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>You've paid and now suspect it's a scam</td><td>Call your bank immediately using the number on your card, then report it to Report Fraud at reportfraud.police.uk or 0300 123 2040</td></tr>
+          <tr><td>You've spotted a suspicious holiday website or advert</td><td>Report it to the National Cyber Security Centre and to Report Fraud, even if you haven't paid anything yet</td></tr>
+          <tr><td>You're not sure if a company is genuine before paying</td><td>Check it directly at abta.com's member search and atol.org/check-for-atol before you hand over any payment details</td></tr>
+          <tr><td>Your booking is with a company that's gone out of business</td><td>Check whether you're ABTA or ATOL protected first, this is a separate situation to fraud, and covered properly in our guide to what happens if your travel company goes bust</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What this actually means before you book this Black Friday</h2>
+    <img src="https://images.unsplash.com/photo-1522125670776-3c7abb882bc2?auto=format&fit=crop&w=1600&h=700&q=80" alt="A woman checking her phone outdoors" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A good Black Friday holiday deal genuinely exists most years. The only real shift needed is treating an unusually cheap price as a reason to check a little further, rather than a reason to rush.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Check ABTA membership and ATOL protection</b> directly at abta.com and atol.org before paying anything, never just from a logo on the page.</span></li>
+      <li><span class="num">2</span><span><b>Pay by credit card</b> wherever possible, for the added Section 75 protection it gives you.</span></li>
+      <li><span class="num">3</span><span><b>Reverse image search accommodation photos</b> and check how new a website is if anything feels slightly off.</span></li>
+      <li><span class="num">4</span><span><b>Be more suspicious, not less, the bigger the discount.</b> A genuinely huge saving is rare. A fake one claiming to be huge is common.</span></li>
+      <li><span class="num">5</span><span><b>Know where to report it now.</b> Report Fraud (reportfraud.police.uk, 0300 123 2040) has replaced Action Fraud, and a suspicious website itself can also be reported to the National Cyber Security Centre.</span></li>
+    </ul>
+    {jake_tip("Honestly, the simplest protection is booking through someone who'll actually pick up the phone. Message me the deal you've seen this Black Friday and I'll tell you straight away if it's genuine.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">How much is actually lost to holiday scams each year?</h3>
+      <p>Which? reported in August 2026 that holiday scams stole £11 million in 2024, across more than 6,000 reports, an average of £1,844 per victim. The year before, Action Fraud logged 6,640 reports and £12.3 million lost, an average of £1,851 each, with July and August the worst months. Black Friday and the January sales add another spike on top of the usual summer peak.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What happened to Action Fraud, and where do I report a scam now?</h3>
+      <p>Action Fraud has been replaced by a new service called Report Fraud, run by the same City of London Police team, launched in December 2025 with the wider rollout continuing into January 2026. Report online at reportfraud.police.uk, which the old actionfraud.police.uk address now redirects to automatically, or call 0300 123 2040, the number hasn't changed. Scotland is expected to join the new service sometime in 2026 and should keep reporting to Police Scotland on 101 until then.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How do I check a travel company is genuinely ABTA and ATOL protected?</h3>
+      <p>Use ABTA's own member search tool at abta.com, and check ATOL protection directly at atol.org/check-for-atol by searching the company name or ATOL number. Never rely on a logo displayed on the company's own website, since that can simply be copied onto a fake site.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What's the safest way to pay for a holiday?</h3>
+      <p>By credit card wherever possible, since it gives you added protection under Section 75 of the Consumer Credit Act for purchases over £100 and up to £30,000, protection a bank transfer or debit card doesn't automatically offer. Be especially cautious if you're ever asked to pay into a private individual's bank account.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What should actually make me suspicious of a Black Friday holiday deal?</h3>
+      <p>A price that's noticeably cheaper than everywhere else for the exact same hotel and dates, pressure to book immediately, a website that's very new or has a slightly unusual address, and accommodation photos that turn up elsewhere when reverse searched. Any one of these is worth checking further before you pay.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1597634285596-01fd1bffe116?auto=format&fit=crop&w=1600&h=700&q=80" alt="Sun loungers on a beach at a holiday resort" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Seen a Black Friday deal you want checked?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Send me the link or a screenshot before you pay anything. I'll tell you honestly whether it's genuine, and what it should actually cost.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+black_friday_scams_body = black_friday_scams_body.replace("::NEWSLETTER::", newsletter_section())
+
+BLACK_FRIDAY_SCAMS_SCHEMA = article_and_faq_schema(
+    "Black Friday Holiday Deals: What to Check Before You Book, and the Scams to Watch For",
+    "Brits lost £11 million to holiday scams in 2024, and fraudsters specifically target big sale events like Black Friday. Here's exactly how the scams work, the genuine checks that catch them out, and what's changed now Action Fraud has become Report Fraud.",
+    "black-friday-holiday-scams-what-to-check-before-you-book.html",
+    "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("How much is actually lost to holiday scams each year?", "Which? reported in August 2026 that holiday scams stole £11 million in 2024, across more than 6,000 reports, an average of £1,844 per victim. The year before, Action Fraud logged 6,640 reports and £12.3 million lost, an average of £1,851 each, with July and August the worst months. Black Friday and the January sales add another spike on top of the usual summer peak."),
+        ("What happened to Action Fraud, and where do I report a scam now?", "Action Fraud has been replaced by a new service called Report Fraud, run by the same City of London Police team, launched in December 2025 with the wider rollout continuing into January 2026. Report online at reportfraud.police.uk, which the old actionfraud.police.uk address now redirects to automatically, or call 0300 123 2040, the number hasn't changed. Scotland is expected to join the new service sometime in 2026 and should keep reporting to Police Scotland on 101 until then."),
+        ("How do I check a travel company is genuinely ABTA and ATOL protected?", "Use ABTA's own member search tool at abta.com, and check ATOL protection directly at atol.org/check-for-atol by searching the company name or ATOL number. Never rely on a logo displayed on the company's own website, since that can simply be copied onto a fake site."),
+        ("What's the safest way to pay for a holiday?", "By credit card wherever possible, since it gives you added protection under Section 75 of the Consumer Credit Act for purchases over £100 and up to £30,000, protection a bank transfer or debit card doesn't automatically offer. Be especially cautious if you're ever asked to pay into a private individual's bank account."),
+    ]
+)
+
+with open(os.path.join(SITE, "black-friday-holiday-scams-what-to-check-before-you-book.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Black Friday Holiday Deals: What to Check Before You Book, and the Scams to Watch For | Travel Agent Jake",
+        "Brits lost £11 million to holiday scams in 2024, and fraudsters specifically target big sale events like Black Friday. Here's exactly how the scams work, the genuine checks that catch them out, and what's changed now Action Fraud has become Report Fraud.",
+        "travel-tips.html",
+        black_friday_scams_body,
+        extra_schema=BLACK_FRIDAY_SCAMS_SCHEMA,
+        canonical_path="black-friday-holiday-scams-what-to-check-before-you-book.html"
+    ))
+print("black-friday-holiday-scams-what-to-check-before-you-book.html written")
+
+
+
+
+algarve_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>THE ALGARVE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Weather by month, where to stay, things to do and what it actually costs, everything you need to plan a trip to Portugal's most popular holiday coast.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about the Algarve</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1608649944716-228404a0a8bb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Algarve coast near Lagos, Portugal" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>The Algarve is one of the easiest sells in my job. It is an hour's flight shorter than most of the Mediterranean, every one of the big three UK operators flies there in huge numbers, and it genuinely suits almost every type of client, from a family wanting a big all inclusive resort to a couple of golfers wanting four rounds in a week to grandparents wanting somewhere warm and easy for a week in October.</p>
+    <p style="margin-top:14px;">What makes it stand out from Spain's other coasts is the sheer range packed into one region. You have the lively strip of Albufeira, the marina and golf courses of Vilamoura, the dramatic cliffs and beaches around Lagos, and the quiet, exclusive golf resorts of Quinta do Lago and Vale do Lobo, all within about an hour of Faro Airport.</p>
+    {jake_tip("The Algarve is so well served by all three main operators that price and hotel choice usually matter more than flight availability when I am quoting it. I always ask a client how they want to spend their days, on the beach, on the golf course, or exploring, before picking the area.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is by far the most popular length, long enough to properly relax and fit in a boat trip or a round of golf without feeling rushed. Short breaks of three or four nights work well for a quick golf trip or a city style break around Faro and Tavira, while two weeks suits clients who want real value out of the flight, particularly in the quieter months.</p>
+    <p style="margin-top:14px;">It suits families after a big resort with pools and kids clubs, couples wanting an easy, reliable week in the sun, golf groups chasing some of Europe's best courses, and older clients who want warm, mild weather without a long flight. It is less suited to a client who wants a totally unspoilt, undeveloped coastline, since the central Algarve is well and truly on the tourist map.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;">Faro Airport (FAO) is the only airport serving the Algarve, and every resort area, Albufeira, Vilamoura, Lagos and Quinta do Lago, is within about an hour's transfer. TUI, Jet2holidays and easyJet holidays all fly to Faro from a huge range of UK airports, including Birmingham, Bristol, East Midlands, Edinburgh, Glasgow, Leeds Bradford, London Gatwick, London Heathrow, London Luton, London Stansted, Manchester and Newcastle, so availability is rarely an issue.</p>
+    <p style="margin-top:14px;">Flight time is around 2 hours 40 minutes from London and the south of England, a little longer from Scotland and Northern Ireland.</p>
+    {jake_tip("Because all three operators fly here so heavily, the Algarve is one of the easier destinations to find a flight time that suits a client, even for a short midweek break. It is worth checking which airport your client is closest to though, since not every regional airport runs every week of the year.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">The Algarve has a Mediterranean climate with Atlantic influence, meaning warm, dry summers and mild, fairly wet winters. Figures below are for Albufeira, representative of the central resort belt.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>16&deg;C</td><td>8&deg;C</td><td>Mild, sunny spells, a jacket needed for the evenings</td></tr>
+          <tr><td>February</td><td>17&deg;C</td><td>8&deg;C</td><td>Similar to January, a good month for an early city break or golf</td></tr>
+          <tr><td>March</td><td>19&deg;C</td><td>10&deg;C</td><td>Warming up nicely, good for sightseeing and golf</td></tr>
+          <tr><td>April</td><td>20&deg;C</td><td>11&deg;C</td><td>Pleasant and increasingly warm, popular for Easter breaks</td></tr>
+          <tr><td>May</td><td>23&deg;C</td><td>13&deg;C</td><td>Warm, pool season getting underway</td></tr>
+          <tr><td>June</td><td>27&deg;C</td><td>16&deg;C</td><td>Hot, the sea is warm enough for swimming</td></tr>
+          <tr><td>July</td><td>29&deg;C</td><td>18&deg;C</td><td>Peak heat, best enjoyed by the pool or the beach</td></tr>
+          <tr><td>August</td><td>29&deg;C</td><td>18&deg;C</td><td>Similarly hot, the busiest month of the year</td></tr>
+          <tr><td>September</td><td>27&deg;C</td><td>17&deg;C</td><td>Still very warm, the sea is at its warmest</td></tr>
+          <tr><td>October</td><td>23&deg;C</td><td>14&deg;C</td><td>Warm and sunny, one of the best value months</td></tr>
+          <tr><td>November</td><td>19&deg;C</td><td>11&deg;C</td><td>Mild by day, cooler evenings, good value winter sun</td></tr>
+          <tr><td>December</td><td>16&deg;C</td><td>9&deg;C</td><td>Mild days, cool nights, quiet and good value</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Figures are long-term climate averages for Albufeira, sourced via weather2travel.com. Sea temperature stays in the mid teens through winter and peaks at around 22 to 23&deg;C between August and September.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">April to June and September to October are the sweet spot, warm and sunny without the full force of midsummer heat, and generally better value than peak school holiday weeks. July and August are the hottest months, often touching the high twenties, and also the busiest and most expensive. November to March is the Algarve's mild winter season, popular with golfers and clients chasing guaranteed sunshine at lower prices, though evenings do turn cool.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">The Algarve's central and western resort areas each have a distinctly different feel, all reachable from Faro Airport within about an hour.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1691965075040-f783c941f6e2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Praia da Falesia beach beneath the cliffs near Albufeira" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Albufeira &amp; the Central Strip</h3>
+        <p>The Algarve's biggest and liveliest resort town, with the Strip's bars and clubs alongside a traditional old town and some of the region's best beaches, including Praia da Falesia. By far the widest choice of hotels, from budget friendly to five star, and the easiest sell for a first time client.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1717167398839-af1125f8c04a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A golf course and villas in Vilamoura, Algarve" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Vilamoura &amp; the Marina Coast</h3>
+        <p>A purpose built resort centred on a large marina lined with restaurants and bars, surrounded by some of the Algarve's best known golf courses. Quieter and more upmarket than Albufeira, with a good mix of hotels, apartments and villas, and a strong pull for golfers and couples.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1598535110134-69469a0e71e3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The rock formations of Ponta da Piedade near Lagos" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Lagos &amp; the West</h3>
+        <p>A historic harbour town with real Portuguese character, surrounded by the Algarve's most dramatic coastline, including the cliffs and sea caves of Ponta da Piedade. Smaller and more low rise than the central resorts, popular with couples and clients who want beauty and atmosphere alongside the beach.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1634681974664-d46e36f5c578?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Coastline near the golf resorts of the eastern Algarve" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Quinta do Lago, Vale do Lobo &amp; the Golf Coast</h3>
+        <p>The Algarve's most exclusive corner, built around championship golf courses, the Ria Formosa lagoon and some genuinely stunning beaches. Home to the region's top five star hotels and private villas. The quietest and priciest of the four areas, and a strong fit for a luxury or golf focused client.</p>
+      </div>
+    </div>
+    {jake_tip("For a first timer who wants the biggest hotel choice and some nightlife on the doorstep, Albufeira is the easier sell. For a golfer or a client who has done Spain before and wants something quieter and more polished, Vilamoura or the Quinta do Lago area is the one to steer them towards.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Airport transfers are normally included as part of the package. Because the resort areas are fairly spread out, car hire is popular and gives the most freedom to explore, especially for clients wanting to combine a couple of areas or visit Silves, Faro or Tavira under their own steam. Taxis and ride hailing apps are widely available and reasonably priced for shorter trips, and most hotels also offer local shuttle services or can arrange transfers to nearby towns and golf courses.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1713444251659-639463a10408?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Benagil Cave on a sunny day" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="64461,199966,83202,84939"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/algarve-l66/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/algarve-l66/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in the Algarve &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Five real, bookable picks spread across the main resort areas.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A hotel pool deck" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Clube Praia da Oura, Albufeira</h3>
+        <p>A straightforward, good value apartment style hotel a short walk from Praia da Oura beach and the Strip, with a large pool, sun terrace and easy access to Albufeira's restaurants and nightlife. A solid budget friendly pick for families and groups.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1617859047452-8510bcf207fd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers beside a resort pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Vila Gale Marina, Vilamoura</h3>
+        <p>A large, family friendly hotel close to Vilamoura's marina, with multiple pools, a kids' club and easy access to the restaurants and bars around the water. A strong choice for families wanting plenty of facilities on site without being right in the centre of Albufeira.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best adults only</div>
+        <img src="https://images.unsplash.com/photo-1623718649591-311775a30c43?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A quiet adults only pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Vila Maria Hotel Adult Only, Praia da Luz, Lagos</h3>
+        <p>A boutique adults only hotel in the quiet coastal village of Praia da Luz, near Lagos, with a relaxed pool terrace and easy access to the beach and the cliffs of Ponta da Piedade. A good fit for couples wanting a quieter base away from the busier central resorts.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for design &amp; style</div>
+        <img src="https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Lounge chairs beside a palm lined pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">W Algarve, Almancil</h3>
+        <p>A stylish, design led beachfront hotel near Almancil, on the edge of the Quinta do Lago golf coast, with striking architecture, a spa and a lively pool scene. Suits couples and groups wanting a more fashion forward base than the traditional resort hotels.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for golf &amp; luxury</div>
+        <img src="https://images.unsplash.com/photo-1776761363416-c58a8fe7c711?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort pool complex surrounded by greenery" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Conrad Algarve, Quinta do Lago</h3>
+        <p>A five star resort set in the Quinta do Lago golf estate, with spacious grounds, multiple restaurants, a spa and direct access to some of Europe's top courses. The standout luxury pick for golfers and couples wanting a genuinely five star base.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <p style="margin-top:14px;">A few of the sights worth building into an itinerary beyond the hotel pool.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1697394492835-3b00b040e5c1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Inside Benagil Cave on the Algarve coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Benagil Cave</h3>
+        <p>A huge sea cave with an open skylight roof and its own small beach inside, reachable only by boat, kayak or paddleboard. One of the most photographed spots on the whole Algarve coast, and usually booked as a short boat trip from Albufeira, Armacao de Pera or Lagos.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1704108449473-34b5f795c881?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Albufeira Old Town" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Albufeira Old Town</h3>
+        <p>The whitewashed, cobbled heart of Albufeira, with narrow lanes, local restaurants and a small beach tucked beneath the cliffs, a calmer contrast to the Strip's bars just up the hill. An easy half day out even for clients based elsewhere in the resort.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1606215767711-263080a6b4b9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A stone hilltop castle" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Silves Castle</h3>
+        <p>A red sandstone Moorish castle overlooking the town of Silves and the Arade river, once the Algarve's medieval capital. Climbing the walls gives sweeping views over the surrounding orange groves, and the town below has a good choice of cafes for lunch.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1707862991399-f1513ecdc765?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Waterside old town buildings in Faro" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Faro Old Town</h3>
+        <p>The Algarve's capital, often overlooked by clients staying in the resorts, with a walled old town, a marina and the Ria Formosa lagoon right on its doorstep. Worth an afternoon on the way to or from the airport, or as a day trip in its own right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Portugal uses the Euro, so prices below are shown in pounds sterling with the Euro equivalent alongside, based on a rate of roughly &pound;1 to 1.20 Euro. These are crowd-sourced averages for Faro, and prices right on a hotel's own doorstep in tourist areas can run a little higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;10.00 (about 12.00 Euro)</td></tr>
+          <tr><td>Meal for two at a mid-range restaurant</td><td>&pound;33.33 (about 40.00 Euro)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.39 (about 1.67 Euro)</td></tr>
+          <tr><td>Local draught beer, half a litre</td><td>&pound;2.08 (about 2.50 Euro)</td></tr>
+          <tr><td>Bottled water</td><td>&pound;1.25 (about 1.50 Euro)</td></tr>
+          <tr><td>One way local transport ticket</td><td>&pound;2.38 (about 2.86 Euro)</td></tr>
+          <tr><td>Taxi, start tariff</td><td>&pound;2.75 (about 3.30 Euro)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd-sourced averages for Faro via Numbeo, checked at time of writing. Euro to pound sterling conversion is approximate and moves around, so treat these as a guide rather than an exact figure.</p>
+    {jake_tip("Cards are accepted almost everywhere in the Algarve, including small cafes and taxis, so there is less need to carry large amounts of cash than in some other winter sun destinations.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (EUR)</td></tr>
+          <tr><td>Plug type</td><td>Type C/F, a UK to EU style adapter is needed</td></tr>
+          <tr><td>Language</td><td>Portuguese is the official language, and English is widely spoken in hotels, restaurants and resort areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 2 hours 40 minutes to Faro, depending on departure airport</td></tr>
+          <tr><td>Time difference</td><td>Portugal keeps the same time as the UK year round, so there is no time difference</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders do not need a visa for stays of up to 90 days in a 180 day period. The EU's Entry/Exit System (EES), which records fingerprints and a photo at the border on first entry, has been fully operational since 10 April 2026. A passport valid for the length of the stay is otherwise all that's needed, and the separate ETIAS travel authorisation still has no confirmed launch date</td></tr>
+          <tr><td>Driving</td><td>Right hand side, and car hire is popular given how spread out the resort areas are</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Max Zed, Martijn Vonk, Frederico Ferreira, Reiseuhu, Gunel, Bram Van Oost, Sasha Kaunas, GERARDO MR, Cory Bjork, Christian Lambert, Antonio Araujo, Hasmik Ghazaryan Olson, Darren Tolley, Bernardo Lorena Ponte and Richard James via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy the Algarve for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around Albufeira's big resorts, point you towards the golf courses and quiet luxury of Quinta do Lago, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+algarve_body = algarve_body.replace("::NEWSLETTER::", newsletter_section())
+
+ALGARVE_SCHEMA = article_and_faq_schema(
+    "The Algarve, Portugal: Jake's Destination Guide",
+    "Jake's honest guide to the Algarve: Albufeira, Vilamoura, Lagos and Quinta do Lago, weather by month, where to stay, things to do, recommended hotels and what it actually costs.",
+    "algarve.html",
+    "https://images.unsplash.com/photo-1608649944716-228404a0a8bb?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operators sell holidays to the Algarve?", "TUI, Jet2holidays and easyJet holidays all fly to Faro Airport from a wide range of UK airports, so there is strong choice and competition on price for Algarve holidays."),
+        ("Which area of the Algarve should I stay in?", "It depends on what the client wants. Albufeira has the biggest hotel choice and some nightlife on the doorstep, Vilamoura suits golfers and couples wanting a quieter marina base, Lagos suits clients who want dramatic coastal scenery and real Portuguese character, and Quinta do Lago or Vale do Lobo suit a luxury or golf focused client wanting the quietest, most exclusive end of the region."),
+        ("Is the Algarve good for families?", "Yes. The central resorts around Albufeira and Vilamoura have a wide choice of family friendly hotels with pools and kids clubs, sandy beaches, and a short, manageable flight time from the UK."),
+        ("Do I need a visa for the Algarve?", "No. UK passport holders do not need a visa for stays of up to 90 days in a 180 day period. The EU's Entry/Exit System (EES) has been fully operational since 10 April 2026 and records fingerprints and a photo at the border on first entry, but a passport valid for the length of the stay is otherwise all that's needed."),
+        ("What's the best time to visit the Algarve?", "April to June and September to October are the sweet spot, warm and sunny without the full force of midsummer heat. July and August are the hottest and busiest months, while November to March is a mild winter season popular with golfers and clients chasing guaranteed sunshine at lower prices."),
+    ]
+)
+with open(os.path.join(SITE, "algarve.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "The Algarve, Portugal: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to the Algarve: Albufeira, Vilamoura, Lagos and Quinta do Lago, weather by month, where to stay, things to do, recommended hotels and what it actually costs.",
+        "destinations.html",
+        algarve_body,
+        extra_schema=ALGARVE_SCHEMA,
+        canonical_path="algarve.html"
+    ))
+print("algarve.html written")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -19849,8 +20627,10 @@ SITEMAP_PAGES = [
     ("canada.html", "0.6"),
     ("las-vegas.html", "0.6"),
     ("california.html", "0.6"),
+    ("algarve.html", "0.6"),
     ("dubai.html", "0.6"),
     ("norway-fjords-northern-lights.html", "0.6"),
+    ("fuerteventura.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
@@ -19882,6 +20662,7 @@ SITEMAP_PAGES = [
     ("thailand-entry-rules-2026.html", "0.7"),
     ("ski-travel-insurance-what-to-check-before-you-go.html", "0.7"),
     ("spain-hotel-check-in-id-rules.html", "0.7"),
+    ("black-friday-holiday-scams-what-to-check-before-you-book.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),

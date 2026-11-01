@@ -173,11 +173,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://travelagentjake.co.uk/algarve.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://travelagentjake.co.uk/dubai.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://travelagentjake.co.uk/norway-fjords-northern-lights.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://travelagentjake.co.uk/fuerteventura.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -302,6 +310,10 @@
   </url>
   <url>
     <loc>https://travelagentjake.co.uk/spain-hotel-check-in-id-rules.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://travelagentjake.co.uk/black-friday-holiday-scams-what-to-check-before-you-book.html</loc>
     <priority>0.7</priority>
   </url>
   <url>
