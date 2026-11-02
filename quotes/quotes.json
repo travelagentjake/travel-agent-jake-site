@@ -1123,6 +1123,17 @@
    "created": "2026-11-02",
    "departs": "2027-01-30",
    "fromPrice": 7979
+  },
+  {
+   "slug": "heidigrancanaria",
+   "url": "https://quotes.travelagentjake.co.uk/heidigrancanaria",
+   "customer": "Heidi",
+   "enquiryId": "",
+   "quoteRequestId": "",
+   "title": "Gran Canaria for 2 from Gatwick, Lopesan Costa Meloneras Suite half board, Fri 30 Apr 2027: her easyJet find (3 nights), extra night (4 nights) and early BA flights (4 nights)",
+   "created": "2026-11-02",
+   "departs": "2027-04-30",
+   "fromPrice": 1637
   }
  ]
 }
