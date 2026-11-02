@@ -1134,6 +1134,17 @@
    "created": "2026-11-02",
    "departs": "2027-04-29",
    "fromPrice": 1854
+  },
+  {
+   "slug": "weezhurghada",
+   "url": "https://quotes.travelagentjake.co.uk/weezhurghada",
+   "customer": "Weez",
+   "enquiryId": "mvzf7zki681u",
+   "quoteRequestId": "mvzf7znbjui1",
+   "title": "Pickalbatros Jungle Aqua Park, Hurghada, 7 nights all inclusive for 5 adults and 3 children in 3 standard rooms from Manchester with Jet2holidays, Sun 12, 19 or 26 Sep 2027",
+   "created": "2026-11-02",
+   "departs": "2027-09-12",
+   "fromPrice": 7581
   }
  ]
 }
