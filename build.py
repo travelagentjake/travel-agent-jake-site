@@ -13149,6 +13149,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "A laptop open on a table, used for comparing and booking holidays online",
     },
+    {
+        "slug": "schengen-90-180-day-rule-explained.html",
+        "meta": "Border rules",
+        "title": "The Schengen 90/180 day rule: how it actually works, and how Brits are being caught out",
+        "excerpt": "90 days in a rolling 180 day window, now automatically tracked at the border. Here's exactly how the days are counted, what's changed since the EU's EES border system went fully live, and what actually happens if you get it wrong.",
+        "image": "https://images.unsplash.com/photo-1655722725332-9925c96dd627?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "An open passport with numerous ink stamps on the pages",
+    },
 ]
 
 
@@ -20302,6 +20310,197 @@ with open(os.path.join(SITE, "black-friday-holiday-scams-what-to-check-before-yo
 print("black-friday-holiday-scams-what-to-check-before-you-book.html written")
 
 
+schengen_90_180_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>THE SCHENGEN 90/180 DAY RULE: HOW IT ACTUALLY WORKS, AND HOW BRITS ARE BEING CAUGHT OUT</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Since Brexit, Brits get 90 days in the Schengen area in any rolling 180 day period, and no more, whichever countries you split that time across. It's always been the rule, but it's only since the EU's new border system went fully live that it's actually being tracked properly, and people with second homes, frequent short breaks or long multi centre trips are the ones getting caught out. Here's exactly how the days are counted, what's changed, and what actually happens if you get it wrong.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three things worth knowing before your next trip</h2>
+    <p style="margin-top:14px;">None of this is new as a rule. What's new is that it's now being enforced automatically rather than relying on a border guard flicking through your passport.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">One pooled allowance</div>
+        <h3 style="font-size:18px;">It's 90 days across the whole area, not per country</h3>
+        <p>A week in Spain and two weeks in France come out of the same 90 days. It doesn't reset just because you've crossed a border.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Machine enforced now</div>
+        <h3 style="font-size:18px;">The EU's EES border system tracks it automatically</h3>
+        <p>Full operational since 10 April 2026, it logs every entry and exit and flags an overstay itself, rather than depending on a passport stamp.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">The one exception</div>
+        <h3 style="font-size:18px;">Cyprus doesn't count towards it</h3>
+        <p>Cyprus isn't in the Schengen area. It has its own separate 90 day visa free allowance, and time spent there doesn't eat into your Schengen days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What the rule actually says, and which countries it covers</h2>
+    <img src="https://images.unsplash.com/photo-1655722725332-9925c96dd627?auto=format&fit=crop&w=1600&h=700&q=80" alt="An open passport with numerous ink stamps on the pages" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Since the UK left the EU, British passport holders don't need a visa to visit the Schengen area for tourism, visiting family, business for your UK employer, or a handful of other short term reasons, as long as the total stay doesn't go over 90 days in any 180 day period. According to gov.uk, that 180 day window rolls forward with you, and the number of different countries you visit inside it makes no difference at all. The allowance is genuinely combined across the whole area.</p>
+    <p style="margin-top:14px;">The Schengen area currently covers 29 countries: Austria, Belgium, Bulgaria, Croatia, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, the Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden and Switzerland. That includes all of Jake's biggest sellers, Spain, Portugal, Greece, Italy and France among them. Turkey, Egypt, Morocco, the whole of the Caribbean and the US aren't in the Schengen area at all, so none of this affects a holiday to any of those.</p>
+    <p style="margin-top:14px;">Ireland is also excluded from the 90/180 rule entirely, it isn't part of Schengen and has its own separate arrangement with the UK under the Common Travel Area.</p>
+    {jake_tip("If you're the kind of client who does a few short European breaks a year, or owns a place in Spain, Portugal or France and visits often, it's genuinely worth keeping a running note of every Schengen trip's dates. It takes two minutes and saves a nasty surprise later.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>How to actually count your own days</h2>
+    <img src="https://images.unsplash.com/photo-1435527173128-983b87201f4d?auto=format&fit=crop&w=1600&h=700&q=80" alt="An open monthly planner on a wooden desk" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Gov.uk sets out a genuinely simple method for working this out before you book or travel.</p>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Find the date you'll leave the Schengen area</b> at the end of your planned trip, that's your reference point.</span></li>
+      <li><span class="num">2</span><span><b>Count back 180 days from that date.</b> That's the start of your current rolling window.</span></li>
+      <li><span class="num">3</span><span><b>Add up every day you've already spent in the Schengen area within that window,</b> using boarding passes, booking confirmations or passport stamps if you still have them.</span></li>
+      <li><span class="num">4</span><span><b>Add the days of your planned trip on top.</b> If the total comes to 90 or fewer, you're fine. If it goes over, you'll need to shorten the trip or push it back.</span></li>
+    </ul>
+    <p style="margin-top:14px;">Here's what that actually looks like for a fairly typical client of mine.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Trip</th><th>Dates</th><th>Days used</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Long weekend in Lisbon</td><td>Early July</td><td>4</td></tr>
+          <tr><td>Main summer holiday, Costa del Sol</td><td>Mid August</td><td>14</td></tr>
+          <tr><td>Half term break, Algarve</td><td>Late October</td><td>7</td></tr>
+          <tr><td>Planned Christmas market trip, Prague</td><td>15 to 20 December</td><td>6</td></tr>
+          <tr><td><b>Total within the 180 day window counting back from 20 December</b></td><td>&nbsp;</td><td><b>31</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;">Well under 90 in that example. It's the clients doing several long trips a year, or genuinely living between two countries, who need to actually sit down and add it up rather than assume they're fine.</p>
+    {jake_tip("A screenshot of your flight confirmation with the date clearly visible, saved to the same album every time you travel, is the easiest way to keep your own record. Don't rely on passport stamps alone, EES means plenty of entries now go through without one.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Enforcement has just got a lot stricter</h2>
+    <img src="https://images.unsplash.com/photo-1563463149242-bd378d9ab05c?auto=format&fit=crop&w=1600&h=700&q=80" alt="Passport control signage at a European border crossing" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This is the part that's genuinely changed. The EU's new Entry/Exit System, EES, began rolling out from 12 October 2025 and became fully operational across every external Schengen border on 10 April 2026. It replaces manual passport stamping with a digital record of every entry and exit, and it calculates your 90/180 day position automatically rather than relying on a border guard doing the maths or a stamp being legible.</p>
+    <p style="margin-top:14px;">The European Commission's first State of Schengen report for 2026 gives a sense of scale. As of 20 April 2026, around 60 million border crossings had been processed and about 30,000 people had been refused entry in total, for reasons ranging from a previous overstay to paperwork problems to a small number of security concerns. Nearly 7,000 of those refusals were specifically because the system had flagged the person as having overstayed on an earlier visit, and that figure was reported as rising, not falling, as EES beds in. Anyone flagged this way is also added to an EU overstayers database, which stays with you for future border checks.</p>
+    <p style="margin-top:14px;">None of that singles out British travellers specifically, EES applies to every visa free visitor to the Schengen area. But Brits are one of the largest groups of visa free visitors to Europe, and reporting out of Spain and Portugal through 2026 has specifically flagged UK second home owners and frequent visitors as a group genuinely at risk of getting caught out, simply because the system is now doing the counting that used to rely on a stamp nobody really checked.</p>
+    {jake_tip("If you're ever stopped and asked to justify your dates, keep records that show the actual day you entered and left, not just the holiday's booking dates. A flight that lands just before midnight can tip you into counting an extra day.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What actually happens if you overstay</h2>
+    <img src="https://images.unsplash.com/photo-1764866605944-06dc602a9b81?auto=format&fit=crop&w=1600&h=700&q=80" alt="The medieval coastal town of Tossa de Mar on Spain's Costa Brava at sunset" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This is one of those areas where the honest answer is that it depends which country you overstay in, and how long for. France has published the clearest, most specific penalty of any Schengen country. According to the Connexion, a visa free visitor who overstays the 90/180 allowance and is caught leaving France risks a flat &euro;198 fine (around &pound;164 at current exchange rates), roughly twice the cost of a visa application. If you're found overstaying before you leave, for example during a routine police check, you instead risk a fine plus a formal order to leave the country. Either way, you can be added to the EU's overstayers database unless you can give border officials a genuinely strong reason for the extra time.</p>
+    <p style="margin-top:14px;">Reporting from Spain and Portugal in early 2026, including the Majorca Daily Bulletin and the Portugal News, described people breaching the rule in those countries facing an entry ban of up to three years from the entire Schengen area, not just the one country. I want to be straight about what I could and couldn't verify here. France's own published penalty is specific and sourced directly. The length of any entry ban for Spain and Portugal is decided case by case, and I couldn't find a single official published tariff that applies the same way every time, so treat "up to three years" as a real, reported risk rather than a fixed sentence that applies to every overstay.</p>
+    <p style="margin-top:14px;">Genuine leniency does exist for people who've simply miscounted by a day or two. The Connexion's own reporting makes the point that a small, honest overstay is treated very differently to a month over the limit, or someone who's clearly been working illegally while visa free. The safest position is still never relying on that leniency in the first place.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>If you genuinely need more than 90 days, there is a legitimate route</h2>
+    <img src="https://images.unsplash.com/photo-1704300815432-76952c1e3562?auto=format&fit=crop&w=1600&h=700&q=80" alt="The village of Riquewihr surrounded by vineyards in France" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This mostly applies to people who own a second home abroad rather than anyone booking a normal holiday with me, but it's worth knowing the option exists rather than assuming 90 days is a hard ceiling forever. France offers a temporary long stay visa, the VLS-T, aimed specifically at second home owners who want to spend longer than 90 days at a time at their French property without becoming a full resident. Spain has its own non lucrative visa, aimed at people who can support themselves financially without working in Spain, which allows a longer stay than the standard visa free allowance.</p>
+    <p style="margin-top:14px;">I'm not an immigration adviser and this isn't something I can arrange for you, these applications go through the relevant country's own consulate in the UK and genuinely need proper advice specific to your situation. But if 90 days is consistently too tight for how you actually use a property abroad, that's the right conversation to have, rather than quietly pushing your luck with the days you've got.</p>
+    {jake_tip("If you're planning several trips across the same year, especially if one of them is a longer stay at a property you own, message me your dates before you book the last one. I can't give immigration advice, but I can at least flag if your own numbers are getting close to the 90 day mark.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What this actually means for how you book this year</h2>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Think across the whole year, not trip by trip.</b> A few long weekends plus a two week summer holiday plus a half term break add up faster than most people expect.</span></li>
+      <li><span class="num">2</span><span><b>Remember it's the whole Schengen area combined.</b> Spain, France, Greece, Italy and Portugal all draw from the same 90 days, switching country doesn't reset anything.</span></li>
+      <li><span class="num">3</span><span><b>Keep your own dated record.</b> A screenshot of each flight confirmation, kept together, is enough to answer a question at the border confidently.</span></li>
+      <li><span class="num">4</span><span><b>Cyprus is genuinely outside this rule,</b> which is worth remembering if you're trying to fit in an extra trip without touching your Schengen allowance.</span></li>
+      <li><span class="num">5</span><span><b>If you own property abroad and 90 days keeps being tight,</b> look at a proper long stay visa route through the right consulate rather than treating the limit as flexible.</span></li>
+    </ul>
+    {jake_tip("Message me your travel dates for the year if you're not sure where you stand. I can't replace proper immigration advice, but I'm always happy to do the maths with you before you book anything that might push you close to the limit.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Is the 90 day limit per country, or across the whole Schengen area?</h3>
+      <p>Across the whole area combined. A week in Spain and two weeks in France come out of the same 90 days in any rolling 180 day period, switching country doesn't give you a fresh allowance.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does a holiday to Cyprus, Turkey or Egypt count towards my 90 days?</h3>
+      <p>No. Cyprus isn't in the Schengen area and has its own separate 90 day visa free allowance. Turkey and Egypt aren't in Schengen at all, so neither affects your Schengen days in any way.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What actually happens if I overstay by a few days?</h3>
+      <p>It depends on the country. France's published penalty is a flat &euro;198 fine (around &pound;164) if you're caught leaving, or a fine plus an order to leave if you're caught before departure. Reporting from Spain and Portugal has described entry bans of up to three years for breaches there, though the length is decided case by case rather than fixed. A small, honest miscount tends to be treated far less seriously than a large or repeated one.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How is this actually being checked now?</h3>
+      <p>Through the EU's Entry/Exit System, EES, which became fully operational across all external Schengen borders on 10 April 2026. It records every entry and exit digitally and calculates your 90/180 day position automatically, rather than relying on a passport stamp.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is there any way to stay longer than 90 days legitimately?</h3>
+      <p>Yes, for people who genuinely need it, mainly second home owners. France offers a temporary long stay visitor visa (the VLS-T) and Spain offers a non lucrative visa, both applied for through that country's consulate in the UK. These need proper advice specific to your situation rather than a DIY approach.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1655722724447-2d2a3071e7f8?auto=format&fit=crop&w=1600&h=700&q=80" alt="A hand holding two passports with airline boarding passes tucked inside" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Not sure where you stand on your 90 days?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Send me your travel dates for the year and I'll help you work it out before you book anything that might push you close to the limit.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+schengen_90_180_body = schengen_90_180_body.replace("::NEWSLETTER::", newsletter_section())
+
+SCHENGEN_90_180_SCHEMA = article_and_faq_schema(
+    "The Schengen 90/180 Day Rule: How It Actually Works, and How Brits Are Being Caught Out",
+    "90 days in a rolling 180 day window, now automatically tracked at the border. Here's exactly how the days are counted, what's changed since the EU's EES border system went fully live, and what actually happens if you get it wrong.",
+    "schengen-90-180-day-rule-explained.html",
+    "https://images.unsplash.com/photo-1655722725332-9925c96dd627?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("Is the 90 day limit per country, or across the whole Schengen area?", "Across the whole area combined. A week in Spain and two weeks in France come out of the same 90 days in any rolling 180 day period, switching country doesn't give you a fresh allowance."),
+        ("Does a holiday to Cyprus, Turkey or Egypt count towards my 90 days?", "No. Cyprus isn't in the Schengen area and has its own separate 90 day visa free allowance. Turkey and Egypt aren't in Schengen at all, so neither affects your Schengen days in any way."),
+        ("What actually happens if I overstay by a few days?", "It depends on the country. France's published penalty is a flat €198 fine (around £164) if you're caught leaving, or a fine plus an order to leave if you're caught before departure. Reporting from Spain and Portugal has described entry bans of up to three years for breaches there, though the length is decided case by case rather than fixed."),
+        ("How is this actually being checked now?", "Through the EU's Entry/Exit System, EES, which became fully operational across all external Schengen borders on 10 April 2026. It records every entry and exit digitally and calculates your 90/180 day position automatically, rather than relying on a passport stamp."),
+    ]
+)
+
+with open(os.path.join(SITE, "schengen-90-180-day-rule-explained.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "The Schengen 90/180 Day Rule: How It Actually Works, and How Brits Are Being Caught Out | Travel Agent Jake",
+        "90 days in a rolling 180 day window, now automatically tracked at the border. Here's exactly how the days are counted, what's changed since the EU's EES border system went fully live, and what actually happens if you get it wrong.",
+        "travel-tips.html",
+        schengen_90_180_body,
+        extra_schema=SCHENGEN_90_180_SCHEMA,
+        canonical_path="schengen-90-180-day-rule-explained.html"
+    ))
+print("schengen-90-180-day-rule-explained.html written")
+
+
+
+
 
 
 algarve_body = f"""
@@ -20975,6 +21174,7 @@ SITEMAP_PAGES = [
     ("ski-travel-insurance-what-to-check-before-you-go.html", "0.7"),
     ("spain-hotel-check-in-id-rules.html", "0.7"),
     ("black-friday-holiday-scams-what-to-check-before-you-book.html", "0.7"),
+    ("schengen-90-180-day-rule-explained.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
