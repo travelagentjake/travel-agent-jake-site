@@ -1998,6 +1998,13 @@ DESTINATION_POSTS = [
         "excerpt": "Corralejo, Caleta de Fuste, Costa Calma, Jandia and El Cotillo: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1663931340881-bf00526cd9f5?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "thailand.html",
+        "meta": "Thailand",
+        "title": "Thailand",
+        "excerpt": "Phuket's beaches, Bangkok's temples and real multi centre options with Koh Samui and Khao Lak: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1551418843-01c6b62e864d?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -20581,6 +20588,310 @@ with open(os.path.join(SITE, "algarve.html"), "w", encoding="utf-8") as f:
     ))
 print("algarve.html written")
 
+thailand_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>THAILAND</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Phuket's beaches, Bangkok's temples, real multi centre options with Koh Samui and Khao Lak, weather by month and what it actually costs, everything you need to plan a trip to Thailand.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Thailand</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1551418843-01c6b62e864d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Longtail boats pulled up on a Phuket beach" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Thailand is one of the biggest, most varied long haul trips I sell, and that variety is exactly why clients love it. Phuket gives you a proper beach resort holiday with genuinely excellent hotels, Bangkok gives you temples, markets and a skyline unlike anywhere else in Asia, and Koh Samui gives you a quieter, more laid back island feel. A lot of clients end up combining two of these rather than picking just one, and I'd encourage it if the budget and time allow.</p>
+    <p style="margin-top:14px;">It's currently a TUI only destination for me rather than Jet2holidays or easyJet holidays. Neither of those two flies long haul at the moment, so TUI is the operator I use for flights and hotel packages to Thailand, covering Phuket, Khao Lak, Koh Samui and Bangkok.</p>
+    {jake_tip("First time asking about Thailand? I always ask whether the client wants one base for the whole trip or would rather split it across two places. Phuket alone suits a relaxed, resort based holiday. Adding Bangkok or Koh Samui turns it into a proper two centre adventure.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Ten nights is the shortest length I'd really recommend given the flight time, and it's enough for a single base in Phuket with a few days to properly recover from the journey either side. Twelve to fourteen nights is the sweet spot for most clients, especially anyone combining Phuket with Bangkok or Koh Samui. Three weeks or more suits clients wanting a genuinely slow trip covering several areas, or combining Thailand with a wider South East Asia itinerary.</p>
+    <p style="margin-top:14px;">Thailand suits honeymooners, couples, families with children of any age thanks to resorts built with kids in mind, and independent travellers who want some structure around a hotel but also want to go off and explore temples, markets and islands under their own steam. It's less suited to clients wanting a short week away, since the flight time alone takes a decent chunk out of a week long trip, or to clients who want total predictability from their weather, given the monsoon swings between the Andaman and Gulf coasts.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1731239027673-1a5c6cd61380?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bangkok's skyline lit up at night" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Flights to Phuket and Bangkok from the UK typically take around 12 to 13 hours, usually with one stop, though TUI runs direct charter flights to Phuket from several UK airports during the winter season, which is the option I book most often. Worth knowing for context: Virgin Atlantic launched a new non stop route from London Heathrow to Phuket on 18 October 2026, flying three times a week, the first UK direct scheduled service to the island. I don't currently book Thailand through Virgin Atlantic Holidays, but it's a sign of how much demand for Phuket has grown, and it's worth me keeping an eye on as an alternative option.</p>
+    {jake_tip("I always check whether a client's dates fall inside a TUI direct charter window to Phuket, since a direct flight makes a real difference over a 12 hour journey compared with a connection through the Gulf or further into Asia.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Phuket and the rest of the Andaman coast run a dry season from November to April and a wetter season from May to October, with September usually the wettest month. These are long term averages, so treat them as a guide rather than a forecast for your specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>32&deg;C</td><td>24&deg;C</td><td>28&deg;C</td><td>Dry, sunny and busy, peak season on the Andaman coast</td></tr>
+          <tr><td>February</td><td>33&deg;C</td><td>24&deg;C</td><td>28&deg;C</td><td>Still dry and hot, one of the most reliable months</td></tr>
+          <tr><td>March</td><td>33&deg;C</td><td>25&deg;C</td><td>29&deg;C</td><td>Dry and hot, humidity starting to build</td></tr>
+          <tr><td>April</td><td>33&deg;C</td><td>26&deg;C</td><td>30&deg;C</td><td>The hottest month, still largely dry, Songkran water festival mid month</td></tr>
+          <tr><td>May</td><td>32&deg;C</td><td>26&deg;C</td><td>30&deg;C</td><td>Start of the wet season, increasingly frequent showers</td></tr>
+          <tr><td>June</td><td>31&deg;C</td><td>25&deg;C</td><td>29&deg;C</td><td>Wet season, regular downpours, usually brief</td></tr>
+          <tr><td>July</td><td>31&deg;C</td><td>25&deg;C</td><td>29&deg;C</td><td>Wet, monsoon rains continue, still plenty of sunshine between showers</td></tr>
+          <tr><td>August</td><td>31&deg;C</td><td>25&deg;C</td><td>29&deg;C</td><td>Similar to July, a quieter and better value month</td></tr>
+          <tr><td>September</td><td>30&deg;C</td><td>25&deg;C</td><td>29&deg;C</td><td>Usually the wettest month on the Andaman coast</td></tr>
+          <tr><td>October</td><td>30&deg;C</td><td>24&deg;C</td><td>29&deg;C</td><td>Wet season tailing off, still changeable</td></tr>
+          <tr><td>November</td><td>30&deg;C</td><td>24&deg;C</td><td>28&deg;C</td><td>Transitioning back to dry, improving quickly</td></tr>
+          <tr><td>December</td><td>31&deg;C</td><td>24&deg;C</td><td>28&deg;C</td><td>Dry season returns, second peak season begins</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term averages for Phuket and the Andaman coast, sea temperatures via Seatemperature's ten year monthly averages.</p>
+    {jake_tip("Koh Samui, on the Gulf coast, runs the opposite pattern to Phuket. Its driest months are roughly December to August, and its wettest spell is October to December, with November usually the wettest month of all. If a client is set on Koh Samui, I steer them away from November regardless of how Phuket's forecast looks.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">November to March is Thailand's prime season on the Andaman coast, with warm, reliably dry days, which makes it the busiest and most expensive time to book Phuket, Khao Lak or a Bangkok and Phuket combination. April is hot and still largely dry, and a good shoulder option, though it does coincide with the Songkran water festival, which some clients love and others prefer to avoid. May to October is the wet season, with September the wettest month, but showers are often short and heavy rather than all day, and hotel prices drop noticeably. For Koh Samui specifically, the best months flip to roughly December through August, with November best avoided given it's usually the wettest month on the Gulf coast.</p>
+    {jake_tip("Clients chasing value often ask about August. I'm upfront that rain is likely most days, usually in a short, heavy burst rather than ruining the whole day, and it's one of the cheapest, quietest months to go.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Phuket is the island most clients base themselves on, and which part of it you pick changes the whole feel of the holiday.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1706010651369-8083d3a153f6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Parasailing over the sea at sunset off Phuket" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Patong &amp; Kalim</h3>
+        <p>The island's biggest, busiest resort town, with Bangla Road's nightlife, the widest choice of hotels and restaurants, and a long sandy beach right in the middle of it all. The pick for clients who want everything on their doorstep and don't mind a livelier atmosphere.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1770198305661-3ac5f7a23b2d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Longtail boats in clear turquoise water off Phuket" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Kata &amp; Karon</h3>
+        <p>Two calmer, more family friendly beaches a short drive south of Patong, with a gentler pace, good swimming and a smaller but still solid choice of restaurants and bars. A strong middle ground for families and couples who still want some nightlife within reach.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1673627114771-514e373895cf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boats lined up on a quiet beach in Phuket" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bang Tao, Laguna &amp; Surin</h3>
+        <p>Phuket's upmarket northwest coast, home to the Laguna Phuket integrated resort complex, Boat Avenue's restaurants and a run of five star hotels along a long, quieter beach. The pick for clients wanting a polished, resort heavy holiday with golf and spa facilities close by.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1773489347098-423767290139?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Quiet limestone coastline along Thailand's Andaman coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Rawai &amp; Kata Noi</h3>
+        <p>The island's quieter southern tip, with a slower, more local feel, excellent seafood and easy boat trips out to the Phi Phi Islands and Racha Islands. Suits clients who've been to Phuket before and want somewhere calmer, or anyone prioritising a quieter beach over nightlife.</p>
+      </div>
+    </div>
+    {jake_tip("Not sure which area to recommend? Patong for clients who want nightlife and choice right outside the hotel, Kata or Karon for families, and Bang Tao or Rawai for anyone wanting a quieter, more upmarket stay.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Grab, the regional ride hailing app, is by far the easiest way to get around Phuket and Bangkok, with fixed upfront pricing and no haggling. Metered taxis exist but are less common outside Bangkok, and tuk-tuks are widely available, charge more than Grab for the same trip, and are worth agreeing a price with upfront. Songthaews, shared pickup truck taxis, run fixed routes between Phuket's beaches and Phuket Town for a flat low fare and are a cheap way to get around if a client doesn't mind a shared ride. Most clients on a package holiday won't need to hire a car at all, since airport transfers are included and Grab or taxis comfortably cover the rest, though self drive scooters are popular with confident riders despite Thailand's higher accident rates for tourists on two wheels.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1682517164384-e0ab6b466656?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="James Bond Island rising from the water in Phang Nga Bay" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities around Phuket worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="431461,176829,436259,567853"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/phuket-l32123/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/phuket-l32123/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Phuket &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks in Phuket across budgets, all available through Destination2, a UK, ATOL protected operator.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A boutique hotel courtyard in Thailand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Burasari Phuket</h3>
+        <p>A stylish 4 star boutique resort a short walk from Patong beach, with a large central pool and a more boutique feel than the bigger beachfront resorts nearby. A great pick for clients who want to be close to everything without paying beachfront prices. Bookable through Destination2.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families &amp; resort facilities</div>
+        <img src="https://images.unsplash.com/photo-1654756306479-c0bc0011f7a4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">M&ouml;venpick Resort Bangtao Beach Phuket</h3>
+        <p>A large, well run family resort directly on Bangtao Beach, with multiple pools, a kids' club and easy access to Boat Avenue's restaurants and shops nearby. The standout choice for families who want plenty to do without leaving the hotel. Bookable through Destination2.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1743525922686-badbeac16a34?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A luxury resort pool in the style of Thailand's five star hotels" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Dusit Thani Laguna Phuket</h3>
+        <p>A polished 5 star resort within the Laguna Phuket complex on Bang Tao Beach, with its own lagoon side setting, a dedicated kids' club and some of the best spa facilities on the island. The pick for a honeymoon or a special occasion stay. Bookable through Destination2.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for a quieter beach</div>
+        <img src="https://images.unsplash.com/photo-1645447556616-e9d1c52e8037?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A hotel pool with a palm tree in a tropical resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Katathani Phuket Beach Resort</h3>
+        <p>A 5 star resort set on quiet Kata Noi Beach, away from Patong and Kata's busier stretches, with six swimming pools and a genuinely relaxed, grown up feel. A strong pick for couples wanting a classic beach resort stay without the crowds. Bookable through Destination2, and also listed through Virgin Atlantic Holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Phuket with the rest of Thailand</h2>
+    <p style="margin-top:14px;">Thailand is a natural multi centre destination, and a lot of my clients end up splitting their trip across two places rather than staying put in one. Here are three ways I'd put it together.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1779419183239-25222afb3b26?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Wat Arun temple silhouetted against the sky in Bangkok" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bangkok &amp; Phuket</h3>
+        <p>Around 12 to 14 nights: 3 to 4 nights in Bangkok for the temples, the Grand Palace and the markets, followed by a week or more unwinding on Phuket's beaches. This is one of the most popular combinations I book, with a short internal flight of around 1 hour 20 minutes linking the two.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1733470252664-ce515758631d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A palm tree leaning over the beach in Koh Samui" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bangkok &amp; Koh Samui</h3>
+        <p>Around 12 to 14 nights: a city stay in Bangkok followed by a week on Koh Samui's quieter, more laid back beaches, home to TUI BLUE The Passage Samui. A good alternative to Phuket for clients wanting a smaller, less built up island, bearing in mind Samui's own wetter months run October to December.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1753008517455-4deaf8b51877?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A tropical beach with palm trees on Thailand's Andaman coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Phuket &amp; Khao Lak</h3>
+        <p>Around 10 to 14 nights, staying entirely on the Andaman coast: several nights in Phuket followed by a few days further north in the quieter, more low rise resort area of Khao Lak, home to TUI BLUE Khao Lak Resort. No flight needed, just a scenic drive of around 1 hour 30 minutes between the two.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate hotel bookings combined into one trip rather than a single packaged product, message Jake and he'll put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1707789189391-9fe2e754bb8b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Big Buddha statue overlooking Phuket" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Big Buddha</h3>
+        <p>A 45 metre marble statue on top of Nakkerd Hill, with sweeping views across the south of the island and out to sea. Free to visit, though a short, fairly steep walk up from the car park, and best timed for a cooler part of the day.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1769946153826-4012ecc7541f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A rickshaw parked on a colourful old street in Phuket Old Town" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Phuket Old Town</h3>
+        <p>A grid of Sino Portuguese shophouses, street art and good cafes in Phuket Town, a completely different pace to the beach resorts and well worth a half day trip, especially on a Sunday when Lard Yai walking street market takes over the old quarter.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1682517164517-90f56a89743b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Limestone karst islands rising from the water in Phang Nga Bay" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">James Bond Island &amp; Phang Nga Bay</h3>
+        <p>A boat trip through Phang Nga Bay's dramatic limestone karsts, taking in the famous rock from The Man with the Golden Gun and usually a stop to paddle a canoe through sea caves. One of the most popular day trips booked out of Phuket.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1548636200-691c76f69390?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An elephant at an ethical sanctuary in Thailand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">An ethical elephant sanctuary</h3>
+        <p>A half or full day visit to a no riding, feeding and bathing focused elephant sanctuary is one of the most memorable things clients do in Phuket. I always point clients toward ethical, no riding sanctuaries rather than older style elephant camps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Thailand uses the baht, so prices below are shown in pounds with the baht equivalent alongside, based on a rate of roughly &pound;1 to 43 THB. These are crowd-sourced averages for Phuket, and prices inside hotel resorts or in Bangkok's more touristy areas can run noticeably higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cheap meal at a local restaurant</td><td>&pound;3.50 (about 150 THB)</td></tr>
+          <tr><td>Three course meal for two, mid-range restaurant</td><td>&pound;25.45 (about 1,094 THB)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;2.15 (about 93 THB)</td></tr>
+          <tr><td>Local beer, bar or restaurant</td><td>&pound;2.10 (about 90 THB)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;0.40 (about 18 THB)</td></tr>
+          <tr><td>Grab or taxi, short ride within a resort town</td><td>&pound;2.65 (about 115 THB)</td></tr>
+          <tr><td>Grab, airport to Patong (about 45 minutes)</td><td>&pound;17.45 (about 750 THB)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced consumer price data via CityCost and MyLifeElsewhere, checked at time of writing. Baht to pound conversion is approximate and will move around.</p>
+    {jake_tip("Resort bars and restaurants inside hotels, especially in Patong and Bang Tao, charge noticeably more than the prices above, which reflect everyday local spots. I always mention this so clients can budget extra spending money if they're staying somewhere all inclusive and plan to eat out as well.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Thai Baht (THB)</td></tr>
+          <tr><td>Plug type</td><td>Type A, B, C, O depending on the socket, voltage is 220V, a UK to EU style adapter is advisable</td></tr>
+          <tr><td>Language</td><td>Thai is the official language, English is widely understood in resort areas, hotels and tourist sites</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 12 to 13 hours, usually with one stop, though some direct charter and scheduled options exist to Phuket</td></tr>
+          <tr><td>Time difference</td><td>7 hours ahead of the UK in winter, 6 hours ahead during British Summer Time</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders currently get a visa exemption of up to 30 days, reduced from 60 days from 15 September 2026. Everyone must complete the free Thailand Digital Arrival Card (TDAC) online in the 72 hours before arrival. Your passport must be valid for at least 6 months beyond your arrival date</td></tr>
+          <tr><td>Alcohol</td><td>Widely available in bars, restaurants and shops, the legal drinking age is 20, with some restricted sale hours around religious holidays and election days</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: The DK Photography, Tan Kaninthanond, Daniela Chintoiu, Margo Evardson, Vaskar Sam, Jan Hildebrand, Martti Salmi, Sasha Kaunas, Rubel Miah, Zoshua Colah, allPhoto Bangkok, Ahmet Y&uuml;ksek, Marius Kriz, CJ, Tom&aacute;s Robertson and Pixelbrain Studio Inc. via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Thailand for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to Phuket alone, add on Bangkok or Koh Samui as a proper multi centre, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+thailand_guide_body = thailand_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+THAILAND_GUIDE_SCHEMA = article_and_faq_schema(
+    "Thailand: Jake's Destination Guide",
+    "Jake's honest guide to Thailand: weather by month, where to stay, things to do, real multi centre options with Bangkok, Koh Samui and Khao Lak, and what a trip to Thailand actually costs.",
+    "thailand.html",
+    "https://images.unsplash.com/photo-1551418843-01c6b62e864d?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operator sells Thailand package holidays?", "TUI is currently the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that flies to Thailand. Neither Jet2holidays nor easyJet holidays flies long haul at the moment."),
+        ("Do I need a visa for Thailand?", "UK passport holders currently get a visa exemption of up to 30 days, reduced from 60 days from 15 September 2026. Everyone entering Thailand, whatever their length of stay, must also complete the free Thailand Digital Arrival Card online in the 72 hours before arrival. Your passport needs to be valid for at least 6 months beyond your arrival date."),
+        ("What's the best time to visit Phuket?", "November to March is the driest and busiest window on the Andaman coast, with April hot but still largely dry. May to October is the wet season, with September usually the wettest month, though showers tend to be short and heavy rather than lasting all day, and hotel prices drop noticeably."),
+        ("Can Phuket be combined with Bangkok or Koh Samui?", "Yes. I regularly build this as a real, bookable multi centre trip, splitting a stay between Phuket and Bangkok for the temples and markets, or Phuket and Koh Samui for a second, quieter island. Phuket can also be combined with Khao Lak by road rather than flight, for clients wanting to stay on the Andaman coast throughout."),
+        ("Is Koh Samui's weather the same as Phuket's?", "No, they run opposite patterns. Phuket's driest months are roughly November to April, while Koh Samui's driest months run December to August, with its wettest spell October to December and November usually the wettest month of all."),
+    ]
+)
+with open(os.path.join(SITE, "thailand.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Thailand: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Thailand: weather by month, where to stay, things to do, real multi centre options with Bangkok, Koh Samui and Khao Lak, and what a trip to Thailand actually costs.",
+        "destinations.html",
+        thailand_guide_body,
+        extra_schema=THAILAND_GUIDE_SCHEMA,
+        canonical_path="thailand.html"
+    ))
+print("thailand.html written")
+
 
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
@@ -20631,6 +20942,7 @@ SITEMAP_PAGES = [
     ("dubai.html", "0.6"),
     ("norway-fjords-northern-lights.html", "0.6"),
     ("fuerteventura.html", "0.6"),
+    ("thailand.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
