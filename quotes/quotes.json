@@ -1130,10 +1130,10 @@
    "customer": "Heidi",
    "enquiryId": "",
    "quoteRequestId": "",
-   "title": "Gran Canaria for 2 from Gatwick, Lopesan Costa Meloneras Suite half board, Fri 30 Apr 2027: her easyJet find (3 nights), extra night (4 nights) and early BA flights (4 nights)",
+   "title": "Gran Canaria 3 nights for 2, Lopesan Costa Meloneras Suite half board, better flights: Jet2 Stansted Thu to Sun (29 Apr, 6 May, 13 May) and BA Gatwick Fri to Mon via TUI (30 Apr, 7 May)",
    "created": "2026-11-02",
-   "departs": "2027-04-30",
-   "fromPrice": 1637
+   "departs": "2027-04-29",
+   "fromPrice": 1854
   }
  ]
 }
