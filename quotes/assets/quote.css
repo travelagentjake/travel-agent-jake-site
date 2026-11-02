@@ -813,3 +813,13 @@ html.a11y-hc .btn-y,html.a11y-hc .btn{border:2px solid #000}
 .hotel .rtype > span:last-child{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
 .hotel .rtype em{font-style:normal;font-weight:600;color:var(--blue)}
 .hotel .rtype em::before{content:" \00b7  "}
+
+/* ski holidays: Ski tab */
+#skiP{display:none}
+.deck[data-v=opt][data-tab=ski] #skiP{display:block}
+@media (min-width:901px){.deck #skiP{max-width:1100px;margin:0 auto;padding:24px 20px 16px}}
+.skbar{display:flex;gap:4px;border-radius:14px;overflow:hidden;margin:0 0 14px;font-size:12.5px;font-weight:700}
+.skbar span{min-width:0;padding:9px 8px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#skiP,#skiP .czb{min-width:0;max-width:100%;box-sizing:border-box}#skiP .czt{min-width:0}#skiP .czt b{overflow-wrap:anywhere}
+@media(max-width:560px){.skbar{flex-wrap:wrap}.skbar span{flex:1 1 40%!important}}
+.skbar .skb{background:#2563EB}.skbar .skr{background:#DC2626}.skbar .skk{background:#10142B}.skbar .sko{background:#F59E0B;color:#10142B}

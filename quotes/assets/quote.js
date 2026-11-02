@@ -1003,6 +1003,8 @@
     var anyCruise = hotels.some(function (h) { return h.cruise; });
     var TABS = [['stay', 'Package', 'Package: stay and flights'], ['about', 'About', 'About this holiday'], ['extras', 'Extras', 'Extras'], ['more', 'More', 'More info'], ['pay', 'Price', 'Price and payments']];
     if (anyCruise) TABS.splice(1, 0, ['cruise', 'Itinerary', 'Your cruise and stay, day by day']);
+    var anySki = hotels.some(function (h) { return h.ski; });
+    if (anySki) TABS.splice(1, 0, ['ski', 'Ski', 'Your skiing: lift pass, hire and the ski area']);
     tabs.innerHTML = TABS.map(function (t) { return '<button type="button" data-dt="' + t[0] + '" aria-label="' + t[2] + '">' + t[1] + '</button>'; }).join('');
     var KNOWN = ['compare', 'hotels', 'trip', 'weather', 'todo', 'extras', 'next'];
     Array.prototype.forEach.call(document.querySelectorAll('#app > section'), function (s) { if (KNOWN.indexOf(s.id) < 0 && !s.querySelector('.custom .ag')) s.classList.add('xsec'); });
@@ -1056,6 +1058,31 @@
       cruiseP = document.createElement('div'); cruiseP.id = 'cruiseP'; cruiseP.className = 'cruisep custom';
       cruiseP.innerHTML = hotels.map(function (x) { return x.cruise ? '<div class="czw" data-cz="' + esc(x.id) + '">' + cruiseHtml(x) + '</div>' : ''; }).join('');
       hs.parentNode.insertBefore(cruiseP, hs.nextSibling);
+    }
+    /* ski holidays: a Ski tab built from hotels[].ski
+       ski: { area, summary, top, bottom, resortAlt, km, blue, red, black, routes, lifts, glacier, snowmaking, season, slopes (distance from the hotel), bus,
+              included: [[icon, title, detail]], notIncluded: [], snowNote, snowReport, pisteMap, liveLifts, facts: [], tips: [] } */
+    function skiHtml(x) {
+      var k = x.ski, h = '';
+      if (k.included && k.included.length) h += '<div class="czb"><span class="czpill">Included in your price</span><h3>Your ski pack</h3>' + (k.packNote ? '<p class="czs">' + esc(k.packNote) + '</p>' : '')
+        + czTiles(k.included.map(function (i) { return [i[0], i[1], i[2]]; }))
+        + (k.notIncluded && k.notIncluded.length ? '<p class="czsm">Not included: ' + esc(k.notIncluded.join(', ')) + '.</p>' : '') + '</div>';
+      var tot = (k.blue || 0) + (k.red || 0) + (k.black || 0) + (k.routes || 0);
+      var bar = tot ? '<div class="skbar" aria-label="Pistes by difficulty">' + [['b', k.blue, 'Blue'], ['r', k.red, 'Red'], ['k', k.black, 'Black'], ['o', k.routes, 'Ski routes']].filter(function (p) { return p[1]; }).map(function (p) { return '<span class="sk' + p[0] + '" style="flex:' + p[1] + '"><b>' + p[1] + 'km</b> ' + p[2] + '</span>'; }).join('') + '</div>' : '';
+      h += '<div class="czb"><span class="czpill">The skiing</span><h3>' + esc(k.area || '') + '</h3>' + (k.summary ? '<p>' + esc(k.summary) + '</p>' : '')
+        + czTiles([['⛰️', 'Highest skiing', k.top], ['🏘️', 'Resort height', k.resortAlt], ['📏', 'Pistes', k.km], ['🚡', 'Lifts', k.lifts], ['🧊', 'Glacier', k.glacier], ['❄️', 'Snowmaking', k.snowmaking], ['🎿', 'To the slopes', k.slopes], ['🚌', 'Ski bus', k.bus]])
+        + bar + (k.facts && k.facts.length ? czList('Good to know for skiers', k.facts) : '') + '</div>';
+      var btns = [[k.snowReport, 'Live snow report'], [k.pisteMap, 'Piste map'], [k.liveLifts, 'Lifts and pistes open today']].filter(function (b) { return b[0]; });
+      h += '<div class="czb"><span class="czpill">Snow</span><h3>Snow and conditions</h3>' + (k.snowNote ? '<p>' + esc(k.snowNote) + '</p>' : '')
+        + (k.tips && k.tips.length ? czList('Jake’s tips', k.tips) : '')
+        + (btns.length ? '<div class="gkbtns">' + btns.map(function (b) { return '<a class="btn btn-y gkbtn" href="' + esc(b[0]) + '" target="_blank" rel="noopener">' + esc(b[1]) + '</a>'; }).join('') + '</div><p class="czsm">These open the ski area’s own official pages, so you can check the snow, the piste map and which lifts are open right up until you fly.</p>' : '') + '</div>';
+      return h;
+    }
+    var skiP = null;
+    if (anySki) {
+      skiP = document.createElement('div'); skiP.id = 'skiP'; skiP.className = 'cruisep custom';
+      skiP.innerHTML = hotels.map(function (x) { return x.ski ? '<div class="czw" data-sk="' + esc(x.id) + '">' + skiHtml(x) + '</div>' : ''; }).join('');
+      hs.parentNode.insertBefore(skiP, hs.nextSibling);
     }
     function has(id) { var s = document.getElementById(id); return !!s && !s.hidden; }
 
@@ -1213,7 +1240,8 @@
           }
         }
         var moreNow = hasMore && Array.prototype.some.call(document.querySelectorAll('.xsec'), function (s) { return !s.hidden; });
-        var avail = { stay: true, cruise: !!x.cruise, about: true, extras: has('extras'), more: moreNow, pay: true };
+        var avail = { stay: true, cruise: !!x.cruise, ski: !!x.ski, about: true, extras: has('extras'), more: moreNow, pay: true };
+        if (skiP) Array.prototype.forEach.call(skiP.children, function (sk) { sk.hidden = sk.getAttribute('data-sk') !== x.id; });
         if (cruiseP) Array.prototype.forEach.call(cruiseP.children, function (cz) { cz.hidden = cz.getAttribute('data-cz') !== x.id; });
         Array.prototype.forEach.call(document.querySelectorAll('#todo .areacard[data-hotels]'), function (c) { c.hidden = (' ' + c.getAttribute('data-hotels') + ' ').indexOf(' ' + x.id + ' ') < 0; });
         if (typeof evenTodo === 'function') evenTodo();

@@ -1112,6 +1112,17 @@
    "created": "2026-11-02",
    "departs": "2027-10-08",
    "fromPrice": 2152
+  },
+  {
+   "slug": "eveskiingholiday",
+   "url": "https://quotes.travelagentjake.co.uk/eveskiingholiday",
+   "customer": "Eve Elsby",
+   "enquiryId": "mvz5c678nq93",
+   "quoteRequestId": "mvz5c69pb1fy",
+   "title": "Austria ski, 7 nights for 6 adults (3 twins) from Edinburgh/Glasgow with Crystal Ski, Sat 30 Jan 2027, lift pass and ski/boot hire included (Hannes Niederau, Simmerlwirt Niederau, Vötter's Kaprun, Tauernhof Kaprun, Sunny Sölden)",
+   "created": "2026-11-02",
+   "departs": "2027-01-30",
+   "fromPrice": 7979
   }
  ]
 }
