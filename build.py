@@ -2005,6 +2005,13 @@ DESTINATION_POSTS = [
         "excerpt": "Phuket's beaches, Bangkok's temples and real multi centre options with Koh Samui and Khao Lak: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1551418843-01c6b62e864d?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "prague.html",
+        "meta": "Prague",
+        "title": "Prague",
+        "excerpt": "Charles Bridge, the Castle and the Old Town's Astronomical Clock: weather by month, where to stay, things to do and what a city break actually costs.",
+        "image": "https://images.unsplash.com/photo-1600623471616-8c1966c91ff6?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -21091,6 +21098,287 @@ with open(os.path.join(SITE, "thailand.html"), "w", encoding="utf-8") as f:
     ))
 print("thailand.html written")
 
+prague_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>PRAGUE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Charles Bridge, the Castle, cheap beer and a proper fairytale skyline, weather by month, where to stay, things to do and what it actually costs, everything you need to plan a city break to Prague.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Prague</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1600623471616-8c1966c91ff6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Charles Bridge and Prague Castle lit up during golden hour" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Prague is one of the easiest city breaks I sell. It's a short flight, it's genuinely stunning to look at, and your money goes further than almost anywhere else in Europe. Clients who've done the usual Paris or Amsterdam weekend and want somewhere a bit different, with better value food and drink, almost always come back raving about it.</p>
+    <p style="margin-top:14px;">All three operators I use, TUI, Jet2holidays and easyJet holidays, now sell Prague as a city break, flights and a hotel put together as one package. I book it most often through Jet2holidays, where I can point to specific, real hotels with confirmed availability.</p>
+    {jake_tip("Prague is also one of the most popular stag and hen destinations I get asked about. I'm upfront with clients either way: it's a fantastic sightseeing city break for couples and families too, it just also happens to have a big nightlife scene if that's what a group is after.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Three to four nights is the sweet spot for a first visit, long enough to cover the Castle, Old Town and Charles Bridge properly without rushing, and still feel like a proper break rather than a flying visit. Five nights gives room to add a day trip out to Kutna Hora or Cesky Krumlov as well. Anything shorter than three nights feels like hard work given the walking involved, and there's rarely a need to stay much longer than five or six nights since the historic centre is fairly compact.</p>
+    <p style="margin-top:14px;">Prague suits couples, groups of friends, city break regulars and families with older children who'll enjoy the castle and the clock tower. It's also a genuinely popular stag and hen destination thanks to its nightlife and low prices. It's less suited to clients wanting total relaxation, since it's a walking city with a lot of cobbles, or to anyone travelling with a pram or with limited mobility, who should budget extra time and stick closer to the metro and tram network.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1670094156756-431e3abf9be2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A bridge over the Vltava river with Prague's skyline behind it" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Direct flights from the UK take around 1 hour 40 minutes to 2 hours depending on the departure airport, one of the shortest flight times of any city break I sell. TUI, Jet2holidays and easyJet holidays all fly from a good spread of UK airports, so there's strong choice and competition on price, and it's an easy short haul booking even for a long weekend.</p>
+    {jake_tip("Because the flight is so short, I often suggest Prague to clients who are nervous about flying or who just want a city break that doesn't eat into the weekend with a long journey either end.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Prague has a continental climate, so summers are warm and winters are properly cold. These are long term averages, so treat them as a guide rather than a forecast for your specific dates.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>1&deg;C</td><td>-4&deg;C</td><td>Cold and grey, with the fewest sunshine hours of the year</td></tr>
+          <tr><td>February</td><td>4&deg;C</td><td>-3&deg;C</td><td>Still wintry, though days are slightly longer and drier</td></tr>
+          <tr><td>March</td><td>9&deg;C</td><td>0&deg;C</td><td>Chilly spring start, with nights often near freezing</td></tr>
+          <tr><td>April</td><td>14&deg;C</td><td>3&deg;C</td><td>Mild and brightening, with more sun and fewer frosts</td></tr>
+          <tr><td>May</td><td>19&deg;C</td><td>8&deg;C</td><td>Pleasant and warm, but rainfall rises noticeably</td></tr>
+          <tr><td>June</td><td>23&deg;C</td><td>12&deg;C</td><td>Warm and sunny, with the most rainy days of the year</td></tr>
+          <tr><td>July</td><td>24&deg;C</td><td>13&deg;C</td><td>Hottest period, with long days and frequent showers</td></tr>
+          <tr><td>August</td><td>24&deg;C</td><td>12&deg;C</td><td>Warm summer weather, and the wettest month on average</td></tr>
+          <tr><td>September</td><td>20&deg;C</td><td>9&deg;C</td><td>Comfortable autumn days that cool steadily as the month goes on</td></tr>
+          <tr><td>October</td><td>14&deg;C</td><td>5&deg;C</td><td>Cool and fairly calm, with shorter days and less sun</td></tr>
+          <tr><td>November</td><td>7&deg;C</td><td>1&deg;C</td><td>Cold, damp and dull, with little sunshine</td></tr>
+          <tr><td>December</td><td>3&deg;C</td><td>-2&deg;C</td><td>Cold and gloomy, with the most rainy days of the winter months</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Prague, via Weather2Travel's climate data.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">April to May and September to October are my pick for most clients, mild temperatures, decent sunshine and noticeably fewer crowds than peak summer. June to August is warmest and liveliest, but also the busiest and most expensive, with the most rainy days of the year despite the heat. November through February is a different trip entirely: proper winter cold, but also Prague's Christmas markets, which run from late November into early January and are some of the best in Europe.</p>
+    {jake_tip('If a client is specifically after the Christmas markets, I point them to my full comparison of <a href="christmas-markets-budapest-vienna-prague.html">Budapest, Vienna and Prague’s Christmas markets</a>, Prague works out the cheapest of the three and has the shortest flight time.')}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Prague's historic centre is compact, so most areas worth staying in are within walking distance of each other. Which one you pick changes the feel of the trip.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1581525046703-e553ee7b3de9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Old Town Square in Prague with historic architecture" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Old Town &amp; Josefov</h3>
+        <p>The historic heart of the city, with Old Town Square, the Astronomical Clock and the Jewish Quarter all on your doorstep. The most atmospheric base, and also the busiest and priciest.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1705994082718-f11e37517bc4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A grand building on Wenceslas Square in Prague's New Town" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">New Town &amp; Wenceslas Square</h3>
+        <p>Just south of Old Town, with excellent metro and tram links, a wider choice of hotels, and generally better value than staying right in the historic core. A strong all round pick.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1544105847-a83ddc43b06b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Colourful buildings on a cobbled street near Prague Castle" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Castle District &amp; Mal&aacute; Strana</h3>
+        <p>Quieter and more upscale, across the river from the main sights, with colourful baroque streets and some of the best views in the city. Expect steeper, cobbled walking and a short tram ride into the thick of things.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1680025491421-a44a36429e56?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A view across Prague's rooftops from the Vinohrady district" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Vinohrady &amp; &Zcaron;i&zcaron;kov</h3>
+        <p>A more residential, local feel with good independent restaurants and bars, a short tram or metro ride from the centre. Usually the best value option, popular with clients who've done the main sights before.</p>
+      </div>
+    </div>
+    {jake_tip("Not sure which to recommend? Old Town for a first time visitor who wants everything on their doorstep, New Town for the best balance of location and value, and Vinohrady for anyone wanting a quieter, more local feel at a lower price.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1549041490-f64d74264d25?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A tram on the streets of Prague" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Prague's integrated public transport network covers the metro's three lines, trams and buses on one ticket, bought as a 30 minute, 90 minute, 24 hour or 72 hour pass from the PID L&iacute;ta&#269;ka app, yellow machines at metro stations, or a card reader on board. It's one of the cheapest, easiest systems in Europe, and most visitors won't need anything else, the historic centre is also very walkable, though cobbles and occasional steep streets around the Castle are worth factoring in for anyone with mobility needs. Bolt and Uber both operate widely for anything further out or late at night. From the airport, bus 119 or 100 connects to the metro, or the Airport Express bus runs direct to the main train station, both taking around 35 to 45 minutes; taxis and Bolt cover the same journey in 20 to 30 minutes depending on traffic.</p>
+    {jake_tip("I always tell clients to buy transport tickets through the official PID Lítačka app rather than from a stranger on the street near Old Town Square, a well known scam involves overpriced or fake tickets sold just outside tourist hotspots.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1715388302950-6ad4ad794d07?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Prague's Astronomical Clock on the Old Town Hall" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and tickets worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="189021,209055,42322,612447"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/prague-l10/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/prague-l10/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Prague &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Recommended hotels</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets, all confirmed as Jet2CityBreaks packages, flights, 22kg baggage and accommodation included, through Jet2holidays.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1776763255197-495b343d5a33?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A neatly made hotel bed with white pillows" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Astoria Prague City</h3>
+        <p>A 4 star hotel right in the city centre, about 400m from Old Town Square, with a buffet breakfast restaurant on site (room only is the standard package rate) and a solid, no frills base for a short break. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for a central boutique stay</div>
+        <img src="https://images.unsplash.com/photo-1698927100805-2a32718a7e05?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A stylish boutique hotel bedroom" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Design Metropol</h3>
+        <p>A 4 star hotel around 650m from Old Town Square with a rooftop terrace and city views, close enough to walk to everything in the historic core. Room only as standard, with a breakfast supplement available. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for space &amp; facilities</div>
+        <img src="https://images.unsplash.com/photo-1699979306075-1b4c943a3b16?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A hotel room interior with a bedside lamp" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Grand Majestic Plaza</h3>
+        <p>A 4 star hotel between the Old and New Town, rated 4.5 stars by Jet2holidays, with its own spa, an Atrium restaurant and bar, and a Tripadvisor rating of 4.5 from over 5,000 reviews. A reliable, well reviewed choice. Bookable through Jet2holidays.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1529290130-4ca3753253ae?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An indoor hotel swimming pool with loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hilton Prague Old Town</h3>
+        <p>A 5 star hotel on the edge of Old Town, with an indoor heated pool, a gym, a spa with sauna and massage, and the Zinc restaurant and bar. The pick for a special occasion or anyone wanting a proper hotel stay alongside the sightseeing. Bookable through Jet2holidays.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1544105847-a83ddc43b06b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Colourful streets leading up towards Prague Castle" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Prague Castle &amp; St Vitus Cathedral</h3>
+        <p>The largest ancient castle complex in the world, home to St Vitus Cathedral, and worth a half day on its own. Arrive early to beat the coach tour crowds, especially in summer.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1719683187673-92559a5c0ab9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Charles Bridge at dawn with its statues" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Charles Bridge &amp; Old Town Square</h3>
+        <p>Free to walk any time, best early morning before the crowds arrive. Back in Old Town Square, the Astronomical Clock on the Old Town Hall puts on an hourly show from 9am to 11pm.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1684476673348-48480b26b4b3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Maiselova Synagogue in Prague's Jewish Quarter" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Jewish Quarter (Josefov)</h3>
+        <p>A cluster of historic synagogues and the Old Jewish Cemetery, tucked between Old Town Square and the river. A moving, worthwhile couple of hours, and well placed for anyone staying in Old Town.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1576311647457-cbdac84abfea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A view over Prague's rooftops from Petrin Hill" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Pet&#345;&iacute;n Hill &amp; Lookout Tower</h3>
+        <p>A short funicular ride up to a mini Eiffel Tower lookalike, with some of the best views in the city and far fewer crowds than the Castle. A relaxed way to spend a couple of hours, and good value if a client already holds a transport pass.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">The Czech Republic uses the koruna (CZK), not the euro, so prices below are shown in pounds with the koruna equivalent alongside, based on a rate of roughly &pound;1 to 29.4 CZK. These are crowd-sourced averages for central Prague, and prices right on Old Town Square or Wenceslas Square tend to run higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cheap meal at a local restaurant</td><td>&pound;8.05 (about 236 CZK)</td></tr>
+          <tr><td>Cappuccino, mid-range caf&eacute;</td><td>&pound;2.70 (about 79 CZK)</td></tr>
+          <tr><td>Local beer, bar or restaurant</td><td>&pound;2.35 (about 69 CZK)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;1.05 (about 31 CZK)</td></tr>
+          <tr><td>90 minute public transport ticket</td><td>&pound;1.55 (about 46 CZK)</td></tr>
+          <tr><td>24 hour public transport pass</td><td>&pound;5.10 (about 150 CZK)</td></tr>
+          <tr><td>Taxi, 5 mile ride in the city centre</td><td>&pound;11.50 (about 339 CZK)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd-sourced consumer price data via MyLifeElsewhere, and PID's own 2026 published transport fares. Koruna to pound conversion is approximate and will move around.</p>
+    {jake_tip("A lot of clients assume the euro is accepted everywhere since it's an EU country, but the Czech Republic has its own currency, the koruna. Euros are sometimes taken in very touristy spots at a poor exchange rate, so I always tell clients to withdraw or pay in koruna.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Czech Koruna (CZK), not the euro</td></tr>
+          <tr><td>Plug type</td><td>Type C and E, voltage is 230V, a UK to EU style adapter is advisable</td></tr>
+          <tr><td>Language</td><td>Czech is the official language, English is widely understood in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 1 hour 40 minutes to 2 hours direct, depending on departure airport</td></tr>
+          <tr><td>Time difference</td><td>1 hour ahead of the UK year round, both follow the same clock change dates</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders don't need a visa for stays of up to 90 days in any 180 day period. The EU's Entry/Exit System (EES) has been fully operational since 10 April 2026 and records fingerprints and a photo at the border on first entry. ETIAS, a separate pre-travel authorisation, has been delayed again and isn't mandatory yet, expected to roll out later in 2026 with enforcement from around April 2027 at the earliest. Your passport should be valid for at least 3 months beyond your departure date</td></tr>
+          <tr><td>Alcohol</td><td>Widely available in bars, restaurants and shops, the legal drinking age is 18</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: William Zhang, Dmitry Goykolov, Gabriel Mikl&oacute;s, Mikhail Mamaev, ian kelsall, Wolfgang Weiser, Kristel Hayes, Anton Hulenko, Rachel Martin, Antonio Araujo, ilpadre, Li Yang, Joshua Kettle, Marie Bellando Mitjans and Yoav Aziz via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Prague for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can book a short break to Prague through TUI, Jet2holidays or easyJet holidays, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+prague_guide_body = prague_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+PRAGUE_GUIDE_SCHEMA = article_and_faq_schema(
+    "Prague: Jake's Destination Guide",
+    "Jake's honest guide to Prague: weather by month, where to stay, things to do, recommended hotels and what a city break to Prague actually costs.",
+    "prague.html",
+    "https://images.unsplash.com/photo-1600623471616-8c1966c91ff6?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operators sell package holidays to Prague?", "TUI, Jet2holidays and easyJet holidays all now sell Prague as a city break, with return flights and a hotel put together as one package. Prague is also well served by low cost scheduled flights for anyone wanting to book flights and a hotel separately."),
+        ("Do I need a visa for Prague?", "No. UK passport holders can stay in the Czech Republic, and the wider Schengen area, for up to 90 days in any 180 day period without a visa. The EU's Entry/Exit System (EES) has been fully operational since 10 April 2026 and records fingerprints and a photo on first entry. ETIAS, a separate pre-travel authorisation, has been delayed again and isn't mandatory yet."),
+        ("What currency does Prague use?", "The Czech koruna (CZK), not the euro. It's worth telling clients this in advance, since the Czech Republic is an EU country but hasn't adopted the euro, and euros are only accepted in some touristy spots at a poor exchange rate."),
+        ("How many nights should I spend in Prague?", "Three to four nights is the sweet spot for a first visit, enough time to see the Castle, Old Town and Charles Bridge properly. Five nights gives room to add a day trip to Kutna Hora or Cesky Krumlov as well."),
+        ("What's the best time to visit Prague?", "April to May and September to October offer mild weather with fewer crowds than peak summer. June to August is warmest but busiest. Late November into early January brings Prague's Christmas markets, some of the best in Europe, alongside proper winter cold."),
+    ]
+)
+with open(os.path.join(SITE, "prague.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Prague: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Prague: weather by month, where to stay, things to do, recommended hotels and what a city break to Prague actually costs.",
+        "destinations.html",
+        prague_guide_body,
+        extra_schema=PRAGUE_GUIDE_SCHEMA,
+        canonical_path="prague.html"
+    ))
+print("prague.html written")
+
+
 
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
@@ -21142,6 +21430,7 @@ SITEMAP_PAGES = [
     ("norway-fjords-northern-lights.html", "0.6"),
     ("fuerteventura.html", "0.6"),
     ("thailand.html", "0.6"),
+    ("prague.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
