@@ -1167,6 +1167,17 @@
    "created": "2026-11-03",
    "departs": "2028-08-04",
    "fromPrice": 8237
+  },
+  {
+   "slug": "deborahcox",
+   "url": "https://quotes.travelagentjake.co.uk/deborahcox",
+   "customer": "Deborah Cox",
+   "enquiryId": "mw0jgpr2z5q0",
+   "quoteRequestId": "mw0k1t105lws",
+   "title": "Family beach holiday, five all inclusive options for 3 adults and a 2 year old in 2 rooms from Manchester, 7 nights Sat 24 Jul 2027: Blau Punta Reina Majorca, Ohtels La Hacienda Costa Dorada, Costa Encantada Lloret, MarSenses Paradise Club Menorca, Magic Natura Benidorm (Jet2holidays)",
+   "created": "2026-11-03",
+   "departs": "2027-07-24",
+   "fromPrice": 4647
   }
  ]
 }
