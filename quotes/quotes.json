@@ -1189,6 +1189,17 @@
    "created": "2026-11-03",
    "departs": "2027-05-09",
    "fromPrice": 2898
+  },
+  {
+   "slug": "edwardturkey",
+   "url": "https://quotes.travelagentjake.co.uk/edwardturkey",
+   "customer": "Edward McIntyre",
+   "enquiryId": "mw0t9ab6rnpr",
+   "quoteRequestId": "mw0tsm3gkyu2",
+   "title": "Green Nature Sarigerme, 7 nights All Inclusive Plus from Glasgow, Mon 17 May 2027, 2 adults (Jet2holidays)",
+   "created": "2026-11-03",
+   "departs": "2027-05-17",
+   "fromPrice": 2240
   }
  ]
 }
