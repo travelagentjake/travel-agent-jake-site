@@ -13262,6 +13262,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1655722725332-9925c96dd627?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "An open passport with numerous ink stamps on the pages",
     },
+    {
+        "slug": "gibraltar-spain-border-deal-2026.html",
+        "meta": "Border rules",
+        "title": "Gibraltar's border with Spain has changed: what it actually means for your holiday",
+        "excerpt": "The border fence between Gibraltar and Spain came down in July 2026. Here's exactly what's changed for passport checks, EES, day trips from the Costa del Sol, and duty free shopping.",
+        "image": "https://images.unsplash.com/photo-1769693649758-1529414586b4?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "The Rock of Gibraltar and the Strait of Gibraltar at sunset",
+    },
 ]
 
 
@@ -20604,6 +20612,165 @@ with open(os.path.join(SITE, "schengen-90-180-day-rule-explained.html"), "w", en
 print("schengen-90-180-day-rule-explained.html written")
 
 
+gibraltar_border_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>GIBRALTAR'S BORDER WITH SPAIN HAS CHANGED: WHAT IT ACTUALLY MEANS FOR YOUR HOLIDAY</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">In July 2026 the border fence between Gibraltar and Spain came down for the first time in decades, part of a new UK and EU treaty that brings Gibraltar's entry rules broadly into line with the Schengen area. If you're holidaying on the Costa del Sol and fancy a day trip, flying straight into Gibraltar, or just want to know whether it changes anything for your passport, here's exactly what's changed and what hasn't.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three things worth knowing before you go</h2>
+    <p style="margin-top:14px;">The short version is that checking hasn't disappeared, it's just moved.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Land border</div>
+        <h3 style="font-size:18px;">Routine checks are gone</h3>
+        <p>The fence came down on 15 July 2026. Walking or driving between Spain and Gibraltar no longer means a passport check or a queue at the frontier itself.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Airport and port</div>
+        <h3 style="font-size:18px;">Checks moved here instead</h3>
+        <p>Fly or arrive by sea and you'll clear Gibraltar's own immigration first, then a separate Schengen check carried out by Spanish officials, with EES biometrics for most UK visitors.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Still applies</div>
+        <h3 style="font-size:18px;">The 90/180 day rule</h3>
+        <p>Gibraltar isn't in the EU or technically part of Schengen, but it now applies Schengen's entry conditions, and time spent there counts towards your 90 day allowance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What actually changed, and why</h2>
+    <img src="https://images.unsplash.com/photo-1667391272465-6e250d3f762f?auto=format&fit=crop&w=1600&h=700&q=80" alt="The road into Gibraltar with the Rock of Gibraltar rising behind it" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Gibraltar's status had been unresolved since the UK left the EU in 2020, with the border effectively frozen while a deal was negotiated. That deal, a treaty between the UK and the EU covering Gibraltar, took provisional effect on 15 July 2026. The physical fence at the La L&iacute;nea crossing came down overnight, and routine immigration and customs checks on people crossing the land border on foot or by car were removed with it. Gibraltar's own government describes the change in its published treaty guidance as removing every physical barrier related to the movement of people between the EU and Gibraltar.</p>
+    <p style="margin-top:14px;">Gibraltar hasn't actually joined the EU or the Schengen area itself. What's changed is that its short stay entry conditions for visitors now formally align with Schengen's own rules, and the checking of those rules has moved away from the land border entirely, to the airport and the port instead.</p>
+    {jake_tip("If you've crossed into Gibraltar before and remember a British style passport booth at the frontier gate, that's gone. Still carry your passport with you while you're there, since you may be asked for it at the airport, the port, or in a spot check.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Passport checks and EES: what actually happens now</h2>
+    <img src="https://images.unsplash.com/photo-1747115084263-afbe6739b7ba?auto=format&fit=crop&w=1600&h=700&q=80" alt="Passports and boarding passes laid out ready for a trip" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Arrive by air or by sea and you'll go through two separate checks in sequence. Gibraltar's own Borders and Coastguard Agency checks you in first, and Spanish officials then carry out a Schengen check immediately after, to make sure the external border of the Schengen area is being properly controlled. A joint facility is being built at Gibraltar Airport specifically to handle both checks in one place. Leaving Gibraltar, the order is reversed, Spanish officials check you out of Schengen first, then Gibraltar processes your exit.</p>
+    <p style="margin-top:14px;">For most UK visitors, that Schengen check now includes the EU's Entry/Exit System, EES, the same digital system that replaced manual passport stamping across the rest of the Schengen area. The first time you're registered it records your fingerprints and a facial image, after that it's a quick scan rather than a full registration. Gibraltar residents are exempt from EES regardless of their nationality, but a UK holidaymaker who doesn't live there isn't.</p>
+    <p style="margin-top:14px;">Your passport still needs to meet the same rule as anywhere else in Schengen, issued within the previous 10 years, and valid for at least 3 months after the day you leave Gibraltar or the wider Schengen area. I've written separately about that 10 year passport rule if you want the full detail.</p>
+    <p style="margin-top:14px;">ETIAS, the pre travel authorisation that's been expected across the whole Schengen area for a while now, still isn't live. It's been delayed repeatedly and is currently expected sometime in 2027 at the earliest, so there's nothing extra to apply for before a Gibraltar trip right now. That will change once it finally launches.</p>
+    {jake_tip("Officials can still ask for proof you're a genuine visitor, a return ticket, your hotel booking, travel insurance, or evidence of funds. Keep digital or printed copies handy rather than assuming you won't be asked.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Day trips from the Costa del Sol, and flying straight in</h2>
+    <img src="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?auto=format&fit=crop&w=1600&h=700&q=80" alt="Rocky cliffs along the Spanish coastline near the Costa del Sol" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A lot of my clients staying around Marbella, Estepona, Fuengirola or Sotogrande fancy a day trip across to Gibraltar, and this is genuinely the part that's got easier. Cross on foot or in a hire car and there's no passport check and no routine queue at the land crossing itself anymore. The crossing is open 24 hours a day, and like most borders it still has busier and quieter times, generally quieter in the late morning and early afternoon, and busier around the Spanish workforce's commuting hours and on Spanish public holidays.</p>
+    <p style="margin-top:14px;">A hire car crosses with no extra paperwork created by the treaty itself, just the usual rental agreement and driving documents you'd carry on any Spanish holiday. Walking across is often quicker than driving when traffic backs up, since pedestrians use a separate lane from vehicles.</p>
+    <p style="margin-top:14px;">You don't need to be staying in Spain at all to visit. easyJet flies direct to Gibraltar from several UK airports, including Gatwick, Birmingham, Bristol, Edinburgh and Glasgow. Arrive this way and you'll go through the same dual check described above, Gibraltar's own immigration first, then the Schengen check with EES.</p>
+    {jake_tip("If a Gibraltar day trip matters to you, mention it when you enquire. Estepona, Sotogrande and San Roque are a noticeably shorter run to the border than Marbella or Fuengirola, so it's worth factoring into where I suggest you stay.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Shopping and duty free: it's not quite what it was</h2>
+    <img src="https://images.unsplash.com/photo-1767034241637-38d1c37c1b2b?auto=format&fit=crop&w=1600&h=700&q=80" alt="A shopping street in Gibraltar lined with flags" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Gibraltar's reputation as a VAT free shopping stop has taken a real turn under the new treaty. A temporary allowances regime lets visitors bring goods from Gibraltar into Spain tax free up to &euro;300 (around &pound;250 at current exchange rates) if you're crossing by land, or &euro;430 (around &pound;355 at current exchange rates) if you're arriving by sea or air, according to Gibraltar's own government technical notice. Alcohol, tobacco and fuel have their own separate limits on top of that, though the exact figures hadn't been published in detail at the time of writing, so check with HM Customs Gibraltar directly before you rely on bringing back a specific amount.</p>
+    <p style="margin-top:14px;">Gibraltar itself is also phasing in a new domestic transaction tax of 15%, expected to rise to 17%, on retail sales, replacing part of its old tax free status. That's made traditional duty free pricing, especially on tobacco and alcohol, less of a guaranteed bargain than it used to be. None of that's stopped demand though. Gibraltar's government reported euro sales at some businesses up by more than 240% in the fortnight after the fence came down, according to Euro Weekly News, largely driven by day trippers and cross border shoppers.</p>
+    {jake_tip("Don't plan a big shopping trip to Gibraltar purely on the assumption of old style duty free prices. Check specific items you're after before you go, the gap to Spanish high street prices isn't as wide or as predictable as it was.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What this means for how you book</h2>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Land border day trips are genuinely simpler now.</b> No stamp, no routine check, though it's still worth allowing extra time at peak hours.</span></li>
+      <li><span class="num">2</span><span><b>Flying or arriving by sea still means two separate checks.</b> Gibraltar's own immigration, then a Schengen check with EES for most UK visitors.</span></li>
+      <li><span class="num">3</span><span><b>Your Schengen 90/180 day allowance still applies.</b> Time spent in Gibraltar counts towards the same 90 days as time in Spain, France or anywhere else in the Schengen area.</span></li>
+      <li><span class="num">4</span><span><b>Your passport needs the same 10 year and 3 month rule as the rest of Schengen.</b> Check the issue date and expiry before you travel.</span></li>
+      <li><span class="num">5</span><span><b>Duty free shopping needs managing expectations.</b> The old blanket VAT free bargain has changed, so check specific prices rather than assuming one.</span></li>
+    </ul>
+    {jake_tip("Message me if a Gibraltar day trip, or a direct Gibraltar holiday, is part of your plans. Happy to build it into wherever in southern Spain suits you best.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Do I still need to show my passport to cross into Gibraltar from Spain?</h3>
+      <p>Not for a routine crossing on foot or by car at the land border, since those checks were removed when the fence came down on 15 July 2026. You'll still need your passport, and may be asked for it, if you arrive by air or sea, or in a spot check.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does time spent in Gibraltar count towards my Schengen 90 day allowance?</h3>
+      <p>Yes. Gibraltar now applies Schengen's entry conditions, so days spent there count towards the same 90 days in any 180 day period as time spent in Spain, France or anywhere else in the Schengen area.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do I need ETIAS to visit Gibraltar?</h3>
+      <p>Not yet. ETIAS still isn't live anywhere in the Schengen area, it's been delayed repeatedly and is currently expected in 2027 at the earliest.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is Gibraltar still worth visiting for duty free shopping?</h3>
+      <p>It's more mixed than it used to be. A new allowances regime and a domestic transaction tax are both being phased in, so check specific prices rather than assuming a blanket VAT free bargain.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Can I still fly direct to Gibraltar from the UK?</h3>
+      <p>Yes. easyJet flies direct from several UK airports, including Gatwick, Birmingham, Bristol, Edinburgh and Glasgow.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1667317475363-8e710abd4cde?auto=format&fit=crop&w=1600&h=700&q=80" alt="The Rock of Gibraltar seen from the viewing platform" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Thinking about a Costa del Sol holiday with a Gibraltar day trip?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Tell me what matters most and I'll help you pick somewhere in southern Spain that makes a Gibraltar visit easy, alongside everything else you want from the holiday.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+gibraltar_border_body = gibraltar_border_body.replace("::NEWSLETTER::", newsletter_section())
+
+GIBRALTAR_BORDER_SCHEMA = article_and_faq_schema(
+    "Gibraltar's Border With Spain Has Changed: What It Actually Means for Your Holiday",
+    "The border fence between Gibraltar and Spain came down in July 2026. Here's exactly what's changed for passport checks, EES, day trips from the Costa del Sol, and duty free shopping.",
+    "gibraltar-spain-border-deal-2026.html",
+    "https://images.unsplash.com/photo-1769693649758-1529414586b4?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("Do I still need to show my passport to cross into Gibraltar from Spain?", "Not for a routine crossing on foot or by car at the land border, since those checks were removed when the fence came down on 15 July 2026. You'll still need your passport, and may be asked for it, if you arrive by air or sea, or in a spot check."),
+        ("Does time spent in Gibraltar count towards my Schengen 90 day allowance?", "Yes. Gibraltar now applies Schengen's entry conditions, so days spent there count towards the same 90 days in any 180 day period as time spent in Spain, France or anywhere else in the Schengen area."),
+        ("Do I need ETIAS to visit Gibraltar?", "Not yet. ETIAS still isn't live anywhere in the Schengen area, it's been delayed repeatedly and is currently expected in 2027 at the earliest."),
+        ("Can I still fly direct to Gibraltar from the UK?", "Yes. easyJet flies direct from several UK airports, including Gatwick, Birmingham, Bristol, Edinburgh and Glasgow."),
+    ]
+)
+
+with open(os.path.join(SITE, "gibraltar-spain-border-deal-2026.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Gibraltar's Border With Spain Has Changed: What It Actually Means for Your Holiday | Travel Agent Jake",
+        "The border fence between Gibraltar and Spain came down in July 2026. Here's exactly what's changed for passport checks, EES, day trips from the Costa del Sol, and duty free shopping.",
+        "travel-tips.html",
+        gibraltar_border_body,
+        extra_schema=GIBRALTAR_BORDER_SCHEMA,
+        canonical_path="gibraltar-spain-border-deal-2026.html"
+    ))
+print("gibraltar-spain-border-deal-2026.html written")
+
+
 
 
 
@@ -21813,6 +21980,7 @@ SITEMAP_PAGES = [
     ("spain-hotel-check-in-id-rules.html", "0.7"),
     ("black-friday-holiday-scams-what-to-check-before-you-book.html", "0.7"),
     ("schengen-90-180-day-rule-explained.html", "0.7"),
+    ("gibraltar-spain-border-deal-2026.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
