@@ -1211,6 +1211,17 @@
    "created": "2026-11-04",
    "departs": "2027-06-21",
    "fromPrice": 1918.6
+  },
+  {
+   "slug": "chrissiemauritius",
+   "url": "https://quotes.travelagentjake.co.uk/chrissiemauritius",
+   "customer": "Chrissie",
+   "enquiryId": "mw1xp9figtbr",
+   "quoteRequestId": "mw1xp9iiq7ps",
+   "title": "Mauricia (half board, Standard Beachfront Room) and Royal Palm (B&B, Tropical Suite), Grand Baie, 10 nights from Manchester, Sat 2 Oct 2027, 1 adult, Emirates Business and First Class, private transfers",
+   "created": "2026-11-04",
+   "departs": "2027-10-02",
+   "fromPrice": 8246.09
   }
  ]
 }
