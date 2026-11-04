@@ -2103,6 +2103,13 @@ DESTINATION_POSTS = [
         "excerpt": "Charles Bridge, the Castle and the Old Town's Astronomical Clock: weather by month, where to stay, things to do and what a city break actually costs.",
         "image": "https://images.unsplash.com/photo-1600623471616-8c1966c91ff6?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "jordan.html",
+        "meta": "Jordan",
+        "title": "Jordan",
+        "excerpt": "Petra, Wadi Rum and the Dead Sea: weather by month, the real escorted tours that cover it, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1580834341580-8c17a3a630ca?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -21471,6 +21478,256 @@ print("prague.html written")
 
 
 
+jordan_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>JORDAN</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Petra carved into rose coloured rock, the dunes of Wadi Rum and floating in the Dead Sea, all in one trip. Here's exactly how I book Jordan, the real tours that cover it and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Jordan</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1580834341580-8c17a3a630ca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Treasury carved into sandstone cliffs at Petra, Jordan" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Jordan is one of those destinations that sells itself the moment a client sees a photo of the Treasury at Petra, and it genuinely lives up to it in person. None of my three main package operators, TUI, Jet2holidays or easyJet holidays, flies there or sells it as a flight and hotel package. It's booked a completely different way, as a real escorted tour that strings Amman, Petra, Wadi Rum and the Dead Sea together, flights, hotels, transport and a lot of the sightseeing already built in.</p>
+    <p style="margin-top:14px;">That suits Jordan well, since it isn't really a destination you'd want to self plan on a first visit. The distances between the big sights are longer than people expect, public transport is limited outside the cities, and a lot of the best bits, the 4x4 run through Wadi Rum, the walk into Petra through the Siq, only really work with a guide who knows the route and the history.</p>
+    {jake_tip("I always set expectations early that Jordan is a touring holiday, not a beach week with a day trip bolted on. Clients who go in expecting that get the best out of it.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven to eight days, six or seven nights, is the standard length for a proper Jordan tour, enough time to cover Amman, Petra, Wadi Rum and the Dead Sea without rushing between them. It suits couples, friends and small groups who want a genuine cultural and adventure trip rather than pure relaxation, and who are happy with early starts, a fair amount of walking and some uneven ground, especially at Petra and in the desert at Wadi Rum. It's less suited to anyone with limited mobility or very young children, and it isn't really a lie on a sunbed holiday, though most tours do build in some proper down time floating in the Dead Sea.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1671209088918-485caf34e3f1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Amman Citadel overlooking the Jordanian capital" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>British Airways and Royal Jordanian both fly direct from London Heathrow to Amman, a flight of around 5 hours 20 minutes, and return flights are included in the price of every tour I book. UK passport holders need a visa for Jordan, either a visa on arrival for 40 Jordanian dinars, about &pound;42, valid for 3 months, or the Jordan Pass, 70 to 80 dinars depending on the sites it covers, about &pound;75 to &pound;85, which includes the visa fee and discounted entry to Petra and other paid sites. The Jordan Pass has to be bought online before you travel and only pays off if you're staying at least 3 nights, which every tour I sell comfortably covers. Your passport needs at least 6 months left on it from your arrival date.</p>
+    {jake_tip("I always tell clients to buy the Jordan Pass through the official jordanpass.jo website only, and to sort it before they fly since it needs to be arranged in advance, not at the airport. It almost always works out cheaper than paying for Petra entry and the visa separately.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Jordan's climate changes a lot depending on elevation. Amman and Petra sit high up and feel genuinely cold in winter, while the Dead Sea, Wadi Rum and Aqaba sit much lower and run noticeably hotter all year round. These are long term averages for Amman, the usual starting point for every tour.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect in Amman</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>13&deg;C</td><td>4&deg;C</td><td>Cold and the wettest month, can see rare snow</td></tr>
+          <tr><td>February</td><td>14&deg;C</td><td>5&deg;C</td><td>Still cold and damp, occasional snow possible</td></tr>
+          <tr><td>March</td><td>18&deg;C</td><td>8&deg;C</td><td>Mild spring days, rain tapering off</td></tr>
+          <tr><td>April</td><td>23&deg;C</td><td>11&deg;C</td><td>Warm and increasingly dry, a popular month to go</td></tr>
+          <tr><td>May</td><td>28&deg;C</td><td>15&deg;C</td><td>Hot and dry, already very warm at the Dead Sea</td></tr>
+          <tr><td>June</td><td>31&deg;C</td><td>18&deg;C</td><td>Hot summer weather settles in</td></tr>
+          <tr><td>July</td><td>33&deg;C</td><td>21&deg;C</td><td>Very hot, especially at Wadi Rum, the Dead Sea and Aqaba</td></tr>
+          <tr><td>August</td><td>33&deg;C</td><td>21&deg;C</td><td>Still very hot, the driest month of the year</td></tr>
+          <tr><td>September</td><td>31&deg;C</td><td>19&deg;C</td><td>Hot days, starting to cool by the end of the month</td></tr>
+          <tr><td>October</td><td>27&deg;C</td><td>15&deg;C</td><td>Warm and pleasant, another popular month to go</td></tr>
+          <tr><td>November</td><td>20&deg;C</td><td>10&deg;C</td><td>Cooling fast, first proper rain returns</td></tr>
+          <tr><td>December</td><td>15&deg;C</td><td>6&deg;C</td><td>Cold and often wet, snow possible in Amman and Petra</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Amman, via Climates to Travel's climate data.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">March to May and September to November are my pick for most clients, warm days, cooler evenings and none of the extreme heat. June to August is properly hot everywhere, and genuinely intense by midday at Wadi Rum and the Dead Sea, though tours build in early starts for exactly that reason and it's still a popular time to go. Winter, December to February, is a different trip at altitude, cold and sometimes wet in Amman and Petra with the odd flurry of snow, but the Dead Sea and Aqaba sit so much lower that they stay noticeably milder, so a tour that ends there still has a warm few days to finish on even in the depths of a UK winter.</p>
+    {jake_tip("If a client is set on floating in the Dead Sea in genuinely warm weather, I steer them towards spring or autumn. Winter still works for the Dead Sea itself, it's Amman and Petra at the start of the trip that feel the cold.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three ways to see Jordan</h2>
+    <p style="margin-top:14px;">Jordan is a natural multi centre trip by design, every real tour strings Amman, Petra, Wadi Rum and the Dead Sea together in one booking. Here are three real, bookable tours so you can see which pace and style actually fits.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1548786811-dd6e453ccca7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Petra, Jordan, during daytime" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Riviera Travel's Jordan and Petra</h3>
+        <p>7 days, 6 nights. A small group tour, usually 12 to 25 guests, covering Amman, a Bedouin style camp at Wadi Rum, 2 nights at Petra and 2 nights at the Dead Sea. Half board throughout, including a Bedouin zarb barbecue dinner in the desert. From &pound;1,829pp, flying from Heathrow.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1538426923164-6869f58ccae5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Desert landscape near Wadi Rum, Jordan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Mercury Holidays' Classical Jordan</h3>
+        <p>8 days, 7 nights. An intermediate paced tour with an English speaking driver guide throughout, taking in Amman, Jerash, Madaba, Petra, a night in a desert camp at Wadi Rum and 2 nights at the Dead Sea. 15 meals and 5 excursions included. From &pound;1,799pp.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1582729103191-e036d827e59f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A person floating in the Dead Sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Classical Jordan with Aqaba Beach Stay</h3>
+        <p>The same 8 day Classical Jordan tour, extended with a 4 day, 3 night stay by the Red Sea in Aqaba. The one to pick if you'd rather finish on a beach than fly straight home from the Dead Sea. From &pound;2,342pp.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each tour at the time of writing and are subject to change and availability. All three are ABTA and ATOL protected.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1725909632786-c25c9b2b5a16?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A Bedouin style desert camp at night in Jordan" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Because these are escorted tours rather than pick your own hotel holidays, the hotels come as part of the route, the same as Jordan's TUI free equivalents in Canada, Japan or China. Riviera Travel's Jordan and Petra uses the Centro Mada Amman, a Bedouin style tented camp at Wadi Rum, the 4 star Old Village Hotel &amp; Resort in Wadi Musa for Petra, and the 4 star Holiday Inn Dead Sea in Sweimah. Mercury Holidays' Classical Jordan, and its Aqaba extension, uses the Mena Tyche Hotel in Amman, the Hayat Zaman Hotel at Petra, the en suite tented Magic Rum Camp at Wadi Rum, and the Crowne Plaza Dead Sea Resort &amp; Spa. Hotels on both tours are provisional until closer to departure, so I always confirm the exact named properties once a specific date is booked.</p>
+    {jake_tip("The night in the desert camp is a genuine highlight for most clients, not a downgrade. En suite tented camps like Magic Rum Camp have proper beds and bathrooms, it's just a very different, and very memorable, kind of night under the stars.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Every transfer, 4x4 run through Wadi Rum and coach journey between cities is arranged and included once you're on tour, with an English speaking guide or driver guide throughout, so there's nothing to organise yourself day to day. Independent travel between Jordan's main sights is genuinely harder than in most of the destinations I sell, public transport is limited outside Amman, distances are longer than they look on a map, and taxis between cities aren't cheap, the JETT bus company runs a limited intercity service between Amman, Petra and Aqaba for independent travellers, but it's nowhere near as convenient as having everything arranged for you. It's one of the clearest cases I come across of a tour genuinely being the sensible way to see a country, rather than just the easiest.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1731355775921-11078a2edb84?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Roman ruins at Jerash, Jordan" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Beyond each tour's own included sightseeing, these are some of the best rated extra things to do if you want to add to the itinerary or extend your stay.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="56608,67608,613077,511429"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/jordan-l169120/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/jordan-l169120/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Jordan &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1589825274556-94746a018766?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="People walking through the Siq towards Petra, Jordan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Petra</h3>
+        <p>A UNESCO listed city carved into rose coloured sandstone, reached on foot through the narrow Siq gorge before the Treasury suddenly opens up in front of you. The Monastery, a further climb up over 800 steps, is quieter and just as impressive.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1664725080246-9d5368a0a86b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A 4x4 crossing the desert at Wadi Rum, Jordan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Wadi Rum</h3>
+        <p>A vast red desert of sandstone mountains and dunes, explored by 4x4 with a Bedouin guide and usually finished with a traditional zarb barbecue and a night under some of the darkest skies you'll see anywhere.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1503301346056-7681a7bcd413?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Floating in the Dead Sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Dead Sea</h3>
+        <p>The lowest point on earth, over 9 times saltier than the ocean, so you float without trying. Most hotels have mineral rich mud free for guests to use too, a genuine highlight after a few days on your feet.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1709912151904-3e849b7850a6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Roman columns along the Cardo Maximus at Jerash, Jordan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Jerash</h3>
+        <p>One of the best preserved Roman provincial cities anywhere in the world, with a colonnaded main street, a huge oval forum and two amphitheatres, included on most Jordan tours as a day trip from Amman.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1633169834835-7781cd837815?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A shared meal of Jordanian food on a table" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Jordan uses the Jordanian Dinar (JOD). Flights, most hotels, transfers, guiding and a lot of meals are already covered in the price of your tour, but these are typical costs for extra drinks, snacks and taxis, converted to pounds at a rate of roughly &pound;1 to 0.95 JOD.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Basic meal with a drink, inexpensive restaurant</td><td>&pound;3.87 (about 3.67 JOD)</td></tr>
+          <tr><td>Fast food combo meal</td><td>&pound;4.93 (about 4.67 JOD)</td></tr>
+          <tr><td>Cappuccino, mid-range caf&eacute;</td><td>&pound;1.70 (about 1.61 JOD)</td></tr>
+          <tr><td>Domestic beer, a pint, where available</td><td>&pound;4.76 (about 4.50 JOD)</td></tr>
+          <tr><td>Taxi, a few miles around Amman</td><td>&pound;8.88 (about 8.40 JOD)</td></tr>
+          <tr><td>Visa on arrival (3 month single entry)</td><td>&pound;42 (40 JOD)</td></tr>
+          <tr><td>Jordan Pass, per person (visa plus discounted site entry)</td><td>&pound;75 to &pound;85 (70 to 80 JOD)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd sourced averages via MyLifeElsewhere, and Jordan's own visa and Jordan Pass fees. Dinar to pound conversion is approximate and moves around day to day.</p>
+    {jake_tip("Jordan is a predominantly Muslim country, so alcohol is only really available in Western style hotel bars and restaurants in Amman and the main tourist areas, not everywhere. It's worth knowing before you go rather than being surprised on the ground.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Jordanian Dinar (JOD)</td></tr>
+          <tr><td>Plug type</td><td>Mostly Type C (European two pin), with Type F and some Type G sockets in tourist hotels. Voltage is 230V, same as the UK, but bring a travel adaptor</td></tr>
+          <tr><td>Language</td><td>Arabic is the official language, English is widely spoken in hotels, tours and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 5 hours 20 minutes direct from Heathrow</td></tr>
+          <tr><td>Time difference</td><td>3 hours ahead of the UK in winter, 2 hours ahead in British Summer Time, since Jordan doesn't change its clocks</td></tr>
+          <tr><td>Entry requirements</td><td>A visa is required, either a visa on arrival (40 JOD) or the Jordan Pass (70 to 80 JOD), bought online before you travel. Passports need at least 6 months validity from your arrival date</td></tr>
+          <tr><td>Safety</td><td>The FCDO advises against all travel within 3km of the Syrian border, away from every tour route. It also flags a wider risk of regional disruption, including possible flight or itinerary changes at short notice. I always check the current advice on gov.uk with clients before they book and again before they travel</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Alex Vasey, Hisham Zayadneh, Hongbin, Emile Guillemot, Anton Lecock, Ondrej Bocek, Women Travel Abroad, Ahmad Qaisieh, Ludovico Bee, Dewet Willemse, Matt Jones, Omar Faruk and RASHNI PARICHHA via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Jordan for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can talk you through the real Jordan tours on sale, check live departure dates and pricing, and help you work out honestly which one fits what you actually want to see.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+jordan_guide_body = jordan_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+JORDAN_GUIDE_SCHEMA = article_and_faq_schema(
+    "Jordan: Jake's Destination Guide",
+    "Jake's honest guide to Jordan: how the real escorted tours work, weather by month, where to stay, things to do and what a trip covering Petra, Wadi Rum, the Dead Sea and Amman actually costs.",
+    "jordan.html",
+    "https://images.unsplash.com/photo-1580834341580-8c17a3a630ca?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operators sell Jordan package holidays?", "None of my three main operators, TUI, Jet2holidays or easyJet holidays, sells Jordan as a flight and hotel package or flies there at all. It's booked instead as a real escorted tour, such as Riviera Travel's Jordan and Petra or Mercury Holidays' Classical Jordan, with flights, hotels and most of the sightseeing included."),
+        ("Do I need a visa for Jordan?", "Yes. UK passport holders can buy a visa on arrival for 40 Jordanian dinars, about £42, valid for 3 months, or arrange the Jordan Pass online before travelling, which costs 70 to 80 dinars, includes the visa fee, and gives discounted entry to Petra and other paid sites. It only pays off on stays of 3 nights or more, which every tour comfortably covers."),
+        ("How many nights do I need in Jordan?", "Seven to eight days, six or seven nights, is the standard length for a proper tour covering Amman, Petra, Wadi Rum and the Dead Sea. Shorter than that and you'd have to cut one of the big sights, longer and most clients have seen the highlights already."),
+        ("Is Jordan safe to visit?", "The main tourist circuit, Amman, Petra, Wadi Rum, the Dead Sea and Aqaba, isn't under any specific FCDO travel warning. The FCDO does advise against all travel within 3km of the Syrian border, well away from every tour route, and flags a wider risk of regional disruption. I always check the latest advice on gov.uk with clients before booking and again before they travel."),
+        ("What's the best time to visit Jordan?", "March to May and September to November for the best all round weather. Summer, June to August, is very hot, especially at Wadi Rum and the Dead Sea, though tours still run with early starts. Winter is cold and sometimes wet in Amman and Petra, but the Dead Sea and Aqaba stay much milder thanks to their much lower elevation."),
+    ]
+)
+with open(os.path.join(SITE, "jordan.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Jordan: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Jordan: how the real escorted tours work, weather by month, where to stay, things to do and what a trip covering Petra, Wadi Rum, the Dead Sea and Amman actually costs.",
+        "destinations.html",
+        jordan_guide_body,
+        extra_schema=JORDAN_GUIDE_SCHEMA,
+        canonical_path="jordan.html"
+    ))
+print("jordan.html written")
+
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -21522,6 +21779,7 @@ SITEMAP_PAGES = [
     ("fuerteventura.html", "0.6"),
     ("thailand.html", "0.6"),
     ("prague.html", "0.6"),
+    ("jordan.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
