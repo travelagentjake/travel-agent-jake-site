@@ -1200,6 +1200,17 @@
    "created": "2026-11-03",
    "departs": "2027-05-17",
    "fromPrice": 2240
+  },
+  {
+   "slug": "nellynice",
+   "url": "https://quotes.travelagentjake.co.uk/nellynice",
+   "customer": "Nelly",
+   "enquiryId": "",
+   "quoteRequestId": "",
+   "title": "Hotel Apollinaire Nice, 4 nights Bed and Breakfast from Manchester, Mon 21 Jun 2027, 2 adults, private transfers and row 2 seats included (Jet2holidays)",
+   "created": "2026-11-04",
+   "departs": "2027-06-21",
+   "fromPrice": 1918.6
   }
  ]
 }
