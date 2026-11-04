@@ -1233,6 +1233,16 @@
    "created": "2026-11-04",
    "departs": "2027-09-27",
    "fromPrice": 1566
+  },
+  {
+   "slug": "rubyjennison-budapest",
+   "url": "https://quotes.travelagentjake.co.uk/rubyjennison-budapest",
+   "customer": "Ruby Jennison",
+   "enquiryId": "mw1ttcxmaltc",
+   "title": "Budapest city break, three central hotels for 2 from Manchester, 3 nights Mon 1 Mar 2027: Opera Garden, Hotel Museum, Three Corners Hotel Art (Jet2CityBreaks)",
+   "created": "2026-11-04",
+   "departs": "2027-03-01",
+   "fromPrice": 598
   }
  ]
 }
