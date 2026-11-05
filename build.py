@@ -698,6 +698,27 @@ home_body = """
       <div class="carousel-row" id="testimonialsCarousel">
         <div class="testimonial-card">
           <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>We trusted Jake with our Greece holiday</h3>
+          <p class="testimonial-quote">"We trusted Jake to book our family holiday to Greece next year and he did not disappoint! We were quite specific as to what we were looking for having travelled round Greece for many years but this did not faze him! We went back and forth until he found exactly what we were looking for and nothing was too much trouble, he even emailed the hotel to make sure being adults only it would accept our 17 year old. There was no pressure to book or choose the most expensive holiday and we really did feel supported and like no question irrelevant. Thank you Jake you simply made our lives easier!"</p>
+          <div class="testimonial-name">Louise</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Booked our Greece holiday through Jake</h3>
+          <p class="testimonial-quote">"Just booked our Greece holiday through Jake. I gave him the information of what we like and where we were actually looking with a hotel in mind. Not been to the Greek island before, so something new for us both. Jake got back to me with 3 other hotels that he thought matched our criteria. I personally would have chosen his but my sister-in-law prefered our original choice. Anyway we booked through Jake with our original choice and even got it slightly cheaper than it was stating. Jake was helpful and listened and responded in reasonable time. All booked from my cosy sofa. Would definitely book through Jake again."</p>
+          <div class="testimonial-name">Gail</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Fantastic service</h3>
+          <p class="testimonial-quote">"Fantastic service, Jake was so responsive and helpful - it really was nice to communicate with a real person. Really easy booking process, clear info and got exactly what we needed at a great price. Looking forward to a lovely family holiday now!"</p>
+          <div class="testimonial-name">Mrs N</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <h3>Would definitely recommend his services</h3>
           <p class="testimonial-quote">"Jake was very helpful in finding a good holiday for my wife's birthday celebration. We had some specific requirements which he was able to accommodate. Would definitely recommend his services for booking holidays."</p>
           <div class="testimonial-name">Shawn</div>
@@ -18526,6 +18547,27 @@ jet2holidays_body = """
     <div class="carousel-wrap">
       <button class="carousel-arrow carousel-prev" type="button" aria-label="Scroll left">&larr;</button>
       <div class="carousel-row" id="testimonialsCarousel">
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>We trusted Jake with our Greece holiday</h3>
+          <p class="testimonial-quote">"We trusted Jake to book our family holiday to Greece next year and he did not disappoint! We were quite specific as to what we were looking for having travelled round Greece for many years but this did not faze him! We went back and forth until he found exactly what we were looking for and nothing was too much trouble, he even emailed the hotel to make sure being adults only it would accept our 17 year old. There was no pressure to book or choose the most expensive holiday and we really did feel supported and like no question irrelevant. Thank you Jake you simply made our lives easier!"</p>
+          <div class="testimonial-name">Louise</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Booked our Greece holiday through Jake</h3>
+          <p class="testimonial-quote">"Just booked our Greece holiday through Jake. I gave him the information of what we like and where we were actually looking with a hotel in mind. Not been to the Greek island before, so something new for us both. Jake got back to me with 3 other hotels that he thought matched our criteria. I personally would have chosen his but my sister-in-law prefered our original choice. Anyway we booked through Jake with our original choice and even got it slightly cheaper than it was stating. Jake was helpful and listened and responded in reasonable time. All booked from my cosy sofa. Would definitely book through Jake again."</p>
+          <div class="testimonial-name">Gail</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Fantastic service</h3>
+          <p class="testimonial-quote">"Fantastic service, Jake was so responsive and helpful - it really was nice to communicate with a real person. Really easy booking process, clear info and got exactly what we needed at a great price. Looking forward to a lovely family holiday now!"</p>
+          <div class="testimonial-name">Mrs N</div>
+          <div class="testimonial-source"><a href="https://uk.trustpilot.com/review/travelagentjake.co.uk" target="_blank" rel="noopener">via Trustpilot</a></div>
+        </div>
         <div class="testimonial-card">
           <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <h3>Would definitely recommend his services</h3>
