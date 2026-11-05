@@ -12391,7 +12391,7 @@ dubai_body = f"""
     <h2>What Jake says about Dubai</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1651467606797-e1c660cf3fda?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Burj Khalifa rising above the Downtown Dubai skyline" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
     <p>Dubai is one of the easiest holidays I sell, because it genuinely suits almost everyone. Couples get the beach resorts and the skyline views, families get waterparks and indoor attractions that work even in the heat, and anyone who wants a short, reliable flight with guaranteed sunshine gets exactly that. It's also one of the few long haul destinations where a week doesn't feel rushed, since the flight itself is only around seven hours.</p>
-    <p style="margin-top:14px;">It's currently a TUI only destination for me rather than Jet2holidays or easyJet holidays. Neither of those two flies long haul at the moment, so TUI is the operator I use for every flight and hotel package to Dubai, and it has an enormous range of hotels to choose from, well over three hundred, across every part of the city and every budget.</p>
+    <p style="margin-top:14px;">I book Dubai through several operators, including TUI, Emirates Holidays, Etihad Holidays and Kuoni, and I compare them for every client rather than sticking to one, so you get the best package and price for your dates. Jet2holidays and easyJet holidays do not fly long haul at the moment, so they are not an option here, but there is still an enormous range of hotels to choose from across every part of the city and every budget.</p>
     {jake_tip("First time asking about Dubai? I always ask whether the client wants a beach resort with a pool and private stretch of sand, or a city hotel closer to the Burj Khalifa and Dubai Mall. The two feel like genuinely different holidays, so it's worth deciding early.")}
   </div>
 </section>
@@ -12408,7 +12408,7 @@ dubai_body = f"""
   <div class="wrap">
     <h2>Getting there</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1623638498061-2fcab5587cb0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Dubai's skyline lit up at night" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Direct flights to Dubai International Airport run from London Heathrow, London Gatwick, Manchester, Birmingham, Newcastle and Glasgow, mostly with Emirates, with British Airways also flying from Heathrow. Flight time is around seven hours. TUI, the operator I book Dubai through, includes return flights, transfers and your hotel in one package price, so there's nothing extra to arrange once you land.</p>
+    <p>Direct flights to Dubai International Airport run from London Heathrow, London Gatwick, Manchester, Birmingham, Newcastle and Glasgow, mostly with Emirates, with British Airways also flying from Heathrow. Flight time is around seven hours. A package from one of the operators I book through, such as TUI, includes return flights, transfers and your hotel in one price, so there's nothing extra to arrange once you land.</p>
     {jake_tip("I always check whether a client prefers Dubai International Airport, which sits close to Downtown and Deira, or whether their hotel is out towards the Marina or Palm Jumeirah, since transfer times vary a fair bit depending on where in the city you're staying.")}
   </div>
 </section>
@@ -12505,31 +12505,31 @@ dubai_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, which is currently the only one of my three main operators flying to Dubai.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets. I price each one across the operators I work with, so you are not tied to a single company.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1524234599372-a5bd0194758d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hotel pool overlooking high rise towers in Dubai" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Rove Downtown Dubai</h3>
-        <p>A modern, stylish budget hotel just a short walk from Dubai Mall and the Burj Khalifa, with a rooftop pool and a genuinely good standard of room for the price. A great pick for anyone prioritising location over luxury. Room only or bed and breakfast. Bookable through TUI.</p>
+        <p>A modern, stylish budget hotel just a short walk from Dubai Mall and the Burj Khalifa, with a rooftop pool and a genuinely good standard of room for the price. A great pick for anyone prioritising location over luxury. Room only or bed and breakfast. I can price this one across several operators.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for a central, cultural base</div>
         <img src="https://images.unsplash.com/photo-1555613739-35929bac2d1e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Burj Khalifa Lake in Downtown Dubai" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hyatt Regency Dubai Creek Heights</h3>
-        <p>A smart high rise hotel overlooking Dubai Creek, close to Old Dubai's souks as well as being a short drive from Downtown. A comfortable choice for clients who want a proper hotel feel without needing to be right on the beach. Bed and breakfast. Bookable through TUI.</p>
+        <p>A smart high rise hotel overlooking Dubai Creek, close to Old Dubai's souks as well as being a short drive from Downtown. A comfortable choice for clients who want a proper hotel feel without needing to be right on the beach. Bed and breakfast. I can price this one across several operators.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families &amp; resort facilities</div>
         <img src="https://images.unsplash.com/photo-1586611292717-f828b167408c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers beside a hotel pool in Dubai" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Centara Mirage Beach Resort Dubai</h3>
-        <p>A large family resort on the Marina coastline with its own water park, several pools and a private beach, built with children firmly in mind. The standout choice for families who want plenty to do without ever leaving the hotel. All inclusive available. Bookable through TUI.</p>
+        <p>A large family resort on the Marina coastline with its own water park, several pools and a private beach, built with children firmly in mind. The standout choice for families who want plenty to do without ever leaving the hotel. All inclusive available. I can price this one across several operators.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1468824357306-a439d58ccb1c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A luxury resort pool in the style of Dubai's five star hotels" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Atlantis The Palm</h3>
-        <p>The famous resort at the tip of the Palm, with its own waterpark, aquarium, private beach and some of the best restaurants in the city. The pick for a special occasion, a honeymoon, or simply the biggest, most memorable resort stay Dubai has to offer. Bookable through TUI.</p>
+        <p>The famous resort at the tip of the Palm, with its own waterpark, aquarium, private beach and some of the best restaurants in the city. The pick for a special occasion, a honeymoon, or simply the biggest, most memorable resort stay Dubai has to offer. I can price this one across several operators.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -12544,12 +12544,12 @@ dubai_body = f"""
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1512970648279-ff3398568f77?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Sheikh Zayed Grand Mosque in Abu Dhabi" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Dubai &amp; Abu Dhabi</h3>
-        <p>Around 7 to 10 nights: split between a Dubai base and 2 to 3 nights in Abu Dhabi, home to the Sheikh Zayed Grand Mosque, Louvre Abu Dhabi and Yas Island's theme parks. Abu Dhabi hotels such as Beach Rotana or Yas Island Rotana are bookable through TUI, alongside your Dubai hotel. The drive between the two cities takes around 90 minutes.</p>
+        <p>Around 7 to 10 nights: split between a Dubai base and 2 to 3 nights in Abu Dhabi, home to the Sheikh Zayed Grand Mosque, Louvre Abu Dhabi and Yas Island's theme parks. Abu Dhabi hotels such as Beach Rotana or Yas Island Rotana can be booked alongside your Dubai hotel. The drive between the two cities takes around 90 minutes.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1674335854552-83bf641d2fc6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Mountains in Ras Al Khaimah at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Dubai &amp; Ras Al Khaimah</h3>
-        <p>Around 7 to 10 nights: a few nights in Dubai followed by 3 to 4 nights in the quieter, more dramatic landscape of Ras Al Khaimah, home to Jebel Jais and its world record breaking zipline. RAK hotels such as Rixos Bab Al Bahr or DoubleTree by Hilton Resort and Spa Marjan Island are bookable through TUI. The drive between the two is around 45 to 60 minutes.</p>
+        <p>Around 7 to 10 nights: a few nights in Dubai followed by 3 to 4 nights in the quieter, more dramatic landscape of Ras Al Khaimah, home to Jebel Jais and its world record breaking zipline. RAK hotels such as Rixos Bab Al Bahr or DoubleTree by Hilton Resort and Spa Marjan Island can be booked as part of the trip. The drive between the two is around 45 to 60 minutes.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1677632227880-4d21073ef8f4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Palm Jumeirah seen from a rooftop pool in Dubai" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -12663,10 +12663,10 @@ DUBAI_SCHEMA = article_and_faq_schema(
     "dubai.html",
     "https://images.unsplash.com/photo-1651467606797-e1c660cf3fda?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Dubai package holidays?", "TUI is currently the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that flies to Dubai. Neither Jet2holidays nor easyJet holidays flies long haul at the moment."),
+        ("Which operators do you book Dubai through?", "I book Dubai through several operators, including TUI, Emirates Holidays, Etihad Holidays and Kuoni, and I compare them for every client to find the best package and price for your dates. Jet2holidays and easyJet holidays do not fly long haul at the moment, so they are not an option for Dubai."),
         ("Do I need a visa for Dubai?", "No, UK passport holders get a free visa on arrival in the UAE, allowing stays of up to 90 days within any 180 day period. Your passport does need to be valid for at least 6 months beyond your arrival date."),
         ("What's the best time to visit Dubai?", "November to March is the most comfortable and busiest window, with warm, dry days. April and October are good value shoulder months either side of summer. June to September is extremely hot, the cheapest time to go, and best suited to clients happy to spend more time by the pool or in air conditioning than out sightseeing."),
-        ("Can Dubai be combined with Abu Dhabi or Ras Al Khaimah?", "Yes. I regularly build this as a real, bookable multi centre trip through TUI, splitting a stay between Dubai and Abu Dhabi for the Sheikh Zayed Grand Mosque and Louvre Abu Dhabi, or Dubai and Ras Al Khaimah for its mountains and the world's longest zipline at Jebel Jais."),
+        ("Can Dubai be combined with Abu Dhabi or Ras Al Khaimah?", "Yes. I regularly build this as a real, bookable multi centre trip, splitting a stay between Dubai and Abu Dhabi for the Sheikh Zayed Grand Mosque and Louvre Abu Dhabi, or Dubai and Ras Al Khaimah for its mountains and the world's longest zipline at Jebel Jais."),
         ("Do I need to hire a car in Dubai?", "No, most clients don't need one. Airport and hotel transfers are included in a package holiday, and the Dubai Metro, taxis and ride hailing apps like Careem and Uber easily cover everything else."),
     ]
 )
