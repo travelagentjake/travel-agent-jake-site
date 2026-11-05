@@ -1103,6 +1103,16 @@ BOOKING_POPUPS_SCRIPT = r"""<style>
 
 home_body = home_body.replace("::NEWSLETTER::", newsletter_section(wrap_style="padding-top:44px;"))
 home_body = home_body.replace("::LOGO_CARDS::", LOGO_CARDS_HTML)
+
+_logo_a = home_body.index('<section class="theme-light logos-section">')
+_logo_b = home_body.index('<section class="theme-light" style="padding-top:0;">\n  <div class="wrap">\n    <div class="eyebrow">What customers say</div>')
+SUPPLIER_SECTION = """<section class="theme-light" style="padding-bottom:0;">
+  <div class="wrap" style="text-align:center;">
+    <h2>I compare prices across multiple suppliers.</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 0;">For every destination, I compare prices across several of the suppliers I book with, so you are not limited to one company's price. Send me your dates and I will come back with the best options.</p>
+  </div>
+</section>
+""" + home_body[_logo_a:_logo_b]
 home_body = home_body.replace("::HOW_IT_WORKS::", how_it_works_html(False))
 
 with open(os.path.join(SITE, "index.html"), "w", encoding="utf-8") as f:
@@ -2009,56 +2019,56 @@ DESTINATION_POSTS = [
         "slug": "south-africa.html",
         "meta": "South Africa",
         "title": "South Africa",
-        "excerpt": "Three real TUI tours compared, weather by month, Cape Town, the Garden Route and Kruger, and what it actually costs.",
+        "excerpt": "Three real tours compared, weather by month, Cape Town, the Garden Route and Kruger, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1626894169601-482d26b23f35?auto=format&fit=crop&w=1200&q=80",
     },
     {
         "slug": "lapland-finland.html",
         "meta": "Finnish Lapland",
         "title": "Finnish Lapland",
-        "excerpt": "Rovaniemi, Saariselka and Levi compared, weather by month, real TUI hotels and what a Santa break actually costs.",
+        "excerpt": "Rovaniemi, Saariselka and Levi compared, weather by month, real hotels and what a Santa break actually costs.",
         "image": "https://images.unsplash.com/photo-1528155124528-06c125d81e89?auto=format&fit=crop&w=1200&q=80",
     },
     {
         "slug": "orlando.html",
         "meta": "Orlando, Florida",
         "title": "Orlando, Florida",
-        "excerpt": "Walt Disney World, Universal Orlando Resort and International Drive compared, weather by month, real TUI hotels and what it actually costs.",
+        "excerpt": "Walt Disney World, Universal Orlando Resort and International Drive compared, weather by month, real hotels and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1597466599360-3b9775841aec?auto=format&fit=crop&w=1200&q=80",
     },
     {
         "slug": "japan.html",
         "meta": "Japan",
         "title": "Japan",
-        "excerpt": "How TUI's Discover Japan escorted tour works, weather by month and what a trip through Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto actually costs.",
+        "excerpt": "How an escorted tour of Japan works, weather by month and what a trip through Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto actually costs.",
         "image": "https://images.unsplash.com/photo-1558862107-d49ef2a04d72?auto=format&fit=crop&w=1200&q=80",
     },
     {
         "slug": "china.html",
         "meta": "China",
         "title": "China",
-        "excerpt": "TUI's three real escorted tours compared, from Beijing and the Great Wall to the Yangtze River, Zhangjiajie, Guilin and Hong Kong, weather by month and what it actually costs.",
+        "excerpt": "Three real escorted tours compared, from Beijing and the Great Wall to the Yangtze River, Zhangjiajie, Guilin and Hong Kong, weather by month and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1608037521277-154cd1b89191?auto=format&fit=crop&w=1200&q=80",
     },
     {
         "slug": "canada.html",
         "meta": "Canada",
         "title": "Canada",
-        "excerpt": "TUI's real escorted and self drive Canada tours compared, from Toronto and Niagara Falls to Quebec City, Montreal, Ottawa and the Rockies, weather by month and what it actually costs.",
+        "excerpt": "Real escorted and self drive Canada tours compared, from Toronto and Niagara Falls to Quebec City, Montreal, Ottawa and the Rockies, weather by month and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1507992781348-310259076fe0?auto=format&fit=crop&w=1200&q=80",
     },
     {
         "slug": "las-vegas.html",
         "meta": "Las Vegas",
         "title": "Las Vegas",
-        "excerpt": "The Strip as a standalone city break versus TUI's real Western USA tours, weather by month, and what a trip to Las Vegas actually costs.",
+        "excerpt": "The Strip as a standalone city break versus real Western USA tours, weather by month, and what a trip to Las Vegas actually costs.",
         "image": "https://images.unsplash.com/photo-1600616366660-ba86bf0b3dfc?auto=format&fit=crop&w=1200&q=80",
     },
     {
         "slug": "california.html",
         "meta": "California",
         "title": "California",
-        "excerpt": "The three real TUI tours that cover LA, San Francisco, Yosemite and the desert, weather by month, and what a trip to California actually costs.",
+        "excerpt": "The three real tours that cover LA, San Francisco, Yosemite and the desert, weather by month, and what a trip to California actually costs.",
         "image": "https://images.unsplash.com/photo-1581390114939-946f9a890a7f?auto=format&fit=crop&w=1200&q=80",
     },
     {
@@ -2079,7 +2089,7 @@ DESTINATION_POSTS = [
         "slug": "algarve.html",
         "meta": "Algarve, Portugal",
         "title": "The Algarve, Portugal",
-        "excerpt": "TUI, Jet2holidays and easyJet holidays all serving Faro, the best areas to stay from Albufeira to Quinta do Lago, weather by month, and what a trip to the Algarve actually costs.",
+        "excerpt": "The best areas to stay from Albufeira to Quinta do Lago, weather by month, and what a trip to the Algarve actually costs.",
         "image": "https://images.unsplash.com/photo-1608649944716-228404a0a8bb?auto=format&fit=crop&w=1200&q=80",
     },
     {
@@ -2339,7 +2349,7 @@ cyprus_body = f"""
         <div class="accom-category">Best 4&#9733; hotel</div>
         <img src="images/destinations/mare-paphos.jpg" alt="Mare Paphos" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Mare Paphos</h3>
-        <p>A TUI Blue-branded all-inclusive resort in Kissonerga, close to Coral Bay. A solid choice for families wanting everything sorted and on-site.</p>
+        <p>An all-inclusive resort in Kissonerga, close to Coral Bay. A solid choice for families wanting everything sorted and on-site.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best 5&#9733; hotel</div>
@@ -2426,6 +2436,8 @@ cyprus_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -2503,7 +2515,7 @@ mexico_body = f"""
       </div>
       <div>
         <h2>Getting there</h2>
-        <p style="margin-top:14px;">Cancun International Airport (CUN) is the gateway for this entire stretch of coast, whichever of the three areas you're actually staying in. Direct flights from the UK take around <b>10 hours 30 minutes</b>, operated by carriers including British Airways, Virgin Atlantic and TUI.</p>
+        <p style="margin-top:14px;">Cancun International Airport (CUN) is the gateway for this entire stretch of coast, whichever of the three areas you're actually staying in. Direct flights from the UK take around <b>10 hours 30 minutes</b>, operated by carriers including British Airways and Virgin Atlantic.</p>
         <p style="margin-top:14px;">From the airport, it's roughly 20&ndash;40 minutes to Cancun's Hotel Zone, and around 45 minutes to an hour and a quarter down the coast to Playa del Carmen, with Tulum and the southern Riviera Maya adding another 30&ndash;45 minutes on top of that.</p>
       </div>
     </div>
@@ -2770,6 +2782,8 @@ mexico_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -3034,6 +3048,8 @@ maldives_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -3248,6 +3264,8 @@ disneyland_paris_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -3316,7 +3334,7 @@ turkey_antalya_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Antalya Airport (AYT) has some of the best direct UK links of any Mediterranean destination, with Jet2, TUI, easyJet and Wizz Air among the carriers flying from Gatwick, Luton, Stansted, Manchester, Birmingham, Bristol, Edinburgh, Glasgow and Newcastle, plus several smaller UK airports. Flight time is around 4 to 4.5 hours direct.</p>
+    <p style="margin-top:14px;">Antalya Airport (AYT) has some of the best direct UK links of any Mediterranean destination, with Jet2, easyJet and Wizz Air among the carriers flying from Gatwick, Luton, Stansted, Manchester, Birmingham, Bristol, Edinburgh, Glasgow and Newcastle, plus several smaller UK airports. Flight time is around 4 to 4.5 hours direct.</p>
     <p style="margin-top:14px;">Transfer time from the airport varies a lot depending on which area you pick. Lara is the closest at around 20 minutes, Belek is around 35 to 40 minutes, Side and Kemer are about an hour, and Alanya is the outlier at over two hours. It's worth checking transfer time before you book, not just flight time.</p>
     {jake_tip("If a short transfer matters to you, Lara and Belek are the easiest options. Alanya has the best nightlife on this coast, but budget for over two hours each way from the airport.")}
   </div>
@@ -3413,31 +3431,31 @@ turkey_antalya_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1627448449276-8c139d0790a6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Alaiye Kleopatra Hotel area, Alanya" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Alaiye Kleopatra Hotel, Alanya</h3>
-        <p>A well located, good value 4&#9733; all-inclusive directly across from Kleopatra Beach in Alanya town, an easy walk to the castle and the bars and shops along the front. Bookable through TUI and easyJet holidays.</p>
+        <p>A well located, good value 4&#9733; all-inclusive directly across from Kleopatra Beach in Alanya town, an easy walk to the castle and the bars and shops along the front.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1663574628942-185e70b69cff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Side Star Resort area, Side" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Side Star Resort, Side</h3>
-        <p>A beachfront 5&#9733; all-inclusive with direct beach access, three outdoor pools plus an indoor pool and waterslides, six restaurants and a strong kids' offer including a playroom, splash pad and adventure park. Bookable through Jet2holidays and easyJet holidays.</p>
+        <p>A beachfront 5&#9733; all-inclusive with direct beach access, three outdoor pools plus an indoor pool and waterslides, six restaurants and a strong kids' offer including a playroom, splash pad and adventure park. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best 5&#9733; all-inclusive</div>
         <img src="https://images.unsplash.com/photo-1543489822-c49534f3271f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Lara Barut Collection area, Lara" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Lara Barut Collection, Lara</h3>
-        <p>A beachfront 5&#9733; Ultra All Inclusive on the Lara coast, with six pools including adults-only options, nine a la carte restaurants included in the rate, an aquapark and a full spa. Bookable through Jet2holidays and easyJet holidays.</p>
+        <p>A beachfront 5&#9733; Ultra All Inclusive on the Lara coast, with six pools including adults-only options, nine a la carte restaurants included in the rate, an aquapark and a full spa.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Maxx Royal Belek Golf Resort area, Belek" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Maxx Royal Belek Golf Resort, Belek</h3>
-        <p>A design led all-inclusive resort on its own private beach in Belek's golf district, with easy access to championship courses, multiple pools and fine dining. Bookable through TUI and Jet2holidays.</p>
+        <p>A design led all-inclusive resort on its own private beach in Belek's golf district, with easy access to championship courses, multiple pools and fine dining. Ask me and I will quote this one for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -3523,6 +3541,8 @@ turkey_antalya_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -3590,7 +3610,7 @@ turkey_dalaman_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Dalaman Airport (DLM) has direct flights from a wide spread of UK airports, with Jet2, TUI, easyJet, SunExpress and Wizz Air among the airlines flying from Gatwick, Heathrow, Luton, Stansted, Manchester, Birmingham, Bristol, Edinburgh, Glasgow, Newcastle and several smaller regional airports. Flight time is around 4 to 4.75 hours direct depending on where you fly from, shortest from London and the south.</p>
+    <p style="margin-top:14px;">Dalaman Airport (DLM) has direct flights from a wide spread of UK airports, with Jet2, easyJet, SunExpress and Wizz Air among the airlines flying from Gatwick, Heathrow, Luton, Stansted, Manchester, Birmingham, Bristol, Edinburgh, Glasgow, Newcastle and several smaller regional airports. Flight time is around 4 to 4.75 hours direct depending on where you fly from, shortest from London and the south.</p>
     <p style="margin-top:14px;">Transfer time from the airport depends a lot on which resort you pick. Dalyan and Sarigerme are the closest at around 30 minutes, Gocek is similar, Fethiye is around 50 to 60 minutes, Oludeniz around 70 to 90 minutes, and Marmaris and Icmeler are the furthest at around 90 minutes, sometimes up to two hours in peak summer traffic.</p>
     {jake_tip("If a short transfer matters most, look at Dalyan, Sarigerme or Gocek. If you want the liveliest resort strip and don't mind the extra time in the transfer coach, Marmaris and Icmeler are worth the trade off.")}
   </div>
@@ -3629,7 +3649,7 @@ turkey_dalaman_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Best time to visit</h2>
-    <p style="margin-top:14px;">May to October is the season most hotels here operate to, and it's when TUI's own guidance points holidaymakers towards. June to August is the hottest and busiest stretch, with temperatures regularly in the low to mid 30s and the highest prices of the year. Late April, May and September to October are the best value windows, with warm, swimmable sea, comfortable daytime heat and noticeably lower prices than peak summer. Winter is effectively out of season for a beach holiday, since the majority of all-inclusive hotels here close between roughly November and April.</p>
+    <p style="margin-top:14px;">May to October is the season most hotels here operate to. June to August is the hottest and busiest stretch, with temperatures regularly in the low to mid 30s and the highest prices of the year. Late April, May and September to October are the best value windows, with warm, swimmable sea, comfortable daytime heat and noticeably lower prices than peak summer. Winter is effectively out of season for a beach holiday, since the majority of all-inclusive hotels here close between roughly November and April.</p>
   </div>
 </section>
 
@@ -3697,31 +3717,31 @@ turkey_dalaman_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1700992401651-1d299af8afe6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Marmaris town area, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Oasis Hotel, Marmaris</h3>
-        <p>A simple, well located budget base around 100m from the beach and 700m from Marmaris's shops, bars and restaurants, with an outdoor pool and kids' pool section, an a la carte restaurant and a pool bar. The operator doesn't publish an official star rating, so treat it as a solid economy pick rather than a resort-style stay. Bookable through Jet2holidays on a bed and breakfast basis.</p>
+        <p>A simple, well located budget base around 100m from the beach and 700m from Marmaris's shops, bars and restaurants, with an outdoor pool and kids' pool section, an a la carte restaurant and a pool bar. There is no official star rating published for it, so treat it as a solid economy pick rather than a resort-style stay. Rooms are on a bed and breakfast basis.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort pool area, Oludeniz" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Oludeniz Beach Resort by Z Hotels, Oludeniz</h3>
-        <p>An all-inclusive resort just 50m from the beach and a short walk from the centre of Oludeniz, with three outdoor pools including a children's pool, three restaurants, three bars and a Turkish hammam. Trades on Oludeniz's Blue Lagoon and mountain backdrop while staying close to the action. Bookable through Jet2holidays.</p>
+        <p>An all-inclusive resort just 50m from the beach and a short walk from the centre of Oludeniz, with three outdoor pools including a children's pool, three restaurants, three bars and a Turkish hammam. Trades on Oludeniz's Blue Lagoon and mountain backdrop while staying close to the action. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best 5&#9733; all-inclusive</div>
         <img src="https://images.unsplash.com/photo-1534612899740-55c821a90129?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort pool area, Icmeler" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Grand Yazici Club Marmaris Palace, Icmeler</h3>
-        <p>A beachfront 5&#9733; all-inclusive set in pine forest along around 600m of the Icmeler shoreline, with four outdoor pools plus indoor pools, five restaurants covering Italian, Turkish, Asian and seafood, nine bars, a proper kids' club for ages 4 to 12, a water park and evening entertainment. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A beachfront 5&#9733; all-inclusive set in pine forest along around 600m of the Icmeler shoreline, with four outdoor pools plus indoor pools, five restaurants covering Italian, Turkish, Asian and seafood, nine bars, a proper kids' club for ages 4 to 12, a water park and evening entertainment.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1557034362-d9b6856e4cab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Private beach club area, Fethiye" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hillside Beach Club, Fethiye</h3>
-        <p>A well known, design led resort on its own private bay near Fethiye with four private beaches, two outdoor pools, three restaurants including two a la carte options, seven bars and a full spa. On a Full Board Plus basis, around 1 hour 45 from the airport. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A well known, design led resort on its own private bay near Fethiye with four private beaches, two outdoor pools, three restaurants including two a la carte options, seven bars and a full spa. On a Full Board Plus basis, around 1 hour 45 from the airport. Ask me and I will quote this one for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -3807,6 +3827,8 @@ turkey_dalaman_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -3875,7 +3897,7 @@ turkey_bodrum_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Milas-Bodrum Airport (BJV) has direct flights from a wide spread of UK airports. easyJet flies from Bristol, Liverpool, Gatwick, Luton and Manchester, Jet2 flies from Birmingham, Bristol, East Midlands, Edinburgh, Glasgow, Leeds Bradford, Liverpool, Stansted, Manchester and Newcastle, British Airways flies from Heathrow, and Ryanair flies from Stansted, alongside TUI's seasonal charter routes. Flight time is around 4 to 4.75 hours direct depending on where you fly from, shortest from London and the south.</p>
+    <p style="margin-top:14px;">Milas-Bodrum Airport (BJV) has direct flights from a wide spread of UK airports. easyJet flies from Bristol, Liverpool, Gatwick, Luton and Manchester, Jet2 flies from Birmingham, Bristol, East Midlands, Edinburgh, Glasgow, Leeds Bradford, Liverpool, Stansted, Manchester and Newcastle, British Airways flies from Heathrow, and Ryanair flies from Stansted. Flight time is around 4 to 4.75 hours direct depending on where you fly from, shortest from London and the south.</p>
     <p style="margin-top:14px;">The airport sits around 36km northeast of Bodrum town, roughly a 40 to 45 minute drive. From there, Torba is the closest resort area at around 35 to 40 minutes, Bodrum town and Gumbet are around 45 to 55 minutes, Bitez is similar to Gumbet, and Turgutreis, Yalikavak, Gundogan and Golturkbuku on the far side of the peninsula are further out, typically 70 to 85 minutes depending on traffic.</p>
     {jake_tip("If a short transfer matters most, look at Torba. If you want the widest choice of restaurants and nightlife within walking distance, Bodrum town or Gumbet are worth the slightly longer ride from the airport.")}
   </div>
@@ -3982,31 +4004,31 @@ turkey_bodrum_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1694683778210-a6518cd8af34?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hotel pool surrounded by palm trees, Bodrum" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Bodrum Holiday Resort &amp; Spa</h3>
-        <p>A spacious beachfront all-inclusive around 6km from Bodrum's shops and restaurants, with two outdoor pools including a children's section, an indoor pool, an aqua park with waterslides, three restaurants and six bars. A mini club, Turkish hammam, gym and tennis and basketball courts round it out. Bookable through Jet2holidays and easyJet holidays on an All Inclusive basis.</p>
+        <p>A spacious beachfront all-inclusive around 6km from Bodrum's shops and restaurants, with two outdoor pools including a children's section, an indoor pool, an aqua park with waterslides, three restaurants and six bars. A mini club, Turkish hammam, gym and tennis and basketball courts round it out. Offered on an All Inclusive basis.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1738780154127-497b8d9dfb99?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort swimming pool with a waterslide" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Labranda TMT Bodrum Resort</h3>
-        <p>A large all-inclusive resort in Kumbahce, right in central Bodrum on the site of the ancient city of Halicarnassus, with multiple pools and water slides, direct beach access, eight dining venues including an all-day buffet and specialty Italian and Asian restaurants, plus a Turkish hammam and fitness centre across 328 rooms. Bookable through Jet2holidays and easyJet holidays.</p>
+        <p>A large all-inclusive resort in Kumbahce, right in central Bodrum on the site of the ancient city of Halicarnassus, with multiple pools and water slides, direct beach access, eight dining venues including an all-day buffet and specialty Italian and Asian restaurants, plus a Turkish hammam and fitness centre across 328 rooms. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best 5&#9733; all-inclusive, adults only</div>
         <img src="https://images.unsplash.com/photo-1663574628942-185e70b69cff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="All inclusive resort pool, Turkey" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:18px;">TUI MAGIC LIFE Bodrum</h3>
-        <p>An adults only (16 plus) 5&#9733; all-inclusive on the coast around 6km from Bodrum town, with three pools including an infinity pool, direct beach access, five restaurants and five bars, a full spa with hammam, and watersports such as windsurfing, canoeing and stand up paddling included. Daily entertainment and a disco several nights a week. Bookable directly through TUI.</p>
+        <h3 style="font-size:18px;">MAGIC LIFE Bodrum</h3>
+        <p>An adults only (16 plus) 5&#9733; all-inclusive on the coast around 6km from Bodrum town, with three pools including an infinity pool, direct beach access, five restaurants and five bars, a full spa with hammam, and watersports such as windsurfing, canoeing and stand up paddling included. Daily entertainment and a disco several nights a week. Happy to put a price together for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1736618625396-571234ade4d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Infinity pool at sunset, luxury resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Caresse, a Luxury Collection Resort &amp; Spa</h3>
-        <p>An 84 room 5&#9733; resort in Bitez with a private white sand beach, indoor and outdoor pools including a sea view infinity pool, multiple dining venues from a beach club to a pizza bar, and the 1,600 square metre Spa Caresse. On the higher end of what Bodrum offers. Bookable through easyJet holidays.</p>
+        <p>An 84 room 5&#9733; resort in Bitez with a private white sand beach, indoor and outdoor pools including a sea view infinity pool, multiple dining venues from a beach club to a pizza bar, and the 1,600 square metre Spa Caresse. On the higher end of what Bodrum offers. I can check availability for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -4091,6 +4113,8 @@ turkey_bodrum_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -4159,7 +4183,7 @@ majorca_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Palma de Mallorca Airport (PMI) is one of the best connected airports in the Mediterranean from the UK. easyJet, Jet2, TUI and British Airways all operate direct routes from a wide spread of UK airports, and Ryanair adds further options from regional airports too, so departure choice is rarely the problem here. Flight time is typically around 2 to 2.75 hours depending on where you fly from, among the shortest of any typical UK package holiday destination.</p>
+    <p style="margin-top:14px;">Palma de Mallorca Airport (PMI) is one of the best connected airports in the Mediterranean from the UK. easyJet, Jet2 and British Airways all operate direct routes from a wide spread of UK airports, and Ryanair adds further options from regional airports too, so departure choice is rarely the problem here. Flight time is typically around 2 to 2.75 hours depending on where you fly from, among the shortest of any typical UK package holiday destination.</p>
     <p style="margin-top:14px;">The airport sits just south east of Palma, and transfer times vary a lot depending on which coast you're heading to. Playa de Palma is the closest resort area at around 15 to 20 minutes, Magaluf and Palma Nova are around 25 to 30 minutes, Alcudia and Playa de Muro on the north coast are around 45 to 50 minutes, Port de Soller in the northwest is a similar 45 minutes or so via the Soller tunnel, Cala d'Or in the southeast is around 55 to 60 minutes, and Cala Millor and Cala Bona on the east coast are the furthest out at around 70 to 80 minutes.</p>
     {jake_tip("Flying into Palma for a short city break? You can be checked into your hotel and out exploring the cathedral within half an hour of landing, which makes it a genuinely easy long weekend option.")}
   </div>
@@ -4266,31 +4290,31 @@ majorca_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1623718649591-311775a30c43?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort swimming pool with palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Globales Palmanova</h3>
-        <p>A straightforward, well located all-inclusive around 230m from Palma Nova's centre and 250m from the beach, with two outdoor pools including a children's pool, a kids' club, a playground, an adults only VIP terrace with hot tubs, and a buffet restaurant plus two bars. A solid, no-frills base for exploring the west coast. Bookable through Jet2holidays.</p>
+        <p>A straightforward, well located all-inclusive around 230m from Palma Nova's centre and 250m from the beach, with two outdoor pools including a children's pool, a kids' club, a playground, an adults only VIP terrace with hot tubs, and a buffet restaurant plus two bars. A solid, no-frills base for exploring the west coast. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1600011689032-8b628b8a8747?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort swimming pool near palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Club Mac Alcudia Resort &amp; Waterpark</h3>
-        <p>A large all-inclusive complex of three hotels on Alcudia's north coast, a seven minute walk from the beach, with eight outdoor pools, splash park, kids' and teens' clubs, three buffet restaurants and unlimited entry to the neighbouring Hidropark waterpark with its twenty water slides. One of the biggest family resorts on the island. Bookable through easyJet holidays and Jet2holidays.</p>
+        <p>A large all-inclusive complex of three hotels on Alcudia's north coast, a seven minute walk from the beach, with eight outdoor pools, splash park, kids' and teens' clubs, three buffet restaurants and unlimited entry to the neighbouring Hidropark waterpark with its twenty water slides. One of the biggest family resorts on the island. Ask me for current prices on this one.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best adults only</div>
         <img src="https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Adults only hotel pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:18px;">TUI BLUE Levante</h3>
-        <p>A 4&#9733; adults only (16 plus) hotel in Cala Bona on the east coast, with two pools including a heated indoor adults only pool, a spa with sauna and steam bath, two restaurants, a snack bar, live entertainment through the season, and beach access just metres away. Half board as standard. Bookable directly through TUI.</p>
+        <h3 style="font-size:18px;">BLUE Levante</h3>
+        <p>A 4&#9733; adults only (16 plus) hotel in Cala Bona on the east coast, with two pools including a heated indoor adults only pool, a spa with sauna and steam bath, two restaurants, a snack bar, live entertainment through the season, and beach access just metres away. Half board as standard. Happy to price this one up for your dates.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1783442619815-943376e2ac6c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Elegant cliffside infinity pool at twilight" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hotel Hospes Maricel &amp; Spa</h3>
-        <p>A 5&#9733; boutique hotel in Cala Mayor converted from a 16th century mansion, with an outdoor freshwater pool, indoor pool, full spa, an &agrave; la carte restaurant and direct sea access via steps down to the water. One of the more genuinely special places to stay on the island. Bookable through Jet2holidays and easyJet holidays.</p>
+        <p>A 5&#9733; boutique hotel in Cala Mayor converted from a 16th century mansion, with an outdoor freshwater pool, indoor pool, full spa, an &agrave; la carte restaurant and direct sea access via steps down to the water. One of the more genuinely special places to stay on the island. I can compare dates and prices on this one for you.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -4375,6 +4399,8 @@ majorca_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -4443,7 +4469,7 @@ menorca_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Menorca Airport (MAH), near Mahon, is well served from the UK through the summer season, with easyJet, Jet2, TUI and British Airways all operating direct routes from a range of UK airports. Flight time is typically around 2.25 to 2.75 hours depending on where you fly from.</p>
+    <p style="margin-top:14px;">Menorca Airport (MAH), near Mahon, is well served from the UK through the summer season, with easyJet, Jet2 and British Airways all operating direct routes from a range of UK airports. Flight time is typically around 2.25 to 2.75 hours depending on where you fly from.</p>
     <p style="margin-top:14px;">Transfer times vary depending on which coast you're heading to. Mahon town and nearby Es Castell are the closest to the airport at around 10 to 15 minutes. The south coast resorts of Son Bou and Punta Prima sit a good deal closer to the airport than the island's western end. Cala Galdana and the Ciutadella area, including Cala'n Bosch and Son Xoriguer, are the furthest out, at around 45 to 60 minutes. The north coast resorts of Fornells and Arenal d'en Castell sit somewhere in between, closer to an hour than to fifteen minutes.</p>
     {jake_tip("Menorca is small enough that even the longest transfer isn't a big deal, but if a short transfer really matters to you, Mahon, Es Castell or Punta Prima will get you to your sun lounger fastest.")}
   </div>
@@ -4550,31 +4576,31 @@ menorca_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1699086062891-d489d4509330?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort swimming pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Grupotel Club Menorca</h3>
-        <p>A relaxed, apartment style hotel in Cala'n Bosch, around ten minutes' walk from the beaches of Son Xoriguer and Cala'n Bosch, with a split level pool, children's swimming lessons, a kids' club and playground, tennis and padel courts, and a buffet restaurant and snack bar. Rooms come with kitchenettes and balconies. Bookable through easyJet holidays.</p>
+        <p>A relaxed, apartment style hotel in Cala'n Bosch, around ten minutes' walk from the beaches of Son Xoriguer and Cala'n Bosch, with a split level pool, children's swimming lessons, a kids' club and playground, tennis and padel courts, and a buffet restaurant and snack bar. Rooms come with kitchenettes and balconies.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1772146775507-4df2400b9efd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort playground and pool area surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Palladium Hotel Menorca</h3>
-        <p>A 4&#9733; all inclusive hotel in Arenal d'en Castell on the north coast, around 300m from the beach with a shuttle bus laid on, three outdoor pools including a children's pool and an adults only pool, three bars, a buffet restaurant with show cooking, and a splash pool and playroom for younger kids. Bookable through TUI and Jet2holidays.</p>
+        <p>A 4&#9733; all inclusive hotel in Arenal d'en Castell on the north coast, around 300m from the beach with a shuttle bus laid on, three outdoor pools including a children's pool and an adults only pool, three bars, a buffet restaurant with show cooking, and a splash pool and playroom for younger kids.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best adults only</div>
         <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Blue swimming pool at an adults only hotel" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Barcelo Hamilton Menorca</h3>
-        <p>A 4&#9733; adults only hotel in Es Castell, close to Mahon and the pretty Cales Fonts harbour, with indoor and outdoor pools, a spa, three bars, a buffet restaurant serving international and Spanish cuisine, and a rooftop terrace with panoramic views. Bookable through Jet2holidays, TUI and easyJet holidays.</p>
+        <p>A 4&#9733; adults only hotel in Es Castell, close to Mahon and the pretty Cales Fonts harbour, with indoor and outdoor pools, a spa, three bars, a buffet restaurant serving international and Spanish cuisine, and a rooftop terrace with panoramic views. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1755597037530-60d9ca3b9879?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hotel pool with sun loungers overlooking the sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Melia Cala Galdana</h3>
-        <p>A 5&#9733; hotel with direct access to Cala Galdana beach, two outdoor pools including one adults only, four restaurants, a spa, gym and kids' club, plus interconnecting family rooms and an optional Level upgrade for travellers after a more grown up stay. Bookable through Jet2holidays and TUI.</p>
+        <p>A 5&#9733; hotel with direct access to Cala Galdana beach, two outdoor pools including one adults only, four restaurants, a spa, gym and kids' club, plus interconnecting family rooms and an optional Level upgrade for travellers after a more grown up stay.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -4659,6 +4685,8 @@ menorca_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -4728,7 +4756,7 @@ tenerife_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Tenerife has two airports, and which one you land at makes a real difference to your transfer time. Tenerife South Airport (TFS) is the main airport for UK holiday flights and the one almost all package holidays use, with easyJet, Jet2, TUI, Ryanair and British Airways all flying direct from a wide range of UK airports. Flight time is typically around four to four and a half hours depending on where you fly from.</p>
+    <p style="margin-top:14px;">Tenerife has two airports, and which one you land at makes a real difference to your transfer time. Tenerife South Airport (TFS) is the main airport for UK holiday flights and the one almost all package holidays use, with easyJet, Jet2, Ryanair and British Airways all flying direct from a wide range of UK airports. Flight time is typically around four to four and a half hours depending on where you fly from.</p>
     <p style="margin-top:14px;">From TFS, the main southern resorts of Costa Adeje, Los Cristianos and Playa de las Americas are close, at around 15 to 45 minutes by road. Golf del Sur and San Miguel de Abona are similarly quick. Puerto de la Cruz and the rest of the north coast are much further from TFS, at around 60 to 90 minutes, because the airport sits on the drier southern side of the island. Tenerife North Airport (TFN), near Santa Cruz, is used by far fewer UK flights but is the better option if a north coast stay is your priority, cutting that transfer down to around 15 to 35 minutes.</p>
     {jake_tip("If you're booking a package to Costa Adeje, Los Cristianos or Playa de las Americas, you'll almost certainly fly into TFS and the transfer is short. Only worry about which airport you land at if you're heading to Puerto de la Cruz or the north coast specifically.")}
   </div>
@@ -4830,31 +4858,31 @@ tenerife_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Lounge chairs by a pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Parque Del Sol</h3>
-        <p>A 3&#9733; apartment style hotel in Costa Adeje, a short walk from the beach and the Adeje coast's shops and restaurants, with two outdoor pools, sun terraces and self catering studios and apartments. A solid, no frills base for anyone happy to eat out and explore rather than stay all inclusive. Bookable through TUI and easyJet holidays.</p>
+        <p>A 3&#9733; apartment style hotel in Costa Adeje, a short walk from the beach and the Adeje coast's shops and restaurants, with two outdoor pools, sun terraces and self catering studios and apartments. A solid, no frills base for anyone happy to eat out and explore rather than stay all inclusive.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1727994962758-ac74defe0bb9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Water slide next to a resort swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">HOVIMA La Pinta Beachfront Family Hotel</h3>
-        <p>A 4&#9733; beachfront hotel right on the seafront in Costa Adeje, with direct access to La Pinta beach, an outdoor pool with waterslides, a kids' club, mini golf and entertainment laid on throughout the day. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A 4&#9733; beachfront hotel right on the seafront in Costa Adeje, with direct access to La Pinta beach, an outdoor pool with waterslides, a kids' club, mini golf and entertainment laid on throughout the day. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for the north coast</div>
         <img src="https://images.unsplash.com/photo-1654363539422-76c4e6b93b3d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset by a hotel pool in Puerto de la Cruz, Tenerife" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">H10 Tenerife Playa</h3>
-        <p>A 4&#9733; hotel right on the black sand Playa Martianez in Puerto de la Cruz, with an outdoor pool, spa, gym and easy walking distance into the old town and Loro Parque. The pick for anyone basing themselves on the north coast rather than the south. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A 4&#9733; hotel right on the black sand Playa Martianez in Puerto de la Cruz, with an outdoor pool, spa, gym and easy walking distance into the old town and Loro Parque. The pick for anyone basing themselves on the north coast rather than the south.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury &amp; adults only</div>
         <img src="https://images.unsplash.com/photo-1769149255670-aa0ad6428dd6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort swimming pool overlooking the ocean and beach" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Royal Hideaway Corales Beach, Adults Only</h3>
-        <p>A 5&#9733; adults only hotel in La Caleta, Costa Adeje, with three infinity pools facing straight out to sea, several restaurants including a Michelin starred option, a large spa and direct access to a quiet stretch of coastline. One of the smartest addresses on the island. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A 5&#9733; adults only hotel in La Caleta, Costa Adeje, with three infinity pools facing straight out to sea, several restaurants including a Michelin starred option, a large spa and direct access to a quiet stretch of coastline. One of the smartest addresses on the island. Ask me and I will quote this one for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -4939,6 +4967,8 @@ tenerife_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -5007,7 +5037,7 @@ gran_canaria_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Gran Canaria has one airport, Gran Canaria Airport (LPA), on the east coast between Las Palmas and the southern resorts. easyJet, Jet2, TUI, Ryanair and British Airways all fly direct from a wide range of UK airports, with flight time typically around four to four and a half hours depending on where you fly from.</p>
+    <p style="margin-top:14px;">Gran Canaria has one airport, Gran Canaria Airport (LPA), on the east coast between Las Palmas and the southern resorts. easyJet, Jet2, Ryanair and British Airways all fly direct from a wide range of UK airports, with flight time typically around four to four and a half hours depending on where you fly from.</p>
     <p style="margin-top:14px;">From LPA, Maspalomas and Playa del Ingles are around 25 minutes by road, and Puerto Rico is around 35 minutes. Puerto de Mogan, further along the south west coast, is around 50 minutes. Las Palmas, at the other end of the island, is the closest resort area to the airport at around 20 minutes.</p>
     {jake_tip("If your client is booking Maspalomas, Playa del Ingles or Puerto Rico, the transfer is short and simple. Puerto de Mogan is further, so factor that into how much of the first evening you actually want to lose to a transfer.")}
   </div>
@@ -5109,31 +5139,31 @@ gran_canaria_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1594433575301-cf59b8ada6b1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Pool at a budget friendly apartment complex" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">El Palmar</h3>
-        <p>Budget friendly self catering apartments in Playa del Ingles, a short walk from the resort centre and the beach, with an outdoor pool, a children's pool area and a rooftop terrace. A solid, no frills base for anyone happy to eat out and explore rather than stay all inclusive. Bookable through Jet2holidays.</p>
+        <p>Budget friendly self catering apartments in Playa del Ingles, a short walk from the resort centre and the beach, with an outdoor pool, a children's pool area and a rooftop terrace. A solid, no frills base for anyone happy to eat out and explore rather than stay all inclusive. Ask me and I will price it up for your dates.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1638297184082-bd7fe6081c82?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Family swimming pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Servatur Puerto Azul</h3>
-        <p>A hilltop hotel in Puerto Rico with five outdoor pools including a children's pool, a splash park, a kids' club and playroom, plus two adults only pools for some peace and quiet. A genuine all rounder for families who still want a bit of space to themselves. Bookable through Jet2holidays and easyJet holidays.</p>
+        <p>A hilltop hotel in Puerto Rico with five outdoor pools including a children's pool, a splash park, a kids' club and playroom, plus two adults only pools for some peace and quiet. A genuine all rounder for families who still want a bit of space to themselves. Happy to price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for couples, adults only</div>
         <img src="https://images.unsplash.com/photo-1597390871277-666712598c1d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Adults only hotel pool with sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Nayra, Adults Only</h3>
-        <p>A stylish adults only hotel in Playa del Ingles, close to the Yumbo Centre and within walking distance of the Maspalomas dunes and beach, with a pool, sun loungers, a wellness area with sauna, and a gym. A relaxed, grown up base for couples who still want to be near the action. Bookable through easyJet holidays.</p>
+        <p>A stylish adults only hotel in Playa del Ingles, close to the Yumbo Centre and within walking distance of the Maspalomas dunes and beach, with a pool, sun loungers, a wellness area with sauna, and a gym. A relaxed, grown up base for couples who still want to be near the action. I can check availability for your dates.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1783599677031-29a65dc9bce0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Large luxury resort pool complex" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Lopesan Costa Meloneras Resort &amp; Spa</h3>
-        <p>A five star resort in Meloneras, right on the coast next to Maspalomas, with a lake style infinity pool, an extensive spa with a Himalayan salt cave and flotation pool, a casino and several restaurants. One of the smartest, most complete addresses on the island. Bookable through TUI and Jet2holidays.</p>
+        <p>A five star resort in Meloneras, right on the coast next to Maspalomas, with a lake style infinity pool, an extensive spa with a Himalayan salt cave and flotation pool, a casino and several restaurants. One of the smartest, most complete addresses on the island. I can price this one up for you.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -5218,6 +5248,8 @@ gran_canaria_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -5286,7 +5318,7 @@ lanzarote_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Lanzarote has one main airport, Lanzarote Airport (ACE), a few miles south of the capital, Arrecife, and close to most of the island's resorts. It is well served from the UK, with direct flights on easyJet, Jet2 and TUI among others, and flight time is typically around four to four and a half hours depending on where you fly from.</p>
+    <p style="margin-top:14px;">Lanzarote has one main airport, Lanzarote Airport (ACE), a few miles south of the capital, Arrecife, and close to most of the island's resorts. It is well served from the UK, with direct flights on easyJet and Jet2 among others, and flight time is typically around four to four and a half hours depending on where you fly from.</p>
     <p style="margin-top:14px;">Transfer times from the airport are short compared to some of the other Canary Islands. Puerto del Carmen and Costa Teguise are both around 10 to 15 minutes away, and Puerto Calero, just along the coast from Puerto del Carmen, is a similarly quick run. Playa Blanca, in the south of the island, takes longer at around 30 to 40 minutes. Famara, on the northwest coast, is the furthest of the resorts covered here, so allow closer to 45 minutes.</p>
     {jake_tip("Puerto del Carmen and Costa Teguise are the two resorts with the shortest transfer, which is worth knowing if you are booking a short notice deal and want to keep travel time to a minimum.")}
   </div>
@@ -5388,31 +5420,31 @@ lanzarote_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1569076635411-9b06466c06e7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Outdoor hotel pool under a clear sky" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hotel Lanzarote Village</h3>
-        <p>A 4&#9733; hotel in Playa de los Pocillos, part of Puerto del Carmen, around 100 metres from the beach with an outdoor pool that includes a children's section and whirlpool, plus a bar and buffet restaurant. A solid, straightforward base close to the resort's shops and restaurants. Bookable through Jet2holidays.</p>
+        <p>A 4&#9733; hotel in Playa de los Pocillos, part of Puerto del Carmen, around 100 metres from the beach with an outdoor pool that includes a children's section and whirlpool, plus a bar and buffet restaurant. A solid, simple base close to the resort's shops and restaurants. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1673746214924-6ccd171a2c17?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Swimming pool surrounded by palm trees at a family resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:18px;">TUI BLUE Flamingo Beach</h3>
-        <p>An all-inclusive apartment resort in Playa Blanca, a short stroll from the beach, with three outdoor pools including a children's pool and splash pool, an indoor pool, and kids' clubs running six days a week for ages 0 to 17. Spacious one to three bedroom apartments with kitchenettes suit larger families well. Bookable through TUI.</p>
+        <h3 style="font-size:18px;">Flamingo Beach</h3>
+        <p>An all-inclusive apartment resort in Playa Blanca, a short stroll from the beach, with three outdoor pools including a children's pool and splash pool, an indoor pool, and kids' clubs running six days a week for ages 0 to 17. Spacious one to three bedroom apartments with kitchenettes suit larger families well.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for Costa Teguise</div>
         <img src="https://images.unsplash.com/photo-1682293850731-5c7094d4052b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort swimming pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Radisson Blu Resort, Lanzarote</h3>
-        <p>A 4&#9733; hotel right on the seafront in Costa Teguise, with several outdoor pools including an infinity pool, two heated pools, a spa with sauna and massage treatments, and an international buffet restaurant plus an a la carte Italian option. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A 4&#9733; hotel right on the seafront in Costa Teguise, with several outdoor pools including an infinity pool, two heated pools, a spa with sauna and massage treatments, and an international buffet restaurant plus an a la carte Italian option.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury &amp; adults only</div>
         <img src="https://images.unsplash.com/photo-1719221253506-57f70fadfd0d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of a resort infinity pool overlooking the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Barcelo Playa Blanca Royal Level, Adults Only</h3>
-        <p>A 4&#9733; adults only hotel right on the beachfront in Playa Blanca, near Marina Rubicon, with a large heated infinity pool, a full spa with a water circuit, sauna and Turkish bath, and several restaurants covering Canarian, Mediterranean and international menus. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A 4&#9733; adults only hotel right on the beachfront in Playa Blanca, near Marina Rubicon, with a large heated infinity pool, a full spa with a water circuit, sauna and Turkish bath, and several restaurants covering Canarian, Mediterranean and international menus. Ask me and I will quote this one for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -5497,6 +5529,8 @@ lanzarote_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -5566,7 +5600,7 @@ malta_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Malta has one airport, Malta International Airport (MLA), near Luqa towards the south of the island, and because Malta is so small it's genuinely close to every resort area. Direct flights run from a wide range of UK airports on easyJet, Ryanair, TUI and Jet2, with a flight time of around three to three and a half hours.</p>
+    <p style="margin-top:14px;">Malta has one airport, Malta International Airport (MLA), near Luqa towards the south of the island, and because Malta is so small it's genuinely close to every resort area. Direct flights run from a wide range of UK airports on easyJet, Ryanair and Jet2, with a flight time of around three to three and a half hours.</p>
     <p style="margin-top:14px;">Transfer times are short by holiday standards. Valletta is around 20 to 25 minutes from the airport, Sliema and St Julian's around 25 to 30 minutes, Qawra, Bugibba and St Paul's Bay around 30 to 40 minutes, and Mellieha Bay in the north of the island is the furthest out at around 45 minutes to an hour, more if you hit traffic around Valletta or Sliema at peak times.</p>
     {jake_tip("Malta's roads get properly congested around Sliema, St Julian's and Valletta at rush hour. If your transfer or taxi is booked for late afternoon, build in a bit of extra time.")}
   </div>
@@ -5664,31 +5698,31 @@ malta_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Seafront hotel pool area" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Qawra Palace Resort &amp; Spa</h3>
-        <p>A 4&#9733; seafront hotel in Qawra overlooking Salina Bay, with three outdoor pools including an adults-only infinity pool and a saltwater pool with a children's section, an indoor heated pool, a spa, and a kids' club for ages 5 to 10. A solid, straightforward base close to the resort strip's restaurants and shops. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A 4&#9733; seafront hotel in Qawra overlooking Salina Bay, with three outdoor pools including an adults-only infinity pool and a saltwater pool with a children's section, an indoor heated pool, a spa, and a kids' club for ages 5 to 10. A solid, straightforward base close to the resort strip's restaurants and shops. I can check prices for your dates.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">db Seabank Resort &amp; Spa</h3>
-        <p>A 4&#9733; superior all-inclusive resort right on Mellieha Bay, Malta's largest sandy beach, with five pools, kids' facilities and animation throughout the day, seven themed restaurants and a 24 hour fitness area. Over 500 rooms, so it suits families wanting everything on-site. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A 4&#9733; superior all-inclusive resort right on Mellieha Bay, Malta's largest sandy beach, with five pools, kids' facilities and animation throughout the day, seven themed restaurants and a 24 hour fitness area. Over 500 rooms, so it suits families wanting everything on-site. Ask me and I'll check availability for your dates.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for couples &amp; adults only</div>
         <img src="https://images.unsplash.com/photo-1623718649591-311775a30c43?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Adults only hotel pool with sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">H Hotel &amp; Spa, Adults Only</h3>
-        <p>A 4&#9733; boutique adults-only hotel in St Julian's, close to the seafront and the restaurants and bars of Spinola Bay, with a rooftop pool and spa. A smart, design-led choice for couples who want to be in the middle of things without the family resort feel. Bookable through TUI and easyJet holidays.</p>
+        <p>A 4&#9733; boutique adults-only hotel in St Julian's, close to the seafront and the restaurants and bars of Spinola Bay, with a rooftop pool and spa. A smart, design-led choice for couples who want to be in the middle of things without the family resort feel. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1526786220381-1d21eedf92bf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Luxury hotel pool deck overlooking the sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Corinthia St George's Bay</h3>
-        <p>A 5&#9733; hotel on its own private beach in St Julian's, with multiple pools, a large indoor and outdoor spa, several restaurants and bars, and watersports on-site. Malta's best known luxury address, and a genuine step up for anyone wanting a five-star base. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A 5&#9733; hotel on its own private beach in St Julian's, with multiple pools, a large indoor and outdoor spa, several restaurants and bars, and watersports on-site. Malta's best known luxury address, and a genuine step up for anyone wanting a five-star base. Ask me for current prices.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -5772,6 +5806,8 @@ malta_body = f"""
     <p style="font-size:12px; opacity:0.6;">Photos: Adam Hornyak, Spruce, Nejc Soklic, Marija R, Massimiliano Morosinotto, Sasha Kaunas, Fabio Fistarol, Cory Bjork, Marvin Meyer, Nandor Kelecsenyi, Danny Rienecker, Emmanuel Cassar and Calin Stan via Unsplash.</p>
   </div>
 </section>
+
+{SUPPLIER_SECTION}
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
@@ -5940,31 +5976,31 @@ sorrento_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays. Worth knowing before you book: Sorrento hotels are almost always bed and breakfast or half board rather than all inclusive, quite different from Spain or the Canaries, so it's worth budgeting some spending money for eating out.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets. Worth knowing before you book: Sorrento hotels are almost always bed and breakfast or half board rather than all inclusive, quite different from Spain or the Canaries, so it's worth budgeting some spending money for eating out.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1586611292717-f828b167408c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Harbourside hotel terrace with sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hotel Admiral</h3>
-        <p>A boutique hotel right on Marina Grande harbour in Sorrento centre, with a pool, a waterfront terrace and Mediterranean styled rooms. Independent sites rate it anywhere from three to four stars, so we'd simply call it a well located, well reviewed harbourside stay rather than force an exact rating. Bed and breakfast. Bookable through Jet2holidays and easyJet holidays.</p>
+        <p>A boutique hotel right on Marina Grande harbour in Sorrento centre, with a pool, a waterfront terrace and Mediterranean styled rooms. Independent sites rate it anywhere from three to four stars, so we'd simply call it a well located, well reviewed harbourside stay rather than force an exact rating. Bed and breakfast.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for a central base</div>
         <img src="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rooftop hotel pool with sea view" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hotel Plaza</h3>
-        <p>A 4&#9733; boutique hotel moments from Piazza Tasso, with a rooftop infinity pool and Skybar looking out over the rooftops towards the bay. Stylish, modern rooms and about as central as it gets in Sorrento. Bed and breakfast. Bookable through TUI and easyJet holidays.</p>
+        <p>A 4&#9733; boutique hotel moments from Piazza Tasso, with a rooftop infinity pool and Skybar looking out over the rooftops towards the bay. Stylish, modern rooms and about as central as it gets in Sorrento. Bed and breakfast.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families &amp; resort facilities</div>
         <img src="https://images.unsplash.com/photo-1783442619815-943376e2ac6c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cliffside hotel with cascading pools at twilight" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hilton Sorrento Palace</h3>
-        <p>A large hotel set on the clifftop above Sorrento with several cascading outdoor pools, magnificent sea views over the bay, multiple restaurants and a spa. The scale and range of facilities make it the standout choice for families who want more to do on site than the smaller boutique hotels offer. Bed and breakfast. Bookable through Jet2holidays and easyJet holidays.</p>
+        <p>A large hotel set on the clifftop above Sorrento with several cascading outdoor pools, magnificent sea views over the bay, multiple restaurants and a spa. The scale and range of facilities make it the standout choice for families who want more to do on site than the smaller boutique hotels offer. Bed and breakfast.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1761926030252-cd3a0b86e352?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Luxury resort pool overlooking the sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Grand Hotel La Favorita</h3>
-        <p>A 5&#9733; hotel in the heart of Sorrento with sweeping sea views, a panoramic pool terrace and polished, contemporary interiors. The pick for a special occasion or a honeymoon without leaving Sorrento's centre behind. Bed and breakfast. Bookable through TUI.</p>
+        <p>A 5&#9733; hotel in the heart of Sorrento with sweeping sea views, a panoramic pool terrace and polished, contemporary interiors. The pick for a special occasion or a honeymoon without leaving Sorrento's centre behind. Bed and breakfast.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -5979,17 +6015,17 @@ sorrento_body = f"""
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Colosseum in Rome at dawn" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Rome &amp; Sorrento</h3>
-        <p>Around 7 to 10 nights: 3 to 4 nights in Rome, then on to 4 to 6 nights in Sorrento. The classic first timer's combination, ancient history and the Vatican followed by coastal relaxation. Rome hotels such as H10 Roma Citta are bookable through Jet2holidays, alongside Sorrento hotels like Hotel Admiral or Hotel Plaza. Rome to Naples takes around an hour by fast train, with a short transfer on to Sorrento.</p>
+        <p>Around 7 to 10 nights: 3 to 4 nights in Rome, then on to 4 to 6 nights in Sorrento. The classic first timer's combination, ancient history and the Vatican followed by coastal relaxation. Rome hotels such as H10 Roma Citta pair well with Sorrento hotels like Hotel Admiral or Hotel Plaza. Rome to Naples takes around an hour by fast train, with a short transfer on to Sorrento.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1530476219733-88085e45aa2c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Houses stacked on the hillside above the sea at Positano, Italy" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Sorrento &amp; Positano</h3>
-        <p>Around 10 to 11 nights: split roughly in half between a Sorrento base and a Positano base, so you properly experience both sides of this coast rather than just day tripping into Positano. Positano hotels such as Hotel Conca D'Oro are bookable through Jet2holidays. Best attempted outside peak August traffic, given the coast road between the two.</p>
+        <p>Around 10 to 11 nights: split roughly in half between a Sorrento base and a Positano base, so you properly experience both sides of this coast rather than just day tripping into Positano. Positano hotels such as Hotel Conca D'Oro are an option for the second half. Best attempted outside peak August traffic, given the coast road between the two.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1541370976299-4d24ebbc9077?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Florence's cathedral dome and skyline" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Rome, Florence &amp; Sorrento</h3>
-        <p>Around 10 to 12 nights: 3 nights in Rome, 3 in Florence, then 4 to 6 in Sorrento. A genuine best of Italy trip covering ancient history, Renaissance art and the coast, travelling between cities by Italy's fast trains, around an hour and a half between Rome and Florence. Florence hotels such as Grand Hotel Minerva are also bookable through Jet2holidays, alongside the same Rome and Sorrento options above.</p>
+        <p>Around 10 to 12 nights: 3 nights in Rome, 3 in Florence, then 4 to 6 in Sorrento. A genuine best of Italy trip covering ancient history, Renaissance art and the coast, travelling between cities by Italy's fast trains, around an hour and a half between Rome and Florence. Florence hotels such as Grand Hotel Minerva fit in nicely, alongside the same Rome and Sorrento options above.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate hotel bookings combined into one trip rather than a single packaged product, message Jake and he'll put the whole itinerary and transfers together for you.</p>
@@ -6074,6 +6110,8 @@ sorrento_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -6142,7 +6180,7 @@ corfu_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Corfu International Airport (CFU) sits just south of Corfu Town and takes direct flights from a wide spread of UK airports on easyJet, British Airways, TUI Airways, Jet2 and Ryanair, typically taking around 3 to 3.5 hours. Corfu is one of the more spread out Greek islands for transfer times, so it's worth checking how far a hotel actually is from the airport before booking. Corfu Town and Kanoni are a quick 10 to 15 minutes away, Gouvia, Dassia and Ipsos around 20 to 30 minutes, Paleokastritsa and Glyfada on the west coast around 30 to 40 minutes, and the north coast resorts of Sidari, Roda and Acharavi or Kavos in the south can be 45 minutes to an hour.</p>
+    <p style="margin-top:14px;">Corfu International Airport (CFU) sits just south of Corfu Town and takes direct flights from a wide spread of UK airports on easyJet, British Airways, Jet2 and Ryanair, typically taking around 3 to 3.5 hours. Corfu is one of the more spread out Greek islands for transfer times, so it's worth checking how far a hotel actually is from the airport before booking. Corfu Town and Kanoni are a quick 10 to 15 minutes away, Gouvia, Dassia and Ipsos around 20 to 30 minutes, Paleokastritsa and Glyfada on the west coast around 30 to 40 minutes, and the north coast resorts of Sidari, Roda and Acharavi or Kavos in the south can be 45 minutes to an hour.</p>
     {jake_tip("If a short transfer matters to a client, say so when booking. Corfu's north and south coast resorts are genuinely a lot further from the airport than Corfu Town or Gouvia, and that hour each way adds up over a week.")}
   </div>
 </section>
@@ -6244,31 +6282,31 @@ corfu_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays. Board basis on Corfu is more mixed than on some islands, expect anything from bed and breakfast to all inclusive depending on the hotel, so check what's included when booking.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets. Board basis on Corfu is more mixed than on some islands, expect anything from bed and breakfast to all inclusive depending on the hotel, so check what's included when booking.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1666062669930-6bd4b5031867?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hotel pool surrounded by gardens" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Paradise Hotel Corfu</h3>
-        <p>A relaxed, family run 3&#9733; hotel set among olive and cypress groves just outside Gouvia, with panoramic views over the Ionian Sea and a short drive to the beach and Corfu Town. Recently renovated bedrooms and bathrooms, an outdoor pool with sun loungers, a poolside snack bar and gardens that make it feel more like a countryside retreat than a typical resort hotel. Bed and breakfast. Bookable through easyJet holidays.</p>
+        <p>A relaxed, family run 3&#9733; hotel set among olive and cypress groves just outside Gouvia, with panoramic views over the Ionian Sea and a short drive to the beach and Corfu Town. Recently renovated bedrooms and bathrooms, an outdoor pool with sun loungers, a poolside snack bar and gardens that make it feel more like a countryside retreat than a typical resort hotel. Bed and breakfast.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for a central, adults only base</div>
         <img src="https://images.unsplash.com/photo-1745847085476-c4bf1deb2f16?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset over the sea viewed from a hotel pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Mon Repos Palace, Adults Only</h3>
-        <p>A 4&#9733; adults only hotel right on the Corfu Promenade at Garitsa Bay, a short walk from Corfu Town's Old Town and its Venetian streets, squares and museums. Rooms come with balconies and sea or land views, there's an outdoor freshwater pool and a lobby bar, and the beach itself sits just across the road. The pick for couples who want history and nightlife on their doorstep rather than a resort strip. Half board or bed and breakfast. Bookable through Jet2holidays.</p>
+        <p>A 4&#9733; adults only hotel right on the Corfu Promenade at Garitsa Bay, a short walk from Corfu Town's Old Town and its Venetian streets, squares and museums. Rooms come with balconies and sea or land views, there's an outdoor freshwater pool and a lobby bar, and the beach itself sits just across the road. The pick for couples who want history and nightlife on their doorstep rather than a resort strip. Half board or bed and breakfast. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families &amp; resort facilities</div>
         <img src="https://images.unsplash.com/photo-1574744918163-6cef6f4a31b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Child swimming in a resort pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Domes of Corfu, Autograph Collection</h3>
-        <p>A large beachfront resort on Glyfada's golden sand, with an adults only pool, a family pool, a children's splash pool, a proper kids' club for ages 4 to 11, a creche for ages 1 to 3 and a teens' chill out zone, so there's genuinely something for every age. Four restaurants and a spa round it out. A high end family resort, confirm current board basis when booking. Bookable through Jet2holidays and TUI.</p>
+        <p>A large beachfront resort on Glyfada's golden sand, with an adults only pool, a family pool, a children's splash pool, a proper kids' club for ages 4 to 11, a creche for ages 1 to 3 and a teens' chill out zone, so there's really something for every age. Four restaurants and a spa round it out. A high end family resort, confirm current board basis when booking.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1736618625396-571234ade4d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset over a luxury hotel pool with lounge chairs" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Corfu Holiday Palace</h3>
-        <p>A large 5&#9733; resort set among pine trees on the Kanoni peninsula, with its own funicular down to the beach, an indoor pool alongside the outdoor saltwater pool, three restaurants spanning international, Italian and Japanese food, a spa and tennis courts. The views over Mouse Island and the lagoon from the clifftop position are some of the best on the island. Half board. Bookable through Jet2holidays.</p>
+        <p>A large 5&#9733; resort set among pine trees on the Kanoni peninsula, with its own funicular down to the beach, an indoor pool alongside the outdoor saltwater pool, three restaurants spanning international, Italian and Japanese food, a spa and tennis courts. The views over Mouse Island and the lagoon from the clifftop position are some of the best on the island. Half board.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -6354,6 +6392,8 @@ corfu_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -6422,7 +6462,7 @@ zante_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Zakynthos International Airport (ZTH) sits a few miles south of Zante Town and takes direct flights from a wide spread of UK airports on Jet2, easyJet, British Airways (from Heathrow), Ryanair and Wizz Air, alongside package flights on TUI Airways, typically taking around 3 to 4 hours depending on departure airport. Many routes are seasonal, running through the summer months only. Transfer times vary a fair bit across the island, Kalamaki and Zante Town are the closest at around 10 minutes, Laganas and Argassi around 15 to 20 minutes, Tsilivi around 20 to 25 minutes, and Alykes or Alykanas can be 25 to 30 minutes.</p>
+    <p style="margin-top:14px;">Zakynthos International Airport (ZTH) sits a few miles south of Zante Town and takes direct flights from a wide spread of UK airports on Jet2, easyJet, British Airways (from Heathrow), Ryanair and Wizz Air, typically taking around 3 to 4 hours depending on departure airport. Many routes are seasonal, running through the summer months only. Transfer times vary a fair bit across the island, Kalamaki and Zante Town are the closest at around 10 minutes, Laganas and Argassi around 15 to 20 minutes, Tsilivi around 20 to 25 minutes, and Alykes or Alykanas can be 25 to 30 minutes.</p>
     {jake_tip("Check exactly where a hotel sits before booking if a client wants a short transfer. Kalamaki and Zante Town are a genuinely quick hop from the airport, while Alykes and Alykanas are the best part of half an hour, which matters more than people expect after a delayed flight.")}
   </div>
 </section>
@@ -6524,31 +6564,31 @@ zante_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all available through TUI, Jet2holidays or easyJet holidays. Board basis on Zante is mixed, so always confirm what's included for your dates when booking.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets. Board basis on Zante is mixed, so always confirm what's included for your dates when booking.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Apartment style hotel pool in Greece" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Zante Plaza Hotel &amp; Apartments</h3>
-        <p>A 3&#9733; hotel and apartment complex right in the heart of Laganas, a short walk to the beach and the resort's bars and restaurants. Straightforward, well located and popular with groups and families who want to be in the middle of things without paying resort prices. All inclusive is the board basis listed by Jet2holidays, so check what's offered on your specific booking. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A 3&#9733; hotel and apartment complex right in the heart of Laganas, a short walk to the beach and the resort's bars and restaurants. Simple, well located and popular with groups and families who want to be in the middle of things without paying resort prices. All inclusive is the board basis listed, so check what's offered on your specific booking.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1648090272983-440e86555e8e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Child playing in a resort swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Princess Hotel Zante</h3>
-        <p>A family run 3&#9733; hotel in Tsilivi, around 350 metres from the resort centre and 850 metres from the beach, with an outdoor pool that includes a dedicated children's freshwater section, a pool bar and an a la carte restaurant serving international, British, Italian and Greek dishes. A relaxed, unpretentious choice for families, confirm current board basis when booking. Bookable through Jet2holidays.</p>
+        <p>A family run 3&#9733; hotel in Tsilivi, around 350 metres from the resort centre and 850 metres from the beach, with an outdoor pool that includes a dedicated children's freshwater section, a pool bar and an a la carte restaurant serving international, British, Italian and Greek dishes. A relaxed, unpretentious choice for families, confirm current board basis when booking.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for a couples' escape</div>
         <img src="https://images.unsplash.com/photo-1785762857881-fed944ea5209?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers and umbrellas beside a hotel pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Zante Maris Suites, Adults Only</h3>
-        <p>A small 5&#9733; adults only hotel (16+) in Tsilivi with a Mediterranean restaurant, a bar, an outdoor pool and a sun terrace, run on a half board or bed and breakfast basis. A quieter, more intimate alternative to the island's bigger resort hotels, note there's a separate sister hotel in the same area, TUI BLUE Zante Maris, so double check which one a client has booked. Bookable through Jet2holidays and easyJet holidays.</p>
+        <p>A small 5&#9733; adults only hotel (16+) in Tsilivi with a Mediterranean restaurant, a bar, an outdoor pool and a sun terrace, run on a half board or bed and breakfast basis. A quieter, more intimate alternative to the island's bigger resort hotels, note there's a separate sister hotel in the same area, with a very similar name, so double check which one a client has booked.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1598924957326-0446ac30341e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees beside a luxury resort pool at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Lesante Blu Exclusive Beach Resort</h3>
-        <p>A 5&#9733; adults only resort in Tragaki and a member of Leading Hotels of the World, sold by Jet2holidays under its Indulgent Escapes collection. Half board or bed and breakfast, with the kind of design led, high end finish that suits a client celebrating something special rather than a standard package week. Bookable through TUI and Jet2holidays.</p>
+        <p>A 5&#9733; adults only resort in Tragaki and a member of Leading Hotels of the World. Half board or bed and breakfast, with the kind of design led, high end finish that suits a client celebrating something special rather than a standard package week.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -6634,6 +6674,8 @@ zante_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -6658,7 +6700,7 @@ ZANTE_SCHEMA = article_and_faq_schema(
     faqs=[
         ("What's the best time to visit Zante?", "June to September is the classic package season, hot, dry and reliably sunny, with July and August the hottest and busiest months. May, June and September are a good sweet spot, warm without the peak summer crowds, and September has the warmest sea of the year while resorts noticeably quieten down. Winter, November to March, is mild by UK standards but considerably wetter, and many smaller hotels close for the season."),
         ("Which area of Zante should I choose?", "Laganas is the island's biggest and liveliest resort, one of the few genuine 18 to 30 style destinations left in Greece, with Kalamaki next door offering a calmer alternative close by. Tsilivi and Alykes have the widest choice of family hotels and gentle sandy beaches. Argassi and Vasilikos suit couples and families who want beach quality over nightlife, with Vasilikos largely undeveloped and home to some of the island's best beaches. Keri, on the southwestern tip, is the quietest base of all, best for scenery and sunsets rather than resort life."),
-        ("How do I get to Zante, and is hiring a car worth it?", "Zakynthos International Airport takes direct flights from a wide range of UK airports on Jet2, easyJet, British Airways, Ryanair and Wizz Air, alongside TUI package flights, typically taking around 3 to 4 hours. Transfer times vary across the island, from around 10 minutes for Kalamaki and Zante Town up to 25 to 30 minutes for Alykes or Alykanas. A car isn't essential if you're staying resort based, since buses and taxis cover the island reasonably well, but it's worth considering if you want to properly explore the Navagio viewpoint, the Blue Caves boat departure points and Keri's caves and lighthouse in your own time. A full UK driving licence is all that's needed, an international permit isn't required."),
+        ("How do I get to Zante, and is hiring a car worth it?", "Zakynthos International Airport takes direct flights from a wide range of UK airports on Jet2, easyJet, British Airways, Ryanair and Wizz Air, typically taking around 3 to 4 hours. Transfer times vary across the island, from around 10 minutes for Kalamaki and Zante Town up to 25 to 30 minutes for Alykes or Alykanas. A car isn't essential if you're staying resort based, since buses and taxis cover the island reasonably well, but it's worth considering if you want to properly explore the Navagio viewpoint, the Blue Caves boat departure points and Keri's caves and lighthouse in your own time. A full UK driving licence is all that's needed, an international permit isn't required."),
     ]
 )
 with open(os.path.join(SITE, "zante.html"), "w", encoding="utf-8") as f:
@@ -6702,7 +6744,7 @@ crete_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Crete has two international airports. Chania Airport (CHQ) serves the west of the island, and Heraklion Airport (HER) serves the centre and east, including Hersonissos, Malia, Agios Nikolaos and Elounda. Both take direct flights from a wide range of UK airports on Jet2, easyJet, TUI Airways, Ryanair and British Airways, typically taking around 4 hours from southern England and up to around 4 hours 30 minutes from northern England and Scotland. Most routes are seasonal, running through the spring to autumn months.</p>
+    <p style="margin-top:14px;">Crete has two international airports. Chania Airport (CHQ) serves the west of the island, and Heraklion Airport (HER) serves the centre and east, including Hersonissos, Malia, Agios Nikolaos and Elounda. Both take direct flights from a wide range of UK airports on Jet2, easyJet, Ryanair and British Airways, typically taking around 4 hours from southern England and up to around 4 hours 30 minutes from northern England and Scotland. Most routes are seasonal, running through the spring to autumn months.</p>
     <p style="margin-top:14px;">Transfer times vary a lot depending on where a client is staying. From Chania, Platanias and the nearby coast are around 20 to 30 minutes, while Rethymno is roughly an hour. From Heraklion, Hersonissos and Malia are around 25 to 35 minutes, while Agios Nikolaos and Elounda are closer to an hour to an hour and 15 minutes.</p>
     {jake_tip("Always check which airport a hotel is closest to before booking flights separately from a package. Booking into Chania when a client's hotel is actually nearer Heraklion, or the other way round, can easily add well over an hour onto a transfer.")}
   </div>
@@ -6800,31 +6842,31 @@ crete_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets and across the island, all available through TUI, Jet2holidays or easyJet holidays. Board basis varies by hotel, so always confirm what's included for your dates when booking.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets and across the island. Board basis varies by hotel, so always confirm what's included for your dates when booking.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1783937131483-2054b815bd68?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beachfront hotel pool and sunbeds" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Alia Beach Hotel</h3>
-        <p>A straightforward beachfront hotel perched right on Hersonissos Beach, around 10 minutes from Malia and 5 minutes from Stalis village. Outdoor pool, games room, bar and a seafront cafe restaurant, with air conditioned rooms and sea or garden view balconies. Neither operator lists a star rating for this one, so treat it as a solid, well located budget pick rather than a graded hotel. Bookable through Jet2holidays and easyJet holidays.</p>
+        <p>A straightforward beachfront hotel perched right on Hersonissos Beach, around 10 minutes from Malia and 5 minutes from Stalis village. Outdoor pool, games room, bar and a seafront cafe restaurant, with air conditioned rooms and sea or garden view balconies. There is no star rating listed for this one, so treat it as a solid, well located budget pick rather than a graded hotel.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1646843132559-9524d41d7980?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Children playing in a resort swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Creta Maris Resort</h3>
-        <p>A 5&#9733; beachfront resort in Hersonissos with 16 outdoor pools including 5 children's pools, plus an indoor pool and aqua park, 7 restaurants, 17 bars, kids and teens clubs and a dedicated adults only section. One of the most complete family resorts on the island, sold all inclusive. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A 5&#9733; beachfront resort in Hersonissos with 16 outdoor pools including 5 children's pools, plus an indoor pool and aqua park, 7 restaurants, 17 bars, kids and teens clubs and a dedicated adults only section. One of the most complete family resorts on the island, sold all inclusive. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for a couples' escape</div>
         <img src="https://images.unsplash.com/photo-1563493653502-9e270be23596?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Quiet hotel pool with sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Phos Hotel</h3>
-        <p>A strictly adults only (16+) hotel in Platanias on the Chania coast, around 150m from the beach with a modern, minimal design, a freshwater pool, swim up rooms and a buffet restaurant, run on a bed and breakfast basis. A peaceful, design led alternative to Crete's bigger family resorts. Bookable through Jet2holidays.</p>
+        <p>A strictly adults only (16+) hotel in Platanias on the Chania coast, around 150m from the beach with a modern, minimal design, a freshwater pool, swim up rooms and a buffet restaurant, run on a bed and breakfast basis. A peaceful, design led alternative to Crete's bigger family resorts.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1736618625396-571234ade4d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset over a luxury resort pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Domes of Elounda, Autograph Collection</h3>
-        <p>A 5&#9733; hillside resort in Elounda, around 300m from the beach with views towards Spinalonga, 5 outdoor pools plus an indoor pool, 5 restaurants and 5 bars, a spa with pilates and yoga, and a dedicated adults only section alongside family friendly parts of the resort. Sold on a full board or half board basis. Bookable through TUI, Jet2holidays and easyJet holidays.</p>
+        <p>A 5&#9733; hillside resort in Elounda, around 300m from the beach with views towards Spinalonga, 5 outdoor pools plus an indoor pool, 5 restaurants and 5 bars, a spa with pilates and yoga, and a dedicated adults only section alongside family friendly parts of the resort. Sold on a full board or half board basis. Happy to check availability for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -6910,6 +6952,8 @@ crete_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -6934,7 +6978,7 @@ CRETE_SCHEMA = article_and_faq_schema(
     faqs=[
         ("What's the best time to visit Crete?", "June to September is the classic package season, hot, dry and reliably sunny, with July and August the hottest, busiest and driest months. May, June and September are a good sweet spot, warm without the peak summer crowds, and spring (April and May) brings out the island's greenery and wildflowers. Winter, November to March, is mild by UK standards but considerably wetter, especially in the west, and many smaller hotels close for the season."),
         ("Which area of Crete should I choose?", "Chania and Platanias in the west suit couples and culture lovers who want a Venetian old town alongside the beach. Rethymno and Bali, roughly in the middle of the island, combine an old town and long beach in one walkable spot. Hersonissos, Malia and Stalis, closest to Heraklion Airport, have the widest choice of family hotels and Crete's liveliest nightlife in Malia. Agios Nikolaos and Elounda in the east are quieter and more upmarket, with Elounda considered the island's top luxury resort area."),
-        ("How do I get to Crete, and is hiring a car worth it?", "Crete has two airports, Chania in the west and Heraklion in the centre and east, both taking direct flights from a wide range of UK airports on Jet2, easyJet, TUI Airways, Ryanair and British Airways, typically around 4 to 4.5 hours. Transfer times range from around 20 minutes for resorts close to either airport up to an hour or more for Elounda from Heraklion. Hiring a car is well worth considering on Crete given how spread out the highlights are, Balos, Elafonissi and Samaria Gorge are all a proper drive from most resorts and are far easier with your own transport. A full UK driving licence is all that's needed, an international permit isn't required."),
+        ("How do I get to Crete, and is hiring a car worth it?", "Crete has two airports, Chania in the west and Heraklion in the centre and east, both taking direct flights from a wide range of UK airports on Jet2, easyJet, Ryanair and British Airways, typically around 4 to 4.5 hours. Transfer times range from around 20 minutes for resorts close to either airport up to an hour or more for Elounda from Heraklion. Hiring a car is well worth considering on Crete given how spread out the highlights are, Balos, Elafonissi and Samaria Gorge are all a proper drive from most resorts and are far easier with your own transport. A full UK driving licence is all that's needed, an international permit isn't required."),
     ]
 )
 with open(os.path.join(SITE, "crete.html"), "w", encoding="utf-8") as f:
@@ -6964,7 +7008,7 @@ egypt_red_sea_body = f"""
     <h2>What Jake says about Egypt's Red Sea</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1708711973477-1373f8eb65db?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Calm turquoise water and hills along Egypt's Red Sea coast" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
     <p>Egypt's Red Sea coast is one of the most reliable year round sun destinations I sell. There's virtually no rain to plan around, the sea stays warm even in January, and prices go a long way compared with the Mediterranean. It's also a genuinely varied destination once you look past the flight. Hurghada itself is a proper working resort town with a long beachfront promenade, El Gouna a little further up the coast is a purpose built lagoon town that feels more like a boutique Mediterranean marina than mainland Egypt, and Sharm El Sheikh on the Sinai side flies into a completely different airport and is built almost entirely around some of the best shore diving and snorkelling anywhere in the world.</p>
-    <p style="margin-top:14px;">It's also becoming a proper mainstream package destination again rather than a specialist one. Jet2holidays only recently launched flights and holidays to Egypt from UK airports, joining TUI and easyJet holidays, so this is a newer addition to the big three operators rather than somewhere that's been sold this way for decades.</p>
+    <p style="margin-top:14px;">It's also becoming a proper mainstream package destination again rather than a specialist one. Flights and holidays to Egypt from UK airports have only recently expanded, so this is a newer addition for many package travellers rather than somewhere that's been sold this way for decades.</p>
     {jake_tip("A week in Hurghada or Makadi Bay and a week diving in Sharm El Sheikh are genuinely different holidays, even though both get filed under 'Egypt'. Ask a client what they actually want, reef diving right off the beach, a lively resort strip, or somewhere quieter and more design led, before picking an area and an airport.")}
   </div>
 </section>
@@ -6980,7 +7024,7 @@ egypt_red_sea_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Hurghada International Airport (HRG) serves the mainland Red Sea coast, Hurghada itself, El Gouna, Makadi Bay, Sahl Hasheesh and Soma Bay. Sharm El Sheikh International Airport (SSH), across the Gulf of Suez on the Sinai Peninsula, serves Sharm El Sheikh, Naama Bay and Sharks Bay, and is a separate airport with its own direct flights, not a transfer from Hurghada. Direct flights run from a range of UK airports on easyJet, TUI Airways and Jet2, taking around 5 hours 25 minutes from London and similar from most other UK departure points. Jet2's Egypt programme is genuinely new, having only recently launched flights and holidays to the country to sit alongside its long established TUI and easyJet competitors.</p>
+    <p style="margin-top:14px;">Hurghada International Airport (HRG) serves the mainland Red Sea coast, Hurghada itself, El Gouna, Makadi Bay, Sahl Hasheesh and Soma Bay. Sharm El Sheikh International Airport (SSH), across the Gulf of Suez on the Sinai Peninsula, serves Sharm El Sheikh, Naama Bay and Sharks Bay, and is a separate airport with its own direct flights, not a transfer from Hurghada. Direct flights run from a range of UK airports on easyJet and Jet2, taking around 5 hours 25 minutes from London and similar from most other UK departure points.</p>
     {jake_tip("Entry requirements depend on exactly where a client is staying. Anyone visiting only Sharm El Sheikh, Naama Bay or Sharks Bay by air for under 15 days gets a free entry stamp on arrival with no visa needed, as long as they don't leave that Sinai resort area. Everyone else, including anyone staying on the Hurghada side of the coast (Hurghada, El Gouna, Makadi Bay, Sahl Hasheesh or Soma Bay) or adding on Luxor, Cairo or a Nile cruise, needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. Always confirm the current requirement for a client's specific plans before they travel.")}
   </div>
 </section>
@@ -7076,31 +7120,31 @@ egypt_red_sea_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets and across the coast, all available through TUI, Jet2holidays or easyJet holidays. Board basis is overwhelmingly all inclusive on this coast, but always confirm what's included for your dates when booking.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets and across the coast. Board basis is overwhelmingly all inclusive on this coast, but always confirm what's included for your dates when booking.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers beside a resort pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Albatros Makadi Resort</h3>
-        <p>A large all inclusive beachfront resort in Makadi Bay with 18 outdoor pools, an aqua park with multiple waterslides, six buffet restaurants and seven bars. No star rating is listed by the operator, so treat it as a solid, feature-packed value pick rather than a graded hotel. Bookable through Jet2holidays.</p>
+        <p>A large all inclusive beachfront resort in Makadi Bay with 18 outdoor pools, an aqua park with multiple waterslides, six buffet restaurants and seven bars. No star rating is listed for it, so treat it as a solid, feature-packed value pick rather than a graded hotel. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1605537964076-3cb0ea2ff329?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Swimming pool at a family resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Pickalbatros Dana Beach Resort</h3>
-        <p>A beachfront all inclusive resort in Hurghada with its own water park, several pools including dedicated children's sections, a playground, kids' club and a "Neverland" entertainment show included once per stay. Six buffet restaurants and eleven bars. A genuinely complete family resort. Bookable through Jet2holidays.</p>
+        <p>A beachfront all inclusive resort in Hurghada with its own water park, several pools including dedicated children's sections, a playground, kids' club and a "Neverland" entertainment show included once per stay. Six buffet restaurants and eleven bars. A genuinely complete family resort. Ask me for current prices.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for a design-led escape</div>
         <img src="https://images.unsplash.com/photo-1629229370300-207a44ac54cd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees beside calm lagoon water" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Sheraton Miramar Resort El Gouna</h3>
-        <p>Designed by the American architect Michael Graves and inspired by Nubian architecture, this El Gouna hotel is arranged around its own private lagoons rather than a single beach, giving it a genuinely distinctive, low rise, colourful look you won't find anywhere else on this coast. A strong pick for a couple wanting somewhere design led rather than a standard resort block. Bookable through TUI.</p>
+        <p>Designed by the American architect Michael Graves and inspired by Nubian architecture, this El Gouna hotel is arranged around its own private lagoons rather than a single beach, giving it a genuinely distinctive, low rise, colourful look you won't find anywhere else on this coast. A strong pick for a couple wanting somewhere design led rather than a standard resort block. I can check availability for your dates.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1645379033960-72d6cb488c0e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers on a quiet resort deck" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Four Seasons Resort Sharm El Sheikh</h3>
-        <p>A private beachfront resort in Sharks Bay with its own accessible house reef for snorkelling straight off the shore, five outdoor pools, eight restaurants and bars, and a dedicated kids' programme alongside its spa and tennis facilities. One of the highest rated hotels on this entire coast. Bookable through easyJet holidays.</p>
+        <p>A private beachfront resort in Sharks Bay with its own accessible house reef for snorkelling straight off the shore, five outdoor pools, eight restaurants and bars, and a dedicated kids' programme alongside its spa and tennis facilities. One of the highest rated hotels on this entire coast. I can price this one up for you.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -7187,6 +7231,8 @@ egypt_red_sea_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -7211,7 +7257,7 @@ EGYPT_RED_SEA_SCHEMA = article_and_faq_schema(
     faqs=[
         ("What's the best time to visit Egypt's Red Sea?", "The Red Sea is a genuine year round destination since there's essentially no rain to plan around at any time of year. December to March is the mildest window, warm enough for the beach and pool by day with cooler evenings, and popular with older clients or anyone who finds high thirties uncomfortable. April, May, October and November are the sweet spot for most clients, hot enough for a proper beach holiday without the full intensity of summer. June to September is seriously hot, regularly into the mid thirties, and suits clients who love strong heat or who are there mainly to dive, since the sea stays warm and calm right through summer."),
         ("Which area of Egypt's Red Sea should I choose?", "Hurghada and Magawish are the original resort area, close to the airport with a wide choice of hotels and a lively beachfront promenade. El Gouna, a little further north, is a purpose built lagoon town with a more boutique, car free feel, popular with couples and watersports fans. Makadi Bay, Sahl Hasheesh and Soma Bay are purpose built resort bays south of Hurghada, most with their own water parks, well suited to families. Sharm El Sheikh and Naama Bay sit on the Sinai Peninsula with their own separate airport, and are built around some of the best shore diving and snorkelling anywhere in the world."),
-        ("Do I need a visa for Egypt, and how do I get there?", "It depends on exactly where you're staying. Anyone visiting only Sharm El Sheikh, Naama Bay or Sharks Bay by air for under 15 days gets a free entry stamp on arrival with no visa needed, as long as they stay within that Sinai resort area. Everyone else, including anyone staying on the Hurghada side of the coast or adding on Luxor, Cairo or a Nile cruise, needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. Direct flights run from a range of UK airports on easyJet, TUI Airways and Jet2, taking around 5 hours 25 minutes to Hurghada, with Sharm El Sheikh served by its own separate direct flights rather than a transfer from Hurghada."),
+        ("Do I need a visa for Egypt, and how do I get there?", "It depends on exactly where you're staying. Anyone visiting only Sharm El Sheikh, Naama Bay or Sharks Bay by air for under 15 days gets a free entry stamp on arrival with no visa needed, as long as they stay within that Sinai resort area. Everyone else, including anyone staying on the Hurghada side of the coast or adding on Luxor, Cairo or a Nile cruise, needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. Direct flights run from a range of UK airports on easyJet and Jet2, taking around 5 hours 25 minutes to Hurghada, with Sharm El Sheikh served by its own separate direct flights rather than a transfer from Hurghada."),
     ]
 )
 with open(os.path.join(SITE, "egypt-red-sea.html"), "w", encoding="utf-8") as f:
@@ -7239,7 +7285,7 @@ luxor_body = f"""
     <h2>What Jake says about Luxor</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1675372802315-658db7652fd2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Statue of Ramesses II at Luxor Temple" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
     <p>Luxor is a genuinely different kind of Egyptian holiday to the Red Sea coast, and I think it's one of the most underrated trips I sell. This isn't a beach and pool week, it's ancient Thebes itself, the site of Karnak, the Valley of the Kings and Luxor's own riverside temple, all built along a single stretch of the Nile that's been continuously inhabited for over 4,000 years. It's genuinely bucket list stuff, and once you've stood inside a painted tomb that's older than most countries, or watched the sun come up over the Valley of the Kings from a hot air balloon, you understand why people who've done it never stop talking about it.</p>
-    <p style="margin-top:14px;">It's also become properly easy to get to. TUI now flies here directly from Manchester and London Gatwick, and easyJet holidays has recently added its own direct route from Gatwick too, sitting alongside EgyptAir's year round service from Heathrow. That's a real change from a few years ago when Luxor was mostly sold as an add-on to a Red Sea stay or a Nile cruise rather than a destination in its own right.</p>
+    <p style="margin-top:14px;">It's also become properly easy to get to. There are now direct flights from Manchester and London Gatwick, with a second direct route from Gatwick recently added too, sitting alongside EgyptAir's year round service from Heathrow. That's a real change from a few years ago when Luxor was mostly sold as an add-on to a Red Sea stay or a Nile cruise rather than a destination in its own right.</p>
     {jake_tip("Luxor is not a beach holiday, and it's worth being upfront with a client about that. It's history, temples and a proper dose of ancient Egypt, with the Nile itself as the backdrop rather than a pool. It suits a very different client to Hurghada or Sharm El Sheikh, even though they're both technically Egypt.")}
   </div>
 </section>
@@ -7255,7 +7301,7 @@ luxor_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Luxor International Airport (LXR) sits a short drive from the East Bank hotels and the town centre. TUI flies direct from Manchester and London Gatwick on a seasonal winter programme, broadly November to April, currently around two flights a week. easyJet holidays has recently launched its own direct seasonal route from London Gatwick too. EgyptAir also flies from London Heathrow year round, usually with a short stop in Cairo. Flight time is around 5 hours 30 minutes on the direct routes. Jet2holidays doesn't currently sell Luxor as a standalone holiday, its Egypt programme covers Hurghada and Sharm El Sheikh, with Luxor sold only as a day trip excursion from those Red Sea resorts.</p>
+    <p style="margin-top:14px;">Luxor International Airport (LXR) sits a short drive from the East Bank hotels and the town centre. Direct flights run from Manchester and London Gatwick on a seasonal winter programme, broadly November to April, currently around two flights a week. A second direct seasonal route from London Gatwick has recently launched too. EgyptAir also flies from London Heathrow year round, usually with a short stop in Cairo. Flight time is around 5 hours 30 minutes on the direct routes.</p>
     {jake_tip("Luxor sits outside the Sinai's free entry stamp zone, so unlike a short stay in Sharm El Sheikh, everyone visiting Luxor needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. Sort this before travelling or budget the time to queue for it on arrival, and always confirm the current requirement before a client flies.")}
   </div>
 </section>
@@ -7341,31 +7387,31 @@ luxor_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks in Luxor, all available through TUI or easyJet holidays. Jet2holidays doesn't currently sell Luxor hotels. Board basis varies more here than on the Red Sea coast, so always confirm what's included for your dates when booking.</p>
+    <p style="margin-top:14px;">Four real, bookable picks in Luxor. Board basis varies more here than on the Red Sea coast, so always confirm what's included for your dates when booking.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1664947333254-afb25ccd98d8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hotel pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Iberotel Luxor</h3>
-        <p>A central Nile-front hotel with the Theban hills as a backdrop across the river, an international buffet restaurant plus à la carte options, and a pool overlooking the water. No star rating is listed by the operator, so treat it as a solid, well located value pick rather than a graded hotel. Bookable through TUI and easyJet holidays.</p>
+        <p>A central Nile-front hotel with the Theban hills as a backdrop across the river, an international buffet restaurant plus à la carte options, and a pool overlooking the water. No official star rating is listed for it, so treat it as a solid, well located value pick rather than a graded hotel.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1679522708482-2eeaaf6e98b4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Resort pool beside the Nile at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Jolie Ville Kings Island</h3>
-        <p>A five-star resort spread across its own private island on the Nile, set in 150 acres of gardens with three pools, a kids' club for ages 4 to 12, and its own launch service across to the mainland. The most complete family resort in Luxor by a distance. Bookable through TUI and easyJet holidays.</p>
+        <p>A five-star resort spread across its own private island on the Nile, set in 150 acres of gardens with three pools, a kids' club for ages 4 to 12, and its own launch service across to the mainland. The most complete family resort in Luxor by a distance. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for history</div>
         <img src="https://images.unsplash.com/photo-1679685301558-503443bc0c0f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The sun setting over the Nile at Luxor" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Sofitel Winter Palace Luxor</h3>
-        <p>An East Bank riverfront hotel that's been standing since the late 1800s, best known as the hotel where the discovery of Tutankhamun's tomb was formally announced in 1922. Tropical gardens, several restaurants and bars, and a genuine sense of occasion that no newer hotel in Luxor can match. Bookable through easyJet holidays.</p>
+        <p>An East Bank riverfront hotel that's been standing since the late 1800s, best known as the hotel where the discovery of Tutankhamun's tomb was formally announced in 1922. Tropical gardens, several restaurants and bars, and a real sense of occasion that no newer hotel in Luxor can match.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1679594384071-0e25b01f8aca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hotel terrace overlooking the Nile at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Steigenberger Nile Palace Luxor</h3>
-        <p>A five-star hotel in the heart of Luxor, just steps from the Nile, with sweeping river views from many rooms, three à la carte restaurants and its own spa. One of the higher end options right in the centre of town rather than out on the edges. Bookable through TUI and easyJet holidays.</p>
+        <p>A five-star hotel in the heart of Luxor, just steps from the Nile, with sweeping river views from many rooms, three à la carte restaurants and its own spa. One of the higher end options right in the centre of town rather than out on the edges. Ask me and I will quote this one for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -7452,6 +7498,8 @@ luxor_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -7475,7 +7523,7 @@ LUXOR_SCHEMA = article_and_faq_schema(
     "https://images.unsplash.com/photo-1759212445830-848ce08cc0c5?auto=format&fit=crop&w=1200&q=80",
     faqs=[
         ("What's the best time to visit Luxor?", "November to March is Luxor's main season and the most comfortable time for full days of sightseeing, mild by day with genuinely cold desert nights, so pack layers. March, April and October are a good middle ground. May to September gets seriously extreme, regularly touching 40&deg;C or more, and isn't the season for a packed itinerary of temples on foot, though some clients still visit for an early hot air balloon ride or a river cruise."),
-        ("Do I need a visa for Luxor, and how do I get there?", "Yes. Luxor sits outside the Sinai's free entry stamp zone, so everyone visiting needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. TUI flies direct from Manchester and London Gatwick on a seasonal winter programme, easyJet holidays has recently launched its own direct seasonal route from London Gatwick, and EgyptAir flies from London Heathrow year round, usually with a short stop in Cairo. Flight time is around 5 hours 30 minutes direct."),
+        ("Do I need a visa for Luxor, and how do I get there?", "Yes. Luxor sits outside the Sinai's free entry stamp zone, so everyone visiting needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. Direct seasonal winter flights run from Manchester and London Gatwick, a second direct seasonal route from London Gatwick has recently launched, and EgyptAir flies from London Heathrow year round, usually with a short stop in Cairo. Flight time is around 5 hours 30 minutes direct."),
         ("Should I stay on the East Bank or West Bank in Luxor?", "The East Bank has by far the biggest choice of hotels, restaurants and the Corniche promenade, plus Karnak and Luxor Temple, so it suits most first time visitors. The West Bank is quieter and more rural, with a much smaller choice of guesthouses, but puts you right on the doorstep of the Valley of the Kings, Hatshepsut's Temple and Medinet Habu, handy for an early start before the heat and crowds arrive. Most clients are best placed on the East Bank with a short ferry or taxi across to the West Bank for tomb visits."),
     ]
 )
@@ -7506,7 +7554,7 @@ cairo_body = f"""
     <h2>What Jake says about Cairo</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1600520611035-84157ad4084d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Pyramids of Giza under a clear blue sky" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
     <p>Cairo is one of those cities that genuinely earns the word bucket list. You can stand at the foot of the Great Pyramid, the only one of the Seven Wonders of the Ancient World still standing, have lunch in the city, then be inside the Grand Egyptian Museum looking at Tutankhamun's treasures by the afternoon. The Grand Egyptian Museum finally opened properly in November 2025 after twenty years in the making, and it's a genuine game changer for the city, giving Cairo its own world class museum to match the Pyramids right on its doorstep.</p>
-    <p style="margin-top:14px;">Both TUI and easyJet holidays now sell proper package holidays to Cairo, flights, hotel and transfers all bundled together, which makes it a far easier sell than it used to be when this was mostly a tailor made or escorted tour booking. Add in a Nile river cruise, either before or after a few nights in the city, and you've got one of the most complete trips in Egypt in a single itinerary.</p>
+    <p style="margin-top:14px;">Cairo can now be booked as a proper package holiday, with flights, hotel and transfers all bundled together, which makes it a far easier sell than it used to be when this was mostly a tailor made or escorted tour booking. Add in a Nile river cruise, either before or after a few nights in the city, and you've got one of the most complete trips in Egypt in a single itinerary.</p>
     {jake_tip("Cairo is not a beach holiday and I'm always upfront with clients about that. It's history, museums and a genuinely busy, chaotic, brilliant capital city, closer in spirit to a city break than a resort week. It suits a different client to Hurghada or Sharm El Sheikh, even though they're all technically Egypt.")}
   </div>
 </section>
@@ -7522,7 +7570,7 @@ cairo_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Cairo International Airport (CAI) is around 30 to 45 minutes from most hotels, depending on traffic and area. easyJet holidays flies from a wide range of UK airports including London Gatwick, Manchester, Luton, Liverpool, Bristol, Birmingham, Belfast, Edinburgh, Glasgow, Southend, Newcastle, Southampton, Leeds Bradford and Stansted. TUI sells package holidays to Cairo too, with flights from London Heathrow, Manchester and London Gatwick. Flight time is around 5 hours direct from London or Manchester. Jet2holidays does not currently sell Cairo as a destination, its Egypt programme covers Hurghada and Sharm El Sheikh only.</p>
+    <p style="margin-top:14px;">Cairo International Airport (CAI) is around 30 to 45 minutes from most hotels, depending on traffic and area. Direct flights run from a wide range of UK airports including London Gatwick, Manchester, Luton, Liverpool, Bristol, Birmingham, Belfast, Edinburgh, Glasgow, Southend, Newcastle, Southampton, Leeds Bradford and Stansted, as well as London Heathrow. Flight time is around 5 hours direct from London or Manchester.</p>
     {jake_tip("Cairo sits outside the Sinai's free entry stamp zone, so unlike a short stay in Sharm El Sheikh, everyone visiting Cairo needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. Sort this before travelling or budget the time to queue for it on arrival, and always confirm the current requirement before a client flies.")}
   </div>
 </section>
@@ -7608,31 +7656,31 @@ cairo_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks in Cairo, all available through TUI or easyJet holidays. Jet2holidays doesn't currently sell Cairo. Board basis varies quite a bit here, so always confirm what's included for your dates when booking.</p>
+    <p style="margin-top:14px;">Four real, bookable picks in Cairo. Board basis varies quite a bit here, so always confirm what's included for your dates when booking.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1574864745093-5566c5be5855?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A pyramid in the Egyptian desert" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Mamlouk Pyramids Hotel</h3>
-        <p>A 4-star hotel in Giza, a short distance from the Pyramids plateau, with straightforward rooms and a pool. A solid, budget friendly base for a client whose main priority is being close to the Pyramids without paying for a view. Bookable through easyJet holidays.</p>
+        <p>A 4-star hotel in Giza, a short distance from the Pyramids plateau, with simple rooms and a pool. A solid, budget friendly base for a client whose main priority is being close to the Pyramids without paying for a view. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for pyramid views</div>
         <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Pyramid of Khafre at Giza" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Steigenberger Pyramids Cairo Hotel</h3>
-        <p>Set right on the Giza plateau with rooms looking directly out at the Pyramids, a pool, and a short walk to the site entrance itself. No star rating is listed by the operator, so treat it as a well located pyramid view pick rather than a graded hotel. Bookable through easyJet holidays.</p>
+        <p>Set right on the Giza plateau with rooms looking directly out at the Pyramids, a pool, and a short walk to the site entrance itself. No official star rating is listed for it, so treat it as a well located pyramid view pick rather than a graded hotel.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best central &amp; Nile front</div>
         <img src="https://images.unsplash.com/photo-1720400995876-506098f4c238?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Nile river with the Cairo skyline in the background" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Semiramis InterContinental Cairo</h3>
-        <p>A long-established five-star hotel right on the Nile in Garden City, walkable to Tahrir Square and the Egyptian Museum, with several restaurants and river view rooms. One of Cairo's best known central addresses. Bookable through TUI and easyJet holidays.</p>
+        <p>A long-established five-star hotel right on the Nile in Garden City, walkable to Tahrir Square and the Egyptian Museum, with several restaurants and river view rooms. One of Cairo's best known central addresses.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1686109896248-1f9908ed7f6d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Nile river and Cairo skyline at dusk" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">The Nile Ritz-Carlton Cairo</h3>
-        <p>A five-star Nile front hotel in the heart of downtown Cairo, with Garden City and Tahrir Square both within walking distance, several restaurants, a spa and river view rooms. One of the higher end options right in the centre of the city. Bookable through TUI.</p>
+        <p>A five-star Nile front hotel in the heart of downtown Cairo, with Garden City and Tahrir Square both within walking distance, several restaurants, a spa and river view rooms. One of the higher end options right in the centre of the city. Ask me and I will quote this one for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -7643,8 +7691,8 @@ cairo_body = f"""
   <div class="wrap">
     <h2>Adding a Nile river cruise</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1648139210543-da574312cda9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A felucca sailboat on the Nile at sunset" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>TUI River Cruises runs its own adult only ships on the Nile, including TUI Bahareya, a brand new ship launched for winter 2025/26, alongside its sister ship TUI Al Horeya. The standard itinerary is seven nights, sailing round trip from Luxor and calling at Edfu, Kom Ombo and Aswan, with onboard Egyptologists giving context at each stop. Packages start from around &pound;1,099 per person including flights from London or Manchester.</p>
-    <p style="margin-top:14px;">A cruise like this is very commonly combined with a few nights in Cairo either side, since most clients fly into Cairo first. TUI offers a Cruise and Stay option that bundles the two together, best arranged by speaking to Jake directly about dates and availability rather than booking the cruise and the Cairo hotel as two unconnected pieces. Jet2holidays and easyJet holidays don't currently sell a Nile river cruise product, this is a TUI exclusive within the three main operators Jake works with.</p>
+    <p>Adult only ships sail the Nile, including a brand new ship launched for winter 2025/26 alongside its sister ship. The standard itinerary is seven nights, sailing round trip from Luxor and calling at Edfu, Kom Ombo and Aswan, with onboard Egyptologists giving context at each stop. Packages start from around &pound;1,099 per person including flights from London or Manchester.</p>
+    <p style="margin-top:14px;">A cruise like this is very commonly combined with a few nights in Cairo either side, since most clients fly into Cairo first. A Cruise and Stay option bundles the two together, best arranged by speaking to Jake directly about dates and availability rather than booking the cruise and the Cairo hotel as two unconnected pieces.</p>
     {jake_tip("A Nile cruise is a genuinely different pace to a Cairo city break, unpacking once and watching the scenery change as the ship moves between Luxor and Aswan, with excursions included at each stop. It suits a client who wants both the history and a more relaxed, cruise style holiday in the same trip.")}
   </div>
 </section>
@@ -7652,11 +7700,11 @@ cairo_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Three ways to combine Cairo</h2>
-    <p style="margin-top:14px;">There's no single packaged multi centre holiday covering all of these from TUI, Jet2holidays or easyJet holidays, but Cairo combines very naturally with a few other parts of Egypt as two separately booked stays, or in the cruise's case, one bundled TUI product.</p>
+    <p style="margin-top:14px;">Cairo combines very naturally with a few other parts of Egypt as two separately booked stays, or in the cruise's case, one bundled product.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <h3 style="font-size:17px;">Cairo + Nile river cruise</h3>
-        <p>A few nights in Cairo for the Pyramids and the Grand Egyptian Museum, then straight onto a seven night TUI Nile cruise from Luxor to Aswan and back, booked as a single Cruise and Stay package through TUI. The most complete, best value way to see both the capital and ancient Egypt's temples in one trip.</p>
+        <p>A few nights in Cairo for the Pyramids and the Grand Egyptian Museum, then straight onto a seven night Nile cruise from Luxor to Aswan and back, booked as a single Cruise and Stay package. The most complete, best value way to see both the capital and ancient Egypt's temples in one trip.</p>
       </div>
       <div class="jake-card">
         <h3 style="font-size:17px;">Cairo + Luxor</h3>
@@ -7751,6 +7799,8 @@ cairo_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -7774,8 +7824,8 @@ CAIRO_SCHEMA = article_and_faq_schema(
     "https://images.unsplash.com/photo-1600520611035-84157ad4084d?auto=format&fit=crop&w=1200&q=80",
     faqs=[
         ("What's the best time to visit Cairo?", "November to March is Cairo's main season and the most comfortable time for full days of sightseeing, mild by day with genuinely cool nights, so pack layers. March, April and October are a good middle ground. May to September gets seriously hot, regularly into the mid to high thirties, and isn't the season for a packed walking itinerary without plenty of breaks in air conditioning."),
-        ("Do I need a visa for Cairo, and how do I get there?", "Yes. Cairo sits outside the Sinai's free entry stamp zone, so everyone visiting needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. easyJet holidays flies from a wide range of UK airports and TUI sells package holidays to Cairo with flights from London Heathrow, Manchester and London Gatwick. Flight time is around 5 hours direct from London or Manchester. Jet2holidays doesn't currently sell Cairo."),
-        ("Can I combine Cairo with a Nile river cruise?", "Yes, this is one of the most popular ways to see Egypt. TUI River Cruises runs seven night round trip cruises from Luxor to Aswan and back on its own adult only ships, from around &pound;1,099 per person including flights, and offers a Cruise and Stay option that bundles a Cairo stay with the cruise. Jet2holidays and easyJet holidays don't currently sell a Nile cruise product, so this is arranged through TUI."),
+        ("Do I need a visa for Cairo, and how do I get there?", "Yes. Cairo sits outside the Sinai's free entry stamp zone, so everyone visiting needs an Egyptian e-visa or visa on arrival, currently around &pound;25 to &pound;30 for a single entry tourist visa valid up to 30 days. Flights run from a wide range of UK airports, including London Heathrow, Manchester and London Gatwick. Flight time is around 5 hours direct from London or Manchester."),
+        ("Can I combine Cairo with a Nile river cruise?", "Yes, this is one of the most popular ways to see Egypt. Seven night round trip cruises run from Luxor to Aswan and back on adult only ships, from around &pound;1,099 per person including flights, and a Cruise and Stay option bundles a Cairo stay with the cruise."),
     ]
 )
 with open(os.path.join(SITE, "cairo-nile-river-cruise.html"), "w", encoding="utf-8") as f:
@@ -7804,7 +7854,7 @@ tunisia_body = f"""
   <div class="wrap">
     <h2>What Jake says about Tunisia</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1607869861980-da5f9b8b4969?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The blue and white village of Sidi Bou Said overlooking the Gulf of Tunis" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Tunisia is genuinely having a moment with UK operators right now. TUI and easyJet holidays have both been building their programmes back up over the last couple of years, and Jet2holidays is launching flights and holidays to Tunisia for the first time in years, starting Summer 2027, alongside new routes to Hurghada and Sharm El Sheikh. That's a strong signal that the big three UK operators see this as a destination worth investing in again, which is good news for choice and value.</p>
+    <p>Tunisia is genuinely having a moment with UK holidaymakers right now. Flights and holiday programmes have been building back up over the last couple of years, and new flights and holidays to Tunisia are launching for the first time in years, starting Summer 2027, alongside new routes to Hurghada and Sharm El Sheikh. That's a strong signal that the travel industry sees this as a destination worth investing in again, which is good news for choice and value.</p>
     <p style="margin-top:14px;">What clients usually fall in love with is the price. All inclusive weeks in Tunisia regularly undercut the same standard of hotel in Spain, Turkey or Greece, and you still get genuinely warm winters, a proper beach, and a totally different feel, part Mediterranean resort, part North Africa, with Roman ruins, a Sahara desert day trip and a medina all within reach of the pool.</p>
     {jake_tip("Tunisia is not the destination for a client who wants a lively nightlife strip. It's a Muslim majority country, alcohol is available in the international hotels and resorts but it's a different, much more relaxed vibe than somewhere like Magaluf. I'm always upfront about that when I'm matching a client to it.")}
   </div>
@@ -7821,9 +7871,9 @@ tunisia_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Most of Tunisia's resorts, Hammamet, Yasmine Hammamet, Port el Kantaoui, Sousse, Monastir, Skanes and Mahdia, are served by Enfidha International Airport (NBE), also known as Enfidha Hammamet. Djerba has its own airport, Djerba Zarzis International (DJE), further south. TUI and easyJet holidays both currently fly to Enfidha from a wide range of UK airports including Birmingham, Bristol, East Midlands, Glasgow, London Gatwick, London Luton, London Stansted, Manchester and Newcastle, and easyJet holidays also flies direct to Djerba from Manchester and London Luton. Jet2holidays is launching flights and holidays to Tunisia for Summer 2027, flying to Enfidha from Birmingham, East Midlands, Leeds Bradford, London Stansted and Manchester, bookable now for travel from May 2027 onwards.</p>
+    <p style="margin-top:14px;">Most of Tunisia's resorts, Hammamet, Yasmine Hammamet, Port el Kantaoui, Sousse, Monastir, Skanes and Mahdia, are served by Enfidha International Airport (NBE), also known as Enfidha Hammamet. Djerba has its own airport, Djerba Zarzis International (DJE), further south. Flights currently run to Enfidha from a wide range of UK airports including Birmingham, Bristol, East Midlands, Glasgow, London Gatwick, London Luton, London Stansted, Manchester and Newcastle, and there are also direct flights to Djerba from Manchester and London Luton. New flights and holidays to Tunisia are launching for Summer 2027, flying to Enfidha from Birmingham, East Midlands, Leeds Bradford, London Stansted and Manchester, bookable now for travel from May 2027 onwards.</p>
     <p style="margin-top:14px;">Flight time is around 3 hours 15 minutes from London and the south of England, a little longer from Scotland and Northern Ireland, and a touch longer again to Djerba.</p>
-    {jake_tip("Jet2holidays' Tunisia programme doesn't start flying until Summer 2027, so if a client wants to travel sooner than that, TUI or easyJet holidays are the two operators who can get them there right now. Always double check which operator a client's dates and hotel actually fall under before quoting.")}
+    {jake_tip("The newest Tunisia flights don't start until Summer 2027, so if a client wants to travel sooner than that, I check which hotels and departure dates are available right now. Always double check a client's dates and hotel before quoting.")}
   </div>
 </section>
 
@@ -7872,12 +7922,12 @@ tunisia_body = f"""
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1633936478473-e75c1252cccf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A beach in the Hammamet area of Tunisia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Hammamet, Yasmine Hammamet, Sousse &amp; Port el Kantaoui</h3>
-        <p>The main mainland resort belt around Enfidha airport, with by far the biggest choice of hotels, from budget friendly all inclusive right up to five star. Port el Kantaoui is a purpose built marina resort, while Sousse next door has a proper UNESCO listed old town. This is also where Jet2holidays' new programme lands from Summer 2027.</p>
+        <p>The main mainland resort belt around Enfidha airport, with by far the biggest choice of hotels, from budget friendly all inclusive right up to five star. Port el Kantaoui is a purpose built marina resort, while Sousse next door has a proper UNESCO listed old town. New flights and holidays here start from Summer 2027.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1745999739867-06d3ae08d476?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A colourful doorway in Houmt Souk, Djerba" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Djerba</h3>
-        <p>An island off Tunisia's south coast with its own airport, a more laid back pace and a stronger North African feel than the mainland resorts. Known for its thalasso and spa hotels, milder winters, and the colourful old market town of Houmt Souk. Served by easyJet holidays direct, and by TUI via Enfidha connections.</p>
+        <p>An island off Tunisia's south coast with its own airport, a more laid back pace and a stronger North African feel than the mainland resorts. Known for its thalasso and spa hotels, milder winters, and the colourful old market town of Houmt Souk. There are direct flights to Djerba from Manchester and London Luton.</p>
       </div>
     </div>
     {jake_tip("For a first timer who wants the biggest hotel choice and the shortest transfer, Hammamet or Port el Kantaoui is the easier sell. For a client who's done Spain and Turkey before and wants something that feels a bit different, with a spa focus and a slower pace, Djerba is the one to steer them towards.")}
@@ -7887,7 +7937,7 @@ tunisia_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting around</h2>
-    <p style="margin-top:14px;">Airport transfers are normally included as part of the package. Taxis are cheap and metered, it's worth asking the driver to use the meter rather than agreeing a flat fare where possible. Most clients see Carthage, Sidi Bou Said, Sousse's medina and Sahara desert excursions as organised day trips booked through the resort or a local operator, since distances between sights can be significant and public transport (louages, the shared intercity taxis) isn't really set up for tourists. Djerba is small enough that taxis and organised tours comfortably cover everything on the island.</p>
+    <p style="margin-top:14px;">Airport transfers are normally included as part of the package. Taxis are cheap and metered, it's worth asking the driver to use the meter rather than agreeing a flat fare where possible. Most clients see Carthage, Sidi Bou Said, Sousse's medina and Sahara desert excursions as organised day trips booked through the resort or a local company, since distances between sights can be significant and public transport (louages, the shared intercity taxis) isn't really set up for tourists. Djerba is small enough that taxis and organised tours comfortably cover everything on the island.</p>
   </div>
 </section>
 
@@ -7908,31 +7958,31 @@ tunisia_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across the two main resort areas. Jet2holidays' Tunisia hotels, including Hotel Samira Club and The Mirage Resort &amp; Spa Hammamet below, are bookable now but only for travel from Summer 2027 onwards, since that's when its Tunisia flights begin. TUI and easyJet holidays can get clients there sooner.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across the two main resort areas. Hotel Samira Club and The Mirage Resort &amp; Spa Hammamet below are bookable now but only for travel from Summer 2027 onwards, since that's when the new Tunisia flights begin. The other two can be booked for sooner travel.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1659094238582-fee5d5b03fca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A beach lined with umbrellas and sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hotel Samira Club, Hammamet</h3>
-        <p>A straightforward, good value all inclusive hotel right on the beach, with a large pool area, aqua park and a children's section. No official star rating is published, so treat it as a solid budget friendly family pick rather than a graded hotel. Bookable through Jet2holidays, for Summer 2027 travel.</p>
+        <p>A straightforward, good value all inclusive hotel right on the beach, with a large pool area, aqua park and a children's section. No official star rating is published, so treat it as a solid budget friendly family pick rather than a graded hotel. Available for Summer 2027 travel.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1753301673873-2c8a76206286?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A beach with palm trees in Tunisia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">The Mirage Resort &amp; Spa Hammamet, Yasmine Hammamet</h3>
-        <p>A large beachfront all inclusive resort around 2.6km from the Yasmine Hammamet centre, with three outdoor pools plus an indoor pool, five bars, three restaurants, a kids' club and a spa. A strong choice for families wanting plenty of facilities on site. Bookable through Jet2holidays, for Summer 2027 travel.</p>
+        <p>A large beachfront all inclusive resort around 2.6km from the Yasmine Hammamet centre, with three outdoor pools plus an indoor pool, five bars, three restaurants, a kids' club and a spa. A strong choice for families wanting plenty of facilities on site. Available for Summer 2027 travel.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best adults only &amp; luxury</div>
         <img src="https://images.unsplash.com/photo-1779449592917-d12076a8210f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:18px;">TUI BLUE Palm Beach Palace, Djerba</h3>
-        <p>A five star, adults only (16+) all inclusive hotel on Djerba's longest sandy beach, with a private beach section and a prime spot in Houmt Souk. The standout luxury, couples only pick on the island. Bookable through TUI.</p>
+        <h3 style="font-size:18px;">BLUE Palm Beach Palace, Djerba</h3>
+        <p>A five star, adults only (16+) all inclusive hotel on Djerba's longest sandy beach, with a private beach section and a prime spot in Houmt Souk. The standout luxury, couples only pick on the island.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for spa &amp; thalasso</div>
         <img src="https://images.unsplash.com/photo-1779617442298-d912b57a841c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A hotel swimming pool with white buildings behind" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Radisson Blu Palace Resort &amp; Thalasso Djerba, Mezraia</h3>
-        <p>A beachfront hotel a few steps from the Mediterranean in Mezraia, Djerba, with a Mediterranean buffet restaurant, two a la carte restaurants and a full thalasso spa. A well rounded pick for a client who wants a genuine spa break alongside the beach. Bookable through both TUI and easyJet holidays.</p>
+        <p>A beachfront hotel a few steps from the Mediterranean in Mezraia, Djerba, with a Mediterranean buffet restaurant, two a la carte restaurants and a full thalasso spa. A well rounded pick for a client who wants a genuine spa break alongside the beach. I can price this one up for you.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -8019,6 +8069,8 @@ tunisia_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -8041,7 +8093,7 @@ TUNISIA_SCHEMA = article_and_faq_schema(
     "tunisia.html",
     "https://images.unsplash.com/photo-1607869861980-da5f9b8b4969?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operators fly to Tunisia?", "TUI and easyJet holidays both currently fly to Tunisia, mainly into Enfidha International Airport for the mainland resorts, with easyJet holidays also flying direct to Djerba. Jet2holidays is launching flights and holidays to Tunisia for the first time in years for Summer 2027, bookable now for travel from May 2027 onwards."),
+        ("Which UK airports fly to Tunisia?", "Flights to Tunisia currently run mainly into Enfidha International Airport for the mainland resorts, with direct flights to Djerba from Manchester and London Luton. New flights and holidays to Tunisia are launching for the first time in years for Summer 2027, bookable now for travel from May 2027 onwards."),
         ("What's the best time to visit Tunisia?", "April to June and September to October are the sweet spot, warm and sunny without the full force of midsummer heat. July and August are the hottest and busiest months, regularly into the low thirties. November to March is Tunisia's mild winter sun season, popular for its lower prices and guaranteed sunshine despite cooler evenings."),
         ("Do I need a visa for Tunisia?", "No. UK passport holders don't need a visa for stays of up to 90 days, you just need a passport that's valid for the length of your stay."),
     ]
@@ -8071,7 +8123,7 @@ jamaica_body = f"""
   <div class="wrap">
     <h2>What Jake says about Jamaica</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1733596679766-3d8f63b30a75?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees silhouetted against a Jamaican sunset" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Jamaica is the one long haul island most clients already have an idea about before they've even booked, reggae, Bob Marley, jerk chicken, Dunn's River Falls, Usain Bolt. What surprises a lot of first timers is just how good the all inclusive resorts are. TUI is currently the only one of the three operators I sell who flies there, direct to Montego Bay, so if a client wants Jamaica, TUI is who we're booking with.</p>
+    <p>Jamaica is the one long haul island most clients already have an idea about before they've even booked, reggae, Bob Marley, jerk chicken, Dunn's River Falls, Usain Bolt. What surprises a lot of first timers is just how good the all inclusive resorts are. Direct flights run to Montego Bay, so I can build the whole trip around the resort you pick.</p>
     <p style="margin-top:14px;">It's a proper once in a while trip rather than a quick week away, the flight alone is around 9 hours, so clients tend to go bigger on nights to make the most of it. The pay off is a huge range of resorts, from genuinely excellent adults only luxury to big family friendly all inclusive complexes, real waterfalls and rainforest a short drive from the beach, and a culture and music scene that's completely its own.</p>
     {jake_tip("Jamaica isn't a destination I'd steer a client towards if they only want seven nights or if their budget is really tight. The flight time means it suits a proper two week holiday best, and it sits at a higher price point than Spain, Turkey or even most of the rest of the Caribbean I sell. Set that expectation early and clients are far happier with the quote.")}
   </div>
@@ -8087,8 +8139,8 @@ jamaica_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Almost all UK package holidays to Jamaica fly into Sangster International Airport (MBJ) at Montego Bay, on the island's north coast. TUI flies direct to Montego Bay from Birmingham, London Gatwick and Manchester, with a flight time of around 9 to 10 hours. Neither Jet2holidays nor easyJet holidays currently fly to Jamaica or anywhere else in the Caribbean, their long haul programmes simply don't extend that far yet, so TUI is the one to book with for this destination right now.</p>
-    {jake_tip("Because it's such a long flight, I always ask clients whether they'd rather fly out in the morning or overnight, TUI runs a mix of both depending on the route and time of year. Book early where possible too, fares and the best rooms at the more popular adults only resorts go first, especially for school holiday dates.")}
+    <p style="margin-top:14px;">Almost all UK package holidays to Jamaica fly into Sangster International Airport (MBJ) at Montego Bay, on the island's north coast. Direct flights run to Montego Bay from Birmingham, London Gatwick and Manchester, with a flight time of around 9 to 10 hours.</p>
+    {jake_tip("Because it's such a long flight, I always ask clients whether they'd rather fly out in the morning or overnight, there is usually a mix of both depending on the route and time of year. Book early where possible too, fares and the best rooms at the more popular adults only resorts go first, especially for school holiday dates.")}
   </div>
 </section>
 
@@ -8174,31 +8226,31 @@ jamaica_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across Jamaica's main resort areas. TUI is currently the only one of the three operators I sell who flies to Jamaica, so all four of these are booked through TUI.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across Jamaica's main resort areas.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1661532732965-a0db2403c6ab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A beach resort on the Jamaican coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Riu Negril, Negril</h3>
-        <p>A large, good value all inclusive resort right on Negril's Seven Mile Beach, with several pools, a kids' club and a full entertainment programme. TUI doesn't publish a star rating for it, but it's one of the better known and most reviewed all inclusive options on this stretch of coast, a solid pick for a family or a couple who want a reliable, lively resort without the top end price tag. Bookable through TUI.</p>
+        <p>A large, good value all inclusive resort right on Negril's Seven Mile Beach, with several pools, a kids' club and a full entertainment programme. There is no published star rating for it, but it's one of the better known and most reviewed all inclusive options on this stretch of coast, a solid pick for a family or a couple who want a reliable, lively resort without the top end price tag. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1704715888620-9bd3005878f0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool surrounded by palm trees in Jamaica" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Bahia Principe Explore Jamaica, Runaway Bay</h3>
-        <p>Part of the large Bahia Principe Grand Jamaica complex in Runaway Bay, this all inclusive resort is TUI's own family-friendly pick in the complex, with multiple pools, a kids' club and a long stretch of beach. A strong choice for families wanting plenty of space and facilities on site. Bookable through TUI.</p>
+        <p>Part of the large Bahia Principe Grand Jamaica complex in Runaway Bay, this all inclusive resort is the family-friendly pick in the complex, with multiple pools, a kids' club and a long stretch of beach. A strong choice for families wanting plenty of space and facilities on site. Happy to price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best adults only &amp; luxury</div>
         <img src="https://images.unsplash.com/photo-1708631000754-94f8ba81dbf8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A luxury pool overlooking the sea in Jamaica" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Royalton Chic Jamaica Paradise Cove, Runaway Bay</h3>
-        <p>One of the newest resorts on this stretch of coast, an adults only all inclusive under Marriott's Autograph Collection, with a sleek, modern design and a strong spa and dining offering. The standout luxury, couples only pick covered in this guide. Bookable through TUI.</p>
+        <p>One of the newest resorts on this stretch of coast, an adults only all inclusive under Marriott's Autograph Collection, with a sleek, modern design and a strong spa and dining offering. The standout luxury, couples only pick covered in this guide.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for couples &amp; honeymoons</div>
         <img src="https://images.unsplash.com/photo-1557188969-16b469a5b6c2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees silhouetted at sunset over the Caribbean sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Couples Tower Isle, Ocho Rios</h3>
-        <p>One of the long standing Couples resorts in Ocho Rios, adults only and all inclusive, independently rated around four star by third party hotel guides, with a private island just offshore reached by regular shuttle boat. A genuinely romantic pick that's popular with honeymooners. Bookable through TUI.</p>
+        <p>One of the long standing Couples resorts in Ocho Rios, adults only and all inclusive, independently rated around four star by third party hotel guides, with a private island just offshore reached by regular shuttle boat. A genuinely romantic pick that's popular with honeymooners. Happy to check availability for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -8285,6 +8337,8 @@ jamaica_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -8307,7 +8361,7 @@ JAMAICA_SCHEMA = article_and_faq_schema(
     "jamaica.html",
     "https://images.unsplash.com/photo-1733596679766-3d8f63b30a75?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator flies to Jamaica?", "TUI is currently the only one of the three operators Jake sells (TUI, Jet2holidays and easyJet holidays) who flies to Jamaica, with direct flights to Montego Bay's Sangster International Airport from Birmingham, London Gatwick and Manchester. Neither Jet2holidays nor easyJet holidays currently fly to the Caribbean."),
+        ("Are there direct flights to Jamaica from the UK?", "Yes, there are direct flights to Montego Bay's Sangster International Airport from Birmingham, London Gatwick and Manchester."),
         ("How long is the flight to Jamaica?", "Around 9 to 10 hours direct from the UK to Montego Bay, depending on the departure airport and winds."),
         ("What's the best time to visit Jamaica?", "December to April is the dry season and the most popular time to visit, though also the busiest and most expensive. May, June and November are good value shoulder months, while July to October sits within the Atlantic hurricane season, bringing more rain but also the best prices of the year."),
         ("Do I need a visa for Jamaica?", "No. UK passport holders don't need a visa for stays of up to 180 days, you just need a passport that's valid for the length of your stay."),
@@ -8344,7 +8398,7 @@ barbados_body = f"""
   <div class="wrap">
     <h2>What Jake says about Barbados</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1636728163078-59ea0afb7665?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Turquoise waves breaking on a sandy Barbados beach" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Barbados is the Caribbean island I get asked about most after Jamaica, and for good reason. It's safe, sophisticated, friendly and genuinely different from one coast to the next, glamorous all inclusive resorts along the west coast, a lively capital in Bridgetown, and a wild, dramatic coastline on the east side that most tourists never see. TUI is currently the only one of the three operators I sell who flies there, with direct flights from London Gatwick, Birmingham and Manchester, mainly running through the winter and spring.</p>
+    <p>Barbados is the Caribbean island I get asked about most after Jamaica, and for good reason. It's safe, sophisticated, friendly and genuinely different from one coast to the next, glamorous all inclusive resorts along the west coast, a lively capital in Bridgetown, and a wild, dramatic coastline on the east side that most tourists never see. There are direct flights from London Gatwick, Birmingham and Manchester, mainly running through the winter and spring.</p>
     <p style="margin-top:14px;">It sits right at the eastern edge of the Caribbean, outside the main hurricane belt that affects islands further north and west, so clients worried about storm season often feel reassured once I explain that. The island is also small enough to get around easily on a day trip or two, but still has enough variety, rum distilleries, surf beaches, botanical gardens, to fill a full two week stay without ever feeling repetitive.</p>
     {jake_tip("Barbados attracts a slightly older, more sophisticated crowd than some of the other Caribbean islands I sell, it's long been popular with the British upper class and has a reputation to match. That makes it a brilliant pick for couples, honeymooners and clients who want a smart, polished holiday rather than a big lively resort scene, though there are still plenty of family friendly options on the south coast.")}
   </div>
@@ -8360,8 +8414,8 @@ barbados_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Barbados' only airport, Grantley Adams International (BGI), sits on the south coast a short drive from most of the island's resorts. TUI flies direct from London Gatwick, Birmingham and Manchester, with a flight time of around 8 to 9 hours, though routes and frequency vary by season, with the fullest programme running through the winter and spring months. Neither Jet2holidays nor easyJet holidays currently fly to Barbados or anywhere else in the Caribbean, so TUI is the one to book with for this destination right now.</p>
-    {jake_tip("Because TUI's Barbados routes are seasonal rather than year round, I always check live availability for a client's exact dates before quoting, especially outside the winter and spring window. Book early for the popular Christmas, February half term and Easter departures, seats and the best rooms go quickly.")}
+    <p style="margin-top:14px;">Barbados' only airport, Grantley Adams International (BGI), sits on the south coast a short drive from most of the island's resorts. Direct flights run from London Gatwick, Birmingham and Manchester, with a flight time of around 8 to 9 hours, though routes and frequency vary by season, with the fullest programme running through the winter and spring months.</p>
+    {jake_tip("Because the Barbados routes are seasonal rather than year round, I always check live availability for a client's exact dates before quoting, especially outside the winter and spring window. Book early for the popular Christmas, February half term and Easter departures, seats and the best rooms go quickly.")}
   </div>
 </section>
 
@@ -8447,31 +8501,31 @@ barbados_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across Barbados' west and south coasts. TUI is currently the only one of the three operators I sell who flies to Barbados, so all four of these are booked through TUI.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across Barbados' west and south coasts.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1636728156938-4458ed4c5f66?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A quiet stretch of beach on Barbados' south coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Coconut Court Beach Hotel, Hastings</h3>
-        <p>A family run, beachfront hotel on the south coast, not all inclusive but with a strong value for money reputation and a genuinely good stretch of beach on its doorstep. TUI doesn't publish a star rating for it, but it's consistently one of the better reviewed options on this stretch of coast for anyone who doesn't need a full all inclusive package. Bookable through TUI.</p>
+        <p>A family run, beachfront hotel on the south coast, not all inclusive but with a strong value for money reputation and a genuinely good stretch of beach on its doorstep. There is no published star rating for it, but it's consistently one of the better reviewed options on this stretch of coast for anyone who doesn't need a full all inclusive package. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1713500292472-15f041b333d4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool with sun loungers at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Sugar Bay Barbados, Hastings</h3>
-        <p>One of TUI's own top rated all inclusive picks on the south coast, with a large beachfront pool, a kids' club and a full entertainment programme. A reliable, lively choice for a family wanting everything included without the top end price tag. Bookable through TUI.</p>
+        <p>One of the top rated all inclusive picks on the south coast, with a large beachfront pool, a kids' club and a full entertainment programme. A reliable, lively choice for a family wanting everything included without the top end price tag. Happy to price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1762254794468-1fb6fa893f73?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An infinity pool overlooking the sea at dusk" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Colony Club, a Luxury Collection Resort, St James</h3>
-        <p>A long standing, elegant resort on the Platinum Coast, part of Marriott's Luxury Collection and carrying TUI's own luxury designation. Set in tropical gardens around a series of lagoon style pools, it's the kind of polished, old school Caribbean glamour Barbados is known for. Bookable through TUI.</p>
+        <p>A long standing, elegant resort on the Platinum Coast, part of Marriott's Luxury Collection. Set in tropical gardens around a series of lagoon style pools, it's the kind of polished, old school Caribbean glamour Barbados is known for.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best adults only &amp; honeymoons</div>
         <img src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees silhouetted against a golden sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">The House, An Autograph Collection All Inclusive Hotel, Adults Only, St James</h3>
-        <p>A small, boutique, adults only all inclusive resort on the Platinum Coast, part of Marriott's Autograph Collection, with personalised service and a genuinely romantic, intimate feel. One of the standout honeymoon picks covered in this guide. Bookable through TUI.</p>
+        <p>A small, boutique, adults only all inclusive resort on the Platinum Coast, part of Marriott's Autograph Collection, with personalised service and a genuinely romantic, intimate feel. One of the standout honeymoon picks covered in this guide. Happy to check availability for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -8541,7 +8595,7 @@ barbados_body = f"""
           <tr><td>Currency</td><td>Barbados Dollar (BBD), pegged to the US Dollar at a fixed rate, with US Dollars also widely accepted in resorts and tourist areas</td></tr>
           <tr><td>Plug type</td><td>Type A/B, the same as the US. A UK to US style adapter is needed, and the voltage is 115V rather than the UK's 230V, so check appliances before plugging in directly</td></tr>
           <tr><td>Language</td><td>English is the official language, spoken locally with a distinctive Bajan accent and dialect</td></tr>
-          <tr><td>Flight time from the UK</td><td>About 8 to 9 hours direct, though TUI's routes are seasonal, mainly running through the winter and spring</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 8 to 9 hours direct, though routes are seasonal, mainly running through the winter and spring</td></tr>
           <tr><td>Time difference</td><td>Barbados stays on the same time year round and doesn't change its clocks, so it's 4 hours behind the UK in winter and 5 hours behind during British Summer Time</td></tr>
           <tr><td>Entry requirements</td><td>UK passport holders don't need a visa for stays of up to 6 months, a passport valid for the length of the stay is all that's needed</td></tr>
           <tr><td>Driving</td><td>Left hand side, the same as the UK, and generally good enough road conditions that self drive is a realistic option alongside transfers and taxis</td></tr>
@@ -8556,6 +8610,8 @@ barbados_body = f"""
     <p style="font-size:12px; opacity:0.6;">Photos: Tom Jur, Jeffrey Eisen, Kevin Doran, JR Harris, Milin John, Tommaso Ubezio, Prometey Sanchez Noskov, Kris-Mikael Krister, Yash Mannepalli, Flo Plouch and Jeremy Bishop via Unsplash.</p>
   </div>
 </section>
+
+{SUPPLIER_SECTION}
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
@@ -8579,7 +8635,7 @@ BARBADOS_SCHEMA = article_and_faq_schema(
     "barbados.html",
     "https://images.unsplash.com/photo-1636728163078-59ea0afb7665?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator flies to Barbados?", "TUI is currently the only one of the three operators Jake sells (TUI, Jet2holidays and easyJet holidays) who flies to Barbados, with direct flights to Grantley Adams International Airport from London Gatwick, Birmingham and Manchester, mainly running through the winter and spring. Neither Jet2holidays nor easyJet holidays currently fly to the Caribbean."),
+        ("Are there direct flights to Barbados from the UK?", "Yes, there are direct flights to Grantley Adams International Airport from London Gatwick, Birmingham and Manchester, mainly running through the winter and spring."),
         ("How long is the flight to Barbados?", "Around 8 to 9 hours direct from the UK, depending on the departure airport and winds."),
         ("What's the best time to visit Barbados?", "December to April is the dry season and the most popular time to visit, though also the busiest and most expensive. Barbados' Crop Over festival runs through July and August with a big calendar of events. May, June and November are good value shoulder months, while July to October brings more rain but also the best prices of the year."),
         ("Is Barbados at risk from hurricanes?", "Barbados sits at the southeastern edge of the Caribbean, outside the main Atlantic hurricane belt, so it's generally far less exposed to direct hits than islands further north and west. The official hurricane season still runs from 1 June to 30 November, so proper travel insurance is still sensible for a trip during those months."),
@@ -8610,7 +8666,7 @@ st_lucia_body = f"""
   <div class="wrap">
     <h2>What Jake says about St Lucia</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1706645616928-1902d9a6b929?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A scenic view of the Pitons rising above the sea in St Lucia" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>St Lucia is the Caribbean island I send people to when they want more than just a beach. The twin volcanic peaks of the Pitons are the postcard image, and they're every bit as dramatic in person, rising straight out of the sea above Soufriere. But the island is just as well known for honeymoons and weddings, with a glamorous reputation that goes back decades. TUI is the operator I use for St Lucia, packaging the hotel with your flights, though it's worth knowing upfront that TUI stopped flying its own aircraft on this route in 2025. Your flight is now with a partner airline, usually British Airways, which flies daily direct from Gatwick, with TUI still handling the holiday package and the hotel side exactly as before.</p>
+    <p>St Lucia is the Caribbean island I send people to when they want more than just a beach. The twin volcanic peaks of the Pitons are the postcard image, and they're every bit as dramatic in person, rising straight out of the sea above Soufriere. But the island is just as well known for honeymoons and weddings, with a glamorous reputation that goes back decades. I package St Lucia holidays with your hotel and flights together, though it's worth knowing upfront that your flight is usually with British Airways, which flies daily direct from Gatwick.</p>
     <p style="margin-top:14px;">Compared with flatter islands like Barbados or Antigua, St Lucia is hilly and genuinely lush, rainforest covers much of the interior, and that makes it brilliant for anyone who wants to get out and do things rather than just lie by the pool. It's also one of the easiest islands to combine a relaxed beach stay in the north with something properly scenic a short drive south.</p>
     {jake_tip("I always ask whether a client wants a lively base or a quiet one before picking an area. Rodney Bay in the north has the restaurants, bars and nightlife, while Soufriere in the south sits right beneath the Pitons with a much slower pace. Plenty of clients end up doing a few nights of each rather than choosing just one.")}
   </div>
@@ -8626,8 +8682,8 @@ st_lucia_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">St Lucia has two airports. Most package holidays use Hewanorra International Airport (UVF) in the south near Vieux Fort, while George F. L. Charles Airport (SLU) near Castries in the north mainly handles smaller regional flights. TUI packages St Lucia holidays with a flight time of around 8 to 9 hours from the UK, but since TUI retired its own aircraft from this route in 2025, the flight itself now runs with a partner airline, usually British Airways, which flies direct from London Gatwick most days of the week. Neither Jet2holidays nor easyJet holidays currently fly to St Lucia or anywhere else in the Caribbean, so TUI remains the one to book with here.</p>
-    {jake_tip("Because the flight on a TUI St Lucia package is now with a partner airline rather than TUI's own aircraft, I always double check the exact flight details and baggage allowance for a client's specific dates before confirming anything, the routing can vary more than it used to.")}
+    <p style="margin-top:14px;">St Lucia has two airports. Most package holidays use Hewanorra International Airport (UVF) in the south near Vieux Fort, while George F. L. Charles Airport (SLU) near Castries in the north mainly handles smaller regional flights. Flight time is around 8 to 9 hours from the UK, and the flight is usually with British Airways, which flies direct from London Gatwick most days of the week.</p>
+    {jake_tip("Because the flight on a St Lucia package is usually with British Airways, I always double check the exact flight details and baggage allowance for a client's specific dates before confirming anything, the routing can vary more than it used to.")}
   </div>
 </section>
 
@@ -8713,31 +8769,31 @@ st_lucia_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across St Lucia's north and south coasts. TUI is the operator I use for St Lucia, so all four of these are booked through TUI.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across St Lucia's north and south coasts.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1732817207228-7d53fec17f97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A swimming pool surrounded by palm trees at a Caribbean hotel" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Bay Gardens Hotel, Rodney Bay</h3>
-        <p>A relaxed, good value hotel right in the heart of Rodney Bay, not all inclusive but close to the marina's restaurants and bars, with its own pool and gardens. A solid pick for anyone who wants to be in the thick of things without paying resort prices. Bookable through TUI.</p>
+        <p>A relaxed, good value hotel right in the heart of Rodney Bay, not all inclusive but close to the marina's restaurants and bars, with its own pool and gardens. A solid pick for anyone who wants to be in the thick of things without paying resort prices. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1790271975495-441d22f6af56?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool with a bridge at a Caribbean beach resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Coconut Bay Beach Resort &amp; Spa, Vieux Fort</h3>
-        <p>A large all inclusive resort right by Hewanorra airport, with its own waterpark, a strong kids' club and a genuinely good stretch of beach. The easiest, most convenient family base on the island given how close it sits to the airport. Bookable through TUI.</p>
+        <p>A large all inclusive resort right by Hewanorra airport, with its own waterpark, a strong kids' club and a genuinely good stretch of beach. The easiest, most convenient family base on the island given how close it sits to the airport. Ask me for current prices.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1760564019141-abe33455ce02?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An infinity pool overlooking the turquoise ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">BodyHoliday, Cap Estate</h3>
-        <p>A wellness focused luxury all inclusive resort in the north of the island, with daily yoga, an extensive spa and a full programme of included activities. One of the more unusual, genuinely different luxury options I sell anywhere in the Caribbean. Bookable through TUI.</p>
+        <p>A wellness focused luxury all inclusive resort in the north of the island, with daily yoga, an extensive spa and a full programme of included activities. One of the more unusual, genuinely different luxury options I sell anywhere in the Caribbean. I can check availability for your dates.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best adults only &amp; honeymoons</div>
         <img src="https://images.unsplash.com/photo-1760564019062-7e7efdf4cc1d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="People swimming in an infinity pool overlooking the ocean at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hideaway at Royalton St Lucia, Smugglers Cove</h3>
-        <p>An adults only all inclusive resort in the north, part of Marriott's Autograph Collection, with a quieter, more intimate feel than its sister resort next door. A strong honeymoon pick for couples who want a polished, all inclusive base close to Rodney Bay. Bookable through TUI.</p>
+        <p>An adults only all inclusive resort in the north, part of Marriott's Autograph Collection, with a quieter, more intimate feel than its sister resort next door. A strong honeymoon pick for couples who want a polished, all inclusive base close to Rodney Bay. Happy to price this one up for you.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -8807,7 +8863,7 @@ st_lucia_body = f"""
           <tr><td>Currency</td><td>Eastern Caribbean Dollar (XCD), with US Dollars also widely accepted in resorts and tourist areas</td></tr>
           <tr><td>Plug type</td><td>Type G, the same as the UK. The mains supply is 230V, so no adapter or converter is needed for standard UK appliances</td></tr>
           <tr><td>Language</td><td>English is the official language, with a French-influenced Kweyol (Creole) also widely spoken</td></tr>
-          <tr><td>Flight time from the UK</td><td>About 8 to 9 hours. TUI packages the holiday but the flight itself is with a partner airline, usually British Airways direct from Gatwick, since TUI retired its own St Lucia route in 2025</td></tr>
+          <tr><td>Flight time from the UK</td><td>About 8 to 9 hours, usually with British Airways direct from Gatwick</td></tr>
           <tr><td>Time difference</td><td>St Lucia stays on the same time year round and doesn't change its clocks, so it's 4 hours behind the UK in winter and 5 hours behind during British Summer Time</td></tr>
           <tr><td>Entry requirements</td><td>UK passport holders don't need a visa for stays of up to 6 weeks, a passport valid for the length of the stay with at least one blank page is all that's needed</td></tr>
           <tr><td>Driving</td><td>Left hand side, the same as the UK, though the roads are hillier and more winding than on flatter islands</td></tr>
@@ -8822,6 +8878,8 @@ st_lucia_body = f"""
     <p style="font-size:12px; opacity:0.6;">Photos: Faith Panciello, Karl Moore, JR Harris, Meg von Haartman, Steve Adams, Rosemary Media, Sara Nichols, ben lim, Atharva Tulsi and Aleksandar Popovski via Unsplash.</p>
   </div>
 </section>
+
+{SUPPLIER_SECTION}
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
@@ -8845,7 +8903,7 @@ ST_LUCIA_SCHEMA = article_and_faq_schema(
     "st-lucia.html",
     "https://images.unsplash.com/photo-1706645616928-1902d9a6b929?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells St Lucia holidays?", "TUI is the one of the three operators Jake sells (TUI, Jet2holidays and easyJet holidays) who packages St Lucia holidays. TUI retired its own direct aircraft on this route in May 2025, so the flight is now operated by a partner airline, usually British Airways, which flies direct from London Gatwick most days. Neither Jet2holidays nor easyJet holidays currently fly to the Caribbean."),
+        ("Can you book St Lucia holidays for me?", "Yes. I put St Lucia holidays together with your hotel and flights, comparing prices across the companies I book with and building the trip around you. The flight is usually with British Airways, which flies direct from London Gatwick most days."),
         ("How long is the flight to St Lucia?", "Around 8 to 9 hours direct from the UK, depending on the departure airport, airline and winds."),
         ("What's the best time to visit St Lucia?", "December to April is the dry season and the most popular time to visit, though also the busiest and most expensive. Saint Lucia's Carnival runs through July with a big calendar of events. May, June and November are good value shoulder months, while July to October brings more rain but also the best prices of the year."),
         ("Is St Lucia at risk from hurricanes?", "St Lucia sits in the Atlantic hurricane belt, with the official season running from 1 June to 30 November, so proper travel insurance is sensible for a trip during those months, though it isn't hit anywhere near as often as islands further north."),
@@ -8876,7 +8934,7 @@ sri_lanka_body = f"""
   <div class="wrap">
     <h2>What Jake says about Sri Lanka</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1656495783346-559815221595?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Visiting the historical rock fortress in Sigiriya, Sri Lanka" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Sri Lanka is the one I recommend when a client says they want a beach holiday but also wants to feel like they have actually been somewhere. You get proper palm-lined beaches down the west and south coasts, and within a couple of hours' drive you are up among tea plantations, ancient rock fortresses and temples that are thousands of years old. TUI is the operator I use for Sri Lanka, packaging your hotel and flights together, and it is the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that currently goes this far east.</p>
+    <p>Sri Lanka is the one I recommend when a client says they want a beach holiday but also wants to feel like they have actually been somewhere. You get proper palm-lined beaches down the west and south coasts, and within a couple of hours' drive you are up among tea plantations, ancient rock fortresses and temples that are thousands of years old. I package Sri Lanka holidays with your hotel and flights together.</p>
     <p style="margin-top:14px;">It is not a short-haul island, so I am always upfront with clients about that before anything else. The flight is long and the routing can vary, but once you land you get an enormous amount of variety for the money, real elephants, real tea pickers, real ancient cities, all within a sensible day trip of your hotel.</p>
     {jake_tip("I always ask a client whether they want a pure beach fortnight or whether they fancy building in a day or two inland while they are out there. Sigiriya, Kandy and the tea country around Nuwara Eliya are all within reach of a day trip from the west coast hotels, so you do not need a separate touring holiday to see them.")}
   </div>
@@ -8885,14 +8943,14 @@ sri_lanka_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Trip length &amp; who it suits</h2>
-    <p style="margin-top:14px;">Ten to fourteen nights is the sweet spot for Sri Lanka, long enough to make the flight time worthwhile and to fit in a day or two of touring alongside the beach. It suits families looking for a west coast all inclusive base with a kids' club, couples and honeymooners drawn to the quieter, more scenic hotels further south, and anyone with a genuine interest in wildlife, culture or tea, since all three are easy to combine with a beach stay here in a way few other TUI destinations allow. It is less suited to anyone who wants the shortest possible flight, or who wants a destination where every hotel and every excursion is already set up in English with minimal fuss, parts of Sri Lanka still feel properly off the beaten track.</p>
+    <p style="margin-top:14px;">Ten to fourteen nights is the sweet spot for Sri Lanka, long enough to make the flight time worthwhile and to fit in a day or two of touring alongside the beach. It suits families looking for a west coast all inclusive base with a kids' club, couples and honeymooners drawn to the quieter, more scenic hotels further south, and anyone with a genuine interest in wildlife, culture or tea, since all three are easy to combine with a beach stay here in a way few other destinations allow. It is less suited to anyone who wants the shortest possible flight, or who wants a destination where every hotel and every excursion is already set up in English with minimal fuss, parts of Sri Lanka still feel properly off the beaten track.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Everyone arrives into Bandaranaike International Airport (CMB), just outside Negombo and about 30 minutes from the capital, Colombo. TUI packages the holiday with your flights included, but the exact routing is worth checking for your dates. SriLankan Airlines flies direct from London Heathrow in around 10 hours 45 minutes, and British Airways has just relaunched its own direct Gatwick to Colombo service, three times a week from 23 October 2026, after several years without one. Plenty of routings still go via a Middle Eastern hub such as Doha, Dubai or Abu Dhabi with Qatar Airways, Emirates or Etihad, which adds to the overall journey time. Neither Jet2holidays nor easyJet holidays currently fly this far, so TUI is the one to book with for a Sri Lanka package.</p>
+    <p style="margin-top:14px;">Everyone arrives into Bandaranaike International Airport (CMB), just outside Negombo and about 30 minutes from the capital, Colombo. I can package the holiday with your flights included, but the exact routing is worth checking for your dates. SriLankan Airlines flies direct from London Heathrow in around 10 hours 45 minutes, and British Airways has just relaunched its own direct Gatwick to Colombo service, three times a week from 23 October 2026, after several years without one. Plenty of routings still go via a Middle Eastern hub such as Doha, Dubai or Abu Dhabi with Qatar Airways, Emirates or Etihad, which adds to the overall journey time.</p>
     {jake_tip("Because the routing on a Sri Lanka package can vary so much, direct with SriLankan Airlines or British Airways, or via a Gulf hub, I always check the exact flight times and any stopover length for a client's specific dates before confirming anything.")}
   </div>
 </section>
@@ -8958,7 +9016,7 @@ sri_lanka_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting around</h2>
-    <p style="margin-top:14px;">Airport transfers are usually included as part of the TUI package. Sri Lanka drives on the left, the same as the UK, but roads can be busy and the standard of driving varies, so almost every client sticks to transfers, taxis and organised day trips rather than self drive. Tuk-tuks are everywhere and are a cheap, easy way to get around locally once you are based at a hotel, and a private car and driver for a day is easy to arrange for trips inland to Sigiriya, Kandy or the tea country.</p>
+    <p style="margin-top:14px;">Airport transfers are usually included as part of a package. Sri Lanka drives on the left, the same as the UK, but roads can be busy and the standard of driving varies, so almost every client sticks to transfers, taxis and organised day trips rather than self drive. Tuk-tuks are everywhere and are a cheap, easy way to get around locally once you are based at a hotel, and a private car and driver for a day is easy to arrange for trips inland to Sigiriya, Kandy or the tea country.</p>
   </div>
 </section>
 
@@ -8979,31 +9037,31 @@ sri_lanka_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across Sri Lanka's west and south coasts. TUI is the operator I use for Sri Lanka, so all four of these are booked through TUI.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across Sri Lanka's west and south coasts.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1735770517146-e95c872226fc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool overlooking the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Goldi Sands, Negombo</h3>
-        <p>A straightforward, good value hotel right on Negombo's beach, just minutes from the airport. A sensible pick for anyone who wants to keep transfer time short and spend their money on the trip rather than a long drive. Bookable through TUI.</p>
+        <p>A straightforward, good value hotel right on Negombo's beach, just minutes from the airport. A sensible pick for anyone who wants to keep transfer time short and spend their money on the trip rather than a long drive. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1717361054046-eda52d552736?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A swimming pool surrounded by palm trees at a family resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Riu Sri Lanka, Ahungalla</h3>
-        <p>A large all inclusive resort on Ahungalla's beach, from a brand well known for its family set up elsewhere in the world. A good, dependable base for families who want everything included and a straightforward stretch of beach on the doorstep. Bookable through TUI.</p>
+        <p>A large all inclusive resort on Ahungalla's beach, from a brand well known for its family set up elsewhere in the world. A good, dependable base for families who want everything included and a straightforward stretch of beach on the doorstep. Ask me for current prices.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1588504633950-9dc518941e93?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A quiet deck overlooking the water at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Vivanta by Taj, Bentota</h3>
-        <p>A polished five star feel on the Bentota river mouth, with an infinity pool, a spa set around a courtyard garden and a lantern-lit cocktail bar. The one I'd point towards for a client who wants Sri Lanka's more scenic southern stretch without compromising on comfort. Bookable through TUI.</p>
+        <p>A polished five star feel on the Bentota river mouth, with an infinity pool, a spa set around a courtyard garden and a lantern-lit cocktail bar. The one I'd point towards for a client who wants Sri Lanka's more scenic southern stretch without compromising on comfort. I can check availability for your dates.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for couples</div>
         <img src="https://images.unsplash.com/photo-1580247331145-82d32dbbdcac?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An infinity pool overlooking the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hikka Tranz by Cinnamon, Hikkaduwa</h3>
-        <p>An on-trend, oceanfront hotel in Hikkaduwa's lively surf town, with a more modern feel than many of the island's older beach hotels. A good fit for couples who want a sociable base with easy access to Hikkaduwa's bars, restaurants and reef snorkelling. Bookable through TUI.</p>
+        <p>An on-trend, oceanfront hotel in Hikkaduwa's lively surf town, with a more modern feel than many of the island's older beach hotels. A good fit for couples who want a sociable base with easy access to Hikkaduwa's bars, restaurants and reef snorkelling. Happy to price this one up for you.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -9089,6 +9147,8 @@ sri_lanka_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -9111,7 +9171,7 @@ SRI_LANKA_SCHEMA = article_and_faq_schema(
     "sri-lanka.html",
     "https://images.unsplash.com/photo-1656495783346-559815221595?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Sri Lanka holidays?", "TUI is the one of the three operators Jake sells (TUI, Jet2holidays and easyJet holidays) who packages Sri Lanka holidays. Neither Jet2holidays nor easyJet holidays currently fly this far east."),
+        ("Can you book Sri Lanka holidays for me?", "Yes. I put Sri Lanka holidays together with your hotel and flights, comparing prices across the companies I book with and building the trip around you."),
         ("How long is the flight to Sri Lanka?", "Around 10 hours 45 minutes direct from London Heathrow with SriLankan Airlines, or on British Airways' direct Gatwick to Colombo service launching 23 October 2026. Many routings also go via a Middle Eastern hub such as Doha, Dubai or Abu Dhabi, which takes longer."),
         ("What's the best time to visit Sri Lanka?", "December to March is the dry season for the west and south coast hotels most packages use, and the busiest, most expensive time to travel. May to October brings more rain on the west coast but much better value, and the hill country around Kandy stays cooler year round."),
         ("Do I need a visa for Sri Lanka?", "UK passport holders need a free Electronic Travel Authorisation (ETA) before travelling, valid for 30 days, plus a passport valid for at least 6 months beyond arrival."),
@@ -9144,7 +9204,7 @@ mauritius_body = f"""
     <h2>What Jake says about Mauritius</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1513415563383-4e580ed27a46?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Le Morne Brabant mountain rising above the lagoon in Mauritius" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
     <p>Mauritius is my favourite long haul destination, and I have been lucky enough to go back more than once. It has everything I want from an island holiday: proper turquoise lagoons, mountains that look almost unreal rising straight out of the sea, genuinely excellent food thanks to its French, Indian, Chinese and Creole mix, and a level of service at the resorts that is hard to match anywhere else I sell.</p>
-    <p style="margin-top:14px;">Unlike most of the destinations in this guide series, Mauritius is not one I book through TUI, Jet2holidays or easyJet holidays. I have my own direct trade contract with Beachcomber, one of the island's longest established hotel groups, which covers eight resorts spread across four stretches of coast, the north west, the west, the south west and the east. That means I am not just reselling a package, I know these hotels myself and can put a client into the right one for them rather than whichever one happens to be on an operator's shelf.</p>
+    <p style="margin-top:14px;">Mauritius works a little differently from most of the destinations in this guide series. I have my own direct trade contract with Beachcomber, one of the island's longest established hotel groups, which covers eight resorts spread across four stretches of coast, the north west, the west, the south west and the east. That means I am not just reselling a package, I know these hotels myself and can put a client into the right one for them.</p>
     {jake_tip("Because I book Mauritius direct with Beachcomber rather than through a mainstream package, I always sort flights separately for a client, usually on Air Mauritius or British Airways direct from Gatwick, then build the hotel and transfers around whichever flight suits their dates best.")}
   </div>
 </section>
@@ -9256,7 +9316,7 @@ mauritius_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">All eight of my direct contract Beachcomber hotels, grouped by coast. I book every one of these myself, so there is no third party operator to check, I know each of them personally or through my own trade relationship with the group.</p>
+    <p style="margin-top:14px;">All eight of my direct contract Beachcomber hotels, grouped by coast. I book every one of these myself, and I know each of them personally or through my own trade relationship with the group.</p>
     <h3 style="font-size:17px; margin-top:28px;">North West Coast, Grand Baie</h3>
     <div class="grid-3 equal-cards" style="margin-top:16px;">
       <div class="jake-card">
@@ -9400,6 +9460,8 @@ mauritius_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -9422,7 +9484,7 @@ MAURITIUS_SCHEMA = article_and_faq_schema(
     "mauritius.html",
     "https://images.unsplash.com/photo-1513415563383-4e580ed27a46?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Mauritius holidays?", "Jake books Mauritius direct through his own trade contract with Beachcomber, a Mauritian hotel group, rather than through TUI, Jet2holidays or easyJet holidays. Flights are arranged separately, usually direct with Air Mauritius or British Airways from London Gatwick."),
+        ("Can you book Mauritius holidays for me?", "Yes. Jake books Mauritius direct through his own trade contract with Beachcomber, a Mauritian hotel group. Flights are arranged separately, usually direct with Air Mauritius or British Airways from London Gatwick."),
         ("How long is the flight to Mauritius?", "Around 11 hours 40 minutes to 12 hours direct from London Gatwick with Air Mauritius or British Airways, who between them run around 8 direct flights a week."),
         ("What's the best time to visit Mauritius?", "May to October gives the best all round weather with the lowest cyclone risk, with July and August the busiest months. September and October offer similar weather with fewer crowds. November to April is the cyclone season, with the highest risk in January to March, though a direct hit in any given year is rare."),
         ("Do I need a visa for Mauritius?", "UK passport holders do not need a visa for stays of up to 60 days, but must show proof of onward or return travel and have a passport valid for the length of their stay."),
@@ -9454,9 +9516,9 @@ zanzibar_body = f"""
   <div class="wrap">
     <h2>What Jake says about Zanzibar</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1620896712848-d05411ec91ec?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A traditional dhow sailing boat on the beach at Matemwe, Zanzibar" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Zanzibar is the one I reach for when a client wants a proper Indian Ocean beach, white sand, warm turquoise water and swaying palms, but also fancies something with a bit more story to it than a sunbed. You have Stone Town's winding alleys and spice markets a short drive from the resort strips, giant tortoises on Prison Island, red colobus monkeys you will not find natively anywhere else on earth, and the whole of mainland Tanzania's safari country within reach if you want to build it in. TUI is the operator I use for Zanzibar, packaging hotel and flights together, and it is the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that currently goes this far.</p>
-    <p style="margin-top:14px;">There is a genuinely exciting change coming too. Right now the flight from the UK still routes via a connection, usually through Addis Ababa, Nairobi or a Gulf hub, but TUI has confirmed it is launching its own nonstop charter from London Gatwick twice a week from 3 November 2027, which will make it the only UK package holiday provider flying direct to the island. Sales for that programme opened back on 2 July 2026, so it is already bookable even though the first flight has not left yet.</p>
-    {jake_tip("I always tell clients honestly where we are with the flights. You can book Zanzibar with TUI right now for travel before November 2027 on an indirect routing, or book ahead for the new direct service once it starts. Neither is wrong, it just depends how soon you want to go and how much a shorter total journey time matters to you.")}
+    <p>Zanzibar is the one I reach for when a client wants a proper Indian Ocean beach, white sand, warm turquoise water and swaying palms, but also fancies something with a bit more story to it than a sunbed. You have Stone Town's winding alleys and spice markets a short drive from the resort strips, giant tortoises on Prison Island, red colobus monkeys you will not find natively anywhere else on earth, and the whole of mainland Tanzania's safari country within reach if you want to build it in. I can package your hotel and flights together for Zanzibar and build the whole trip around you.</p>
+    <p style="margin-top:14px;">There is an exciting change coming too. Right now the flight from the UK still routes via a connection, usually through Addis Ababa, Nairobi or a Gulf hub, but a nonstop charter from London Gatwick has been confirmed, flying twice a week from 3 November 2027. Sales for that programme opened back on 2 July 2026, so it is already bookable even though the first flight has not left yet.</p>
+    {jake_tip("I always tell clients openly where we are with the flights. You can book Zanzibar right now for travel before November 2027 on an indirect routing, or book ahead for the new direct service once it starts. Neither is wrong, it just depends how soon you want to go and how much a shorter total journey time matters to you.")}
   </div>
 </section>
 
@@ -9470,8 +9532,8 @@ zanzibar_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Everyone arrives into Abeid Amani Karume International Airport (ZNZ), just outside Zanzibar City. For now, TUI's own travel information quotes a total journey time of around 14 hours 20 minutes from Gatwick, since there is currently no nonstop UK service and the routing goes via a connection, commonly through Addis Ababa with Ethiopian Airlines, Nairobi with Kenya Airways, or a Gulf hub such as Dubai or Doha. That is about to change. TUI has confirmed its own twice weekly direct charter from London Gatwick, flying every Wednesday and Sunday from 3 November 2027 to 22 March 2028, which it says will make it the only UK package holiday provider flying nonstop to Zanzibar. Separately, the scheduled carrier Air Tanzania has said it plans its own nonstop Gatwick to Zanzibar and Kilimanjaro route from July 2027, though that route is still under development and worth checking closer to the time.</p>
-    {jake_tip("If a client's dates fall before November 2027 I book the indirect routing with TUI as normal, it is a long day but a well trodden one. If they are flexible and happy to wait, I flag the new direct flight too, since a shorter total journey time can be worth planning around for a long haul trip like this.")}
+    <p style="margin-top:14px;">Everyone arrives into Abeid Amani Karume International Airport (ZNZ), just outside Zanzibar City. For now, the total journey time is around 14 hours 20 minutes from Gatwick, since there is currently no nonstop UK service and the routing goes via a connection, commonly through Addis Ababa with Ethiopian Airlines, Nairobi with Kenya Airways, or a Gulf hub such as Dubai or Doha. That is about to change. A twice weekly direct charter from London Gatwick has been confirmed, flying every Wednesday and Sunday from 3 November 2027 to 22 March 2028. Separately, the scheduled carrier Air Tanzania has said it plans its own nonstop Gatwick to Zanzibar and Kilimanjaro route from July 2027, though that route is still under development and worth checking closer to the time.</p>
+    {jake_tip("If a client's dates fall before November 2027 I book the indirect routing as normal, it is a long day but a well trodden one. If they are flexible and happy to wait, I flag the new direct flight too, since a shorter total journey time can be worth planning around for a long haul trip like this.")}
   </div>
 </section>
 
@@ -9516,7 +9578,7 @@ zanzibar_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Where to stay</h2>
-    <p style="margin-top:14px;">Zanzibar's package hotels cluster along the north and northeast coasts. I split them into two main areas, with Stone Town itself better suited to a night or two of sightseeing than a full beach stay, and the southeast around Jambiani and Paje worth knowing about too for its kitesurfing and more boutique, lower key feel, though it currently has less TUI hotel choice than the north.</p>
+    <p style="margin-top:14px;">Zanzibar's package hotels cluster along the north and northeast coasts. I split them into two main areas, with Stone Town itself better suited to a night or two of sightseeing than a full beach stay, and the southeast around Jambiani and Paje worth knowing about too for its kitesurfing and more boutique, lower key feel, though it currently has less hotel choice than the north.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1731329571540-a1d6dfc902b8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A white sand beach backed by palm trees at Nungwi, Zanzibar" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -9526,7 +9588,7 @@ zanzibar_body = f"""
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1763725312540-6f52ad7ed0fc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Turquoise water and palm shadows at a resort pool on Zanzibar's northeast coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Kiwengwa &amp; Matemwe (the northeast)</h3>
-        <p>A little further round the coast, Kiwengwa and Matemwe are quieter and more spread out, with wide white beaches and the biggest concentration of all inclusive family resorts, including TUI's own hotel brands. This is the area I'd steer families and anyone after a calmer, more resort style stay towards.</p>
+        <p>A little further round the coast, Kiwengwa and Matemwe are quieter and more spread out, with wide white beaches and the biggest concentration of all inclusive family resorts. This is the area I'd steer families and anyone after a calmer, more resort style stay towards.</p>
       </div>
     </div>
     {jake_tip("Low tide exposes a lot of seaweed and sandbank on some stretches of the east coast, especially Kiwengwa and Matemwe, which catches a few clients out. It doesn't spoil the holiday but I always mention it, and most of the hotels I book have a pool to fall back on either way.")}
@@ -9536,7 +9598,7 @@ zanzibar_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting around</h2>
-    <p style="margin-top:14px;">Airport transfers are usually included as part of the TUI package. Zanzibar drives on the left, the same as the UK, but roads vary a lot in quality and almost every client sticks to transfers, taxis and organised day trips rather than self drive. A private driver for the day is easy and inexpensive to arrange through your hotel for trips into Stone Town, Jozani Forest or a spice tour, and is by far the most relaxed way to see the island beyond the resort.</p>
+    <p style="margin-top:14px;">Airport transfers are usually included as part of the package. Zanzibar drives on the left, the same as the UK, but roads vary a lot in quality and almost every client sticks to transfers, taxis and organised day trips rather than self drive. A private driver for the day is easy and inexpensive to arrange through your hotel for trips into Stone Town, Jozani Forest or a spice tour, and is by far the most relaxed way to see the island beyond the resort.</p>
   </div>
 </section>
 
@@ -9557,31 +9619,31 @@ zanzibar_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across Zanzibar's north and northeast coasts. TUI is the operator I use for Zanzibar, so all four of these are booked through TUI.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across Zanzibar's north and northeast coasts.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1665448863448-a3fe2a384508?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A quiet beach with clear blue water on Zanzibar's north coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Kendwa Rocks Beach Hotel, Kendwa</h3>
-        <p>A simple, sociable hotel directly on Kendwa's beach, with a pool, a spa and an on-site dive centre. A good fit for couples and divers who want a straightforward, lively base without paying for a five star resort. Bookable through TUI.</p>
+        <p>A simple, sociable hotel directly on Kendwa's beach, with a pool, a spa and an on-site dive centre. A good fit for couples and divers who want an easy going, lively base without paying for a five star resort. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1699954993465-ad3faa5d0593?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cows resting on a white sand beach in Zanzibar" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Diamonds Mapenzi Beach, Kiwengwa</h3>
-        <p>A 4 star, Fully Inclusive resort set in tropical gardens on Kiwengwa Beach, with family rooms, daily family entertainment, a watersports and dive centre, and excursions such as Stone Town trips and spice tours bookable on site. A dependable, easy going family base. Bookable through TUI.</p>
+        <p>A 4 star, Fully Inclusive resort set in tropical gardens on Kiwengwa Beach, with family rooms, daily family entertainment, a watersports and dive centre, and excursions such as Stone Town trips and spice tours bookable on site. A dependable, easy going family base.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1745885979468-44a855f8a5fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A luxury infinity style view over a tropical landscape" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">The Mora Zanzibar, Matemwe</h3>
-        <p>TUI's own five star brand, right on Muyuni Beach in Matemwe, with several restaurants, a PADI dive centre, a kids' club and suites that stretch up to a deluxe option with a private pool. The one I'd point towards for a client who wants Zanzibar's quieter northeast coast without compromising on polish. Bookable through TUI.</p>
+        <p>A five star hotel right on Muyuni Beach in Matemwe, with several restaurants, a PADI dive centre, a kids' club and suites that stretch up to a deluxe option with a private pool. The one I'd point towards for a client who wants Zanzibar's quieter northeast coast without compromising on polish. Ask me and I will quote this one for your dates.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for couples</div>
         <img src="https://images.unsplash.com/photo-1575992042651-e35f5a391252?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A sailing boat silhouetted against a sunset off Zanzibar" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Riu Palace Zanzibar, Nungwi</h3>
-        <p>An adults only (18 plus), five star, all inclusive hotel right on Nungwi Beach, with three pools, several restaurants and a spa. A reliable pick for couples and honeymooners who want a polished, grown up base in the liveliest part of the island. Bookable through TUI.</p>
+        <p>An adults only (18 plus), five star, all inclusive hotel right on Nungwi Beach, with three pools, several restaurants and a spa. A reliable pick for couples and honeymooners who want a polished, grown up base in the liveliest part of the island.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -9621,25 +9683,25 @@ zanzibar_body = f"""
   <div class="wrap">
     <h2>Combining Zanzibar with a Tanzania safari</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1745933446961-13b251020d58?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A lion resting in the grass on a Tanzania safari" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Zanzibar sits a short domestic flight from mainland Tanzania's safari country, and TUI's own Design Your Trip tool sells several real, bookable itineraries that combine beach time on the island with a proper safari. These aren't a generic add-on, each one is a named, priced tour you can book directly. Here are three genuinely different options, from a classic overland circuit to a quicker fly-in version and a lower cost southern alternative.</p>
+    <p>Zanzibar sits a short domestic flight from mainland Tanzania's safari country, and there are several real, bookable itineraries that combine beach time on the island with a proper safari. These aren't a generic add-on, each one is a named, priced tour. Here are three different options, from a classic overland circuit to a quicker fly-in version and a lower cost southern alternative.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1664270702748-9a4408b600ca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Zebras grazing near the Ngorongoro Crater, Tanzania" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">The classic circuit, 10 days</h3>
-        <p>Three nights on Zanzibar's beaches and in Stone Town, then a domestic flight to Arusha and an overland safari through Lake Natron, the Ngorongoro Crater and Ndutu on the edge of the Serengeti, before flying back for a final three nights on the beach. From &pound;2,241 per person. TUI's "A perfect blend of Zanzibar's beaches and Tanzania's wildlife".</p>
+        <p>Three nights on Zanzibar's beaches and in Stone Town, then a domestic flight to Arusha and an overland safari through Lake Natron, the Ngorongoro Crater and Ndutu on the edge of the Serengeti, before flying back for a final three nights on the beach. From &pound;2,241 per person.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1791127152859-0b434d4d4f99?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Wildebeest crossing the Serengeti plains, Tanzania" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Fly-in Serengeti, 9 days</h3>
-        <p>Three nights on Zanzibar, then a short flight straight into the Serengeti for three nights of game drives, a walking safari and a night safari, before flying back for three more nights on the beach. Less time on the road than the classic circuit, for a bit more cost. From &pound;2,396 per person. TUI's "Zanzibar and Fly-in Serengeti".</p>
+        <p>Three nights on Zanzibar, then a short flight straight into the Serengeti for three nights of game drives, a walking safari and a night safari, before flying back for three more nights on the beach. Less time on the road than the classic circuit, for a bit more cost. From &pound;2,396 per person.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1511684633137-6b5fc88b3dbc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A sunset sailing boat off the coast of Zanzibar" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Budget-friendly southern safari, 8 days</h3>
-        <p>Zanzibar beach time bookended around a short flight to the Selous (Nyerere) Game Reserve in southern Tanzania, with a shared group game drive, a bush walk and a boat safari on the Rufiji River from a 3 star lodge. The most affordable way to add a genuine safari to a Zanzibar trip. From &pound;1,334 per person. TUI's "Selous Classic Safari 3* and Zanzibar".</p>
+        <p>Zanzibar beach time bookended around a short flight to the Selous (Nyerere) Game Reserve in southern Tanzania, with a shared group game drive, a bush walk and a boat safari on the Rufiji River from a 3 star lodge. The most affordable way to add a real safari to a Zanzibar trip. From &pound;1,334 per person.</p>
       </div>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are TUI's own "from" prices for two adults sharing at time of writing and change regularly with dates and availability. All three are flight-inclusive, ATOL protected tours booked through TUI, separate from the main Zanzibar beach package above.</p>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are "from" prices for two adults sharing at time of writing and change regularly with dates and availability. All three are flight-inclusive, ATOL protected tours, separate from the main Zanzibar beach package above.</p>
     {jake_tip("A safari add-on is the single biggest upgrade I suggest for Zanzibar clients who have the extra few days and budget. The fly-in option suits anyone short on time or who would rather not spend a day on safari roads, while the Selous option is the one I point budget conscious clients towards, since it is noticeably cheaper than the northern circuits without being any less of a real safari.")}
   </div>
 </section>
@@ -9677,7 +9739,7 @@ zanzibar_body = f"""
           <tr><td>Currency</td><td>Tanzanian Shilling (TZS)</td></tr>
           <tr><td>Plug type</td><td>Type G, the same as the UK. The mains supply is 230V, so no adapter or converter is needed for standard UK appliances</td></tr>
           <tr><td>Language</td><td>Swahili and English are both widely used, with English common across hotels and tourist areas</td></tr>
-          <tr><td>Flight time from the UK</td><td>Currently around 14 hours 20 minutes via a connection, typically through Addis Ababa, Nairobi or a Gulf hub. TUI's own nonstop charter from Gatwick starts 3 November 2027</td></tr>
+          <tr><td>Flight time from the UK</td><td>Currently around 14 hours 20 minutes via a connection, typically through Addis Ababa, Nairobi or a Gulf hub. A nonstop charter from Gatwick starts 3 November 2027</td></tr>
           <tr><td>Time difference</td><td>Zanzibar stays on the same time year round and does not change its clocks, so it is 3 hours ahead of the UK in winter and 2 hours ahead during British Summer Time</td></tr>
           <tr><td>Entry requirements</td><td>UK passport holders need a visa, either an e-visa arranged online before travel or a single-entry visa on arrival, plus mandatory Zanzibar government inbound travel insurance bought online or on arrival, and a passport valid for at least 6 months beyond arrival</td></tr>
           <tr><td>Driving</td><td>Left hand side, the same as the UK</td></tr>
@@ -9692,6 +9754,8 @@ zanzibar_body = f"""
     <p style="font-size:12px; opacity:0.6;">Photos: Crispin Jones, Camilla Frederiksen, Alferio Njau, Polly Sadler, Anastasiia Derkunskaia, Morgan Nott, Luca Ambrosi, Britt Weckx, Danai Tsoutreli, Matthew Stephenson, Uzuri Safaris Tanzania and Richard Ringel via Unsplash.</p>
   </div>
 </section>
+
+{SUPPLIER_SECTION}
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
@@ -9715,11 +9779,11 @@ ZANZIBAR_SCHEMA = article_and_faq_schema(
     "zanzibar.html",
     "https://images.unsplash.com/photo-1620896712848-d05411ec91ec?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Zanzibar holidays?", "TUI is the one of the three operators Jake sells (TUI, Jet2holidays and easyJet holidays) who packages Zanzibar holidays. Neither Jet2holidays nor easyJet holidays currently fly this far."),
-        ("How long is the flight to Zanzibar?", "Currently there is no nonstop UK flight, so the journey routes via a connection, commonly through Addis Ababa, Nairobi or a Gulf hub such as Dubai or Doha, with TUI quoting a total journey time of around 14 hours 20 minutes from Gatwick. TUI is launching its own twice weekly nonstop charter from Gatwick from 3 November 2027, which it says will make it the only UK package holiday provider flying direct to the island."),
+        ("Can you book Zanzibar holidays for me?", "Yes. I can package Zanzibar hotels and flights together and build the whole trip around you, including a safari add-on if you fancy one."),
+        ("How long is the flight to Zanzibar?", "Currently there is no nonstop UK flight, so the journey routes via a connection, commonly through Addis Ababa, Nairobi or a Gulf hub such as Dubai or Doha, with a total journey time of around 14 hours 20 minutes from Gatwick. A twice weekly nonstop charter from Gatwick is due to launch from 3 November 2027."),
         ("What's the best time to visit Zanzibar?", "January and February are hot and dry, June to October is the main dry season and also overlaps with the best safari viewing on the mainland, though July, August and December are the busiest and most expensive months. March to May is the long rains, the quietest and cheapest time to travel, and November is a good value shoulder month with usually brief morning showers."),
         ("Do I need a visa for Zanzibar?", "Yes. UK passport holders need either an e-visa arranged online before travel or a single-entry visa on arrival, plus mandatory Zanzibar government inbound travel insurance introduced in October 2024, bought online or on arrival, alongside a passport valid for at least 6 months beyond arrival."),
-        ("Can I combine Zanzibar with a safari?", "Yes. TUI's own Design Your Trip tool sells several real, bookable multi centre itineraries combining a Zanzibar beach stay with a mainland Tanzania safari, from an 8 day budget-friendly southern safari to longer 9 to 10 day northern circuits taking in the Serengeti and Ngorongoro Crater."),
+        ("Can I combine Zanzibar with a safari?", "Yes. There are several real, bookable multi centre itineraries combining a Zanzibar beach stay with a mainland Tanzania safari, from an 8 day budget-friendly southern safari to longer 9 to 10 day northern circuits taking in the Serengeti and Ngorongoro Crater."),
     ]
 )
 with open(os.path.join(SITE, "zanzibar.html"), "w", encoding="utf-8") as f:
@@ -9748,8 +9812,8 @@ kenya_body = f"""
   <div class="wrap">
     <h2>What Jake says about Kenya</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1602579350028-3b6e757e379c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees and white sand on Diani Beach, Kenya" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Kenya is the one I reach for when a client wants a proper beach holiday that can also turn into something much bigger. Diani on the south coast has some of the best white sand I've seen anywhere, warm turquoise water and a laid back, barefoot feel, and it sits within easy reach of a genuine Big Five safari if you want to build one in. TUI is the operator I use for Kenya, packaging flights and hotel together, and it is the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that currently flies this far.</p>
-    <p style="margin-top:14px;">What makes Kenya stand out from Zanzibar or the Caribbean for me is how easy TUI has made it to turn a beach week into a proper safari and beach trip without having to book anything separately. There are several real, named, priced itineraries you can book directly through TUI that combine time in the bush with time on the sand, which I'll come back to further down.</p>
+    <p>Kenya is the one I reach for when a client wants a proper beach holiday that can also turn into something much bigger. Diani on the south coast has some of the best white sand I've seen anywhere, warm turquoise water and a laid back, barefoot feel, and it sits within easy reach of a genuine Big Five safari if you want to build one in. I package flights and hotel together for Kenya, so there is nothing to book separately.</p>
+    <p style="margin-top:14px;">What makes Kenya stand out from Zanzibar or the Caribbean for me is how easy it is to turn a beach week into a proper safari and beach trip without having to book anything separately. There are several real, named, priced itineraries that combine time in the bush with time on the sand, which I'll come back to further down.</p>
     {jake_tip("I always ask a client upfront whether a safari is even a maybe for this trip. It changes how many nights I'd suggest booking and which coastal hotel I'd point them towards, since some combine much more neatly with a safari add-on than others.")}
   </div>
 </section>
@@ -9764,8 +9828,8 @@ kenya_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">TUI's coastal package holidays fly into Moi International Airport (MBA) at Mombasa, and TUI's own travel information quotes a flight time of around 9 hours from Gatwick. If a safari built around Nairobi is more your focus, it's worth knowing that Kenya Airways launched the first ever nonstop service between London Gatwick and Nairobi in July 2025, flying three times a week, where previously every scheduled option routed via a connection. Scheduled carriers flying into Mombasa itself, such as British Airways, KLM and Ethiopian Airlines, still route via a connection such as Nairobi, Amsterdam or Addis Ababa rather than flying nonstop to the coast.</p>
-    {jake_tip("For a straightforward coastal beach holiday I book the TUI package as normal, flights and hotel together with one flight time to plan around. If a client is building their own Nairobi-based safari independently of a coastal stay, I flag the new direct Kenya Airways route, since it's a genuinely new option that didn't exist a couple of years ago.")}
+    <p style="margin-top:14px;">Coastal package holidays fly into Moi International Airport (MBA) at Mombasa, with a flight time of around 9 hours from Gatwick. If a safari built around Nairobi is more your focus, it's worth knowing that Kenya Airways launched the first ever nonstop service between London Gatwick and Nairobi in July 2025, flying three times a week, where previously every scheduled option routed via a connection. Scheduled carriers flying into Mombasa itself, such as British Airways, KLM and Ethiopian Airlines, still route via a connection such as Nairobi, Amsterdam or Addis Ababa rather than flying nonstop to the coast.</p>
+    {jake_tip("For a coastal beach holiday I book the package as normal, flights and hotel together with one flight time to plan around. If a client is building their own Nairobi-based safari independently of a coastal stay, I flag the new direct Kenya Airways route, since it's a new option that didn't exist a couple of years ago.")}
   </div>
 </section>
 
@@ -9815,7 +9879,7 @@ kenya_body = f"""
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1667935837291-1dc178866251?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Clear blue water along Kenya's south coast near Diani" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Diani (the south coast)</h3>
-        <p>A long, white sand beach with the widest choice of TUI hotels, a lively strip of beachfront restaurants and bars, and the easiest access to boat trips out to Wasini Island. This is the area I'd point couples, honeymooners and anyone after Kenya's most sociable coastal base towards.</p>
+        <p>A long, white sand beach with the widest choice of hotels, a lively strip of beachfront restaurants and bars, and the easiest access to boat trips out to Wasini Island. This is the area I'd point couples, honeymooners and anyone after Kenya's most sociable coastal base towards.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1583074345723-15313f31ebf2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset over the ocean on Kenya's north coast near Mombasa" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -9830,7 +9894,7 @@ kenya_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting around</h2>
-    <p style="margin-top:14px;">Airport transfers are included as part of the TUI package. Kenya drives on the left, the same as the UK, but almost every client sticks to transfers, taxis and organised day trips rather than self drive. A private driver for the day is easy to arrange through your hotel for a trip into Mombasa, a Wasini Island boat day or a safari day trip, and is by far the most relaxed way to see more of the coast beyond the resort.</p>
+    <p style="margin-top:14px;">Airport transfers are included as part of the package. Kenya drives on the left, the same as the UK, but almost every client sticks to transfers, taxis and organised day trips rather than self drive. A private driver for the day is easy to arrange through your hotel for a trip into Mombasa, a Wasini Island boat day or a safari day trip, and is by far the most relaxed way to see more of the coast beyond the resort.</p>
   </div>
 </section>
 
@@ -9851,31 +9915,31 @@ kenya_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across Diani and Bamburi. TUI is the operator I use for Kenya, so all four of these are booked through TUI.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across Diani and Bamburi.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1633345778967-3760204a4c57?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees and sun loungers on a beach in Diani, Kenya" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Southern Palms Beach Resort, Diani</h3>
-        <p>A 4 star beach resort directly on Diani's sand, with two pools, a ten acre tropical garden, four restaurants and five bars. A straightforward, good value base for anyone who wants a solid resort without paying for a five star price tag. Bookable through TUI.</p>
+        <p>A 4 star beach resort directly on Diani's sand, with two pools, a ten acre tropical garden, four restaurants and five bars. A simple, good value base for anyone who wants a solid resort without paying for a five star price tag.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1708119063168-4785d1359824?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A swimming pool surrounded by tropical gardens on Kenya's coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Baobab Beach Resort &amp; Spa, Diani</h3>
-        <p>Set across 80 acres of gardens with 500 metres of beach, family suites for two adults and two children, a kids' scuba club and half, full or all inclusive board options. Winner of Africa's Leading Family Resort, and a hotel I know well since it's the one TUI itself uses on its own combined safari and beach packages. Bookable through TUI.</p>
+        <p>Set across 80 acres of gardens with 500 metres of beach, family suites for two adults and two children, a kids' scuba club and half, full or all inclusive board options. Winner of Africa's Leading Family Resort, and a hotel I know well from combined safari and beach trips.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for couples</div>
         <img src="https://images.unsplash.com/photo-1570021799031-63e228162838?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunrise over the ocean on Kenya's coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Leopard Beach Resort &amp; Spa, Diani</h3>
-        <p>A smart casual, "Chui Class" resort with honeymoon suites, sixteen private pool villas known as The Residences, a spa and four restaurants including a Chaine des Rotisseurs dining room. The one I'd point towards for a couple wanting Diani's most polished address. Bookable through TUI.</p>
+        <p>A smart casual, "Chui Class" resort with honeymoon suites, sixteen private pool villas known as The Residences, a spa and four restaurants including a Chaine des Rotisseurs dining room. The one I'd point towards for a couple wanting Diani's most polished address.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for big groups</div>
         <img src="https://images.unsplash.com/photo-1633345778967-3760204a4c57?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Palm trees and beach chairs on Kenya's coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Sarova Whitesands Beach Resort &amp; Spa, Bamburi</h3>
-        <p>One of the coast's biggest resorts, with around 300 rooms across five categories, five swimming pools, a hot tub, tennis and family rooms. The shortest transfer from Mombasa airport of any hotel in this guide, and the one I'd book for a large family group or multi-generation trip. Bookable through TUI.</p>
+        <p>One of the coast's biggest resorts, with around 300 rooms across five categories, five swimming pools, a hot tub, tennis and family rooms. The shortest transfer from Mombasa airport of any hotel in this guide, and the one I'd book for a large family group or multi-generation trip.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -9915,7 +9979,7 @@ kenya_body = f"""
   <div class="wrap">
     <h2>Combining Kenya's coast with a safari</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1790866321806-5f0db078b203?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A lioness in the Maasai Mara, Kenya" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Kenya is one of the easiest places I sell to turn a beach week into a proper safari trip, and TUI sells several real, bookable itineraries that do exactly that. These aren't a generic add-on, each one is a named, priced tour you can book directly through TUI. Here are three genuinely different options.</p>
+    <p>Kenya is one of the easiest places I sell to turn a beach week into a proper safari trip, and there are several real, bookable itineraries that do exactly that. These aren't a generic add-on, each one is a named, priced tour Here are three very different options.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1554490827-1b935520e95b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An elephant on a Kenya safari" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -9925,7 +9989,7 @@ kenya_body = f"""
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1740927725859-63765c800c6d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Lions resting in the grass on a Kenya safari" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">A Taste of Kenya Safari, 11 days</h3>
-        <p>An 11 day beach and safari holiday built around six game drives, with an overnight stay at Salt Lick Safari Lodge in the Taita Hills before finishing on the coast. TUI's own named package. From &pound;2,783 per person.</p>
+        <p>An 11 day beach and safari holiday built around six game drives, with an overnight stay at Salt Lick Safari Lodge in the Taita Hills before finishing on the coast. A named package tour. From &pound;2,783 per person.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1740928507887-e7dd7e8bac94?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A giraffe with a mountain in the background on a Kenya safari" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -9933,7 +9997,7 @@ kenya_body = f"""
         <p>A 12 day tour from Nairobi to Diani Beach, with most meals and eight included "experiences" plus one night at a stilted safari lodge with views of Mount Kilimanjaro. Flights available from Heathrow, Gatwick or Manchester. From &pound;2,624 per person.</p>
       </div>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are TUI's own "from" prices for two adults sharing at time of writing and change regularly with dates and availability. All three are flight-inclusive, ATOL protected tours booked through TUI, separate from the main Kenya coast beach package above.</p>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are "from" prices for two adults sharing at time of writing and change regularly with dates and availability. All three are flight-inclusive, ATOL protected tours, separate from the main Kenya coast beach package above.</p>
     {jake_tip("A safari add-on is the single biggest upgrade I suggest to Kenya clients who have the extra days and budget. The Safari Taster is the one I point most clients towards since it's the shortest of the three and still covers three proper safari lodges, while Highlights of Kenya suits anyone who wants a slightly longer, more structured tour with more meals and experiences built in.")}
   </div>
 </section>
@@ -9970,7 +10034,7 @@ kenya_body = f"""
           <tr><td>Currency</td><td>Kenyan Shilling (KES)</td></tr>
           <tr><td>Plug type</td><td>Type G, the same as the UK. The mains supply is 240V, so no adapter or converter is needed for standard UK appliances</td></tr>
           <tr><td>Language</td><td>Swahili and English are both official languages, with English widely used across hotels and tourist areas</td></tr>
-          <tr><td>Flight time from the UK</td><td>Around 9 hours from Gatwick to Mombasa with TUI. Kenya Airways flies nonstop from Gatwick to Nairobi three times a week</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 9 hours from Gatwick to Mombasa. Kenya Airways flies nonstop from Gatwick to Nairobi three times a week</td></tr>
           <tr><td>Time difference</td><td>Kenya stays on the same time year round and does not change its clocks, so it is 3 hours ahead of the UK in winter and 2 hours ahead during British Summer Time</td></tr>
           <tr><td>Entry requirements</td><td>UK passport holders need an electronic travel authorisation (eTA), applied for online at etakenya.go.ke at least 2 weeks before travel. From 5 October 2026 applicants must also buy travel health insurance as part of the eTA application. A passport valid for at least 6 months beyond arrival, with 2 blank pages, is also required</td></tr>
           <tr><td>Driving</td><td>Left hand side, the same as the UK</td></tr>
@@ -9985,6 +10049,8 @@ kenya_body = f"""
     <p style="font-size:12px; opacity:0.6;">Photos: Andrew Molo, Timothy K, Victor Birai, Ezekiel Kilimo, Adams Korir, Jessica Pamp, Derricks Nature Book, Wendy Brooks, imsogabriel stock, Ripe Studios, Polina Koroleva, Carlos Torres, Dmitrii Zhodzishskii and Simone Dinoia via Unsplash.</p>
   </div>
 </section>
+
+{SUPPLIER_SECTION}
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
@@ -10008,11 +10074,11 @@ KENYA_SCHEMA = article_and_faq_schema(
     "kenya.html",
     "https://images.unsplash.com/photo-1651860282131-e3257674ccd1?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Kenya holidays?", "TUI is the one of the three operators Jake sells (TUI, Jet2holidays and easyJet holidays) who packages Kenya coast holidays. Neither Jet2holidays nor easyJet holidays currently fly this far."),
-        ("How long is the flight to Kenya?", "TUI's own travel information quotes a flight time of around 9 hours from Gatwick to Mombasa. Kenya Airways also launched the first nonstop service between London Gatwick and Nairobi in July 2025, flying three times a week, for travellers focused on a Nairobi-based safari rather than the coast."),
+        ("Can you book Kenya holidays for me?", "Yes. Jake packages Kenya coast holidays, with flights and hotel together, and builds the trip around what you want from the beach and the bush."),
+        ("How long is the flight to Kenya?", "The flight time is around 9 hours from Gatwick to Mombasa. Kenya Airways also launched the first nonstop service between London Gatwick and Nairobi in July 2025, flying three times a week, for travellers focused on a Nairobi-based safari rather than the coast."),
         ("Do I need a visa for Kenya?", "Yes. UK passport holders need an electronic travel authorisation (eTA), applied for online at etakenya.go.ke at least 2 weeks before travel. From 5 October 2026, applicants must also buy travel health insurance as part of the eTA application, alongside a passport valid for at least 6 months beyond arrival."),
         ("What's the best time to visit Kenya's coast?", "January to March is hot and dry, June to October is drier and cooler and overlaps with the best inland safari viewing, April and May are the long rains and the quietest, cheapest time to travel, and November is a good value shoulder month with usually brief short rains."),
-        ("Can I combine Kenya's coast with a safari?", "Yes. TUI sells several real, bookable combined itineraries, from a 9 night Safari Taster covering three safari lodges and four nights on Diani Beach, to longer 11 and 12 day tours taking in the Taita Hills, Amboseli and a stilted lodge with Kilimanjaro views."),
+        ("Can I combine Kenya's coast with a safari?", "Yes. There are several real, bookable combined itineraries, from a 9 night Safari Taster covering three safari lodges and four nights on Diani Beach, to longer 11 and 12 day tours taking in the Taita Hills, Amboseli and a stilted lodge with Kilimanjaro views."),
     ]
 )
 with open(os.path.join(SITE, "kenya.html"), "w", encoding="utf-8") as f:
@@ -10032,7 +10098,7 @@ south_africa_body = f"""
   <div class="wrap">
     <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
     <h1>SOUTH AFRICA</h1>
-    <p class="lead" style="margin-top:18px; margin-bottom:0;">Table Mountain, Cape Point's penguins, the Winelands and a genuine Kruger safari, three real TUI tours compared, weather by month and what it actually costs.</p>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Table Mountain, Cape Point's penguins, the Winelands and a genuine Kruger safari, three real tours compared, weather by month and what it actually costs.</p>
   </div>
 </section>
 
@@ -10040,24 +10106,24 @@ south_africa_body = f"""
   <div class="wrap">
     <h2>What Jake says about South Africa</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1626894169601-482d26b23f35?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cape Town with Table Mountain seen from the water" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>South Africa is a different kind of trip to the rest of my destination guides, and I think that is exactly why clients love it. TUI is the only one of my three operators, TUI, Jet2holidays and easyJet holidays, that currently sells it, and it does not sell it as a week in one hotel with a pool. It sells it as an escorted tour, flights, transfers, a local English speaking guide and a string of real named lodges and hotels all bundled together, so you are not left trying to stitch together Cape Town, the Winelands and a safari yourself.</p>
+    <p>South Africa is a different kind of trip to the rest of my destination guides, and I think that is exactly why clients love it. It is not a week in one hotel with a pool. It is an escorted tour, flights, transfers, a local English speaking guide and a string of real named lodges and hotels all bundled together, so you are not left trying to stitch together Cape Town, the Winelands and a safari yourself.</p>
     <p style="margin-top:14px;">That makes it one of the easiest genuinely life list trips I book. You can go purely for the wildlife on a lodge based safari around the Entabeni Wildlife Conservancy, or go big on the full Highlights of South Africa tour and tick off Kruger, the Garden Route and Cape Town in one booking. I will come back to all three real, bookable options further down.</p>
-    {jake_tip("The first question I ask is whether this is a safari trip with Cape Town as a bonus, or a Cape Town trip with safari as a bonus. It decides which of the three TUI tours I point a client towards.")}
+    {jake_tip("The first question I ask is whether this is a safari trip with Cape Town as a bonus, or a Cape Town trip with safari as a bonus. It decides which of the three tours I point a client towards.")}
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Trip length &amp; who it suits</h2>
-    <p style="margin-top:14px;">TUI's two lodge based safari tours run 8 nights, 9 days, built entirely around game drives from a single base. The full Highlights of South Africa tour runs 14 nights, 16 days, and covers Johannesburg, Kruger, KwaZulu Natal, the Garden Route and Cape Town in one trip. All three suit couples, honeymooners and small groups after a proper once in a lifetime holiday rather than a poolside week, and all three have a minimum tour age of 12, so they are not aimed at young families. Anyone who wants the shortest possible flight or a straightforward beach stay with no organised itinerary is better suited to one of my other destinations.</p>
+    <p style="margin-top:14px;">The two lodge based safari tours run 8 nights, 9 days, built entirely around game drives from a single base. The full Highlights of South Africa tour runs 14 nights, 16 days, and covers Johannesburg, Kruger, KwaZulu Natal, the Garden Route and Cape Town in one trip. All three suit couples, honeymooners and small groups after a proper once in a lifetime holiday rather than a poolside week, and all three have a minimum tour age of 12, so they are not aimed at young families. Anyone who wants the shortest possible flight or a straightforward beach stay with no organised itinerary is better suited to one of my other destinations.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">TUI's tours fly indirectly into OR Tambo International Airport in Johannesburg from a choice of UK airports including Heathrow, Gatwick, Manchester, Glasgow, Edinburgh and Birmingham, with TUI's own travel information quoting a flight time of around 11 hours 30 minutes. If a client wants Cape Town specifically, outside of a TUI tour, both British Airways and Virgin Atlantic fly nonstop from Heathrow to Cape Town, taking around 11 hours 40 minutes.</p>
-    {jake_tip("All of a TUI tour's internal flights and transfers, including the one between Johannesburg and Cape Town on the longer tour, are included in the price and arranged for you. You only have to book the one trip.")}
+    <p style="margin-top:14px;">The tours fly indirectly into OR Tambo International Airport in Johannesburg from a choice of UK airports including Heathrow, Gatwick, Manchester, Glasgow, Edinburgh and Birmingham, with a flight time of around 11 hours 30 minutes. If a client wants Cape Town specifically, outside of a tour, both British Airways and Virgin Atlantic fly nonstop from Heathrow to Cape Town, taking around 11 hours 40 minutes.</p>
+    {jake_tip("All of a tour's internal flights and transfers, including the one between Johannesburg and Cape Town on the longer tour, are included in the price and arranged for you. You only have to book the one trip.")}
   </div>
 </section>
 
@@ -10103,15 +10169,15 @@ south_africa_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Where to stay</h2>
-    <p style="margin-top:14px;">This is not a one hotel holiday, so where you stay depends entirely on which of the three TUI tours you book. The two lodge based safari tours keep you in a single lake view lodge at the Entabeni Wildlife Conservancy in Limpopo Province for the whole trip, choosing between a 4 star or 5 star standard. The full Highlights of South Africa tour moves through 11 different hotels of a 3 and 4 star standard as it crosses the country, from Johannesburg and Hazyview near Kruger, through KwaZulu Natal and the Garden Route, to a final two nights in Cape Town itself.</p>
-    {jake_tip("Facilities at tour hotels can vary and TUI does not guarantee things like spa, gym or pool access at every stop, since the point of a tour is the itinerary rather than any one hotel. I set that expectation with clients upfront.")}
+    <p style="margin-top:14px;">This is not a one hotel holiday, so where you stay depends entirely on which of the three tours you book. The two lodge based safari tours keep you in a single lake view lodge at the Entabeni Wildlife Conservancy in Limpopo Province for the whole trip, choosing between a 4 star or 5 star standard. The full Highlights of South Africa tour moves through 11 different hotels of a 3 and 4 star standard as it crosses the country, from Johannesburg and Hazyview near Kruger, through KwaZulu Natal and the Garden Route, to a final two nights in Cape Town itself.</p>
+    {jake_tip("Facilities at tour hotels can vary and things like spa, gym or pool access are not guaranteed at every stop, since the point of a tour is the itinerary rather than any one hotel. I set that expectation with clients upfront.")}
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting around</h2>
-    <p style="margin-top:14px;">Every TUI tour includes return airport transfers plus all transport during the trip itself, whether that is a safari minibus, a 4x4 game viewing vehicle or a coach between stops, all with a local English speaking guide. You do not need to arrange a single transfer or self drive leg yourself. South Africa drives on the left, the same as the UK, which is worth knowing if a client wants to extend a trip independently with their own car hire.</p>
+    <p style="margin-top:14px;">Every tour includes return airport transfers plus all transport during the trip itself, whether that is a safari minibus, a 4x4 game viewing vehicle or a coach between stops, all with a local English speaking guide. You do not need to arrange a single transfer or self drive leg yourself. South Africa drives on the left, the same as the UK, which is worth knowing if a client wants to extend a trip independently with their own car hire.</p>
   </div>
 </section>
 
@@ -10132,19 +10198,19 @@ south_africa_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended lodges</h2>
-    <p style="margin-top:14px;">The two safari only tours both stay at the same lodge at the Entabeni Wildlife Conservancy, a private reserve home to the Big Five, with the choice coming down to standard. TUI is the operator I use for South Africa, so both are booked through TUI.</p>
+    <p style="margin-top:14px;">The two safari only tours both stay at the same lodge at the Entabeni Wildlife Conservancy, a private reserve home to the Big Five, with the choice coming down to standard.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1709402606682-400133d92ab2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A safari vehicle on a game drive with a lion nearby" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Lakeside Lodge, Entabeni Safari Conservancy</h3>
-        <p>A 4 star lake view lodge inside the Entabeni Wildlife Conservancy, used on TUI's Lakeside 4 star Lodge Safari tour. Full board throughout, with daily game drives and nature walks included. The one I'd point a client towards if the Big Five is the whole point of the trip and a 5 star price tag is not. Bookable through TUI.</p>
+        <p>A 4 star lake view lodge inside the Entabeni Wildlife Conservancy, used on the Lakeside 4 star Lodge Safari tour. Full board throughout, with daily game drives and nature walks included. The one I'd point a client towards if the Big Five is the whole point of the trip and a 5 star price tag is not. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for a treat</div>
         <img src="https://images.unsplash.com/photo-1577971132997-c10be9372519?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Elephants on an African safari game drive" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Kingfisher Lodge, Entabeni Safari Conservancy</h3>
-        <p>The 5 star version of the same lake view lodge and the same Entabeni Wildlife Conservancy, on TUI's Kingfisher 5 star Lodge stay &amp; South Africa safari tour. Same full board, game drives and guiding, with a higher standard of lodge. The one I'd suggest for a honeymoon or a milestone celebration. Bookable through TUI.</p>
+        <p>The 5 star version of the same lake view lodge and the same Entabeni Wildlife Conservancy, on the Kingfisher 5 star Lodge stay &amp; South Africa safari tour. Same full board, game drives and guiding, with a higher standard of lodge. The one I'd suggest for a honeymoon or a milestone celebration. Happy to check availability for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -10153,9 +10219,9 @@ south_africa_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
-    <h2>Three ways to see South Africa with TUI</h2>
+    <h2>Three ways to see South Africa</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1658873169138-ee3b8dcda9bf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A lion in Kruger National Park, South Africa" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>South Africa is the clearest example I have of a destination that is genuinely only sold as a tour. These are not a generic add-on, each one is a real, named, priced tour you can book directly through TUI, and they cover very different trips.</p>
+    <p>South Africa is the clearest example I have of a destination that is genuinely only sold as a tour. These are not a generic add-on, each one is a real, named, priced tour and they cover very different trips.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1577971132997-c10be9372519?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Elephants on an African safari game drive" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -10173,7 +10239,7 @@ south_africa_body = f"""
         <p>A 16 day tour from Johannesburg to Cape Town, taking in Kruger National Park, Hluhluwe Game Reserve, an ostrich farm tractor ride near Oudtshoorn, a scenic Garden Route drive through Knysna, wine tasting in the Western Cape and a Cape Town city tour with a free day to explore. 11 included experiences across 11 hotels. From &pound;2,704 per person.</p>
       </div>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are TUI's own "from" prices for two adults sharing at time of writing and change regularly with dates, departure airport and availability. All three are flight-inclusive, ATOL protected tours booked through TUI, with a minimum tour age of 12.</p>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are "from" prices for two adults sharing at time of writing and change regularly with dates, departure airport and availability. All three are flight-inclusive, ATOL protected tours, with a minimum tour age of 12.</p>
     {jake_tip("The two Entabeni tours are the ones I book when a client wants the Big Five and nothing else to think about. Highlights of South Africa is the one I book when someone says they want to see the country properly, Kruger, the Garden Route and Cape Town, in a single trip rather than three separate holidays.")}
   </div>
 </section>
@@ -10239,7 +10305,7 @@ south_africa_body = f"""
           <tr><td>Currency</td><td>South African Rand (ZAR)</td></tr>
           <tr><td>Plug type</td><td>Type M, and increasingly the newer Type N, different from the UK's Type G, so you will need a travel adaptor. Mains supply is 230V</td></tr>
           <tr><td>Language</td><td>English is one of 11 official languages and is widely used in hotels and tourist areas, alongside Zulu, Xhosa and Afrikaans among others</td></tr>
-          <tr><td>Flight time from the UK</td><td>Around 11 hours 30 minutes from Gatwick to Johannesburg on a TUI tour. British Airways and Virgin Atlantic both fly nonstop from Heathrow to Cape Town in around 11 hours 40 minutes</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 11 hours 30 minutes from Gatwick to Johannesburg on a tour. British Airways and Virgin Atlantic both fly nonstop from Heathrow to Cape Town in around 11 hours 40 minutes</td></tr>
           <tr><td>Time difference</td><td>South Africa does not change its clocks, so it is 2 hours ahead of the UK in winter and 1 hour ahead during British Summer Time</td></tr>
           <tr><td>Entry requirements</td><td>UK passport holders can visit visa free for up to 90 days. Your passport needs to be valid for at least 30 days beyond your planned departure from South Africa with 2 blank pages. From 1 July 2026, all travellers entering or leaving South Africa must also complete a mandatory online traveller declaration form between 24 and 48 hours before travel</td></tr>
           <tr><td>Driving</td><td>Left hand side, the same as the UK</td></tr>
@@ -10254,6 +10320,8 @@ south_africa_body = f"""
     <p style="font-size:12px; opacity:0.6;">Photos: Peter Burdon, Sebastian Canaves, Zeke Tucker, Meg von Haartman, redcharlie, Jonathan Gensicke, katsuma tanaka, Casey Allen, Nenad Gataric and Trey Smith via Unsplash.</p>
   </div>
 </section>
+
+{SUPPLIER_SECTION}
 
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
@@ -10273,21 +10341,21 @@ south_africa_body = south_africa_body.replace("::NEWSLETTER::", newsletter_secti
 
 SOUTH_AFRICA_SCHEMA = article_and_faq_schema(
     "South Africa: Jake's Destination Guide",
-    "Jake's honest guide to South Africa: three real TUI tours compared, weather by month, where to stay and what it actually costs.",
+    "Jake's honest guide to South Africa: three real tours compared, weather by month, where to stay and what it actually costs.",
     "south-africa.html",
     "https://images.unsplash.com/photo-1626894169601-482d26b23f35?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells South Africa holidays?", "TUI is the only one of the three operators Jake sells, TUI, Jet2holidays and easyJet holidays, that currently sells South Africa, and it sells it as an escorted tour rather than a standalone hotel package. Neither Jet2holidays nor easyJet holidays currently fly this far."),
-        ("How do you get to South Africa with TUI?", "TUI's tours fly indirectly into OR Tambo International Airport in Johannesburg from several UK airports, with TUI's own travel information quoting around 11 hours 30 minutes. Independent travellers can also fly nonstop from Heathrow to Cape Town with British Airways or Virgin Atlantic in around 11 hours 40 minutes."),
+        ("Can you book a South Africa holiday for me?", "Yes. South Africa is put together as an escorted tour rather than a standalone hotel package, with flights, transfers, a local English speaking guide and named lodges and hotels all bundled together. Get in touch with your dates and Jake will compare prices for you."),
+        ("How do you get to South Africa on a tour?", "The tours fly indirectly into OR Tambo International Airport in Johannesburg from several UK airports, with a flight time of around 11 hours 30 minutes. Independent travellers can also fly nonstop from Heathrow to Cape Town with British Airways or Virgin Atlantic in around 11 hours 40 minutes."),
         ("Do I need a visa for South Africa?", "UK passport holders can visit visa free for up to 90 days. Your passport needs at least 30 days validity beyond your planned departure and 2 blank pages. From 1 July 2026, all travellers must also complete a mandatory online traveller declaration form between 24 and 48 hours before travel."),
         ("What's the best time to visit South Africa?", "June to September is the dry season and the best stretch for safari viewing, while November to March is warmest for Cape Town's beaches. The best month depends on whether safari or Cape Town matters more to your trip."),
-        ("Can I combine a safari with Cape Town?", "Yes. TUI's 14 night Highlights of South Africa tour covers Kruger National Park, the Garden Route and Cape Town in one booking, alongside two shorter lodge based safari only tours around the Entabeni Wildlife Conservancy."),
+        ("Can I combine a safari with Cape Town?", "Yes. The 14 night Highlights of South Africa tour covers Kruger National Park, the Garden Route and Cape Town in one booking, alongside two shorter lodge based safari only tours around the Entabeni Wildlife Conservancy."),
     ]
 )
 with open(os.path.join(SITE, "south-africa.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "South Africa: Jake's Destination Guide | Travel Agent Jake",
-        "Jake's honest guide to South Africa: three real TUI tours compared, weather by month, where to stay and what it actually costs.",
+        "Jake's honest guide to South Africa: three real tours compared, weather by month, where to stay and what it actually costs.",
         "destinations.html",
         south_africa_body,
         extra_schema=SOUTH_AFRICA_SCHEMA,
@@ -10303,7 +10371,7 @@ lapland_body = f"""
   <div class="wrap">
     <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
     <h1>FINNISH LAPLAND</h1>
-    <p class="lead" style="margin-top:18px; margin-bottom:0;">Husky and reindeer sleigh rides, a meeting with Santa Claus, and a genuine shot at the Northern Lights above the Arctic Circle, three real TUI resorts compared, weather by month and what it actually costs.</p>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Husky and reindeer sleigh rides, a meeting with Santa Claus, and a genuine shot at the Northern Lights above the Arctic Circle, three real resorts compared, weather by month and what it actually costs.</p>
   </div>
 </section>
 
@@ -10311,7 +10379,7 @@ lapland_body = f"""
   <div class="wrap">
     <h2>What Jake says about Finnish Lapland</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1528155124528-06c125d81e89?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Northern Lights over a snowy landscape in Ylläsjärvi, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Lapland is one of the few holidays I sell where the cold is the whole point. TUI is currently the only one of my three operators, TUI, Jet2holidays and easyJet holidays, that packages it as a proper holiday, flights, transfers, accommodation and a taster of the classic activities all bundled together. Jet2 does fly seasonal charters into several Lapland airports and easyJet has recently added its own routes too, but at the time of writing neither Jet2holidays nor easyJet holidays has turned those flights into an actual package holiday, so TUI is the one I book this through.</p>
+    <p>Lapland is one of the few holidays I sell where the cold is the whole point. I put it together as a proper holiday, with flights, transfers, accommodation and a taster of the classic activities all bundled together. Several airlines fly seasonal routes into Lapland airports, but a package keeps everything in one booking, which is the easiest way to do it.</p>
     <p style="margin-top:14px;">It is also a different shaped trip to almost everything else in this guide. Instead of a week by a pool, you are looking at a short, high impact break built around meeting Santa, a husky or reindeer sleigh ride, and a genuine chance of seeing the aurora overhead.</p>
     {jake_tip("I set expectations early with clients on this one. It is a short, cold, activity packed break rather than a long relaxing one, and thermal suits and boots are provided as part of the package because you will need them.")}
   </div>
@@ -10320,15 +10388,15 @@ lapland_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Trip length &amp; who it suits</h2>
-    <p style="margin-top:14px;">TUI's core Lapland product is a short break, typically three or four nights, with flights, return transfers, half board accommodation, thermal clothing and a taster session of sleigh and husky rides all included as standard, plus a visit to Santa and a festive meal. Longer stays, extra activities such as snowmobiling (minimum age 12), extra husky or reindeer time, and dedicated Northern Lights tours can all be added on top. It suits families with young children especially well, since the Santa visit is built into every trip, but equally suits couples and small groups after a short, dramatic break chasing the aurora rather than a long holiday. Levi also works for anyone wanting proper downhill skiing or snowboarding alongside the classic Lapland activities, and tends to suit longer stays than a three night Santa trip.</p>
+    <p style="margin-top:14px;">The core Lapland holiday is a short break, typically three or four nights, with flights, return transfers, half board accommodation, thermal clothing and a taster session of sleigh and husky rides all included as standard, plus a visit to Santa and a festive meal. Longer stays, extra activities such as snowmobiling (minimum age 12), extra husky or reindeer time, and dedicated Northern Lights tours can all be added on top. It suits families with young children especially well, since the Santa visit is built into every trip, but equally suits couples and small groups after a short, dramatic break chasing the aurora rather than a long holiday. Levi also works for anyone wanting proper downhill skiing or snowboarding alongside the classic Lapland activities, and tends to suit longer stays than a three night Santa trip.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Flights take around 3 hours 30 minutes from the UK. TUI flies from a range of regional airports including Gatwick, Manchester, Newcastle, Glasgow, Birmingham and Belfast, landing at Rovaniemi, Kittila (for Levi) or Ivalo (for Saariselka) depending on which resort you book. British Airways also now runs its own direct Gatwick to Rovaniemi service through the winter season, for anyone wanting to book flights independently of a package.</p>
-    {jake_tip("All transfers between the airport and your hotel are included in a TUI package, and your full itinerary, including which day each activity happens, is confirmed through the TUI Santa Trips app a couple of days before you travel.")}
+    <p style="margin-top:14px;">Flights take around 3 hours 30 minutes from the UK. Flights run from a range of regional airports including Gatwick, Manchester, Newcastle, Glasgow, Birmingham and Belfast, landing at Rovaniemi, Kittila (for Levi) or Ivalo (for Saariselka) depending on which resort you book. British Airways also now runs its own direct Gatwick to Rovaniemi service through the winter season, for anyone wanting to book flights independently of a package.</p>
+    {jake_tip("All transfers between the airport and your hotel are included in the package, and your full itinerary, including which day each activity happens, is confirmed a couple of days before you travel.")}
   </div>
 </section>
 
@@ -10375,7 +10443,7 @@ lapland_body = f"""
   <div class="wrap">
     <h2>Where to stay</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1580212763260-cec90c2f3ff7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A snow covered wooden cottage in Ylläsjärvi, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>TUI sells Lapland across three main resort areas, each with its own character and its own named hotels, and all bookable through TUI.</p>
+    <p>Lapland has three main resort areas, each with its own character and its own named hotels.</p>
     <div class="grid-3 equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1514773896690-40d0fd46f143?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A reindeer pulling a sleigh through snow in Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -10400,7 +10468,7 @@ lapland_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting around</h2>
-    <p style="margin-top:14px;">Return airport transfers are included in every TUI package, and your included activities, such as the husky or reindeer sleigh taster, are collected from and returned to your hotel as part of the trip. You do not need to arrange anything yourself once you land. Anyone wanting to explore further independently, or combine more than one resort in a single trip, can also self drive, since Finland drives on the right, the opposite side to the UK.</p>
+    <p style="margin-top:14px;">Return airport transfers are included in every package, and your included activities, such as the husky or reindeer sleigh taster, are collected from and returned to your hotel as part of the trip. You do not need to arrange anything yourself once you land. Anyone wanting to explore further independently, or combine more than one resort in a single trip, can also self drive, since Finland drives on the right, the opposite side to the UK.</p>
   </div>
 </section>
 
@@ -10408,7 +10476,7 @@ lapland_body = f"""
   <div class="wrap">
     <h2>Things to do</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1672878198678-d61df5fc791f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A team of husky sled dogs in the snow in Finnish Lapland" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>A husky ride, a reindeer sleigh ride and a visit to Santa are included as standard on a TUI break, but most clients add at least one extra activity once they are there. These are some of the best rated options around Rovaniemi.</p>
+    <p>A husky ride, a reindeer sleigh ride and a visit to Santa are included as standard on a package break, but most clients add at least one extra activity once they are there. These are some of the best rated options around Rovaniemi.</p>
     <div style="margin-top:22px;">
       <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="300692,320613,952146,301148"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/rovaniemi-l2653/">GetYourGuide</a></span></div>
       <div class="btn-row" style="margin-top:18px;">
@@ -10421,25 +10489,25 @@ lapland_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">One named hotel from each resort area, all bookable through TUI.</p>
+    <p style="margin-top:14px;">One named hotel from each resort area.</p>
     <div class="grid-3 equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Rovaniemi</div>
         <img src="https://images.unsplash.com/photo-1672878198678-d61df5fc791f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A husky sled team in the snow near Rovaniemi" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hotel Santa Claus</h3>
-        <p>A well known, centrally located hotel in Rovaniemi itself, a short walk from the city centre and themed around its Santa Claus namesake. The one I'd point first time Lapland families towards for an easy, central base. Bookable through TUI.</p>
+        <p>A well known, centrally located hotel in Rovaniemi itself, a short walk from the city centre and themed around its Santa Claus namesake. The one I'd point first time Lapland families towards for an easy, central base. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Saariselka</div>
         <img src="https://images.unsplash.com/photo-1546205811-43c360b42f1c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Snow covered wilderness forest near Saariselka, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Holiday Club Saariselka</h3>
-        <p>A large resort hotel with its own spa and pools, set right among the fells inside Urho Kekkonen National Park, among the best placed bases in Finland for a quiet, dark sky and a genuine shot at the aurora. Bookable through TUI.</p>
+        <p>A large resort hotel with its own spa and pools, set right among the fells inside Urho Kekkonen National Park, among the best placed bases in Finland for a quiet, dark sky and a genuine shot at the aurora. Ask me for current prices.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Levi</div>
         <img src="https://images.unsplash.com/photo-1737055821828-5a0fc8ea89c2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sunset over the snowy slopes at Levi, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hotel K5 Levi</h3>
-        <p>A modern, boutique style hotel close to the lifts at Levi, Lapland's biggest ski resort. The one I'd suggest for a family wanting to combine proper skiing with the classic Lapland activities. Bookable through TUI.</p>
+        <p>A modern, boutique style hotel close to the lifts at Levi, Lapland's biggest ski resort. The one I'd suggest for a family wanting to combine proper skiing with the classic Lapland activities. I can check availability for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -10448,9 +10516,9 @@ lapland_body = f"""
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
-    <h2>Three ways to see Lapland with TUI</h2>
+    <h2>Three ways to see Lapland</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1584379749556-02820fae0d19?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A snowmobile in the snow in Finnish Lapland" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>All three of TUI's main resorts are genuine, bookable holidays rather than a generic add on, and each suits a slightly different client.</p>
+    <p>All three of the main resorts are genuine, bookable holidays rather than a generic add on, and each suits a slightly different client.</p>
     <div class="grid-3 equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1514773896690-40d0fd46f143?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A reindeer sleigh ride in the snow near Rovaniemi" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -10468,8 +10536,8 @@ lapland_body = f"""
         <p>Lapland's biggest ski resort, for clients who want proper downhill skiing or snowboarding built around the same core Lapland activities, and generally the resort I steer longer stays and keen skiers towards.</p>
       </div>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">TUI's own "from" pricing for a three to four night Lapland break generally starts from around &pound;900 to &pound;1,350 per adult at time of writing, covering flights, transfers, accommodation, half board and the included activity taster, and moves around a great deal with resort, hotel, dates and departure airport.</p>
-    {jake_tip("TUI's Design Your Trip tool also sells a genuine self drive, land only multi centre tour combining Rovaniemi and Saariselka in one trip for anyone who wants to see both. It does not include flights, so I book the flights separately alongside it, just ask me for current pricing.")}
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Typical "from" pricing for a three to four night Lapland break generally starts from around &pound;900 to &pound;1,350 per adult at time of writing, covering flights, transfers, accommodation, half board and the included activity taster, and moves around a great deal with resort, hotel, dates and departure airport.</p>
+    {jake_tip("I can also arrange a self drive, land only multi centre trip combining Rovaniemi and Saariselka in one trip for anyone who wants to see both. It does not include flights, so I book the flights separately alongside it, just ask me for current pricing.")}
   </div>
 </section>
 
@@ -10480,7 +10548,7 @@ lapland_body = f"""
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1514773896690-40d0fd46f143?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A reindeer sleigh in the snow at Santa Claus Village, Rovaniemi" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Santa Claus Village &amp; the Arctic Circle line</h3>
-        <p>A purpose built village right on the Arctic Circle line itself, just outside Rovaniemi, where you can meet Santa in his grotto year round and get a certificate for crossing into the Arctic Circle. Included as standard on a TUI Rovaniemi break.</p>
+        <p>A purpose built village right on the Arctic Circle line itself, just outside Rovaniemi, where you can meet Santa in his grotto year round and get a certificate for crossing into the Arctic Circle. Included as standard on a Rovaniemi break.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1672878198678-d61df5fc791f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Husky sled dogs in the snow near Ranua, Finnish Lapland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -10504,7 +10572,7 @@ lapland_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Cost of living: what things actually cost</h2>
-    <p style="margin-top:14px;">Finland uses the Euro. Most of a TUI Lapland break is already paid for upfront, since flights, transfers, accommodation, half board and your included activity are all bundled into the package price, but these are typical costs for anything extra, converted to pounds sterling at a rate of roughly &pound;1 to &euro;1.18.</p>
+    <p style="margin-top:14px;">Finland uses the Euro. Most of a Lapland break is already paid for upfront, since flights, transfers, accommodation, half board and your included activity are all bundled into the package price, but these are typical costs for anything extra, converted to pounds sterling at a rate of roughly &pound;1 to &euro;1.18.</p>
     <div class="weather-table-wrap">
       <table class="weather-table">
         <thead>
@@ -10549,6 +10617,8 @@ lapland_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -10567,12 +10637,12 @@ lapland_body = lapland_body.replace("::NEWSLETTER::", newsletter_section())
 
 LAPLAND_SCHEMA = article_and_faq_schema(
     "Finnish Lapland: Jake's Destination Guide",
-    "Jake's honest guide to Finnish Lapland: Rovaniemi, Saariselka and Levi compared, weather by month, real TUI hotels and what a Santa break actually costs.",
+    "Jake's honest guide to Finnish Lapland: Rovaniemi, Saariselka and Levi compared, weather by month, real hotels and what a Santa break actually costs.",
     "lapland-finland.html",
     "https://images.unsplash.com/photo-1528155124528-06c125d81e89?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Lapland holidays?", "TUI is currently the only one of the three operators Jake sells, TUI, Jet2holidays and easyJet holidays, that packages Finnish Lapland as a flight inclusive holiday. Jet2 and easyJet both now fly seasonal routes into Lapland airports, but neither has bundled those flights into a Jet2holidays or easyJet holidays package at the time of writing."),
-        ("How long is a typical Lapland holiday?", "TUI's core product is a short break of three or four nights, including flights, transfers, half board accommodation, thermal clothing and a taster of husky and reindeer sleigh rides. Longer stays and extra activities can be added, and Levi in particular suits longer stays for skiing."),
+        ("Can you book Lapland holidays for me?", "Yes. I put Finnish Lapland together as a flight inclusive holiday, comparing prices across the companies I book with and building the trip around you."),
+        ("How long is a typical Lapland holiday?", "The core holiday is a short break of three or four nights, including flights, transfers, half board accommodation, thermal clothing and a taster of husky and reindeer sleigh rides. Longer stays and extra activities can be added, and Levi in particular suits longer stays for skiing."),
         ("When is the best time to see the Northern Lights in Lapland?", "The Northern Lights can appear any time the sky is dark enough, roughly September to March, with the long, dark nights of December to February generally rated the best odds. There is never a guarantee on any single trip, since it depends on clear skies and the aurora being active that night."),
         ("Do I need a visa for Finland?", "UK passport holders can visit Finland, which is in the Schengen area, visa free for up to 90 days in any 180 day period, with at least 3 months of passport validity remaining. The EU's ETIAS travel authorisation is expected to apply from late 2026."),
         ("Which Lapland resort should I book?", "Rovaniemi is the easiest, most central choice and the one built most directly around Santa Claus Village. Saariselka is quieter and further north, which suits Northern Lights hunting best. Levi is Lapland's biggest ski resort, for anyone wanting proper skiing alongside the classic activities."),
@@ -10581,7 +10651,7 @@ LAPLAND_SCHEMA = article_and_faq_schema(
 with open(os.path.join(SITE, "lapland-finland.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "Finnish Lapland: Jake's Destination Guide | Travel Agent Jake",
-        "Jake's honest guide to Finnish Lapland: Rovaniemi, Saariselka and Levi compared, weather by month, real TUI hotels and what a Santa break actually costs.",
+        "Jake's honest guide to Finnish Lapland: Rovaniemi, Saariselka and Levi compared, weather by month, real hotels and what a Santa break actually costs.",
         "destinations.html",
         lapland_body,
         extra_schema=LAPLAND_SCHEMA,
@@ -10595,7 +10665,7 @@ orlando_body = f"""
   <div class="wrap">
     <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
     <h1>ORLANDO, FLORIDA</h1>
-    <p class="lead" style="margin-top:18px; margin-bottom:0;">Walt Disney World, Universal Orlando Resort and Kennedy Space Center all within reach of one base, plus real TUI hotels, weather by month and what a proper Orlando holiday actually costs.</p>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Walt Disney World, Universal Orlando Resort and Kennedy Space Center all within reach of one base, plus real hotels, weather by month and what a proper Orlando holiday actually costs.</p>
   </div>
 </section>
 
@@ -10603,7 +10673,7 @@ orlando_body = f"""
   <div class="wrap">
     <h2>What Jake says about Orlando</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1621445944472-f252571005b6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The VelociCoaster at Universal's Islands of Adventure, Orlando" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Orlando is the one holiday that almost every family asks me about at some point, because there simply is not another destination that packs in this many theme parks, water parks and big days out within one short drive. TUI is currently the only one of my three operators, TUI, Jet2holidays and easyJet holidays, that sells it as a proper flight inclusive package. Neither Jet2holidays nor easyJet holidays flies long haul at all at the moment, so for anyone who wants their flights and hotel booked together under ATOL protection, TUI is the one I book this through.</p>
+    <p>Orlando is the one holiday that almost every family asks me about at some point, because there simply is not another destination that packs in this many theme parks, water parks and big days out within one short drive. I can put it together as a proper flight inclusive package, and for anyone who wants their flights and hotel booked together under ATOL protection, that is how I book it.</p>
     <p style="margin-top:14px;">It is also a holiday that rewards a bit of planning. Which theme park group you stay closest to, how many park days you actually need, and when you travel all change the trip quite a lot, so I always talk clients through the real choices rather than just picking the first hotel that comes up.</p>
     {jake_tip("I always ask how many theme park days a client actually wants before booking anything. Two weeks sounds like a lot until you add up Disney's four parks, Universal's two, a water park day and at least one rest day by the pool.")}
   </div>
@@ -10619,8 +10689,8 @@ orlando_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">TUI flies direct from several UK airports, including Gatwick and Manchester, to Melbourne Orlando International Airport on Florida's Space Coast, a switch TUI made a few years ago from the older Orlando Sanford Airport. It is about an hour's transfer from Melbourne to Walt Disney World, Universal Orlando Resort and International Drive, and the Space Coast location is genuinely handy if a client also wants to add on Kennedy Space Center. Flight time is around 9 hours outbound. British Airways and Virgin Atlantic also fly direct into Orlando International Airport itself, closer to the main resort area, for anyone who would rather book flights independently of a TUI package.</p>
-    {jake_tip("All transfers between Melbourne Airport and your hotel are included in a TUI package. Hiring a car instead is also very popular for this trip, since it gives total flexibility over which park you visit and when.")}
+    <p style="margin-top:14px;">Direct flights run from several UK airports, including Gatwick and Manchester, to Melbourne Orlando International Airport on Florida's Space Coast, which replaced the older Orlando Sanford Airport on this route a few years ago. It is about an hour's transfer from Melbourne to Walt Disney World, Universal Orlando Resort and International Drive, and the Space Coast location is genuinely handy if a client also wants to add on Kennedy Space Center. Flight time is around 9 hours outbound. British Airways and Virgin Atlantic also fly direct into Orlando International Airport itself, closer to the main resort area, for anyone who would rather book flights independently of a package.</p>
+    {jake_tip("All transfers between Melbourne Airport and your hotel are included in a package. Hiring a car instead is also very popular for this trip, since it gives total flexibility over which park you visit and when.")}
   </div>
 </section>
 
@@ -10672,17 +10742,17 @@ orlando_body = f"""
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1595274013294-6946aac9eb22?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cinderella Castle at Walt Disney World's Magic Kingdom, Orlando" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Walt Disney World Resort</h3>
-        <p>Staying on Disney property means free transport around all four Disney parks, Disney's own theming carried right through to the hotel, and early entry to the parks for on site guests. TUI sells 31 named Walt Disney World hotels, from the value All Star resorts right up to the flagship Grand Floridian.</p>
+        <p>Staying on Disney property means free transport around all four Disney parks, Disney's own theming carried right through to the hotel, and early entry to the parks for on site guests. There are 31 named Walt Disney World hotels to choose from, ranging from the value All Star resorts right up to the flagship Grand Floridian.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1742326707267-e73a98dac5ad?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Poseidon's Fury at Universal's Islands of Adventure, Orlando" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Universal Orlando Resort</h3>
-        <p>The right choice for anyone prioritising Universal Studios Florida and Islands of Adventure. Every Universal on site hotel gets free transport to the parks and Early Park Admission, and TUI sells several of Universal's own hotels, including the retro styled Cabana Bay Beach Resort.</p>
+        <p>The right choice for anyone prioritising Universal Studios Florida and Islands of Adventure. Every Universal on site hotel gets free transport to the parks and Early Park Admission, and there are several of Universal's own hotels to choose from, including the retro styled Cabana Bay Beach Resort.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1649016038610-40f1e8bd0e6b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The ICON Park wheel on International Drive, Orlando" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">International Drive &amp; Kissimmee villa country</h3>
-        <p>The best value base for bigger family groups, roughly 20 to 25 minutes from both Disney and Universal. TUI sells a range of named villa communities around Davenport, Haines City, Clermont and Kissimmee, several with their own private pools, which can work out cheaper per head than a hotel room for larger families.</p>
+        <p>The best value base for bigger family groups, roughly 20 to 25 minutes from both Disney and Universal. There is a choice of named villa communities around Davenport, Haines City, Clermont and Kissimmee, several with their own private pools, which can work out cheaper per head than a hotel room for larger families.</p>
       </div>
     </div>
     {jake_tip("Disney no longer runs its old free Magical Express airport shuttle, so I always check current transfer arrangements when booking a Disney hotel directly rather than assuming it is still included.")}
@@ -10713,25 +10783,25 @@ orlando_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">One hotel across three budgets, all bookable through TUI.</p>
+    <p style="margin-top:14px;">One hotel across three budgets.</p>
     <div class="grid-3 equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Value</div>
         <img src="https://images.unsplash.com/photo-1789593847389-80805c7ea5ab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers by a pool at a Florida resort hotel" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Disney's All Star Movies Resort</h3>
-        <p>Disney's own value tier, themed around classic Disney films, with the usual free transport to all four Disney parks and Disney's theming running right through the resort. The one I point budget conscious Disney first timers towards. Bookable through TUI.</p>
+        <p>Disney's own value tier, themed around classic Disney films, with the usual free transport to all four Disney parks and Disney's theming running right through the resort. The one I point budget conscious Disney first timers towards. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Family / moderate</div>
         <img src="https://images.unsplash.com/photo-1643102927429-69d671713ac6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Universal Studios globe at Universal Orlando Resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Universal's Cabana Bay Beach Resort</h3>
-        <p>A large, retro 1950s and 60s styled hotel on Universal property, with its own lazy river and bowling alley, free transport to Universal's parks and Early Park Admission. A strong value pick for anyone prioritising Universal over Disney. Bookable through TUI.</p>
+        <p>A large, retro 1950s and 60s styled hotel on Universal property, with its own lazy river and bowling alley, free transport to Universal's parks and Early Park Admission. A strong value pick for anyone prioritising Universal over Disney. Happy to price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Luxury</div>
         <img src="https://images.unsplash.com/photo-1587870306141-4f19861e6c73?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of a resort hotel surrounded by palm trees in Florida" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Disney's Grand Floridian Resort &amp; Spa</h3>
-        <p>Disney's flagship Victorian style resort on the Magic Kingdom monorail loop, with a private beach, spa and some of the best dining on Disney property. The one I book for honeymoons and special occasion trips. Bookable through TUI.</p>
+        <p>Disney's flagship Victorian style resort on the Magic Kingdom monorail loop, with a private beach, spa and some of the best dining on Disney property. The one I book for honeymoons and special occasion trips. Happy to check availability for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -10745,7 +10815,7 @@ orlando_body = f"""
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1649605551177-7d1634891da1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The sign at Kennedy Space Center Visitor Complex, near Orlando" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Kennedy Space Center Visitor Complex</h3>
-        <p>About an hour east of Orlando on the Space Coast, genuinely handy if flying via TUI's Melbourne route. Rocket garden, the Atlantis shuttle exhibit and, with the right timing, a real rocket launch visible from the grounds.</p>
+        <p>About an hour east of Orlando on the Space Coast, genuinely handy if flying into Melbourne. Rocket garden, the Atlantis shuttle exhibit and, with the right timing, a real rocket launch visible from the grounds.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1671678075677-eae303b606aa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An airboat on the water near the Florida Everglades" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -10769,7 +10839,7 @@ orlando_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Cost of living: what things actually cost</h2>
-    <p style="margin-top:14px;">The USA uses the US Dollar. Flights, transfers and accommodation are already covered in a TUI package price, but theme park tickets, meals out and extras add up fast in Orlando, so these are typical costs for everyday items, converted to pounds sterling at a rate of roughly &pound;1 to $1.34.</p>
+    <p style="margin-top:14px;">The USA uses the US Dollar. Flights, transfers and accommodation are already covered in a package price, but theme park tickets, meals out and extras add up fast in Orlando, so these are typical costs for everyday items, converted to pounds sterling at a rate of roughly &pound;1 to $1.34.</p>
     <div class="weather-table-wrap">
       <table class="weather-table">
         <thead>
@@ -10814,6 +10884,8 @@ orlando_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -10832,13 +10904,13 @@ orlando_body = orlando_body.replace("::NEWSLETTER::", newsletter_section())
 
 ORLANDO_SCHEMA = article_and_faq_schema(
     "Orlando, Florida: Jake's Destination Guide",
-    "Jake's honest guide to Orlando: Walt Disney World, Universal Orlando Resort and International Drive compared, weather by month, real TUI hotels and what a theme park holiday actually costs.",
+    "Jake's honest guide to Orlando: Walt Disney World, Universal Orlando Resort and International Drive compared, weather by month, real hotels and what a theme park holiday actually costs.",
     "orlando.html",
     "https://images.unsplash.com/photo-1597466599360-3b9775841aec?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Orlando package holidays?", "TUI is currently the only one of the three operators Jake sells, TUI, Jet2holidays and easyJet holidays, that sells Orlando as a flight inclusive package holiday. Neither Jet2holidays nor easyJet holidays currently flies long haul, so independent flights with an airline such as British Airways or Virgin Atlantic are the only other direct route to booking this yourself."),
+        ("Can you book an Orlando package holiday?", "Yes. Jake can put Orlando together as a flight inclusive package holiday with ATOL protection, covering flights, transfers and accommodation. Independent flights with an airline such as British Airways or Virgin Atlantic are the other direct route to booking this yourself."),
         ("How long is a typical Orlando holiday?", "Most clients book 10 to 14 nights given the long flight and the sheer number of parks between Walt Disney World and Universal Orlando Resort, and two weeks is genuinely common."),
-        ("Which airport does TUI fly into for Orlando?", "TUI flies direct to Melbourne Orlando International Airport on Florida's Space Coast, about an hour's drive from Walt Disney World, Universal Orlando Resort and International Drive, having moved its Orlando flights there from the older Orlando Sanford Airport."),
+        ("Which airport do package holidays fly into for Orlando?", "Package flights go direct to Melbourne Orlando International Airport on Florida's Space Coast, about an hour's drive from Walt Disney World, Universal Orlando Resort and International Drive, having moved there from the older Orlando Sanford Airport."),
         ("Do I need a visa for the USA?", "UK passport holders travel under the ESTA scheme rather than a full visa, applied for online in advance of travel through the official esta.cbp.dhs.gov site. See Jake's full ESTA fee guide for current costs."),
         ("Should I stay on Disney property, Universal property or International Drive?", "It depends on priorities. Disney on site hotels suit anyone wanting free transport around all four Disney parks and Disney's own theming. Universal on site hotels suit anyone prioritising Universal Studios Florida and Islands of Adventure. International Drive and the Kissimmee villa communities tend to offer the best value for bigger family groups, roughly 20 to 25 minutes from both."),
     ]
@@ -10846,7 +10918,7 @@ ORLANDO_SCHEMA = article_and_faq_schema(
 with open(os.path.join(SITE, "orlando.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "Orlando, Florida: Jake's Destination Guide | Travel Agent Jake",
-        "Jake's honest guide to Orlando: Walt Disney World, Universal Orlando Resort and International Drive compared, weather by month, real TUI hotels and what a theme park holiday actually costs.",
+        "Jake's honest guide to Orlando: Walt Disney World, Universal Orlando Resort and International Drive compared, weather by month, real hotels and what a theme park holiday actually costs.",
         "destinations.html",
         orlando_body,
         extra_schema=ORLANDO_SCHEMA,
@@ -10869,25 +10941,25 @@ japan_body = f"""
   <div class="wrap">
     <h2>What Jake says about Japan</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1547448526-5e9d57fa28f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Crowds crossing the Shibuya scramble intersection at night in Tokyo" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Japan comes up in conversation more than almost any other long haul destination I get asked about, but it's also one of the more unusual ones for me to book. Unlike most of what I sell, there's no simple flight and hotel package to a single resort or city. TUI is currently the only one of my three operators, TUI, Jet2holidays and easyJet holidays, that sells Japan at all, since neither Jet2holidays nor easyJet holidays flies long haul yet. And even through TUI, Japan isn't sold as a stay in one place, it's a single fully escorted tour called Discover Japan.</p>
+    <p>Japan comes up in conversation more than almost any other long haul destination I get asked about, but it's also one of the more unusual ones for me to book. Unlike most of what I sell, there's no simple flight and hotel package to a single resort or city. Japan isn't sold as a stay in one place, it's a single fully escorted tour through the country.</p>
     <p style="margin-top:14px;">It's a proper 12 night route through six stops, Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto, with flights, hotels, transfers, a local English speaking guide and a run of included experiences all built in. It isn't cheap, current prices start from around &pound;5,127 per person, but everything from the flights down to the bullet train tickets is arranged for you, which a lot of clients find genuinely reassuring for a first trip somewhere this different.</p>
-    {jake_tip("I always set expectations early that this is the one Japan option I can currently book: a single escorted tour, not a pick your own hotel package. If you want a fully independent, build it yourself Japan itinerary, that's a different conversation, and not something I can book through TUI, Jet2holidays or easyJet holidays.")}
+    {jake_tip("I always set expectations early that this is the one Japan option I can currently book: a single escorted tour, not a pick your own hotel package. If you want a fully independent, build it yourself Japan itinerary, that's a different conversation.")}
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Trip length &amp; who it suits</h2>
-    <p style="margin-top:14px;">The tour runs 12 nights, 14 days including the two flight days, and TUI rates it as an active pace tour, meaning early starts, some long days on the bullet train or coach, and a fair amount of walking at each stop. There's a minimum tour age of 16 and a maximum group size of 25. It suits couples, friends travelling together, honeymooners after something different from the usual beach week, and anyone who has always wanted to properly see Japan rather than just tick off Tokyo. It's less suited to young families given the minimum age, to anyone wanting a slower, more relaxing pace, or to anyone who only wants a few days in Tokyo itself, since this tour covers the whole route in one booking.</p>
+    <p style="margin-top:14px;">The tour runs 12 nights, 14 days including the two flight days, and it is an active pace tour, meaning early starts, some long days on the bullet train or coach, and a fair amount of walking at each stop. There's a minimum tour age of 16 and a maximum group size of 25. It suits couples, friends travelling together, honeymooners after something different from the usual beach week, and anyone who has always wanted to properly see Japan rather than just tick off Tokyo. It's less suited to young families given the minimum age, to anyone wanting a slower, more relaxing pace, or to anyone who only wants a few days in Tokyo itself, since this tour covers the whole route in one booking.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">TUI flies into Tokyo Narita International Airport from a choice of UK departure airports, including Manchester, Gatwick, Heathrow, Edinburgh and Glasgow, with the exact routing, direct or via a connecting hub, depending on your chosen airport and date. Flight time is upwards of 12 hours even on a direct service, more on an indirect one, so this is very much a long haul trip. All flights, transfers, bullet train travel and coach transport between each stop on the tour are included in the TUI package price and protected under TUI's ATOL licence.</p>
+    <p style="margin-top:14px;">Flights go into Tokyo Narita International Airport from a choice of UK departure airports, including Manchester, Gatwick, Heathrow, Edinburgh and Glasgow, with the exact routing, direct or via a connecting hub, depending on your chosen airport and date. Flight time is upwards of 12 hours even on a direct service, more on an indirect one, so this is very much a long haul trip. All flights, transfers, bullet train travel and coach transport between each stop on the tour are included in the package price and are ATOL protected.</p>
     <p style="margin-top:14px;">UK passport holders currently travel to Japan visa free for tourist stays of up to 90 days, with no advance paperwork needed beyond a passport valid for the length of your stay. Japan has announced a new pre travel digital screening system called JESTA, broadly similar to Europe's ETIAS scheme, but based on current reporting it isn't expected to become mandatory before 2028 at the earliest, so it won't affect a booking made for the tour's current April to September departures. I'll flag it here if that changes.</p>
-    {jake_tip("Because this is a fully escorted tour with a minimum age of 16, it isn't the holiday to book if you're travelling with younger children. For a family trip to Japan I'd need to look at a fully independent, tailor made itinerary instead, since none of my three main operators currently sell Japan any other way.")}
+    {jake_tip("Because this is a fully escorted tour with a minimum age of 16, it isn't the holiday to book if you're travelling with younger children. For a family trip to Japan I'd need to look at a fully independent, tailor made itinerary instead.")}
   </div>
 </section>
 
@@ -10924,7 +10996,7 @@ japan_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Best time to visit</h2>
-    <p style="margin-top:14px;">TUI currently only runs the Discover Japan tour in April, May, June and September, so it's worth being honest about what that does and doesn't line up with. April catches the tail end of cherry blossom season in most years and is the most popular, and priciest, departure month, from around &pound;5,476 per person. May is warm and settled, a genuinely comfortable shoulder month and better value, from around &pound;5,322 per person. June departures run into the start of the tsuyu rainy season, warmer and more humid with a higher chance of rain, but also the cheapest of the four months alongside September, from around &pound;5,183 per person. September is TUI's lowest priced departure month, from around &pound;5,127 per person, though it still carries typhoon season risk and the humidity of summer hasn't fully broken. There currently aren't any TUI departures in the winter months, over the autumn leaves season in November, or in July and August, so if a client's heart is set on seeing snow at the temples or the full blaze of autumn colour, I have to be upfront that this particular tour can't currently get them there.</p>
+    <p style="margin-top:14px;">The tour currently only runs in April, May, June and September, so it's worth being honest about what that does and doesn't line up with. April catches the tail end of cherry blossom season in most years and is the most popular, and priciest, departure month, from around &pound;5,476 per person. May is warm and settled, a genuinely comfortable shoulder month and better value, from around &pound;5,322 per person. June departures run into the start of the tsuyu rainy season, warmer and more humid with a higher chance of rain, but also the cheapest of the four months alongside September, from around &pound;5,183 per person. September is the lowest priced departure month, from around &pound;5,127 per person, though it still carries typhoon season risk and the humidity of summer hasn't fully broken. There currently aren't any departures in the winter months, over the autumn leaves season in November, or in July and August, so if a client's heart is set on seeing snow at the temples or the full blaze of autumn colour, I have to be upfront that this particular tour can't currently get them there.</p>
     {jake_tip("With only four departure months a year and a maximum group size of 25, popular dates, especially April's cherry blossom departures, can sell out well in advance. I always suggest booking as early as possible once a date is decided.")}
   </div>
 </section>
@@ -10938,7 +11010,7 @@ japan_body = f"""
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1573456373835-579c408de263?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of the Shibuya crossing area in Tokyo" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Tokyo</h3>
-        <p>Two nights at the start of the tour and a final night at the end before flying home, with a city tour taking in Asakusa's Sensoji Temple and the Meiji Jingu shrine. Hotel standard is 3 or 4 star, chosen by TUI for location rather than named in advance.</p>
+        <p>Two nights at the start of the tour and a final night at the end before flying home, with a city tour taking in Asakusa's Sensoji Temple and the Meiji Jingu shrine. Hotel standard is 3 or 4 star, chosen for location rather than named in advance.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Mount Fuji rising above the clouds, Japan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -10966,8 +11038,8 @@ japan_body = f"""
         <p>Three nights in Kyoto, the longest single stop on the tour, including a visit to Nara to see its famous bowing deer on the way in, a Kyoto city tour, and a walk through the Arashiyama bamboo grove.</p>
       </div>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">TUI doesn't name individual hotels in advance for this tour, only that they're a mix of 3 and 4 star standard across the six stops, with breakfast included throughout plus a handful of extra lunches and dinners built into the included experiences. I'll confirm exact hotels with you once a specific departure date is booked.</p>
-    {jake_tip("Your main luggage doesn't travel with you on the bullet train between stops. TUI's tour uses Japan's Takkyubin door to door delivery service instead, at roughly &pound;13 to &pound;16 per case, arranged by your tour guide. Worth packing a smaller overnight bag for the train travel days themselves.")}
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Individual hotels aren't named in advance for this tour, only that they're a mix of 3 and 4 star standard across the six stops, with breakfast included throughout plus a handful of extra lunches and dinners built into the included experiences. I'll confirm exact hotels with you once a specific departure date is booked.</p>
+    {jake_tip("Your main luggage doesn't travel with you on the bullet train between stops. The tour uses Japan's Takkyubin door to door delivery service instead, at roughly &pound;13 to &pound;16 per case, arranged by your tour guide. Worth packing a smaller overnight bag for the train travel days themselves.")}
   </div>
 </section>
 
@@ -10975,7 +11047,7 @@ japan_body = f"""
   <div class="wrap">
     <h2>Getting around</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1709455905432-b73f6ae077a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A Shinkansen bullet train passing a mountain in Japan" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Everything on this tour, bullet train travel, coaches and transfers between each of the six stops, is arranged and included as part of the TUI package, with a local English speaking guide throughout, so there's genuinely nothing to organise yourself once you've booked. If you extend your own time in Tokyo or Kyoto before or after the tour, Japan's public transport is some of the most reliable in the world: an IC card such as Suica or Pasmo covers trains, subways and buses in every city on the route, tapping in and out much like an Oyster card, and also works for small purchases in convenience stores and vending machines.</p>
+    <p>Everything on this tour, bullet train travel, coaches and transfers between each of the six stops, is arranged and included as part of the tour, with a local English speaking guide throughout, so there's genuinely nothing to organise yourself once you've booked. If you extend your own time in Tokyo or Kyoto before or after the tour, Japan's public transport is some of the most reliable in the world: an IC card such as Suica or Pasmo covers trains, subways and buses in every city on the route, tapping in and out much like an Oyster card, and also works for small purchases in convenience stores and vending machines.</p>
   </div>
 </section>
 
@@ -11024,7 +11096,7 @@ japan_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Cost of living: what things actually cost</h2>
-    <p style="margin-top:14px;">Japan uses the Japanese Yen. Flights, hotels, most meals and the included experiences are already covered in the TUI tour price, but these are typical everyday costs for extra meals, drinks and taxis, converted to pounds sterling at a rate of roughly &pound;1 to &yen;210.</p>
+    <p style="margin-top:14px;">Japan uses the Japanese Yen. Flights, hotels, most meals and the included experiences are already covered in the tour price, but these are typical everyday costs for extra meals, drinks and taxis, converted to pounds sterling at a rate of roughly &pound;1 to &yen;210.</p>
     <div class="weather-table-wrap">
       <table class="weather-table">
         <thead>
@@ -11070,6 +11142,8 @@ japan_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -11088,13 +11162,13 @@ japan_body = japan_body.replace("::NEWSLETTER::", newsletter_section())
 
 JAPAN_SCHEMA = article_and_faq_schema(
     "Japan: Jake's Destination Guide",
-    "Jake's honest guide to Japan: how TUI's Discover Japan escorted tour works, weather by month, what's included and what a trip to Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto actually costs.",
+    "Jake's honest guide to Japan: how the escorted tour works, weather by month, what's included and what a trip to Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto actually costs.",
     "japan.html",
     "https://images.unsplash.com/photo-1558862107-d49ef2a04d72?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Japan package holidays?", "TUI is currently the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that sells Japan at all. Neither Jet2holidays nor easyJet holidays flies long haul at the moment."),
-        ("Is Japan sold as a flight and hotel package or a tour?", "As a single escorted tour called Discover Japan: 12 nights covering Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto, with flights, hotels, transport and a local guide all included. There's currently no pick your own hotel TUI package for Japan."),
-        ("When can I book a Japan departure?", "TUI currently only runs this tour in April, May, June and September, with no departures the rest of the year."),
+        ("Can you book Japan for me?", "Yes. Japan is booked as a single escorted tour rather than a pick your own hotel package, and I compare prices across the companies I book with and build the trip around you."),
+        ("Is Japan sold as a flight and hotel package or a tour?", "As a single escorted tour 12 nights covering Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto, with flights, hotels, transport and a local guide all included. There's currently no pick your own hotel package for Japan."),
+        ("When can I book a Japan departure?", "This tour currently only runs in April, May, June and September, with no departures the rest of the year."),
         ("Do I need a visa for Japan?", "UK passport holders currently travel visa free for stays of up to 90 days. Japan's planned JESTA digital screening system isn't expected to be mandatory before 2028 at the earliest."),
         ("Is there a minimum age for the tour?", "Yes, 16, so this isn't suited to young families. The maximum group size is 25."),
     ]
@@ -11102,7 +11176,7 @@ JAPAN_SCHEMA = article_and_faq_schema(
 with open(os.path.join(SITE, "japan.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "Japan: Jake's Destination Guide | Travel Agent Jake",
-        "Jake's honest guide to Japan: how TUI's Discover Japan escorted tour works, weather by month, what's included and what a trip to Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto actually costs.",
+        "Jake's honest guide to Japan: how the escorted tour works, weather by month, what's included and what a trip to Tokyo, Hakone, Takayama, Kanazawa, Hiroshima and Kyoto actually costs.",
         "destinations.html",
         japan_body,
         extra_schema=JAPAN_SCHEMA,
@@ -11125,7 +11199,7 @@ china_body = f"""
   <div class="wrap">
     <h2>What Jake says about China</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1614555383820-941c466f1b52?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A bronze guardian lion statue before the Hall of Supreme Harmony in the Forbidden City, Beijing" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>China is a country people ask me about a lot, but it's one of the trickier ones for me to actually book. TUI is currently the only one of my three main operators, TUI, Jet2holidays and easyJet holidays, that sells China at all, since neither Jet2holidays nor easyJet holidays flies this far east yet. And even through TUI, China isn't sold as a pick your own hotel package, it's three separate fully escorted tours, each with its own route, flights, hotels, local guide and a long list of included experiences built in.</p>
+    <p>China is a country people ask me about a lot, but it's one of the trickier ones for me to actually book. China isn't sold as a pick your own hotel package, it's three separate fully escorted tours, each with its own route, flights, hotels, local guide and a long list of included experiences built in.</p>
     <p style="margin-top:14px;">That's actually good news for a country this size. China is vast, the language and transport system take some getting used to, and trying to piece together Beijing, Xi'an, a river cruise and Shanghai yourself would be a serious undertaking. An escorted tour means every flight, hotel, high speed train and entrance ticket is arranged for you, with an English speaking guide throughout.</p>
     {jake_tip("I always explain upfront that China isn't a beach holiday or a one hotel stay, it's a fully escorted group tour covering several cities. If a client wants to see China, the first conversation is always about which of the three routes fits them best, not which hotel they fancy.")}
   </div>
@@ -11142,8 +11216,8 @@ china_body = f"""
   <div class="wrap">
     <h2>Getting there</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1607426083183-74e497672a8f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A Fuxing high speed train at a railway station in China" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>TUI flies into China from a choice of UK departure airports depending on the tour, including Birmingham, Edinburgh, Gatwick, Heathrow, Manchester and Stansted for the Beijing entry routes, or Manchester, Gatwick and Heathrow for the Hong Kong entry route. All flights are indirect, with routing via a connecting hub, and flight time is upwards of 11 hours even before the connection. All flights, transfers, high speed trains and coach transport between each stop are included in the TUI tour price and protected under TUI's ATOL licence (ATOL 2524).</p>
-    <p style="margin-top:14px;">On entry requirements, China currently has a unilateral visa free scheme for UK ordinary passport holders, allowing stays of up to 30 days for tourism, business or visiting family and friends, with no visa application needed in advance. As things stand, that scheme is due to run until 31 December 2026, and China has extended it more than once before without much notice, but no extension beyond that date had been confirmed at the time of writing. Since every current TUI departure for all three tours falls in 2027, I always flag this honestly to clients booking now, check the official position closer to your travel date at gov.uk/foreign-travel-advice/china, and TUI's own visa partner, Sherpa, can also confirm what's needed if a visa does turn out to be required by then.</p>
+    <p>Flights to China run from a choice of UK departure airports depending on the tour, including Birmingham, Edinburgh, Gatwick, Heathrow, Manchester and Stansted for the Beijing entry routes, or Manchester, Gatwick and Heathrow for the Hong Kong entry route. All flights are indirect, with routing via a connecting hub, and flight time is upwards of 11 hours even before the connection. All flights, transfers, high speed trains and coach transport between each stop are included in the tour price and are ATOL protected.</p>
+    <p style="margin-top:14px;">On entry requirements, China currently has a unilateral visa free scheme for UK ordinary passport holders, allowing stays of up to 30 days for tourism, business or visiting family and friends, with no visa application needed in advance. As things stand, that scheme is due to run until 31 December 2026, and China has extended it more than once before without much notice, but no extension beyond that date had been confirmed at the time of writing. Since every current departure for all three tours falls in 2027, I always flag this honestly to clients booking now, check the official position closer to your travel date at gov.uk/foreign-travel-advice/china, and a visa service such as Sherpa can also confirm what's needed if a visa does turn out to be required by then.</p>
     {jake_tip("Don't assume China is visa free just because it has been for UK visitors recently. I always tell clients booking a 2027 departure to treat a visa as a real possibility until the scheme is confirmed extended, and to budget a little time and money for one just in case.")}
   </div>
 </section>
@@ -11182,14 +11256,14 @@ china_body = f"""
   <div class="wrap">
     <h2>Best time to visit</h2>
     <p style="margin-top:14px;">Each tour only runs in a handful of months, so the best time to go is really whichever window fits the route you pick. The Grand Tour of China departs April, May, June, August, September and October, from around &pound;3001pp in June up to &pound;3232pp in October. The Icons of China &amp; Avatar Peaks Tour runs a narrower window of May, June and September only, from around &pound;2754pp in June up to &pound;2878pp in September. Charming China &amp; Vibrant Hong Kong departs April, May, August, September and October, from around &pound;3018pp in May up to &pound;3657pp in October. None of the three currently run over the winter months, in July, or in November, so if a client's heart is set on seeing snow at the Great Wall or China's autumn colour, I have to be upfront that none of these routes can currently get them there.</p>
-    {jake_tip("Prices and months move around between TUI's own seasons, so I always check live availability and pricing for a client's exact dates rather than quoting these figures as fixed. June tends to be the best value month across the board, while October carries a premium.")}
+    {jake_tip("Prices and months move around between seasons, so I always check live availability and pricing for a client's exact dates rather than quoting these figures as fixed. June tends to be the best value month across the board, while October carries a premium.")}
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Three ways to see China</h2>
-    <p style="margin-top:14px;">China is a natural multi centre destination, since every TUI route strings several cities and regions together in one booking. Here are the three real, bookable tours, so you can see which route actually fits what you want to see.</p>
+    <p style="margin-top:14px;">China is a natural multi centre destination, since every route strings several cities and regions together in one booking. Here are the three real, bookable tours, so you can see which route actually fits what you want to see.</p>
     <div class="grid-3 equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1646975580273-aabf7d379951?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A cargo boat on the Yangtze River among the Three Gorges, China" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -11207,21 +11281,21 @@ china_body = f"""
         <p>13 nights. Hong Kong, Beijing, Xi'an, Chongqing and a cruise down the Li River to Guilin's limestone peaks. The slowest paced of the three, mixing big city energy with scenic countryside. From &pound;3018pp, flying from Gatwick, Heathrow or Manchester.</p>
       </div>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each tour across its current departure months, correct at the time of writing and subject to change. All three are ATOL protected under TUI's licence (ATOL 2524).</p>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each tour across its current departure months, correct at the time of writing and subject to change. All three are ATOL protected.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Where to stay</h2>
-    <p style="margin-top:14px;">Because these are escorted tours rather than pick your own hotel holidays, TUI chooses the hotels for location rather than naming them in advance, in the same way as its Japan tour. What TUI does confirm is the standard. The Grand Tour of China splits its 13 nights between five hotels of a 5 star, 4 star plus and 4 star standard, plus a night or two aboard a Yangtze River cruise ship for the river leg. The Icons of China &amp; Avatar Peaks Tour uses three hotels of a 4 star standard across its route. Charming China &amp; Vibrant Hong Kong spreads its 13 nights across six hotels of a 4 star standard, covering Hong Kong, Beijing, Xi'an, Chongqing and Guilin. I'll confirm the exact named hotels with you once a specific departure date is booked.</p>
+    <p style="margin-top:14px;">Because these are escorted tours rather than pick your own hotel holidays, the hotels are chosen for location rather than named in advance, in the same way as the Japan tour. What is confirmed is the standard. The Grand Tour of China splits its 13 nights between five hotels of a 5 star, 4 star plus and 4 star standard, plus a night or two aboard a Yangtze River cruise ship for the river leg. The Icons of China &amp; Avatar Peaks Tour uses three hotels of a 4 star standard across its route. Charming China &amp; Vibrant Hong Kong spreads its 13 nights across six hotels of a 4 star standard, covering Hong Kong, Beijing, Xi'an, Chongqing and Guilin. I'll confirm the exact named hotels with you once a specific departure date is booked.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting around</h2>
-    <p style="margin-top:14px;">Everything on all three tours, high speed trains, coaches, internal flights where needed and transfers between each stop, is arranged and included as part of the TUI package, with a local English speaking guide throughout, so there's genuinely nothing to organise yourself once you've booked. China's high speed rail network is one of the best in the world, and it's how the Grand Tour of China and Icons of China &amp; Avatar Peaks Tour move between Beijing and Xi'an. If you extend your own time in a city before or after the tour, most major sights and hotels are easily reachable by taxi or metro, though do note that some apps and websites UK travellers rely on, including WhatsApp, Spotify and Netflix, can be restricted in mainland China.</p>
+    <p style="margin-top:14px;">Everything on all three tours, high speed trains, coaches, internal flights where needed and transfers between each stop, is arranged and included as part of the tour, with a local English speaking guide throughout, so there's genuinely nothing to organise yourself once you've booked. China's high speed rail network is one of the best in the world, and it's how the Grand Tour of China and Icons of China &amp; Avatar Peaks Tour move between Beijing and Xi'an. If you extend your own time in a city before or after the tour, most major sights and hotels are easily reachable by taxi or metro, though do note that some apps and websites UK travellers rely on, including WhatsApp, Spotify and Netflix, can be restricted in mainland China.</p>
     {jake_tip("WeChat is the app almost everyone in China uses for messaging, payments and even booking things day to day. It's worth downloading before you travel, since it can be genuinely useful even just as a translation and payment tool.")}
   </div>
 </section>
@@ -11273,7 +11347,7 @@ china_body = f"""
   <div class="wrap">
     <h2>Cost of living: what things actually cost</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1526139334526-f591a54b477c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="People walking between food stalls under Chinese lanterns at a night market" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>China uses the Chinese Yuan, also known as the Renminbi. Flights, hotels, most meals and the included experiences are already covered in the TUI tour price, but these are typical everyday costs for extra meals, drinks and taxis in Beijing, converted to pounds sterling at a rate of roughly &pound;1 to &yen;8.91.</p>
+    <p>China uses the Chinese Yuan, also known as the Renminbi. Flights, hotels, most meals and the included experiences are already covered in the tour price, but these are typical everyday costs for extra meals, drinks and taxis in Beijing, converted to pounds sterling at a rate of roughly &pound;1 to &yen;8.91.</p>
     <div class="weather-table-wrap">
       <table class="weather-table">
         <thead>
@@ -11319,11 +11393,13 @@ china_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
     <h2>Fancy China for yourself?</h2>
-    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can talk you through all three TUI tours, check real departure dates and pricing, and help you work out honestly which route fits what you actually want to see.</p>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can talk you through all three tours, check real departure dates and pricing, and help you work out honestly which route fits what you actually want to see.</p>
     <div class="btn-row" style="justify-content:center;">
       <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
       <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
@@ -11337,12 +11413,12 @@ china_body = china_body.replace("::NEWSLETTER::", newsletter_section())
 
 CHINA_SCHEMA = article_and_faq_schema(
     "China: Jake's Destination Guide",
-    "Jake's honest guide to China: how TUI's three escorted tours work, weather by month, and what a trip covering Beijing, Xi'an, the Yangtze River, Zhangjiajie, Guilin, Shanghai or Hong Kong actually costs.",
+    "Jake's honest guide to China: how the three escorted tours work, weather by month, and what a trip covering Beijing, Xi'an, the Yangtze River, Zhangjiajie, Guilin, Shanghai or Hong Kong actually costs.",
     "china.html",
     "https://images.unsplash.com/photo-1608037521277-154cd1b89191?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells China package holidays?", "TUI is currently the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that sells China at all. Neither Jet2holidays nor easyJet holidays flies this far east at the moment."),
-        ("Is China sold as a flight and hotel package or a tour?", "As three separate fully escorted tours: the Grand Tour of China, the Icons of China & Avatar Peaks Tour, and Charming China & Vibrant Hong Kong. Each includes flights, hotels, transport and a local guide. There's currently no pick your own hotel TUI package for China."),
+        ("Can you book China for me?", "Yes. China is booked as one of three escorted tours rather than a pick your own hotel package, and I compare prices across the companies I book with and build the trip around you."),
+        ("Is China sold as a flight and hotel package or a tour?", "As three separate fully escorted tours: the Grand Tour of China, the Icons of China & Avatar Peaks Tour, and Charming China & Vibrant Hong Kong. Each includes flights, hotels, transport and a local guide. There's currently no pick your own hotel package for China."),
         ("Do I need a visa for China?", "UK passport holders can currently enter visa free for stays of up to 30 days, under a scheme due to run until 31 December 2026. No extension beyond that date had been confirmed at the time of writing, so check gov.uk/foreign-travel-advice/china closer to your travel date, especially for a 2027 departure."),
         ("Is there a minimum age for the China tours?", "Yes, 12 on all three routes, so none of them is suited to young families."),
         ("Which China tour should I book?", "It depends what you want to see. The Grand Tour of China covers the most ground and includes a Yangtze River cruise and pandas in Chengdu. The Icons of China & Avatar Peaks Tour is shorter and adds the dramatic Zhangjiajie scenery. Charming China & Vibrant Hong Kong starts and ends in Hong Kong and takes in Guilin's limestone peaks. I always talk clients through all three before they decide."),
@@ -11351,7 +11427,7 @@ CHINA_SCHEMA = article_and_faq_schema(
 with open(os.path.join(SITE, "china.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "China: Jake's Destination Guide | Travel Agent Jake",
-        "Jake's honest guide to China: how TUI's three escorted tours work, weather by month, and what a trip covering Beijing, Xi'an, the Yangtze River, Zhangjiajie, Guilin, Shanghai or Hong Kong actually costs.",
+        "Jake's honest guide to China: how the three escorted tours work, weather by month, and what a trip covering Beijing, Xi'an, the Yangtze River, Zhangjiajie, Guilin, Shanghai or Hong Kong actually costs.",
         "destinations.html",
         china_body,
         extra_schema=CHINA_SCHEMA,
@@ -11365,7 +11441,7 @@ canada_body = f"""
   <div class="wrap">
     <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
     <h1>CANADA</h1>
-    <p class="lead" style="margin-top:18px; margin-bottom:0;">Niagara Falls, the old stone streets of Quebec City, turquoise lakes in the Rockies and the neon pull of Toronto. Canada is one of the biggest countries on earth, so here's exactly how I book it, what TUI's real escorted tours cover and what they cost.</p>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Niagara Falls, the old stone streets of Quebec City, turquoise lakes in the Rockies and the neon pull of Toronto. Canada is one of the biggest countries on earth, so here's exactly how I book it, what the real escorted tours cover and what they cost.</p>
   </div>
 </section>
 
@@ -11373,7 +11449,7 @@ canada_body = f"""
   <div class="wrap">
     <h2>What Jake says about Canada</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1507992781348-310259076fe0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Toronto skyline and CN Tower across Lake Ontario at golden hour" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Canada comes up a lot with clients who want a big bucket list trip rather than a straightforward beach week, and TUI is currently the only one of my three main operators, TUI, Jet2holidays and easyJet holidays, that sells it. Neither Jet2holidays nor easyJet holidays flies this far west yet. Even through TUI, Canada isn't sold as a pick your own hotel package, it's a set of real escorted tours, each with its own route, flights, hotels and a long list of included experiences built in.</p>
+    <p>Canada comes up a lot with clients who want a big bucket list trip rather than a simple beach week. Canada isn't sold as a pick your own hotel package, it's a set of real escorted tours, each with its own route, flights, hotels and a long list of included experiences built in.</p>
     <p style="margin-top:14px;">That actually makes it easier to plan rather than harder. Canada is roughly 40 times the size of the UK, so trying to string together flights, car hire and hotels yourself across provinces and time zones is a serious undertaking. An escorted or self drive tour means the route, accommodation and (on the guided tours) an English speaking guide are already sorted, you just turn up and see the country.</p>
     {jake_tip("I always explain upfront that Canada isn't one holiday, it's several completely different ones depending on which coast you head for. The first conversation is always which region and pace suits a client, not which hotel they fancy.")}
   </div>
@@ -11382,7 +11458,7 @@ canada_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Trip length &amp; who it suits</h2>
-    <p style="margin-top:14px;">TUI's Canada tours run anywhere from 8 to 13 nights depending on the route, with trip length and pace varying a lot between them. The eastern city tours are classed as a leisurely to moderate pace with a mix of guided sightseeing and free time, while the self drive tour through the Rockies covers serious distance each day behind the wheel. None of the three tours I've picked out below has an upper age limit, and only the Eastern Explorer has a minimum age, at 10. They suit couples, friends and families with older children who want a proper look at the country's cities, mountains or both, rather than a single resort stay. The self drive route particularly suits confident drivers who are happy covering long distances and want total flexibility over when they stop.</p>
+    <p style="margin-top:14px;">The Canada tours run anywhere from 8 to 13 nights depending on the route, with trip length and pace varying a lot between them. The eastern city tours are classed as a leisurely to moderate pace with a mix of guided sightseeing and free time, while the self drive tour through the Rockies covers serious distance each day behind the wheel. None of the three tours I've picked out below has an upper age limit, and only the Eastern Explorer has a minimum age, at 10. They suit couples, friends and families with older children who want a proper look at the country's cities, mountains or both, rather than a single resort stay. The self drive route particularly suits confident drivers who are happy covering long distances and want total flexibility over when they stop.</p>
   </div>
 </section>
 
@@ -11390,7 +11466,7 @@ canada_body = f"""
   <div class="wrap">
     <h2>Getting there</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1533094602577-198d3beab8ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Niagara Falls seen from above, Ontario, Canada" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>TUI flies into Canada from a choice of UK departure airports depending on the tour. The eastern tours fly into Toronto with a wide choice of UK airports including Belfast City, Birmingham, Edinburgh, Glasgow, London City, Gatwick, Heathrow, Manchester and Newcastle, while the Rockies self drive tour flies into Vancouver from Heathrow or Manchester. Flight time is around 8 hours direct to Toronto and a little under 9 hours direct to Vancouver. All flights, transfers and transport between stops on the guided tours, or car hire on the self drive tour, are included in the TUI price and protected under TUI's ATOL licence (ATOL 2524).</p>
+    <p>Flights to Canada leave from a choice of UK departure airports depending on the tour. The eastern tours fly into Toronto with a wide choice of UK airports including Belfast City, Birmingham, Edinburgh, Glasgow, London City, Gatwick, Heathrow, Manchester and Newcastle, while the Rockies self drive tour flies into Vancouver from Heathrow or Manchester. Flight time is around 8 hours direct to Toronto and a little under 9 hours direct to Vancouver. All flights, transfers and transport between stops on the guided tours, or car hire on the self drive tour, are included in the price, and the tours are ATOL protected.</p>
     <p style="margin-top:14px;">On entry requirements, UK passport holders don't need a visa for a short Canadian holiday, but you do currently need an Electronic Travel Authorisation (eTA) to fly in, which is separate from a visa and currently costs CAD$7 (about &pound;3.70). It's applied for online before you travel, through the official Canada.ca website only, and most applications are approved within minutes. I always warn clients to apply directly on the government's own site, since several unofficial lookalike sites charge far more for the same thing.</p>
     {jake_tip("Only ever apply for a Canada eTA on the official canada.ca website. I've seen clients get caught out paying two or three times the real fee on copycat sites that look official but aren't linked to the Canadian government at all.")}
   </div>
@@ -11437,7 +11513,7 @@ canada_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Three ways to see Canada</h2>
-    <p style="margin-top:14px;">Canada is a natural multi centre destination, since even a single TUI tour strings several cities, parks or provinces together in one booking. Here are three real, bookable tours from TUI's current range, so you can see which route actually fits what you want to see.</p>
+    <p style="margin-top:14px;">Canada is a natural multi centre destination, since even a single tour strings several cities, parks or provinces together in one booking. Here are three real, bookable tours from the current range, so you can see which route actually fits what you want to see.</p>
     <div class="grid-3 equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1541789273499-d691c329a635?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Old Port in Montreal, Canada" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -11455,21 +11531,21 @@ canada_body = f"""
         <p>11 nights. Toronto, the Thousand Islands, Montreal, Quebec City, Ottawa, Algonquin Park and Niagara Falls. Moderate pace, 12 included experiences and almost all meals covered. From &pound;2745pp, flying from a wide choice of UK airports. Minimum age 10.</p>
       </div>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each tour across its current departure months, correct at the time of writing and subject to change. All three are ATOL protected under TUI's licence (ATOL 2524).</p>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each tour across its current departure months, correct at the time of writing and subject to change. All three are ATOL protected.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Where to stay</h2>
-    <p style="margin-top:14px;">Because these are escorted or self drive tours rather than pick your own hotel holidays, TUI chooses the hotels for location rather than naming them in advance, the same as its Japan and China tours. What TUI does confirm is the standard. Canada's Twin Cultures splits its 8 nights between three hotels of a 3 star, 3.5 star or 4 star standard across Toronto, Quebec City and Montreal. Canada's Great Parks of the West Self Drive Tour uses eight hotels of a 3 star and 3.5 star standard along its route from Vancouver to Whistler. Canada's Eastern Explorer spreads its 11 nights across six hotels of a 3 star and 4 star standard, covering Toronto, Montreal, Quebec City and Ottawa. I'll confirm the exact named hotels with you once a specific departure date is booked.</p>
+    <p style="margin-top:14px;">Because these are escorted or self drive tours rather than pick your own hotel holidays, the hotels are chosen for location rather than named in advance, the same as on Japan and China tours. What is confirmed is the standard. Canada's Twin Cultures splits its 8 nights between three hotels of a 3 star, 3.5 star or 4 star standard across Toronto, Quebec City and Montreal. Canada's Great Parks of the West Self Drive Tour uses eight hotels of a 3 star and 3.5 star standard along its route from Vancouver to Whistler. Canada's Eastern Explorer spreads its 11 nights across six hotels of a 3 star and 4 star standard, covering Toronto, Montreal, Quebec City and Ottawa. I'll confirm the exact named hotels with you once a specific departure date is booked.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting around</h2>
-    <p style="margin-top:14px;">On the two guided tours, every transfer, scenic train leg and piece of transport between stops is arranged and included as part of the TUI package, with a local English speaking guide throughout on the Twin Cultures and Eastern Explorer routes, so there's nothing to organise yourself once you've booked. The Great Parks of the West tour works differently, since it's a self drive itinerary with car hire included in the price rather than a guide. You'll need a full UK driving licence and be at least 21, with a surcharge for drivers under 25, and you'll be covering genuine distance each day along mountain roads like the Icefields Parkway, so it suits confident, experienced drivers rather than a first time visitor who'd rather not drive on holiday.</p>
+    <p style="margin-top:14px;">On the two guided tours, every transfer, scenic train leg and piece of transport between stops is arranged and included as part of the package, with a local English speaking guide throughout on the Twin Cultures and Eastern Explorer routes, so there's nothing to organise yourself once you've booked. The Great Parks of the West tour works differently, since it's a self drive itinerary with car hire included in the price rather than a guide. You'll need a full UK driving licence and be at least 21, with a surcharge for drivers under 25, and you'll be covering genuine distance each day along mountain roads like the Icefields Parkway, so it suits confident, experienced drivers rather than a first time visitor who'd rather not drive on holiday.</p>
     {jake_tip("If driving yourself through the Rockies doesn't appeal, Canada's Twin Cultures or Eastern Explorer give you the same scale of scenery and city sightseeing with a guide doing all the driving and planning instead.")}
   </div>
 </section>
@@ -11521,7 +11597,7 @@ canada_body = f"""
   <div class="wrap">
     <h2>Cost of living: what things actually cost</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1586805608485-add336722759?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Poutine, Canada's signature dish of chips, cheese curds and gravy, from a food truck" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Canada uses the Canadian Dollar. Flights, hotels, most transport and the included experiences are already covered in the TUI tour price, but these are typical everyday costs for extra meals, drinks and taxis in Toronto, converted to pounds sterling at a rate of roughly &pound;1 to C$1.88.</p>
+    <p>Canada uses the Canadian Dollar. Flights, hotels, most transport and the included experiences are already covered in the tour price, but these are typical everyday costs for extra meals, drinks and taxis in Toronto, converted to pounds sterling at a rate of roughly &pound;1 to C$1.88.</p>
     <div class="weather-table-wrap">
       <table class="weather-table">
         <thead>
@@ -11567,11 +11643,13 @@ canada_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
     <h2>Fancy Canada for yourself?</h2>
-    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can talk you through all of TUI's real Canada tours, check live departure dates and pricing, and help you work out honestly which route fits what you actually want to see.</p>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can talk you through all of the real Canada tours, check live departure dates and pricing, and help you work out which route fits what you actually want to see.</p>
     <div class="btn-row" style="justify-content:center;">
       <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
       <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
@@ -11585,11 +11663,11 @@ canada_body = canada_body.replace("::NEWSLETTER::", newsletter_section())
 
 CANADA_SCHEMA = article_and_faq_schema(
     "Canada: Jake's Destination Guide",
-    "Jake's honest guide to Canada: how TUI's real escorted and self drive tours work, weather by month, and what a trip covering Toronto, Niagara Falls, Quebec City, Montreal, Ottawa or the Rockies actually costs.",
+    "Jake's honest guide to Canada: how the real escorted and self drive tours work, weather by month, and what a trip covering Toronto, Niagara Falls, Quebec City, Montreal, Ottawa or the Rockies actually costs.",
     "canada.html",
     "https://images.unsplash.com/photo-1507992781348-310259076fe0?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Canada package holidays?", "TUI is currently the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that sells Canada at all. Neither Jet2holidays nor easyJet holidays flies this far west at the moment."),
+        ("Can you book a Canada holiday for me?", "Yes. Canada is sold as a set of real escorted and self drive tours rather than pick your own hotel packages, and I can talk you through the routes, check live dates and prices and build the trip around you."),
         ("Is Canada sold as a flight and hotel package or a tour?", "As a set of escorted and self drive tours rather than a pick your own hotel package. I usually talk clients through three real options: Canada's Twin Cultures, Canada's Great Parks of the West Self Drive Tour, and Canada's Eastern Explorer, each with flights, hotels and transport included."),
         ("Do I need a visa for Canada?", "No, UK passport holders don't need a visa for a short holiday, but you do currently need an Electronic Travel Authorisation (eTA), which costs CAD$7 and is applied for online at the official canada.ca website before you fly. Avoid unofficial lookalike sites that charge more for the same thing."),
         ("Is there a minimum age for the Canada tours?", "It depends on the tour. Canada's Twin Cultures and the Great Parks of the West self drive tour have no minimum age, while Canada's Eastern Explorer has a minimum age of 10."),
@@ -11599,7 +11677,7 @@ CANADA_SCHEMA = article_and_faq_schema(
 with open(os.path.join(SITE, "canada.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "Canada: Jake's Destination Guide | Travel Agent Jake",
-        "Jake's honest guide to Canada: how TUI's real escorted and self drive tours work, weather by month, and what a trip covering Toronto, Niagara Falls, Quebec City, Montreal, Ottawa or the Rockies actually costs.",
+        "Jake's honest guide to Canada: how the real escorted and self drive tours work, weather by month, and what a trip covering Toronto, Niagara Falls, Quebec City, Montreal, Ottawa or the Rockies actually costs.",
         "destinations.html",
         canada_body,
         extra_schema=CANADA_SCHEMA,
@@ -11612,7 +11690,7 @@ las_vegas_body = f"""
   <div class="wrap">
     <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
     <h1>LAS VEGAS</h1>
-    <p class="lead" style="margin-top:18px; margin-bottom:0;">Neon, big shows and bigger buffets on the Strip, with Hoover Dam, Red Rock Canyon and the Grand Canyon all within reach. Here's exactly how I book Las Vegas, the real TUI tours that bookend it, and what it actually costs.</p>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Neon, big shows and bigger buffets on the Strip, with Hoover Dam, Red Rock Canyon and the Grand Canyon all within reach. Here's exactly how I book Las Vegas, the real tours that bookend it, and what it actually costs.</p>
   </div>
 </section>
 
@@ -11620,8 +11698,8 @@ las_vegas_body = f"""
   <div class="wrap">
     <h2>What Jake says about Las Vegas</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1772314323794-1480138dd3f9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Las Vegas Strip with the Bellagio fountains at twilight" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Las Vegas is one of those destinations clients either already know they want or have never seriously considered, and both groups usually end up surprised by how it actually works. TUI is currently the only one of my three main operators, TUI, Jet2holidays and easyJet holidays, that flies this far west. Neither Jet2holidays nor easyJet holidays flies long haul at all at the moment, so for Las Vegas, TUI is the one I book through.</p>
-    <p style="margin-top:14px;">TUI sells Las Vegas two ways. You can book it as a standalone flight and hotel city break based on the Strip, or as one of two real escorted and self drive tours that start and finish in Las Vegas and use it as a launchpad for Death Valley, Yosemite, San Francisco, or Zion, Bryce Canyon, the Grand Canyon and Lake Powell. Which one suits a client depends entirely on whether they want Vegas itself or Vegas as the gateway to the wider American Southwest.</p>
+    <p>Las Vegas is one of those destinations clients either already know they want or have never seriously considered, and both groups usually end up surprised by how it actually works. I can price Las Vegas up for you whichever way you want to see it.</p>
+    <p style="margin-top:14px;">Las Vegas can be booked two ways. You can book it as a standalone flight and hotel city break based on the Strip, or as one of two real escorted and self drive tours that start and finish in Las Vegas and use it as a launchpad for Death Valley, Yosemite, San Francisco, or Zion, Bryce Canyon, the Grand Canyon and Lake Powell. Which one suits a client depends entirely on whether they want Vegas itself or Vegas as the gateway to the wider American Southwest.</p>
     {jake_tip("The first question I ask is whether a client wants a city break or a road trip with Vegas on either end. It changes everything about how I book the holiday, and both are genuinely popular with completely different types of client.")}
   </div>
 </section>
@@ -11629,7 +11707,7 @@ las_vegas_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Trip length &amp; who it suits</h2>
-    <p style="margin-top:14px;">A standalone Las Vegas city break typically runs 4 to 7 nights, since the long flight makes a shorter trip less worthwhile but the city itself doesn't need much longer to enjoy properly. The two TUI tours run longer, 9 nights for the USA Western Frontiers Tour and 12 nights for the Canyon Adventure Self Drive. Vegas on its own suits couples, groups of friends, hen and stag parties, and anyone after big shows, casinos and nightlife rather than a quiet holiday. The tours suit clients who want Vegas as a bookend to a proper look at California or the national parks of the American Southwest, and the self drive route in particular suits confident drivers happy covering real distance each day.</p>
+    <p style="margin-top:14px;">A standalone Las Vegas city break typically runs 4 to 7 nights, since the long flight makes a shorter trip less worthwhile but the city itself doesn't need much longer to enjoy properly. The two tours run longer, 9 nights for the USA Western Frontiers Tour and 12 nights for the Canyon Adventure Self Drive. Vegas on its own suits couples, groups of friends, hen and stag parties, and anyone after big shows, casinos and nightlife rather than a quiet holiday. The tours suit clients who want Vegas as a bookend to a proper look at California or the national parks of the American Southwest, and the self drive route in particular suits confident drivers happy covering real distance each day.</p>
   </div>
 </section>
 
@@ -11637,7 +11715,7 @@ las_vegas_body = f"""
   <div class="wrap">
     <h2>Getting there</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1601056645460-05fd9ad8f4e0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Welcome to Fabulous Las Vegas sign" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>British Airways and Virgin Atlantic both fly direct from London Heathrow to Las Vegas, with British Airways also flying direct from Gatwick, and flight time is around 11 hours each way. On both of TUI's Las Vegas tours, international flights, taxes and all transfers are included in the price, so there's nothing extra to arrange on top. UK passport holders don't need a visa for a short US holiday, but do need to apply for an ESTA before flying, which I always point clients towards on the official US government site only. My full <a href="esta-usa-fee-rise-2026.html">ESTA fee guide</a> has the current costs and how to apply safely.</p>
+    <p>British Airways and Virgin Atlantic both fly direct from London Heathrow to Las Vegas, with British Airways also flying direct from Gatwick, and flight time is around 11 hours each way. On both Las Vegas tours, international flights, taxes and all transfers are included in the price, so there's nothing extra to arrange on top. UK passport holders don't need a visa for a short US holiday, but do need to apply for an ESTA before flying, which I always point clients towards on the official US government site only. My full <a href="esta-usa-fee-rise-2026.html">ESTA fee guide</a> has the current costs and how to apply safely.</p>
     {jake_tip("Always apply for an ESTA through the official US government site, esta.cbp.dhs.gov, or the official mobile app. I've seen clients overcharged on copycat sites that have nothing to do with the US government.")}
   </div>
 </section>
@@ -11684,7 +11762,7 @@ las_vegas_body = f"""
   <div class="wrap">
     <h2>Two ways I book Las Vegas</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1615551043360-33de8b5f410c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Colorado River winding through the Grand Canyon" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Beyond a standalone city break, TUI sells two real tours that start and finish in Las Vegas, so it's a natural gateway as well as a destination in its own right.</p>
+    <p>Beyond a standalone city break, there are two real tours that start and finish in Las Vegas, so it's a natural gateway as well as a destination in its own right.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1600616366660-ba86bf0b3dfc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Las Vegas Strip skyline at night" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -11697,7 +11775,7 @@ las_vegas_body = f"""
         <p>12 nights. Starts and ends in Las Vegas, self driving through Zion, Bryce Canyon, Capitol Reef, Moab, Canyonlands, the Grand Canyon and Lake Powell. Hire car included, hotels of a 2, 2.5, 3 and 4 star standard on a self catering basis. From &pound;1115pp. No minimum age.</p>
       </div>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each tour, correct at the time of writing and subject to change. Both are ATOL protected under TUI's licence (ATOL 2524).</p>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each tour, correct at the time of writing and subject to change. Both are ATOL protected.</p>
   </div>
 </section>
 
@@ -11705,8 +11783,8 @@ las_vegas_body = f"""
   <div class="wrap">
     <h2>Where to stay</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1630142235146-5f3f8d4fa734?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Eiffel Tower replica on the Las Vegas Strip at night" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>For a standalone city break, everything worth seeing on foot is on or just off the Strip, and TUI's own Las Vegas pages point clients towards headline Strip hotels including Bellagio the Resort and Caesars Palace for a proper luxury stay. Exact named hotels and availability change constantly in Vegas, so I always check what's actually bookable for a client's dates and budget before quoting rather than promising a specific hotel upfront.</p>
-    <p style="margin-top:14px;">On the two tours, TUI picks hotels for location rather than naming them in advance, the same as its Japan and Canada tours. What TUI does confirm is the standard. The USA Western Frontiers Tour splits its 9 nights across hotels of a 4 star and 3 star standard, while the Canyon Adventure Self Drive spreads its 12 nights across 8 hotels of a 2, 2.5, 3 and 4 star standard on a self catering basis. I'll confirm the exact named hotels with you once a specific departure date is booked.</p>
+    <p>For a standalone city break, everything worth seeing on foot is on or just off the Strip, and headline Strip hotels include Bellagio the Resort and Caesars Palace for a proper luxury stay. Exact named hotels and availability change constantly in Vegas, so I always check what's actually bookable for a client's dates and budget before quoting rather than promising a specific hotel upfront.</p>
+    <p style="margin-top:14px;">On the two tours, hotels are picked for location rather than named in advance. The standard is confirmed though. The USA Western Frontiers Tour splits its 9 nights across hotels of a 4 star and 3 star standard, while the Canyon Adventure Self Drive spreads its 12 nights across 8 hotels of a 2, 2.5, 3 and 4 star standard on a self catering basis. I'll confirm the exact named hotels with you once a specific departure date is booked.</p>
     {jake_tip("Room rates on the Strip swing wildly by night of the week and by event, conventions and big fights or concerts can double prices overnight. I always check live availability before quoting a client a figure.")}
   </div>
 </section>
@@ -11729,7 +11807,7 @@ las_vegas_body = f"""
         <a class="btn btn-secondary" href="https://www.getyourguide.com/las-vegas-l58/?partner_id=EFDILG1&utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Las Vegas &rarr;</a>
       </div>
     </div>
-    <p style="margin-top:18px;">Beyond the bookable extras, a classic Vegas night still means watching the Bellagio fountains for free, trying your luck in a casino, and catching one of the big resident shows, while daytime trips out to Hoover Dam, Red Rock Canyon or the Grand Canyon are easy half or full day additions for anyone not covering them on one of TUI's tours.</p>
+    <p style="margin-top:18px;">Beyond the bookable extras, a classic Vegas night still means watching the Bellagio fountains for free, trying your luck in a casino, and catching one of the big resident shows, while daytime trips out to Hoover Dam, Red Rock Canyon or the Grand Canyon are easy half or full day additions for anyone not covering them on one of the tours.</p>
   </div>
 </section>
 
@@ -11764,7 +11842,7 @@ las_vegas_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Cost of living: what things actually cost</h2>
-    <p style="margin-top:14px;">The USA uses the US Dollar. Flights, transfers and accommodation are already covered in a TUI package price, but meals, drinks and extras add up fast on the Strip, so these are typical costs for everyday items, converted to pounds sterling at a rate of roughly &pound;1 to $1.34.</p>
+    <p style="margin-top:14px;">The USA uses the US Dollar. Flights, transfers and accommodation are already covered in a package price, but meals, drinks and extras add up fast on the Strip, so these are typical costs for everyday items, converted to pounds sterling at a rate of roughly &pound;1 to $1.34.</p>
     <div class="weather-table-wrap">
       <table class="weather-table">
         <thead>
@@ -11809,11 +11887,13 @@ las_vegas_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
     <h2>Fancy Las Vegas for yourself?</h2>
-    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can book Vegas as a standalone city break, build it into one of TUI's real Western USA tours, or talk you through which one actually fits what you're after.</p>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can book Vegas as a standalone city break, build it into one of the real Western USA tours, or talk you through which one actually fits what you're after.</p>
     <div class="btn-row" style="justify-content:center;">
       <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
       <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
@@ -11827,12 +11907,11 @@ las_vegas_body = las_vegas_body.replace("::NEWSLETTER::", newsletter_section())
 
 LAS_VEGAS_SCHEMA = article_and_faq_schema(
     "Las Vegas: Jake's Destination Guide",
-    "Jake's honest guide to Las Vegas: the Strip as a standalone city break versus TUI's real Western USA tours, weather by month, and what a trip actually costs.",
+    "Jake's honest guide to Las Vegas: the Strip as a standalone city break versus the real Western USA tours, weather by month, and what a trip actually costs.",
     "las-vegas.html",
     "https://images.unsplash.com/photo-1772314323794-1480138dd3f9?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Las Vegas package holidays?", "TUI is currently the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that flies this far west. Neither Jet2holidays nor easyJet holidays flies long haul at all at the moment."),
-        ("Is Las Vegas sold as a flight and hotel package or a tour?", "Both. TUI sells Las Vegas as a standalone flight and hotel city break based on the Strip, and as two real tours, the USA Western Frontiers Tour and the Canyon Adventure Self Drive, that start and finish in Las Vegas and use it as a gateway to California or the national parks of the American Southwest."),
+        ("Is Las Vegas sold as a flight and hotel package or a tour?", "Both. Las Vegas can be booked as a standalone flight and hotel city break based on the Strip, and as two real tours, the USA Western Frontiers Tour and the Canyon Adventure Self Drive, that start and finish in Las Vegas and use it as a gateway to California or the national parks of the American Southwest."),
         ("Do I need a visa for Las Vegas?", "No, UK passport holders don't need a visa for a short US holiday, but you do need to apply for an ESTA online before you fly, through the official US government site only."),
         ("Is there a minimum age for the Las Vegas tours?", "It depends on the tour. The USA Western Frontiers Tour has a minimum age of 7, while the Canyon Adventure Self Drive has no minimum age."),
         ("Which Las Vegas tour should I book?", "It depends what you want to see. The USA Western Frontiers Tour is the one for a California loop through Death Valley, Yosemite and San Francisco. The Canyon Adventure Self Drive is the one for a national parks road trip through Zion, Bryce Canyon, the Grand Canyon and Lake Powell. I always talk clients through both before they decide."),
@@ -11841,7 +11920,7 @@ LAS_VEGAS_SCHEMA = article_and_faq_schema(
 with open(os.path.join(SITE, "las-vegas.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "Las Vegas: Jake's Destination Guide | Travel Agent Jake",
-        "Jake's honest guide to Las Vegas: the Strip as a standalone city break versus TUI's real Western USA tours, weather by month, and what a trip actually costs.",
+        "Jake's honest guide to Las Vegas: the Strip as a standalone city break versus the real Western USA tours, weather by month, and what a trip actually costs.",
         "destinations.html",
         las_vegas_body,
         extra_schema=LAS_VEGAS_SCHEMA,
@@ -11879,7 +11958,7 @@ fuerteventura_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Fuerteventura has one airport, Fuerteventura Airport (FUE), a short drive south of the capital, Puerto del Rosario, and close to Caleta de Fuste. It is well served from the UK with direct flights on easyJet, Jet2 and TUI among others, and flight time is typically around four to four and a half hours depending on where you fly from.</p>
+    <p style="margin-top:14px;">Fuerteventura has one airport, Fuerteventura Airport (FUE), a short drive south of the capital, Puerto del Rosario, and close to Caleta de Fuste. It is well served from the UK with direct flights on easyJet and Jet2 among others, and flight time is typically around four to four and a half hours depending on where you fly from.</p>
     <p style="margin-top:14px;">Caleta de Fuste is the closest resort to the airport, around 10 minutes away. Corralejo in the north and El Cotillo in the northwest both take around 35 to 45 minutes. Costa Calma, further south on the Jandia peninsula, is around 45 to 55 minutes, and Morro Jable right at the southern tip of the island is the longest transfer at around an hour to an hour and a quarter.</p>
     {jake_tip("If a client is booking a short notice deal and wants to keep travel time to a minimum, Caleta de Fuste is by far the quickest transfer on the island.")}
   </div>
@@ -11987,25 +12066,25 @@ fuerteventura_body = f"""
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1580889024581-1b25ac95156a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Outdoor hotel swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">H10 Ocean Suites</h3>
-        <p>A 4&#9733; hotel in Corralejo, about 500 metres from the beach and 150 metres from the town centre, with three outdoor pools including a freshwater children's pool, five bars and a choice of junior suites that sleep one to four. Half board or all inclusive. Bookable through Jet2holidays.</p>
+        <p>A 4&#9733; hotel in Corralejo, about 500 metres from the beach and 150 metres from the town centre, with three outdoor pools including a freshwater children's pool, five bars and a choice of junior suites that sleep one to four. Half board or all inclusive.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families</div>
         <img src="https://images.unsplash.com/photo-1755597037530-60d9ca3b9879?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Pool loungers overlooking the ocean at a resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">SBH Monica Beach Resort</h3>
-        <p>A 4&#9733; all inclusive hotel in Costa Calma with two heatable outdoor pools, a shallow children's pool with a slide, a kids' club for ages 4 to 12, a mini disco, a teen club in July and August, and four tennis courts. A genuinely well equipped family base on the Jandia peninsula. Bookable through TUI.</p>
+        <p>A 4&#9733; all inclusive hotel in Costa Calma with two heatable outdoor pools, a shallow children's pool with a slide, a kids' club for ages 4 to 12, a mini disco, a teen club in July and August, and four tennis courts. A well equipped family base on the Jandia peninsula. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for Caleta de Fuste &amp; wellness</div>
         <img src="https://images.unsplash.com/photo-1761124469507-424d33a0b4f9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of a circular resort swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Barcelo Fuerteventura Mar</h3>
-        <p>A large beachfront family resort in Caleta de Fuste with direct beach access, four outdoor pools including a children's pool, a whirlpool, a thalasso spa, a gym and two restaurants including an a la carte Mexican option. Half board or all inclusive, with guest access to the neighbouring Barcelo Fuerteventura Castillo's facilities. Bookable through Jet2holidays.</p>
+        <p>A large beachfront family resort in Caleta de Fuste with direct beach access, four outdoor pools including a children's pool, a whirlpool, a thalasso spa, a gym and two restaurants including an a la carte Mexican option. Half board or all inclusive, with guest access to the neighbouring Barcelo Fuerteventura Castillo's facilities.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury &amp; adults only option</div>
         <img src="https://images.unsplash.com/photo-1780631742225-053ddbd9a9ca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Infinity pool overlooking the ocean at a luxury resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Iberostar Selection Fuerteventura Palace</h3>
-        <p>A 5&#9733; beachfront hotel on Jandia beach in the south, with four outdoor pools plus an indoor pool, a full spa with a water circuit, and three restaurants covering Japanese, international and Spanish menus. The Star Prestige room category has its own adults only (15+) terrace and pool. Half board or all inclusive. Bookable through easyJet holidays and Jet2holidays.</p>
+        <p>A 5&#9733; beachfront hotel on Jandia beach in the south, with four outdoor pools plus an indoor pool, a full spa with a water circuit, and three restaurants covering Japanese, international and Spanish menus. The Star Prestige room category has its own adults only (15+) terrace and pool. Half board or all inclusive. Ask me and I will quote this one for your dates.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -12090,6 +12169,8 @@ fuerteventura_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -12116,7 +12197,7 @@ FUERTEVENTURA_SCHEMA = article_and_faq_schema(
         ("Which area of Fuerteventura should I choose?", "Corralejo in the north is the liveliest resort with the widest choice of bars and restaurants, and suits first time visitors and groups well. Caleta de Fuste in the east is calm, sheltered and close to the airport, a strong choice for families with younger children. Costa Calma and the wider Jandia peninsula in the south have the island's longest beaches and the Sotavento lagoon, popular with watersports fans and families alike. El Cotillo in the northwest is quieter and more traditional, and suits couples and surfers after something less built up."),
         ("How long is the flight to Fuerteventura, and how far is my hotel from the airport?", "Flight time from the UK is typically around 4 to 4.5 hours direct. Caleta de Fuste is the closest resort to the airport, around 10 minutes away. Corralejo and El Cotillo are both around 35 to 45 minutes, Costa Calma is around 45 to 55 minutes, and Morro Jable at the southern tip of the island is the longest transfer at around an hour to an hour and a quarter."),
         ("Is Fuerteventura good for windsurfing and kitesurfing?", "Yes, Fuerteventura is one of the best windsurfing and kitesurfing destinations in Europe, thanks to steady Atlantic trade winds that blow across the island for much of the year. Costa Calma and the Sotavento lagoon are the main hub, hosting international competitions, though Corralejo also has a strong windsurfing scene. If you want calmer water for swimming rather than watersports, Caleta de Fuste is the better choice."),
-        ("Which tour operators sell Fuerteventura?", "Fuerteventura is sold as a flight and hotel package by TUI, Jet2holidays and easyJet holidays, with real hotels across Corralejo, Caleta de Fuste, Costa Calma and Jandia. I also have access to a much wider range of hotels and tailor made options through my host agency's supplier network, so these three are a good starting point rather than the full picture."),
+        ("Can you book Fuerteventura holidays for me?", "Yes. Fuerteventura works well as a flight and hotel package, with real hotels across Corralejo, Caleta de Fuste, Costa Calma and Jandia. I compare prices across the companies I book with and build the trip around you, and I can also tailor make options beyond the usual package hotels."),
     ]
 )
 with open(os.path.join(SITE, "fuerteventura.html"), "w", encoding="utf-8") as f:
@@ -12136,7 +12217,7 @@ california_body = f"""
   <div class="wrap">
     <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
     <h1>CALIFORNIA</h1>
-    <p class="lead" style="margin-top:18px; margin-bottom:0;">Hollywood and the Strip, Yosemite and Big Sur, the Golden Gate Bridge and the desert, all on one trip. Here's exactly how I book California, the three real TUI tours that cover it, and what it actually costs.</p>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Hollywood and the Strip, Yosemite and Big Sur, the Golden Gate Bridge and the desert, all on one trip. Here's exactly how I book California, the three real tours that cover it, and what it actually costs.</p>
   </div>
 </section>
 
@@ -12144,9 +12225,9 @@ california_body = f"""
   <div class="wrap">
     <h2>What Jake says about California</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1581390114939-946f9a890a7f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Hollywood sign on a hillside in Los Angeles" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>California is one of the most requested trips I get and also one of the most misunderstood, because there isn't currently a flight and hotel package to Los Angeles or San Francisco on any of my three main operators, TUI, Jet2holidays and easyJet holidays. Neither Jet2holidays nor easyJet holidays flies long haul at all at the moment, and TUI, the only one of the three that does, doesn't currently sell a standalone California city break either. What TUI does sell is three genuinely good escorted and self drive tours, all starting and finishing in Los Angeles, that between them cover the whole state and more.</p>
+    <p>California is one of the most requested trips I get and also one of the most misunderstood, because it is usually best seen as a tour rather than a standalone flight and hotel city break. There are three really good escorted and self drive tours, all starting and finishing in Los Angeles, that between them cover the whole state and more.</p>
     <p style="margin-top:14px;">That isn't a compromise. California is enormous, Los Angeles to San Francisco alone is further than London to Edinburgh twice over, and a tour with flights, transfers, accommodation and a hire car or a guide already sorted is honestly the easier way to see it properly rather than trying to piece together three or four separate city stays yourself.</p>
-    {jake_tip("The first thing I ask a client who wants California is whether they want a guided coach tour, a self drive road trip, or the full two week version with San Diego and the national parks thrown in. All three are real, bookable TUI tours, not something I've had to improvise.")}
+    {jake_tip("The first thing I ask a client who wants California is whether they want a guided coach tour, a self drive road trip, or the full two week version with San Diego and the national parks thrown in. All three are real, bookable tours, not something I've had to improvise.")}
   </div>
 </section>
 
@@ -12208,7 +12289,7 @@ california_body = f"""
   <div class="wrap">
     <h2>Three ways I book California</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1610312278520-bcc893a3ff1d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Golden Gate Bridge in San Francisco at sunset" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>All three are real, bookable TUI tours, not something I've pieced together myself, and all three start and finish in Los Angeles.</p>
+    <p>All three are real, bookable tours, not something I've pieced together myself, and all three start and finish in Los Angeles.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1516687401797-25297ff1462c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Granite cliffs and a waterfall in Yosemite Valley" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -12226,7 +12307,7 @@ california_body = f"""
         <p>14 nights. Los Angeles, San Diego, Palm Springs, Phoenix, Sedona, the Grand Canyon, Monument Valley, Bryce Canyon, Zion, Las Vegas, Death Valley, Yosemite, San Francisco, Monterey and Santa Barbara before finishing in LA. Moderate pace, 13 included experiences, hotels of a 4 star and 3 star standard. From &pound;2569pp. Minimum age 7.</p>
       </div>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each tour, correct at the time of writing and subject to change. All three are ATOL protected under TUI's licence (ATOL 2524).</p>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each tour, correct at the time of writing and subject to change. All three are ATOL protected.</p>
   </div>
 </section>
 
@@ -12234,8 +12315,8 @@ california_body = f"""
   <div class="wrap">
     <h2>Where to stay</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1574876999742-a8be3a43f151?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A house among palm trees in Palm Springs, California" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Because all three options are tours rather than a flight and hotel package, TUI picks hotels for location and standard rather than naming them in advance, the same as its Japan and Canada tours. What TUI does confirm is the overall standard. Western Panorama splits its 8 nights across 6 hotels of a 4 star and 3 star standard. The Best of the West Self Drive spreads its 14 nights across 11 hotels of a 2, 3 and 4 star standard on a self catering basis, since it's a self drive route with no tour guide. The Western Discovery Tour splits its 14 nights across 11 hotels of a 4 star standard and 3 hotels of a 3 star standard, with breakfast included on 3 mornings. I'll confirm the exact named hotels with you once a specific departure date is booked.</p>
-    {jake_tip("None of the three tours name hotels upfront, TUI confirms them closer to departure once the exact route for your dates is finalised. I always flag that honestly rather than guessing a specific hotel.")}
+    <p>Because all three options are tours rather than a flight and hotel package, hotels are picked for location and standard rather than named in advance. The overall standard is confirmed though. Western Panorama splits its 8 nights across 6 hotels of a 4 star and 3 star standard. The Best of the West Self Drive spreads its 14 nights across 11 hotels of a 2, 3 and 4 star standard on a self catering basis, since it's a self drive route with no tour guide. The Western Discovery Tour splits its 14 nights across 11 hotels of a 4 star standard and 3 hotels of a 3 star standard, with breakfast included on 3 mornings. I'll confirm the exact named hotels with you once a specific departure date is booked.</p>
+    {jake_tip("None of the three tours name hotels upfront, they are confirmed closer to departure once the exact route for your dates is finalised. I always flag that openly rather than guessing a specific hotel.")}
   </div>
 </section>
 
@@ -12292,7 +12373,7 @@ california_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Cost of living: what things actually cost</h2>
-    <p style="margin-top:14px;">The USA uses the US Dollar. Flights, transfers and accommodation are already covered in a TUI tour price, but meals, drinks and extras add up fast, so these are typical costs for everyday items in Los Angeles, converted to pounds sterling at a rate of roughly &pound;1 to $1.34.</p>
+    <p style="margin-top:14px;">The USA uses the US Dollar. Flights, transfers and accommodation are already covered in a tour price, but meals, drinks and extras add up fast, so these are typical costs for everyday items in Los Angeles, converted to pounds sterling at a rate of roughly &pound;1 to $1.34.</p>
     <div class="weather-table-wrap">
       <table class="weather-table">
         <thead>
@@ -12337,11 +12418,13 @@ california_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
     <h2>Fancy California for yourself?</h2>
-    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can talk you through all three real TUI tours, the escorted options, the self drive, and which one actually fits what you want to see.</p>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can talk you through all three real tours, the escorted options, the self drive, and which one actually fits what you want to see.</p>
     <div class="btn-row" style="justify-content:center;">
       <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
       <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
@@ -12355,12 +12438,11 @@ california_body = california_body.replace("::NEWSLETTER::", newsletter_section()
 
 CALIFORNIA_SCHEMA = article_and_faq_schema(
     "California: Jake's Destination Guide",
-    "Jake's honest guide to California: the three real TUI tours that cover it, weather by month, and what a trip from Los Angeles to San Francisco actually costs.",
+    "Jake's honest guide to California: the three real tours that cover it, weather by month, and what a trip from Los Angeles to San Francisco actually costs.",
     "california.html",
     "https://images.unsplash.com/photo-1581390114939-946f9a890a7f?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells California package holidays?", "TUI is currently the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that flies this far west. Neither Jet2holidays nor easyJet holidays flies long haul at all at the moment."),
-        ("Is California sold as a flight and hotel package or a tour?", "Currently it's tours only. TUI sells three real escorted and self drive tours, Western Panorama, the USA Best of the West Self Drive, and the USA Western Discovery Tour, all starting and finishing in Los Angeles, but there isn't a flexible standalone Los Angeles or San Francisco package at the moment."),
+        ("Is California sold as a flight and hotel package or a tour?", "Currently it's tours only. There are three real escorted and self drive tours, Western Panorama, the USA Best of the West Self Drive, and the USA Western Discovery Tour, all starting and finishing in Los Angeles, but there isn't a flexible standalone Los Angeles or San Francisco package at the moment."),
         ("Do I need a visa for California?", "No, UK passport holders don't need a visa for a short US holiday, but you do need to apply for an ESTA online before you fly, through the official US government site only."),
         ("Is there a minimum age for the California tours?", "It depends on the tour. Western Panorama and the USA Western Discovery Tour both have a minimum age of 7. The Best of the West Self Drive has no minimum age, though drivers must be at least 21."),
         ("Which California tour should I book?", "It depends what you want to see. Western Panorama is the shortest at 8 nights and covers LA, Las Vegas and San Francisco. The Best of the West Self Drive suits independent drivers wanting the Pacific Coast Highway at their own pace. The Western Discovery Tour is the full two week version with San Diego, the Grand Canyon, Zion and Bryce Canyon included. I always talk clients through all three before they decide."),
@@ -12369,7 +12451,7 @@ CALIFORNIA_SCHEMA = article_and_faq_schema(
 with open(os.path.join(SITE, "california.html"), "w", encoding="utf-8") as f:
     f.write(page(
         "California: Jake's Destination Guide | Travel Agent Jake",
-        "Jake's honest guide to California: the three real TUI tours that cover it, weather by month, and what a trip from Los Angeles to San Francisco actually costs.",
+        "Jake's honest guide to California: the three real tours that cover it, weather by month, and what a trip from Los Angeles to San Francisco actually costs.",
         "destinations.html",
         california_body,
         extra_schema=CALIFORNIA_SCHEMA,
@@ -12391,7 +12473,7 @@ dubai_body = f"""
     <h2>What Jake says about Dubai</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1651467606797-e1c660cf3fda?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Burj Khalifa rising above the Downtown Dubai skyline" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
     <p>Dubai is one of the easiest holidays I sell, because it genuinely suits almost everyone. Couples get the beach resorts and the skyline views, families get waterparks and indoor attractions that work even in the heat, and anyone who wants a short, reliable flight with guaranteed sunshine gets exactly that. It's also one of the few long haul destinations where a week doesn't feel rushed, since the flight itself is only around seven hours.</p>
-    <p style="margin-top:14px;">I book Dubai through several operators, including TUI, Emirates Holidays, Etihad Holidays and Kuoni, and I compare them for every client rather than sticking to one, so you get the best package and price for your dates. Jet2holidays and easyJet holidays do not fly long haul at the moment, so they are not an option here, but there is still an enormous range of hotels to choose from across every part of the city and every budget.</p>
+    <p style="margin-top:14px;">I compare Dubai packages for every client rather than sticking to one option, so you get the best package and price for your dates. There is an enormous range of hotels to choose from across every part of the city and every budget.</p>
     {jake_tip("First time asking about Dubai? I always ask whether the client wants a beach resort with a pool and private stretch of sand, or a city hotel closer to the Burj Khalifa and Dubai Mall. The two feel like genuinely different holidays, so it's worth deciding early.")}
   </div>
 </section>
@@ -12408,7 +12490,7 @@ dubai_body = f"""
   <div class="wrap">
     <h2>Getting there</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1623638498061-2fcab5587cb0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Dubai's skyline lit up at night" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Direct flights to Dubai International Airport run from London Heathrow, London Gatwick, Manchester, Birmingham, Newcastle and Glasgow, mostly with Emirates, with British Airways also flying from Heathrow. Flight time is around seven hours. A package from one of the operators I book through, such as TUI, includes return flights, transfers and your hotel in one price, so there's nothing extra to arrange once you land.</p>
+    <p>Direct flights to Dubai International Airport run from London Heathrow, London Gatwick, Manchester, Birmingham, Newcastle and Glasgow, mostly with Emirates, with British Airways also flying from Heathrow. Flight time is around seven hours. A package includes return flights, transfers and your hotel in one price, so there's nothing extra to arrange once you land.</p>
     {jake_tip("I always check whether a client prefers Dubai International Airport, which sits close to Downtown and Deira, or whether their hotel is out towards the Marina or Palm Jumeirah, since transfer times vary a fair bit depending on where in the city you're staying.")}
   </div>
 </section>
@@ -12505,31 +12587,31 @@ dubai_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets. I price each one across the operators I work with, so you are not tied to a single company.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets. I compare prices for each one, so you are not tied to a single company.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1524234599372-a5bd0194758d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hotel pool overlooking high rise towers in Dubai" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Rove Downtown Dubai</h3>
-        <p>A modern, stylish budget hotel just a short walk from Dubai Mall and the Burj Khalifa, with a rooftop pool and a genuinely good standard of room for the price. A great pick for anyone prioritising location over luxury. Room only or bed and breakfast. I can price this one across several operators.</p>
+        <p>A modern, stylish budget hotel just a short walk from Dubai Mall and the Burj Khalifa, with a rooftop pool and a really good standard of room for the price. A great pick for anyone prioritising location over luxury. Room only or bed and breakfast. I can price this one up for your dates.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for a central, cultural base</div>
         <img src="https://images.unsplash.com/photo-1555613739-35929bac2d1e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Burj Khalifa Lake in Downtown Dubai" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hyatt Regency Dubai Creek Heights</h3>
-        <p>A smart high rise hotel overlooking Dubai Creek, close to Old Dubai's souks as well as being a short drive from Downtown. A comfortable choice for clients who want a proper hotel feel without needing to be right on the beach. Bed and breakfast. I can price this one across several operators.</p>
+        <p>A smart high rise hotel overlooking Dubai Creek, close to Old Dubai's souks as well as being a short drive from Downtown. A comfortable choice for clients who want a proper hotel feel without needing to be right beachside. Bed and breakfast. I can compare prices on this one for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families &amp; resort facilities</div>
         <img src="https://images.unsplash.com/photo-1586611292717-f828b167408c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers beside a hotel pool in Dubai" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Centara Mirage Beach Resort Dubai</h3>
-        <p>A large family resort on the Marina coastline with its own water park, several pools and a private beach, built with children firmly in mind. The standout choice for families who want plenty to do without ever leaving the hotel. All inclusive available. I can price this one across several operators.</p>
+        <p>A large family resort on the Marina coastline with its own water park, several pools and a private beach, built with children firmly in mind. The standout choice for families who want plenty to do without ever leaving the hotel. All inclusive available. Ask me to check live prices on this one.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1468824357306-a439d58ccb1c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A luxury resort pool in the style of Dubai's five star hotels" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Atlantis The Palm</h3>
-        <p>The famous resort at the tip of the Palm, with its own waterpark, aquarium, private beach and some of the best restaurants in the city. The pick for a special occasion, a honeymoon, or simply the biggest, most memorable resort stay Dubai has to offer. I can price this one across several operators.</p>
+        <p>The famous resort at the tip of the Palm, with its own waterpark, aquarium, private beach and some of the best restaurants in the city. The pick for a special occasion, a honeymoon, or simply the biggest, most memorable resort stay Dubai has to offer. I can price this one up for you.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -12641,6 +12723,8 @@ dubai_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -12663,7 +12747,7 @@ DUBAI_SCHEMA = article_and_faq_schema(
     "dubai.html",
     "https://images.unsplash.com/photo-1651467606797-e1c660cf3fda?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which operators do you book Dubai through?", "I book Dubai through several operators, including TUI, Emirates Holidays, Etihad Holidays and Kuoni, and I compare them for every client to find the best package and price for your dates. Jet2holidays and easyJet holidays do not fly long haul at the moment, so they are not an option for Dubai."),
+        ("How do you book Dubai holidays?", "I compare Dubai packages for every client to find the best package and price for your dates, rather than sticking to one option."),
         ("Do I need a visa for Dubai?", "No, UK passport holders get a free visa on arrival in the UAE, allowing stays of up to 90 days within any 180 day period. Your passport does need to be valid for at least 6 months beyond your arrival date."),
         ("What's the best time to visit Dubai?", "November to March is the most comfortable and busiest window, with warm, dry days. April and October are good value shoulder months either side of summer. June to September is extremely hot, the cheapest time to go, and best suited to clients happy to spend more time by the pool or in air conditioning than out sightseeing."),
         ("Can Dubai be combined with Abu Dhabi or Ras Al Khaimah?", "Yes. I regularly build this as a real, bookable multi centre trip, splitting a stay between Dubai and Abu Dhabi for the Sheikh Zayed Grand Mosque and Louvre Abu Dhabi, or Dubai and Ras Al Khaimah for its mountains and the world's longest zipline at Jebel Jais."),
@@ -12695,7 +12779,7 @@ norway_body = f"""
     <h2>What Jake says about Norway</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1544085311-11a028465b03?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Colourful wooden houses along the Bryggen wharf in Bergen" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
     <p>Norway is really two completely different holidays wearing the same passport stamp. Bergen is a short, pretty city break built around a UNESCO listed wharf and a day out on the fjords, the sort of trip that suits a long weekend any time from spring to autumn. Tromso, 1,000 miles further north and well inside the Arctic Circle, is a dark, cold, genuinely bucket list break built almost entirely around chasing the Northern Lights. Clients ask me for one or the other far more often than both, so the first question I ask is simply which holiday they actually want.</p>
-    <p style="margin-top:14px;">Jet2holidays, through its Jet2CityBreaks brand, and easyJet holidays both now sell Bergen as a flight inclusive package, and easyJet holidays has also added Tromso to its own range. TUI does not currently sell either as a flight and hotel package, though its Crystal Ski brand flies its own charter service into Norway for skiing, and TUI's wider tour and cruise network can still get a client there if a package holiday is not the right shape for the trip.</p>
+    <p style="margin-top:14px;">Bergen and Tromso can both be booked as a flight and hotel package, and where a package is not the right shape for the trip I build it from separate flights and hotels instead.</p>
     {jake_tip("The single biggest thing I set expectations on with Norway is the weather and the odds. Bergen is one of the wettest cities in Europe whatever month you go, and the Northern Lights are never guaranteed on any one trip to Tromso, only more or less likely depending on when you go. I always build that into the conversation before anyone books.")}
   </div>
 </section>
@@ -12710,7 +12794,7 @@ norway_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Bergen is an easy, short flight, around 1 hour 55 minutes direct from London Gatwick, with Jet2CityBreaks and easyJet holidays both flying there from a range of UK airports including Gatwick, Manchester, Bristol, Newcastle and Leeds Bradford. Tromso is a longer hop at around 3 hours 15 minutes, and easyJet holidays now flies there direct and seasonally from Bristol, Gatwick and Manchester, usually from November through the winter. Outside that direct season, or from an airport that is not on the direct list, Tromso is reached with a connection, most commonly through Oslo on Norwegian or SAS.</p>
+    <p style="margin-top:14px;">Bergen is an easy, short flight, around 1 hour 55 minutes direct from London Gatwick, with direct flights from a range of UK airports including Gatwick, Manchester, Bristol, Newcastle and Leeds Bradford. Tromso is a longer hop at around 3 hours 15 minutes, and there are now direct seasonal flights from Bristol, Gatwick and Manchester, usually from November through the winter. Outside that direct season, or from an airport that is not on the direct list, Tromso is reached with a connection, most commonly through Oslo on Norwegian or SAS.</p>
     {jake_tip("The direct Tromso flights are seasonal and route specific, so I always double check which UK airports are actually flying direct for a client's travel dates before promising a non stop option. A one stop route through Oslo is just as reliable and often has far more flexibility on dates.")}
   </div>
 </section>
@@ -12833,15 +12917,15 @@ norway_body = f"""
     <div class="grid-3 equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <h3 style="font-size:17px;">Bergen only, the fjords and harbour break</h3>
-        <p>Three or four nights with Jet2CityBreaks or easyJet holidays, built around the colourful Bryggen wharf and a half day Mostraumen fjord cruise, or a full day out on the Flam Railway and Naeroyfjord. The easiest, shortest option and the one I book most often for first time visitors and couples.</p>
+        <p>Three or four nights, built around the colourful Bryggen wharf and a half day Mostraumen fjord cruise, or a full day out on the Flam Railway and Naeroyfjord. The easiest, shortest option and the one I book most often for first time visitors and couples.</p>
       </div>
       <div class="jake-card">
         <h3 style="font-size:17px;">Tromso only, the Northern Lights break</h3>
-        <p>Three or four nights with easyJet holidays, built around nightly aurora chases out of the city's light pollution, with a whale watching trip or dog sledging added depending on the season. The one I book for clients treating this as a genuine bucket list trip.</p>
+        <p>Three or four nights, built around nightly aurora chases out of the city's light pollution, with a whale watching trip or dog sledging added depending on the season. The one I book for clients treating this as a real bucket list trip.</p>
       </div>
       <div class="jake-card">
         <h3 style="font-size:17px;">Bergen &amp; Tromso combined</h3>
-        <p>Six to eight nights total, flying into Bergen first for the fjords, then an internal flight, usually around two hours and often via Oslo with Norwegian, SAS or Widerøe, up to Tromso for the Arctic leg. No single operator packages this combination together, so I build it as two separate flight and hotel bookings priced up as one trip.</p>
+        <p>Six to eight nights total, flying into Bergen first for the fjords, then an internal flight, usually around two hours and often via Oslo with Norwegian, SAS or Widerøe, up to Tromso for the Arctic leg. This combination doesn't come as a single package, so I build it as two separate flight and hotel bookings priced up as one trip.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">As a rough guide, a three night Bergen city break typically starts from around &pound;500 to &pound;750pp including flights, and a three to four night Tromso break, where flights are scarcer and winter demand is high, typically starts from around &pound;700 to &pound;1,100pp. Both move around a great deal with dates, departure airport and hotel, so always confirm current pricing with Jake.</p>
@@ -12852,27 +12936,27 @@ norway_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Two named hotels from each city, all bookable through the operator shown.</p>
+    <p style="margin-top:14px;">Two named hotels from each city.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Bergen</div>
         <h3 style="font-size:18px;">Hotel Norge by Scandic</h3>
-        <p>A large, official five star hotel right in the Bergen city centre, first opened in 1885 and modernised with Scandinavian design, with a spa, sauna and indoor pool, two restaurants and two bars. A short walk from Bryggen. Bookable through Jet2CityBreaks.</p>
+        <p>A large, official five star hotel right in the Bergen city centre, first opened in 1885 and modernised with Scandinavian design, with a spa, sauna and indoor pool, two restaurants and two bars. A short walk from Bryggen. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Bergen</div>
         <h3 style="font-size:18px;">Home Hotel Havnekontoret with Norwegian Fjords Tour</h3>
-        <p>A 4.5 star rated hotel right in the Bryggen area, with the bonus that a half day Mostraumen fjord cruise past waterfalls and mountain scenery is already bundled into the package price. A genuinely easy way to tick off the fjords without arranging anything separately. Bookable through Jet2CityBreaks.</p>
+        <p>A 4.5 star rated hotel right in the Bryggen area, with the bonus that a half day Mostraumen fjord cruise past waterfalls and mountain scenery is already bundled into the package price. A genuinely easy way to tick off the fjords without arranging anything separately. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Tromso</div>
         <h3 style="font-size:18px;">Scandic Ishavshotel</h3>
-        <p>A well known waterfront hotel on the Tromso quayside, close to the Hurtigruten quay, the Polar Museum and the Arctic Cathedral, with its own Roast Restaurant and Bar looking out over the Tromso Bridge. A reliable, central base for Northern Lights trips. Bookable through easyJet holidays.</p>
+        <p>A well known waterfront hotel on the Tromso quayside, close to the Hurtigruten quay, the Polar Museum and the Arctic Cathedral, with its own Roast Restaurant and Bar looking out over the Tromso Bridge. A reliable, central base for Northern Lights trips.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Tromso</div>
         <h3 style="font-size:18px;">Clarion Collection Hotel Aurora</h3>
-        <p>A four star waterfront hotel overlooking Tromso harbour with views of the Arctic Cathedral, plus a gym, sauna and hot tub, many rooms with fjord or mountain views. A fitting name for a Northern Lights base. Bookable through easyJet holidays.</p>
+        <p>A four star waterfront hotel overlooking Tromso harbour with views of the Arctic Cathedral, plus a gym, sauna and hot tub, many rooms with fjord or mountain views. A fitting name for a Northern Lights base. I can price this one up for you.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -12920,7 +13004,7 @@ norway_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Cost of living: what things actually cost</h2>
-    <p style="margin-top:14px;">Norway uses the Norwegian krone. Most of a Jet2CityBreaks or easyJet holidays package is already paid for upfront, since flights and accommodation are bundled into the package price, but these are typical costs for anything extra, converted to pounds sterling at a rate of roughly &pound;1 to NOK 12.34.</p>
+    <p style="margin-top:14px;">Norway uses the Norwegian krone. Most of a package is already paid for upfront, since flights and accommodation are bundled into the package price, but these are typical costs for anything extra, converted to pounds sterling at a rate of roughly &pound;1 to NOK 12.34.</p>
     <div class="weather-table-wrap">
       <table class="weather-table">
         <thead>
@@ -12965,6 +13049,8 @@ norway_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -12987,11 +13073,11 @@ NORWAY_SCHEMA = article_and_faq_schema(
     "norway-fjords-northern-lights.html",
     "https://images.unsplash.com/photo-1544085311-11a028465b03?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Norway holidays?", "Jet2holidays, through its Jet2CityBreaks brand, and easyJet holidays both sell Bergen as a flight inclusive city break, and easyJet holidays has also added Tromso to its range. TUI does not currently sell either as a flight and hotel package, though TUI's Crystal Ski brand flies its own charter service to Norway for skiing."),
+        ("Can you book a Norway holiday for me?", "Yes. Bergen and Tromso can both be booked as a flight inclusive city break, and Jake can build a trip around either one."),
         ("When is the best time to see the Northern Lights in Tromso?", "The Northern Lights can appear any time the sky is dark enough, roughly September to March, with the long, dark nights of December to February generally rated the best odds. There is never a guarantee on any single trip, since it depends on clear skies and the aurora being active that night."),
-        ("How long is the flight to Norway?", "Bergen is around 1 hour 55 minutes direct from London Gatwick and several other UK airports. Tromso is around 3 hours 15 minutes on the seasonal direct easyJet holidays route from Bristol, Gatwick or Manchester, or longer via a connection through Oslo at other times of year."),
+        ("How long is the flight to Norway?", "Bergen is around 1 hour 55 minutes direct from London Gatwick and several other UK airports. Tromso is around 3 hours 15 minutes on the seasonal direct route from Bristol, Gatwick or Manchester, or longer via a connection through Oslo at other times of year."),
         ("Do I need a visa for Norway?", "UK passport holders can visit Norway, which follows Schengen area rules, visa free for up to 90 days in any 180 day period. Your passport needs to have been issued within the last 10 years and have at least 3 months validity remaining beyond your planned departure date."),
-        ("Can I visit Bergen and Tromso in the same trip?", "Yes. No single operator packages the two together, so Jake builds it as two separate flight and hotel bookings, flying into Bergen first and then taking an internal flight, usually via Oslo, up to Tromso, priced up as one combined trip."),
+        ("Can I visit Bergen and Tromso in the same trip?", "Yes. The two don't come as a single package, so Jake builds it as two separate flight and hotel bookings, flying into Bergen first and then taking an internal flight, usually via Oslo, up to Tromso, priced up as one combined trip."),
     ]
 )
 with open(os.path.join(SITE, "norway-fjords-northern-lights.html"), "w", encoding="utf-8") as f:
@@ -20795,9 +20881,9 @@ algarve_body = f"""
   <div class="wrap">
     <h2>What Jake says about the Algarve</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1608649944716-228404a0a8bb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Algarve coast near Lagos, Portugal" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>The Algarve is one of the easiest sells in my job. It is an hour's flight shorter than most of the Mediterranean, every one of the big three UK operators flies there in huge numbers, and it genuinely suits almost every type of client, from a family wanting a big all inclusive resort to a couple of golfers wanting four rounds in a week to grandparents wanting somewhere warm and easy for a week in October.</p>
+    <p>The Algarve is one of the easiest sells in my job. It is an hour's flight shorter than most of the Mediterranean, flights run there in huge numbers, and it genuinely suits almost every type of client, from a family wanting a big all inclusive resort to a couple of golfers wanting four rounds in a week to grandparents wanting somewhere warm and easy for a week in October.</p>
     <p style="margin-top:14px;">What makes it stand out from Spain's other coasts is the sheer range packed into one region. You have the lively strip of Albufeira, the marina and golf courses of Vilamoura, the dramatic cliffs and beaches around Lagos, and the quiet, exclusive golf resorts of Quinta do Lago and Vale do Lobo, all within about an hour of Faro Airport.</p>
-    {jake_tip("The Algarve is so well served by all three main operators that price and hotel choice usually matter more than flight availability when I am quoting it. I always ask a client how they want to spend their days, on the beach, on the golf course, or exploring, before picking the area.")}
+    {jake_tip("The Algarve is so well served by flights that price and hotel choice usually matter more than flight availability when I am quoting it. I always ask a client how they want to spend their days, on the beach, on the golf course, or exploring, before picking the area.")}
   </div>
 </section>
 
@@ -20812,9 +20898,9 @@ algarve_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Getting there</h2>
-    <p style="margin-top:14px;">Faro Airport (FAO) is the only airport serving the Algarve, and every resort area, Albufeira, Vilamoura, Lagos and Quinta do Lago, is within about an hour's transfer. TUI, Jet2holidays and easyJet holidays all fly to Faro from a huge range of UK airports, including Birmingham, Bristol, East Midlands, Edinburgh, Glasgow, Leeds Bradford, London Gatwick, London Heathrow, London Luton, London Stansted, Manchester and Newcastle, so availability is rarely an issue.</p>
+    <p style="margin-top:14px;">Faro Airport (FAO) is the only airport serving the Algarve, and every resort area, Albufeira, Vilamoura, Lagos and Quinta do Lago, is within about an hour's transfer. Flights run to Faro from a huge range of UK airports, including Birmingham, Bristol, East Midlands, Edinburgh, Glasgow, Leeds Bradford, London Gatwick, London Heathrow, London Luton, London Stansted, Manchester and Newcastle, so availability is rarely an issue.</p>
     <p style="margin-top:14px;">Flight time is around 2 hours 40 minutes from London and the south of England, a little longer from Scotland and Northern Ireland.</p>
-    {jake_tip("Because all three operators fly here so heavily, the Algarve is one of the easier destinations to find a flight time that suits a client, even for a short midweek break. It is worth checking which airport your client is closest to though, since not every regional airport runs every week of the year.")}
+    {jake_tip("Because so many flights run here, the Algarve is one of the easier destinations to find a flight time that suits a client, even for a short midweek break. It is worth checking which airport your client is closest to though, since not every regional airport runs every week of the year.")}
   </div>
 </section>
 
@@ -21026,6 +21112,8 @@ algarve_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -21048,7 +21136,7 @@ ALGARVE_SCHEMA = article_and_faq_schema(
     "algarve.html",
     "https://images.unsplash.com/photo-1608649944716-228404a0a8bb?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operators sell holidays to the Algarve?", "TUI, Jet2holidays and easyJet holidays all fly to Faro Airport from a wide range of UK airports, so there is strong choice and competition on price for Algarve holidays."),
+        ("Which airport do I fly into for the Algarve?", "Faro Airport is the only airport serving the Algarve, with flights from a wide range of UK airports, so there is plenty of choice when it comes to flight times."),
         ("Which area of the Algarve should I stay in?", "It depends on what the client wants. Albufeira has the biggest hotel choice and some nightlife on the doorstep, Vilamoura suits golfers and couples wanting a quieter marina base, Lagos suits clients who want dramatic coastal scenery and real Portuguese character, and Quinta do Lago or Vale do Lobo suit a luxury or golf focused client wanting the quietest, most exclusive end of the region."),
         ("Is the Algarve good for families?", "Yes. The central resorts around Albufeira and Vilamoura have a wide choice of family friendly hotels with pools and kids clubs, sandy beaches, and a short, manageable flight time from the UK."),
         ("Do I need a visa for the Algarve?", "No. UK passport holders do not need a visa for stays of up to 90 days in a 180 day period. The EU's Entry/Exit System (EES) has been fully operational since 10 April 2026 and records fingerprints and a photo at the border on first entry, but a passport valid for the length of the stay is otherwise all that's needed."),
@@ -21080,7 +21168,7 @@ thailand_guide_body = f"""
     <h2>What Jake says about Thailand</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1551418843-01c6b62e864d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Longtail boats pulled up on a Phuket beach" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
     <p>Thailand is one of the biggest, most varied long haul trips I sell, and that variety is exactly why clients love it. Phuket gives you a proper beach resort holiday with genuinely excellent hotels, Bangkok gives you temples, markets and a skyline unlike anywhere else in Asia, and Koh Samui gives you a quieter, more laid back island feel. A lot of clients end up combining two of these rather than picking just one, and I'd encourage it if the budget and time allow.</p>
-    <p style="margin-top:14px;">It's currently a TUI only destination for me rather than Jet2holidays or easyJet holidays. Neither of those two flies long haul at the moment, so TUI is the operator I use for flights and hotel packages to Thailand, covering Phuket, Khao Lak, Koh Samui and Bangkok.</p>
+    <p style="margin-top:14px;">I put together flight and hotel packages to Thailand, covering Phuket, Khao Lak, Koh Samui and Bangkok.</p>
     {jake_tip("First time asking about Thailand? I always ask whether the client wants one base for the whole trip or would rather split it across two places. Phuket alone suits a relaxed, resort based holiday. Adding Bangkok or Koh Samui turns it into a proper two centre adventure.")}
   </div>
 </section>
@@ -21097,8 +21185,8 @@ thailand_guide_body = f"""
   <div class="wrap">
     <h2>Getting there</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1731239027673-1a5c6cd61380?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bangkok's skyline lit up at night" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Flights to Phuket and Bangkok from the UK typically take around 12 to 13 hours, usually with one stop, though TUI runs direct charter flights to Phuket from several UK airports during the winter season, which is the option I book most often. Worth knowing for context: Virgin Atlantic launched a new non stop route from London Heathrow to Phuket on 18 October 2026, flying three times a week, the first UK direct scheduled service to the island. I don't currently book Thailand through Virgin Atlantic Holidays, but it's a sign of how much demand for Phuket has grown, and it's worth me keeping an eye on as an alternative option.</p>
-    {jake_tip("I always check whether a client's dates fall inside a TUI direct charter window to Phuket, since a direct flight makes a real difference over a 12 hour journey compared with a connection through the Gulf or further into Asia.")}
+    <p>Flights to Phuket and Bangkok from the UK typically take around 12 to 13 hours, usually with one stop, though direct charter flights to Phuket run from several UK airports during the winter season, which is the option I book most often. Worth knowing for context: Virgin Atlantic launched a new non stop route from London Heathrow to Phuket on 18 October 2026, flying three times a week, the first UK direct scheduled service to the island. It's a sign of how much demand for Phuket has grown, and it's worth me keeping an eye on as an alternative option.</p>
+    {jake_tip("I always check whether a client's dates fall inside a direct charter window to Phuket, since a direct flight makes a real difference over a 12 hour journey compared with a connection through the Gulf or further into Asia.")}
   </div>
 </section>
 
@@ -21195,31 +21283,31 @@ thailand_guide_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks in Phuket across budgets, all available through Destination2, a UK, ATOL protected operator.</p>
+    <p style="margin-top:14px;">Four real, bookable picks in Phuket across budgets.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A boutique hotel courtyard in Thailand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Burasari Phuket</h3>
-        <p>A stylish 4 star boutique resort a short walk from Patong beach, with a large central pool and a more boutique feel than the bigger beachfront resorts nearby. A great pick for clients who want to be close to everything without paying beachfront prices. Bookable through Destination2.</p>
+        <p>A stylish 4 star boutique resort a short walk from Patong beach, with a large central pool and a more boutique feel than the bigger beachfront resorts nearby. A great pick for clients who want to be close to everything without paying beachfront prices. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for families &amp; resort facilities</div>
         <img src="https://images.unsplash.com/photo-1654756306479-c0bc0011f7a4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A resort swimming pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">M&ouml;venpick Resort Bangtao Beach Phuket</h3>
-        <p>A large, well run family resort directly on Bangtao Beach, with multiple pools, a kids' club and easy access to Boat Avenue's restaurants and shops nearby. The standout choice for families who want plenty to do without leaving the hotel. Bookable through Destination2.</p>
+        <p>A large, well run family resort directly on Bangtao Beach, with multiple pools, a kids' club and easy access to Boat Avenue's restaurants and shops nearby. The standout choice for families who want plenty to do without leaving the hotel. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1743525922686-badbeac16a34?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A luxury resort pool in the style of Thailand's five star hotels" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Dusit Thani Laguna Phuket</h3>
-        <p>A polished 5 star resort within the Laguna Phuket complex on Bang Tao Beach, with its own lagoon side setting, a dedicated kids' club and some of the best spa facilities on the island. The pick for a honeymoon or a special occasion stay. Bookable through Destination2.</p>
+        <p>A polished 5 star resort within the Laguna Phuket complex on Bang Tao Beach, with its own lagoon side setting, a dedicated kids' club and some of the best spa facilities on the island. The pick for a honeymoon or a special occasion stay. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for a quieter beach</div>
         <img src="https://images.unsplash.com/photo-1645447556616-e9d1c52e8037?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A hotel pool with a palm tree in a tropical resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Katathani Phuket Beach Resort</h3>
-        <p>A 5 star resort set on quiet Kata Noi Beach, away from Patong and Kata's busier stretches, with six swimming pools and a genuinely relaxed, grown up feel. A strong pick for couples wanting a classic beach resort stay without the crowds. Bookable through Destination2, and also listed through Virgin Atlantic Holidays.</p>
+        <p>A 5 star resort set on quiet Kata Noi Beach, away from Patong and Kata's busier stretches, with six swimming pools and a genuinely relaxed, grown up feel. A strong pick for couples wanting a classic beach resort stay without the crowds. Ask me and I will price it up for you.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -21239,12 +21327,12 @@ thailand_guide_body = f"""
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1733470252664-ce515758631d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A palm tree leaning over the beach in Koh Samui" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Bangkok &amp; Koh Samui</h3>
-        <p>Around 12 to 14 nights: a city stay in Bangkok followed by a week on Koh Samui's quieter, more laid back beaches, home to TUI BLUE The Passage Samui. A good alternative to Phuket for clients wanting a smaller, less built up island, bearing in mind Samui's own wetter months run October to December.</p>
+        <p>Around 12 to 14 nights: a city stay in Bangkok followed by a week on Koh Samui's quieter, more laid back beaches, home to BLUE The Passage Samui. A good alternative to Phuket for clients wanting a smaller, less built up island, bearing in mind Samui's own wetter months run October to December.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1753008517455-4deaf8b51877?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A tropical beach with palm trees on Thailand's Andaman coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:17px;">Phuket &amp; Khao Lak</h3>
-        <p>Around 10 to 14 nights, staying entirely on the Andaman coast: several nights in Phuket followed by a few days further north in the quieter, more low rise resort area of Khao Lak, home to TUI BLUE Khao Lak Resort. No flight needed, just a scenic drive of around 1 hour 30 minutes between the two.</p>
+        <p>Around 10 to 14 nights, staying entirely on the Andaman coast: several nights in Phuket followed by a few days further north in the quieter, more low rise resort area of Khao Lak, home to BLUE Khao Lak Resort. No flight needed, just a scenic drive of around 1 hour 30 minutes between the two.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate hotel bookings combined into one trip rather than a single packaged product, message Jake and he'll put the whole itinerary and transfers together for you.</p>
@@ -21330,6 +21418,8 @@ thailand_guide_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -21352,7 +21442,7 @@ THAILAND_GUIDE_SCHEMA = article_and_faq_schema(
     "thailand.html",
     "https://images.unsplash.com/photo-1551418843-01c6b62e864d?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operator sells Thailand package holidays?", "TUI is currently the only one of the three operators I sell, TUI, Jet2holidays and easyJet holidays, that flies to Thailand. Neither Jet2holidays nor easyJet holidays flies long haul at the moment."),
+        ("Can you book Thailand for me?", "Yes. I put together flight and hotel packages to Thailand covering Phuket, Khao Lak, Koh Samui and Bangkok, comparing prices across the companies I book with and building the trip around you."),
         ("Do I need a visa for Thailand?", "UK passport holders currently get a visa exemption of up to 30 days, reduced from 60 days from 15 September 2026. Everyone entering Thailand, whatever their length of stay, must also complete the free Thailand Digital Arrival Card online in the 72 hours before arrival. Your passport needs to be valid for at least 6 months beyond your arrival date."),
         ("What's the best time to visit Phuket?", "November to March is the driest and busiest window on the Andaman coast, with April hot but still largely dry. May to October is the wet season, with September usually the wettest month, though showers tend to be short and heavy rather than lasting all day, and hotel prices drop noticeably."),
         ("Can Phuket be combined with Bangkok or Koh Samui?", "Yes. I regularly build this as a real, bookable multi centre trip, splitting a stay between Phuket and Bangkok for the temples and markets, or Phuket and Koh Samui for a second, quieter island. Phuket can also be combined with Khao Lak by road rather than flight, for clients wanting to stay on the Andaman coast throughout."),
@@ -21384,7 +21474,7 @@ prague_guide_body = f"""
     <h2>What Jake says about Prague</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1600623471616-8c1966c91ff6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Charles Bridge and Prague Castle lit up during golden hour" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
     <p>Prague is one of the easiest city breaks I sell. It's a short flight, it's genuinely stunning to look at, and your money goes further than almost anywhere else in Europe. Clients who've done the usual Paris or Amsterdam weekend and want somewhere a bit different, with better value food and drink, almost always come back raving about it.</p>
-    <p style="margin-top:14px;">All three operators I use, TUI, Jet2holidays and easyJet holidays, now sell Prague as a city break, flights and a hotel put together as one package. I book it most often through Jet2holidays, where I can point to specific, real hotels with confirmed availability.</p>
+    <p style="margin-top:14px;">Prague is a popular city break, with flights and a hotel put together as one package, and below I can point to specific, real hotels with confirmed availability.</p>
     {jake_tip("Prague is also one of the most popular stag and hen destinations I get asked about. I'm upfront with clients either way: it's a fantastic sightseeing city break for couples and families too, it just also happens to have a big nightlife scene if that's what a group is after.")}
   </div>
 </section>
@@ -21401,7 +21491,7 @@ prague_guide_body = f"""
   <div class="wrap">
     <h2>Getting there</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1670094156756-431e3abf9be2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A bridge over the Vltava river with Prague's skyline behind it" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Direct flights from the UK take around 1 hour 40 minutes to 2 hours depending on the departure airport, one of the shortest flight times of any city break I sell. TUI, Jet2holidays and easyJet holidays all fly from a good spread of UK airports, so there's strong choice and competition on price, and it's an easy short haul booking even for a long weekend.</p>
+    <p>Direct flights from the UK take around 1 hour 40 minutes to 2 hours depending on the departure airport, one of the shortest flight times of any city break I sell. Flights run from a good spread of UK airports, so there's strong choice and competition on price, and it's an easy short haul booking even for a long weekend.</p>
     {jake_tip("Because the flight is so short, I often suggest Prague to clients who are nervous about flying or who just want a city break that doesn't eat into the weekend with a long journey either end.")}
   </div>
 </section>
@@ -21500,31 +21590,31 @@ prague_guide_body = f"""
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Recommended hotels</h2>
-    <p style="margin-top:14px;">Four real, bookable picks across budgets, all confirmed as Jet2CityBreaks packages, flights, 22kg baggage and accommodation included, through Jet2holidays.</p>
+    <p style="margin-top:14px;">Four real, bookable picks across budgets, all priced as packages with flights, 22kg baggage and accommodation included.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <div class="accom-category">Best value</div>
         <img src="https://images.unsplash.com/photo-1776763255197-495b343d5a33?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A neatly made hotel bed with white pillows" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hotel Astoria Prague City</h3>
-        <p>A 4 star hotel right in the city centre, about 400m from Old Town Square, with a buffet breakfast restaurant on site (room only is the standard package rate) and a solid, no frills base for a short break. Bookable through Jet2holidays.</p>
+        <p>A 4 star hotel right in the city centre, about 400m from Old Town Square, with a buffet breakfast restaurant on site (room only is the standard package rate) and a solid, no frills base for a short break.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for a central boutique stay</div>
         <img src="https://images.unsplash.com/photo-1698927100805-2a32718a7e05?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A stylish boutique hotel bedroom" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hotel Design Metropol</h3>
-        <p>A 4 star hotel around 650m from Old Town Square with a rooftop terrace and city views, close enough to walk to everything in the historic core. Room only as standard, with a breakfast supplement available. Bookable through Jet2holidays.</p>
+        <p>A 4 star hotel around 650m from Old Town Square with a rooftop terrace and city views, close enough to walk to everything in the historic core. Room only as standard, with a breakfast supplement available. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best for space &amp; facilities</div>
         <img src="https://images.unsplash.com/photo-1699979306075-1b4c943a3b16?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A hotel room interior with a bedside lamp" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hotel Grand Majestic Plaza</h3>
-        <p>A 4 star hotel between the Old and New Town, rated 4.5 stars by Jet2holidays, with its own spa, an Atrium restaurant and bar, and a Tripadvisor rating of 4.5 from over 5,000 reviews. A reliable, well reviewed choice. Bookable through Jet2holidays.</p>
+        <p>A 4 star hotel between the Old and New Town, with its own spa, an Atrium restaurant and bar, and a Tripadvisor rating of 4.5 from over 5,000 reviews. A reliable, well reviewed choice.</p>
       </div>
       <div class="jake-card">
         <div class="accom-category">Best luxury</div>
         <img src="https://images.unsplash.com/photo-1529290130-4ca3753253ae?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An indoor hotel swimming pool with loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hilton Prague Old Town</h3>
-        <p>A 5 star hotel on the edge of Old Town, with an indoor heated pool, a gym, a spa with sauna and massage, and the Zinc restaurant and bar. The pick for a special occasion or anyone wanting a proper hotel stay alongside the sightseeing. Bookable through Jet2holidays.</p>
+        <p>A 5 star hotel on the edge of Old Town, with an indoor heated pool, a gym, a spa with sauna and massage, and the Zinc restaurant and bar. The pick for a special occasion or anyone wanting a proper hotel stay alongside the sightseeing.</p>
       </div>
     </div>
     <p style="margin-top:14px; font-size:13px; opacity:0.7;">Hotel availability, board basis and pricing change regularly, always confirm the live details with Jake before booking.</p>
@@ -21610,11 +21700,13 @@ prague_guide_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
     <h2>Fancy Prague for yourself?</h2>
-    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can book a short break to Prague through TUI, Jet2holidays or easyJet holidays, or plan somewhere else entirely, around what you're after.</p>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can book a short break to Prague or plan somewhere else entirely, around what you're after.</p>
     <div class="btn-row" style="justify-content:center;">
       <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
       <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
@@ -21632,7 +21724,7 @@ PRAGUE_GUIDE_SCHEMA = article_and_faq_schema(
     "prague.html",
     "https://images.unsplash.com/photo-1600623471616-8c1966c91ff6?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operators sell package holidays to Prague?", "TUI, Jet2holidays and easyJet holidays all now sell Prague as a city break, with return flights and a hotel put together as one package. Prague is also well served by low cost scheduled flights for anyone wanting to book flights and a hotel separately."),
+        ("Can you book a Prague city break for me?", "Yes. Prague works well as a city break, with return flights and a hotel put together as one package. Prague is also well served by low cost scheduled flights for anyone wanting to book flights and a hotel separately."),
         ("Do I need a visa for Prague?", "No. UK passport holders can stay in the Czech Republic, and the wider Schengen area, for up to 90 days in any 180 day period without a visa. The EU's Entry/Exit System (EES) has been fully operational since 10 April 2026 and records fingerprints and a photo on first entry. ETIAS, a separate pre-travel authorisation, has been delayed again and isn't mandatory yet."),
         ("What currency does Prague use?", "The Czech koruna (CZK), not the euro. It's worth telling clients this in advance, since the Czech Republic is an EU country but hasn't adopted the euro, and euros are only accepted in some touristy spots at a poor exchange rate."),
         ("How many nights should I spend in Prague?", "Three to four nights is the sweet spot for a first visit, enough time to see the Castle, Old Town and Charles Bridge properly. Five nights gives room to add a day trip to Kutna Hora or Cesky Krumlov as well."),
@@ -21665,7 +21757,7 @@ jordan_guide_body = f"""
   <div class="wrap">
     <h2>What Jake says about Jordan</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1580834341580-8c17a3a630ca?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Treasury carved into sandstone cliffs at Petra, Jordan" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Jordan is one of those destinations that sells itself the moment a client sees a photo of the Treasury at Petra, and it genuinely lives up to it in person. None of my three main package operators, TUI, Jet2holidays or easyJet holidays, flies there or sells it as a flight and hotel package. It's booked a completely different way, as a real escorted tour that strings Amman, Petra, Wadi Rum and the Dead Sea together, flights, hotels, transport and a lot of the sightseeing already built in.</p>
+    <p>Jordan is one of those destinations that sells itself the moment a client sees a photo of the Treasury at Petra, and it genuinely lives up to it in person. Jordan isn't really sold as a flight and hotel package. It's booked a different way, as a real escorted tour that strings Amman, Petra, Wadi Rum and the Dead Sea together, flights, hotels, transport and a lot of the sightseeing already built in.</p>
     <p style="margin-top:14px;">That suits Jordan well, since it isn't really a destination you'd want to self plan on a first visit. The distances between the big sights are longer than people expect, public transport is limited outside the cities, and a lot of the best bits, the 4x4 run through Wadi Rum, the walk into Petra through the Siq, only really work with a guide who knows the route and the history.</p>
     {jake_tip("I always set expectations early that Jordan is a touring holiday, not a beach week with a day trip bolted on. Clients who go in expecting that get the best out of it.")}
   </div>
@@ -21732,12 +21824,12 @@ jordan_guide_body = f"""
     <div class="grid-3 equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1548786811-dd6e453ccca7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Petra, Jordan, during daytime" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:18px;">Riviera Travel's Jordan and Petra</h3>
+        <h3 style="font-size:18px;">Jordan and Petra</h3>
         <p>7 days, 6 nights. A small group tour, usually 12 to 25 guests, covering Amman, a Bedouin style camp at Wadi Rum, 2 nights at Petra and 2 nights at the Dead Sea. Half board throughout, including a Bedouin zarb barbecue dinner in the desert. From &pound;1,829pp, flying from Heathrow.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1538426923164-6869f58ccae5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Desert landscape near Wadi Rum, Jordan" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
-        <h3 style="font-size:18px;">Mercury Holidays' Classical Jordan</h3>
+        <h3 style="font-size:18px;">Classical Jordan</h3>
         <p>8 days, 7 nights. An intermediate paced tour with an English speaking driver guide throughout, taking in Amman, Jerash, Madaba, Petra, a night in a desert camp at Wadi Rum and 2 nights at the Dead Sea. 15 meals and 5 excursions included. From &pound;1,799pp.</p>
       </div>
       <div class="jake-card">
@@ -21754,7 +21846,7 @@ jordan_guide_body = f"""
   <div class="wrap">
     <h2>Where to stay</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1725909632786-c25c9b2b5a16?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A Bedouin style desert camp at night in Jordan" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Because these are escorted tours rather than pick your own hotel holidays, the hotels come as part of the route, the same as Jordan's TUI free equivalents in Canada, Japan or China. Riviera Travel's Jordan and Petra uses the Centro Mada Amman, a Bedouin style tented camp at Wadi Rum, the 4 star Old Village Hotel &amp; Resort in Wadi Musa for Petra, and the 4 star Holiday Inn Dead Sea in Sweimah. Mercury Holidays' Classical Jordan, and its Aqaba extension, uses the Mena Tyche Hotel in Amman, the Hayat Zaman Hotel at Petra, the en suite tented Magic Rum Camp at Wadi Rum, and the Crowne Plaza Dead Sea Resort &amp; Spa. Hotels on both tours are provisional until closer to departure, so I always confirm the exact named properties once a specific date is booked.</p>
+    <p>Because these are escorted tours rather than pick your own hotel holidays, the hotels come as part of the route, the same as other escorted tours such as Japan or China. The Jordan and Petra tour uses the Centro Mada Amman, a Bedouin style tented camp at Wadi Rum, the 4 star Old Village Hotel &amp; Resort in Wadi Musa for Petra, and the 4 star Holiday Inn Dead Sea in Sweimah. The Classical Jordan tour, and its Aqaba extension, uses the Mena Tyche Hotel in Amman, the Hayat Zaman Hotel at Petra, the en suite tented Magic Rum Camp at Wadi Rum, and the Crowne Plaza Dead Sea Resort &amp; Spa. Hotels on both tours are provisional until closer to departure, so I always confirm the exact named properties once a specific date is booked.</p>
     {jake_tip("The night in the desert camp is a genuine highlight for most clients, not a downgrade. En suite tented camps like Magic Rum Camp have proper beds and bathrooms, it's just a very different, and very memorable, kind of night under the stars.")}
   </div>
 </section>
@@ -21860,6 +21952,8 @@ jordan_guide_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
@@ -21882,7 +21976,7 @@ JORDAN_GUIDE_SCHEMA = article_and_faq_schema(
     "jordan.html",
     "https://images.unsplash.com/photo-1580834341580-8c17a3a630ca?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operators sell Jordan package holidays?", "None of my three main operators, TUI, Jet2holidays or easyJet holidays, sells Jordan as a flight and hotel package or flies there at all. It's booked instead as a real escorted tour, such as Riviera Travel's Jordan and Petra or Mercury Holidays' Classical Jordan, with flights, hotels and most of the sightseeing included."),
+        ("Can you book Jordan for me?", "Yes. Jordan isn't really sold as a flight and hotel package. It's booked instead as a real escorted tour, such as a Jordan and Petra small group tour or a Classical Jordan tour, with flights, hotels and most of the sightseeing included, and I compare prices across the companies I book with."),
         ("Do I need a visa for Jordan?", "Yes. UK passport holders can buy a visa on arrival for 40 Jordanian dinars, about £42, valid for 3 months, or arrange the Jordan Pass online before travelling, which costs 70 to 80 dinars, includes the visa fee, and gives discounted entry to Petra and other paid sites. It only pays off on stays of 3 nights or more, which every tour comfortably covers."),
         ("How many nights do I need in Jordan?", "Seven to eight days, six or seven nights, is the standard length for a proper tour covering Amman, Petra, Wadi Rum and the Dead Sea. Shorter than that and you'd have to cut one of the big sights, longer and most clients have seen the highlights already."),
         ("Is Jordan safe to visit?", "The main tourist circuit, Amman, Petra, Wadi Rum, the Dead Sea and Aqaba, isn't under any specific FCDO travel warning. The FCDO does advise against all travel within 3km of the Syrian border, well away from every tour route, and flags a wider risk of regional disruption. I always check the latest advice on gov.uk with clients before booking and again before they travel."),
@@ -21907,7 +22001,7 @@ monaco_guide_body = f"""
   <div class="wrap">
     <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
     <h1>MONACO</h1>
-    <p class="lead" style="margin-top:18px; margin-bottom:0;">Monte Carlo's casino, a harbour full of superyachts and some of the priciest real estate on earth, squeezed into just over two square kilometres on the French Riviera. Here's exactly how I book Monaco, the hotels that are genuinely bookable through TUI and Jet2holidays, and what it actually costs to visit.</p>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Monte Carlo's casino, a harbour full of superyachts and some of the priciest real estate on earth, squeezed into just over two square kilometres on the French Riviera. Here's exactly how I book Monaco, the hotels I can book for you, and what it actually costs to visit.</p>
   </div>
 </section>
 
@@ -21916,7 +22010,7 @@ monaco_guide_body = f"""
     <h2>What Jake says about Monaco</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1752884991183-9d0b3cc20b01?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The ornate domes of the Casino de Monte-Carlo in Monaco" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
     <p>Monaco punches well above its size. It's the world's second smallest country, you could walk from one end to the other in under an hour, but it packs in a world famous casino, a royal palace on its own rocky headland, Michelin starred restaurants and a harbour lined with yachts that cost more than most houses. Clients either want it for a special occasion, an anniversary, a proposal, a milestone birthday, or they want it bolted onto a wider French Riviera trip alongside Nice, Cannes or Eze.</p>
-    <p style="margin-top:14px;">TUI and Jet2holidays both sell Monte Carlo as a proper package holiday, flights and a named hotel booked together, flying into Nice Cote d'Azur airport just along the coast. There's no flight and hotel package from easyJet holidays, but easyJet flies direct to Nice from several UK airports, so Monaco still works well as a tailor made trip booked around their flights too.</p>
+    <p style="margin-top:14px;">Monte Carlo works well as a proper package holiday, flights and a named hotel booked together, flying into Nice Cote d'Azur airport just along the coast. easyJet also flies direct to Nice from several UK airports, so Monaco works well as a tailor made trip booked around those flights too.</p>
     {jake_tip("Monaco genuinely suits two to four nights on its own, but most of my clients get more out of the trip by pairing it with a few nights somewhere else on the Riviera. I've set out three real ways to do that further down this guide.")}
   </div>
 </section>
@@ -21932,7 +22026,7 @@ monaco_guide_body = f"""
   <div class="wrap">
     <h2>Getting there</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1643914729809-4aa59fdc4c17?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of Nice, France, on the French Riviera" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Monaco has no airport of its own, so every flight lands at Nice Cote d'Azur airport, about 20 miles along the coast. Flights from the UK take around 2 hours 10 minutes from Gatwick, Heathrow, Luton, Manchester and several other airports, with easyJet, British Airways and Jet2 all operating the route. From Nice airport it's a transfer of 30 to 45 minutes into Monaco, by taxi in around 30 minutes, by the number 110 airport express bus in around 40 minutes, or by train from Nice Saint Augustin station, close to the airport, to Monte Carlo station in roughly 25 to 30 minutes. A transfer is included as part of any TUI or Jet2holidays package.</p>
+    <p>Monaco has no airport of its own, so every flight lands at Nice Cote d'Azur airport, about 20 miles along the coast. Flights from the UK take around 2 hours 10 minutes from Gatwick, Heathrow, Luton, Manchester and several other airports, with easyJet, British Airways and Jet2 all operating the route. From Nice airport it's a transfer of 30 to 45 minutes into Monaco, by taxi in around 30 minutes, by the number 110 airport express bus in around 40 minutes, or by train from Nice Saint Augustin station, close to the airport, to Monte Carlo station in roughly 25 to 30 minutes. A transfer is included as part of a package.</p>
     <p style="margin-top:14px;">UK passport holders don't need a visa for Monaco. It isn't an EU member and isn't formally part of Schengen, but it has an open border with France and follows the same entry rules in practice, so the 90 day in any 180 day limit applies, counted together with any time spent elsewhere in Schengen. The EU's Entry/Exit System, which records fingerprints and a photo on first entry, has been fully operational since 10 April 2026. Your passport needs to have been issued within the last 10 years and have at least 3 months left on it from your planned departure date from the Schengen area.</p>
     {jake_tip("I always tell clients there's no border check travelling between Nice and Monaco itself, you'll barely notice crossing from France into Monaco on the train or by road. The passport rules only really come into play at the airport when you first land in France.")}
   </div>
@@ -21981,37 +22075,37 @@ monaco_guide_body = f"""
   <div class="wrap">
     <h2>Where to stay in Monaco</h2>
     <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1683290846185-dca373e8f5f6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A marina full of white boats in Monaco" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
-    <p>Monaco is so compact that almost every hotel sits within walking distance of the casino, the harbour and the Japanese Garden, so location matters less than it does elsewhere. These four are all genuinely bookable as a flight and hotel package through Jet2holidays, with TUI also selling Monte Carlo as a destination.</p>
+    <p>Monaco is so compact that almost every hotel sits within walking distance of the casino, the harbour and the Japanese Garden, so location matters less than it does elsewhere. These four are all bookable as a flight and hotel package.</p>
     <div class="grid-2-eq equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1782053492067-2e1d144b77d3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A coastal town overlooking the blue Mediterranean Sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Novotel Monte Carlo</h3>
-        <p>4 star. The most accessible of the four on price, around 260m from the train station and 600m from the harbour, with an outdoor seasonal pool, a gym with sauna and an a la carte restaurant. A sensible, well located base without the price tag of Monaco's grander names. Bookable through Jet2holidays as a Jet2CityBreaks package.</p>
+        <p>4 star. The most accessible of the four on price, around 260m from the train station and 600m from the harbour, with an outdoor seasonal pool, a gym with sauna and an a la carte restaurant. A sensible, well located base without the price tag of Monaco's grander names. I can price this one up as a package.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1583498179316-6c79adff9033?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Yachts moored in Monte Carlo's harbour" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Port Palace</h3>
-        <p>4 star. A smaller, more boutique feeling hotel overlooking Port Hercule and the Prince's Palace, just 400m from the harbour. 50 rooms with a spa offering a whirlpool, sauna, steam room and Turkish bath. A good pick for couples who want character over size. Bookable through Jet2holidays as a Jet2CityBreaks package.</p>
+        <p>4 star. A smaller, more boutique feeling hotel overlooking Port Hercule and the Prince's Palace, just 400m from the harbour. 50 rooms with a spa offering a whirlpool, sauna, steam room and Turkish bath. A good pick for couples who want character over size. I can price this one up for you.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1647378507803-10590ec03a8e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="View of Port Hercule in Monaco" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Fairmont Monte Carlo</h3>
-        <p>4 star. Famous for its views over the Mediterranean and straight onto the Monaco Grand Prix circuit's hairpin bend. Three restaurants, a champagne bar, an outdoor rooftop pool and Nikki Beach Club, plus a spa and casino on site. The one to pick for F1 fans or anyone wanting a real Monaco occasion. Bookable through Jet2holidays as a Jet2CityBreaks package.</p>
+        <p>4 star. Famous for its views over the Mediterranean and straight onto the Monaco Grand Prix circuit's hairpin bend. Three restaurants, a champagne bar, an outdoor rooftop pool and Nikki Beach Club, plus a spa and casino on site. The one to pick for F1 fans or anyone wanting a real Monaco occasion.</p>
       </div>
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1594161673326-7f91671d8e3b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of Monaco's buildings and coastline" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
         <h3 style="font-size:18px;">Hotel Metropole Monte Carlo</h3>
-        <p>5 star. Monaco's top tier package hotel, right by Place du Casino, with two a la carte restaurants including the Michelin starred YOSHI, a heated saltwater pool, a full spa and a children's club running through summer. The one for a genuine once in a lifetime stay. Bookable through Jet2holidays as a Jet2CityBreaks package.</p>
+        <p>5 star. Monaco's top tier package hotel, right by Place du Casino, with two a la carte restaurants including the Michelin starred YOSHI, a heated saltwater pool, a full spa and a children's club running through summer. The one for a genuine once in a lifetime stay.</p>
       </div>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Star ratings and facilities as published by Jet2holidays at the time of writing. TUI also sells Monte Carlo as a destination, so I always check current pricing and availability across both before booking.</p>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Star ratings and facilities as published at the time of writing. I always check current pricing and availability before booking.</p>
   </div>
 </section>
 
 <section class="theme-light" style="padding-top:0;">
   <div class="wrap">
     <h2>Three ways to combine Monaco with the French Riviera</h2>
-    <p style="margin-top:14px;">Monaco pairs brilliantly with the rest of the Riviera, and I rarely book it as a trip entirely on its own. Here are three real ways clients do it, each built around a genuine Jet2holidays hotel.</p>
+    <p style="margin-top:14px;">Monaco pairs brilliantly with the rest of the Riviera, and I rarely book it as a trip entirely on its own. Here are three real ways clients do it, each built around a real hotel.</p>
     <div class="grid-3 equal-cards" style="margin-top:22px;">
       <div class="jake-card">
         <img src="https://images.unsplash.com/photo-1774301789182-3d420934ed63?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Promenade des Anglais in Nice, France" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
@@ -22029,7 +22123,7 @@ monaco_guide_body = f"""
         <p>The 3 star Ibis Styles Beaulieu sur Mer, breakfast included and 450m from the beach, sits on the same coastal train line as Monaco and Nice, both under 15 minutes away. A calmer, prettier and noticeably cheaper base with exactly the same easy access to everything.</p>
       </div>
     </div>
-    <p style="margin-top:14px; font-size:13px; opacity:0.7;">All three hotels named here are bookable through Jet2holidays as a Jet2CityBreaks package at the time of writing, each as its own separate booking.</p>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">All three hotels named here are bookable as a package at the time of writing, each as its own separate booking.</p>
   </div>
 </section>
 
@@ -22134,11 +22228,13 @@ monaco_guide_body = f"""
   </div>
 </section>
 
+{SUPPLIER_SECTION}
+
 <section class="theme-dark">
   <div class="wrap" style="text-align:center;">
     {ad_slot()}
     <h2>Fancy Monaco for yourself?</h2>
-    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can book Monaco through TUI or Jet2holidays, help you decide which Riviera combination suits you best, and check live prices and availability around any dates you have in mind.</p>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can book Monaco for you, help you decide which Riviera combination suits you best, and check live prices and availability around any dates you have in mind.</p>
     <div class="btn-row" style="justify-content:center;">
       <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
       <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
@@ -22156,7 +22252,7 @@ MONACO_GUIDE_SCHEMA = article_and_faq_schema(
     "monaco.html",
     "https://images.unsplash.com/photo-1491251880772-1fe1c8b6d5f6?auto=format&fit=crop&w=1200&q=80",
     faqs=[
-        ("Which UK operators sell package holidays to Monaco?", "TUI and Jet2holidays both sell Monte Carlo as a flight and hotel package, flying into Nice Cote d'Azur airport. Jet2holidays sells named hotels including the Novotel Monte Carlo, Port Palace, Fairmont Monte Carlo and Hotel Metropole Monte Carlo. easyJet holidays doesn't currently sell a Monaco package, though easyJet flies direct to Nice, so it still works well as a tailor made booking."),
+        ("Can you book a Monaco holiday for me?", "Yes. Monte Carlo can be booked as a flight and hotel package, flying into Nice Cote d'Azur airport, with named hotels including the Novotel Monte Carlo, Port Palace, Fairmont Monte Carlo and Hotel Metropole Monte Carlo. easyJet flies direct to Nice, so it also works well as a tailor made booking."),
         ("Do I need a visa for Monaco?", "No. UK passport holders don't need a visa. Monaco isn't an EU member and isn't formally part of Schengen, but it has an open border with France and follows the same rules in practice, so the 90 day in any 180 day limit applies. The EU's Entry/Exit System has been fully operational since 10 April 2026."),
         ("How do you get to Monaco?", "Every flight lands at Nice Cote d'Azur airport, about 20 miles away, since Monaco has no airport of its own. Flights from the UK take around 2 hours 10 minutes, then it's a 30 to 45 minute transfer into Monaco by taxi, bus or train."),
         ("How many nights do you need in Monaco?", "Two to four nights is plenty for Monaco itself. Most of my clients pair it with a few nights in Nice, Cannes, or Villefranche sur Mer and Beaulieu sur Mer, for a longer Riviera trip."),
