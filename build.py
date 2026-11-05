@@ -2110,6 +2110,13 @@ DESTINATION_POSTS = [
         "excerpt": "Petra, Wadi Rum and the Dead Sea: weather by month, the real escorted tours that cover it, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1580834341580-8c17a3a630ca?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "monaco.html",
+        "meta": "Monaco",
+        "title": "Monaco",
+        "excerpt": "Monte Carlo's casino, Michelin star restaurants and a harbour full of superyachts: weather by month, where to stay, things to do and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1491251880772-1fe1c8b6d5f6?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -21895,6 +21902,279 @@ print("jordan.html written")
 
 
 
+monaco_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>MONACO</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Monte Carlo's casino, a harbour full of superyachts and some of the priciest real estate on earth, squeezed into just over two square kilometres on the French Riviera. Here's exactly how I book Monaco, the hotels that are genuinely bookable through TUI and Jet2holidays, and what it actually costs to visit.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Monaco</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1752884991183-9d0b3cc20b01?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The ornate domes of the Casino de Monte-Carlo in Monaco" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Monaco punches well above its size. It's the world's second smallest country, you could walk from one end to the other in under an hour, but it packs in a world famous casino, a royal palace on its own rocky headland, Michelin starred restaurants and a harbour lined with yachts that cost more than most houses. Clients either want it for a special occasion, an anniversary, a proposal, a milestone birthday, or they want it bolted onto a wider French Riviera trip alongside Nice, Cannes or Eze.</p>
+    <p style="margin-top:14px;">TUI and Jet2holidays both sell Monte Carlo as a proper package holiday, flights and a named hotel booked together, flying into Nice Cote d'Azur airport just along the coast. There's no flight and hotel package from easyJet holidays, but easyJet flies direct to Nice from several UK airports, so Monaco still works well as a tailor made trip booked around their flights too.</p>
+    {jake_tip("Monaco genuinely suits two to four nights on its own, but most of my clients get more out of the trip by pairing it with a few nights somewhere else on the Riviera. I've set out three real ways to do that further down this guide.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Two to four nights is plenty for Monaco itself. It suits couples, honeymooners and anyone celebrating a special occasion who wants glamour rather than a sprawling resort, plus Formula 1 fans who want to see the famous street circuit in person. It's less suited to families on a tight budget or anyone wanting a classic beach week. Monaco's only real beach, Larvotto, is small, partly manmade and nothing like the long sandy stretches of Spain or the Greek islands, and prices across the board, hotels, restaurants, even a coffee, run well above the European average.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1643914729809-4aa59fdc4c17?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of Nice, France, on the French Riviera" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Monaco has no airport of its own, so every flight lands at Nice Cote d'Azur airport, about 20 miles along the coast. Flights from the UK take around 2 hours 10 minutes from Gatwick, Heathrow, Luton, Manchester and several other airports, with easyJet, British Airways and Jet2 all operating the route. From Nice airport it's a transfer of 30 to 45 minutes into Monaco, by taxi in around 30 minutes, by the number 110 airport express bus in around 40 minutes, or by train from Nice Saint Augustin station, close to the airport, to Monte Carlo station in roughly 25 to 30 minutes. A transfer is included as part of any TUI or Jet2holidays package.</p>
+    <p style="margin-top:14px;">UK passport holders don't need a visa for Monaco. It isn't an EU member and isn't formally part of Schengen, but it has an open border with France and follows the same entry rules in practice, so the 90 day in any 180 day limit applies, counted together with any time spent elsewhere in Schengen. The EU's Entry/Exit System, which records fingerprints and a photo on first entry, has been fully operational since 10 April 2026. Your passport needs to have been issued within the last 10 years and have at least 3 months left on it from your planned departure date from the Schengen area.</p>
+    {jake_tip("I always tell clients there's no border check travelling between Nice and Monaco itself, you'll barely notice crossing from France into Monaco on the train or by road. The passport rules only really come into play at the airport when you first land in France.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Monaco shares the French Riviera's mild Mediterranean climate, hot dry summers and mild, slightly damp winters. These are long term monthly averages for Monte Carlo.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>10&deg;C</td><td>3&deg;C</td><td>Mild but cool, among the wetter months</td></tr>
+          <tr><td>February</td><td>10&deg;C</td><td>3&deg;C</td><td>Still cool, occasional rain</td></tr>
+          <tr><td>March</td><td>12&deg;C</td><td>5&deg;C</td><td>Signs of spring, drier than winter</td></tr>
+          <tr><td>April</td><td>14&deg;C</td><td>7&deg;C</td><td>Mild and pleasant, good for sightseeing</td></tr>
+          <tr><td>May</td><td>18&deg;C</td><td>11&deg;C</td><td>Warm, Grand Prix weekend pushes prices up</td></tr>
+          <tr><td>June</td><td>21&deg;C</td><td>14&deg;C</td><td>Warm and increasingly busy</td></tr>
+          <tr><td>July</td><td>25&deg;C</td><td>17&deg;C</td><td>Hot and dry, the driest month of the year</td></tr>
+          <tr><td>August</td><td>25&deg;C</td><td>17&deg;C</td><td>Hot, the harbour fills with yachts for the summer season</td></tr>
+          <tr><td>September</td><td>22&deg;C</td><td>15&deg;C</td><td>Still warm, a touch quieter than peak summer</td></tr>
+          <tr><td>October</td><td>18&deg;C</td><td>11&deg;C</td><td>Mild but the wettest month of the year</td></tr>
+          <tr><td>November</td><td>13&deg;C</td><td>7&deg;C</td><td>Cooling fast, also fairly wet</td></tr>
+          <tr><td>December</td><td>11&deg;C</td><td>4&deg;C</td><td>Cool and crisp, festive lights around the harbour</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Monte Carlo, via Weather2Travel's climate data.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1581819896533-f8ab6767ce7e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A typical sunny weekend in Monaco, with yachts in the harbour" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>April to June and September to October give the best balance of warm, reliable weather and slightly calmer streets and prices. July and August are hottest and busiest, when the harbour fills with visiting superyachts for the season. The last weekend in May or first weekend in June, when the Monaco Grand Prix takes over the streets, is a brilliant spectacle but hotel prices spike hard and rooms sell out months ahead, so it needs booking well in advance if that's the plan. Winter, December to February, is quieter and noticeably cheaper, with Monaco's harbourside Christmas lights adding some festive sparkle to an otherwise low key season.</p>
+    {jake_tip("The 2027 Monaco Grand Prix runs Thursday 3 June to Sunday 6 June. If a client wants to go for the race itself, I tell them to book as early as possible, hotel rates across the whole principality jump significantly that weekend.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay in Monaco</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1683290846185-dca373e8f5f6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A marina full of white boats in Monaco" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Monaco is so compact that almost every hotel sits within walking distance of the casino, the harbour and the Japanese Garden, so location matters less than it does elsewhere. These four are all genuinely bookable as a flight and hotel package through Jet2holidays, with TUI also selling Monte Carlo as a destination.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1782053492067-2e1d144b77d3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A coastal town overlooking the blue Mediterranean Sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Novotel Monte Carlo</h3>
+        <p>4 star. The most accessible of the four on price, around 260m from the train station and 600m from the harbour, with an outdoor seasonal pool, a gym with sauna and an a la carte restaurant. A sensible, well located base without the price tag of Monaco's grander names. Bookable through Jet2holidays as a Jet2CityBreaks package.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1583498179316-6c79adff9033?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Yachts moored in Monte Carlo's harbour" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Port Palace</h3>
+        <p>4 star. A smaller, more boutique feeling hotel overlooking Port Hercule and the Prince's Palace, just 400m from the harbour. 50 rooms with a spa offering a whirlpool, sauna, steam room and Turkish bath. A good pick for couples who want character over size. Bookable through Jet2holidays as a Jet2CityBreaks package.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1647378507803-10590ec03a8e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="View of Port Hercule in Monaco" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Fairmont Monte Carlo</h3>
+        <p>4 star. Famous for its views over the Mediterranean and straight onto the Monaco Grand Prix circuit's hairpin bend. Three restaurants, a champagne bar, an outdoor rooftop pool and Nikki Beach Club, plus a spa and casino on site. The one to pick for F1 fans or anyone wanting a real Monaco occasion. Bookable through Jet2holidays as a Jet2CityBreaks package.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1594161673326-7f91671d8e3b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of Monaco's buildings and coastline" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Metropole Monte Carlo</h3>
+        <p>5 star. Monaco's top tier package hotel, right by Place du Casino, with two a la carte restaurants including the Michelin starred YOSHI, a heated saltwater pool, a full spa and a children's club running through summer. The one for a genuine once in a lifetime stay. Bookable through Jet2holidays as a Jet2CityBreaks package.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Star ratings and facilities as published by Jet2holidays at the time of writing. TUI also sells Monte Carlo as a destination, so I always check current pricing and availability across both before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three ways to combine Monaco with the French Riviera</h2>
+    <p style="margin-top:14px;">Monaco pairs brilliantly with the rest of the Riviera, and I rarely book it as a trip entirely on its own. Here are three real ways clients do it, each built around a genuine Jet2holidays hotel.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1774301789182-3d420934ed63?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Promenade des Anglais in Nice, France" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Base yourself in Nice</h3>
+        <p>Stay at the AC Hotel by Marriott Nice, a 4 star beachfront hotel on the Promenade des Anglais with a rooftop pool, and take the coastal train into Monaco, around 25 to 30 minutes each way, for a day or two. Nice gives you more restaurants, nightlife and a proper city beach to come back to each evening.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1683495113581-611ecee2c1dc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The clock tower and old town of Cannes, France" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Split stay: Monaco &amp; Cannes</h3>
+        <p>A couple of nights at the Novotel or Port Palace in Monaco, then on to the 5 star Hotel Barriere Le Majestic Cannes overlooking La Croisette for the rest of the trip. Two very different kinds of Riviera glamour in one booking, best suited to a special occasion with a bit more budget behind it.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1703708041132-b093b01eab13?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A Mediterranean hilltop village on the French Riviera" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">A quieter base: Villefranche &amp; Beaulieu</h3>
+        <p>The 3 star Ibis Styles Beaulieu sur Mer, breakfast included and 450m from the beach, sits on the same coastal train line as Monaco and Nice, both under 15 minutes away. A calmer, prettier and noticeably cheaper base with exactly the same easy access to everything.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">All three hotels named here are bookable through Jet2holidays as a Jet2CityBreaks package at the time of writing, each as its own separate booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1491166617655-0723a0999cfc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="People walking near buildings in Nice, France" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Monaco is small enough to walk almost everywhere, though it's built on a steep hillside, so expect some genuine climbs between the harbour, the casino district and Monaco Ville on the rock. Monaco makes clever use of public lifts and escalators tucked into the hillside to help with exactly that, worth using rather than always taking the stairs. The local CAM bus network covers the rest, and taxis are plentiful but not cheap. For day trips, the SNCF coastal train line runs along the whole Riviera, so Nice, Beaulieu sur Mer, Villefranche sur Mer and Eze are all a short, simple hop away without needing a hire car.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1752884991461-8ac432ad9266?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Formula 1 cars racing through the streets of Monaco" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Beyond simply wandering the harbour, these are some of the best rated things to do if you want to add structure to your visit.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="378269,461697,457957,847802"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/monaco-l515/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/monaco-l515/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Monaco &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1791802101183-d4f456755651?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Prince's Palace on the Rock of Monaco" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Prince's Palace</h3>
+        <p>The official residence of the ruling Grimaldi family, with a Changing of the Guard performed daily at 11.55am on the Place du Palais. The State Apartments open to visitors for part of the year, check ahead since exact dates vary.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1617375349209-c9efb017c86e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An ornate Belle Epoque building in Monte Carlo" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Casino de Monte-Carlo</h3>
+        <p>The Belle Epoque casino that put Monaco on the map. Entry to the gaming rooms is around &pound;16.60pp, over 18s only with a passport or photo ID, and a smart dress code applies, no shorts, sportswear or trainers.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1637224257334-32bc575c2c33?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A large building perched on a cliff above the sea in Monaco" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Oceanographic Museum</h3>
+        <p>A dramatic cliff edge aquarium founded by Prince Albert I, with a shark lagoon and a rooftop terrace looking straight out over the Mediterranean. Adult entry is around &pound;17pp.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1674676618294-032e247cd5f4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The hilltop village of Eze on the French Riviera" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Eze village</h3>
+        <p>A medieval hilltop village a short bus or taxi ride from Monaco, all narrow cobbled lanes and sweeping coastal views, with the Jardin Exotique d'Eze at the very top. One of the easiest, prettiest half day trips on the whole Riviera.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1602833334025-5019f046b8f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="People sitting at an outdoor cafe on the French Riviera" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Monaco uses the euro, and it's genuinely one of the most expensive places I sell. These are typical prices, converted to pounds at an approximate rate of &pound;1 to &euro;1.20.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Basic meal with a drink, inexpensive restaurant</td><td>&pound;19.90 (about &euro;24)</td></tr>
+          <tr><td>Cappuccino, mid-range caf&eacute;</td><td>&pound;4.35 (about &euro;5.25)</td></tr>
+          <tr><td>Domestic beer, a pint, restaurant</td><td>&pound;6.25 (about &euro;7.50)</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;5.50 (about &euro;6.60), plus around &pound;2.05 per mile</td></tr>
+          <tr><td>Casino de Monte-Carlo entry, 18+</td><td>&pound;16.60 (about &euro;20)</td></tr>
+          <tr><td>Oceanographic Museum, adult</td><td>&pound;17.05 (about &euro;20.50)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd sourced averages via Numbeo, and each attraction's own published pricing. Euro to pound conversion is approximate and moves around day to day.</p>
+    {jake_tip("I always set client expectations early that Monaco runs well above typical Riviera prices, let alone the rest of Europe. It's part of what makes it feel special, but it's worth budgeting generously for food and drink on top of the hotel cost.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (EUR), despite Monaco not being an EU member</td></tr>
+          <tr><td>Plug type</td><td>Type C and E (European two pin), same as mainland France. Voltage is 230V, so UK plugs need an adaptor</td></tr>
+          <tr><td>Language</td><td>French is the official language, with English widely spoken in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 2 hours 10 minutes to Nice Cote d'Azur airport, plus a 30 to 45 minute transfer into Monaco</td></tr>
+          <tr><td>Time difference</td><td>1 hour ahead of the UK all year round, since Monaco and the UK change their clocks on the same dates</td></tr>
+          <tr><td>Entry requirements</td><td>No visa for UK passport holders. Monaco follows Schengen entry rules via its open border with France, the 90 day in 180 day rule applies. Passports need to be under 10 years old and have at least 3 months left from your planned departure date from the Schengen area</td></tr>
+          <tr><td>2027 Monaco Grand Prix</td><td>Thursday 3 June to Sunday 6 June 2027. Hotel prices rise sharply for this weekend, worth booking well ahead</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Nick Karvounis, Wyatt Simpson, Dan Hadar, Constantin, Felix, Victor He, Stefano Tanasi, Rafael Peier, Matteo Badini, Leonardo Caetano, Maxim Stuij, Lens by Benji, Jovan Vasiljevic, Chelsea Essig, Ionel Lagaillarde, Ravi Tripathi, Pavel Guzhikov and Alex Harmuth via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Monaco for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can book Monaco through TUI or Jet2holidays, help you decide which Riviera combination suits you best, and check live prices and availability around any dates you have in mind.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+monaco_guide_body = monaco_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+MONACO_GUIDE_SCHEMA = article_and_faq_schema(
+    "Monaco: Jake's Destination Guide",
+    "Jake's honest guide to Monaco: weather by month, where to stay, things to do, recommended hotels and what a trip to the French Riviera actually costs.",
+    "monaco.html",
+    "https://images.unsplash.com/photo-1491251880772-1fe1c8b6d5f6?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Which UK operators sell package holidays to Monaco?", "TUI and Jet2holidays both sell Monte Carlo as a flight and hotel package, flying into Nice Cote d'Azur airport. Jet2holidays sells named hotels including the Novotel Monte Carlo, Port Palace, Fairmont Monte Carlo and Hotel Metropole Monte Carlo. easyJet holidays doesn't currently sell a Monaco package, though easyJet flies direct to Nice, so it still works well as a tailor made booking."),
+        ("Do I need a visa for Monaco?", "No. UK passport holders don't need a visa. Monaco isn't an EU member and isn't formally part of Schengen, but it has an open border with France and follows the same rules in practice, so the 90 day in any 180 day limit applies. The EU's Entry/Exit System has been fully operational since 10 April 2026."),
+        ("How do you get to Monaco?", "Every flight lands at Nice Cote d'Azur airport, about 20 miles away, since Monaco has no airport of its own. Flights from the UK take around 2 hours 10 minutes, then it's a 30 to 45 minute transfer into Monaco by taxi, bus or train."),
+        ("How many nights do you need in Monaco?", "Two to four nights is plenty for Monaco itself. Most of my clients pair it with a few nights in Nice, Cannes, or Villefranche sur Mer and Beaulieu sur Mer, for a longer Riviera trip."),
+        ("What's the best time to visit Monaco?", "April to June and September to October for the best weather without peak crowds. The Monaco Grand Prix weekend, 3 to 6 June 2027, is a brilliant spectacle but hotel prices spike hard. July and August are hottest and busiest, while December to February is quieter, cooler and noticeably cheaper."),
+    ]
+)
+with open(os.path.join(SITE, "monaco.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Monaco: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Monaco: weather by month, where to stay, things to do, recommended hotels and what a trip to the French Riviera actually costs.",
+        "destinations.html",
+        monaco_guide_body,
+        extra_schema=MONACO_GUIDE_SCHEMA,
+        canonical_path="monaco.html"
+    ))
+print("monaco.html written")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -21947,6 +22227,7 @@ SITEMAP_PAGES = [
     ("thailand.html", "0.6"),
     ("prague.html", "0.6"),
     ("jordan.html", "0.6"),
+    ("monaco.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
