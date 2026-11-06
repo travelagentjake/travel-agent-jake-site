@@ -1254,6 +1254,15 @@
    "created": "2026-11-05",
    "departs": "2027-09-26",
    "fromPrice": 7756
+  },
+  {
+   "slug": "nuala",
+   "url": "https://quotes.travelagentjake.co.uk/nuala",
+   "customer": "Nuala",
+   "title": "Disneyland Paris solo break, 3 nights from Edinburgh Sat 28 Nov to Tue 1 Dec 2026, three Val d'Europe hotels: B&B Hotel, All Suites Appart Hotel, ibis Val d'Europe (easyJet holidays), Disney tickets as extras",
+   "created": "2026-11-06",
+   "departs": "2026-11-28",
+   "fromPrice": 599
   }
  ]
 }
