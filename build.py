@@ -13391,6 +13391,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1769693649758-1529414586b4?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "The Rock of Gibraltar and the Strait of Gibraltar at sunset",
     },
+    {
+        "slug": "parental-consent-letter-child-travel-abroad.html",
+        "meta": "Family travel",
+        "title": "Taking your child abroad without the other parent: what UK law actually requires",
+        "excerpt": "The law on taking a child abroad without the other parent's consent, who actually needs to agree, what a consent letter should include, and which countries ask for more than the UK does.",
+        "image": "https://images.unsplash.com/photo-1722496074455-4478a66af6a3?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "A woman walking through an airport with a child, both pulling luggage",
+    },
 ]
 
 
@@ -20616,6 +20624,177 @@ with open(os.path.join(SITE, "gibraltar-spain-border-deal-2026.html"), "w", enco
     ))
 print("gibraltar-spain-border-deal-2026.html written")
 
+parental_consent_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>TRAVELLING ABROAD WITH YOUR CHILD BUT NOT THE OTHER PARENT: WHAT UK LAW ACTUALLY REQUIRES</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Between half term, Christmas and the first wave of summer 2027 enquiries, I've had the same question land on my desk three different ways this month. One parent taking the kids away without the other, a grandparent taking them on everyone's behalf, a newly single parent booking their first solo trip with the children. It's a genuinely common situation, and it's also one where getting it wrong isn't just awkward, it can be a criminal offence. Here's what UK law actually requires, who needs to agree to the trip, what to carry with you, and which destinations ask for more than the UK does.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three things worth knowing before you travel</h2>
+    <p style="margin-top:14px;">The short version is that this applies far more widely, and far more seriously, than most parents assume.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Every parent</div>
+        <h3 style="font-size:18px;">This isn't just a separated families issue</h3>
+        <p>Taking a child abroad without the right consent is a criminal offence under UK law, and it applies whether you're separated, happily married, or simply the parent who's free that week while the other one works.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">The letter itself</div>
+        <h3 style="font-size:18px;">Not always a legal must, but always a good idea</h3>
+        <p>The law requires consent, not a specific piece of paper. In practice, a signed letter is how you prove that consent exists if you're ever asked, at the UK border, a foreign one, or anywhere in between.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Beyond the UK</div>
+        <h3 style="font-size:18px;">Some destinations go further</h3>
+        <p>A handful of countries have their own extra documentation rules on top of whatever the UK asks for, and they don't always only apply when a child is travelling without any parent at all.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What UK law actually says</h2>
+    <img src="https://images.unsplash.com/flagged/photo-1564411478779-e2dbb9e90ca2?auto=format&fit=crop&w=1600&h=700&q=80" alt="A man carrying a young boy as they walk toward a parked passenger plane" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The relevant law is the Child Abduction Act 1984, and it's more serious than a lot of parents realise. Under Section 1, it's a criminal offence for a parent, guardian, or anyone named in a Child Arrangements Order as the person a child lives with, to take that child out of the UK without what the Act calls the appropriate consent. That consent has to come from everyone who holds parental responsibility for the child, not just one of them.</p>
+    <p style="margin-top:14px;">There's one specific exception. If a court order names you as the parent your child lives with, known as a Child Arrangements Order, you can take them abroad for up to 28 days without needing the other parent's consent at all, unless a separate order specifically says you can't. A special guardian has a slightly longer allowance of three months. Outside of those exceptions, consent is needed every time, for every trip, however short.</p>
+    <p style="margin-top:14px;">None of this changes depending on whether you were ever married to the other parent, or how long it's been since you last spoke to them. It's about who holds parental responsibility, not the state of your relationship with them.</p>
+    {jake_tip("Parliament passed some changes to this law during 2026 that hadn't fully come into force at the time of writing. The core principle, that everyone with parental responsibility needs to consent, isn't going anywhere, but if you're reading this well into next year, it's worth double checking nothing's shifted.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Who actually needs to give permission</h2>
+    <img src="https://images.unsplash.com/photo-1722496074455-4478a66af6a3?auto=format&fit=crop&w=1600&h=700&q=80" alt="A woman walking through an airport with a child, both pulling luggage" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A child's mother has parental responsibility automatically, from birth. A father has it if he was married to the mother when the child was born, if he's named on the birth certificate under the process introduced in 2003, or if he's been awarded it by a court or through a parental responsibility agreement. Guardians, special guardians, and anyone named in a Child Arrangements Order as the person the child lives with also hold it.</p>
+    <p style="margin-top:14px;">Step parents, grandparents and other relatives don't automatically have parental responsibility, even if they're the ones booking and paying for the holiday. If a grandparent is taking your children away this Christmas, they need exactly the same signed consent from everyone with parental responsibility as you would if you were the one travelling. It's one of the most common situations I see overlooked, because it doesn't feel like it should need the same paperwork as a parent travelling alone, but legally it does.</p>
+    <p style="margin-top:14px;">If you genuinely don't know who holds parental responsibility for your own child, for example if paternity was never formally established, or an order was made some years ago and you've lost track of its terms, that's worth untangling with a solicitor before you book, not after.</p>
+    {jake_tip("If a court order already covers travel, don't assume it still applies exactly as you remember it. Check the actual wording, or ask whoever handled it, before relying on it for this holiday specifically.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>If the other parent refuses, or you can't reach them</h2>
+    <img src="https://images.unsplash.com/photo-1698140539259-7b1cb90f6f2f?auto=format&fit=crop&w=1600&h=700&q=80" alt="A queue of passengers waiting in line at an airport" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Not being able to get consent doesn't automatically mean a holiday is off, but it does mean you need to handle it properly rather than just going anyway. The law gives you a defence if you genuinely believed the other person had consented or would have if they'd known the full details, or if you took all reasonable steps to contact them and simply couldn't. There's also a defence if someone unreasonably refused consent, though that one comes with an important limit. If the person refusing is themselves named in a Child Arrangements Order as the parent the child lives with, is a special guardian, or holds custody under a court order, you can't rely on their refusal being unreasonable. Their consent, or a court order overriding it, is the only way through.</p>
+    <p style="margin-top:14px;">If consent is refused and a court order is the only remaining route, you can apply for what's called a Specific Issue Order, asking the court to permit the trip. Apply as early as you possibly can, giving the departure date, when and how the child will return, and contact details for everyone with parental responsibility who's staying behind. Longer trips need more detail again, including things like what education the child will receive while away. If a holiday is genuinely imminent and this is still unresolved, speak to a family solicitor straight away rather than waiting to see if it resolves itself. Courts can and do deal with urgent applications quickly when a trip date is close.</p>
+    {jake_tip("I'm not a solicitor and can't advise on your specific situation, but I'd always rather hear from you early, even just to say you're sorting out consent and want to hold the booking, than find out it's still unresolved once you're at the airport. Ask early.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What a consent letter should actually include</h2>
+    <img src="https://images.unsplash.com/photo-1655722724447-2d2a3071e7f8?auto=format&fit=crop&w=1600&h=700&q=80" alt="A hand holding two passports with airline boarding passes tucked inside" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A letter from the parent or parents not travelling is usually enough to satisfy UK border checks, and it should cover a specific set of things. Include their full name and contact details, the dates of travel, the destination, and ideally the accommodation address. Name the child or children covered, and have the non travelling parent sign and date it, along with a copy of their passport or photo ID attached. If you're travelling with a court order rather than a letter, carry a sealed copy of it, and ask your solicitor whether anything extra, like an apostille, is needed for the destination you're visiting.</p>
+    <p style="margin-top:14px;">Carry your child's birth or adoption certificate too, since it shows your relationship to them. If your own surname is different from your child's, for example after marriage, divorce or remarriage, bring your marriage certificate, decree absolute, or change of name documents as well. Emma Newman, a senior family lawyer at Stowe Family Law, has specifically warned that airport staff and Border Force officers are more likely to ask follow up questions when a parent and child have different surnames, so it's worth having that paperwork ready even if you've never been stopped before.</p>
+    <p style="margin-top:14px;">None of this needs to be elaborate or expensive. A clearly written letter covering the points above, signed and dated, has been enough for the vast majority of my clients who've needed one.</p>
+    {jake_tip("Photograph the signed letter and the other parent's ID on your phone as well as carrying the paper copies. If an original gets lost or left behind in the rush of travel day, a clear photo on your phone has got several of my clients through without any issue.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Some countries ask for more than the UK does</h2>
+    <img src="https://images.unsplash.com/photo-1563463149242-bd378d9ab05c?auto=format&fit=crop&w=1600&h=700&q=80" alt="A Passport Control sign at an airport border crossing" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The UK's own rules are what govern you leaving this country, but your destination can have entirely separate requirements, and they're worth checking properly rather than assuming the UK's rules are the only ones that matter.</p>
+    <p style="margin-top:14px;">South Africa is the example that comes up most. The South African Department of Home Affairs sets out specific documents for a child travelling with only one parent, including a parental consent letter no more than six months old, a copy of the child's birth certificate, and a copy of the absent parent's passport or ID with their contact details. The official table for visa exempt visitors, which includes UK passport holders, lists only a valid passport as a requirement, and the guidance itself dates from 2019, so there's a genuine grey area over exactly how strictly it's enforced for British families specifically. Given that, and given how many stories exist of families being delayed or questioned at South African immigration over exactly this, I'd always tell clients to carry the consent letter, birth certificate copy and the absent parent's ID regardless of the technical exemption. It costs nothing to have it ready, and it's one of the only things that can genuinely hold up an otherwise straightforward arrival.</p>
+    <p style="margin-top:14px;">Closer to home, TUI's own published country guidance flags specific consent or authorisation letter requirements for several European destinations, including Spain, Portugal, Croatia, Latvia, Austria and Romania, mostly aimed at a young person travelling without any parent present, or at that country's own nationals leaving on their own passport. They're less likely to catch out a British family travelling together with one parent, but the fact they exist at all is a useful reminder to check your own operator's country specific travel documents page before you go, not just this general UK guidance.</p>
+    {jake_tip("Whoever you're booking through, their country specific travel requirements page is worth five minutes of your time before you book, not after you land. I'll flag anything unusual I spot when I'm quoting you, but it's your family at the airport, so it's worth seeing it with your own eyes too.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What this means for how you book</h2>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Everyone with parental responsibility needs to consent to every trip abroad.</b> Unless you hold a Child Arrangements Order and the trip is under 28 days.</span></li>
+      <li><span class="num">2</span><span><b>A signed letter isn't always a strict legal requirement, but carry one anyway.</b> It's how you prove consent exists if you're ever asked, at the UK border or a foreign one.</span></li>
+      <li><span class="num">3</span><span><b>If consent is refused or the other parent can't be reached, don't just go.</b> Rely on the legal defences only where they genuinely apply, or apply to court early if they don't.</span></li>
+      <li><span class="num">4</span><span><b>Carry your child's birth certificate and your own ID documents too.</b> Especially if your surname differs from theirs.</span></li>
+      <li><span class="num">5</span><span><b>Check your destination's own requirements separately from the UK's.</b> South Africa and several European countries have their own extra rules worth reading in advance.</span></li>
+    </ul>
+    {jake_tip("Message me if you're planning a trip and any of this applies to your family. I can't give legal advice, but I can make sure the booking itself, and the documents your operator asks for, are sorted well before departure day.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Do I need a letter from the other parent every single time I take my child abroad?</h3>
+      <p>Generally yes, unless you hold a Child Arrangements Order naming you as the parent your child lives with, in which case you can travel for up to 28 days without their consent. Outside that exception, consent is needed for every trip, however short or routine it feels.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What happens if the other parent won't agree, or I can't get hold of them?</h3>
+      <p>You may have a defence if you genuinely believed they'd consent, or if you took all reasonable steps to contact them and couldn't. If they've actively refused and that refusal can't be treated as unreasonable in law, your only route is applying to court for a Specific Issue Order, ideally well before your travel date.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does the consent letter need to be notarised or witnessed?</h3>
+      <p>Not for the UK's own requirement, a signed letter is normally enough. Some specific destination countries ask for a notarised or certified version in certain circumstances, so it's worth checking your specific country rather than assuming.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Will Border Force or the airline definitely stop us if my child has a different surname to me?</h3>
+      <p>Not definitely, but it does make a follow up question more likely, according to family law specialists. Carrying your child's birth certificate and, if relevant, your marriage or divorce certificate alongside the consent letter covers you either way.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does any of this apply if we're not separated, just one of us isn't coming on this particular holiday?</h3>
+      <p>Yes. The law is about who holds parental responsibility, not about whether you're together as a couple. A married parent travelling without their spouse needs exactly the same consent as a separated one does.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1687660187066-dc7e95eb3c5e?auto=format&fit=crop&w=1600&h=700&q=80" alt="A parent sitting with two children, looking out over a view together" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Planning a trip with one parent, a grandparent, or just you and the kids?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Tell me who's travelling and I'll make sure the booking itself is straightforward, so the only thing you need to sort separately is the paperwork above.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+parental_consent_body = parental_consent_body.replace("::NEWSLETTER::", newsletter_section())
+
+PARENTAL_CONSENT_SCHEMA = article_and_faq_schema(
+    "Travelling Abroad With Your Child but Not the Other Parent: What UK Law Actually Requires",
+    "The law on taking a child abroad without the other parent's consent, who actually needs to agree, what a consent letter should include, and which countries ask for more than the UK does.",
+    "parental-consent-letter-child-travel-abroad.html",
+    "https://images.unsplash.com/photo-1722496074455-4478a66af6a3?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("Do I need a letter from the other parent every single time I take my child abroad?", "Generally yes, unless you hold a Child Arrangements Order naming you as the parent your child lives with, in which case you can travel for up to 28 days without their consent. Outside that exception, consent is needed for every trip, however short or routine it feels."),
+        ("What happens if the other parent won't agree, or I can't get hold of them?", "You may have a defence if you genuinely believed they'd consent, or if you took all reasonable steps to contact them and couldn't. If they've actively refused and that refusal can't be treated as unreasonable in law, your only route is applying to court for a Specific Issue Order, ideally well before your travel date."),
+        ("Does the consent letter need to be notarised or witnessed?", "Not for the UK's own requirement, a signed letter is normally enough. Some specific destination countries ask for a notarised or certified version in certain circumstances, so it's worth checking your specific country rather than assuming."),
+        ("Will Border Force or the airline definitely stop us if my child has a different surname to me?", "Not definitely, but it does make a follow up question more likely, according to family law specialists. Carrying your child's birth certificate and, if relevant, your marriage or divorce certificate alongside the consent letter covers you either way."),
+        ("Does any of this apply if we're not separated, just one of us isn't coming on this particular holiday?", "Yes. The law is about who holds parental responsibility, not about whether you're together as a couple. A married parent travelling without their spouse needs exactly the same consent as a separated one does."),
+    ]
+)
+
+with open(os.path.join(SITE, "parental-consent-letter-child-travel-abroad.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Travelling Abroad With Your Child but Not the Other Parent: What UK Law Actually Requires | Travel Agent Jake",
+        "The law on taking a child abroad without the other parent's consent, who actually needs to agree, what a consent letter should include, and which countries ask for more than the UK does.",
+        "travel-tips.html",
+        parental_consent_body,
+        extra_schema=PARENTAL_CONSENT_SCHEMA,
+        canonical_path="parental-consent-letter-child-travel-abroad.html"
+    ))
+print("parental-consent-letter-child-travel-abroad.html written")
+
+
 
 
 
@@ -22389,6 +22568,7 @@ SITEMAP_PAGES = [
     ("black-friday-holiday-scams-what-to-check-before-you-book.html", "0.7"),
     ("schengen-90-180-day-rule-explained.html", "0.7"),
     ("gibraltar-spain-border-deal-2026.html", "0.7"),
+    ("parental-consent-letter-child-travel-abroad.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
