@@ -2148,6 +2148,13 @@ DESTINATION_POSTS = [
         "excerpt": "Monte Carlo's casino, Michelin star restaurants and a harbour full of superyachts: weather by month, where to stay, things to do and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1491251880772-1fe1c8b6d5f6?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "agadir.html",
+        "meta": "Agadir",
+        "title": "Agadir, Morocco",
+        "excerpt": "Morocco's biggest beach resort, weather by month, where to stay, things to do, real multi centre options with Marrakech, Essaouira and the Sahara, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1665303655457-cd9655b4ff9d?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -22313,6 +22320,283 @@ with open(os.path.join(SITE, "monaco.html"), "w", encoding="utf-8") as f:
 print("monaco.html written")
 
 
+agadir_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>AGADIR</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Morocco's biggest beach resort, over 300 days of sunshine a year, Morocco's best surf towns on its doorstep and the Atlas Mountains and the Sahara within easy reach. Here's exactly how I book Agadir, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Agadir</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1665303655457-cd9655b4ff9d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Agadir's long beach and promenade against the city" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Agadir doesn't get talked about as much as Marrakech, but it's quietly one of the best value winter sun options I book. It was rebuilt almost entirely after a huge earthquake in 1960, so instead of a medina you get wide boulevards, a long sandy beach and a run of modern resort hotels, more like a classic package resort than the Morocco most people picture. It suits clients who want reliable sunshine, a proper beach and an easy flight, without the heat of the Caribbean or the crowds of the Canaries in peak season.</p>
+    <p style="margin-top:14px;">I put together flight and hotel packages to Agadir, covering both Agadir itself and Taghazout, the surf village just up the coast, comparing prices across the suppliers I work with.</p>
+    {jake_tip("A lot of clients don't realise Agadir and Taghazout are effectively the same trip, just two different bases about 20 minutes apart. Agadir gives you the long beach, the marina and the souk right outside your hotel. Taghazout gives you a quieter, surf focused village feel. I ask what matters more, choice and convenience or a slower pace, before steering someone toward either.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the shortest length I'd really suggest given the flight time, and it's enough for a straightforward beach week. Ten to fourteen nights is the sweet spot for most clients, especially anyone wanting to add on a day trip or a short stay in Marrakech or Essaouira. Agadir suits winter sun seekers, since it stays genuinely warm right through the colder UK months, surfers of every level thanks to Taghazout on its doorstep, families who want a long sandy beach and resort hotels built with kids in mind, and couples or golfers after an easy, reliable short to medium haul break.</p>
+    <p style="margin-top:14px;">It's less suited to clients chasing Morocco's classic imperial city culture in one trip, since Agadir itself has no medina or historic old town of its own, that side of Morocco is better found in Marrakech, which I regularly add on as a multi centre (see further down this guide). It's also not the pick for clients wanting big nightlife, Agadir is a relaxed, family friendly resort rather than a party destination.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1777815977491-374f40a23752?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The coastal village of Taghazout near Agadir" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Flights land at Agadir Al Massira Airport (AGA), around 25 minutes from the hotel zone. Flight time from the UK runs from around 3 hours 30 minutes up to 4 hours 30 minutes depending on which airport you fly from, so it's a genuinely easy short to medium haul trip, similar in length to flying to the Canary Islands or Egypt's Red Sea coast. I compare prices across the suppliers I work with to find the best fit for your dates and departure airport.</p>
+    {jake_tip("I always point out to clients that Agadir's flight time is very close to the Canaries, but the weather holds up noticeably better through autumn and into early winter, so it's worth considering as an alternative if the Canaries are fully booked or the budget's tight.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Agadir has one of Morocco's mildest, most consistent climates, cooled by the Atlantic, so it avoids the extreme summer heat you get further inland in Marrakech. These are long term monthly averages.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>20&deg;C</td><td>8&deg;C</td><td>17&deg;C</td><td>Mild but cool in the evenings, one of the wetter months, good value low season</td></tr>
+          <tr><td>February</td><td>20&deg;C</td><td>9&deg;C</td><td>16&deg;C</td><td>Still cool, occasional rain, the coolest sea temperatures of the year</td></tr>
+          <tr><td>March</td><td>21&deg;C</td><td>11&deg;C</td><td>17&deg;C</td><td>Spring warming begins, popular for hiking Paradise Valley</td></tr>
+          <tr><td>April</td><td>21&deg;C</td><td>12&deg;C</td><td>17&deg;C</td><td>Mild and largely dry, good for sightseeing and day trips</td></tr>
+          <tr><td>May</td><td>23&deg;C</td><td>14&deg;C</td><td>17&deg;C</td><td>Warming up nicely, start of the main water sports season</td></tr>
+          <tr><td>June</td><td>23&deg;C</td><td>16&deg;C</td><td>18&deg;C</td><td>Hot and dry, good surf without peak season crowds</td></tr>
+          <tr><td>July</td><td>26&deg;C</td><td>18&deg;C</td><td>19&deg;C</td><td>Peak summer heat, the driest month of the year</td></tr>
+          <tr><td>August</td><td>26&deg;C</td><td>18&deg;C</td><td>20&deg;C</td><td>Hottest and busiest, the Timitar Music Festival fills the streets</td></tr>
+          <tr><td>September</td><td>26&deg;C</td><td>17&deg;C</td><td>20&deg;C</td><td>Still hot with the warmest sea of the year, quieter than August</td></tr>
+          <tr><td>October</td><td>25&deg;C</td><td>15&deg;C</td><td>20&deg;C</td><td>Warm with rain returning, bigger swells start to draw experienced surfers</td></tr>
+          <tr><td>November</td><td>22&deg;C</td><td>12&deg;C</td><td>19&deg;C</td><td>Cooling and wetter, peak season for experienced surfers in Taghazout</td></tr>
+          <tr><td>December</td><td>20&deg;C</td><td>9&deg;C</td><td>18&deg;C</td><td>Mild winter sun, usually the wettest month of the year</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Agadir, via Weather2Travel's climate data.</p>
+    {jake_tip("Surfers chasing bigger waves should look at October to February, when swells pick up along this stretch of coast. Anyone who just wants calm, warm water for a first go on a board is better off in the May to September window.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1709468001339-15abc2ed950e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A quiet stretch of Morocco's Atlantic coastline" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>March to May and June to August both work well, giving warm, reliable weather, with spring slightly cooler and less humid than the height of summer. July and August are the hottest, driest and busiest months, when the Timitar Music Festival also takes over the streets. November to February is Agadir's low season, noticeably cheaper and quieter, and the sea stays mild enough to swim in even then, since Agadir rarely gets genuinely cold. It's also when Taghazout's surf really comes alive, with bigger swells drawing experienced surfers from October through to around February.</p>
+    {jake_tip("Agadir is one of the few places I sell that genuinely holds its weather through winter, so I often suggest it to clients who want a reliable sunshine break over Christmas or New Year without paying peak summer prices.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across Agadir and Taghazout.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1628642004970-1da51c8c7dec?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A hotel pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Argana</h3>
+        <p>4 star, right in the heart of Agadir, around 400m from shops, bars and restaurants and just over a kilometre from the beach. Two outdoor pools, a gym, a spa and a buffet restaurant, with bed and breakfast, half board or full board available. A straightforward, well located city centre base. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best all inclusive</div>
+        <img src="https://images.unsplash.com/photo-1675271815142-2b8c5373d091?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Surfing off the coast near Agadir" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Royal Decameron Tafoukt Beach Resort &amp; Spa</h3>
+        <p>4 star, beachfront in Agadir with all inclusive as standard, just 100m from the nearest shops and bars. Two outdoor pools, an indoor adults only pool, a spa and three restaurants. A genuinely all inclusive, do everything on site option right on the beach. Ask me and I will price it up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families</div>
+        <img src="https://images.unsplash.com/photo-1538053367502-742497073841?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The village of Taghazout on Morocco's Atlantic coast" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hilton Taghazout Bay Beach Resort &amp; Spa</h3>
+        <p>5 star, beachfront in Taghazout with a kids' club, a freshwater children's pool, four restaurants and an indoor adults only pool for the grown ups to escape to. A well rounded, family focused resort a short drive from Agadir itself. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1738084766236-16ce5bb14305?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A surfer at sunset in Taghazout" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Fairmont Taghazout Bay</h3>
+        <p>5 star, part of a hand picked collection of Morocco's top tier hotels, beachfront in Taghazout with two freshwater pools, four a la carte restaurants and a spa. A certified sustainable hotel and the pick for a genuinely upscale stay. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Star ratings, board basis and facilities as published at the time of writing. I always check current pricing and availability before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Orange petit taxis are the easiest way to get around Agadir itself, cheap and metered, though it's worth confirming the driver is using the meter or agreeing a price before you set off. Cream coloured grand taxis cover longer routes, including out to Taghazout, usually shared with other passengers and leaving once full, or you can hire the whole taxi for a more direct, private trip. A local bus network exists but is mostly used by residents rather than tourists. Most hotels in both Agadir and Taghazout are within easy walking distance of the beach, and Taghazout itself is only around 20 to 25 minutes from central Agadir by taxi.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1793489208801-e2f7d1bdfb82?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Surfers riding a wave off Taghazout near Agadir" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities around Agadir worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="1380942,1363696,1136104,990099"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/agadir-l1413/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/agadir-l1413/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Agadir &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1710092538995-4af0c11a3f3c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The coastline near Agadir, backed by hills" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Kasbah Agadir Oufella</h3>
+        <p>A 16th century hilltop fort reachable by cable car, with sweeping views over the city, the port and the beach. One of the best spots in Agadir to watch the sunset.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1517821099606-cef63a9bcda6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A colourful souk stall in Morocco" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Souk El Had</h3>
+        <p>North Africa's largest urban market, thousands of stalls selling spices, leather goods, pottery and argan oil. A proper, no frills Moroccan market rather than a tourist trap, worth setting aside a couple of hours.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1652875232247-61cafb3737bd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Seabirds along the coast near Agadir" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Agadir Marina</h3>
+        <p>A smart, modern marina lined with restaurants and cafes, with boat trips and fishing excursions departing most days. A relaxed spot for an evening out away from the main resort strip.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1587296620342-01ea964c091e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sun loungers and umbrellas on an Atlantic coast beach" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Agadir Beach &amp; the Corniche</h3>
+        <p>One of Morocco's longest beaches, a wide sweep of golden sand backed by a palm lined promenade, cafes and family friendly attractions. The natural heart of any stay in Agadir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Agadir with the rest of Morocco</h2>
+    <p style="margin-top:14px;">Agadir pairs naturally with the rest of Morocco, and I regularly build this as a proper multi centre trip rather than a single hotel stay. Here are three real ways I'd put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1729356953156-17b199a36ca4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Koutoubia Mosque's minaret towering over Marrakech" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Agadir &amp; Marrakech</h3>
+        <p>Beach time in Agadir followed by a few nights at the Savoy Le Grand Hotel, a 5 star hotel in Marrakech's Hivernage district, around 2km from the Medina and Jemaa el Fna Square. A private transfer between the two takes around 3 hours. The classic way to combine Morocco's coast with its most famous imperial city.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1758441301111-221320b2dff5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Blue fishing boats in a Moroccan harbour" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Agadir &amp; Essaouira</h3>
+        <p>A quieter pairing of two coastal towns, finishing the trip at the Sofitel Essaouira Mogador Golf &amp; Spa, a 4.5 star beachfront hotel about 2km from Essaouira's walled old town, famous for its arts scene, blue fishing boats and sea breeze. Around 3 hours by road from Agadir. A good fit for clients who want more Morocco without the pace of a big city.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1641954090963-6ad67b14759f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A palm fringed oasis village in Morocco's south" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Agadir &amp; the Sahara</h3>
+        <p>For clients wanting the full Morocco experience, I can add on a 3 day escorted desert tour, running from Marrakech over the High Atlas Mountains to the Erg Chebbi dunes at Merzouga, taking in Ait Ben Haddou's kasbah, a camel trek and a night under canvas in a desert camp, with a transfer back to Agadir to finish the trip.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I'll put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Morocco uses the dirham, a currency that isn't freely convertible outside the country, so you'll need to change money on arrival. Prices below are shown in pounds with the dirham equivalent alongside, based on a rate of roughly &pound;1 to 13 MAD. These are crowd sourced averages, and prices inside hotels and resort areas can run higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cheap meal at a local restaurant</td><td>&pound;3.85 (about 50 MAD)</td></tr>
+          <tr><td>Three course meal for two, mid-range restaurant</td><td>&pound;17.75 (about 231 MAD)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.60 (about 21 MAD)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;0.40 (about 5 MAD)</td></tr>
+          <tr><td>Local draft beer, a pint</td><td>&pound;3.85 (about 50 MAD)</td></tr>
+          <tr><td>Petit taxi, short ride within Agadir</td><td>From around &pound;0.45 (about 6 MAD), metered</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd sourced consumer price data via Numbeo, checked at time of writing. Dirham to pound conversion is approximate and will move around.</p>
+    {jake_tip("Since dirhams can't be exchanged back once you're home, I always tell clients not to change up more cash than they'll realistically spend, and to use a card where they can for anything bigger.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Moroccan Dirham (MAD), not freely convertible outside Morocco, so exchange on arrival and change back before you fly home</td></tr>
+          <tr><td>Plug type</td><td>Type C and E (European two pin), voltage is 220V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Arabic and Tamazight (Berber) are the official languages, French is widely spoken, with some English in hotels and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 3 hours 30 minutes to 4 hours 30 minutes depending on your departure airport</td></tr>
+          <tr><td>Time difference</td><td>The same as the UK during British Summer Time, 1 hour ahead of the UK in winter when the UK is on GMT, with Morocco switching back to GMT for the duration of Ramadan each year</td></tr>
+          <tr><td>Entry requirements</td><td>No visa needed for UK passport holders for stays of up to 90 days. Your passport needs at least 3 months left on it from your arrival date, and make sure it's stamped on arrival</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Sergey Sukhov, achraf gassab, Matthew Fransdonk, Michal Vrba, Jessica Kantak Bailey, Louis Hansel, mohamed Bouboul, Dariusz Kanclerz, Annie Spratt, Mini Naim, SnapSaga, Rault Valentin, Sheila C, jewad alnabi and Desert Morocco Adventure via Unsplash.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Agadir for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to Agadir alone, add on Marrakech, Essaouira or the Sahara as a proper multi centre, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+agadir_guide_body = agadir_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+AGADIR_GUIDE_SCHEMA = article_and_faq_schema(
+    "Agadir: Jake's Destination Guide",
+    "Jake's honest guide to Agadir, Morocco: weather by month, where to stay, things to do, real multi centre options with Marrakech, Essaouira and the Sahara, and what a trip actually costs.",
+    "agadir.html",
+    "https://images.unsplash.com/photo-1665303655457-cd9655b4ff9d?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book Agadir for me?", "Yes. I put together flight and hotel packages to Agadir, covering both Agadir itself and Taghazout, comparing prices across the suppliers I work with and building the trip around you."),
+        ("Do I need a visa for Morocco?", "No. UK passport holders don't need a visa for stays of up to 90 days. Your passport needs at least 3 months left on it from your arrival date, and you should make sure it's stamped on arrival."),
+        ("What's the best time to visit Agadir?", "March to May and June to August both give warm, reliable weather, with July and August the hottest and busiest. November to February is quieter and cheaper, and also when Taghazout's surf really comes alive, with bigger swells drawing experienced surfers."),
+        ("Can Agadir be combined with Marrakech or the Sahara?", "Yes. I regularly build this as a real, bookable multi centre trip, splitting a stay between Agadir and Marrakech for Morocco's most famous imperial city, Agadir and Essaouira for a quieter coastal pairing, or adding a 3 day escorted desert tour to the Sahara with a transfer back to Agadir."),
+        ("Is Agadir good for surfing?", "Yes. Taghazout, just up the coast from Agadir, is one of the world's best known surf towns, with options for complete beginners through to experienced surfers, and bigger swells from around October to February."),
+    ]
+)
+with open(os.path.join(SITE, "agadir.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Agadir: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Agadir, Morocco: weather by month, where to stay, things to do, real multi centre options with Marrakech, Essaouira and the Sahara, and what a trip actually costs.",
+        "destinations.html",
+        agadir_guide_body,
+        extra_schema=AGADIR_GUIDE_SCHEMA,
+        canonical_path="agadir.html"
+    ))
+print("agadir.html written")
+
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -22366,6 +22650,7 @@ SITEMAP_PAGES = [
     ("prague.html", "0.6"),
     ("jordan.html", "0.6"),
     ("monaco.html", "0.6"),
+    ("agadir.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
