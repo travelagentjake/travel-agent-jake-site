@@ -1285,6 +1285,17 @@
    "created": "2026-11-07",
    "departs": "2027-06-11",
    "fromPrice": 5176
+  },
+  {
+   "slug": "kateegypt",
+   "url": "https://quotes.travelagentjake.co.uk/kateegypt",
+   "customer": "Kate",
+   "enquiryId": "",
+   "quoteRequestId": "",
+   "title": "Egypt beach holiday for 1 adult, all inclusive 7 nights, late June 2027: The Grand Hotel Hurghada and Makadi Palace from Cardiff Sat 26 Jun (Red Sea Holidays), Sunrise Solara Aqua Park from East Midlands Wed 23 Jun (Jet2holidays)",
+   "created": "2026-11-07",
+   "departs": "2027-06-23",
+   "fromPrice": 945.2
   }
  ]
 }
