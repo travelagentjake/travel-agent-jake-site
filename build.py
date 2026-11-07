@@ -2155,6 +2155,13 @@ DESTINATION_POSTS = [
         "excerpt": "Morocco's biggest beach resort, weather by month, where to stay, things to do, real multi centre options with Marrakech, Essaouira and the Sahara, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1665303655457-cd9655b4ff9d?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "thassos.html",
+        "meta": "Thassos",
+        "title": "Thassos, Greece",
+        "excerpt": "A green, forested Greek island close to the mainland: how to actually get there, weather by month, where to stay, things to do, real multi centre options with Kavala, Thessaloniki and Halkidiki, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1601581875039-e9deda67df42?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -22480,6 +22487,282 @@ print("agadir.html written")
 
 
 
+thassos_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>THASSOS</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Greece's greenest island, a Greek island with no airport of its own, and a genuinely different pace to the Greek islands most people already know. Here's exactly how I book Thassos, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Thassos</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1496566084516-c5b96fcbd5c8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Golden sand and clear water on Thassos's Golden Beach" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Thassos sits in the far north of the Aegean, closer to Thessaloniki than to the islands clients usually ask me about, and it shows in a good way. It's covered in pine forest and marble mountains rather than the bare, scrubby hills you get further south, the beaches are genuinely some of the best in Greece, and it still gets a fraction of the visitor numbers of Corfu, Crete or Zante. There's no airport on the island itself, which keeps it quieter and is exactly why most of my clients haven't been before.</p>
+    <p style="margin-top:14px;">I put together flight and hotel packages to Thassos, comparing prices and routing across the suppliers I work with to find the best fit for your dates.</p>
+    {jake_tip("I describe Thassos to clients as the Greek island for people who think they have already done the Greek islands. It suits anyone who wants real beaches and a proper local feel without a single big resort strip, rather than clients who want to roll straight off the plane into their hotel.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Because of the extra ferry leg to reach the island, seven nights is the shortest length I'd suggest, so the travelling time doesn't eat into the holiday too much. Ten to fourteen nights is the sweet spot, giving you time to properly explore the coast road, fit in a hike up Mount Ipsarion or through the old villages, and still spend plenty of days doing nothing but swimming. Thassos suits couples and families after a quieter, greener Greek island, hikers and nature lovers thanks to the marble mountains and forest trails running right down to the coast, and clients who want real, working tavernas rather than a resort strip built purely for tourists.</p>
+    <p style="margin-top:14px;">It's less suited to clients who want nightlife or a big choice of bars and clubs, Thassos is a relaxed, family friendly island rather than a party destination, and it's also not the pick for anyone who wants to be in their hotel within an hour of landing, since the ferry crossing is part of every trip here.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1786374352306-bf1cf5a76105?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boats moored in a Greek harbour" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Thassos has no airport of its own, so every trip here involves a short ferry crossing from the Greek mainland. Right now the most straightforward route is to fly into Thessaloniki, the region's main international airport, then transfer by road to the port at Keramoti for the crossing. From summer 2027, new seasonal flights are launching direct to the much closer Kavala International Airport, around a 15 minute drive from Keramoti, opening up a genuinely quick route onto the island from several UK airports including Birmingham, Manchester and London Stansted for the first time. The ferry itself from Keramoti to Limenas, the island's main town, takes about 40 minutes and runs dozens of times a day in summer, or you can cross from Kavala itself to Skala Prinos in around 1 hour 15 minutes. I compare prices and routing across the suppliers I work with to find the best fit for your dates and departure airport.</p>
+    {jake_tip("Once Kavala flights launch for summer 2027, total door to door time will drop a long way, roughly 15 minutes from the airport to Keramoti port plus a 40 minute crossing, against a 2 hour plus road transfer from Thessaloniki today. I'll always suggest whichever route works out faster and better value for your dates.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Thassos has a typical northern Aegean climate, warm and dry in summer, cooler and wetter in winter than the Greek islands further south. These are long term monthly averages.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>7&deg;C</td><td>1&deg;C</td><td>13&deg;C</td><td>Cold and often wet, the quietest month, many hotels closed for winter</td></tr>
+          <tr><td>February</td><td>9&deg;C</td><td>2&deg;C</td><td>12&deg;C</td><td>Still cold, low season throughout</td></tr>
+          <tr><td>March</td><td>11&deg;C</td><td>3&deg;C</td><td>12&deg;C</td><td>Mild days but chilly evenings, one of the wetter months</td></tr>
+          <tr><td>April</td><td>16&deg;C</td><td>7&deg;C</td><td>14&deg;C</td><td>Warming up nicely, green hillsides and wildflowers, good for hiking</td></tr>
+          <tr><td>May</td><td>21&deg;C</td><td>11&deg;C</td><td>19&deg;C</td><td>Warm and mostly dry, sea still cool, good value before peak season</td></tr>
+          <tr><td>June</td><td>26&deg;C</td><td>15&deg;C</td><td>23&deg;C</td><td>Hot and dry, swimming season properly begins</td></tr>
+          <tr><td>July</td><td>28&deg;C</td><td>17&deg;C</td><td>26&deg;C</td><td>Peak summer heat, the driest month of the year</td></tr>
+          <tr><td>August</td><td>28&deg;C</td><td>17&deg;C</td><td>26&deg;C</td><td>Hottest and busiest month, book well ahead</td></tr>
+          <tr><td>September</td><td>24&deg;C</td><td>13&deg;C</td><td>24&deg;C</td><td>Still hot with the warmest sea of the year, noticeably quieter than August</td></tr>
+          <tr><td>October</td><td>18&deg;C</td><td>9&deg;C</td><td>21&deg;C</td><td>Cooling down, rain returning, good for last minute sun and hiking</td></tr>
+          <tr><td>November</td><td>13&deg;C</td><td>6&deg;C</td><td>18&deg;C</td><td>Cool and wet, most hotels closing for the season</td></tr>
+          <tr><td>December</td><td>9&deg;C</td><td>2&deg;C</td><td>15&deg;C</td><td>Cold and usually the wettest month, largely closed for winter</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Thassos, via Weather2Travel and Seatemperature's climate data.</p>
+    {jake_tip("June and September both give you properly warm sea without August's crowds or prices, so I point a lot of clients toward those two months if their dates are flexible.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1784709856810-9be1ddc66f71?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Turquoise water against a pine covered coastline" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>June to September is the main window for a beach focused trip, with July and August the hottest, driest and busiest months on the island. September is a genuine sweet spot, the sea is at its warmest all year and the crowds have thinned right out. May and October work well for clients more interested in hiking the marble mountains and exploring the old villages than lying on a beach all day, the weather is mild and pleasant even if the sea is a touch cool for a long swim. November through March is Thassos's quiet season, many hotels close completely and it's really only worth considering for a short, low key visit rather than a typical holiday.</p>
+    {jake_tip("If a client asks me for the single best value window on Thassos, I always say September. Same warm sea as August, a fraction of the crowds, and noticeably lower prices.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across the island.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1657975096580-fbc02953d27a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A restored stone building in a Greek old town" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">A for Art Hotel</h3>
+        <p>4 star boutique hotel in Limenas, the island's capital, set inside a restored early 20th century tobacco warehouse right by the old port and the ancient Agora. An outdoor pool, restaurant and bar, with design led rooms that mix the original building with contemporary art. A properly characterful base with everything on foot. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for a quiet cove</div>
+        <img src="https://images.unsplash.com/photo-1790325477249-5453f49f68fb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A pine branch framing a view of a blue cove" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Makryammos Bungalows</h3>
+        <p>4 star bungalow style hotel set in pine forest a short drive from Limenas, built around its own small sandy cove. Outdoor and children's pools, tennis courts and a handful of restaurants, with rooms spread through the pine trees rather than stacked in a single block. A lovely pick for families who want their own patch of beach. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best big beachfront resort</div>
+        <img src="https://images.unsplash.com/photo-1601836743857-4d1e6da20a32?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Golden sand beach and clear water" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Ilio Mare</h3>
+        <p>A large, long established beachfront resort near Skala Prinos on the east coast, close to Golden Beach. Outdoor and children's pools, a poolside bar, two restaurants, a fitness centre and an outdoor tennis court, right on the sand. A straightforward do everything on site option for families. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for spa &amp; wellness</div>
+        <img src="https://images.unsplash.com/photo-1631260513127-96af176d3fbb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A pine covered cove on a Greek coastline" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Alexandra Beach Thassos Spa Resort</h3>
+        <p>Beachside resort in Potos on the south coast, with two outdoor pools, a full spa offering massages and facials, a sauna and an outdoor tennis court. Two restaurants and several bars round it out. A good pick for clients who want a slower, more spa focused week. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities as published at the time of writing. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">A hire car is genuinely the best way to see Thassos, the ring road around the island is only around 100km and lets you reach the marble beaches, mountain villages and the old capital Theologos easily in a day. Local buses (the KTEL network) run between the main towns and are a cheap, workable option if you're staying put in one resort and just want the odd day out. Taxis are easy to find in Limenas and the bigger resorts but cost more for longer journeys around the island. Most hotels are a short walk from their nearest beach, and Limenas itself is easily walkable for shops, restaurants and the ferry port.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1788553389322-7a43d082696f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="People swimming in the Giola natural rock pool on Thassos" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and activities around Thassos worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="436574,665429,1245934,1184335"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/thasos-l88982/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/thasos-l88982/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Thassos &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1635536485693-590e5f41a291?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A waterfall running through a rocky Greek landscape" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Giola Lagoon</h3>
+        <p>A natural rock pool carved into the coastline near Astris, filled with seawater and framed by rocks you can jump from. One of the most photographed spots on the island, best visited early or late in the day to avoid the crowds.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1657975096580-fbc02953d27a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A stone building in an old Greek mountain village" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Theologos</h3>
+        <p>The island's old capital, a mountain village of white marble and grey slate roofed houses a short walk from the twin waterfalls and ponds at Kefalogourna. A proper step away from the coast and resorts.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1667114635170-da8b153684b1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A large white rock formation" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Saliara Marble Beach</h3>
+        <p>A striking white marble beach near Thassos Town, the stone ground down into bright white pebbles and sand against turquoise water. Shade is limited, so it's worth bringing your own.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1642687791249-86d868e17746?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An olive grove on a Greek hillside" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Ancient Agora &amp; the Archaeological Museum, Limenas</h3>
+        <p>The remains of the island's ancient marketplace sit right in the middle of modern Limenas, next to a small museum and the old harbour. A quick, easy way to fit a bit of history into a beach day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Thassos with the Greek mainland</h2>
+    <p style="margin-top:14px;">Because every trip to Thassos already passes through the mainland, it pairs naturally with a few days on the Greek mainland rather than another island. Here are three real ways I'd put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1551189654-7a5ac7381f8b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of a Greek harbour town" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Thassos &amp; Kavala</h3>
+        <p>The simplest extension, a few nights at the Imaret, a beautifully restored 19th century hotel in Kavala's historic Panagia old town, right where the ferries to Thassos depart. Easy to add a day trip to the Philippi archaeological site, a UNESCO World Heritage listed ancient city, along the way.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1766261010715-f5c230be72f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Thessaloniki's White Tower on the seafront" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Thassos &amp; Thessaloniki</h3>
+        <p>Beach time on Thassos followed by a city break at the Electra Palace Thessaloniki, a 5 star hotel right on Aristotelous Square in Greece's second city, known for its food scene, waterfront promenade and Byzantine sites. Around a 2 hour road transfer from the Keramoti ferry port.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1631260513009-d0d26b1371c4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of a beach in Halkidiki, Greece" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Thassos &amp; Halkidiki</h3>
+        <p>For clients who want two very different beach weeks, finish the trip at the Danai Beach Resort &amp; Villas, a 5 star hotel in Nikiti on the Sithonia peninsula, around 1 hour 20 minutes by road from Thessaloniki. Pine forested coastline and quieter beaches than Thassos's busiest spots.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I'll put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Greece uses the euro. Thassos itself isn't tracked separately by the major cost of living databases, so these are crowd sourced averages for the wider Thessaloniki and northern Greece area, shown in pounds with the euro equivalent alongside. Prices on the island itself, especially in the busier resorts in peak season, can run a bit higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cheap meal at a local taverna</td><td>&pound;12.45 (about &euro;15.00)</td></tr>
+          <tr><td>Three course meal for two, mid-range restaurant</td><td>&pound;38.20 (about &euro;46.00)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;2.95 (about &euro;3.55)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;0.50 (about &euro;0.60)</td></tr>
+          <tr><td>Local draft beer, a pint</td><td>&pound;3.55 (about &euro;4.25)</td></tr>
+          <tr><td>Taxi, short ride, starting fare</td><td>&pound;3.30 (about &euro;4.00)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd sourced consumer price data via Numbeo for Thessaloniki, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("I always tell clients heading to Thassos to carry a bit more cash than they might elsewhere in Greece, the smaller villages and tavernas away from Limenas don't always take cards.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro (&euro;)</td></tr>
+          <tr><td>Plug type</td><td>Type C and F (European two pin), voltage is 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Greek is the official language, English is widely spoken in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 3 hours 30 minutes to Kavala or Thessaloniki, depending on your departure airport, plus a road transfer and ferry crossing</td></tr>
+          <tr><td>Time difference</td><td>2 hours ahead of the UK all year round</td></tr>
+          <tr><td>Entry requirements</td><td>No visa needed for UK passport holders for stays of up to 90 days in any 180 day period. Your passport needs to have been issued within the last 10 years and have at least 3 months left on it from your planned departure date</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Nikos Zacharoulis, Catalin valet, Ollie Tulett, Dragos Gontariu, MERVE SAGLAM, Dimitris Kiriakakis, Marios Piveropoulos, Vasilis Caravitis, Kostas Morfiris, Dawid Tkocz, Johnny Africa, Andrew V, Panagiotis Falcos and Tatiana Zhukova via Unsplash.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Thassos for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip to Thassos alone, add on Kavala, Thessaloniki or Halkidiki as a proper multi centre, or plan somewhere else entirely, around what you're after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+thassos_guide_body = thassos_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+THASSOS_GUIDE_SCHEMA = article_and_faq_schema(
+    "Thassos: Jake's Destination Guide",
+    "Jake's honest guide to Thassos, Greece: how to actually get there, weather by month, where to stay, things to do, real multi centre options with Kavala, Thessaloniki and Halkidiki, and what it actually costs.",
+    "thassos.html",
+    "https://images.unsplash.com/photo-1496566084516-c5b96fcbd5c8?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book Thassos for me?", "Yes. I put together flight and hotel packages to Thassos, comparing prices and routing across the suppliers I work with and building the trip around you."),
+        ("How do you actually get to Thassos?", "There's no airport on the island itself, so you fly into Kavala or Thessaloniki on the Greek mainland and then take a short ferry crossing, usually around 40 minutes from Keramoti to Limenas. New seasonal flights direct to Kavala are launching from several UK airports for summer 2027."),
+        ("Do I need a visa for Greece?", "No. UK passport holders don't need a visa for stays of up to 90 days in any 180 day period. Your passport needs to have been issued within the last 10 years and have at least 3 months left on it from your planned departure date."),
+        ("What's the best time to visit Thassos?", "June to September gives the warmest sea and the most reliable sunshine, with July and August the hottest, driest and busiest. September is a real sweet spot, with the warmest sea of the year and far fewer crowds than August. May and October suit hiking and sightseeing over beach time."),
+        ("Can Thassos be combined with the Greek mainland?", "Yes. I regularly build this as a real, bookable multi centre trip, adding on a stay in Kavala's historic old town, a city break in Thessaloniki, or an extension to the beaches of Halkidiki."),
+    ]
+)
+with open(os.path.join(SITE, "thassos.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Thassos: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Thassos, Greece: how to actually get there, weather by month, where to stay, things to do, real multi centre options with Kavala, Thessaloniki and Halkidiki, and what it actually costs.",
+        "destinations.html",
+        thassos_guide_body,
+        extra_schema=THASSOS_GUIDE_SCHEMA,
+        canonical_path="thassos.html"
+    ))
+print("thassos.html written")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -22534,6 +22817,7 @@ SITEMAP_PAGES = [
     ("jordan.html", "0.6"),
     ("monaco.html", "0.6"),
     ("agadir.html", "0.6"),
+    ("thassos.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
