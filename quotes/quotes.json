@@ -1274,6 +1274,17 @@
    "created": "2026-11-07",
    "departs": "2027-08-19",
    "fromPrice": 3774
+  },
+  {
+   "slug": "barrylomas",
+   "url": "https://quotes.travelagentjake.co.uk/barrylomas",
+   "customer": "Barry Lomas",
+   "enquiryId": "mw6aiow7bug7",
+   "quoteRequestId": "mw6ak7igzyis",
+   "title": "Crete beach holiday, Stella Palace Aqua Park Resort Analipsi (customer's request), 2 adults all inclusive 10 nights from Manchester Fri 11 Jun 2027 (Jet2holidays, cheapest vs TUI; easyJet holidays Gatwick only)",
+   "created": "2026-11-07",
+   "departs": "2027-06-11",
+   "fromPrice": 5176
   }
  ]
 }
