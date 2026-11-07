@@ -1263,6 +1263,17 @@
    "created": "2026-11-06",
    "departs": "2026-11-28",
    "fromPrice": 599
+  },
+  {
+   "slug": "anthonybillington",
+   "url": "https://quotes.travelagentjake.co.uk/anthonybillington",
+   "customer": "Anthony Billington",
+   "enquiryId": "mvxnycgevzd6",
+   "quoteRequestId": "mw67a8v9ben7",
+   "title": "Corfu and Balearics, four 5 star all inclusive hotels for 2 from Manchester, 10 nights Thu 19 Aug 2027 (Cabo Corfu, Ella Alkyna, La Quinta Menorca, Iberostar Llaut Palma)",
+   "created": "2026-11-07",
+   "departs": "2027-08-19",
+   "fromPrice": 3774
   }
  ]
 }
