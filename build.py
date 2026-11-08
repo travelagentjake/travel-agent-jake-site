@@ -2162,6 +2162,13 @@ DESTINATION_POSTS = [
         "excerpt": "A green, forested Greek island close to the mainland: how to actually get there, weather by month, where to stay, things to do, real multi centre options with Kavala, Thessaloniki and Halkidiki, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1601581875039-e9deda67df42?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "switzerland-glacier-express.html",
+        "meta": "Switzerland",
+        "title": "Switzerland: The Glacier Express",
+        "excerpt": "The Alps done properly: the Glacier Express journey explained, weather by month, where to stay in Zermatt, things to do, real multi centre options with St Moritz, Lucerne and Interlaken, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1586752488885-6ce47fdfd874?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -22763,6 +22770,284 @@ with open(os.path.join(SITE, "thassos.html"), "w", encoding="utf-8") as f:
 print("thassos.html written")
 
 
+switzerland_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>SWITZERLAND: THE GLACIER EXPRESS &amp; THE SWISS ALPS</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">One of the most famous train journeys in the world, the Matterhorn towering over a car free mountain village, and a slower, more scenic way to see the Alps than flying between cities. Here is exactly how I put together a trip to Zermatt and the Glacier Express, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Switzerland and the Glacier Express</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1586752488885-6ce47fdfd874?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Matterhorn rising above Zermatt, Switzerland" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Switzerland is not a destination any of the big package operators sell as a straightforward flight and hotel deal, so I build it as a proper tailor made trip, putting together rail tickets, transfers and named hotels across the suppliers I work with rather than a single off the shelf package. Zermatt is where most of my clients start and finish, a car free village sitting right under the Matterhorn, and from there the Glacier Express is the single thing most people ask me about by name, a slow, panoramic train that crosses the Alps between Zermatt and St Moritz in around eight hours.</p>
+    <p style="margin-top:14px;">I compare prices and routing across the suppliers I work with to find the best fit for your dates, whether that is a few nights in Zermatt alone or a proper multi centre trip riding the Glacier Express end to end.</p>
+    {jake_tip("A seat reservation is compulsory on the Glacier Express for every passenger, even if you are travelling on a rail pass. I always book this alongside your hotels so it is one less thing to think about, and window seats on the right side of the train get snapped up early in summer.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Zermatt alone is worth three to four nights, long enough for the cable car up to Matterhorn Glacier Paradise, a day on the Gornergrat railway, and time to just walk around the village. Most of my clients build a longer trip around it, seven to ten nights, pairing Zermatt with a few nights at the other end of the Glacier Express or at another Swiss base. It suits couples, photographers and anyone who has the Glacier Express or the Matterhorn on a bucket list, hikers in the summer months, and skiers and snowboarders in winter, since Zermatt is a genuine four season resort.</p>
+    <p style="margin-top:14px;">It is less suited to clients on a tight budget, Switzerland is consistently one of the most expensive countries in Europe, and it is not a beach holiday, so it suits a very different sort of client to most of what I book.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1507039102241-5ec61d624406?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Houses in the car free village of Zermatt, Switzerland" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Most of my clients fly into Zurich, which has the best choice of UK departure airports and takes around two hours in the air. From Zurich Airport's own railway station, a direct InterCity train runs to Visp in about two hours fifteen minutes, where you change onto the narrow gauge Matterhorn Gotthard Bahn for the final hour or so up into the mountains to Täsch. Geneva is a useful alternative if it suits your flight times better, with a slightly longer rail journey of around three hours forty five minutes to Zermatt.</p>
+    <p style="margin-top:14px;">Zermatt itself has been car free since 1961, so the railway actually terminates just outside the village at Täsch, where a shuttle train runs every twenty minutes or so for the final twelve minute hop into Zermatt station. Electric taxis and hotel shuttles meet you there for the last short stretch to your hotel.</p>
+    {jake_tip("The connection at Visp is genuinely seamless, a single change across the same platform with a short window to make it. I always build in a sensible connection time and flag it clearly on your itinerary so there is no need to rush with luggage.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Zermatt sits at around 1,600 metres, so it runs noticeably colder than most of the destinations I book, with snow on the ground for a large part of the year. These are long term monthly averages.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>-6&deg;C</td><td>-11&deg;C</td><td>Deep winter, ski season in full swing, the Glacier Express runs its shorter winter timetable</td></tr>
+          <tr><td>February</td><td>-5&deg;C</td><td>-11&deg;C</td><td>The coldest month, excellent skiing conditions</td></tr>
+          <tr><td>March</td><td>-4&deg;C</td><td>-10&deg;C</td><td>Still properly cold and snowy, a popular month for spring skiing</td></tr>
+          <tr><td>April</td><td>-1&deg;C</td><td>-7&deg;C</td><td>Ski season winds down, the Matterhorn still looks its best under snow</td></tr>
+          <tr><td>May</td><td>3&deg;C</td><td>-3&deg;C</td><td>Snow melting in the valley, the Glacier Express switches to its full summer timetable</td></tr>
+          <tr><td>June</td><td>7&deg;C</td><td>1&deg;C</td><td>Mild days, higher trails still clearing of snow, a good shoulder month for hiking</td></tr>
+          <tr><td>July</td><td>9&deg;C</td><td>3&deg;C</td><td>Warmest month, reliable hiking weather on the lower and mid trails</td></tr>
+          <tr><td>August</td><td>9&deg;C</td><td>3&deg;C</td><td>Warmest and busiest month, long days for hiking and the Glacier Express's full summer run</td></tr>
+          <tr><td>September</td><td>7&deg;C</td><td>1&deg;C</td><td>Still mild with far fewer crowds, a favourite month of mine for hiking</td></tr>
+          <tr><td>October</td><td>3&deg;C</td><td>-2&deg;C</td><td>Turning colder, the Glacier Express's summer timetable ends on 9 October</td></tr>
+          <tr><td>November</td><td>-2&deg;C</td><td>-7&deg;C</td><td>The quietest month, the Glacier Express does not run at all until early December</td></tr>
+          <tr><td>December</td><td>-4&deg;C</td><td>-10&deg;C</td><td>Snow returns, the winter timetable resumes in early December and ski season gets going</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Zermatt (1,608m), via Weather2Travel's climate data.</p>
+    {jake_tip("The Glacier Express does not run at all for a few weeks each autumn while the line is maintained, usually from around 11 October to early December. If riding it is the whole point of your trip, I always check the current year's exact dates before booking anything either side of that gap.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1521292270410-a8c4d716d518?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hiking trail through the Swiss Alps in summer" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Switzerland genuinely runs on two separate seasons. Winter, roughly December to April, is ski season, with Zermatt's slopes open year round on the glacier above the village and at their best from January to March. Summer, May to October, is when the Glacier Express runs its full timetable with panoramic observation coaches, and when the hiking trails around Zermatt properly open up, June to September is the reliable window with July and August the warmest and busiest. I generally point clients wanting the Glacier Express itself towards June or September, good weather with noticeably fewer crowds than the August peak.</p>
+    {jake_tip("If skiing is not the priority, avoid the gap between the ski season ending in April and the Glacier Express's summer timetable starting in early May, a lot of mountain lifts and some hotels close for a few weeks either side of that changeover.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay in Zermatt</h2>
+    <p style="margin-top:14px;">Four real, bookable picks in the village.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1571274834067-3a24675547b4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Traditional chalet style buildings in Zermatt with the Matterhorn behind" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel National Zermatt</h3>
+        <p>A traditional Alpine style hotel close to Bahnhofstrasse, Zermatt's main street, with easy walking access to the shops, restaurants and the Gornergrat railway station. A straightforward, well located base for a first trip. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best boutique &amp; design</div>
+        <img src="https://images.unsplash.com/photo-1581347166733-7485d118b215?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A cable car ascending a snow covered mountain in the Alps" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">CERVO Mountain Resort</h3>
+        <p>A 5 star chalet style boutique resort set above the village with uninterrupted Matterhorn views, a spa, and its own restaurants. A quieter, design led alternative to staying right in the centre. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best classic luxury</div>
+        <img src="https://images.unsplash.com/photo-1697562886967-3e23e90d4cac?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A scenic Swiss mountain village" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Grand Hotel Zermatterhof</h3>
+        <p>One of Zermatt's oldest and most storied grand hotels, right in the village centre, with a full spa, fine dining and the kind of old school Alpine glamour clients picture when they imagine a Swiss ski hotel. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families &amp; spa</div>
+        <img src="https://images.unsplash.com/photo-1698933787134-af2d451985c7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A cosy wood lined living room with a fireplace" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Le Mirabeau Hotel &amp; Spa</h3>
+        <p>A 4 star family run hotel with its own spa and a central location, also sold by UK ski specialists, so it is a name clients sometimes already know. A comfortable, relaxed base rather than an ultra formal one. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities as published at the time of writing. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Zermatt has been car free since 1961, so the whole village is walkable, with electric taxis and hotel shuttles covering the short stretch from the railway station if you are carrying luggage. The Gornergrat railway and the Matterhorn Glacier Paradise cable car both leave from stations in the village and are the two main ways up into the mountains above. Outside Zermatt, Switzerland's rail network is excellent and punctual, and a Swiss Travel Pass covering trains, buses and boats is worth considering if your trip includes more than one Swiss base.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1615235976643-71351b5716ad?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A red Swiss mountain train crossing a high viaduct" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and tickets around Zermatt worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="394219,499990,447751,1361520"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/zermatt-l1514/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/zermatt-l1514/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Zermatt &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1617395547071-98efcee72011?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Matterhorn under a blue sky" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Matterhorn Glacier Paradise</h3>
+        <p>A cable car journey to Europe's highest mountain station at 3,883 metres, with an observation platform, an ice palace carved into the glacier, and views across the French, Italian and Swiss Alps.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1533156202583-53a31d245207?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A view across mountains and trees near Zermatt" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Gornergrat</h3>
+        <p>A cogwheel railway climbing to 3,089 metres for one of the best panoramic views of the Matterhorn and the surrounding glaciers, with a self guided exhibition included on the ticket.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1615235976643-71351b5716ad?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Landwasser Viaduct carrying a red train across a valley" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Landwasser Viaduct</h3>
+        <p>A six arch limestone viaduct on the Glacier Express route between Schmitten and Filisur, around 65 metres high, and one of the most photographed moments of the whole journey.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1507039102241-5ec61d624406?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Traditional buildings along a street in Zermatt" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bahnhofstrasse &amp; the old village</h3>
+        <p>Zermatt's traffic free main street, lined with shops, restaurants and traditional dark timber barns on stone staddle stones, some of them centuries old, right alongside the mountain backdrop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Zermatt with the rest of Switzerland</h2>
+    <p style="margin-top:14px;">Because so many of my clients come to Switzerland specifically for the Glacier Express, I usually build this as a genuine multi centre trip rather than a single base. Here are three real ways I would put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1700249216546-690909aa896c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A lake surrounded by snow capped mountains near St Moritz" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Zermatt &amp; St Moritz</h3>
+        <p>The classic option, riding the Glacier Express the full eight hours end to end, then finishing with a few nights in the glamorous lakeside resort of St Moritz, home to some of Switzerland's grandest historic hotels.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1658093271921-199c7a03edc6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Chapel Bridge over the river in Lucerne, Switzerland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Zermatt &amp; Lucerne</h3>
+        <p>Mountain time in Zermatt followed by a classic Swiss lake city break at the Art Deco Hotel Montana, overlooking Lake Lucerne and the famous medieval Chapel Bridge, an easy rail journey from Visp.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1719343113554-1a60f8764403?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A panoramic valley and lake near Interlaken, Switzerland" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Zermatt &amp; Interlaken</h3>
+        <p>For clients who want the Jungfrau region as well as the Matterhorn, finish the trip at the Victoria-Jungfrau Grand Hotel &amp; Spa in Interlaken, a member of the Leading Hotels of the World, within easy reach of the Jungfraujoch excursion.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I will put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Switzerland uses the Swiss franc, not the euro, and it is consistently one of the most expensive countries in Europe. Prices below are shown in pounds with the franc equivalent alongside, based on averaged data for Zurich and a rate of roughly &pound;1 to CHF 1.10. Prices in a small, high altitude resort like Zermatt typically run a good deal higher again.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;22.80 (about CHF 25.00)</td></tr>
+          <tr><td>Three course meal for two, mid-range restaurant</td><td>&pound;91.25 (about CHF 100.00)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;4.50 (about CHF 4.90)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;3.40 (about CHF 3.70)</td></tr>
+          <tr><td>Local draught beer, half a litre</td><td>&pound;6.40 (about CHF 7.00)</td></tr>
+          <tr><td>Taxi, short ride, starting fare</td><td>&pound;6.85 (about CHF 7.50)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd sourced consumer price data via Numbeo for Zurich, checked at time of writing. Franc to pound conversion is approximate and will move around.</p>
+    {jake_tip("Switzerland is expensive everywhere, but Zermatt itself is on the pricier end even by Swiss standards. I always set client expectations on spending money honestly before they travel, especially for food and drink on the mountain restaurants.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Swiss franc (CHF)</td></tr>
+          <tr><td>Plug type</td><td>Type J (many European two pin plugs also fit), voltage is 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>German is spoken in Zermatt and the Valais region, with French, Italian and Romansh spoken elsewhere in Switzerland. English is widely spoken in hotels and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 1 hour 45 minutes to 2 hours to Zurich or Geneva, plus a scenic rail journey of 3 to 4 hours on to Zermatt</td></tr>
+          <tr><td>Time difference</td><td>1 hour ahead of the UK all year round</td></tr>
+          <tr><td>Entry requirements</td><td>Switzerland is in the Schengen area. UK passport holders can currently visit visa free for up to 90 days in any 180 day period, and your passport needs at least 3 months validity remaining beyond your planned departure date. The EU's new ETIAS travel authorisation is expected to apply from late 2026, see my full <a href="ees-etias-explained.html">EES and ETIAS guide</a> for the detail</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Victor He, Daniel Cox, Christian Lue, Robin Ulrich, dominik hofbauer, Gabriel Garcia Marengo, Marco Meyer, Clay Banks, Andres Dallimonti, Flora Hon, Jenny DeLuca and Etienne Dayer via Unsplash.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Switzerland for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around Zermatt and the Glacier Express alone, add on St Moritz, Lucerne or Interlaken as a proper multi centre, or plan somewhere else entirely, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+switzerland_guide_body = switzerland_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+SWITZERLAND_GUIDE_SCHEMA = article_and_faq_schema(
+    "Switzerland: Jake's Destination Guide",
+    "Jake's honest guide to Switzerland, Zermatt and the Glacier Express: how to actually get there, weather by month, where to stay, things to do, real multi centre options with St Moritz, Lucerne and Interlaken, and what it actually costs.",
+    "switzerland-glacier-express.html",
+    "https://images.unsplash.com/photo-1586752488885-6ce47fdfd874?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Switzerland and the Glacier Express for me?", "Yes. Switzerland is not sold as a flight and hotel package by the big UK operators, so I build it as a tailor made trip, putting together rail tickets, transfers and named hotels across the suppliers I work with and building the trip around you."),
+        ("How long does the Glacier Express take?", "The full route between Zermatt and St Moritz takes around 7.5 to 8 hours. A seat reservation is compulsory for every passenger, which I book alongside your hotels."),
+        ("Do I need a visa for Switzerland?", "No. Switzerland is in the Schengen area and UK passport holders can currently visit visa free for up to 90 days in any 180 day period, with at least 3 months of passport validity remaining. The EU's ETIAS travel authorisation is expected to apply from late 2026."),
+        ("What is the best time of year to do the Glacier Express?", "The Glacier Express runs its full summer timetable with panoramic coaches from early May to early October, with a shorter winter timetable the rest of the year and a maintenance break each autumn. I generally point clients towards June or September for good weather with fewer crowds than August."),
+        ("Can Zermatt be combined with other parts of Switzerland?", "Yes. I regularly build this as a real, bookable multi centre trip, riding the Glacier Express on to St Moritz, or adding a stay in Lucerne or Interlaken instead."),
+    ]
+)
+with open(os.path.join(SITE, "switzerland-glacier-express.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Switzerland: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Switzerland, Zermatt and the Glacier Express: how to actually get there, weather by month, where to stay, things to do, real multi centre options with St Moritz, Lucerne and Interlaken, and what it actually costs.",
+        "destinations.html",
+        switzerland_guide_body,
+        extra_schema=SWITZERLAND_GUIDE_SCHEMA,
+        canonical_path="switzerland-glacier-express.html"
+    ))
+print("switzerland-glacier-express.html written")
+
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -22818,6 +23103,7 @@ SITEMAP_PAGES = [
     ("monaco.html", "0.6"),
     ("agadir.html", "0.6"),
     ("thassos.html", "0.6"),
+    ("switzerland-glacier-express.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
