@@ -2169,6 +2169,13 @@ DESTINATION_POSTS = [
         "excerpt": "The Alps done properly: the Glacier Express journey explained, weather by month, where to stay in Zermatt, things to do, real multi centre options with St Moritz, Lucerne and Interlaken, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1586752488885-6ce47fdfd874?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "new-zealand.html",
+        "meta": "New Zealand",
+        "title": "New Zealand: Queenstown & the South Island",
+        "excerpt": "How to actually get there, weather by month, where to stay in Queenstown, things to do, real multi centre options with Auckland, Rotorua and Aoraki Mount Cook, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1530656131887-4765f003e900?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -23047,6 +23054,282 @@ with open(os.path.join(SITE, "switzerland-glacier-express.html"), "w", encoding=
 print("switzerland-glacier-express.html written")
 
 
+new_zealand_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>NEW ZEALAND: QUEENSTOWN &amp; THE SOUTH ISLAND</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Snow capped mountains dropping straight into a turquoise lake, jet boats, bungy jumping and some of the best hiking anywhere in the world. New Zealand is a long way from the UK, but it rewards the journey more than almost anywhere else I book. Here is exactly how I put together a trip built around Queenstown, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about New Zealand</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1512017615494-fdf6146235ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of Queenstown on Lake Wakatipu, New Zealand" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>New Zealand is not a destination sold as a simple flight and hotel package by any of the big UK operators, so I build it as a proper tailor made trip, putting together flights, transfers and named hotels across the suppliers I work with rather than a single off the shelf product. Queenstown is where most of my clients spend the heart of their trip, a small lakeside town ringed by The Remarkables mountain range and known as the self proclaimed adventure capital of the world, home to bungy jumping, jet boating and some genuinely spectacular hiking and scenery.</p>
+    <p style="margin-top:14px;">I compare prices and routing across the suppliers I work with to find the best fit for your dates, whether that is Queenstown alone or a proper multi centre trip taking in Auckland, Rotorua or Aoraki Mount Cook as well.</p>
+    {jake_tip("New Zealand is genuinely a once in a lifetime trip for most of my clients given the flight time involved, so I always build in enough time on the ground to make the journey worth it. Three or four nights in any one place is rarely enough.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Queenstown alone is worth four to five nights, long enough for Milford Sound, a couple of the big adventure activities and time to just enjoy the town and the lake. Given how far New Zealand is to fly, most of my clients build a longer trip around it, two to three weeks in total, combining Queenstown with Auckland, Rotorua or the Aoraki Mount Cook area, or continuing on to explore more of the South Island independently with a hire car.</p>
+    <p style="margin-top:14px;">It suits honeymooners, hikers, Lord of the Rings fans, thrill seekers and families over the New Zealand summer in December and January when school holidays align. It is less suited to clients wanting a short break, those on a tight budget, since New Zealand is one of the pricier long haul destinations I book, and anyone who cannot commit to the long flight time.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1595125990323-885cec5217ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Auckland skyline and harbour, New Zealand" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>There are no direct flights between the UK and New Zealand, so every route involves at least one stopover, usually in Dubai, Singapore, Hong Kong or Los Angeles. Total journey time typically runs from around 23 to 26 hours including the stopover, depending on your route and connection time. Most of my clients fly into Auckland, New Zealand's main international gateway, then take a domestic flight on to Queenstown, around two hours away, or start their trip in Auckland itself as part of a multi centre.</p>
+    <p style="margin-top:14px;">Queenstown also has its own international airport with a small number of direct seasonal flights from Australia, though UK arrivals will almost always connect via Auckland or Christchurch first.</p>
+    {jake_tip("I always build in a decent gap, at least two to three hours, between your international arrival into Auckland and any connecting domestic flight on to Queenstown. New Zealand's immigration and biosecurity checks on arrival can take a while, and you do not want to be rushing for a connection after that long in the air.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Queenstown sits in the South Island's Otago region, so its seasons run opposite to the UK's, summer over December to February, winter over June to August. These are long term monthly averages.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>20&deg;C</td><td>8&deg;C</td><td>Peak summer, long warm days, the busiest and most expensive month</td></tr>
+          <tr><td>February</td><td>20&deg;C</td><td>8&deg;C</td><td>Still warm and settled, slightly quieter than January</td></tr>
+          <tr><td>March</td><td>17&deg;C</td><td>6&deg;C</td><td>Early autumn, warm days with cooler evenings, harvest season in the vineyards</td></tr>
+          <tr><td>April</td><td>13&deg;C</td><td>4&deg;C</td><td>Autumn colour at its best, a favourite month of mine for Queenstown</td></tr>
+          <tr><td>May</td><td>9&deg;C</td><td>1&deg;C</td><td>Turning cold, the shoulder season before ski resorts open</td></tr>
+          <tr><td>June</td><td>6&deg;C</td><td>-2&deg;C</td><td>Ski season begins, cold and often crisp and clear</td></tr>
+          <tr><td>July</td><td>6&deg;C</td><td>-2&deg;C</td><td>The coldest month, excellent skiing conditions</td></tr>
+          <tr><td>August</td><td>8&deg;C</td><td>-1&deg;C</td><td>Still deep winter, ski season continues</td></tr>
+          <tr><td>September</td><td>11&deg;C</td><td>1&deg;C</td><td>Ski season winds down, early spring arriving</td></tr>
+          <tr><td>October</td><td>13&deg;C</td><td>3&deg;C</td><td>Spring in full swing, the wettest month for rainfall</td></tr>
+          <tr><td>November</td><td>16&deg;C</td><td>4&deg;C</td><td>Warming up nicely, good hiking weather with fewer crowds than summer</td></tr>
+          <tr><td>December</td><td>18&deg;C</td><td>6&deg;C</td><td>Summer arriving, New Zealand's own school holidays begin mid month</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Queenstown, via Weather2Travel's climate data.</p>
+    {jake_tip("Queenstown gets some rain in every month of the year, so I never promise clients a completely dry trip whenever they travel. It rarely spoils more than a day or two, and the scenery looks just as good, if not better, under cloud.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1703476105231-13e8ec2355ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hiking trail near Aoraki Mount Cook, New Zealand" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>December to February is New Zealand's summer and the most popular time to visit, warm and settled but also the busiest and most expensive, especially with New Zealand's own school holidays running over this period. I often point clients towards the shoulder seasons instead, March and April for autumn colour and harvest time in the vineyards, or October and November for spring wildflowers and good hiking weather, both with noticeably fewer crowds and better value than peak summer. June to August is ski season, with Queenstown's own resorts, Coronet Peak and The Remarkables, alongside Cardrona and Treble Cone a short drive away.</p>
+    {jake_tip("If seeing Milford Sound is a priority, I generally steer clients away from the depths of winter. The road in can close temporarily after heavy snow, and while the cruises still run, visibility and conditions are far more reliable outside June to August.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay in Queenstown</h2>
+    <p style="margin-top:14px;">Four real, bookable picks in and around town.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1547314283-befb6cc5cf29?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Buildings near the lake in Queenstown, New Zealand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Heartland Hotel Queenstown</h3>
+        <p>A straightforward, well located hotel close to the lake and an easy walk into town, with a pool, sauna and restaurant onsite. A sensible, comfortable base for a first trip. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best boutique &amp; design</div>
+        <img src="https://images.unsplash.com/photo-1740658642224-3c37bab6e56d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="View of Queenstown town and the lake, New Zealand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">QT Queenstown</h3>
+        <p>A playful, design led hotel right in the centre of town, known for its quirky art and interiors, with a well regarded restaurant and bar. A fun, slightly different choice for couples. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best resort &amp; spa</div>
+        <img src="https://images.unsplash.com/photo-1793438037622-f9ece9bdc37d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The TSS Earnslaw steamship on Lake Wakatipu, Queenstown" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hilton Queenstown Resort &amp; Spa</h3>
+        <p>A lakeside resort at Kawarau Falls with its own marina, several pools, a spa and plenty of space, a short drive from the town centre. A good fit for families or anyone wanting more resort facilities. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best lakefront luxury</div>
+        <img src="https://images.unsplash.com/photo-1591640040362-f55d95a6b2bc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Lake Wakatipu and the surrounding mountains, New Zealand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">The Rees Hotel, Luxury Apartments &amp; Lakeside Residences</h3>
+        <p>Right on the shore of Lake Wakatipu with uninterrupted views across to The Remarkables, spacious apartment style suites and a destination restaurant. A real treat for honeymooners. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities as published at the time of writing. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Central Queenstown is small and walkable, with the lakefront, restaurants and the Skyline gondola all within easy reach on foot. Many of the big adventure activities, Shotover Jet, the Kawarau Bungy and the AJ Hackett bungy sites, are a short, bookable transfer or shuttle ride away rather than something you need your own car for. For exploring further afield, Milford Sound, Wanaka, Te Anau and the wider Otago region, I usually recommend hiring a car, since public transport outside the town itself is limited. Queenstown Airport has frequent domestic flights to Auckland, Wellington and Christchurch, useful for stitching together a multi centre trip without long overland drives.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1495072667656-424d680e6299?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Milford Sound fiord, New Zealand" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and tickets around Queenstown worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="188556,109951,129952,1053787"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/queenstown-l498/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/queenstown-l498/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Queenstown &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1668010883448-00e04acaa2d0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boats on Milford Sound, New Zealand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Milford Sound</h3>
+        <p>Often called the eighth wonder of the world, this fiord in the heart of Fiordland National Park is ringed by sheer cliffs and waterfalls that cascade straight into the water. Usually visited as a long but spectacular day trip from Queenstown.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1793438037451-a4265bcb22b3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The TSS Earnslaw steamship cruising Lake Wakatipu, New Zealand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">TSS Earnslaw &amp; Lake Wakatipu</h3>
+        <p>A coal fired steamship built in 1912 and still cruising the lake today, one of only a handful of working vintage steamships left in the world, often combined with a visit to Walter Peak High Country Farm across the water.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1515253648320-6d70d901f0ac?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view over Queenstown and the lake, New Zealand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Skyline Queenstown &amp; Bob's Peak</h3>
+        <p>A gondola ride straight up from the town centre to Bob's Peak, with panoramic views over the lake and The Remarkables, plus luge rides, a restaurant and mountain biking trails at the top.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1733079459404-fdc2cc22f575?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Shotover Canyon near Queenstown, New Zealand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Shotover Canyon &amp; the Kawarau Gorge</h3>
+        <p>The birthplace of commercial bungy jumping and still home to the original Kawarau Bridge Bungy, alongside jet boating through the narrow canyon walls of the Shotover River at speed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Queenstown with the rest of New Zealand</h2>
+    <p style="margin-top:14px;">Given how far New Zealand is to fly, I almost always encourage clients to see more than just Queenstown. Here are three real ways I would put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1677557769755-875d8141c0c6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Auckland city skyline, New Zealand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Queenstown &amp; Auckland</h3>
+        <p>The classic start or finish point, pairing Queenstown's mountains and lake with a few nights at Cordis, Auckland by Langham Hospitality Group, a city centre hotel with its own rooftop pool, close to the Sky Tower and the waterfront.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1739072291012-fa5e81158ff4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Geothermal pools near Rotorua, New Zealand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Queenstown &amp; Rotorua</h3>
+        <p>For geothermal parks, Maori culture and Hobbiton, finish the trip at Pullman Rotorua Lakefront, right on the shore of Lake Rotorua and close to the North Island's best known attractions.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1531804226530-70f8004aa44e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aoraki Mount Cook reflected in a lake, New Zealand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Queenstown &amp; Aoraki Mount Cook</h3>
+        <p>For clients who want New Zealand's highest mountain as well as Queenstown, add on a stay at the historic Hermitage Hotel, Aoraki Mount Cook, inside a Dark Sky Reserve with some of the clearest stargazing anywhere in the world.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I will put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">New Zealand uses the New Zealand dollar, and prices below are shown in pounds based on averaged data for Auckland, New Zealand's largest city, at a rate of roughly &pound;1 to NZ$2.39. Queenstown is a resort town and typically runs a good deal higher again, especially for food, drink and activities.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;10.59 (about NZ$25.35)</td></tr>
+          <tr><td>Three course meal for two, mid-range restaurant</td><td>&pound;50.85 (about NZ$121.70)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;2.58 (about NZ$6.20)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;1.33 (about NZ$3.20)</td></tr>
+          <tr><td>Domestic draught beer, a pint</td><td>&pound;5.09 (about NZ$12.20)</td></tr>
+          <tr><td>Taxi, metered fare per mile</td><td>&pound;2.39 (about NZ$5.70)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd sourced consumer price data via Numbeo for Auckland, checked at time of writing. New Zealand dollar to pound conversion is approximate and will move around.</p>
+    {jake_tip("New Zealand is not a cheap destination, and Queenstown itself sits well above the national average given how much of a tourist town it is. I always set client expectations on spending money honestly before they travel.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>New Zealand dollar (NZ$)</td></tr>
+          <tr><td>Plug type</td><td>Type I (flat three pin), voltage is 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>English is the main language, alongside te reo Maori, both official languages of New Zealand</td></tr>
+          <tr><td>Flight time from the UK</td><td>No direct flights. Around 23 to 26 hours total journey time via a stopover such as Dubai, Singapore, Hong Kong or Los Angeles</td></tr>
+          <tr><td>Time difference</td><td>Between 11 and 13 hours ahead of the UK depending on the time of year, since the UK and New Zealand move their clocks at different times</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders need a New Zealand Electronic Travel Authority (NZeTA) before travelling, applied for online or via the app, costing around &pound;10, plus the International Visitor Conservation and Tourism Levy of around &pound;42, usually paid together. Apply at least a week before you travel, since approval can take up to 72 hours</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Photoholgic, Michael Amadeus, Sulthan Auliya, Niklas Ohlrogge, Athithan Vignakaran, Omer Faruk Bekdemir, JinHui CHEN, Katelyn G, Sebastien Goldberg, Adam Edgerton, Esther Grosscurt, Sam Ferrara, Shorts SNS895, Josh Tere, DJ and Casey Horner via Unsplash.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy New Zealand for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around Queenstown alone, add on Auckland, Rotorua or Aoraki Mount Cook as a proper multi centre, or plan somewhere else entirely, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+new_zealand_guide_body = new_zealand_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+NEW_ZEALAND_GUIDE_SCHEMA = article_and_faq_schema(
+    "New Zealand: Jake's Destination Guide",
+    "Jake's honest guide to New Zealand and Queenstown: how to actually get there, weather by month, where to stay, things to do, real multi centre options with Auckland, Rotorua and Aoraki Mount Cook, and what it actually costs.",
+    "new-zealand.html",
+    "https://images.unsplash.com/photo-1530656131887-4765f003e900?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to New Zealand for me?", "Yes. New Zealand is not sold as a flight and hotel package by the big UK operators, so I build it as a tailor made trip, putting together flights, transfers and named hotels across the suppliers I work with and building the trip around you."),
+        ("How do you actually get to New Zealand from the UK?", "There are no direct flights, so every route involves at least one stopover, usually in Dubai, Singapore, Hong Kong or Los Angeles. Total journey time typically runs from around 23 to 26 hours including the stopover."),
+        ("Do I need a visa for New Zealand?", "UK passport holders do not need a visa but do need a New Zealand Electronic Travel Authority (NZeTA) before travelling, applied for online or via the app, along with the International Visitor Conservation and Tourism Levy. I always recommend applying at least a week before you travel."),
+        ("What is the best time of year to visit New Zealand?", "December to February is New Zealand's summer and the most popular time to visit, but also the busiest and most expensive. I often point clients towards March and April for autumn colour, or October and November for spring hiking weather, both with far fewer crowds than peak summer."),
+        ("Can Queenstown be combined with other parts of New Zealand?", "Yes. I regularly build this as a real, bookable multi centre trip, adding on Auckland, Rotorua or Aoraki Mount Cook depending on what you want to see."),
+    ]
+)
+with open(os.path.join(SITE, "new-zealand.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "New Zealand: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to New Zealand and Queenstown: how to actually get there, weather by month, where to stay, things to do, real multi centre options with Auckland, Rotorua and Aoraki Mount Cook, and what it actually costs.",
+        "destinations.html",
+        new_zealand_guide_body,
+        extra_schema=NEW_ZEALAND_GUIDE_SCHEMA,
+        canonical_path="new-zealand.html"
+    ))
+print("new-zealand.html written")
+
 
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
@@ -23104,6 +23387,7 @@ SITEMAP_PAGES = [
     ("agadir.html", "0.6"),
     ("thassos.html", "0.6"),
     ("switzerland-glacier-express.html", "0.6"),
+    ("new-zealand.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
