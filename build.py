@@ -13420,6 +13420,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1722496074455-4478a66af6a3?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "A woman walking through an airport with a child, both pulling luggage",
     },
+    {
+        "slug": "package-travel-rules-changing-april-2027.html",
+        "meta": "Consumer rights",
+        "title": "UK package holiday rules are changing in April 2027: what it actually means for how you book",
+        "excerpt": "New rules land on 6 April 2027, widening what counts as a protected package holiday and scrapping the lighter Linked Travel Arrangement category altogether. Here's exactly what's changing, and what it means for a booking you make now versus one you make after that date.",
+        "image": "https://images.unsplash.com/photo-1787724778073-92572658d6ab?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "A woman working on a laptop in a hotel room while booking travel online",
+    },
 ]
 
 
@@ -20815,6 +20823,164 @@ with open(os.path.join(SITE, "parental-consent-letter-child-travel-abroad.html")
     ))
 print("parental-consent-letter-child-travel-abroad.html written")
 
+package_rules_2027_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>UK PACKAGE HOLIDAY RULES ARE CHANGING IN APRIL 2027: WHAT IT ACTUALLY MEANS FOR HOW YOU BOOK</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">A few clients have asked me lately whether anything's changing with how package holidays are protected, usually after seeing a headline about new travel rules somewhere. There is something genuinely changing, it's just not landing for a while yet. New regulations have been made that widen what legally counts as a protected package holiday, and get rid of a weaker halfway category called a linked travel arrangement altogether. Here's exactly what's changing, when it actually starts, and what it means for a holiday you book now versus one you book after the new rules land.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three things worth knowing before it affects you</h2>
+    <p style="margin-top:14px;">This is a genuine legal change, not a rumour, but it isn't about to catch anyone out overnight.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">The date that matters</div>
+        <h3 style="font-size:18px;">Nothing changes for a booking you make now</h3>
+        <p>The new rules only apply to package contracts entered into on or after 6 April 2027. Anything booked before that date stays under the current 2018 rules, whenever your holiday actually takes place.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">The definition itself</div>
+        <h3 style="font-size:18px;">What counts as a "package" is getting wider</h3>
+        <p>More combinations of travel services bought separately, but in one visit to one seller, will qualify for full package protection once the new rules are in force.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">What's disappearing</div>
+        <h3 style="font-size:18px;">Linked travel arrangements are being scrapped</h3>
+        <p>This weaker, lighter touch protection category is removed from the law entirely. Anything that doesn't meet the new, wider package definition loses this protection rather than falling back on it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What's actually changing, in plain English</h2>
+    <img src="https://images.unsplash.com/photo-1787724778073-92572658d6ab?auto=format&fit=crop&w=1600&h=700&q=80" alt="A woman working on a laptop in a hotel room while booking travel online" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The instrument itself is called the Package Travel and Linked Travel Arrangements (Amendment) Regulations 2026, registered as UK Statutory Instrument 2026 No. 455, and it amends the Package Travel and Linked Travel Arrangements Regulations 2018, the law that currently governs package holiday protection in this country. It was debated in Parliament during April 2026 and formally made shortly after. You can read the actual legal text on legislation.gov.uk if you want to see it in full.</p>
+    <p style="margin-top:14px;">The important detail most coverage of this has buried is the start date. These changes come into force on 6 April 2027, and they are not retrospective. The regulations are explicit that they only apply to package contracts, or what would previously have been linked travel arrangements, entered into on or after that date. A holiday you book this month, or any time before 6 April 2027, is unaffected, even if you're travelling well after that date.</p>
+    {jake_tip("If you're booking a holiday for travel after April 2027, it's the date you book that matters for which rules apply, not the date you fly. Book in March 2027 and you're under the current rules for that whole trip.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>The wider "package" definition explained</h2>
+    <img src="https://images.unsplash.com/photo-1454496406107-dc34337da8d6?auto=format&fit=crop&w=1600&h=700&q=80" alt="A passport booklet resting on top of white paper documents" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Right now, a package generally means pre arranged combinations of at least two different travel services, like a flight and a hotel, sold together for one price. Under the new rules, separately contracted and separately paid for travel services can also count as a full package if a single trader facilitated you selecting and paying for each one separately during one visit to, or one contact with, its point of sale.</p>
+    <p style="margin-top:14px;">In practice, that's aimed at situations like an airline offering you a hotel or car hire as a follow on purchase straight after booking your flight, a booking platform with separate tabs or steps for flights and accommodation that you move through in one sitting, or a hotel's own website selling you a local excursion as a separate add on during the same booking visit. Under the current rules, arrangements like these have often fallen into a weaker category or sometimes no package protection at all. Under the new rules, more of them will qualify as full packages, which brings full pre contractual information rights, organiser liability if something goes wrong, and insolvency protection.</p>
+    {jake_tip("If you're ever unsure whether something you're booking in stages counts as a package, ask the seller directly before you pay for the final piece. If they can't give you a straight answer, that's worth treating as a red flag in itself.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Linked travel arrangements are disappearing</h2>
+    <img src="https://images.unsplash.com/photo-1759038085950-1234ca8f5fed?auto=format&fit=crop&w=1600&h=700&q=80" alt="A hotel reception desk with modern wooden furniture and seating" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A linked travel arrangement, or LTA, is the current law's halfway category. It covers certain combinations of separately bought travel services that don't qualify as a full package, but still get some protection, mainly insolvency protection and a set of information requirements, just less of it than a package gets. From 6 April 2027, this category is removed from the law completely. The relevant repeal covers the regulation that set out LTA insolvency protection and information duties, along with the schedules that spelled out exactly what businesses had to tell you under it.</p>
+    <p style="margin-top:14px;">What that means practically is that anything which would previously have been an LTA goes one of two ways once the new rules apply. If it now meets the new, wider package definition, it moves up into full package protection, which is better than what LTA status gave it. If it doesn't meet that wider definition, it loses LTA protection altogether and isn't automatically covered by anything in its place. That's the genuine catch in an otherwise consumer friendly sounding change, and it's worth not assuming you're covered just because an older guide mentions linked travel arrangements.</p>
+    {jake_tip("Once these rules are in force, I wouldn't rely on the term linked travel arrangement meaning anything protective any more. If a seller uses it to explain your booking after April 2027, ask what protection you actually have in its place.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Faster refunds and a new right of redress behind the scenes</h2>
+    <img src="https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=1600&h=700&q=80" alt="A woman signing a document on white printer paper" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A couple of the other changes matter more to how travel businesses operate behind the scenes than to what you see directly, but they're worth knowing about because they affect how reliably your money moves if something is cancelled. A new rule requires a third party supplier, say an airline or a hotel, that cancels or fails to provide a travel service, to refund the organiser or retailer who booked it within 14 days of the cancellation or the date the service was due, whichever comes first. A separate new rule gives organisers and retailers a right to claim damages from suppliers that caused the problem in the first place.</p>
+    <p style="margin-top:14px;">Neither of these pays you directly, they operate between the businesses in the chain, but they matter because an organiser who's waiting months for a supplier to return money is exactly the kind of cash flow problem that can tip a struggling travel company into real trouble. There's also a new rule closing a loophole some businesses have used, a company can no longer get itself out of its package travel obligations simply by declaring that it's only acting as an intermediary, or that a particular booking isn't a package, if the facts say otherwise.</p>
+    {jake_tip("None of this is something you need to action yourself, it's really a note for anyone who likes to understand the whole picture. The part that actually affects your own booking is the wider package definition and the end of linked travel arrangements above.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What this means for how you book</h2>
+    <img src="https://images.unsplash.com/photo-1435527173128-983b87201f4d?auto=format&fit=crop&w=1600&h=700&q=80" alt="An open monthly planner calendar resting on a wooden desk" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Nothing changes for any booking made before 6 April 2027.</b> Whatever you book this year or early next year stays under the current rules for the whole of that trip.</span></li>
+      <li><span class="num">2</span><span><b>Closer to and after that date, check whether you're buying one package or several separate contracts.</b> Ask the seller directly which applies, rather than assuming.</span></li>
+      <li><span class="num">3</span><span><b>More flight, hotel and extras combinations bought in one sitting from one seller will get full package protection once the rules are in force.</b> That's generally a win for the kind of booking that used to fall into a grey area.</span></li>
+      <li><span class="num">4</span><span><b>Linked travel arrangements stop existing as a protection category.</b> Don't assume older advice about them still applies after April 2027.</span></li>
+      <li><span class="num">5</span><span><b>A business can no longer talk its way out of package obligations by calling itself just an intermediary.</b> That loophole is specifically closed.</span></li>
+    </ul>
+    {jake_tip("If you're ever unsure what protection a booking gives you, package holiday or otherwise, message me and I'll talk you through it before you commit to anything.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">When do these new rules actually start?</h3>
+      <p>6 April 2027. They only apply to package contracts, or arrangements that would previously have been linked travel arrangements, entered into on or after that date, not to bookings made before it.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does this change anything about a holiday I book for summer 2027?</h3>
+      <p>Only if you book it on or after 6 April 2027. If you book before that date, even for travel later in 2027, you're under the current 2018 rules for that whole booking.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What was a linked travel arrangement, and why does it matter that it's going?</h3>
+      <p>It's the current law's lighter protection category for certain combinations of separately bought travel services that don't qualify as a full package. It's being removed entirely, so anything that doesn't qualify as a full package under the new, wider definition won't automatically get this fallback protection any more.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Will this make it easier or harder to get my money back if something goes wrong?</h3>
+      <p>It's genuinely mixed. More combinations of travel services bought in one visit to one seller will now count as full packages, which is stronger protection. But anything that doesn't meet that wider definition loses the linked travel arrangement protection it might have had, so it's worth checking rather than assuming either way.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does this affect ATOL protection on flight inclusive bookings?</h3>
+      <p>The amending regulations also update the Civil Aviation (Air Travel Organisers' Licensing) Regulations 2012 to keep it consistent with the changes, but ATOL itself isn't being abolished or replaced. Always still check for an ATOL certificate on any flight inclusive package.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1581409518789-b43c70ad0e97?auto=format&fit=crop&w=1600&h=700&q=80" alt="Travellers sitting and waiting inside an airport terminal" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Not sure what protection your booking actually gives you?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Whether it's a straightforward package or something booked in separate stages, tell me what you're looking at and I'll make sure you know exactly what cover you've got before you commit.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+package_rules_2027_body = package_rules_2027_body.replace("::NEWSLETTER::", newsletter_section())
+
+PACKAGE_RULES_2027_SCHEMA = article_and_faq_schema(
+    "UK Package Holiday Rules Are Changing in April 2027: What It Actually Means for How You Book",
+    "New rules land on 6 April 2027, widening what counts as a protected package holiday and scrapping the lighter Linked Travel Arrangement category altogether. Here's exactly what's changing, and what it means for a booking you make now versus one you make after that date.",
+    "package-travel-rules-changing-april-2027.html",
+    "https://images.unsplash.com/photo-1787724778073-92572658d6ab?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("When do these new rules actually start?", "6 April 2027. They only apply to package contracts, or arrangements that would previously have been linked travel arrangements, entered into on or after that date, not to bookings made before it."),
+        ("Does this change anything about a holiday I book for summer 2027?", "Only if you book it on or after 6 April 2027. If you book before that date, even for travel later in 2027, you're under the current 2018 rules for that whole booking."),
+        ("What was a linked travel arrangement, and why does it matter that it's going?", "It's the current law's lighter protection category for certain combinations of separately bought travel services that don't qualify as a full package. It's being removed entirely, so anything that doesn't qualify as a full package under the new, wider definition won't automatically get this fallback protection any more."),
+        ("Will this make it easier or harder to get my money back if something goes wrong?", "It's genuinely mixed. More combinations of travel services bought in one visit to one seller will now count as full packages, which is stronger protection. But anything that doesn't meet that wider definition loses the linked travel arrangement protection it might have had, so it's worth checking rather than assuming either way."),
+        ("Does this affect ATOL protection on flight inclusive bookings?", "The amending regulations also update the Civil Aviation (Air Travel Organisers' Licensing) Regulations 2012 to keep it consistent with the changes, but ATOL itself isn't being abolished or replaced. Always still check for an ATOL certificate on any flight inclusive package."),
+    ]
+)
+
+with open(os.path.join(SITE, "package-travel-rules-changing-april-2027.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "UK Package Holiday Rules Are Changing in April 2027: What It Actually Means for How You Book | Travel Agent Jake",
+        "New rules land on 6 April 2027, widening what counts as a protected package holiday and scrapping the lighter Linked Travel Arrangement category altogether. Here's exactly what's changing, and what it means for a booking you make now versus one you make after that date.",
+        "travel-tips.html",
+        package_rules_2027_body,
+        extra_schema=PACKAGE_RULES_2027_SCHEMA,
+        canonical_path="package-travel-rules-changing-april-2027.html"
+    ))
+print("package-travel-rules-changing-april-2027.html written")
+
+
 
 
 
@@ -23423,6 +23589,7 @@ SITEMAP_PAGES = [
     ("schengen-90-180-day-rule-explained.html", "0.7"),
     ("gibraltar-spain-border-deal-2026.html", "0.7"),
     ("parental-consent-letter-child-travel-abroad.html", "0.7"),
+    ("package-travel-rules-changing-april-2027.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
