@@ -1307,6 +1307,17 @@
    "created": "2026-11-08",
    "departs": "2027-02-28",
    "fromPrice": 1734
+  },
+  {
+   "slug": "deborah-2",
+   "url": "https://quotes.travelagentjake.co.uk/deborah-2",
+   "customer": "Deborah Rowe",
+   "enquiryId": "mw8ea9p50rcq",
+   "quoteRequestId": "mw92vp4qerfv",
+   "title": "Girls' luxury beach holiday Crete, 2 adults B&B 7 nights from London Stansted early Sept 2027, three 4 star options: Almyrida Beach, Ariadne Beach Hotel Agios Nikolaos, Atlantica Amalthia Beach Agia Marina (Jet2holidays)",
+   "created": "2026-11-09",
+   "departs": "2027-09-06",
+   "fromPrice": 1520
   }
  ]
 }
