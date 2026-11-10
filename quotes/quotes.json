@@ -1348,10 +1348,10 @@
    "customer": "Lydia",
    "enquiryId": "",
    "quoteRequestId": "",
-   "title": "Disneyland Paris family weekend, 3 nights Thu to Sun, 15 people in 5 rooms, Disney Hotel Cheyenne, Disney Sequoia Lodge or Disney Newport Bay Club, hotel and tickets only, 11, 18, 25 March or 1 April 2027",
+   "title": "Disneyland Paris family weekend, Disney Hotel Cheyenne, Thu 25 to Sun 28 March 2027, 21 people in 6 rooms, hotel and tickets only",
    "created": "2026-11-10",
-   "departs": "2027-03-11",
-   "fromPrice": 7028
+   "departs": "2027-03-25",
+   "fromPrice": 10782
   }
  ]
 }
