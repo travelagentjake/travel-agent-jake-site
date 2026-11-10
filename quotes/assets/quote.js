@@ -172,7 +172,9 @@
       };
     });
   })();
-  var pkgAll = hotels.length > 0 && hotels.every(function (h) { return h.package && h.package.flights && h.package.flights.legs && h.package.flights.legs.length; });
+  var pkgAll = hotels.length > 0 && hotels.every(function (h) { return h.package && (h.package.hotelOnly || (h.package.flights && h.package.flights.legs && h.package.flights.legs.length)); });
+  /* package.hotelOnly: hotel (and tickets) with no travel, still shown in the swipe layout */
+  var hotelOnlyAll = pkgAll && hotels.every(function (h) { return h.package.hotelOnly; });
   if (pkgAll) document.body.classList.add('pkgq');
   var nav = [];
   if (multi) nav.push(['compare', 'Compare']);
@@ -418,7 +420,7 @@
       + (multi ? '<label class="fbl" for="fHotel">Hotel</label><select id="fHotel" class="fsel">' + hotels.map(function (h, i) { return '<option value="' + i + '"' + (i === hIdx ? ' selected' : '') + (pkgAll && typeof removed === 'object' && removed && removed[h.id] ? ' hidden disabled' : '') + '>' + esc(h.name) + ' (' + gbp(h.total) + ')</option>'; }).join('') + '</select>' : '')
       + '<table><tbody>' + rows + '</tbody><tfoot><tr><td>Total</td><td class="n">' + fmt(Math.round(sum * 100) / 100) + '</td></tr>'
       + (people > 1 ? '<tr class="pp"><td>' + (x.free ? 'About per paying person (' + x.free + (Number(x.free) === 1 ? ' child goes' : ' children go') + ' free)' : 'About per person') + '</td><td class="n">' + money(sum / Math.max(1, people - Number(x.free || 0))) + '</td></tr>' : '') + '</tfoot></table>'
-      + (deposit || today ? '<div class="today"><b>To pay today: ' + fmt(Math.round((deposit + today) * 100) / 100) + '</b><span>' + (deposit ? gbp(deposit) + ' deposit' : '') + (today ? (deposit ? ' plus ' : '') + fmt(Math.round(today * 100) / 100) + ' for your airport extras, which are paid in full when you book' : '') + '. ' + (Q.departDate ? 'The rest of the holiday is the balance, spread in the calculator below.' : '') + '</span></div>' : '')
+      + (deposit || today ? '<div class="today"><b>To pay today: ' + fmt(Math.round((deposit + today) * 100) / 100) + '</b><span>' + (deposit ? gbp(deposit) + ' deposit' : '') + (today ? (deposit ? ' plus ' : '') + fmt(Math.round(today * 100) / 100) + ' for your airport extras, which are paid in full when you book' : '') + '. ' + (Q.departDate ? (ddOK ? 'The rest of the holiday is the balance, spread in the calculator below.' : 'The rest of the holiday is the balance, paid before you travel.') : '') + '</span></div>' : '')
       + (extras.some(function (e) { return fits(e, x); }) ? '<p class="small" style="margin:10px 0 0">' + (list.length ? 'Change your extras in <a href="#extras">Add extras</a>.' : 'Nothing extra added yet. Have a look at <a href="#extras">the extras for this hotel</a>.') + (multi ? '' : '') + '</p>' : '');
     var xs = document.getElementById('xSum');
     /* only show extras that go with the hotel picked */
@@ -782,14 +784,14 @@
     var carrier = legs[0] && legs[0].carrier ? legs[0].carrier : '';
     var tshort = (p.transfer || '').split(',')[0];
     return '<div class="pkg"><div class="pkgsum"><div class="pkgsl"><b>' + esc(p.short || p.dates || '') + '</b><span>' + esc([((p.dates || '').match(/\d+ nights?/) || [''])[0], tshort].filter(Boolean).join(' \u00b7 ')) + '</span></div>'
-      + '<button class="mbtn pb" type="button" data-tog="pkg" aria-expanded="false"><span class="m1">View flights</span><span class="m2">Hide flights</span></button></div>'
+      + '<button class="mbtn pb" type="button" data-tog="pkg" aria-expanded="false"><span class="m1">' + (legs.length ? 'View flights' : 'View details') + '</span><span class="m2">' + (legs.length ? 'Hide flights' : 'Hide details') + '</span></button></div>'
       + '<div class="pkgdet"><div class="pkgfl">' + legs.map(function (l) {
         return '<div class="pkgf"><div class="pkgtop"><span class="tg">' + esc(l.tag) + '</span><b>' + esc(l.date) + '</b></div><div class="pkgt">' + esc(l.fromCode) + ' ' + esc(l.dep) + ' &#8594; ' + esc(l.toCode) + ' ' + esc(l.arr) + '</div>'
           + '<small>' + esc(l.from) + ' to ' + esc(l.to) + (l.dur ? ' &#183; ' + esc(l.dur) : '') + (l.carrier ? ' &#183; ' + esc(l.carrier) : '') + '</small>'
           + (l.segments && l.segments.length ? '<ol class="pkgs">' + l.segments.map(function (g) { return g.wait ? '<li class="wait">' + esc(g.wait) + ' wait in ' + esc(g.at) + '</li>' : '<li>' + esc(g.flight || '') + ' ' + esc(g.dep) + ' ' + esc(g.from) + ' &#8594; ' + esc(g.arr) + ' ' + esc(g.to) + '</li>'; }).join('') + '</ol>' : '')
           + '</div>';
       }).join('') + '</div>'
-      + (p.transfer ? '<div class="pkgr"><b>Transfers</b><span>' + esc(p.transfer) + '</span></div>' : '')
+      + (p.transfer ? '<div class="pkgr"><b>' + (p.hotelOnly ? 'Getting there' : 'Transfers') + '</b><span>' + esc(p.transfer) + '</span></div>' : '')
       + (p.note ? '<div class="pkgr"><b>Good to know</b><span>' + esc(p.note) + '</span></div>' : '')
       + (p.included && p.included.length ? '<div class="pkgr"><b>Included</b><span>' + p.included.map(esc).join(' &#183; ') + '</span></div>' : '')
       + '</div></div>';
@@ -1001,7 +1003,7 @@
     document.body.appendChild(bar);
     var tabs = document.createElement('div'); tabs.className = 'dtabs'; tabs.id = 'dTabs';
     var anyCruise = hotels.some(function (h) { return h.cruise; });
-    var TABS = [['stay', 'Package', 'Package: stay and flights'], ['about', 'About', 'About this holiday'], ['extras', 'Extras', 'Extras'], ['more', 'More', 'More info'], ['pay', 'Price', 'Price and payments']];
+    var TABS = [['stay', 'Package', hotelOnlyAll ? 'Package: stay and tickets' : 'Package: stay and flights'], ['about', 'About', 'About this holiday'], ['extras', 'Extras', 'Extras'], ['more', 'More', 'More info'], ['pay', 'Price', 'Price and payments']];
     if (anyCruise) TABS.splice(1, 0, ['cruise', 'Itinerary', 'Your cruise and stay, day by day']);
     var anySki = hotels.some(function (h) { return h.ski; });
     if (anySki) TABS.splice(1, 0, ['ski', 'Ski', 'Your skiing: lift pass, hire and the ski area']);
