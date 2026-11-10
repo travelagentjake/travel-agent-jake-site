@@ -2176,6 +2176,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, where to stay in Queenstown, things to do, real multi centre options with Auckland, Rotorua and Aoraki Mount Cook, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1530656131887-4765f003e900?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "australia.html",
+        "meta": "Australia",
+        "title": "Australia: Sydney & Beyond",
+        "excerpt": "How to actually get there, weather by month, where to stay in Sydney, things to do, real multi centre options with Cairns, Melbourne and Uluru, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1523428096881-5bd79d043006?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -23496,6 +23503,282 @@ with open(os.path.join(SITE, "new-zealand.html"), "w", encoding="utf-8") as f:
     ))
 print("new-zealand.html written")
 
+australia_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>AUSTRALIA: SYDNEY &amp; BEYOND</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">The Opera House, the Harbour Bridge, golden beaches minutes from the city centre and some of the friendliest people you will meet anywhere. Australia is a long way from the UK, but for most of my clients it is the trip of a lifetime. Here is exactly how I put together a trip built around Sydney, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Australia</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1523428096881-5bd79d043006?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sydney Opera House and the harbour, Australia" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Australia is such a huge country that I always start by narrowing it down, and for most first time visitors from the UK that means Sydney. It has the harbour, the Opera House, the bridge, beaches like Bondi and Manly right on the doorstep and enough in and around the city to fill a week on its own. Because of how far it is to fly, I rarely sell Sydney in isolation though. I put together flights, transfers and named hotels across the suppliers I work with to build a trip around you, whether that is Sydney alone or a proper multi centre taking in the Great Barrier Reef, Melbourne or the Red Centre as well.</p>
+    <p style="margin-top:14px;">I compare prices and routing across the suppliers I work with to find the best fit for your dates and budget.</p>
+    {jake_tip("Australia is genuinely a once in a lifetime trip for most of my clients given the flight time involved, so I always build in enough time on the ground to make the journey worth it. A week is the bare minimum for Sydney alone.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Sydney alone is worth five to seven nights, long enough for the harbour, the Blue Mountains, a few of the beaches and some proper downtime. Given how far Australia is to fly, most of my clients build a longer trip around it, two to three weeks in total, combining Sydney with Cairns and the Great Barrier Reef, Melbourne or Uluru, or continuing on to explore more of the country independently.</p>
+    <p style="margin-top:14px;">It suits first time visitors, couples, honeymooners, families over the UK's summer school holidays, and anyone who loves a mix of city, beach and bucket list wildlife or scenery. It is less suited to clients wanting a short break, since the flight time alone takes a day out of the trip each way, those on a tight budget, since Australia is one of the pricier long haul destinations I book, and anyone who cannot commit to the long flight.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1777711391050-7e0cefd4b33b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sydney Harbour Bridge at sunset, Australia" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>There are no direct flights between the UK and Australia, so every route involves at least one stopover, commonly Singapore, Dubai or Doha. Total journey time to Sydney typically runs from around 22 to 23 hours including the stopover, depending on your route and connection time. Airlines flying the route include Emirates, Qatar Airways, Singapore Airlines, Etihad, Cathay Pacific and Qantas with British Airways, usually connecting via the Middle East or Asia.</p>
+    <p style="margin-top:14px;">Sydney Airport sits around a thirty minute train or taxi ride from the city centre, so for most clients this is a straightforward arrival, whether Sydney is the whole trip or the start of a wider multi centre.</p>
+    {jake_tip("I always build in a proper rest day at the start of any Australia trip. Crossing that many time zones catches people out, and clients who push straight into sightseeing on day one almost always regret it.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Sydney's seasons run opposite to the UK's, summer over December to February, winter over June to August. These are long term monthly averages.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>26&deg;C</td><td>19&deg;C</td><td>Peak summer, warm and humid, the busiest and most expensive month</td></tr>
+          <tr><td>February</td><td>26&deg;C</td><td>19&deg;C</td><td>Still hot and humid, slightly quieter than January</td></tr>
+          <tr><td>March</td><td>25&deg;C</td><td>18&deg;C</td><td>Early autumn, still warm, a lovely month for the beaches</td></tr>
+          <tr><td>April</td><td>23&deg;C</td><td>15&deg;C</td><td>Cooling down, settled weather and fewer crowds</td></tr>
+          <tr><td>May</td><td>20&deg;C</td><td>12&deg;C</td><td>Mild autumn days, a favourite month of mine for sightseeing</td></tr>
+          <tr><td>June</td><td>18&deg;C</td><td>9&deg;C</td><td>Winter begins, cooler but still mild by UK standards</td></tr>
+          <tr><td>July</td><td>17&deg;C</td><td>8&deg;C</td><td>The coolest month, crisp clear days, whale watching season begins</td></tr>
+          <tr><td>August</td><td>18&deg;C</td><td>9&deg;C</td><td>Still winter, dry and sunny more often than not</td></tr>
+          <tr><td>September</td><td>20&deg;C</td><td>11&deg;C</td><td>Spring arriving, warming up nicely with fewer crowds</td></tr>
+          <tr><td>October</td><td>22&deg;C</td><td>14&deg;C</td><td>Spring in full swing, good weather before the summer rush</td></tr>
+          <tr><td>November</td><td>24&deg;C</td><td>16&deg;C</td><td>Warming up fast, a great shoulder season month</td></tr>
+          <tr><td>December</td><td>26&deg;C</td><td>18&deg;C</td><td>Summer arriving, Christmas and New Year on the harbour are unforgettable</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Sydney, via Weather2Travel's climate data.</p>
+    {jake_tip("Sydney summer brings real humidity alongside the heat, and January and February are also peak bushfire season in parts of the wider region, worth knowing for anyone planning to drive further afield. It rarely affects the city itself, but I always mention it honestly.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1582076197950-7a1dcdd1e07f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bondi Beach on a sunny day, Sydney, Australia" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>December to February is Sydney's summer and a brilliant time to visit, hot, lively and home to the famous New Year's Eve fireworks over the harbour, but it is also the busiest and most expensive period, with warm humid days. I often point clients towards the shoulder seasons instead, March to May for settled weather and fewer crowds, or September to November for spring warmth before the summer rush, both with noticeably better value than peak summer. June to August is Sydney's mild winter, a quieter time to visit and a good season for whale watching along the coast.</p>
+    {jake_tip("If a client's trip includes the Great Barrier Reef, I always flag that the wet season runs roughly November to April in Far North Queensland, bringing heat, humidity and the chance of tropical downpours. June to October is the more reliable window for diving and snorkelling.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay in Sydney</h2>
+    <p style="margin-top:14px;">Four real, bookable picks around the city.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1716214249813-ec3348580243?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sydney CBD skyscrapers near the harbour" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Ibis Sydney World Square</h3>
+        <p>A straightforward, well located hotel in the heart of the CBD, an easy walk to Darling Harbour, Chinatown and the main shopping streets. A sensible, comfortable base for a first trip. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best boutique &amp; design</div>
+        <img src="https://images.unsplash.com/photo-1748241705920-38391843913f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Historic street in The Rocks, Sydney" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Harbour Rocks by Ode Hotels</h3>
+        <p>A beautifully restored heritage building in The Rocks, Sydney's oldest quarter, just a short stroll from Circular Quay, the Opera House and the bridge. A lovely choice for couples who want history and character. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best family &amp; resort feel</div>
+        <img src="https://images.unsplash.com/photo-1723825451876-05ae25459c94?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Darling Harbour, Sydney, Australia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Four Points by Sheraton Sydney, Darling Harbour</h3>
+        <p>Right on Darling Harbour with a well known rooftop infinity pool looking out over the water, close to the aquarium, the museums and plenty of family friendly restaurants. A great fit for families. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1562791098-df1ae65dee79?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sydney Opera House by the harbour" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Park Hyatt Sydney</h3>
+        <p>Right on the harbour's edge beside the Opera House with some of the best views in the city, elegant rooms, a rooftop pool and a destination restaurant. A real treat for honeymooners or a special occasion. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities as published at the time of writing. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Central Sydney is easy to get around on foot, with Circular Quay, The Rocks, the Opera House and Darling Harbour all within walking distance of each other. Beyond that, Sydney has a good network of trains, buses, light rail and ferries, all covered by a single Opal card that you tap on and off, and the ferry across to Manly or Taronga Zoo is one of the best value harbour views in the city. For the Blue Mountains, a train from Central Station or a day tour both work well without needing a hire car. Taxis and ride share are plentiful and reasonably priced for shorter hops, especially late at night.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sydney Opera House near the water, Australia" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and tickets around Sydney worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="28787,831370,13261,1083455"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/sydney-l200/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/sydney-l200/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Sydney &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sydney Opera House, Australia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sydney Opera House</h3>
+        <p>One of the most recognisable buildings on earth, worth seeing up close on a guided tour as well as from the water, with a full programme of opera, theatre and live music through the year.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1589610833901-8e91851e2291?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sydney Harbour Bridge from above, Australia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Sydney Harbour Bridge</h3>
+        <p>Walk across it for free, or book the full summit climb for panoramic views over the harbour, the Opera House and the whole city skyline. Either way it is a Sydney icon worth making time for.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1665395492464-fa1da74d2e5c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Three Sisters rock formation in the Blue Mountains, Australia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Blue Mountains</h3>
+        <p>A UNESCO listed national park around ninety minutes from the city, home to the Three Sisters rock formation, eucalyptus forest that gives the mountains their blue haze, and some genuinely spectacular lookouts and walking trails.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1772788300228-7861c1875298?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sydney skyline seen from Taronga Zoo, Australia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Taronga Zoo &amp; Bondi Beach</h3>
+        <p>Taronga Zoo sits right on the harbour with some of the best skyline views in Sydney alongside koalas and kangaroos, while Bondi Beach and its famous coastal walk to Coogee are an easy bus or ferry ride from the city centre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Sydney with the rest of Australia</h2>
+    <p style="margin-top:14px;">Given how far Australia is to fly, I almost always encourage clients to see more than just Sydney. Here are three real ways I would put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1587139223877-04cb899fa3e8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of the Great Barrier Reef near Cairns, Australia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Sydney &amp; Cairns</h3>
+        <p>For the Great Barrier Reef and the Daintree Rainforest, finish the trip at the Pullman Reef Hotel Casino on the Cairns Esplanade, a short transfer from the marina where most reef cruises depart.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1624324969215-7ddb79ad73c9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Princes Bridge and the Yarra River, Melbourne, Australia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Sydney &amp; Melbourne</h3>
+        <p>For laneway cafes, world class food and sport, add on a few nights at the Grand Hyatt Melbourne on Collins Street, right in the heart of the city and close to the Yarra River.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1568731392901-d9956cecfb6f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Uluru at sunset, Northern Territory, Australia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Sydney &amp; Uluru</h3>
+        <p>For clients who want the Red Centre as well as the coast, add on a stay at Sails in the Desert, part of Ayers Rock Resort, with uninterrupted views of Uluru and Kata Tjuta on the doorstep.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I will put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Australia uses the Australian dollar, and prices below are shown in pounds based on averaged data for Sydney, at a rate of roughly &pound;1 to AU$1.90. Prices vary a fair bit by suburb, with the CBD and harbourside areas usually running higher.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;13.14 (about AU$25.00)</td></tr>
+          <tr><td>Three course meal for two, mid-range restaurant</td><td>&pound;73.61 (about AU$140.00)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;3.00 (about AU$5.70)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;1.70 (about AU$3.23)</td></tr>
+          <tr><td>Domestic draught beer, a pint</td><td>&pound;6.05 (about AU$11.50)</td></tr>
+          <tr><td>Taxi, metered fare per mile</td><td>&pound;2.20 (about AU$4.19)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd sourced consumer price data via Numbeo for Sydney, checked at time of writing. Australian dollar to pound conversion is approximate and will move around.</p>
+    {jake_tip("Australia is not a cheap destination, and Sydney sits above the national average on most things, eating and drinking especially. I always set client expectations on spending money honestly before they travel.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Australian dollar (AU$)</td></tr>
+          <tr><td>Plug type</td><td>Type I (flat three pin), voltage is 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>English</td></tr>
+          <tr><td>Flight time from the UK</td><td>No direct flights. Around 22 to 23 hours total journey time to Sydney via a stopover such as Singapore, Dubai or Doha</td></tr>
+          <tr><td>Time difference</td><td>Between 9 and 11 hours ahead of the UK depending on the time of year, since the UK and Australia move their clocks at different times</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders need an eVisitor visa (subclass 651) before travelling, a free online application through the official Australian government website, valid for 12 months and allowing stays of up to 3 months per visit. Approval is often quick but I always recommend applying well ahead of travel</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: April Pethybridge, Jeremy Kwok, Jay Wennington, Aryan Baviskar, Huy Q. Tran, cody gallo, C.Valdez, Caleb, Photoholgic, Nicolas Gonzalez, Calvin Kurlekar, Jason Don, Manny Moreno, John Simmons and Kyle Hinkson via Unsplash.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Australia for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around Sydney alone, add on Cairns and the Great Barrier Reef, Melbourne or Uluru as a proper multi centre, or plan somewhere else entirely, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+australia_guide_body = australia_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+AUSTRALIA_GUIDE_SCHEMA = article_and_faq_schema(
+    "Australia: Jake's Destination Guide",
+    "Jake's honest guide to Australia and Sydney: how to actually get there, weather by month, where to stay, things to do, real multi centre options with Cairns, Melbourne and Uluru, and what it actually costs.",
+    "australia.html",
+    "https://images.unsplash.com/photo-1523428096881-5bd79d043006?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Australia for me?", "Yes. Australia is not sold as a simple flight and hotel package by the big UK operators, so I build it as a tailor made trip, putting together flights, transfers and named hotels across the suppliers I work with and building the trip around you."),
+        ("How do you actually get to Australia from the UK?", "There are no direct flights, so every route involves at least one stopover, commonly Singapore, Dubai or Doha. Total journey time to Sydney typically runs from around 22 to 23 hours including the stopover."),
+        ("Do I need a visa for Australia?", "UK passport holders need an eVisitor visa (subclass 651) before travelling, a free online application through the official Australian government website, valid for 12 months and allowing stays of up to 3 months per visit."),
+        ("What is the best time of year to visit Australia?", "December to February is Sydney's summer and a brilliant time to visit, but also the busiest and most expensive. I often point clients towards March to May or September to November, both with far fewer crowds and better value than peak summer."),
+        ("Can Sydney be combined with other parts of Australia?", "Yes. I regularly build this as a real, bookable multi centre trip, adding on Cairns and the Great Barrier Reef, Melbourne or Uluru depending on what you want to see."),
+    ]
+)
+with open(os.path.join(SITE, "australia.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Australia: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Australia and Sydney: how to actually get there, weather by month, where to stay, things to do, real multi centre options with Cairns, Melbourne and Uluru, and what it actually costs.",
+        "destinations.html",
+        australia_guide_body,
+        extra_schema=AUSTRALIA_GUIDE_SCHEMA,
+        canonical_path="australia.html"
+    ))
+print("australia.html written")
+
 
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
@@ -23554,6 +23837,7 @@ SITEMAP_PAGES = [
     ("thassos.html", "0.6"),
     ("switzerland-glacier-express.html", "0.6"),
     ("new-zealand.html", "0.6"),
+    ("australia.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
