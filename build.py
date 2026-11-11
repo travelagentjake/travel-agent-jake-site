@@ -2183,6 +2183,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, where to stay in Sydney, things to do, real multi centre options with Cairns, Melbourne and Uluru, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1523428096881-5bd79d043006?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "albania.html",
+        "meta": "Albania",
+        "title": "Albania: The Albanian Riviera",
+        "excerpt": "How to actually get there, weather by month, where to stay on the Albanian Riviera, things to do, real multi centre options with Tirana, Corfu and Lake Ohrid, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1738675326308-f4097c3405a7?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -23780,6 +23787,281 @@ with open(os.path.join(SITE, "australia.html"), "w", encoding="utf-8") as f:
 print("australia.html written")
 
 
+albania_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>ALBANIA: THE ALBANIAN RIVIERA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Turquoise bays that genuinely rival Greece, mountains running straight down to the sea, and prices that still feel like a decade ago. Albania is the destination clients ask me about more than almost anywhere else right now. Here is exactly how I put together a trip to the Albanian Riviera, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about the Albanian Riviera</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1738675326308-f4097c3405a7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Buneci Beach on the Albanian Riviera" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>I get asked about Albania constantly at the moment, and once clients see the photos I understand why. The Albanian Riviera, the stretch of coast running from Vlore down to Saranda, has the same turquoise water and dramatic mountains as the Greek islands next door, at a fraction of the price, and it still feels properly undiscovered compared to where I usually book. Saranda is the main hub, a lively seafront town that makes a sensible base, with Ksamil's white sand islands, the Blue Eye spring and the ancient ruins at Butrint all within easy reach.</p>
+    <p style="margin-top:14px;">I compare prices and routing across the suppliers I work with to find the best fit for your dates and budget.</p>
+    {jake_tip("Albania is still a genuine value destination, so I always set expectations that it is also still developing in places. Some stretches of the coast have building work going on alongside finished hotels, which is part of why it is such good value right now.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven to ten nights on the Riviera works well, long enough for Saranda, a few days in Ksamil or Dhermi, and day trips to Butrint and the Blue Eye without feeling rushed. Many of my clients add on Tirana, Corfu or further up the coast too, which I cover below.</p>
+    <p style="margin-top:14px;">It suits clients who love the look of Greece but want better value, couples and groups after somewhere that still feels a little off the beaten track, and anyone happy to embrace a destination that is developing fast rather than fully finished. It is less suited to clients who want five star resort infrastructure everywhere they look, since that is still patchy outside the main hotels, or anyone who wants to fly direct into the resort itself, since the nearest airport is Tirana, a transfer away from the coast.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1610642372677-bcddb69f3531?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aeroplane in a blue sky" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>There are direct flights to Tirana (TIA) from nine UK airports: British Airways from London Heathrow, Wizz Air from London Gatwick and Luton, and Ryanair from Birmingham, Edinburgh, Leeds Bradford, Liverpool, Manchester and London Stansted. Flight time is around three hours.</p>
+    <p style="margin-top:14px;">Tirana is not on the coast though, so getting to the Riviera itself means a further transfer, around five to six hours by coach or private car down to Saranda. A route I often suggest instead is flying into Corfu, which has more frequent and often cheaper flights from the UK in summer, then taking the ferry across to Saranda in as little as thirty minutes. I can help work out which route suits your dates best.</p>
+    {jake_tip("The Corfu ferry route catches a lot of clients out when they book flights without checking first, so I always confirm the full journey, not just the flight, before anyone books.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">These are long term monthly averages for the Saranda area on the Albanian Riviera.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>14&deg;C</td><td>5&deg;C</td><td>Cool and wet, the Riviera is quiet with many beach bars closed for winter</td></tr>
+          <tr><td>February</td><td>14&deg;C</td><td>5&deg;C</td><td>Still quiet and showery, better suited to a city stay in Tirana</td></tr>
+          <tr><td>March</td><td>17&deg;C</td><td>7&deg;C</td><td>Spring arriving, warming up but still too cool to swim comfortably</td></tr>
+          <tr><td>April</td><td>19&deg;C</td><td>11&deg;C</td><td>Mild and green, a lovely month for sightseeing before the season starts</td></tr>
+          <tr><td>May</td><td>24&deg;C</td><td>16&deg;C</td><td>Warm and sunny, sea still fresh but the season is properly underway</td></tr>
+          <tr><td>June</td><td>28&deg;C</td><td>20&deg;C</td><td>Hot, long days, sea warm enough to swim, just before the peak crowds</td></tr>
+          <tr><td>July</td><td>31&deg;C</td><td>22&deg;C</td><td>Peak summer, hot and busy, book well ahead</td></tr>
+          <tr><td>August</td><td>31&deg;C</td><td>22&deg;C</td><td>Peak summer continues, the hottest and busiest month of the year</td></tr>
+          <tr><td>September</td><td>28&deg;C</td><td>19&deg;C</td><td>Warm sea, fewer crowds, one of my favourite months on this coast</td></tr>
+          <tr><td>October</td><td>22&deg;C</td><td>11&deg;C</td><td>Cooling down, a lovely shoulder month with the sea still swimmable early on</td></tr>
+          <tr><td>November</td><td>17&deg;C</td><td>8&deg;C</td><td>The rainy season begins, most beach bars and some hotels close for winter</td></tr>
+          <tr><td>December</td><td>15&deg;C</td><td>6&deg;C</td><td>Mild by UK standards but wet, a quiet month on the coast</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Saranda and the Albanian Riviera, via Weather Atlas climate data.</p>
+    {jake_tip("Sea temperatures reach their warmest, around 24 to 25 degrees, in August and September, so September gives you that warm sea with noticeably fewer crowds than July or August.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1758838344709-9414ca9dadc3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Ksamil on a summer evening, Albania" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>June and September are my favourite months to recommend, with warm, swimmable sea, reliably sunny weather and noticeably fewer crowds and lower prices than peak summer. July and August are the hottest and busiest months, and also when prices and crowds both peak, so I always book those well ahead if clients want those specific dates. May is a good value shoulder month too, though the sea takes a little longer to warm up. Over winter, from November to March, much of the Riviera's beach infrastructure closes down, so I tend to steer winter clients towards a city break in Tirana instead.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay on the Albanian Riviera</h2>
+    <p style="margin-top:14px;">Four real, bookable picks around Saranda and Dhermi.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value</div>
+        <img src="https://images.unsplash.com/photo-1665758362878-beff3f919a2b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Saranda seafront, Albania" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Seaside Saranda</h3>
+        <p>A straightforward, well located hotel just two minutes' walk from Mango Beach, with triple and quad rooms that suit families well and a terrace restaurant looking out over the sea. A sensible, affordable base for a first trip. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best boutique &amp; design</div>
+        <img src="https://images.unsplash.com/photo-1738246559297-64489340b3bd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Beach bar on the Albanian Riviera near Dhermi" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">La Brisa Boutique Hotel, Dhermi</h3>
+        <p>A sleek, contemporary hotel right on the beach in Dhermi's old village, with a rooftop infinity pool looking out over the Ionian Sea and a beach bar with sand underfoot. A lovely choice for couples who want style as well as sea views. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best family &amp; resort feel</div>
+        <img src="https://images.unsplash.com/photo-1738246559307-252bff81e7ab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Umbrellas and loungers on a beach on the Albanian Riviera" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Mango Luxury Resorts, Saranda</h3>
+        <p>Steps from Mango Beach with a private beach area, two restaurants, evening shows and rooms ranging from doubles to family suites with their own living areas. A great fit for families who want everything close by. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best spa &amp; sea views</div>
+        <img src="https://images.unsplash.com/photo-1738247122208-1507b771b68c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="View over a bay on the Albanian Riviera" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Bougainville Bay Resort &amp; Spa, Saranda</h3>
+        <p>A smart hotel close to Saranda's centre with indoor and outdoor pools, a spa with a sauna and steam room, and family suites and duplexes with sea views. A good choice for anyone who wants a proper spa alongside the beach. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities as published at the time of writing. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">There is no railway on the Riviera, so a hire car is the easiest way to properly explore the coast road between Saranda, Ksamil, Himare and Dhermi at your own pace, and it is one of the most scenic drives in Europe. Shared minibuses called furgons run between the main towns and are very cheap, though timetables are informal, so I would not rely on them for anything time sensitive. Taxis in and around Saranda are plentiful and inexpensive, and I can arrange private transfers for arrivals, departures and day trips if you would rather not drive.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1741266792116-94fa84c6bed1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Blue Eye spring, Albania" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and tickets around the Albanian Riviera worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="636046,1004174,1340801,943028"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/sarande-l122815/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/sarande-l122815/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in the Albanian Riviera &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1741267087681-ef9c2f8cb675?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The ancient ruins of Butrint, Albania" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Butrint</h3>
+        <p>A UNESCO World Heritage site a short drive from Saranda, with layers of Greek, Roman and Venetian ruins set in a quiet lagoon nature reserve. One of the best value sightseeing days on the whole coast.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1707075197629-c0af9774955c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Ksamil beach, Albania" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Ksamil</h3>
+        <p>Often called the Albanian Maldives, with white sand beaches and a scatter of small islands just offshore that are easy to reach by kayak or a short boat hop. Busy in peak summer, so I always suggest an early start.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1693562142975-6a5e4b4d9039?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Gjirokaster old town, Albania" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Gjirokaster</h3>
+        <p>A UNESCO listed old town of stone Ottoman houses climbing a hillside below a hilltop castle, about an hour inland from Saranda. Easily combined with Blue Eye on a day trip.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1738675326344-e78a03400398?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Porto Palermo bay on the Albanian Riviera" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Llogara Pass &amp; Porto Palermo</h3>
+        <p>The coast road north of Himare climbs dramatically through the Llogara Pass before dropping back to the sea at Porto Palermo, home to a small 19th century castle on its own peninsula. One of the best drives on the Riviera.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining the Riviera with somewhere else</h2>
+    <p style="margin-top:14px;">Albania does not come as one simple flight and hotel package in the way some of my other destinations do, so I usually build it as a tailor made trip, and that makes it easy to add somewhere else on. Here are three real ways I would put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1652868792947-d86c70eb66cc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A square in Tirana, Albania" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">The Riviera &amp; Tirana</h3>
+        <p>Add two or three nights in the capital at the start or end of the trip, for museums, Bunk'Art and the old bazaar, staying at the five star Rogner Hotel Tirana right in the centre. About five to six hours from Saranda by coach or private transfer.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1633013980214-95bbfe6427df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of Corfu, Greece" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">The Riviera &amp; Corfu</h3>
+        <p>The easiest add on of the three. Take the ferry across to Corfu in as little as thirty minutes and finish the trip at Kontokali Bay Resort &amp; Spa, a genuine twin centre a lot of my clients enjoy for the contrast between the two coastlines.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1619371620133-1c4b489a0569?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Lake Ohrid at sunset, North Macedonia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">The Riviera &amp; Lake Ohrid, North Macedonia</h3>
+        <p>For something further off the beaten track, continue on from Tirana to Lake Ohrid, about two and a half to three hours away, and stay at the lakefront Hotel Metropol Lake Resort. A beautiful, little visited corner of the Balkans.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I will put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Albania uses the Albanian Lek, and prices below are shown in pounds based on averaged data for Tirana, at a rate of roughly &pound;1 to 120 Lek. The Riviera in summer runs a little higher than these national averages, but Albania remains one of the best value destinations I book.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;6.65 (about 800 Lek)</td></tr>
+          <tr><td>Three course meal for two, mid-range restaurant</td><td>&pound;37.50 (about 4,500 Lek)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.55 (about 185 Lek)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;0.85 (about 100 Lek)</td></tr>
+          <tr><td>Domestic draught beer, a pint</td><td>&pound;2.40 (about 290 Lek)</td></tr>
+          <tr><td>Taxi, per mile</td><td>&pound;4.00 (about 480 Lek)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd sourced consumer price data via Numbeo for Tirana, checked at time of writing. Lek to pound conversion is approximate and will move around.</p>
+    {jake_tip("Euros are widely accepted along the Riviera in summer, but you will get a better rate paying in Lek, so I always suggest withdrawing a little local currency rather than relying on euros throughout.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Albanian Lek, though euros are widely accepted on the coast in summer</td></tr>
+          <tr><td>Plug type</td><td>Type C and F (two round pins), voltage is 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Albanian, with English and Italian widely spoken in tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 3 hours direct to Tirana, plus a transfer of several hours to the Riviera, or a flight to Corfu and a short ferry crossing</td></tr>
+          <tr><td>Time difference</td><td>1 hour ahead of the UK</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders do not need a visa for stays of up to 90 days in any 180 day period. Your passport should be valid for the whole of your stay</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Marie Volkert, Karol Chomka, Nikos Kavvadas, Vangel Dimo, Dirk Pohlers, Kristijan Arsov, Lona, Illia Panasenko and Artturi Jalli via Unsplash.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy the Albanian Riviera for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around Saranda and the Riviera alone, add on Tirana, Corfu or Lake Ohrid as a proper multi centre, or plan somewhere else entirely, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+albania_guide_body = albania_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+ALBANIA_GUIDE_SCHEMA = article_and_faq_schema(
+    "Albania: Jake's Destination Guide",
+    "Jake's honest guide to the Albanian Riviera: how to actually get there, weather by month, where to stay, things to do, real multi centre options with Tirana, Corfu and Lake Ohrid, and what it actually costs.",
+    "albania.html",
+    "https://images.unsplash.com/photo-1738675326308-f4097c3405a7?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to the Albanian Riviera for me?", "Yes. Albania is not sold as one simple flight and hotel package by every UK operator, so I build it as a tailor made trip, putting together flights, transfers and named hotels across the suppliers I work with and building it around you."),
+        ("Do I need a visa for Albania?", "No. UK passport holders do not need a visa for stays of up to 90 days in any 180 day period. Your passport should be valid for the whole of your stay."),
+        ("How do you get from the airport to the Albanian Riviera?", "The nearest airport is Tirana, around five to six hours from Saranda by coach or private transfer. Many of my clients prefer flying into Corfu instead, then taking the ferry across to Saranda in as little as thirty minutes."),
+        ("What is the best time of year to visit the Albanian Riviera?", "June and September are my favourite months, with warm, swimmable sea and far fewer crowds than peak summer. July and August are the hottest and busiest months, and also the most expensive, so I book those well ahead."),
+        ("Can the Albanian Riviera be combined with other destinations?", "Yes. I regularly build this as a real, bookable multi centre trip, adding on Tirana, Corfu, or Lake Ohrid in North Macedonia depending on what you want to see."),
+    ]
+)
+with open(os.path.join(SITE, "albania.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Albania: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to the Albanian Riviera: how to actually get there, weather by month, where to stay, things to do, real multi centre options with Tirana, Corfu and Lake Ohrid, and what it actually costs.",
+        "destinations.html",
+        albania_guide_body,
+        extra_schema=ALBANIA_GUIDE_SCHEMA,
+        canonical_path="albania.html"
+    ))
+print("albania.html written")
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -23838,6 +24120,7 @@ SITEMAP_PAGES = [
     ("switzerland-glacier-express.html", "0.6"),
     ("new-zealand.html", "0.6"),
     ("australia.html", "0.6"),
+    ("albania.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
