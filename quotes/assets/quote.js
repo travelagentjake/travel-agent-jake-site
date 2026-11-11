@@ -18,7 +18,7 @@
      extras may also have group: extras in the same group are either or (one villa upgrade at a time)
      extras may also have qty: { max, label } for items bought one at a time (bags): price is per item and the customer picks how many
      touristTax: { amount, note }   // default tourist tax for every hotel; a hotel's own tax/taxNote wins. Required on every quote (CMA).
-     sections: [{ id, title, intro, html, after: "hotels" | "trip" | "todo" }],   // custom sections from Jake's notes
+     sections: [{ id, title, intro, html, after: "hotels" | "trip" | "todo", hotels (optional: [hotel ids] to show the section only on those options) }],   // custom sections from Jake's notes
      flights: { intro, legs: [{ group (optional heading, e.g. the hotels these flights are for), tag, date, from, fromCode, to, toCode, dep, arr, dur, carrier }] },
      rooms: [], included: [],
      hotels[].package: { dates, flights: { legs: [same as flights.legs] }, transfer (text), included: [] }   // whole package on the option card: hotel, dates, flights and transfers together. When every hotel has a package, the separate Flights section is left off.
@@ -137,7 +137,7 @@
 
   function custom(after) {
     return (Q.sections || []).filter(function (s) { return (s.after || 'hotels') === after; }).map(function (s, i) {
-      return '<section id="' + esc(s.id || ('extra-' + after + i)) + '"' + (s.alt ? ' class="alt"' : '') + '><div class="wrap"><h2 class="h2">' + esc(s.title) + '</h2>'
+      return '<section id="' + esc(s.id || ('extra-' + after + i)) + '"' + (s.alt ? ' class="alt"' : '') + (s.hotels && s.hotels.length ? ' data-hotels="' + esc(s.hotels.join(' ')) + '"' : '') + '><div class="wrap"><h2 class="h2">' + esc(s.title) + '</h2>'
         + (s.intro ? '<p class="intro">' + esc(s.intro) + '</p>' : '') + '<div class="custom">' + (s.html || '') + '</div></div></section>';
     }).join('');
   }
@@ -1241,6 +1241,8 @@
             var dct = dsec.querySelector('.ctrl'); if (dct) dct.hidden = true;
           }
         }
+        /* custom sections can belong to some options only (sections[].hotels): show them only on those options */
+        Array.prototype.forEach.call(document.querySelectorAll('#app > section[data-hotels]'), function (sx) { sx.hidden = (' ' + sx.getAttribute('data-hotels') + ' ').indexOf(' ' + x.id + ' ') < 0; });
         var moreNow = hasMore && Array.prototype.some.call(document.querySelectorAll('.xsec'), function (s) { return !s.hidden; });
         var avail = { stay: true, cruise: !!x.cruise, ski: !!x.ski, about: true, extras: has('extras'), more: moreNow, pay: true };
         if (skiP) Array.prototype.forEach.call(skiP.children, function (sk) { sk.hidden = sk.getAttribute('data-sk') !== x.id; });
