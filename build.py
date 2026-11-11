@@ -13442,6 +13442,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1787724778073-92572658d6ab?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "A woman working on a laptop in a hotel room while booking travel online",
     },
+    {
+        "slug": "eu-free-cabin-bag-rules-2027.html",
+        "meta": "Baggage &amp; luggage",
+        "title": "The EU's free cabin bag rule: what's actually changing, and what isn't",
+        "excerpt": "Headlines say hand luggage is about to become free across Europe. Here's what's actually been agreed, the one bag that's genuinely guaranteed free, the bigger cabin bag that still isn't, and what it means for a flight you're booking right now.",
+        "image": "https://images.unsplash.com/photo-1569512850669-7baa648e82d8?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "A grey hardside cabin suitcase in an airport",
+    },
 ]
 
 
@@ -24062,6 +24070,141 @@ with open(os.path.join(SITE, "albania.html"), "w", encoding="utf-8") as f:
     ))
 print("albania.html written")
 
+cabin_bag_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>THE EU'S FREE CABIN BAG RULE: WHAT'S ACTUALLY CHANGING, AND WHAT ISN'T</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">A few people have messaged me variations on "is hand luggage about to become free" after seeing a headline about it somewhere. There is something genuinely changing here, but it's narrower than most of the headlines make it sound, and there's a second, bigger bag that a lot of coverage quietly glosses over. Here's what's actually been agreed, what it guarantees you for free, what it doesn't, and what it means for a flight you're booking right now.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where this story actually comes from</h2>
+    <img src="https://images.unsplash.com/photo-1569512850669-7baa648e82d8?auto=format&fit=crop&w=1600&h=700&q=80" alt="A grey hardside cabin suitcase in an airport" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This one's been over a decade in the making. Brussels first proposed an update to the EU's air passenger rights law back in 2013, and talks between the European Parliament and EU governments stalled on and off for years after that. Negotiators finally reached a political agreement on 15 June 2026, and the European Parliament formally voted it through on 7 July 2026, 646 votes in favour, 12 against and 3 abstentions, calling it the final green light for the reform.</p>
+    <p style="margin-top:14px;">The Council of the EU still has its own formal adoption steps to complete, the text then has to be published in the EU's Official Journal, and the regulation applies to passengers a set period after that. Most reporting on the deal, and the EU's own consumer protection channels, currently point to 23 October 2027 as the date it's expected to actually start applying. I'd treat that as the current best estimate rather than a locked in certainty, formal publication hadn't happened as I was writing this.</p>
+    {jake_tip("I'll come back and update this page the moment there's a confirmed, published start date, the same way I have with the EES, ETIAS and the April 2027 package travel changes.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>The bit that's actually guaranteed free</h2>
+    <img src="https://images.unsplash.com/photo-1510576180164-fa8819e2aa37?auto=format&fit=crop&w=1600&h=700&q=80" alt="A backpack on the ground beside someone's feet" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Despite the headlines, this reform never promised you a free full size cabin bag. What it does guarantee, once it applies, is one personal item, a small bag such as a handbag, laptop bag or small backpack, that fits under the seat in front of you. It has to measure at least 40cm by 30cm by 15cm, and it has to be included in every single fare an airline sells, even its very cheapest one. No reporting on the final deal mentions a weight limit for it, so I wouldn't assume there'll be one.</p>
+    <p style="margin-top:14px;">Airlines will also have to show you a fare that includes this allowance as the default price when you start searching, rather than tucking it away behind a cheaper headline figure that doesn't include it.</p>
+    {jake_tip("Ryanair, easyJet and Wizz Air already let you bring a small bag this size or bigger under the seat for free today, that's current policy rather than law. What actually changes is that it becomes a right an airline can't quietly take away, not a new allowance you don't already have.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The bit that still isn't guaranteed free</h2>
+    <img src="https://images.unsplash.com/photo-1564046105853-e7846ca87225?auto=format&fit=crop&w=1600&h=700&q=80" alt="The inside of an airplane cabin with overhead lockers and windows" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The bigger bag, the kind you wheel to the gate and lift into the overhead locker, is a different story, and it's the detail most of the "free hand luggage" headlines skip over. An earlier European Parliament position wanted a guaranteed free cabin bag too, up to 100cm combined dimensions and 7kg, but that didn't survive the final negotiations with EU governments. The size and the price of that larger bag is left entirely up to each airline in the agreed text.</p>
+    <p style="margin-top:14px;">What you do get is the fare transparency point above, airlines have to show a bag included price as the default, but they can still sell a genuinely bag free fare alongside it for anyone happy to travel with just the small under seat item. A true no frills ticket isn't disappearing, and a full size cabin bag beyond the small personal item can still come with its own charge, sometimes a significant one if you leave adding it until you're at the airport.</p>
+    {jake_tip("If a full size cabin bag matters to you on a budget airline, don't assume this reform gets you one for free. Check exactly what's included in the fare you're actually buying, the same as you should today.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Which flights this actually covers</h2>
+    <img src="https://images.unsplash.com/photo-1563463149242-bd378d9ab05c?auto=format&fit=crop&w=1600&h=700&q=80" alt="Passport control signage at a European airport" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Like most EU air passenger rules, this one is tied to where your flight departs from and which airline operates it, not which passport you're travelling on. It covers any flight leaving an EU or EEA airport, whatever airline you're flying with, and flights arriving into the EU on an airline registered there. That means the return leg of a holiday from Spain, Greece, Cyprus, Portugal, Italy or Malta picks up the new baggage rules once they're in force, even flying home with a British airline like Jet2, TUI Airways or easyJet.</p>
+    <p style="margin-top:14px;">The outbound leg from a UK airport is a different matter. The UK left EU law behind after Brexit, so what you get on that leg depends entirely on what a UK based airline chooses to offer, not on this reform.</p>
+    <p style="margin-top:14px;">In practice, this matters far less for most of the holidays I book than the headlines suggest. British Airways, Jet2 and TUI already include a cabin bag as standard on the package fares I sell, so there's nothing for this reform to change there. It's really aimed at the cheapest tier of fares on airlines like Ryanair, easyJet and Wizz Air, where anything beyond the small personal item has always cost extra.</p>
+    {jake_tip("If you've booked a package holiday with me, you can relax about this one, it's really a story for anyone booking a bare bones budget ticket separately rather than a package.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What to actually do between now and then</h2>
+    <img src="https://images.unsplash.com/photo-1655919640606-28088c64edb0?auto=format&fit=crop&w=1600&h=700&q=80" alt="A traveller walking through an airport terminal" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Nothing changes for any flight before the reform actually applies.</b> Current airline by airline baggage rules and fees stand exactly as they are today.</span></li>
+      <li><span class="num">2</span><span><b>Keep checking your fare's current hand luggage allowance before you travel,</b> the same as always, rather than waiting for this reform to help you with a trip you're booking now.</span></li>
+      <li><span class="num">3</span><span><b>If a full size cabin bag matters to you on a budget fare, expect to keep paying for it.</b> The guaranteed free bag is the small under seat personal item only.</span></li>
+      <li><span class="num">4</span><span><b>Watch for airlines showing a bag included price as the default when you search.</b> A cheaper no bag fare should still sit alongside it if you don't need the extra allowance.</span></li>
+      <li><span class="num">5</span><span><b>Treat 23 October 2027 as the current best estimate, not a certainty.</b> I'll update this page once there's a confirmed, published in force date.</span></li>
+    </ul>
+    {jake_tip("If you're ever unsure exactly what a fare includes before you book, message me and I'll check it properly rather than you having to decode an airline's own small print.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Is hand luggage already free across Europe?</h3>
+      <p>Not yet. The reform that guarantees a small free personal item on every fare has been agreed but isn't in force. Most reporting points to 23 October 2027, though that hadn't been formally published as this was written, so today's airline by airline baggage rules still apply to your flight.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What exactly is guaranteed free once the reform applies?</h3>
+      <p>One personal item, such as a handbag, laptop bag or small backpack, that fits under the seat in front of you and measures at least 40cm by 30cm by 15cm. It has to be included in every fare an airline sells, even the cheapest.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Will my full size cabin bag be free too?</h3>
+      <p>No. An earlier proposal for a guaranteed free, fixed size cabin bag for the overhead locker didn't make it into the final deal. Airlines can still charge for a bag bigger than the small personal item, particularly on no frills budget fares.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does this apply to flights leaving the UK?</h3>
+      <p>Only partly. It covers flights leaving an EU or EEA airport on any airline, and flights arriving into the EU on an EU registered airline. An outbound flight from a UK airport on a UK airline isn't covered by this EU reform at all.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does this change anything for a package holiday I book with Jake?</h3>
+      <p>Not much in practice. British Airways, Jet2 and TUI already include a cabin bag as standard on the fares I sell. This reform is really aimed at the cheapest budget airline fares, where extra bags have always cost more.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1746303390150-e341ffaabc94?auto=format&fit=crop&w=1600&h=700&q=80" alt="A budget airline aircraft boarding passengers at night" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Not sure what your own fare actually includes?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Tell me what you're booking and I'll make sure you know exactly what baggage allowance you're getting before you commit to anything, budget airline or package holiday.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+cabin_bag_body = cabin_bag_body.replace("::NEWSLETTER::", newsletter_section())
+
+CABIN_BAG_SCHEMA = article_and_faq_schema(
+    "The EU's Free Cabin Bag Rule: What's Actually Changing, and What Isn't",
+    "Headlines say hand luggage is about to become free across Europe. Here's what's actually been agreed, the one bag that's genuinely guaranteed free, the bigger cabin bag that still isn't, and what it means for a flight you're booking right now.",
+    "eu-free-cabin-bag-rules-2027.html",
+    "https://images.unsplash.com/photo-1569512850669-7baa648e82d8?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("Is hand luggage already free across Europe?", "Not yet. The reform that guarantees a small free personal item on every fare has been agreed but isn't in force. Most reporting points to 23 October 2027, though that hadn't been formally published as this was written, so today's airline by airline baggage rules still apply to your flight."),
+        ("What exactly is guaranteed free once the reform applies?", "One personal item, such as a handbag, laptop bag or small backpack, that fits under the seat in front of you and measures at least 40cm by 30cm by 15cm. It has to be included in every fare an airline sells, even the cheapest."),
+        ("Will my full size cabin bag be free too?", "No. An earlier proposal for a guaranteed free, fixed size cabin bag for the overhead locker didn't make it into the final deal. Airlines can still charge for a bag bigger than the small personal item, particularly on no frills budget fares."),
+        ("Does this apply to flights leaving the UK?", "Only partly. It covers flights leaving an EU or EEA airport on any airline, and flights arriving into the EU on an EU registered airline. An outbound flight from a UK airport on a UK airline isn't covered by this EU reform at all."),
+        ("Does this change anything for a package holiday I book with Jake?", "Not much in practice. British Airways, Jet2 and TUI already include a cabin bag as standard on the fares I sell. This reform is really aimed at the cheapest budget airline fares, where extra bags have always cost more."),
+    ]
+)
+
+with open(os.path.join(SITE, "eu-free-cabin-bag-rules-2027.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "The EU's Free Cabin Bag Rule: What's Actually Changing, and What Isn't | Travel Agent Jake",
+        "Headlines say hand luggage is about to become free across Europe. Here's what's actually been agreed, the one bag that's genuinely guaranteed free, the bigger cabin bag that still isn't, and what it means for a flight you're booking right now.",
+        "travel-tips.html",
+        cabin_bag_body,
+        extra_schema=CABIN_BAG_SCHEMA,
+        canonical_path="eu-free-cabin-bag-rules-2027.html"
+    ))
+print("eu-free-cabin-bag-rules-2027.html written")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -24157,6 +24300,7 @@ SITEMAP_PAGES = [
     ("gibraltar-spain-border-deal-2026.html", "0.7"),
     ("parental-consent-letter-child-travel-abroad.html", "0.7"),
     ("package-travel-rules-changing-april-2027.html", "0.7"),
+    ("eu-free-cabin-bag-rules-2027.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
