@@ -1363,6 +1363,17 @@
    "created": "2026-11-11",
    "departs": "2027-12-19",
    "fromPrice": 8228
+  },
+  {
+   "slug": "lauren",
+   "url": "https://quotes.travelagentjake.co.uk/lauren",
+   "customer": "Lauren Fairlamb",
+   "enquiryId": "mwbvtop6a7oi",
+   "quoteRequestId": "mwbvxejoruot",
+   "title": "Family beach holiday, three all inclusive Hurghada options for 2 adults and 5 children all together in one room, from Belfast, 7 nights Tue 9 Feb 2027: Grand Waterworld Makadi, Pharaoh Azur Beach Resort, Pickalbatros Jungle Aqua Park (Red Sea Holidays, easyJet holidays)",
+   "created": "2026-11-11",
+   "departs": "2027-02-09",
+   "fromPrice": 4546
   }
  ]
 }
