@@ -1352,6 +1352,17 @@
    "created": "2026-11-10",
    "departs": "2027-03-25",
    "fromPrice": 10782
+  },
+  {
+   "slug": "benlapland",
+   "url": "https://quotes.travelagentjake.co.uk/benlapland",
+   "customer": "Ben Burston",
+   "enquiryId": "mwb4kb3h11uj",
+   "quoteRequestId": "mwbugj9v36b0",
+   "title": "Lapland with Santa's Lapland, Saariselkä, Sun 19 to Wed 22 December 2027, 3 nights half board, 2 adults and 2 children, from Birmingham",
+   "created": "2026-11-11",
+   "departs": "2027-12-19",
+   "fromPrice": 8228
   }
  ]
 }
