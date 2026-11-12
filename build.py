@@ -2190,6 +2190,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, where to stay on the Albanian Riviera, things to do, real multi centre options with Tirana, Corfu and Lake Ohrid, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1738675326308-f4097c3405a7?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "peru.html",
+        "meta": "Peru",
+        "title": "Peru: Machu Picchu & the Sacred Valley",
+        "excerpt": "How to actually get there, weather by month, where to stay in Cusco and the Sacred Valley, things to do, real multi centre options with Lake Titicaca, the Amazon and the southern coast, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -24070,6 +24077,281 @@ with open(os.path.join(SITE, "albania.html"), "w", encoding="utf-8") as f:
     ))
 print("albania.html written")
 
+peru_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>PERU: MACHU PICCHU &amp; THE SACRED VALLEY</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">A lost Inca citadel on top of a mountain, a valley of ancient terraces still farmed the same way today, and a city that still feels like the capital of an empire. Peru has been near the top of my clients' bucket lists for years, and once they book it they always say the same thing when they get back, that the photos genuinely do not do it justice. Here is exactly how I put together a trip to Machu Picchu and the Sacred Valley, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Peru</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Machu Picchu citadel in the Peruvian Andes" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Peru is one of those trips where the destination genuinely lives up to the hype. The classic route runs through Lima on the coast, up into Cusco and the Sacred Valley, and on to Machu Picchu itself, with the Inca terracing, the markets and the mountain scenery all adding up to one of the most rewarding trips I book. It is not a lie on a beach holiday though, there is a fair amount of altitude, travel time and early starts involved, and I always set that expectation honestly before anyone books.</p>
+    <p style="margin-top:14px;">I compare prices and routing across the suppliers I work with to find the best fit for your dates and budget, since this is a tailor made trip rather than a single packaged product.</p>
+    {jake_tip("Cusco sits at 3,400 metres above sea level, and altitude affects most people to some degree, tiredness and a mild headache are common for the first day or so. I always talk clients through pacing the first couple of days properly before they travel, and can build an extra night in the lower Sacred Valley into the itinerary first if that suits you better.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Ten to fourteen nights works well for the classic route, enough time for a night or two in Lima, several nights across Cusco and the Sacred Valley, an overnight near Machu Picchu itself so you are not rushing the visit, and a buffer day for altitude. Clients who want to add Lake Titicaca, the Amazon or the southern coast on top, which I cover further down, tend to go for fifteen to eighteen nights in total.</p>
+    <p style="margin-top:14px;">It suits clients who want a genuine bucket list trip built around history and culture, anyone happy with early starts, some walking over uneven ground and a fair amount of time on trains and internal flights, and travellers who are comfortable at altitude or willing to pace themselves if they are not sure. It is less suited to anyone with very limited mobility, since Machu Picchu itself involves steps and slopes with no lift access, or to clients who want a short break, since the flight time alone makes this a trip of two weeks or more to feel worthwhile.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aeroplane in a blue sky" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>There are no direct flights from the UK to Lima. The usual routes connect through Madrid with Iberia, Amsterdam with KLM, or through a US gateway such as Miami or Atlanta, with a total journey time of around fifteen to eighteen hours depending on the connection. From Lima, Cusco is a further internal flight of around one hour fifteen minutes, there is no practical overland alternative given the distance and terrain.</p>
+    <p style="margin-top:14px;">I always try to book morning flights for the Lima to Cusco leg specifically, since afternoon flights into Cusco are more prone to weather related delays and cancellations because of winds picking up around the airport later in the day.</p>
+    {jake_tip("I build in a spare night in Lima before the flight to Cusco wherever possible, so a delayed or cancelled connection does not put the rest of the trip at risk. It has saved more than one itinerary.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">These are long term monthly averages for Cusco and the Sacred Valley, the heart of the trip. Lima, on the coast, runs a more stable, milder climate year round with a grey coastal fog called the garua common from May to November and no real need for an umbrella at any time of year.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>19&deg;C</td><td>7&deg;C</td><td>Wet season, frequent afternoon rain, trails can be muddy</td></tr>
+          <tr><td>February</td><td>19&deg;C</td><td>7&deg;C</td><td>The wettest month, the Inca Trail itself closes for maintenance</td></tr>
+          <tr><td>March</td><td>19&deg;C</td><td>6&deg;C</td><td>Still fairly wet, rainfall easing off towards the end of the month</td></tr>
+          <tr><td>April</td><td>20&deg;C</td><td>5&deg;C</td><td>A lovely shoulder month, drying out with green landscapes and thinner crowds</td></tr>
+          <tr><td>May</td><td>20&deg;C</td><td>3&deg;C</td><td>Dry season begins, clear blue skies, cold at night</td></tr>
+          <tr><td>June</td><td>19&deg;C</td><td>1&deg;C</td><td>Dry and sunny, the coldest nights of the year, can drop below freezing</td></tr>
+          <tr><td>July</td><td>19&deg;C</td><td>0&deg;C</td><td>Peak season, dry and sunny days, very cold after dark, book well ahead</td></tr>
+          <tr><td>August</td><td>20&deg;C</td><td>2&deg;C</td><td>Peak season continues, dry and sunny, winds can pick up</td></tr>
+          <tr><td>September</td><td>20&deg;C</td><td>4&deg;C</td><td>Still dry, trails in good condition, one of my favourite months here</td></tr>
+          <tr><td>October</td><td>21&deg;C</td><td>6&deg;C</td><td>Rain returning but still mostly good trekking weather</td></tr>
+          <tr><td>November</td><td>21&deg;C</td><td>6&deg;C</td><td>Light rain, comfortable temperatures, noticeably fewer visitors</td></tr>
+          <tr><td>December</td><td>21&deg;C</td><td>7&deg;C</td><td>Wet season begins, warm days with short showers</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Cusco, via Weather Atlas climate data.</p>
+    {jake_tip("Nights are genuinely cold across the dry season, June and July especially, even though the days are warm and sunny. Packing proper layers for the evenings catches a lot of first time visitors out.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1470512212589-b2800fbb648a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rainbow Mountain near Cusco, Peru" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>May to September is the dry season and the classic time to go, with the clearest skies, the best trekking conditions and the lowest chance of a washed out visit to Machu Picchu. July and August are also the busiest and most expensive months, booked up well in advance for the Inca Trail especially. April and late October into November are good shoulder months, with thinner crowds, lower prices and still largely decent weather, which is where I point a lot of my clients. December to March is the wet season, and February in particular sees the Inca Trail itself close completely for annual maintenance, though Machu Picchu is still reachable by train throughout.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;">Four real, bookable picks across the classic Cusco, Sacred Valley and Machu Picchu circuit.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value, Cusco</div>
+        <img src="https://images.unsplash.com/photo-1578594903885-51d6d8bcdbb7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Plaza de Armas, Cusco, Peru" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Andenes al Cielo, Cusco</h3>
+        <p>A colonial mansion a few blocks from the Plaza de Armas, with heated rooms, breakfast included and a rooftop terrace looking out over the city's red tiled roofs. A sensible, well located base for a first night or two acclimatising. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for the valley itself</div>
+        <img src="https://images.unsplash.com/photo-1725153264822-ab95a6e81428?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A Sacred Valley village below the Andes, Peru" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">La Casona de Yucay, Sacred Valley</h3>
+        <p>A historic house dating to 1810, once used to shelter Simon Bolivar, with 56 rooms around garden courtyards and an on-site restaurant using organic produce grown on the property. A lower altitude base that suits clients easing into the trip gently. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury</div>
+        <img src="https://images.unsplash.com/photo-1773159065263-c078f75cfa40?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Urubamba River running through the Sacred Valley, Peru" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Belmond Rio Sagrado, Sacred Valley</h3>
+        <p>Suites set along the Urubamba River with their own spa, two restaurants and a train station on site for the journey to Machu Picchu. Guests can feed the hotel's own baby alpacas, a lovely touch for families. A genuine treat it stay for anyone after real luxury. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best right by the ruins</div>
+        <img src="https://images.unsplash.com/photo-1543385426-191664295b58?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Machu Picchu seen from the Machu Picchu Pueblo side of the valley" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Inkaterra Machu Picchu Pueblo Hotel</h3>
+        <p>A lodge style hotel on the edge of Aguas Calientes, the town below the ruins, with open fireplaces, orchid gardens, a well regarded restaurant and guides who know the area inside out. The best choice for anyone who wants to be first through the gates in the morning. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities as published at the time of writing. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">The journey from the Sacred Valley to Machu Picchu is done by train, either from Ollantaytambo or from Poroy near Cusco, run by PeruRail or IncaRail, up through the Urubamba gorge to Aguas Calientes, then a short shuttle bus up the final climb to the citadel itself. Taxis within Cusco and around the Sacred Valley towns are plentiful and inexpensive, and I arrange private transfers for arrivals, departures and the drive between Cusco and the valley as standard, since self driving here is not something I recommend given the mountain roads and altitude.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Machu Picchu in the morning mist, Peru" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A shortlist of the bookable tours and tickets around Cusco and the Sacred Valley worth having on the radar.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="407150,783129,822038,658839"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/cusco-l359/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/cusco-l359/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Cusco &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1659554282192-9a933b30d73d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Ollantaytambo fortress, Sacred Valley, Peru" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Ollantaytambo</h3>
+        <p>A living Inca town where people still live within the original stone walls and water channels, with a steep terraced fortress above the square. One of the best preserved Inca settlements anywhere, and the usual departure point for the train to Machu Picchu.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1542839202-0a2bb58c033e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rainbow Mountain, also known as Vinicunca, Peru" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Rainbow Mountain</h3>
+        <p>Vinicunca's naturally striped slopes, coloured by mineral deposits, have become one of Peru's most photographed sights. It is a genuinely demanding day out at over 5,000 metres, so I always check a client's fitness and acclimatisation before booking it.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1562869929-bda0650edb1f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Traditional Peruvian weaving and textiles" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Chinchero &amp; the Sacred Valley markets</h3>
+        <p>Chinchero's Sunday market and its weaving cooperatives, where the same natural dye techniques have been used for centuries, make a lovely, colourful stop on the way between Cusco and the valley, alongside the Pisac market on other days of the week.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1703944601077-013e088c8006?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A llama in the Peruvian Andes" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Humantay Lake</h3>
+        <p>A turquoise glacial lake at around 4,200 metres, reached by a steep but manageable hike past herds of llamas and alpacas grazing the high pasture. A full day out from Cusco and a proper taste of the high Andes without the crowds of Machu Picchu itself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Peru with somewhere else</h2>
+    <p style="margin-top:14px;">Peru does not come as one simple flight and hotel package, so I build it as a tailor made trip from the outset, and that makes it straightforward to extend. Here are three real ways I would put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1620417396507-9a57523d16a6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A boat on Lake Titicaca, Peru" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Peru &amp; Lake Titicaca</h3>
+        <p>Add two or three nights in Puno, on the shore of the highest navigable lake in the world, for a boat trip out to the Uros floating islands, built from reeds by hand for generations. About a six to seven hour overland transfer or a short flight from Cusco.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1591081658714-f576fb7ea3ed?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Aerial view of the Amazon rainforest, Peru" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Peru &amp; the Amazon Rainforest</h3>
+        <p>Fly from Cusco to Puerto Maldonado, gateway to the Tambopata National Reserve, and finish the trip with two or three nights at Inkaterra Reserva Amazonica, a genuine jungle lodge with guided canopy walks and night time wildlife spotting by boat.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1761755512025-85b3e8d1bba9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Colca Canyon, southern Peru" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Peru &amp; the Southern Coast</h3>
+        <p>Head south from Lima instead, flying over the mysterious Nazca Lines, visiting the Ballestas Islands from Paracas for wildlife close up, and finishing in Arequipa for Colca Canyon, one of the deepest canyons on earth and home to soaring Andean condors.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I will put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Peru uses the Peruvian Sol, and prices below are shown in pounds based on averaged data for Lima, at a rate of roughly &pound;1 to S/4.60. Touristy areas of Cusco and the Sacred Valley typically run a little higher than these national averages.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal at an inexpensive restaurant</td><td>&pound;3.50 (about S/16.00)</td></tr>
+          <tr><td>Three course meal for two, mid-range restaurant</td><td>&pound;26.10 (about S/120.00)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;2.40 (about S/11.00)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;0.55 (about S/2.50)</td></tr>
+          <tr><td>Domestic draught beer, a pint</td><td>&pound;2.20 (about S/10.00)</td></tr>
+          <tr><td>Taxi, short ride, starting fare</td><td>&pound;2.60 (about S/12.00)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd sourced consumer price data via Numbeo for Lima, checked at time of writing. Sol to pound conversion is approximate and will move around.</p>
+    {jake_tip("Cash still goes further than cards in the smaller Sacred Valley towns and at local markets, so I always suggest withdrawing some Soles in Lima or Cusco rather than relying on cards everywhere.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Peruvian Sol (S/), cards widely accepted in Lima and Cusco hotels, cash preferred in smaller towns and markets</td></tr>
+          <tr><td>Plug type</td><td>Type A and C (two flat or two round pins), voltage is 220V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Spanish, with Quechua widely spoken across the Andes. English is common in tourist areas but less so elsewhere</td></tr>
+          <tr><td>Flight time from the UK</td><td>No direct flights. Around 15 to 18 hours total to Lima via Madrid, Amsterdam or a US gateway, plus a further 1 hour 15 minutes internal flight on to Cusco</td></tr>
+          <tr><td>Time difference</td><td>5 hours behind the UK, or 6 hours behind during British Summer Time, since Peru does not change its clocks</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders do not need a visa for tourist stays of up to 90 days in any 180 day period. Your passport should be valid for at least 6 months beyond your arrival date</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Eddie Kiszka, Ross Parmly, Paul Daly, Sergei A, Raul Varela, Meg von Haartman, Will Goodman, Fabien Moline, Willian Justen de Vasconcellos, Mauro Lima, Yuvy Dhaliah, analuisa gamboa, Cristhian Guzman, Willian Reis, Ivars Utinans and Andrea Pasquali via Unsplash.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Peru for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around Machu Picchu and the Sacred Valley alone, add on Lake Titicaca, the Amazon or the southern coast as a proper multi centre, or plan somewhere else entirely, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+peru_guide_body = peru_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+PERU_GUIDE_SCHEMA = article_and_faq_schema(
+    "Peru: Jake's Destination Guide",
+    "Jake's honest guide to Peru: how to actually get there, weather by month, where to stay in Cusco and the Sacred Valley, things to do, real multi centre options with Lake Titicaca, the Amazon and the southern coast, and what it actually costs.",
+    "peru.html",
+    "https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Peru for me?", "Yes. Peru is not sold as one simple flight and hotel package, so I build it as a tailor made trip, putting together the connecting flights, the internal flight to Cusco, transfers, named hotels and the activities you want, built around your dates and budget."),
+        ("Do I need a visa for Peru?", "No. UK passport holders do not need a visa for tourist stays of up to 90 days in any 180 day period. Your passport should be valid for at least 6 months beyond your arrival date."),
+        ("Will I get altitude sickness in Cusco?", "Some people do, Cusco sits at 3,400 metres above sea level. I always suggest taking the first day or two slowly, staying well hydrated and trying coca tea, and I can build an extra acclimatisation night into the lower Sacred Valley first if that suits you better."),
+        ("What is the best time of year to visit Machu Picchu?", "May to September is the dry season, with the clearest skies and the best trekking conditions, though it is also the busiest and most expensive period. April and late October into November are good shoulder months with fewer crowds."),
+        ("Can Peru be combined with other destinations?", "Yes. I regularly build this as a real, bookable multi centre trip, adding on Lake Titicaca, the Amazon rainforest, or the southern coast around Nazca and Arequipa depending on what you want to see."),
+    ]
+)
+with open(os.path.join(SITE, "peru.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Peru: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to Peru: how to actually get there, weather by month, where to stay in Cusco and the Sacred Valley, things to do, real multi centre options with Lake Titicaca, the Amazon and the southern coast, and what it actually costs.",
+        "destinations.html",
+        peru_guide_body,
+        extra_schema=PERU_GUIDE_SCHEMA,
+        canonical_path="peru.html"
+    ))
+print("peru.html written")
+
 cabin_bag_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
   <div class="wrap">
@@ -24264,6 +24546,7 @@ SITEMAP_PAGES = [
     ("new-zealand.html", "0.6"),
     ("australia.html", "0.6"),
     ("albania.html", "0.6"),
+    ("peru.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
