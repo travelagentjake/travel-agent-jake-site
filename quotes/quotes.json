@@ -1385,6 +1385,17 @@
    "created": "2026-11-11",
    "departs": "2027-07-17",
    "fromPrice": 9971
+  },
+  {
+   "slug": "rachel",
+   "url": "https://quotes.travelagentjake.co.uk/rachel",
+   "customer": "Rachel",
+   "enquiryId": "",
+   "quoteRequestId": "",
+   "title": "Fuerteventura February half term for 5 adults and 2 children (7, 4) in 3 rooms, 7 nights from Edinburgh Sun 14 Feb 2027: Alua Suites Fuerteventura, Barcelo Fuerteventura Castillo, Barcelo Fuerteventura Mar (Jet2holidays)",
+   "created": "2026-11-12",
+   "departs": "2027-02-14",
+   "fromPrice": 5299
   }
  ]
 }
