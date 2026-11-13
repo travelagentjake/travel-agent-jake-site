@@ -1396,6 +1396,17 @@
    "created": "2026-11-12",
    "departs": "2027-02-14",
    "fromPrice": 5299
+  },
+  {
+   "slug": "maddie-katie",
+   "url": "https://quotes.travelagentjake.co.uk/maddie-katie",
+   "customer": "Maddie & Katie",
+   "enquiryId": "",
+   "quoteRequestId": "",
+   "title": "January 2027 sun, 7 nights all inclusive with private transfers: Fairmont Fujairah, Ajman Saray, Melia Llana Sal, El Dorado Seaside Palms Riviera Maya, HM Alma de Bayahibe (Etihad Holidays, TUI)",
+   "created": "2026-11-13",
+   "departs": "2027-01-11",
+   "fromPrice": 2389
   }
  ]
 }
