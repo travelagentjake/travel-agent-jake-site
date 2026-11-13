@@ -13457,6 +13457,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1569512850669-7baa648e82d8?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "A grey hardside cabin suitcase in an airport",
     },
+    {
+        "slug": "duty-free-allowance-changes-2026.html",
+        "meta": "Customs &amp; duty free",
+        "title": "Your duty free allowance just changed: what you can actually bring home now",
+        "excerpt": "On 1 October 2026 the UK reshuffled what counts as duty free. Cider now rides on your beer allowance and sparkling wine on your wine allowance, instead of the old bucket they used to share with fortified wine. Here's exactly what you can bring home from holiday now, plus the different rules flying into Northern Ireland.",
+        "image": "https://images.unsplash.com/photo-1742589977991-0417bf1ca3b1?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "A duty free shop display inside an airport terminal",
+    },
 ]
 
 
@@ -24487,6 +24495,164 @@ with open(os.path.join(SITE, "eu-free-cabin-bag-rules-2027.html"), "w", encoding
 print("eu-free-cabin-bag-rules-2027.html written")
 
 
+
+duty_free_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>YOUR DUTY FREE ALLOWANCE JUST CHANGED: WHAT YOU CAN ACTUALLY BRING HOME NOW</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">A few people have asked me recently whether it is still worth buying wine or spirits in duty free, after seeing something online about the rules changing. There is a genuine change here, from 1 October 2026, and it reshuffles which category your holiday shopping actually falls into rather than cutting anyone's allowance outright. Cider now rides on your beer allowance. Sparkling wine, prosecco, cava and champagne included, now rides on your wine allowance. Here is exactly what that means for a real suitcase of holiday shopping, plus the different rules if you are flying back into Northern Ireland.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What's actually changed, and why</h2>
+    <img src="https://images.unsplash.com/photo-1742589977991-0417bf1ca3b1?auto=format&fit=crop&w=1600&h=700&q=80" alt="A duty free shop display inside an airport terminal" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">On 1 October 2026 a change called the Travellers' Allowances (Amendment) Order 2026 took effect, reshuffling how some alcohol categories work for personal allowances. Parliament's own Second Delegated Legislation Committee examined the order and gave it formal backing on 19 October 2026, after it was already in force.</p>
+    <p style="margin-top:14px;">Before the change, cider shared a 9 litre allowance with sparkling wine and fortified wine, all lumped together under the heading of "other alcoholic products up to 22% ABV". Now cider has been folded into the 42 litre beer allowance instead, officially relabelled "beer and cider", and sparkling wine has been folded into the 18 litre wine allowance instead, officially relabelled "wine, still or sparkling". The old 9 litre category still exists, it is just narrower now, really covering fortified wine such as port and sherry rather than cider or prosecco.</p>
+    {jake_tip("Treasury minister James Murray says the overall allowance is unchanged, and in one sense that is true. But if you used to split that old 9 litre bucket between cider, prosecco and a bottle of sherry, you can genuinely bring back more of each individually now they have their own separate categories.")}
+    <p style="margin-top:14px;">The change came out of a 2025 Budget commitment to review how personal allowances work since the UK left the EU, with the stated aim of making the system simpler and more consistent with the UK's own 2023 alcohol duty reforms, which already group drinks by type rather than treating cider and sparkling wine as a special case.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Your alcohol allowance now, flying into England, Scotland or Wales</h2>
+    <img src="https://images.unsplash.com/photo-1562601579-599dec564e06?auto=format&fit=crop&w=1600&h=700&q=80" alt="A shelf of wine bottles" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Here is the full breakdown as it stands from 1 October 2026, for anyone arriving in Great Britain from anywhere abroad, EU or not. Since Brexit, personal allowances apply the same way whether you have flown home from Spain or from Turkey.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Beer and cider</td><td>42 litres</td></tr>
+          <tr><td>Wine, still or sparkling</td><td>18 litres</td></tr>
+          <tr><td>Spirits and other alcoholic products over 22% ABV</td><td>4 litres</td></tr>
+          <tr><td>Other alcoholic products up to 22% ABV, not including beer, cider or wine (for example port and sherry)</td><td>9 litres</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: gov.uk personal allowances guidance for arrivals in Great Britain, checked at time of writing.</p>
+    {jake_tip("A dedicated cider or prosecco drinker can genuinely bring back more now than before 1 October, since neither has to share space with port and sherry in that old 9 litre category any more.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Splitting your allowance between different drinks</h2>
+    <img src="https://images.unsplash.com/photo-1619810856355-c5f4e7f8a90e?auto=format&fit=crop&w=1600&h=700&q=80" alt="A glass of sparkling wine being poured" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">You do not have to commit fully to one category. The spirits allowance, 4 litres, and the narrower "up to 22% ABV" allowance, 9 litres, can be split between each other. The government's own example is 2 litres of spirits and 4.5 litres of fortified wine, exactly half of each.</p>
+    <p style="margin-top:14px;">Tobacco works the same way. You can bring in one whole type, such as 200 cigarettes, or split your allowance proportionally between types, such as 100 cigarettes and 25 cigars, both half of the full allowance.</p>
+    <p style="margin-top:14px;">Beer and cider, 42 litres, and wine, whether still or sparkling, 18 litres, are separate allowances from each other and from the 4 litre and 9 litre pairing above. You are entitled to bring back the full amount of both, not a split between them.</p>
+    {jake_tip("If you are the kind of traveller who comes home with one bottle of something nice from every holiday, this detail barely matters. It really only bites if you are bringing back a serious stock up of mixed spirits, port, sherry or vermouth in one go.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Tobacco, and the everything else allowance</h2>
+    <img src="https://images.unsplash.com/photo-1721826496448-6efab036ed96?auto=format&fit=crop&w=1600&h=700&q=80" alt="Travellers waiting in an airport departure lounge" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Tobacco allowances have not changed in this reshuffle. You can bring in one of the following: 200 cigarettes, 100 cigarillos, 50 cigars, 250g of loose tobacco, or 200 sticks for an electronic heated tobacco device. As with the alcohol allowance above, you can split proportionally between types rather than picking just one.</p>
+    <p style="margin-top:14px;">Everything else you bring back, clothes, perfume, electronics, souvenirs, gifts, falls under a separate allowance worth up to &pound;390, or &pound;270 if you are arriving by private plane or boat. Go over it and you pay tax and duty on the whole value of the goods in that category, not just the amount above &pound;390.</p>
+    {jake_tip("This catches people out more than the alcohol rules do. A watch, a bag and some electronics from a shopping trip abroad can add up to &pound;390 faster than people expect, and it makes no difference whether any of it was bought duty free.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Flying back into Northern Ireland is different</h2>
+    <img src="https://images.unsplash.com/photo-1765562435481-4da67d85ae75?auto=format&fit=crop&w=1600&h=700&q=80" alt="Luggage and travellers on an airport tarmac" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Because of the Windsor Framework, Northern Ireland's rules depend on where you have actually flown from, separate from the rest of the UK.</p>
+    <p style="margin-top:14px;">Arriving into Northern Ireland from an EU country, there is no fixed limit on how much alcohol or tobacco you can bring in for personal use. HMRC does publish indicative levels above which you are more likely to be stopped and asked questions, currently 110 litres of beer, 90 litres of wine, 10 litres of spirits, 20 litres of fortified wine, 800 cigarettes, 200 cigars, 400 cigarillos, 1kg of tobacco, or 800 heated tobacco sticks.</p>
+    <p style="margin-top:14px;">Arriving into Northern Ireland from outside the EU, Turkey or Egypt for example, the limits are separate from Great Britain's and considerably smaller: 16 litres of beer, 4 litres of wine, 1 litre of spirits, or 2 litres of the "up to 22%" category, splittable the same way, such as half a litre of spirits and 1 litre of fortified wine. Tobacco and the &pound;390/&pound;270 goods allowance are the same as the rest of the UK. Anyone under 17 gets no alcohol or tobacco allowance at all, and has to pay any tax or duty before arriving rather than declaring it on arrival.</p>
+    {jake_tip("If you are flying into Belfast or Derry via an EU hub such as Dublin, Amsterdam or Madrid, it is the EU arrival rule that applies, not the stricter outside EU one. Where you have actually travelled from matters more than where you live.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What to actually do before you fly home</h2>
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Work out which category your shopping actually falls into before you buy,</b> not after you are stood at the till working it out under pressure.</span></li>
+      <li><span class="num">2</span><span><b>Remember cider now counts on your beer allowance,</b> and sparkling wine, prosecco, cava and champagne included, counts on your wine allowance, not the old shared bucket.</span></li>
+      <li><span class="num">3</span><span><b>You do not have to pick one whole category for spirits or tobacco.</b> Both allowances can be split proportionally between the options.</span></li>
+      <li><span class="num">4</span><span><b>Keep your receipts,</b> and do not assume duty free shop pricing means the goods are automatically within your allowance. The same personal limit applies wherever you bought them.</span></li>
+      <li><span class="num">5</span><span><b>Declare online up to 5 days, 120 hours, before you are due to land</b> if you think you will go over, it is quicker than declaring in person when you arrive.</span></li>
+      <li><span class="num">6</span><span><b>Flying back into Northern Ireland,</b> check which of the two separate rule sets applies to your flight. It depends on where you have flown from, not just where you live.</span></li>
+    </ul>
+    {jake_tip("If you are ever genuinely unsure what you are allowed to bring back for a specific trip, message me and I will check the current rules properly rather than you guessing at the airport.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">What changed in the duty free rules on 1 October 2026?</h3>
+      <p>The UK reshuffled which category some drinks sit in for personal allowances. Cider used to share a 9 litre allowance with sparkling wine and fortified wine. It now counts within the 42 litre beer and cider allowance instead. Sparkling wine, including prosecco, cava and champagne, now counts within the 18 litre wine allowance instead, alongside still wine.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does this mean I can bring back more alcohol overall?</h3>
+      <p>Not as a blanket rule, the government says the overall allowance is unchanged. But because cider and sparkling wine now have their own dedicated categories rather than sharing one small 9 litre bucket with fortified wine, some people can genuinely bring back more of those specific drinks than before.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Can my partner and I combine our allowances to bring back one big item?</h3>
+      <p>No. Each person's personal allowance is their own and cannot be combined with anyone else's, even if you are travelling together and sharing one car or suitcase.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">What happens if I go over my allowance?</h3>
+      <p>You have to pay tax and duty on the total value of the goods in that category, not just the amount over the limit. This applies wherever you bought the items, including in a duty free shop itself.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Are the rules different flying into Northern Ireland?</h3>
+      <p>Yes. Arriving into Northern Ireland from an EU country, there is no fixed limit on alcohol or tobacco, though bringing back more than a fairly generous indicative level, such as 110 litres of beer or 800 cigarettes, makes it more likely you will be asked questions. Arriving from outside the EU, Northern Ireland has its own, smaller limits, separate from the rest of the UK.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1746129700182-bef672132578?auto=format&fit=crop&w=1600&h=700&q=80" alt="An airport terminal at sunset with an aircraft parked at the gate" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Not sure what you are actually allowed to bring home?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Tell me where you are flying from and what you are hoping to bring back, and I will check the current allowance properly before you fly, rather than you finding out the hard way at customs.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+duty_free_body = duty_free_body.replace("::NEWSLETTER::", newsletter_section())
+
+DUTY_FREE_SCHEMA = article_and_faq_schema(
+    "Your Duty Free Allowance Just Changed: What You Can Actually Bring Home Now",
+    "On 1 October 2026 the UK reshuffled what counts as duty free. Cider now rides on your beer allowance and sparkling wine on your wine allowance, instead of the old bucket they used to share with fortified wine. Here's exactly what you can bring home from holiday now, plus the different rules flying into Northern Ireland.",
+    "duty-free-allowance-changes-2026.html",
+    "https://images.unsplash.com/photo-1742589977991-0417bf1ca3b1?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("What changed in the duty free rules on 1 October 2026?", "The UK reshuffled which category some drinks sit in for personal allowances. Cider used to share a 9 litre allowance with sparkling wine and fortified wine. It now counts within the 42 litre beer and cider allowance instead. Sparkling wine, including prosecco, cava and champagne, now counts within the 18 litre wine allowance instead, alongside still wine."),
+        ("Does this mean I can bring back more alcohol overall?", "Not as a blanket rule, the government says the overall allowance is unchanged. But because cider and sparkling wine now have their own dedicated categories rather than sharing one small 9 litre bucket with fortified wine, some people can genuinely bring back more of those specific drinks than before."),
+        ("Can my partner and I combine our allowances to bring back one big item?", "No. Each person's personal allowance is their own and cannot be combined with anyone else's, even if you are travelling together and sharing one car or suitcase."),
+        ("What happens if I go over my allowance?", "You have to pay tax and duty on the total value of the goods in that category, not just the amount over the limit. This applies wherever you bought the items, including in a duty free shop itself."),
+        ("Are the rules different flying into Northern Ireland?", "Yes. Arriving into Northern Ireland from an EU country, there is no fixed limit on alcohol or tobacco, though bringing back more than a fairly generous indicative level, such as 110 litres of beer or 800 cigarettes, makes it more likely you will be asked questions. Arriving from outside the EU, Northern Ireland has its own, smaller limits, separate from the rest of the UK."),
+    ]
+)
+
+with open(os.path.join(SITE, "duty-free-allowance-changes-2026.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Your Duty Free Allowance Just Changed: What You Can Actually Bring Home Now | Travel Agent Jake",
+        "On 1 October 2026 the UK reshuffled what counts as duty free. Cider now rides on your beer allowance and sparkling wine on your wine allowance, instead of the old bucket they used to share with fortified wine. Here's exactly what you can bring home from holiday now, plus the different rules flying into Northern Ireland.",
+        "travel-tips.html",
+        duty_free_body,
+        extra_schema=DUTY_FREE_SCHEMA,
+        canonical_path="duty-free-allowance-changes-2026.html"
+    ))
+print("duty-free-allowance-changes-2026.html written")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -24584,6 +24750,7 @@ SITEMAP_PAGES = [
     ("parental-consent-letter-child-travel-abroad.html", "0.7"),
     ("package-travel-rules-changing-april-2027.html", "0.7"),
     ("eu-free-cabin-bag-rules-2027.html", "0.7"),
+    ("duty-free-allowance-changes-2026.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
