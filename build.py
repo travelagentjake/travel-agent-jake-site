@@ -2197,6 +2197,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, where to stay in Cusco and the Sacred Valley, things to do, real multi centre options with Lake Titicaca, the Amazon and the southern coast, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "antarctica.html",
+        "meta": "Antarctica",
+        "title": "Antarctica: An Expedition Cruise to the White Continent",
+        "excerpt": "How to actually get there, weather by month, the real expedition voyages I book, things to do in Ushuaia before you sail, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1556918936-216daf8e7c4c?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -24360,6 +24367,252 @@ with open(os.path.join(SITE, "peru.html"), "w", encoding="utf-8") as f:
     ))
 print("peru.html written")
 
+antarctica_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>ANTARCTICA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Ice a hundred metres high, penguins that have never learned to be afraid of people, and a silence you genuinely cannot find anywhere else on earth. Antarctica is the one trip almost every well travelled client of mine still has on their list, and it is booked differently to anywhere else I sell. Here is exactly how I put together an expedition cruise to the White Continent, the real voyages I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Antarctica</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1556918936-216daf8e7c4c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Gentoo penguins on a stony beach on Danco Island, Antarctic Peninsula, with an expedition ship behind" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Antarctica is not a flight and hotel holiday, it is an expedition cruise, and that changes almost everything about how it is booked. There is no resort to pick, no city to wander, you are on a small ship with an expedition team, and the whole trip is built around getting you ashore by inflatable Zodiac boat onto the ice itself, surrounded by penguins, seals and, if you are lucky, whales feeding right beside the boat.</p>
+    <p style="margin-top:14px;">I compare the real voyages on sale across the expedition cruise lines I work with to find the ship, route and cabin that actually fits your budget and dates, since every single one of these trips is sold as its own named departure rather than a generic package.</p>
+    {jake_tip("The one thing I always ask a new Antarctica client is how they feel about the Drake Passage crossing. Some people love two sea days watching for albatross, others would rather fly over it entirely. Both are genuinely available, and it is the first thing that decides which voyage suits you.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">The shortest fly cruise options run to around 6 days, 5 nights, but most clients book 10 to 13 nights for the classic round trip from Ushuaia, or up to 19 or 20 nights for a voyage that also takes in South Georgia and the Falkland Islands. Add the flights and a night or two either side in Buenos Aires or Ushuaia itself, and the whole trip away from home usually runs to around two to three weeks.</p>
+    <p style="margin-top:14px;">It suits clients who want a genuine once in a lifetime trip built around wildlife and scenery rather than relaxation, anyone comfortable on a small ship, and travellers happy with cold weather, early starts for landings and a day or two at sea getting there. It is less suited to anyone with very limited mobility, since getting in and out of a Zodiac onto rocky or icy shorelines takes a reasonable level of fitness, or to clients on a tight budget, since this is one of the most expensive trips I book. I am always upfront about that before anyone gets too attached to a particular voyage.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1590149567612-ad425931cec0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rough seas in the Drake Passage between Argentina and the Antarctic Peninsula" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>There are no direct flights from the UK to the southern tip of South America. Most voyages route clients via an overnight flight to Buenos Aires, Argentina, then on to Ushuaia, the world's southernmost city and the usual departure port, for a total journey time of around 17 to 20 hours door to door before the ship even leaves harbour. A smaller number of voyages instead fly you to Punta Arenas in Chile for a fly cruise that skips the sea crossing entirely.</p>
+    <p style="margin-top:14px;">From Ushuaia, reaching the Antarctic Peninsula itself means crossing the Drake Passage, around two days of open ocean between the southern tip of South America and the South Shetland Islands. It can be perfectly calm, known among crew as the Drake Lake, or genuinely rough, known as the Drake Shake, and nobody can promise you which one you will get. The alternative is a fly cruise, flying directly from Punta Arenas to the South Shetland Islands in around two hours and joining a smaller expedition ship once you land, which avoids the crossing completely but costs more and depends on a landable airstrip, so flights can occasionally be delayed by weather.</p>
+    {jake_tip("I always build a buffer night in Buenos Aires or Ushuaia into the itinerary either side of the cruise, never a tight same day connection, since a missed flight this far south is a genuinely expensive problem to fix.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Antarctica only has a tourist season at all between roughly November and March, the southern hemisphere summer, when the sea ice breaks up enough for ships to reach the Peninsula. These are typical conditions for the Antarctic Peninsula itself across that season.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg temperature</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>November</td><td>around -2&deg;C</td><td>Season opens, colder and less settled, penguins arriving and pairing up to nest, pristine untouched snow</td></tr>
+          <tr><td>December</td><td>around -1&deg;C</td><td>Close to 24 hours of daylight, penguin chicks hatching, still a lot of fresh snow underfoot</td></tr>
+          <tr><td>January</td><td>around 0&deg;C, occasionally up to 15&deg;C in sheltered spots</td><td>Height of the season, generally the most settled weather and over 20 hours of daylight, penguin chicks active everywhere</td></tr>
+          <tr><td>February</td><td>around 1&deg;C</td><td>Warmer seas bring more whales, often the best month for whale watching, and the best chance of reaching further south towards the Polar Circle</td></tr>
+          <tr><td>March</td><td>cooling quickly, back towards 0&deg;C and below</td><td>Season closing, fewer ships still sailing, shorter days, but excellent whale sightings as a last hurrah before winter</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Approximate seasonal averages for the Antarctic Peninsula, compiled from expedition operator climate guides. No two seasons behave exactly the same, and the captain always has the final say on where a ship can actually go.</p>
+    {jake_tip("Pack like you are going somewhere properly cold even in January. Most voyages supply a polar jacket and boots, but thermal layers, a warm hat and good gloves are down to you, and the wind off the ice makes it feel far colder than the number on the thermometer.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1551415923-a2297c7fda79?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Chinstrap penguins on Two Hummock Island off the Antarctic Peninsula" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>November suits clients who want the most pristine, untouched scenery and to see penguins courting and nesting, though it is colder and some landing sites are still snowed in. December and January are the classic months, with the longest days and penguin chicks everywhere, and January in particular tends to bring the calmest, most settled conditions. February and March are my pick for whale watching, as the water warms enough to draw in more krill and the whales that feed on it, and February also gives ships the best shot at pushing further south towards the Polar Circle. Whichever month, availability on the more popular departures books up a long way ahead, sometimes a year or more, so this is not a trip to leave to the last minute.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three ways to see Antarctica</h2>
+    <p style="margin-top:14px;">Antarctica does not come as one simple flight and hotel package, every trip is its own named expedition voyage, so the real choice is which style of voyage suits you. Here are three genuine, bookable options to show how different they can be.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1780060433418-1004834c9832?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Expedition ship anchored near snow covered mountains in Antarctica" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Classic round trip from Ushuaia</h3>
+        <p>13 nights door to door, around 10 nights on board, on the MS Fridtjof Nansen with HX Expeditions. Flies overnight from London to Buenos Aires, a hotel night there, then on to Ushuaia to join the ship for the Drake Passage crossing both ways and around five days exploring the Peninsula itself. Full board, drinks, a polar jacket and all landings included. From &pound;10,299pp.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1551415923-31d2072bc248?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Iceberg with a natural arch off Portal Point, Antarctic Peninsula" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Fly cruise, no Drake Passage</h3>
+        <p>11 nights with Antarctica21, flying from Santiago to Punta Arenas, then a two hour charter flight straight to the South Shetland Islands to join a small expedition ship, the Magellan Explorer, for days of landings and Zodiac cruising. The one to pick if seasickness is a genuine worry. From &pound;14,485pp, including flights, transfers and most meals and drinks on board.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1672612837795-993be4e8bc0d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Passengers in a Zodiac boat in front of a mountain in Antarctica" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Antarctica, South Georgia &amp; the Falklands</h3>
+        <p>19 nights with AE Expeditions on the Sylvia Earle, departing Ushuaia and finishing in Punta Arenas. Takes in the Falkland Islands, six days around South Georgia's enormous king penguin colonies, then four days on the Antarctic Peninsula itself. The full expedition for anyone with the time and the budget. From &pound;27,329pp.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each voyage at the time of writing, based on two sharing, and are subject to change, availability and exchange rates. I always check the live price and cabin availability before quoting.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1519227778781-02fbc3c547a6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Expedition ship beside a large iceberg" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>There is no hotel to choose, the ship is where you stay for the whole trip, so this is really a choice of cabin. The MS Fridtjof Nansen carries up to around 500 guests across outside cabins, balcony cabins and a range of suites, with an infinity pool, hot tubs, a science centre and a proper restaurant on board. The Sylvia Earle is a smaller, 70 cabin ship with an Ulstein X Bow designed to handle rough seas more comfortably, a two storey atrium lounge and a wellness centre with a sauna. Antarctica21's Magellan Explorer is smaller again, a genuinely boutique ship built specifically for the fly cruise route. Across all three, every cabin is ensuite and every voyage includes a proper polar jacket and boots to keep, which is worth factoring in against what you would otherwise spend on kit.</p>
+    {jake_tip("Cabins on every Antarctica ship sell out from the lowest category upwards, so if you have a particular voyage in mind, book it as early as you can rather than waiting to see the cheapest cabins disappear first.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1563377226776-1b0bd48458f2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A Zodiac boat cruising past snow covered mountains in Antarctica" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Every landing and excursion is done by inflatable Zodiac boat, launched straight from the ship, with the expedition team driving and briefing you before every single outing. There is nowhere to drive yourself and nothing to book separately once you are on board, landings and activities are built into the voyage itself and simply announced each day depending on the weather, ice and wildlife. Most voyages also offer optional add ons such as kayaking, camping out on the ice for a night, or a polar plunge into freezing water, usually bookable in advance or once on board, and these are the only extras most clients choose to add.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do before you sail</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1517017752111-e7ee4ab1ce6c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Les Eclaireurs lighthouse in the Beagle Channel near Ushuaia, Argentina" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Most voyages give you a day or two in Ushuaia before boarding, and it is worth making the most of it. These are some of the best rated tours in and around the world's southernmost city.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="660726,255492,848183,416212"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/ushuaia-l1851/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/ushuaia-l1851/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Ushuaia &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1587606607115-1165198fd0de?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Humpback whales feeding in a bay in Antarctica" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Whale watching in the Gerlache Strait</h3>
+        <p>Humpback and minke whales feed in huge numbers through the Peninsula's channels from February onwards, often surfacing right alongside the Zodiacs. The expedition team will hold position quietly for as long as the whales stay interested, which can be a very long time.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1670595441992-19edcb97700c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A gentoo penguin diving from an iceberg in Antarctica" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Penguin colonies on the Peninsula</h3>
+        <p>Gentoo, chinstrap and Adelie penguins nest in their thousands on Antarctic Peninsula shorelines such as Danco Island and Cuverville Island, close enough on a landing to watch chicks being fed without ever approaching them yourself, which the expedition team's guidelines are strict about.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1493579706121-60161eb06eeb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A seal resting on rock covered with snow in Antarctica" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Seals hauled out on the ice</h3>
+        <p>Weddell, crabeater and leopard seals are a regular sight hauled out on ice floes during Zodiac cruises, usually too relaxed to bother moving as the boats pass, though the occasional curious leopard seal will swim right up alongside for a closer look.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1462888387064-2a2ea232edb8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A large white iceberg near snow covered mountains" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Icebergs &amp; Paradise Harbour</h3>
+        <p>Enormous tabular icebergs calved from glaciers drift through the Peninsula's channels in every shade of white and blue, and Paradise Harbour in particular is a favourite stop for Zodiac cruising among them and, ice permitting, a landing on the continent itself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Obelisco in Buenos Aires, Argentina" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Antarctica itself has no shops, restaurants or prices of its own, everything is included in the cost of your voyage. These figures are for Buenos Aires, where most itineraries spend a night either side of the cruise, shown in pounds at a rate of roughly &pound;1 to 1,545 Argentine Pesos.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Basic meal with a drink, inexpensive restaurant</td><td>&pound;14.28 (about 29,380 pesos)</td></tr>
+          <tr><td>Cappuccino, mid-range caf&eacute;</td><td>&pound;2.90 (about 5,968 pesos)</td></tr>
+          <tr><td>Domestic beer, a pint</td><td>&pound;2.97 (about 6,107 pesos)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;1.19 (about 2,459 pesos)</td></tr>
+          <tr><td>Taxi, a short ride downtown</td><td>&pound;7.21 (about 14,830 pesos)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Sources: crowd sourced consumer price data for Buenos Aires, checked at time of writing. Argentina's peso has moved around a lot in recent years, so treat the peso figures as a snapshot rather than fixed.</p>
+    {jake_tip("Almost every cost on an Antarctica voyage is bundled into the price you pay me upfront, drinks, landings, kit and all. The real extra spend is usually just the odd meal or souvenir in Buenos Aires or Ushuaia, plus gratuities for the crew at the end, which most lines suggest rather than add automatically.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>No currency is used in Antarctica itself. Argentine Peso or Chilean Peso at the gateway port, depending on your route, cards widely accepted in Buenos Aires and Santiago</td></tr>
+          <tr><td>Plug type</td><td>Type C and I in Argentina, Type C and L in Chile, voltage 220V, a UK adaptor is needed. Cabins on most ships have UK and US style sockets fitted</td></tr>
+          <tr><td>Language</td><td>Spanish at the gateway ports, English is the working language on board every expedition ship</td></tr>
+          <tr><td>Flight time from the UK</td><td>No direct flights. Around 17 to 20 hours total via Buenos Aires or Santiago, before the ship departs</td></tr>
+          <tr><td>Time difference</td><td>3 hours behind the UK in winter, 4 hours behind during British Summer Time</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders need no visa for Argentina or Chile, and Antarctica itself requires no visa since it is not a sovereign nation. Your passport should be valid for at least 6 months beyond your arrival date</td></tr>
+          <tr><td>Insurance</td><td>Every expedition cruise line requires specialist travel insurance that explicitly covers polar regions and emergency evacuation, standard annual policies are not usually enough. I always check this is sorted before final payment</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Derek Oyen, James Eades, Jiayin Liu, Xuyu Chi, Hubert Neufeld, Dennis Fidalgo, Rod Long, Birger Strahl, Yuriy Rzhemovskiy, Jay Ruzesky and Nestor Barbitta via Unsplash.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Antarctica for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can talk you through the real voyages on sale right now, check live cabin availability and pricing, and help you work out honestly which ship and route actually suits you.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+antarctica_guide_body = antarctica_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+ANTARCTICA_GUIDE_SCHEMA = article_and_faq_schema(
+    "Antarctica: Jake's Destination Guide",
+    "Jake's honest guide to an Antarctica expedition cruise: how to actually get there, weather by month, the real voyages he books, things to do in Ushuaia before you sail, and what it actually costs.",
+    "antarctica.html",
+    "https://images.unsplash.com/photo-1556918936-216daf8e7c4c?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book an Antarctica cruise for me?", "Yes. Antarctica is not sold as a flight and hotel package, every trip is its own named expedition voyage, so I compare the real voyages on sale from the expedition cruise lines I work with to find the ship, route and cabin that fits your dates and budget."),
+        ("Do I need a visa for Antarctica?", "No. Antarctica is not a sovereign nation so no visa is needed, and UK passport holders need no visa for Argentina or Chile either, the usual gateway countries. Your passport should be valid for at least 6 months beyond your arrival date."),
+        ("Is the Drake Passage crossing rough?", "It can be either genuinely calm, known as the Drake Lake, or rough, known as the Drake Shake, and nobody can promise which you will get. Fly cruise voyages from Punta Arenas, Chile avoid the crossing entirely if that is a concern."),
+        ("When is the best time to go to Antarctica?", "The season runs from roughly November to March. December and January have the longest days and penguin chicks everywhere, while February and March tend to bring the best whale watching as the water warms."),
+        ("Can Antarctica be combined with other destinations?", "Yes. Several voyages combine the Antarctic Peninsula with the Falkland Islands and South Georgia's huge king penguin colonies in one longer trip, and most itineraries also build in time in Buenos Aires or Ushuaia either side of the cruise."),
+    ]
+)
+with open(os.path.join(SITE, "antarctica.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Antarctica: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to an Antarctica expedition cruise: how to actually get there, weather by month, the real voyages he books, things to do in Ushuaia before you sail, and what it actually costs.",
+        "destinations.html",
+        antarctica_guide_body,
+        extra_schema=ANTARCTICA_GUIDE_SCHEMA,
+        canonical_path="antarctica.html"
+    ))
+print("antarctica.html written")
+
+
 cabin_bag_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
   <div class="wrap">
@@ -24713,6 +24966,7 @@ SITEMAP_PAGES = [
     ("australia.html", "0.6"),
     ("albania.html", "0.6"),
     ("peru.html", "0.6"),
+    ("antarctica.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
