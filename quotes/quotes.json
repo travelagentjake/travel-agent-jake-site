@@ -1407,6 +1407,17 @@
    "created": "2026-11-13",
    "departs": "2027-01-11",
    "fromPrice": 2389
+  },
+  {
+   "slug": "maddie-katie-caribbean",
+   "url": "https://quotes.travelagentjake.co.uk/maddie-katie-caribbean",
+   "customer": "Maddie & Katie",
+   "enquiryId": "",
+   "quoteRequestId": "",
+   "title": "January 2027 Caribbean, one per island, 9 nights all inclusive, direct flights, private transfers: TRS Yucatan Mexico, Hideaway at Royalton St Lucia, The Verandah Antigua, Royalton Vessence Barbados (TUI, Gold Medal)",
+   "created": "2026-11-14",
+   "departs": "2027-01-12",
+   "fromPrice": 5336.56
   }
  ]
 }
