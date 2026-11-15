@@ -408,6 +408,7 @@ def page(title, description, active, body, og_image="images/pool-portrait.jpg", 
 {header(active)}
 {body}
 {FOOTER}
+<script src="/js/holiday-notice.js" defer></script>
 </body>
 </html>
 """
