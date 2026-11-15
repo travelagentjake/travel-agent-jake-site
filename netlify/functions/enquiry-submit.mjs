@@ -8,6 +8,14 @@ import { json, esc, SITE, waLink, jakeEmail } from "../lib/pw.mjs";
 import { SENDER, brevo, loadLogo, pdfName, b64 } from "../lib/enquiry-lib.mjs";
 import { buildEnquiryPdf, roomText } from "../lib/enquiry-pdf.mjs";
 
+// Holiday cover (Jake away): from the start of 15 November to the end of 19 November 2026
+// (UK is on GMT then, so UTC midnight is UK midnight). Outside this window nothing below
+// changes behaviour, so it switches itself off on 20 November with no clean up needed.
+const COVER_FROM = Date.parse("2026-11-15T00:00:00Z");
+const COVER_TO = Date.parse("2026-11-20T00:00:00Z");
+const COVER_EMAIL = "admin@clubvoyages.uk";
+const COVER_NAME = "Sam";
+
 const clean = (v, max = 300) => String(v ?? "").replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "").trim().slice(0, max);
 const shell = (inner) => `<!doctype html><html><body style="margin:0;background:#f2f5fb;font-family:Arial,Helvetica,sans-serif;color:#14213d;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f5fb;padding:24px 0;"><tr><td align="center">
@@ -46,6 +54,10 @@ export default async (req) => {
   const pre = kind === "prereg2028";
   // 2028 pre-registration closes at the end of 15 October 2026 (UK time).
   if (pre && Date.now() >= Date.parse("2026-10-16T00:00:00+01:00")) return json({ error: "Sorry, 2028 pre-registration has now closed. Please use the holiday enquiry form or WhatsApp me and I'll help you straight away." }, 410);
+  const nowMs = Date.now();
+  const coverOn = !pre && nowMs >= COVER_FROM && nowMs < COVER_TO;
+  // "asap" = forward to Sam, anything else in the window (including older cached pages) = wait for Jake.
+  const cover = coverOn ? (b.holidayChoice === "asap" ? "asap" : "wait") : "";
   const email = clean(b.email, 160).toLowerCase();
   const firstName = clean(b.firstName, 60);
   const lastName = clean(b.lastName, 60);
@@ -111,7 +123,10 @@ export default async (req) => {
     marketing: !!b.marketingConsent,
     bookingIntent: !!b.bookingIntent,
     consentAt: new Date().toISOString(),
+    holidayCover: cover,
   };
+  if (cover === "asap") q.adminNotes = `Jake was on holiday. Customer asked for a quote as soon as possible, so this was forwarded to ${COVER_NAME} at Club Voyages (${COVER_EMAIL}). Not emailed to Jake.`;
+  if (cover === "wait") q.adminNotes = "Jake was on holiday (back 20 November). Customer chose to wait for Jake to reply.";
 
   // Safety net copy (never fails the request).
   try { await getStore({ name: "enquiries", consistency: "strong" }).setJSON(q.id, q); } catch (e) { console.error("Blob save", e.message); }
@@ -123,11 +138,14 @@ export default async (req) => {
     : row("Adults", String(adults)) + row("Children", String(children)) + row("Child ages", agesText);
   const when = [nice(departDate) && `from ${nice(departDate)}`, q.dateFlex, q.dateNotes].filter(Boolean).join(", ");
 
-  const hello = pre
+  const hello = cover === "asap"
+    ? `Hi ${firstName}, it's ${COVER_NAME} at Club Voyages, covering for Jake at Travel Agent Jake in his absence. Thanks for your holiday enquiry${q.destination ? " about " + q.destination.slice(0, 60) : ""}! `
+    : pre
     ? `Hi ${firstName}, it's Jake from Travel Agent Jake. Thanks for registering for 2028 holidays${q.destination ? " (" + q.destination.slice(0, 60) + ")" : ""}! `
     : `Hi ${firstName}, it's Jake from Travel Agent Jake. Thanks for your holiday enquiry${q.destination ? " about " + q.destination.slice(0, 60) : ""}! `;
   const waBtn = `<a href="https://wa.me/${waNumber(phone)}?text=${encodeURIComponent(hello)}" style="display:inline-block;background:#25D366;color:#ffffff;text-decoration:none;font-weight:bold;font-size:17px;padding:15px 26px;border-radius:999px;margin:6px 8px 6px 0;">WhatsApp ${esc(firstName)} on ${esc(phone)}</a>`;
-  const jakeHtml = shell(`<p style="margin:0 0 6px;font-size:13px;color:#5b6478;">${pre ? "NEW 2028 PRE-REGISTRATION" : "NEW HOLIDAY ENQUIRY"}</p>
+  const jakeHtml = shell(`<p style="margin:0 0 6px;font-size:13px;color:#5b6478;">${pre ? "NEW 2028 PRE-REGISTRATION" : cover === "asap" ? "NEW HOLIDAY ENQUIRY, COVERING FOR JAKE" : "NEW HOLIDAY ENQUIRY"}</p>
+${cover === "asap" ? `<p style="margin:0 0 14px;padding:12px 14px;background:#fff7d6;border-radius:10px;font-size:14px;">Jake is on holiday until 20 November. This customer asked for a quote <strong>as soon as possible</strong>, so please pick it up. Replying to this email goes straight to the customer.</p>` : ""}
 <h2 style="margin:0 0 14px;font-size:22px;">${esc(firstName)} ${esc(lastName)}</h2>
 <p style="margin:0 0 16px;">${waBtn}${btn("mailto:" + esc(email), "Email them")}</p>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e6eaf3;border-radius:10px;">
@@ -140,24 +158,38 @@ ${row(pre ? "What is your total budget for everyone?" : "Budget for the whole ho
 ${row(pre ? "Anything else I should know?" : "Anything else?", q.notes)}${row(pre ? "How did you find me?" : "How did you hear about me?", q.source)}
 ${row("Marketing opt in", q.marketing ? "Yes" : "No")}
 </table>
-<p style="margin:16px 0 0;">${btn(SITE + "/enquiries-admin.html", "Open enquiries dashboard")}</p>
+${cover === "asap" ? "" : `<p style="margin:16px 0 0;">${btn(SITE + "/enquiries-admin.html", "Open enquiries dashboard")}</p>`}
 <p style="margin:10px 0 0;font-size:13px;color:#5b6478;">Hit reply to answer them directly by email. A printable copy of this enquiry is attached.</p>`);
 
   let pdfBytes = null;
   try { pdfBytes = await buildEnquiryPdf(q, await loadLogo()); } catch (e) { console.error("PDF build failed", e.message); }
 
+  const subjectBase = `${pre ? "New 2028 pre-registration" : "New holiday enquiry"}: ${firstName} ${lastName}${q.destination ? ", " + q.destination.slice(0, 60) : ""}`;
+  const sendNotify = (toEmail, subject, tag) => brevo("/smtp/email", {
+    sender: { name: "Travel Agent Jake Website", email: SENDER() },
+    to: [{ email: toEmail }],
+    ...(pdfBytes ? { attachment: [{ name: pdfName(q), content: b64(pdfBytes) }] } : {}),
+    replyTo: { email, name: `${firstName} ${lastName}` },
+    subject,
+    htmlContent: jakeHtml,
+    tags: [tag],
+  });
   try {
-    await brevo("/smtp/email", {
-      sender: { name: "Travel Agent Jake Website", email: SENDER() },
-      to: [{ email: jakeEmail() }],
-      ...(pdfBytes ? { attachment: [{ name: pdfName(q), content: b64(pdfBytes) }] } : {}),
-      replyTo: { email, name: `${firstName} ${lastName}` },
-      subject: `${pre ? "New 2028 pre-registration" : "New holiday enquiry"}: ${firstName} ${lastName}${q.destination ? ", " + q.destination.slice(0, 60) : ""}`,
-      htmlContent: jakeHtml,
-      tags: [pre ? "prereg-2028" : "holiday-enquiry"],
-    });
+    if (cover === "asap") {
+      try {
+        await sendNotify(COVER_EMAIL, `Covering for Jake, quote ASAP: ${subjectBase}`, "holiday-enquiry-cover");
+      } catch (e) {
+        // Never lose an enquiry: if the forward to Sam fails, send it to Jake instead.
+        console.error("Forward to cover failed", e.message);
+        await sendNotify(jakeEmail(), `Sam forward FAILED, please check: ${subjectBase}`, "holiday-enquiry");
+        q.adminNotes = "Customer asked for a quote ASAP but the forward to Sam failed, so it was emailed to Jake instead.";
+        try { await getStore({ name: "enquiries", consistency: "strong" }).setJSON(q.id, q); } catch (e2) { console.error("Blob save", e2.message); }
+      }
+    } else {
+      await sendNotify(jakeEmail(), subjectBase, pre ? "prereg-2028" : "holiday-enquiry");
+    }
   } catch (e) {
-    console.error("Notify Jake failed", e.message, JSON.stringify(q));
+    console.error("Notify failed", e.message, JSON.stringify(q));
     return json({ error: "Sorry, something went wrong sending your enquiry. Please WhatsApp me instead and I'll sort it straight away." }, 502);
   }
 
@@ -169,7 +201,7 @@ ${row("Marketing opt in", q.marketing ? "Yes" : "No")}
       replyTo: { email: SENDER(), name: "Travel Agent Jake" },
       subject: pre ? "You're on the 2028 list" : "Thanks, I've got your holiday enquiry",
       htmlContent: shell(`<p style="margin:0 0 14px;">Hi ${esc(firstName)},</p>
-<p style="margin:0 0 14px;">${pre ? "Thanks for pre-registering. You're on my list for 2028, and I'll message you personally on WhatsApp as soon as 2028 holidays are released so you're first in line for the best prices and availability." : "Thanks for sending your enquiry over. I've got everything I need to start putting some real options together for you, and I'll be in touch personally."}</p>
+<p style="margin:0 0 14px;">${pre ? "Thanks for pre-registering. You're on my list for 2028, and I'll message you personally on WhatsApp as soon as 2028 holidays are released so you're first in line for the best prices and availability." : cover === "asap" ? `Thanks for sending your enquiry over. I'm on holiday until 20 November, so as you asked for a quote as soon as possible, my colleague ${COVER_NAME} at Club Voyages, who is covering for me in my absence, will pick it up and be in touch with real options. They have everything they need from your form.` : cover === "wait" ? "Thanks for sending your enquiry over. I'm on holiday until 20 November, so I'll be in touch personally with real options as soon as I'm back. Thank you for being happy to wait." : "Thanks for sending your enquiry over. I've got everything I need to start putting some real options together for you, and I'll be in touch personally."}</p>
 <p style="margin:0 0 6px;"><strong>Here's what you told me:</strong></p>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e6eaf3;border-radius:10px;margin-bottom:16px;">
 ${row("Where would you like to go?", q.destination || q.holidayType)}${row("Which month would you like to depart?", q.month)}${row("Preferred departure date", nice(departDate))}${row("How flexible are your dates?", q.dateFlex)}${row("Date notes", q.dateNotes)}${row("How many nights?", q.nights)}${rooms.length ? travelRows : row("Travelling", party)}${row("Flying from", airports.join(", "))}${row("Budget", q.budget)}

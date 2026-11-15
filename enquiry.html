@@ -378,6 +378,93 @@
 })();
 </script>
 
+<style>
+.taj-hol{position:fixed; inset:0; z-index:99999; display:flex; align-items:center; justify-content:center; padding:16px; background:rgba(16,20,43,0.7);}
+.taj-hol[hidden]{display:none;}
+.taj-hol-card{background:#fff; color:var(--ink); border:3px solid var(--ink); border-radius:16px; box-shadow:6px 6px 0 var(--ink); max-width:520px; width:100%; padding:26px 24px 22px; text-align:center; max-height:92vh; overflow:auto;}
+.taj-hol-card h3{margin:0 0 10px; font-size:23px; line-height:1.2; color:var(--ink);}
+.taj-hol-card p{margin:0 0 14px; font-size:15.5px; line-height:1.55;}
+.taj-hol-opt{display:block; width:100%; box-sizing:border-box; margin:0 0 12px; padding:14px 16px; border:3px solid var(--ink); border-radius:14px; background:#fff; color:var(--ink); font:inherit; text-align:left; cursor:pointer;}
+.taj-hol-opt strong{display:block; font-size:16.5px; margin-bottom:4px;}
+.taj-hol-opt span{display:block; font-size:14px; line-height:1.45; opacity:0.85;}
+.taj-hol-opt.is-primary{background:var(--yellow); box-shadow:4px 4px 0 var(--ink);}
+.taj-hol-opt:hover,.taj-hol-opt:focus-visible{transform:translate(-1px,-1px); outline:3px solid #004AAD; outline-offset:2px;}
+.taj-hol-small{font-size:13px; opacity:0.75; margin:4px 0 0;}
+</style>
+<script>
+/* Holiday cover. Active only from 15 November to the end of 19 November 2026 (UK time is GMT
+   then). After that this does nothing, and enquiry-submit.mjs checks the same dates. */
+(function(){
+  var FROM = Date.parse('2026-11-15T00:00:00Z'), TO = Date.parse('2026-11-20T00:00:00Z');
+  function active(){ var n = Date.now(); return n >= FROM && n < TO; }
+  var realFetch = window.fetch;
+  if (!realFetch) return;
+
+  function choose(){
+    return new Promise(function(resolve){
+      var last = document.activeElement;
+      var o = document.createElement('div');
+      o.className = 'taj-hol';
+      o.innerHTML = '<div class="taj-hol-card" role="dialog" aria-modal="true" aria-labelledby="tajHolTitle">' +
+        '<h3 id="tajHolTitle">I\'m on holiday until 20th November</h3>' +
+        '<p>Thanks for your enquiry, it is nearly sent. I am away until 20th November, so how would you like it handled?</p>' +
+        '<button type="button" class="taj-hol-opt is-primary" data-choice="asap"><strong>I would like a quote as soon as possible</strong><span>Your enquiry will be passed to my colleague Sam at Club Voyages, who is covering for me in my absence.</span></button>' +
+        '<button type="button" class="taj-hol-opt" data-choice="wait"><strong>I am happy to wait for Jake</strong><span>Your enquiry comes straight to me and I will reply personally when I am back on 20th November.</span></button>' +
+        '<p class="taj-hol-small">Your enquiry is sent as soon as you choose.</p>' +
+        '</div>';
+      document.body.appendChild(o);
+      var btns = o.querySelectorAll('.taj-hol-opt');
+      function done(choice){
+        document.removeEventListener('keydown', trap, true);
+        document.body.removeChild(o);
+        try { if (last && last.focus) last.focus(); } catch(e){}
+        resolve(choice);
+      }
+      function trap(e){
+        if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); return; }
+        if (e.key === 'Tab') {
+          e.preventDefault();
+          var i = Array.prototype.indexOf.call(btns, document.activeElement);
+          var n = e.shiftKey ? (i <= 0 ? btns.length - 1 : i - 1) : (i + 1) % btns.length;
+          btns[n].focus();
+        }
+      }
+      Array.prototype.forEach.call(btns, function(b){ b.addEventListener('click', function(){ done(b.getAttribute('data-choice')); }); });
+      document.addEventListener('keydown', trap, true);
+      try { btns[0].focus(); } catch(e){}
+    });
+  }
+
+  function updateSuccess(choice){
+    try {
+      var s = document.getElementById('enqSuccess'); if (!s) return;
+      var ps = s.querySelectorAll('p');
+      if (ps[0]) ps[0].textContent = choice === 'asap'
+        ? 'Your enquiry has been passed to my colleague Sam at Club Voyages, who is covering for me in my absence until 20th November. I have sent a confirmation to your email and Sam will be in touch as soon as possible with real options.'
+        : 'Your enquiry is with me and I have sent a confirmation to your email. I am on holiday until 20th November, so I will be in touch personally with real options as soon as I am back. Thank you for being happy to wait.';
+      if (ps[1]) ps[1].hidden = true;
+      var row = s.querySelector('.btn-row'); if (row) row.hidden = true;
+    } catch(e){}
+  }
+
+  window.fetch = function(url, opts){
+    var args = arguments, self = this;
+    if (!active() || String(url) !== '/api/enquiry' || !opts || typeof opts.body !== 'string') return realFetch.apply(self, args);
+    var data; try { data = JSON.parse(opts.body); } catch(e){ return realFetch.apply(self, args); }
+    if (data.kind === 'prereg2028') return realFetch.apply(self, args);
+    return choose().then(function(choice){
+      data.holidayChoice = choice;
+      var o2 = {}; for (var k in opts) o2[k] = opts[k];
+      o2.body = JSON.stringify(data);
+      return realFetch.call(self, url, o2).then(function(r){
+        if (r && r.ok) { r.clone().json().then(function(j){ if (j && j.ok) updateSuccess(choice); }).catch(function(){}); }
+        return r;
+      });
+    });
+  };
+})();
+</script>
+
 <footer class="site-footer">
   <div class="jake-dash-yellow"></div>
   <div class="wrap" style="padding-top:44px;">
