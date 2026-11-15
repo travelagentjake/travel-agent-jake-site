@@ -2204,6 +2204,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, the real expedition voyages I book, things to do in Ushuaia before you sail, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1556918936-216daf8e7c4c?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "galapagos.html",
+        "meta": "Galapagos Islands",
+        "title": "Galapagos Islands: Jake's Destination Guide",
+        "excerpt": "How to actually get there, weather by month, the real expedition cruises and lodges I book, things to do in Quito, multi centre options with the Amazon and Peru, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1790674748214-f5fa1a92a4b1?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -24905,6 +24912,303 @@ with open(os.path.join(SITE, "duty-free-allowance-changes-2026.html"), "w", enco
     ))
 print("duty-free-allowance-changes-2026.html written")
 
+galapagos_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>GALAPAGOS ISLANDS</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Giant tortoises that have walked the same lava trails for a century, sea lions that nap on the pavement outside the harbour cafes, and blue footed boobies doing a mating dance that genuinely looks like a party trick. The Galapagos is the one trip that comes up again and again with my clients who grew up watching nature documentaries, and it is booked completely differently to a normal holiday. Here is exactly how I put together a trip to the Galapagos, the real cruises and lodges I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about the Galapagos</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1790674748214-f5fa1a92a4b1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A Galapagos giant tortoise" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>The Galapagos is not a flight and hotel holiday, it is an expedition, and that changes almost everything about how it gets booked. There is no resort to pick and no beach to simply flop on for a fortnight. Almost every visit is built around either a small ship cruise between the islands or a few nights at a land based lodge with daily boat excursions, because the National Park strictly controls where and how visitors can move around to protect the wildlife.</p>
+    <p style="margin-top:14px;">I compare the real cruises and lodge programmes on sale across the operators I work with to find the ship, route and style that actually suits your dates, budget and sea legs, since every trip here is sold as its own named departure rather than a generic package.</p>
+    {jake_tip("The first question I ask a new Galapagos client is how they feel about several days living aboard a small ship. Some people love it, others would much rather sleep in the same bed every night and do day trips instead. Both are genuinely available, and it is the first thing that decides which style of trip suits you.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Most clients travel for 9 to 12 nights in total, made up of a night or two in Quito either side of the trip plus 3 to 8 nights actually in the islands, whether that is aboard a cruise or at a land based lodge. Clients combining the Galapagos with mainland Ecuador, the Amazon or Peru, which I cover further down, tend to book 14 nights or more.</p>
+    <p style="margin-top:14px;">It suits clients who want a genuine wildlife bucket list trip, anyone happy with early starts for excursions, a few days afloat or at least on the water daily, and travellers who are not precious about having the same room every single night. It is less suited to anyone who gets seasick easily and wants to avoid a boat entirely, which is where the land based lodge option below tends to work far better, or to clients wanting a relaxed beach holiday, since this is a trip built around structured daily excursions rather than lounging by a pool. I am always upfront about that before anyone gets too attached to a particular idea.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1606768666853-403c90a981ad?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aeroplane flying through the sky" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>There are no direct flights from the UK to Ecuador. Most routes connect through Madrid with Iberia, Amsterdam with KLM, or through a US gateway such as Miami or Houston with American or other carriers, for a total journey time of around 17 to 20 hours door to door to Quito, the usual gateway city. From Quito, a further internal flight of around two hours gets you to Baltra or San Cristobal in the Galapagos itself, with a short stop in Guayaquil on some routings.</p>
+    <p style="margin-top:14px;">Every visitor also needs to buy a Transit Control Card before checking in for the flight to the islands, and pay the Galapagos National Park entrance fee in cash on arrival, both of which I cover under practical info further down.</p>
+    {jake_tip("I always build a night in Quito either side of the Galapagos leg into the itinerary rather than a same day connection, both to let clients recover from the long flight from the UK and as a buffer against any delay on the short hop out to the islands.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">The Galapagos sits on the equator but the Humboldt Current keeps it far cooler and drier than most people expect. Roughly speaking there are two seasons, a warmer, wetter run from December to May and a cooler, mistier run from June to November known locally as the garua.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg air temp</th><th>What to expect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>25 to 30&deg;C</td><td>Warm season underway, short heavy downpours, sea turtles nesting, marine iguanas mating</td></tr>
+          <tr><td>February</td><td>27 to 31&deg;C</td><td>Warm, generally the clearest water and best snorkelling visibility of the year</td></tr>
+          <tr><td>March</td><td>27 to 31&deg;C</td><td>Hot and humid, occasional heavy showers, land birds breeding</td></tr>
+          <tr><td>April</td><td>24 to 29&deg;C</td><td>Warm season tailing off, waved albatross beginning to arrive on Espanola</td></tr>
+          <tr><td>May</td><td>23 to 27&deg;C</td><td>Transitional month, sea lion pups appearing on the beaches</td></tr>
+          <tr><td>June</td><td>21 to 25&deg;C</td><td>Cooler, misty garua mornings begin, whales and dolphins start passing through</td></tr>
+          <tr><td>July</td><td>20 to 24&deg;C</td><td>Cooler and breezier, whale shark sightings for divers, Galapagos penguins active near Isabela and Fernandina</td></tr>
+          <tr><td>August</td><td>19 to 23&deg;C</td><td>Misty and cool, choppier crossings between islands, blue footed booby mating dances in full swing</td></tr>
+          <tr><td>September</td><td>19 to 23&deg;C</td><td>Coldest sea temperature of the year and the roughest seas, but excellent diving visibility for big marine life</td></tr>
+          <tr><td>October</td><td>20 to 24&deg;C</td><td>Garua season easing off, seabird nesting continues</td></tr>
+          <tr><td>November</td><td>21 to 26&deg;C</td><td>Warm season approaching again, giant tortoise eggs hatching, sea lion mating season</td></tr>
+          <tr><td>December</td><td>25 to 29&deg;C</td><td>Warm season begins, seas calming down, water warming back up</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Approximate seasonal air temperatures for the Galapagos Islands, compiled from published climate guides. Sea conditions and wildlife behaviour vary by island and year, and the local guides on any cruise or lodge programme always know current conditions best.</p>
+    {jake_tip("Pack layers whatever month you travel. Days feel properly warm in the sun, but the breeze on an open boat and the cooler garua mornings from June to November catch a lot of first time visitors out.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1676910914003-55a29db437cf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A pair of blue footed boobies on Isla Isabela, Galapagos" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>December to May, the warmer season, suits families, swimmers and snorkellers best, with calmer seas, warmer water and short sharp showers rather than all day rain. June to November, the cooler garua season, tends to suit divers and keen wildlife watchers more, since the colder water brings in bigger marine life such as whale sharks and penguins, even though mornings are mistier and crossings between islands can be choppier. For value, May, September, October and November tend to be the quietest and cheapest months to travel, while June to August and the fortnight either side of Christmas and New Year are the busiest and priciest, so I always suggest booking those well ahead.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Three ways to see the Galapagos</h2>
+    <p style="margin-top:14px;">The Galapagos does not come as one simple flight and hotel package, every trip is either a named small ship cruise or a land based lodge programme, so the real choice is which style suits you. Here are three genuine, bookable options to show how different they can be.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1706957614198-8d2e5f0ed6ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A sandy beach and turquoise water on one of the Galapagos Islands" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Classic cruise, In Darwin's Footsteps</h3>
+        <p>9 days door to door, 2 nights in Quito then 6 nights aboard the Santa Cruz II with Metropolitan Touring, a 90 guest small ship. The eastern route takes in Baltra, Espanola, Seymour, San Cristobal, Santa Cruz, Santa Fe and South Plaza, with a glass bottom boat, kayaks and two outdoor hot tubs on board. From &pound;5,875pp.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1598737285721-29346a5c9278?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A small expedition style cruise ship at sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Ultra modern, Celebrity Flora</h3>
+        <p>7 nights aboard the Celebrity Flora, a purpose built 100 guest mega yacht for the Galapagos, sailing the Inner Loop with naturalist led excursions, kayaking, snorkelling and the option to camp on deck under the stars one night. Most clients add 2 nights in Quito either side. From &pound;6,404pp.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1779534784429-bbcedc9753d0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A sea lion resting on the sand near volcanic rocks, Galapagos" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Land based, Pikaia Lodge</h3>
+        <p>4 days, 3 nights at this lodge on Santa Cruz Island, extendable up to 7 nights, with full board, daily yacht excursions to sites such as North Seymour and Bartolome, snorkelling gear, mountain bikes and VIP airport lounge access included. The one to pick if a multi night cruise is not for you. From around &pound;3,540pp.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Prices shown are the lowest advertised per person fare found for each option at the time of writing, based on two sharing, and are subject to change, availability and exchange rates. I always check the live price and cabin or room availability before quoting.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay in Quito</h2>
+    <p style="margin-top:14px;">Almost every Galapagos trip spends a night or two either side in Quito, Ecuador's capital. Three real, bookable picks across the city.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best boutique, Old Town</div>
+        <img src="https://images.unsplash.com/photo-1767065856515-b754f9953dc2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The illuminated Church and Convent of San Francisco in Quito's historic Old Town" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Casa Gangotena</h3>
+        <p>A restored early 20th century mansion right on Plaza San Francisco in the UNESCO listed Old Town, with a rooftop terrace looking out over the colonial rooftops to the surrounding volcanoes. A genuinely special base for a night either side of the islands. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best international 5 star</div>
+        <img src="https://images.unsplash.com/photo-1593742553188-65c60dcd8737?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of historic Quito from the El Panecillo viewpoint" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">JW Marriott Quito</h3>
+        <p>A large, reliable 5 star in the modern business district, close to restaurants and with the usual full international service and facilities. A sensible choice for clients who want a familiar brand and an easy transfer to and from the airport. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best design led boutique</div>
+        <img src="https://images.unsplash.com/photo-1616723612122-6889f23c83c1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of Quito's rooftops and surrounding mountains" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Illa Experience Hotel</h3>
+        <p>A small, art filled boutique hotel in the quieter San Blas neighbourhood, a short walk from the Old Town, with a well regarded restaurant and rooftop views. A good pick for clients who want character and a little more peace and quiet than the city centre. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities as published at the time of writing. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1748212173568-35d72e93e57e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Turquoise water and a rocky shoreline in the Galapagos" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Independent travel around the Galapagos is not really a thing. National Park rules mean almost every site can only be visited with a certified naturalist guide, as part of a cruise itinerary or a lodge's own excursion programme, usually travelling between sites by small boat or Zodiac style dinghy. Budget travellers island hopping under their own steam can use the basic inter island speedboats that run between the handful of inhabited islands such as Santa Cruz, San Cristobal and Isabela, a bumpy couple of hours each way, though this limits you to day trips from a land base rather than visiting the more remote, uninhabited islands most people picture. In Quito itself, taxis and ride hailing apps are cheap and plentiful, and I arrange private airport transfers as standard either side of the Galapagos leg.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1518467166778-b88f373ffec7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A sea turtle swimming underwater" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Most of the Galapagos itself is only visited as part of a cruise or lodge excursion, so the bookable tours and tickets worth having on the radar are mainly in Quito, where every trip spends a night or two.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="516508,84453,983049,497283"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/quito-l504/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/quito-l504/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Quito &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1792416059526-2782921759e5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sea lion pups on a sandy beach in the Galapagos" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">North Seymour &amp; Mosquera Islet</h3>
+        <p>A short crossing from Baltra brings huge colonies of frigatebirds and blue footed boobies nesting right beside the trail, plus a sandy islet where sea lions and their pups bask just metres from the water's edge. A gentle, easy walking site often used early in a cruise.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1728416076438-b7e003a0caf7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A marine iguana on the rocks in the Galapagos" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Santa Cruz Highlands &amp; Charles Darwin Research Station</h3>
+        <p>Puerto Ayora, the islands' main town, is the gateway to the highlands where giant tortoises roam genuinely wild, and to the Charles Darwin Research Station's breeding programme for the species. The best spot to see tortoises outside a zoo enclosure anywhere on earth.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1748114736205-0d8712079488?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A blue footed booby standing on a rock" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Espanola Island</h3>
+        <p>Home to the entire world's waved albatross colony between roughly April and December, plus a dramatic blow hole sending seawater shooting through a lava tube, and some of the most colourful marine iguanas in the archipelago. One of the furthest sites from the central islands, usually visited on longer cruises.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1759414562519-1c382be68fff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="A rugged volcanic coastline meeting the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Bartolome Island</h3>
+        <p>A short, steep climb up a wooden staircase to the viewpoint beside Pinnacle Rock gives the single most photographed view in the whole archipelago, a volcanic landscape that looks almost lunar, with Galapagos penguins sometimes spotted in the bay below.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining the Galapagos with somewhere else</h2>
+    <p style="margin-top:14px;">The Galapagos does not come as one simple flight and hotel package, so I build it as a tailor made trip from the outset, and that makes it straightforward to extend. Here are three real ways I would put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1616723612122-6889f23c83c1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="An aerial view of Quito and the surrounding Andes mountains" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Galapagos &amp; Quito's Old Town, Cotopaxi &amp; Otavalo</h3>
+        <p>Extend the mainland stay either side of the islands with a proper look around Quito's UNESCO listed Old Town, a day trip to Cotopaxi National Park for one of the world's highest active volcanoes, and the famous Saturday market at Otavalo for textiles and crafts.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1769794142260-c4115835231a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Lush rainforest bordering a wide river in the Ecuadorian Amazon" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Galapagos &amp; the Ecuadorian Amazon</h3>
+        <p>Fly from Quito to Coca, then take a motorised canoe down the Napo River to a lodge such as Sacha Lodge, set within its own private rainforest reserve, for guided canopy walks, piranha fishing and night time wildlife spotting on top of the islands themselves.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Machu Picchu in the Peruvian Andes" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Galapagos &amp; Peru's Machu Picchu</h3>
+        <p>Fly on from Quito or Guayaquil to Lima, then up to Cusco for the Sacred Valley and Machu Picchu itself, a combination several of the cruise operators I work with already sell as a single joined up trip. I cover Peru in full in <a href="peru.html">my separate Peru guide</a>.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I will put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Ecuador's official currency is the US Dollar, and prices below are shown in pounds for Quito, converted at an exchange rate of around 1.32 US Dollars to the pound, correct at the time of writing. Prices on board a cruise ship or at a lodge are usually all inclusive, so these figures are really about time spent in Quito itself.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Set lunch (soup, main course and juice)</td><td>&pound;1.90 to &pound;3.05</td></tr>
+          <tr><td>Meal for two, mid range restaurant</td><td>&pound;11.35 to &pound;22.70</td></tr>
+          <tr><td>Metered taxi within the city</td><td>&pound;1.15 to &pound;7.55</td></tr>
+          <tr><td>Uber or similar, cross town ride</td><td>&pound;2.25 to &pound;6.05</td></tr>
+          <tr><td>Metro fare</td><td>around &pound;0.35</td></tr>
+          <tr><td>Weekly market shop, one person</td><td>&pound;15.15 to &pound;22.70</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: Expat.com's Quito cost of living guide, checked at time of writing. Dollar to pound conversion is approximate and will move around.</p>
+    {jake_tip("Since Ecuador uses the US Dollar, there is no local currency to buy or sell, which makes budgeting genuinely easy. Small denomination notes and coins are handy for tips and small vendors outside the main tourist areas.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>US Dollar, Ecuador's official currency, cards widely accepted in Quito and on board ships, small notes useful for tips and local vendors</td></tr>
+          <tr><td>Plug type</td><td>Type A and B, the same as the US, voltage 120V, a UK adaptor and a voltage converter for UK appliances are both needed</td></tr>
+          <tr><td>Language</td><td>Spanish, with English spoken by most guides on cruises, lodges and in Quito's tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>No direct flights. Around 17 to 20 hours total to Quito via Madrid, Amsterdam or a US gateway, plus a further internal flight of around 2 hours on to the islands</td></tr>
+          <tr><td>Time difference</td><td>Mainland Ecuador is 5 hours behind the UK, 6 hours behind during British Summer Time. The Galapagos Islands themselves run a further hour behind the mainland</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders do not need a visa for tourist stays of up to 90 days in Ecuador, and tourists can stay in the Galapagos itself for up to 60 days. Your passport should be valid for at least 6 months beyond your arrival date, and travel insurance is mandatory for every visitor to the islands</td></tr>
+          <tr><td>Galapagos specific fees</td><td>A Transit Control Card, bought before checking in for your flight to the islands, equivalent to around &pound;15 at the time of writing, and a National Park entrance fee paid in cash on arrival at the Galapagos airport, equivalent to around &pound;151 for adults and &pound;76 for under 12s. Both fees are fixed in US Dollars by the Galapagos authorities. A Biosafety Sworn Declaration must also be completed online 48 to 72 hours before you fly out there</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Fees and requirements change from time to time, I always check the current amounts and process with clients before they travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: David Clode, Philip Myrtorp, Bjarn Bronsveld, Sofia, Heidi Bruce, redcharlie, Tim G, Annie Spratt, Dylan Shaw, Rafael Jimenez, Andres Medina, Alejandro Alfaro M, Kris-Mikael Krister, Willian Justen de Vasconcellos, Rohit Tandon and iuliu illes via Unsplash.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy the Galapagos for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around a classic small ship cruise, a land based lodge if a multi night boat trip is not for you, or a proper multi centre with mainland Ecuador, the Amazon or Peru, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+galapagos_guide_body = galapagos_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+GALAPAGOS_GUIDE_SCHEMA = article_and_faq_schema(
+    "Galapagos Islands: Jake's Destination Guide",
+    "Jake's honest guide to the Galapagos Islands: how to actually get there, weather by month, the real expedition cruises and lodges he books, things to do in Quito, multi centre options with the Amazon and Peru, and what it actually costs.",
+    "galapagos.html",
+    "https://images.unsplash.com/photo-1790674748214-f5fa1a92a4b1?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a Galapagos trip for me?", "Yes. The Galapagos is not sold as a flight and hotel package, every trip is either a named small ship cruise or a land based lodge programme, so I compare the real options on sale from the operators I work with to find the style, route and cabin or room that fits your dates and budget."),
+        ("Do I need a visa for the Galapagos?", "UK passport holders do not need a visa for Ecuador for stays of up to 90 days, and can stay in the Galapagos itself for up to 60 days. You will need a Transit Control Card, equivalent to around &pound;15 at the time of writing, bought before your flight to the islands, and travel insurance is mandatory for every visitor."),
+        ("Is a cruise the only way to see the Galapagos?", "No. A small ship cruise is the classic way to cover several islands, but a land based lodge such as Pikaia Lodge on Santa Cruz Island, with daily boat excursions, is a genuine alternative for anyone who would rather not sleep on board a moving ship for several nights."),
+        ("When is the best time to visit the Galapagos?", "December to May is warmer with calmer seas and suits swimmers and snorkellers best. June to November, the cooler garua season, tends to suit divers and keen wildlife watchers, since colder water brings in bigger marine life such as whale sharks and penguins."),
+        ("Can the Galapagos be combined with other destinations?", "Yes. Most itineraries already include a night or two in Quito either side of the islands, and this can easily be extended into a longer look at mainland Ecuador, the Ecuadorian Amazon, or on to Peru for Machu Picchu and the Sacred Valley."),
+    ]
+)
+with open(os.path.join(SITE, "galapagos.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Galapagos Islands: Jake's Destination Guide | Travel Agent Jake",
+        "Jake's honest guide to the Galapagos Islands: how to actually get there, weather by month, the real expedition cruises and lodges he books, things to do in Quito, multi centre options with the Amazon and Peru, and what it actually costs.",
+        "destinations.html",
+        galapagos_guide_body,
+        extra_schema=GALAPAGOS_GUIDE_SCHEMA,
+        canonical_path="galapagos.html"
+    ))
+print("galapagos.html written")
+
 
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
@@ -24967,6 +25271,7 @@ SITEMAP_PAGES = [
     ("albania.html", "0.6"),
     ("peru.html", "0.6"),
     ("antarctica.html", "0.6"),
+    ("galapagos.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
