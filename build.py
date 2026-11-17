@@ -2301,6 +2301,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, the real expedition cruises and lodges I book, things to do in Quito, multi centre options with the Amazon and Peru, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1790674748214-f5fa1a92a4b1?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "croatia-dubrovnik.html",
+        "meta": "Croatia",
+        "title": "Croatia: Dubrovnik & the Dalmatian Coast",
+        "excerpt": "How to actually get there, weather by month, the hotels I can price up for you, things to do in the Old Town, multi centre options with Montenegro, Split and Mostar, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1626699748984-47d6942751ca?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -25299,6 +25306,285 @@ with open(os.path.join(SITE, "galapagos.html"), "w", encoding="utf-8") as f:
     ))
 print("galapagos.html written")
 
+dubrovnik_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>CROATIA: DUBROVNIK &amp; THE DALMATIAN COAST</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Honey coloured limestone streets, a complete ring of medieval walls you can walk right around, and a harbour full of little wooden boats that still look the same as they did centuries ago. Dubrovnik is one of the most requested destinations on my books right now, and once clients see it in person I understand why every time. Here is exactly how I put together a trip to Dubrovnik and the Dalmatian coast, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Dubrovnik</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1626699748984-47d6942751ca?auto=format&amp;fit=crop&w=1200&q=80" alt="An aerial view of Dubrovnik's Old Town and city walls at golden hour" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Dubrovnik's Old Town is a genuinely compact, walkable UNESCO World Heritage site, ringed by nearly two kilometres of stone walls that you can climb up onto and walk the whole way round, with the Adriatic on one side and a sea of terracotta rooftops on the other. It is also the real life backdrop for King's Landing in a certain famous television series, which brings its own crowd of fans, but Dubrovnik was a major maritime power and trading city for centuries before any film crew turned up, and that history is everywhere you look.</p>
+    <p style="margin-top:14px;">I compare prices across the suppliers I work with for flights, hotels and transfers to find the best fit for your dates and budget, whether that is a straightforward week in the Old Town or a longer multi centre trip taking in Montenegro, Split or Mostar as well.</p>
+    {jake_tip("Dubrovnik gets genuinely busy in July and August, especially when a cruise ship or two is in port and the Old Town fills up by late morning. I always suggest an early start for the walls and the main sights, and tell clients which months give them the same sunshine with far fewer crowds.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Five to seven nights in Dubrovnik itself works well for most clients, long enough for the Old Town, the walls, a day on Lokrum and a boat trip or two, without feeling rushed. Clients combining Dubrovnik with Montenegro, Split or Mostar, which I cover further down, tend to book nine nights or more so each place gets a proper look in.</p>
+    <p style="margin-top:14px;">It suits couples, families and groups who want a genuine city and beach combination, history lovers, keen walkers happy to climb the walls and the steps up Mount Srd, and anyone who wants a European short haul destination with real character rather than a purpose built resort strip. It is less suited to clients who want nightlife on their doorstep every evening, since Dubrovnik's charm is on the quieter, more refined side, or anyone wanting to avoid steps and hills entirely, since the Old Town and much of the coast around it is built on a steep hillside.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1532364158125-02d75a0f7fb9?auto=format&amp;fit=crop&w=1200&q=80" alt="An aeroplane wing against a blue sky" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Dubrovnik Airport has direct flights from a good number of UK airports, including London Heathrow, Gatwick, Stansted and Luton, Manchester, Birmingham, Belfast, East Midlands and Leeds Bradford, with British Airways, easyJet, Jet2, TUI and Croatia Airlines all operating routes, more of them in summer than in winter. Flight time is around two hours and forty five minutes to three hours direct.</p>
+    <p style="margin-top:14px;">The airport sits about twenty minutes south of the Old Town by road, and taxis cannot drive into the Old Town itself, so a transfer drops you at the nearest gate and you walk the final stretch with your bags, which I always warn clients about in advance if their hotel is right in the centre.</p>
+    {jake_tip("If your hotel is inside the Old Town walls, ask about porter or luggage trolley arrangements before you book. Some of the lanes are steep cobbled steps, and I always flag this to clients travelling with a lot of luggage or anyone who would struggle with stairs.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Dubrovnik has a classic Mediterranean climate, with hot dry summers and mild, wetter winters. These are long term monthly averages for the city.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>7&deg;C</td><td>0&deg;C</td><td>14&deg;C</td></tr>
+          <tr><td>February</td><td>9&deg;C</td><td>1&deg;C</td><td>14&deg;C</td></tr>
+          <tr><td>March</td><td>12&deg;C</td><td>3&deg;C</td><td>14&deg;C</td></tr>
+          <tr><td>April</td><td>16&deg;C</td><td>7&deg;C</td><td>15&deg;C</td></tr>
+          <tr><td>May</td><td>21&deg;C</td><td>11&deg;C</td><td>18&deg;C</td></tr>
+          <tr><td>June</td><td>25&deg;C</td><td>14&deg;C</td><td>22&deg;C</td></tr>
+          <tr><td>July</td><td>28&deg;C</td><td>16&deg;C</td><td>24&deg;C</td></tr>
+          <tr><td>August</td><td>28&deg;C</td><td>16&deg;C</td><td>25&deg;C</td></tr>
+          <tr><td>September</td><td>24&deg;C</td><td>13&deg;C</td><td>23&deg;C</td></tr>
+          <tr><td>October</td><td>19&deg;C</td><td>9&deg;C</td><td>21&deg;C</td></tr>
+          <tr><td>November</td><td>13&deg;C</td><td>5&deg;C</td><td>18&deg;C</td></tr>
+          <tr><td>December</td><td>8&deg;C</td><td>1&deg;C</td><td>15&deg;C</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Dubrovnik, compiled from published climate guides. Actual conditions vary year to year.</p>
+    {jake_tip("The sea stays genuinely swimmable well into October, so a late September or early October trip gives you warm water and far thinner crowds on the walls than you get in peak summer.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1565784623258-54dc60786b67?auto=format&amp;fit=crop&w=1200&q=80" alt="Sunset over the sea near Dubrovnik, Croatia" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Late May, June and September are my favourite months to recommend, with warm, swimmable sea, reliably sunny weather and noticeably thinner crowds on the walls and in the Old Town than peak summer. July and August are the hottest and busiest months, with the biggest cruise ship crowds and the highest prices, so I always book those well ahead if clients want those specific dates. October is a lovely, calmer shoulder month, and Dubrovnik stays a genuine year round destination, with a quieter, more local feel over winter and a popular Christmas market in the Old Town through December.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1683634148909-babeb010e289?auto=format&amp;fit=crop&w=1200&q=80" alt="A dock with small boats in Dubrovnik's Old Town harbour" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Four real, bookable picks around Dubrovnik, from the Old Town itself to Lapad, Babin Kuk and a private island escape.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best five star, Old Town views</div>
+        <img src="https://images.unsplash.com/photo-1786476433158-fc99ee8f56b5?auto=format&amp;fit=crop&w=1200&q=80" alt="A coastal town on a green hillside overlooking a harbour near Dubrovnik" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Excelsior Dubrovnik</h3>
+        <p>A grand, century old five star sitting right on the water just outside the Old Town walls, with its own private beach, a spa and some of the best Old Town views of any hotel in the city. A long standing favourite with clients who want to walk into the walls in ten minutes but come home somewhere a little more peaceful. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best family base, Lapad</div>
+        <img src="https://images.unsplash.com/photo-1786476432590-66ec5eb38d82?auto=format&amp;fit=crop&w=1200&q=80" alt="Boats moored below stone harbour walls with a hillside town behind, Croatia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Grand Hotel Park Dubrovnik</h3>
+        <p>A large, family friendly hotel right on Lapad's long sandy and shingle beach, with an outdoor pool, a kids' club in peak season and a regular bus or boat into the Old Town. A sensible, relaxed base for families who want a proper beach as well as the sightseeing. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best adults only escape</div>
+        <img src="https://images.unsplash.com/photo-1786476433044-c9bd1117d704?auto=format&amp;fit=crop&w=1200&q=80" alt="A small boat cruising on calm blue water near a green island near Dubrovnik" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">TUI Blue Kalamota Island</h3>
+        <p>An adults only hotel on its own small island a short boat transfer from Dubrovnik, with all meals and drinks included, quiet coves for swimming, and no cars anywhere on the island. The one to pick for clients who want total peace after a few days exploring the Old Town. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best value, Babin Kuk</div>
+        <img src="https://images.unsplash.com/photo-1780304048332-d717db120019?auto=format&amp;fit=crop&w=1200&q=80" alt="Boats in Dubrovnik's historic harbour beneath centuries old stone fortifications" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Valamar Lacroma Dubrovnik</h3>
+        <p>A well run, good value resort hotel on the Babin Kuk peninsula, with a large pool, direct sea access and a regular local bus into the Old Town in around twenty five minutes. A solid pick for families and couples who want a proper resort feel without the Old Town price tag. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities as published at the time of writing. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1610104052927-ed67e7faefc3?auto=format&amp;fit=crop&w=1200&q=80" alt="Picturesque scenery in Dubrovnik, Croatia" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>The Old Town itself is entirely pedestrian, with no cars allowed inside the walls, so everything is on foot once you are through one of the gates. A cheap and frequent local bus network connects the Old Town with Lapad, Babin Kuk and the airport, and taxis are plentiful but, as above, cannot enter the Old Town itself. For day trips further afield, such as Montenegro, Split or Mostar, I usually arrange a private transfer or a small group tour, since public transport across the borders is slower and less convenient. Regular boat trips run from the Old Town harbour out to Lokrum and the Elaphite Islands throughout the season.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1621848066198-35f83745df73?auto=format&amp;fit=crop&w=1200&q=80" alt="A view over Dubrovnik's old town rooftops towards the sea" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A few of the bookable tours and tickets worth having on your radar, from walking tours of the walls to boat trips along the coast.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="12445,414735,246722,1282373"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/dubrovnik-l513/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/dubrovnik-l513/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Dubrovnik &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1783353954417-6ee583a2bf91?auto=format&amp;fit=crop&w=1200&q=80" alt="Old stone buildings along a narrow street" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Old Town &amp; City Walls</h3>
+        <p>Nearly two kilometres of medieval fortifications you can walk right around, taking in sweeping views over the terracotta rooftops and out to sea, followed by a wander down the main limestone paved street, Stradun, with its baroque churches and the old pharmacy still trading inside the Franciscan monastery.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1568300938945-bce5355d4bbe?auto=format&amp;fit=crop&w=1200&q=80" alt="Lokrum, a wooded island near Dubrovnik, Croatia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Lokrum Island</h3>
+        <p>A fifteen minute ferry ride from the Old Town harbour brings you to this wooded nature reserve, with a botanical garden, a ruined monastery, a saltwater lake nicknamed the Dead Sea for its warm still water, and a resident population of peacocks that roam freely around the island.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1779088469699-03208ca59730?auto=format&amp;fit=crop&w=1200&q=80" alt="Traditional stone houses and red tiled rooftops under a blue sky" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Mount Srd &amp; the Cable Car</h3>
+        <p>A short cable car ride up the hill behind the Old Town gives you the single best overview of Dubrovnik, with the whole walled city, the harbour and the islands laid out below. There is a cafe at the top, a Napoleonic era fort with a small museum, and it is a lovely spot to watch the sun go down.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1759418388101-c0a255d98bc8?auto=format&amp;fit=crop&w=1200&q=80" alt="A rocky, wooded island in a blue sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Elaphite Islands</h3>
+        <p>A chain of small, mostly car free islands just north of Dubrovnik, popular as a full day boat trip, with the villages of Sipan, Lopud and Kolocep each offering a quieter pace, sandy coves and simple seafood restaurants away from the Old Town crowds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Dubrovnik with somewhere else</h2>
+    <p style="margin-top:14px;">Dubrovnik sits right at the southern tip of Croatia, within easy reach of Montenegro, the rest of the Dalmatian coast and Bosnia and Herzegovina, which makes it a genuinely easy base to extend into a longer multi centre trip. Here are three real ways I would put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1614122027743-50a9e6e8002f?auto=format&amp;fit=crop&w=1200&q=80" alt="Kotor's bay and the old town of Kotor, Montenegro" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Dubrovnik &amp; Montenegro</h3>
+        <p>A straightforward border crossing south brings you to the stunning Bay of Kotor, with its own walled old town, and on to the superyacht marina at Tivat. I would base you at the Regent Porto Montenegro, a five star right on the marina, for a few nights either side of your Dubrovnik stay.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1693149864297-e44de7849c51?auto=format&amp;fit=crop&w=1200&q=80" alt="An aerial view of a coastal city with a harbour, Croatia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Dubrovnik &amp; Split with the islands</h3>
+        <p>A couple of hours up the coast, Split's Roman old town centres on Diocletian's Palace, and makes a great springboard for a ferry out to Hvar. I would base you at the Radisson Blu Resort &amp; Spa in Split, then on to somewhere like Maslina Resort on Hvar for the island leg.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1689019345483-4f847b92e5e3?auto=format&amp;fit=crop&w=1200&q=80" alt="The famous Stari Most bridge in Mostar, Bosnia and Herzegovina" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Dubrovnik &amp; Mostar</h3>
+        <p>A longer day trip or overnight inland into Bosnia and Herzegovina brings you to Mostar, famous for its rebuilt Ottoman era bridge and the divers who still leap from it into the river below. I would base you at the Mostar Marriott Hotel for an overnight stay rather than rushing it as a single long day.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I will put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Croatia's official currency is the Euro, and prices below are shown in pounds, converted at an exchange rate of around 1.19 Euros to the pound, correct at the time of writing.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Coffee in a cafe</td><td>&pound;2.35</td></tr>
+          <tr><td>Cheap lunch or a quick bite</td><td>&pound;10.50</td></tr>
+          <tr><td>Meal for two, mid range restaurant</td><td>&pound;56.70</td></tr>
+          <tr><td>Local bus fare, Old Town to Lapad</td><td>&pound;1.65</td></tr>
+          <tr><td>Taxi, airport to the Old Town gates</td><td>&pound;30 to &pound;32</td></tr>
+          <tr><td>Weekly market shop, one person</td><td>around &pound;19</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: Numbeo's Dubrovnik cost of living data, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Dubrovnik is one of the pricier spots in Croatia, especially for food and drink inside the Old Town walls. Walking ten minutes out towards Lapad or Pile for dinner usually gets you the same quality for noticeably less.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro, Croatia's official currency since January 2023, cards widely accepted, some cash useful for small vendors and local buses</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, the same as most of mainland Europe, voltage 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Croatian, with English widely spoken in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Direct flights from several UK airports, around two hours and forty five minutes to three hours</td></tr>
+          <tr><td>Time difference</td><td>One hour ahead of the UK all year round, since both follow the same seasonal clock changes</td></tr>
+          <tr><td>Entry requirements</td><td>Croatia is part of the Schengen area, so UK passport holders do not need a visa for stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure from the Schengen area. Border checks now include fingerprint and photo registration under the EU's Entry/Exit System, and the EU's ETIAS travel authorisation is expected to become mandatory from 2027, not yet at the time of writing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Requirements change from time to time, I always check the current rules with clients before they travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Geio Tischler, Patrick Tomasso, Ivan Ivankovic, Cat Bassano, Linda Gerbec, Dawid Tkocz, Hugo Martin, Datingjungle, Archana Reddy, Walter Martin, Inera Isovic, Margo Evardson, Taras Terletskyy, olga brajnovic, Lidija Divjak and Christian Lendl via Unsplash.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Dubrovnik for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around the Old Town and the Dalmatian coast on its own, or a proper multi centre with Montenegro, Split and Hvar, or Mostar, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+dubrovnik_guide_body = dubrovnik_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+DUBROVNIK_GUIDE_SCHEMA = article_and_faq_schema(
+    "Croatia: Dubrovnik & the Dalmatian Coast",
+    "Jake's honest guide to Dubrovnik: how to actually get there, weather by month, the hotels he books, things to do in the Old Town, multi centre options with Montenegro, Split and Mostar, and what it actually costs.",
+    "croatia-dubrovnik.html",
+    "https://images.unsplash.com/photo-1626699748984-47d6942751ca?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Dubrovnik for me?", "Yes. I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is a week in the Old Town or a longer multi centre trip with Montenegro, Split or Mostar."),
+        ("Do I need a visa for Croatia?", "Croatia is part of the Schengen area, so UK passport holders do not need a visa for tourist stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure."),
+        ("How do you get from the airport to the Old Town?", "Dubrovnik Airport is around twenty minutes from the Old Town by road. Taxis and transfers cannot drive into the Old Town itself, since it is entirely pedestrian, so you are dropped at the nearest gate and walk the final stretch with your bags."),
+        ("When is the best time to visit Dubrovnik?", "Late May, June and September give the best balance of warm, swimmable sea and thinner crowds. July and August are the hottest, busiest and most expensive months, so I always book those well ahead if clients want those specific dates."),
+        ("Can Dubrovnik be combined with other destinations?", "Yes. Dubrovnik sits close to the Montenegrin border and within day trip or overnight reach of Split, Hvar and Mostar in Bosnia and Herzegovina, which makes it a straightforward base for a longer multi centre trip."),
+    ]
+)
+with open(os.path.join(SITE, "croatia-dubrovnik.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Croatia: Dubrovnik & the Dalmatian Coast | Travel Agent Jake",
+        "Jake's honest guide to Dubrovnik: how to actually get there, weather by month, the hotels he books, things to do in the Old Town, multi centre options with Montenegro, Split and Mostar, and what it actually costs.",
+        "destinations.html",
+        dubrovnik_guide_body,
+        extra_schema=DUBROVNIK_GUIDE_SCHEMA,
+        canonical_path="croatia-dubrovnik.html"
+    ))
+print("croatia-dubrovnik.html written")
+
+
 
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
@@ -25362,6 +25648,7 @@ SITEMAP_PAGES = [
     ("peru.html", "0.6"),
     ("antarctica.html", "0.6"),
     ("galapagos.html", "0.6"),
+    ("croatia-dubrovnik.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
