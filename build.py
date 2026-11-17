@@ -163,7 +163,7 @@ def ski_newsletter_section(heading="Get ski deals &amp; resort tips", intro="Ski
 </script>"""
 
 BREEZE_URL = "https://tidd.ly/4e6NPfU"
-AIRALO_URL = "https://airalo.pxf.io/c/7743453/1268485/15608"
+AIRALO_URL = "https://try.airalo.com/TravelAgentJake"
 
 def finder_boxes(kind, search_placeholder, request_label, request_placeholder, form_name):
     """Search box + 'request a topic' box, used on the Travel Tips and Destinations pages.
