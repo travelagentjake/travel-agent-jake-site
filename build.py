@@ -13576,6 +13576,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1742589977991-0417bf1ca3b1?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "A duty free shop display inside an airport terminal",
     },
+    {
+        "slug": "air-passenger-duty-rising-april-2027.html",
+        "meta": "Costs &amp; budgeting",
+        "title": "Flight tax is rising again from April 2027: what Air Passenger Duty actually costs you",
+        "excerpt": "Air Passenger Duty goes up again on 1 April 2027, on top of the rise that already happened this April. Here's exactly what you pay now, what changes next April, which band your holiday falls into, who's exempt, and whether booking before the rise actually saves you anything.",
+        "image": "https://images.unsplash.com/photo-1609521417028-9f338be70f90?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "A passenger plane on the tarmac at an airport",
+    },
 ]
 
 
@@ -25584,6 +25592,183 @@ with open(os.path.join(SITE, "croatia-dubrovnik.html"), "w", encoding="utf-8") a
     ))
 print("croatia-dubrovnik.html written")
 
+apd_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>FLIGHT TAX IS RISING AGAIN FROM APRIL 2027: WHAT AIR PASSENGER DUTY ACTUALLY COSTS YOU</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Air Passenger Duty, the government tax built into every flight leaving a UK airport, went up on 1 April this year, and HMRC has already confirmed the rates going up again from 1 April 2027. It is genuinely not a huge jump this time, but if you are booking a holiday for next summer it is worth knowing exactly what you are paying, which band your destination falls into, and whether there is anything sensible you can actually do about it.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Air Passenger Duty actually is</h2>
+    <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?auto=format&fit=crop&w=1600&h=700&q=80" alt="A commercial airplane landing on a runway" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Air Passenger Duty, APD for short, has been charged on flights leaving UK airports since 1994. It is not an airline fee or a booking charge, it is a government tax, and every airline and tour operator has to collect it on the government's behalf and build it into the price you pay. You will not usually see "Air Passenger Duty" written out on a package holiday invoice, it is simply baked into the flight cost, but it is there on every single one.</p>
+    <p style="margin-top:14px;">HMRC publishes the rates for the tax year ahead of time, and the current rates, in force since 1 April 2026, already have the rates for 1 April 2027 published alongside them. That is not a leak or a rumour, it is HMRC's own confirmed table, so this is one of those rare travel cost changes you can actually plan around rather than just hear about after it has already happened.</p>
+    {jake_tip("The rise itself is small, it is simply the government's annual inflation linked uprating rather than a new policy, so please do not panic about this one. I just think it is worth knowing the real numbers rather than the vaguer headlines doing the rounds.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What you pay right now, and what changes from 1 April 2027</h2>
+    <img src="https://images.unsplash.com/photo-1706711625046-93890d38c630?auto=format&fit=crop&w=1600&h=700&q=80" alt="A departures board showing a flight from London" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Almost every holidaymaker pays the reduced rate, which covers economy class seating with a standard seat pitch. The standard rate applies to premium economy, business and first class, or any economy seat with more than 40 inches of pitch. The higher rate is really aimed at small private planes rather than anyone booking a normal holiday.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Band (current rates, to 31 March 2027)</th><th>Reduced rate</th><th>Standard rate</th><th>Higher rate</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Domestic (UK to UK)</td><td>&pound;8</td><td>&pound;16</td><td>&pound;142</td></tr>
+          <tr><td>Band A, up to 2,000 miles (Europe, Turkey, the Canaries and Balearics)</td><td>&pound;15</td><td>&pound;32</td><td>&pound;142</td></tr>
+          <tr><td>Band B, 2,001 to 5,500 miles (USA, Canada, the Caribbean, UAE)</td><td>&pound;102</td><td>&pound;244</td><td>&pound;1,097</td></tr>
+          <tr><td>Band C, over 5,500 miles (Thailand, Australia, long haul Asia and the Pacific)</td><td>&pound;106</td><td>&pound;253</td><td>&pound;1,141</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Band (new rates, from 1 April 2027)</th><th>Reduced rate</th><th>Standard rate</th><th>Higher rate</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Domestic (UK to UK)</td><td>&pound;8.26</td><td>&pound;16.52</td><td>&pound;146.63</td></tr>
+          <tr><td>Band A, up to 2,000 miles</td><td>&pound;15.49</td><td>&pound;33.04</td><td>&pound;146.63</td></tr>
+          <tr><td>Band B, 2,001 to 5,500 miles</td><td>&pound;105.33</td><td>&pound;251.95</td><td>&pound;1,132.76</td></tr>
+          <tr><td>Band C, over 5,500 miles</td><td>&pound;109.46</td><td>&pound;261.25</td><td>&pound;1,178.20</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: gov.uk guidance on rates and allowances for Air Passenger Duty, checked at time of writing.</p>
+    <p style="margin-top:14px;">So on a normal economy flight to Spain, Greece or Turkey, the reduced rate goes from &pound;15 to &pound;15.49, a 49p rise per person. Long haul to somewhere like Florida, the Caribbean or the UAE goes from &pound;102 to &pound;105.33, &pound;3.33 more per person. A family of four flying economy to the Canaries would see their total APD go up by less than &pound;2 across the whole family. It really is a small, routine rise, not the sort of jump that should change where you choose to go on holiday.</p>
+    {jake_tip("The mileage bands are measured from London to the destination country's capital city, not from your own departure airport. So a flight from Manchester or Glasgow to the same destination falls into exactly the same band and pays exactly the same rate as one from Heathrow.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Which band does your own holiday actually fall into?</h2>
+    <img src="https://images.unsplash.com/photo-1715262437769-d5a52db0d1dd?auto=format&fit=crop&w=1600&h=700&q=80" alt="The wing of an airplane flying above the clouds" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <ul class="numbered-list" style="margin-top:28px;">
+      <li><span class="num">1</span><span><b>Band A covers the destinations most of my clients book most often.</b> All of the EU and EEA, plus a specific list of non-EU and island destinations including Turkey, Switzerland, the Canary Islands, the Balearic Islands, Madeira, the Azores, Gibraltar and the Channel Islands.</span></li>
+      <li><span class="num">2</span><span><b>Band B covers mid haul.</b> The USA, Canada, the Caribbean, Mexico, Brazil and the UAE all sit in this band, among others.</span></li>
+      <li><span class="num">3</span><span><b>Band C covers the rest.</b> HMRC's own wording is that any destination not listed under Band A or Band B falls into Band C, which in practice means Thailand, Australia, New Zealand and most long haul Asia Pacific destinations.</span></li>
+      <li><span class="num">4</span><span><b>Domestic is UK to UK only,</b> so a flight within England, Scotland, Wales or Northern Ireland pays the lowest rate of all.</span></li>
+    </ul>
+    {jake_tip("If you are ever unsure which band a specific destination falls into, or whether a connecting flight changes anything, message me and I will check properly rather than you guessing from a general rule.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Children, and who is actually exempt</h2>
+    <img src="https://images.unsplash.com/photo-1648201637025-1c77b9be3013?auto=format&fit=crop&w=1600&h=700&q=80" alt="A calculator and pen on a desk" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This is the bit that actually makes a difference to most family holidays. HMRC's own rules on exemptions are specific.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Under 2 years old, travelling without their own seat</td><td>Exempt, in any class of travel</td></tr>
+          <tr><td>Under 2 years old, with a seat bought for them</td><td>Exempt only if travelling in the lowest class</td></tr>
+          <tr><td>Under 16 years old on the date of the flight</td><td>Exempt, as long as they are travelling in the lowest class</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;">A handful of narrower exemptions exist too: short pleasure flights of 60 minutes or less that land back where they took off, flights leaving airports in the Scottish Highlands and Islands, and certain direct long haul flights from Northern Ireland airports. None of these are likely to apply to a normal package holiday, but it is worth knowing they exist.</p>
+    {jake_tip("The under 16 exemption only holds if the child is genuinely booked in the lowest available class. If you upgrade a child's seat for any reason, that exemption drops away for that seat.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Does this apply to my flight home as well?</h2>
+    <img src="https://images.unsplash.com/photo-1721592873149-9823d9dc6b40?auto=format&fit=crop&w=1600&h=700&q=80" alt="An airplane landing on a runway at dusk" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">No, and this is the detail most people never actually get told. HMRC's own guidance is explicit that these are "rates for flights starting in the UK", meaning Air Passenger Duty only applies to the leg of your journey that departs from a UK airport. A standard return holiday pays it once, on the way out, not again on the way home.</p>
+    <p style="margin-top:14px;">Worth knowing though, that does not mean your flight home is tax free altogether. Plenty of other countries charge their own separate departure tax on flights leaving their airports, under their own rules and at their own rates, completely unrelated to the UK's Air Passenger Duty. It is usually built into the ticket price the same way APD is, so you are very unlikely to be asked for cash at a foreign airport, but it is a different tax, not a UK one.</p>
+    {jake_tip("If a quote from me ever looks like it has two separate tax lines rather than one, that is normal, not a mistake. One is the UK's Air Passenger Duty on the outbound leg, the other is whatever your destination charges on the way back.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Does booking now actually protect you from the rise?</h2>
+    <p style="margin-top:14px;">Not reliably, and I would rather tell you that honestly than let anyone think booking today locks in today's rate. Air Passenger Duty is set by when you actually fly, not by when you book or pay your deposit, so a holiday booked now for travel after 1 April 2027 is still liable for the new, slightly higher rate once that date arrives.</p>
+    <p style="margin-top:14px;">That is exactly why package holiday booking conditions allow a company to add a surcharge after you have booked if a government tax genuinely goes up before you travel. Under ABTA's own guidance, that surcharge can only be applied if your booking conditions explicitly say so, and if it comes to more than 8% of your total holiday cost, you get the right to cancel for a full refund instead of paying it. Given how small this particular rise is, in practice it is extremely unlikely to come anywhere near that threshold on its own.</p>
+    <p style="margin-top:14px;">So book when the holiday itself is right for you and your budget, not because of a few pence to a few pounds per person in flight tax. It genuinely is not worth rearranging your plans around.</p>
+    {jake_tip("I build the current published rate into every quote I give you. If it needs adjusting closer to your travel date because of a confirmed tax change, I will always tell you plainly rather than let it appear as a silent increase on your balance.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">How much is Air Passenger Duty on a typical holiday to Spain, Greece or Turkey?</h3>
+      <p>&pound;15 per person in economy class right now, rising to &pound;15.49 from 1 April 2027. All three sit in Band A, which covers destinations up to 2,000 miles from London.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is Air Passenger Duty charged on my flight home as well as my outbound flight?</h3>
+      <p>No. HMRC's guidance covers "rates for flights starting in the UK", so it only applies to the leg of your journey that departs a UK airport. Your flight home may carry a separate departure tax charged by your destination country, but that is not Air Passenger Duty.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Are children exempt from Air Passenger Duty?</h3>
+      <p>Children under 2 travelling without their own seat are exempt in any class. Children under 2 with a purchased seat, and children under 16 on the date of the flight, are exempt as long as they are travelling in the lowest class.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Can my holiday price go up after I have booked because of this?</h3>
+      <p>Air Passenger Duty is based on your date of travel rather than your booking date, so a rise confirmed before you fly can technically be passed on as a surcharge if your booking conditions allow it. Under ABTA's guidance a surcharge above 8% of your holiday cost gives you the right to cancel for a refund instead, and a rise this small is extremely unlikely to come close to that figure.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does this affect private jet or small plane flights too?</h3>
+      <p>Yes, and considerably more so. The higher rate, aimed at planes equipped to carry fewer than 19 passengers, rises from &pound;1,097 to &pound;1,132.76 on Band B and from &pound;1,141 to &pound;1,178.20 on Band C from 1 April 2027. Separately, the higher rate is also being extended to cover all private jets of 5.7 tonnes or more from 1 April 2027, a change announced at an earlier Budget.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <img src="https://images.unsplash.com/photo-1609521417028-9f338be70f90?auto=format&fit=crop&w=1600&h=700&q=80" alt="A passenger plane on the tarmac at an airport" loading="lazy" style="border-radius:6px; margin-bottom:28px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <h2>Want a quote that already accounts for the current rate?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Every price I send you is built on the taxes and charges actually in force for your travel date, flight tax included, so there are no surprises later. Tell me where you are thinking of going and I will put a proper quote together.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+apd_body = apd_body.replace("::NEWSLETTER::", newsletter_section())
+
+APD_SCHEMA = article_and_faq_schema(
+    "Flight Tax Is Rising Again From April 2027: What Air Passenger Duty Actually Costs You",
+    "Air Passenger Duty goes up again on 1 April 2027, on top of the rise that already happened this April. Here's exactly what you pay now, what changes next April, which band your holiday falls into, who's exempt, and whether booking before the rise actually saves you anything.",
+    "air-passenger-duty-rising-april-2027.html",
+    "https://images.unsplash.com/photo-1609521417028-9f338be70f90?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("How much is Air Passenger Duty on a typical holiday to Spain, Greece or Turkey?", "\\u00a315 per person in economy class right now, rising to \\u00a315.49 from 1 April 2027. All three sit in Band A, which covers destinations up to 2,000 miles from London."),
+        ("Is Air Passenger Duty charged on my flight home as well as my outbound flight?", "No. HMRC's guidance covers \\u201crates for flights starting in the UK\\u201d, so it only applies to the leg of your journey that departs a UK airport. Your flight home may carry a separate departure tax charged by your destination country, but that is not Air Passenger Duty."),
+        ("Are children exempt from Air Passenger Duty?", "Children under 2 travelling without their own seat are exempt in any class. Children under 2 with a purchased seat, and children under 16 on the date of the flight, are exempt as long as they are travelling in the lowest class."),
+        ("Can my holiday price go up after I have booked because of this?", "Air Passenger Duty is based on your date of travel rather than your booking date, so a rise confirmed before you fly can technically be passed on as a surcharge if your booking conditions allow it. Under ABTA's guidance a surcharge above 8% of your holiday cost gives you the right to cancel for a refund instead, and a rise this small is extremely unlikely to come close to that figure."),
+        ("Does this affect private jet or small plane flights too?", "Yes, and considerably more so. The higher rate, aimed at planes equipped to carry fewer than 19 passengers, rises from \\u00a31,097 to \\u00a31,132.76 on Band B and from \\u00a31,141 to \\u00a31,178.20 on Band C from 1 April 2027. Separately, the higher rate is also being extended to cover all private jets of 5.7 tonnes or more from 1 April 2027, a change announced at an earlier Budget."),
+    ]
+)
+
+with open(os.path.join(SITE, "air-passenger-duty-rising-april-2027.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Flight Tax Is Rising Again From April 2027: What Air Passenger Duty Actually Costs You | Travel Agent Jake",
+        "Air Passenger Duty goes up again on 1 April 2027, on top of the rise that already happened this April. Here's exactly what you pay now, what changes next April, which band your holiday falls into, who's exempt, and whether booking before the rise actually saves you anything.",
+        "travel-tips.html",
+        apd_body,
+        extra_schema=APD_SCHEMA,
+        canonical_path="air-passenger-duty-rising-april-2027.html"
+    ))
+print("air-passenger-duty-rising-april-2027.html written")
 
 
 # ---------------- sitemap.xml ----------------
@@ -25687,6 +25872,7 @@ SITEMAP_PAGES = [
     ("package-travel-rules-changing-april-2027.html", "0.7"),
     ("eu-free-cabin-bag-rules-2027.html", "0.7"),
     ("duty-free-allowance-changes-2026.html", "0.7"),
+    ("air-passenger-duty-rising-april-2027.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
