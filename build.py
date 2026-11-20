@@ -2308,6 +2308,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, the hotels I can price up for you, things to do in the Old Town, multi centre options with Montenegro, Split and Mostar, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1626699748984-47d6942751ca?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "rhodes.html",
+        "meta": "Rhodes, Greece",
+        "title": "Rhodes, Greece",
+        "excerpt": "How to actually get there, weather by month, the hotels I can price up for you, things to do in Rhodes Old Town and Lindos, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1711203485232-963a98a864ca?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -25592,6 +25599,259 @@ with open(os.path.join(SITE, "croatia-dubrovnik.html"), "w", encoding="utf-8") a
     ))
 print("croatia-dubrovnik.html written")
 
+rhodes_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>RHODES, GREECE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">The largest inhabited medieval town in Europe, a whitewashed hilltop village with its own ancient Acropolis, and some of the most reliable sunshine in the Mediterranean. Rhodes is one of those destinations that quietly does everything well, history, beaches, nightlife and food, which is exactly why I get asked about it so often. Here is exactly how I put together a trip to Rhodes, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Rhodes</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1711202934068-963265a1fe1e?auto=format&amp;fit=crop&w=1200&q=80" alt="A medieval stone tower in Rhodes Old Town, Greece" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Rhodes Old Town is a genuine UNESCO World Heritage Site, a walled medieval city built by the Knights of St John that you can still wander around for hours without seeing the same corner twice. Outside the walls, the island has one of the longest, most reliable summer seasons in Greece, with a mix of lively resorts, quiet family beaches and the whitewashed hilltop village of Lindos all within an hour or so of each other.</p>
+    <p style="margin-top:14px;">I compare prices across the suppliers I work with for flights, hotels and transfers to find the best fit for your dates and budget, whether that is a straightforward week in a beach resort or a longer stay built around the Old Town and Lindos.</p>
+    {jake_tip("Rhodes has one of the longest seasons of any Greek island, with flights running from April right through to early November. If you want warm, reliable weather without the August crowds and prices, I always point clients towards late May, June or September first.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the classic Rhodes holiday, long enough for a few days by the pool, a full day in the Old Town and another exploring Lindos, without feeling rushed. Ten to fourteen nights works well if you want to properly split your time between a resort beach and a base in or near Rhodes Town.</p>
+    <p style="margin-top:14px;">It suits families, couples and groups who want a genuine mix of beach time and sightseeing, history lovers, and anyone who wants reliable sunshine with real character rather than a purely purpose built resort strip. It is less suited to clients who want total peace and quiet everywhere they look, since the busier resorts like Faliraki have a lively, younger nightlife scene, although plenty of quieter spots exist on the same island if that is what you are after.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1487253031786-9989fcd7bb73?auto=format&amp;fit=crop&w=1200&q=80" alt="An aeroplane wing against a blue sky" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Rhodes International Airport (Diagoras) has direct flights from a wide range of UK airports, including London Gatwick, Heathrow, Luton and Stansted, Manchester, Birmingham, Bristol and East Midlands, with easyJet, Jet2, TUI, British Airways and Ryanair all operating routes in season. Flight time is around four hours direct. Flights run from roughly April through to early November, with far fewer options over winter.</p>
+    <p style="margin-top:14px;">The airport sits close to Ixia and Rhodes Town, with most resorts on the west and east coasts between around twenty minutes and an hour and a half away by transfer.</p>
+    {jake_tip("If your hotel is on the south east coast around Lindos, Kiotari or Gennadi, factor in a longer transfer of up to ninety minutes. I always set expectations on transfer times before booking so nobody is caught out on arrival.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Rhodes has one of the sunniest, driest climates in Greece, with hot dry summers and mild, wetter winters. These are long term monthly averages for Rhodes Town.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>14&deg;C</td><td>8&deg;C</td><td>17&deg;C</td></tr>
+          <tr><td>February</td><td>15&deg;C</td><td>8&deg;C</td><td>17&deg;C</td></tr>
+          <tr><td>March</td><td>17&deg;C</td><td>9&deg;C</td><td>16&deg;C</td></tr>
+          <tr><td>April</td><td>20&deg;C</td><td>12&deg;C</td><td>17&deg;C</td></tr>
+          <tr><td>May</td><td>24&deg;C</td><td>15&deg;C</td><td>19&deg;C</td></tr>
+          <tr><td>June</td><td>29&deg;C</td><td>19&deg;C</td><td>22&deg;C</td></tr>
+          <tr><td>July</td><td>31&deg;C</td><td>22&deg;C</td><td>25&deg;C</td></tr>
+          <tr><td>August</td><td>31&deg;C</td><td>22&deg;C</td><td>27&deg;C</td></tr>
+          <tr><td>September</td><td>28&deg;C</td><td>20&deg;C</td><td>26&deg;C</td></tr>
+          <tr><td>October</td><td>24&deg;C</td><td>16&deg;C</td><td>24&deg;C</td></tr>
+          <tr><td>November</td><td>20&deg;C</td><td>12&deg;C</td><td>21&deg;C</td></tr>
+          <tr><td>December</td><td>16&deg;C</td><td>9&deg;C</td><td>19&deg;C</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Rhodes Town, compiled from published climate guides. Actual conditions vary year to year.</p>
+    {jake_tip("The sea stays warm enough to swim comfortably right through October and into November, so a late September or early October trip gives you proper summer warmth with noticeably thinner crowds and lower prices than peak season.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1470497409162-889ff0ac5726?auto=format&amp;fit=crop&w=1200&q=80" alt="A hillside coastal town overlooking the sea in Greece" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Late May, June and September are my favourite months to recommend, with warm, swimmable sea, reliably sunny weather and noticeably thinner crowds than peak summer. July and August are the hottest and busiest months, with temperatures regularly into the low thirties, so I always book those well ahead if clients want those specific dates and suggest building in plenty of pool or beach time in the middle of the day. October still offers a genuinely warm, sunny shoulder season with lower prices, and Rhodes keeps a reasonable amount going through the winter too, since it is one of the larger, more established Greek islands.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&w=1200&q=80" alt="A hotel swimming pool in Greece" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Four real, bookable picks around Rhodes, from a five star spa resort to a boutique base in Rhodes Town, a family all inclusive and a value self catering option.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best five star spa escape, Ixia</div>
+        <img src="https://images.unsplash.com/photo-1532909825484-d59b5ced9ac0?auto=format&amp;fit=crop&w=1200&q=80" alt="A hotel pool area with sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Atrium Platinum Luxury Resort &amp; Spa</h3>
+        <p>A five star resort on Rhodes' north west coast at Ixia, around five kilometres from Rhodes Town, with three outdoor pools and an indoor pool, some rooms with their own private plunge pool, and a spa with sauna, whirlpool and massage treatments. All inclusive plus, half board and bed and breakfast options are all available. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best boutique base, Rhodes Town</div>
+        <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&amp;fit=crop&w=1200&q=80" alt="Sun loungers in a hotel garden setting" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Rodos Park Suites &amp; Spa</h3>
+        <p>A smart hotel set in its own gardens in Rhodes Town, under a kilometre from the resort centre and a short walk from the Old Town, with an outdoor pool and a wellness spa offering sauna, steam room and massage treatments. Half board and bed and breakfast options available. The one to pick for clients who want to be on foot for the sights. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best family all inclusive, Kolymbia</div>
+        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&amp;fit=crop&w=1200&q=80" alt="Wooden sun loungers by the sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Leonardo Kolymbia Resort</h3>
+        <p>A large all inclusive resort on the east coast at Kolymbia, around 250 metres from the beach, with two outdoor pools including a children's pool, three restaurants, a spa and regular daytime entertainment through the season. A dependable, well liked choice for families. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best value, Pefkos</div>
+        <img src="https://images.unsplash.com/photo-1659559814036-8c22a5a799bb?auto=format&amp;fit=crop&w=1200&q=80" alt="Sun loungers and umbrellas on a Greek beach" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Pefkos Beach Hotel</h3>
+        <p>A family run hillside hotel above Pefkos, around 600 metres from the beach, with three outdoor pools including a children's section and a choice of bed and breakfast or self catering studios and apartments with their own kitchen facilities. Good value with lovely sea views, though it is a walk uphill from the drop off point so I would steer clients with limited mobility elsewhere. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities and board basis as published at the time of writing and based on previous seasons. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1711202933966-8b2eecce5644?auto=format&amp;fit=crop&w=1200&q=80" alt="A street with tables and chairs in Rhodes Old Town, Greece" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Rhodes Old Town itself is largely pedestrian, with cobbled lanes best explored on foot. A regular local bus network, split into two companies covering the east and west coasts, connects Rhodes Town with the main resorts, and is a cheap way to get around if you do not mind a bit of waiting. Taxis are widely available, and hiring a car for a day or two is a popular way to see Lindos, the Butterfly Valley and Prasonisi in your own time. Organised coach excursions cover all the main sights too, which I can book as part of your trip.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1596023397605-709cadaa4fce?auto=format&amp;fit=crop&w=1200&q=80" alt="A boat trip near Lindos, Rhodes" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A few of the bookable tours and tickets worth having on your radar, from Lindos day trips to boat trips out to Symi.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="401666,639357,432146,943485"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/rhodes-l409/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/rhodes-l409/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Rhodes &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1711202933964-e2daeb118198?auto=format&amp;fit=crop&w=1200&q=80" alt="A stone building in Rhodes Old Town, Greece" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Rhodes Old Town &amp; the Street of the Knights</h3>
+        <p>The largest inhabited medieval town in Europe and a UNESCO World Heritage Site, with the cobbled Street of the Knights leading up to the Palace of the Grand Master, built by the Knights Hospitaller in the fourteenth century. Wander the walls, browse the old bazaar and stop for dinner in one of the countless tavernas tucked into the side streets.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1598959594958-34761147b7b0?auto=format&amp;fit=crop&w=1200&q=80" alt="Whitewashed houses overlooking the sea at Lindos, Rhodes" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Lindos &amp; the Acropolis of Lindos</h3>
+        <p>A whitewashed hillside village about an hour from Rhodes Town, crowned by an ancient Acropolis with a Temple of Athena Lindia and sweeping views down over St Paul's Bay. The walk up is steep, but donkey rides are available for anyone who would rather not climb, and the village itself is full of narrow lanes, boutique shops and sea view cafes.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1622957404515-e3cf1899f82d?auto=format&amp;fit=crop&w=1200&q=80" alt="A forest spring surrounded by greenery" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Seven Springs (Epta Piges)</h3>
+        <p>A shaded woodland spot inland from Kolymbia, where seven natural springs feed a cool stream. You can walk through a narrow, pitch dark tunnel that the water runs through to reach a small lake, or take the longer path around above ground if you would rather stay dry. A lovely, cooler break from the beach on a hot day.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1607537826539-0eb279b56804?auto=format&amp;fit=crop&w=1200&q=80" alt="A windsurfer riding the waves" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Prasonisi</h3>
+        <p>The sandy spit at the island's southern tip, where the Aegean and Mediterranean seas meet, is one of Europe's best known windsurfing and kitesurfing spots thanks to the strong, reliable summer winds. Non watersports fans still enjoy the drive down and the dramatic, wilder scenery compared with the busier north of the island.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Greece's official currency is the Euro, and prices below are shown in pounds, converted at an exchange rate of around 1.19 Euros to the pound, correct at the time of writing. Rhodes specific figures were not available at the time of writing, so these are drawn from Greece wide data.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Coffee in a cafe</td><td>&pound;2.90</td></tr>
+          <tr><td>Cheap lunch or a quick bite</td><td>&pound;12.60</td></tr>
+          <tr><td>Meal for two, mid range restaurant</td><td>&pound;42.00</td></tr>
+          <tr><td>Local bus fare</td><td>&pound;1.00</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;3.35</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: Numbeo's Greece cost of living data, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Resort areas like Faliraki and Ixia tend to charge more for food and drink than Rhodes Town itself or the smaller villages inland, so a short bus ride or taxi can make a real difference to your spending money.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro, cards widely accepted, some cash useful for small vendors and local buses</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, the same as most of mainland Europe, voltage 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Greek, with English widely spoken in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Direct flights from several UK airports, around four hours</td></tr>
+          <tr><td>Time difference</td><td>Two hours ahead of the UK all year round, since both follow the same seasonal clock changes</td></tr>
+          <tr><td>Entry requirements</td><td>Greece is part of the Schengen area, so UK passport holders do not need a visa for stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure from the Schengen area. Border checks now include fingerprint and photo registration under the EU's Entry/Exit System, and the EU's ETIAS travel authorisation is expected to become mandatory from 2027, not yet at the time of writing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Requirements change from time to time, I always check the current rules with clients before they travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Ben Morris, Jakob Owens, Gaetano Cessati, Theo Maroulis, Cosmic Timetraveler, Manuel Moreno, Sasha Kaunas, Evangelos Mpikakis, Dimitris Kiriakakis, Mac McDade, Mick Haupt and Renan Brun via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Rhodes for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around a resort beach, the Old Town, Lindos, or all three, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+rhodes_guide_body = rhodes_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+RHODES_GUIDE_SCHEMA = article_and_faq_schema(
+    "Rhodes, Greece",
+    "Jake's honest guide to Rhodes: how to actually get there, weather by month, the hotels he books, things to do in Rhodes Old Town and Lindos, and what it actually costs.",
+    "rhodes.html",
+    "https://images.unsplash.com/photo-1711203485232-963a98a864ca?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Rhodes for me?", "Yes. I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is a resort beach holiday, a stay near the Old Town, or a mix of both."),
+        ("Do I need a visa for Greece?", "Greece is part of the Schengen area, so UK passport holders do not need a visa for tourist stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure."),
+        ("How far is Rhodes Old Town from the airport?", "Rhodes International Airport is close to Ixia and Rhodes Town, with most resorts on the west and east coasts between around twenty minutes and an hour and a half away by transfer, depending on where you are staying."),
+        ("When is the best time to visit Rhodes?", "Late May, June and September give the best balance of warm, swimmable sea and thinner crowds. July and August are the hottest, busiest and most expensive months, so I always book those well ahead if clients want those specific dates."),
+        ("Can I visit Lindos as a day trip?", "Yes. Lindos is about an hour from Rhodes Town and is a popular day trip by bus, taxi, hire car or organised excursion, with most visitors combining the Acropolis of Lindos with some time on the beach below."),
+    ]
+)
+with open(os.path.join(SITE, "rhodes.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Rhodes, Greece | Travel Agent Jake",
+        "Jake's honest guide to Rhodes: how to actually get there, weather by month, the hotels he books, things to do in Rhodes Old Town and Lindos, and what it actually costs.",
+        "destinations.html",
+        rhodes_guide_body,
+        extra_schema=RHODES_GUIDE_SCHEMA,
+        canonical_path="rhodes.html"
+    ))
+print("rhodes.html written")
+
+
 apd_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
   <div class="wrap">
@@ -25834,6 +26094,7 @@ SITEMAP_PAGES = [
     ("antarctica.html", "0.6"),
     ("galapagos.html", "0.6"),
     ("croatia-dubrovnik.html", "0.6"),
+    ("rhodes.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
