@@ -2315,6 +2315,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, the hotels I can price up for you, things to do in Rhodes Old Town and Lindos, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1711203485232-963a98a864ca?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "costa-del-sol.html",
+        "meta": "Costa del Sol, Spain",
+        "title": "Costa del Sol, Spain",
+        "excerpt": "How to actually get there, weather by month, the hotels I can price up for you from Fuengirola to Marbella, things to do, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1686058858158-63c5e49fdf21?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -25851,6 +25858,260 @@ with open(os.path.join(SITE, "rhodes.html"), "w", encoding="utf-8") as f:
     ))
 print("rhodes.html written")
 
+costa_del_sol_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>COSTA DEL SOL, SPAIN</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Spain's original package holiday coast, and still one of the easiest, most reliable holidays I book. A short flight into Malaga, warm sunshine for most of the year, and a genuine choice of resort towns, from lively Benalmadena and Fuengirola to smart, glossy Marbella and quieter Nerja, all strung along the same stretch of coastline. Here is exactly how I put together a trip to the Costa del Sol, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about the Costa del Sol</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1686058858158-63c5e49fdf21?auto=format&amp;fit=crop&w=1200&q=80" alt="The seafront promenade in Fuengirola on Spain's Costa del Sol" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>The Costa del Sol gets a bit of a reputation for being the obvious choice, and I think that is exactly why it keeps selling so well. It is a short flight, the weather almost never lets you down, and because it covers so much ground, from the high rise seafront at Benalmadena to the old fishing streets of Marbella and the cliffs above Nerja, there is a genuinely different holiday on offer depending on which bit you pick. It suits first timers who want something easy just as well as it suits clients who have been ten times and know exactly which town they are after.</p>
+    <p style="margin-top:14px;">I compare prices across the suppliers I work with for flights, hotels and transfers to find the best fit for your dates and budget, whatever mix of beach, nightlife and old town charm you are after.</p>
+    {jake_tip("The Costa del Sol runs year round, not just in summer. It has a proper winter sun season too, so if you want some warmth in January or February without flying long haul, this is one of the first places I point clients towards.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the classic Costa del Sol holiday, long enough to properly settle into a resort, get a few day trips in and still feel rested. Ten to fourteen nights works well for families who want to really stretch the budget on a longer break, and short breaks of three or four nights are popular too, especially out of season or for a quick dose of winter sun.</p>
+    <p style="margin-top:14px;">It suits pretty much everyone, which is part of why it is booked so often. Families do well in Benalmadena and Fuengirola, where everything from the beach to the restaurants is set up for children. Couples and groups after nightlife and a livelier scene tend to head for Benalmadena, Fuengirola or Torremolinos, while anyone wanting something smarter, with proper restaurants and a bit of glamour, is usually better off in Marbella. Nerja suits clients who want the same sunshine and sea but a slower pace and a prettier, more traditionally Spanish town.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1437846972679-9e6e537be46e?auto=format&amp;fit=crop&w=1200&q=80" alt="An aeroplane wing against a blue sky" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Malaga Airport (AGP) sits right on the coast between Torremolinos and Malaga city, and has direct flights from most major UK airports, including both London Gatwick and Heathrow, Manchester, Birmingham, Bristol, Edinburgh, Glasgow and Belfast, with easyJet, Jet2, TUI, British Airways, Ryanair and Vueling all operating routes. Flight time is around two hours forty minutes to three hours, and flights run all year, not just in summer.</p>
+    <p style="margin-top:14px;">Because the airport sits roughly in the middle of the coast, transfer times vary a fair bit depending on which resort you pick. Torremolinos is the closest, around ten minutes away, with Benalmadena around fifteen to twenty minutes and Fuengirola around twenty five to thirty minutes. Marbella is further, usually forty five minutes to an hour, and Nerja, in the opposite direction, is a similar fifty minutes to an hour.</p>
+    {jake_tip("If you are staying in Marbella or Nerja, I always check whether a private transfer works out better value than a shared coach once you are travelling as a family or a group, since the extra distance from the airport makes a real difference to how long you are sat on a bus.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">The Costa del Sol has one of the mildest climates in mainland Europe, with hot, dry summers and genuinely sunny winters. These are long term monthly averages for Malaga and the coast.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Sea temp</th><th>Daily sunshine</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>14&deg;C</td><td>15&deg;C</td><td>5 hrs</td></tr>
+          <tr><td>February</td><td>16&deg;C</td><td>15&deg;C</td><td>6 hrs</td></tr>
+          <tr><td>March</td><td>17&deg;C</td><td>15&deg;C</td><td>7 hrs</td></tr>
+          <tr><td>April</td><td>19&deg;C</td><td>16&deg;C</td><td>7 hrs</td></tr>
+          <tr><td>May</td><td>23&deg;C</td><td>17&deg;C</td><td>9 hrs</td></tr>
+          <tr><td>June</td><td>27&deg;C</td><td>20&deg;C</td><td>11 hrs</td></tr>
+          <tr><td>July</td><td>30&deg;C</td><td>22&deg;C</td><td>11 hrs</td></tr>
+          <tr><td>August</td><td>30&deg;C</td><td>23&deg;C</td><td>11 hrs</td></tr>
+          <tr><td>September</td><td>27&deg;C</td><td>22&deg;C</td><td>8 hrs</td></tr>
+          <tr><td>October</td><td>22&deg;C</td><td>19&deg;C</td><td>7 hrs</td></tr>
+          <tr><td>November</td><td>18&deg;C</td><td>17&deg;C</td><td>6 hrs</td></tr>
+          <tr><td>December</td><td>15&deg;C</td><td>16&deg;C</td><td>5 hrs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Malaga and the Costa del Sol, compiled from published climate guides. Actual conditions vary year to year.</p>
+    {jake_tip("Even in the depths of winter, the Costa del Sol is still getting five or six hours of sunshine a day and daytime highs in the mid teens, which is why so many of my older clients use it for a reliable dose of winter sun rather than flying further afield.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1741899239732-984428a2e653?auto=format&amp;fit=crop&w=1200&q=80" alt="A quiet beach on the Costa del Sol, Spain" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Late May, June and September are my favourite months to recommend, with genuinely hot, swimmable sea and noticeably thinner crowds and lower prices than peak summer. July and August are the hottest and busiest months, with daytime temperatures regularly into the thirties, so I always book those well ahead for clients who want those specific school holiday dates. What sets the Costa del Sol apart from a lot of other destinations I book is that it does not simply shut down over winter. November through to March stays mild, often in the mid to high teens by day, which makes it one of the most popular winter sun options I offer clients who want some warmth without a long flight.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1439130490301-25e322d88054?auto=format&amp;fit=crop&w=1200&q=80" alt="A hotel swimming pool on the Costa del Sol" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Four real, bookable picks spread across the coast, from a lively family resort to an adults only boutique base and a smart hotel in the heart of Marbella.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value family base, Fuengirola</div>
+        <img src="https://images.unsplash.com/photo-1755597037530-60d9ca3b9879?auto=format&amp;fit=crop&w=1200&q=80" alt="Sun loungers by a pool overlooking the sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Ramada Hotel and Suites Costa del Sol</h3>
+        <p>A smart, modern hotel and apartment complex right on Fuengirola's seafront, with rooms and family suites, an outdoor pool and easy walking distance into the town itself. A dependable, well located pick for families who want to be able to walk everywhere. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best family all inclusive, Benalmadena</div>
+        <img src="https://images.unsplash.com/photo-1771267174900-28895ba511eb?auto=format&amp;fit=crop&w=1200&q=80" alt="An aerial view of a resort with a pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Benalmadena Palace</h3>
+        <p>A large hotel, spa and apartment complex in Benalmadena with several pools, regular daytime entertainment through the season, and a short stroll down to the beach and the Puerto Marina. A long standing, dependable choice for families that I book regularly. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best adults only, Torremolinos</div>
+        <img src="https://images.unsplash.com/photo-1683914791874-2dcb78e58e09?auto=format&amp;fit=crop&w=1200&q=80" alt="Sun loungers beside a quiet swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">AluaSoul Costa Malaga</h3>
+        <p>An adults recommended boutique hotel in Torremolinos, a short walk from the beach, with a calmer, more polished feel than the busier family resorts nearby and a pool area built for actually relaxing in. The one I suggest most often for couples who still want a short, easy transfer from the airport. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best five star glamour, Marbella</div>
+        <img src="https://images.unsplash.com/photo-1769339644285-354da0f6e45b?auto=format&amp;fit=crop&w=1200&q=80" alt="A rooftop pool overlooking the sea at sunset" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel El Fuerte Marbella</h3>
+        <p>A smart beachfront hotel right in the heart of Marbella's old town, within easy walking distance of the Casco Antiguo and Puerto Banus, with a pool, gardens and a genuinely polished feel. The one to pick for clients who want to be properly in among the town itself rather than out on a resort strip. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities and board basis as published at the time of writing and based on previous seasons. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1722452848310-cc5607a3851c?auto=format&amp;fit=crop&w=1200&q=80" alt="A narrow street in Marbella, Spain" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>The Costa del Sol has one of the easiest local transport networks of anywhere I book. A coastal train line (the Cercanias) runs between Malaga Airport, Malaga city, Torremolinos, Benalmadena and Fuengirola, so you can hop between those towns cheaply without a car at all. A regular bus network covers Marbella, Nerja and the smaller towns in between. Taxis are plentiful, and hiring a car for a few days is a popular way to see Mijas, Nerja or get up into the hills, especially if your base is Marbella.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1722424489991-13a4262eb736?auto=format&amp;fit=crop&w=1200&q=80" alt="A walkway along the Caminito del Rey gorge near Malaga" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A few of the bookable tours and tickets worth having on your radar, from walking tours of Malaga's old town to the Caminito del Rey gorge walk.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="1036154,809196,382919,168583"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/malaga-l402/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/malaga-l402/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do on the Costa del Sol &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1641667710644-fb8a6abf2a06?auto=format&amp;fit=crop&w=1200&q=80" alt="A view over the city of Malaga, Spain" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Malaga Old Town &amp; the Alcazaba</h3>
+        <p>Picasso was born in Malaga, and the city has leaned into it, with a dedicated Picasso Museum alongside the Moorish Alcazaba fortress, the Roman theatre beneath it, and the Gibralfaro Castle on the hill above for sweeping views over the port. A genuinely good city to pair with a beach based stay.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1657469291895-754b9c4328fd?auto=format&amp;fit=crop&w=1200&q=80" alt="A yacht in the marina at Puerto Banus, Spain" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Marbella Old Town &amp; Puerto Banus</h3>
+        <p>Marbella's Casco Antiguo is a genuine old Andalusian town, all whitewashed walls and orange trees around the Plaza de los Naranjos, while a short drive along the coast brings you to Puerto Banus, the marina famous for its superyachts, designer shops and people watching.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1521158614-186eebea87b2?auto=format&amp;fit=crop&w=1200&q=80" alt="Cliffs and clear sea near Nerja, Spain" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Nerja: the Balcon de Europa &amp; the Caves</h3>
+        <p>A clifftop balcony with some of the best views on the whole coast, in the middle of a genuinely pretty, low rise town that never got the high rise development of its neighbours. Just outside town, the Nerja Caves are a huge network of limestone caverns and one of the most visited sights in the region.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1780658309233-465e54f70a72?auto=format&amp;fit=crop&w=1200&q=80" alt="A white building in a sunny plaza in Spain" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Mijas Pueblo</h3>
+        <p>A whitewashed hill village above Fuengirola, with narrow cobbled streets, donkey taxis, and views right out over the coast. A popular half day trip from any of the main resorts, and a good way to see a more traditional side of Andalusia without travelling far.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Spain's official currency is the Euro, and prices below are shown in pounds, converted at an exchange rate of around 1.19 Euros to the pound, correct at the time of writing.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Coffee in a cafe</td><td>&pound;2.05</td></tr>
+          <tr><td>Draught beer, half litre</td><td>&pound;2.70</td></tr>
+          <tr><td>Meal for two, mid range restaurant</td><td>&pound;53.75</td></tr>
+          <tr><td>Bottled water</td><td>&pound;1.60</td></tr>
+          <tr><td>Petrol, one litre</td><td>&pound;1.35</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;1.50</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: Numbeo's Malaga cost of living data, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Resort front restaurants right on the seafront in places like Benalmadena and Fuengirola charge noticeably more than the same dish a few streets back, so it is always worth wandering a little further inland for both food and drink.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro, cards widely accepted, some cash useful for small vendors and local buses</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, the same as most of mainland Europe, voltage 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Spanish, with English widely spoken in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Direct flights from most major UK airports, around two hours forty minutes to three hours</td></tr>
+          <tr><td>Time difference</td><td>One hour ahead of the UK all year round, since both follow the same seasonal clock changes</td></tr>
+          <tr><td>Entry requirements</td><td>Spain is part of the Schengen area, so UK passport holders do not need a visa for stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure from the Schengen area. Border checks now include fingerprint and photo registration under the EU's Entry/Exit System, and the EU's ETIAS travel authorisation is expected to become mandatory from 2027, not yet at the time of writing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Requirements change from time to time, I always check the current rules with clients before they travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Lucia P., louis magnotti, Jonas Denil, Nils Willner, MP, Michael Da Conceicao, Jan Bachor, Gabrielle Maurer, Deyan Sight, Maksim Shutov, Yuliya Matuzava, Viktor Ritsvall, In&eacute;s &Aacute;lvarez Fdez and Milan Trninic via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy the Costa del Sol for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around a lively family resort, a quieter base in Nerja, or something smarter in Marbella, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+costa_del_sol_guide_body = costa_del_sol_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+COSTA_DEL_SOL_GUIDE_SCHEMA = article_and_faq_schema(
+    "Costa del Sol, Spain",
+    "Jake's honest guide to the Costa del Sol: how to actually get there, weather by month, the hotels he books from Fuengirola to Marbella, the best things to do, and what it actually costs.",
+    "costa-del-sol.html",
+    "https://images.unsplash.com/photo-1686058858158-63c5e49fdf21?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to the Costa del Sol for me?", "Yes. I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is a lively resort like Benalmadena or Fuengirola, a quieter base like Nerja, or somewhere smarter like Marbella."),
+        ("Do I need a visa for Spain?", "Spain is part of the Schengen area, so UK passport holders do not need a visa for tourist stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure."),
+        ("Which airport do I fly into for the Costa del Sol?", "Malaga Airport (AGP), which sits right on the coast between Torremolinos and the city of Malaga itself, with direct flights from most major UK airports and a flight time of around two hours forty minutes to three hours."),
+        ("When is the best time to visit the Costa del Sol?", "Late May, June and September give the best balance of hot, swimmable sea and thinner crowds. July and August are the hottest and busiest months, and the Costa del Sol also keeps a genuine winter sun season, with daytime temperatures commonly in the mid teens even in January."),
+        ("Can I visit Granada and the Alhambra as a day trip?", "Yes. Granada is around an hour and a half from most Costa del Sol resorts, and a day trip to see the Alhambra palace is one of the most popular organised excursions I book for clients staying along this coast."),
+    ]
+)
+with open(os.path.join(SITE, "costa-del-sol.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Costa del Sol, Spain | Travel Agent Jake",
+        "Jake's honest guide to the Costa del Sol: how to actually get there, weather by month, the hotels he books from Fuengirola to Marbella, the best things to do, and what it actually costs.",
+        "destinations.html",
+        costa_del_sol_guide_body,
+        extra_schema=COSTA_DEL_SOL_GUIDE_SCHEMA,
+        canonical_path="costa-del-sol.html"
+    ))
+print("costa-del-sol.html written")
+
+
 
 apd_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
@@ -26095,6 +26356,7 @@ SITEMAP_PAGES = [
     ("galapagos.html", "0.6"),
     ("croatia-dubrovnik.html", "0.6"),
     ("rhodes.html", "0.6"),
+    ("costa-del-sol.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
