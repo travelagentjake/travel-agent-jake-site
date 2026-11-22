@@ -2322,6 +2322,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, the hotels I can price up for you from Fuengirola to Marbella, things to do, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1686058858158-63c5e49fdf21?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "santorini.html",
+        "meta": "Santorini, Greece",
+        "title": "Santorini, Greece",
+        "excerpt": "How to actually get there, weather by month, the hotels I can price up for you around the caldera, things to do, multi centre options with Mykonos, Athens and Crete, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1719607526486-96f27a995fcc?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -26113,6 +26120,286 @@ print("costa-del-sol.html written")
 
 
 
+santorini_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>SANTORINI, GREECE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Whitewashed houses and blue domed churches clinging to the rim of a volcanic caldera, with the sea dropping away hundreds of feet below and one of the best sunsets anywhere in Europe waiting at the end of the day. Santorini is the single most requested Greek island on my books, especially for honeymoons and anniversary trips, and it genuinely earns the hype. Here is exactly how I put together a trip to Santorini, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Santorini</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1783443075882-bb44d2a16c6b?auto=format&amp;fit=crop&w=1200&q=80" alt="A Santorini village of blue domed buildings overlooking the Aegean Sea" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Santorini is a volcanic island, and that is really the whole story behind why it looks the way it does. A huge eruption thousands of years ago collapsed the centre of the island into the sea, leaving the dramatic cliff the main towns are built along today, with the caldera itself still an active, if quiet, volcano. Fira and Oia get the crowds and the photographs, but I always tell clients the island rewards slowing down, with quieter black and red sand beaches, proper working wineries and some of the best seafood in Greece once you get away from the clifftop restaurants.</p>
+    <p style="margin-top:14px;">I compare prices across the suppliers I work with for flights, hotels and transfers to find the best fit for your dates and budget, whether that is a week based entirely in Santorini or a longer multi centre trip taking in Mykonos, Athens or Crete as well.</p>
+    {jake_tip("Santorini is genuinely one of the smallest islands I book, so even clients who have never been tend to find their bearings within a day or two. The flip side is that it gets properly busy in peak summer, so I always talk clients through which towns and months give the calmer version of the same views.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Four to seven nights is the classic Santorini trip, long enough for Fira, Oia, a boat trip out to the volcano and a day or two by the pool or on the beach, without feeling like you are rushing to see everything. Clients combining Santorini with Mykonos, Athens or Crete, which I cover further down, tend to book nine nights or more so each place gets a proper look in.</p>
+    <p style="margin-top:14px;">It suits couples and honeymooners above almost anything else, which is exactly why so many of the island's hotels are built around caldera view suites, private plunge pools and sunset dining rather than big family resorts. That said, it is not purely a couples island. Families who base themselves in Kamari or Perissa, on the flatter, more laid back side of the island with proper sandy and black sand beaches, do very well too, they just will not find much in the way of kids' clubs or large all inclusive resorts here, since that is simply not the style Santorini builds for.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1715262437769-d5a52db0d1dd?auto=format&amp;fit=crop&w=1200&q=80" alt="An aeroplane wing against a blue sky" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Santorini (Thira) Airport, code JTR, sits inland near Kamari and Monolithos, around twenty to twenty five minutes from Fira and thirty five to forty five minutes from Oia. Direct flights run from a good number of UK airports, including London Gatwick, Manchester, Stansted, Birmingham and Edinburgh, with easyJet, Jet2, TUI and other carriers operating routes. Flight time is around three and a half to four hours.</p>
+    <p style="margin-top:14px;">Unlike some of the other Greek islands and the Spanish coast, Santorini is not really a year round flight destination. UK routes are seasonal, running from around April or May through to October, which matches the island's own season, since a genuine number of hotels, restaurants and tour operators close for winter and reopen around Easter. I always flag this to clients before they book anything outside the summer months.</p>
+    {jake_tip("If sunset views are the whole point of your trip, I always ask whether you want to be based in Oia itself, which gets genuinely packed with visitors every evening, or whether a short taxi or bus ride from Fira or Imerovigli for the same sunset with a fraction of the crowd suits you better.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Santorini has a classic Mediterranean climate, with hot, dry summers and mild, breezy winters. These are long term monthly averages for the island.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Sea temp</th><th>Daily sunshine</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>14&deg;C</td><td>16&deg;C</td><td>4 hrs</td></tr>
+          <tr><td>February</td><td>14&deg;C</td><td>16&deg;C</td><td>5 hrs</td></tr>
+          <tr><td>March</td><td>16&deg;C</td><td>16&deg;C</td><td>6 hrs</td></tr>
+          <tr><td>April</td><td>19&deg;C</td><td>16&deg;C</td><td>8 hrs</td></tr>
+          <tr><td>May</td><td>22&deg;C</td><td>19&deg;C</td><td>10 hrs</td></tr>
+          <tr><td>June</td><td>26&deg;C</td><td>22&deg;C</td><td>13 hrs</td></tr>
+          <tr><td>July</td><td>28&deg;C</td><td>23&deg;C</td><td>13 hrs</td></tr>
+          <tr><td>August</td><td>27&deg;C</td><td>24&deg;C</td><td>12 hrs</td></tr>
+          <tr><td>September</td><td>25&deg;C</td><td>24&deg;C</td><td>10 hrs</td></tr>
+          <tr><td>October</td><td>22&deg;C</td><td>22&deg;C</td><td>7 hrs</td></tr>
+          <tr><td>November</td><td>19&deg;C</td><td>19&deg;C</td><td>5 hrs</td></tr>
+          <tr><td>December</td><td>16&deg;C</td><td>17&deg;C</td><td>4 hrs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Santorini, compiled from published climate guides. Actual conditions vary year to year.</p>
+    {jake_tip("The sea is warmest in August and September, but the island itself can be genuinely windy in July and August thanks to the meltemi winds that blow through the Aegean, so I always pack an extra layer for evenings even in the middle of summer.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1671760048161-a0faba9b9b47?auto=format&amp;fit=crop&w=1200&q=80" alt="A scenic view of a Santorini town on the edge of the caldera" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Late May, June and September are my favourite months to recommend, with warm, swimmable sea, reliably sunny weather and noticeably thinner crowds in Fira and Oia than peak summer. July and August are the hottest, busiest and most expensive months, with the biggest crowds at the sunset spots, so I always book those well ahead if clients want those specific dates. Unlike some of the other destinations I book, Santorini genuinely does wind down over winter. A real number of hotels, restaurants and the smaller tour boats close completely from around November through to March or early April, so this is not a destination I would suggest for a winter sun trip, it is very much an April through October island.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1781455817910-50e0cf5ef661?auto=format&amp;fit=crop&w=1200&q=80" alt="Whitewashed buildings and blue pools overlooking the sea in Santorini" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Four real, bookable picks across the island, from a relaxed family beach base to some of the most sought after caldera view suites in Greece.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best value family base, Kamari</div>
+        <img src="https://images.unsplash.com/photo-1716237637842-75a8a07c3653?auto=format&amp;fit=crop&w=1200&q=80" alt="Two people on a black sand beach in Greece" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Levante Beach Hotel</h3>
+        <p>A smart, modern beachfront hotel right on Kamari's black sand beach, with an outdoor pool and an easy walk into the resort's restaurants and bars. The flatter, more laid back side of the island, and a sensible base for families or anyone who wants an easy beach holiday away from the clifftop crowds. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best boutique caldera, Imerovigli</div>
+        <img src="https://images.unsplash.com/photo-1781455495358-b38f1f2bad0b?auto=format&amp;fit=crop&w=1200&q=80" alt="An infinity pool overlooking the caldera in Santorini" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">On The Rocks Hotel</h3>
+        <p>A Small Luxury Hotels of the World member cut into the cliff at Imerovigli, with caldera view rooms, an infinity pool and a genuinely quieter setting than Oia while still being a short walk from Fira. A long standing favourite with couples I book who want the caldera views without quite the price tag of Oia itself. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best five star luxury, Imerovigli</div>
+        <img src="https://images.unsplash.com/photo-1781455495352-f810d0901497?auto=format&amp;fit=crop&w=1200&q=80" alt="White cliffside buildings with vibrant blue pools overlooking the ocean in Santorini" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Katikies Chromata Santorini</h3>
+        <p>A Leading Hotels of the World property on the clifftop at Imerovigli, with private pools and plunge pools, caldera facing suites and one of the most polished spas on the island. The one I suggest most often for a genuine once in a lifetime anniversary or honeymoon stay. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best ultra luxury, Oia</div>
+        <img src="https://images.unsplash.com/photo-1781455495690-7f9a9c48e9c7?auto=format&amp;fit=crop&w=1200&q=80" alt="A white domed building overlooking the blue sea in Santorini" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Santo Pure Oia Suites &amp; Villas</h3>
+        <p>Caldera facing suites and villas right in Oia, most with their own infinity or plunge pool, built around that famous sunset view. The pick for clients who want to walk straight out of their room onto one of the best views on the island, at a genuine premium. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities as published at the time of writing. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1656025745530-ac7685a3b40e?auto=format&amp;fit=crop&w=1200&q=80" alt="A view of the Santorini caldera from Fira, with the old port below" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A local bus network (KTEL) runs regularly from Fira's main station out to Oia, Kamari, Perissa and most of the other villages, and is the cheapest way to get around if you are not planning on driving yourself. Taxis exist but the island only has a limited number of them, so they can be hard to find and pricier at busy times, especially around sunset in Oia. Hiring a car, quad bike or ATV for a few days is popular and gives you the most flexibility to reach quieter beaches and wineries at your own pace. In Fira itself, a cable car runs down to the old port, with the alternative of walking, or riding a donkey, down the five hundred and eighty eight steps cut into the cliff.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1738068991917-56b839b2c352?auto=format&amp;fit=crop&w=1200&q=80" alt="A catamaran sailing near the Santorini coastline" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A few of the bookable tours and tickets worth having on your radar, from sunset catamaran cruises to the volcano itself and the island's wineries.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="631523,688809,341321,144459"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/santorini-l753/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/santorini-l753/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Santorini &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1671834215094-1c839963e382?auto=format&amp;fit=crop&w=1200&q=80" alt="The sea at sunset near Santorini, Greece" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Oia &amp; the Sunset</h3>
+        <p>The village everyone pictures when they think of Santorini, built along the very northern tip of the caldera, with its own castle ruins as the classic sunset viewpoint. It gets genuinely crowded by early evening in summer, so I always suggest arriving well ahead or watching from a quieter spot nearby instead.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1543698995-76edb45027d2?auto=format&amp;fit=crop&w=1200&q=80" alt="Houses over a volcanic rock formation under a blue sky in Santorini" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Akrotiri</h3>
+        <p>A remarkably well preserved Bronze Age settlement near the southern tip of the island, buried and protected by the same volcanic eruption that shaped the caldera, sometimes nicknamed the Minoan Pompeii. A genuinely interesting half day for anyone with an interest in history, a world away from the clifftop towns.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1651617733477-6cc82ceb3730?auto=format&amp;fit=crop&w=1200&q=80" alt="A beach near Santorini, Greece" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Red Beach</h3>
+        <p>A striking, dramatic cove near Akrotiri, backed by steep red volcanic cliffs that give the beach its name. The walk down is a little uneven, and it gets busy in peak season, but it is one of the most photographed beaches on the island for good reason.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1667226701528-722a4f098707?auto=format&amp;fit=crop&w=1200&q=80" alt="A basket of wine and a glass of wine in a Greek vineyard" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Santorini's Wineries</h3>
+        <p>Santorini's volcanic soil produces genuinely distinctive wines, grown low to the ground in basket shaped vines to survive the island's winds. A handful of wineries around Megalochori and Pyrgos run tastings with caldera views thrown in, and I book this as a half day trip for a lot of couples.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Santorini with somewhere else</h2>
+    <p style="margin-top:14px;">Santorini sits in the middle of the Cyclades, within easy ferry reach of the other Greek islands and a short flight from Athens, which makes it a genuinely easy base to extend into a longer multi centre trip. Here are three real ways I would put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1657141462746-13f0468d5e65?auto=format&amp;fit=crop&w=1200&q=80" alt="The windmills of Mykonos, Greece" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Santorini &amp; Mykonos</h3>
+        <p>A high speed ferry of around two to two and a half hours links the two most famous Cycladic islands, swapping Santorini's caldera views for Mykonos's whitewashed lanes, windmills and livelier beach clubs. I would base you at Mykonos Blu, A Grecotel Resort, on Psarou beach for a few nights either side of your Santorini stay.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&amp;fit=crop&w=1200&q=80" alt="The Acropolis of Athens at golden hour" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Santorini &amp; Athens</h3>
+        <p>A short domestic flight of around fifty minutes, or a longer overnight ferry, brings you to Athens, where the Acropolis, the Plaka district and the National Archaeological Museum make for a proper city break to pair with the island leg. I would base you at Grecotel Pallas Athena, a smart boutique hotel right in the centre of the city.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1690274634154-1aea2fa61f05?auto=format&amp;fit=crop&w=1200&q=80" alt="A harbour full of boats in Heraklion, Crete" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Santorini &amp; Crete</h3>
+        <p>A ferry of around two to two and a half hours reaches Heraklion, Crete's largest city, within easy reach of the Palace of Knossos and a much bigger, greener island than Santorini. I would base you at Capsis Astoria Heraklion, right by the old Venetian harbour, for the Crete leg of the trip.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I will put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Greece's official currency is the Euro, and prices below are shown in pounds, converted at an exchange rate of around 1.19 Euros to the pound, correct at the time of writing.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Coffee in a cafe</td><td>&pound;3.10</td></tr>
+          <tr><td>Draught beer, a pint</td><td>&pound;4.20</td></tr>
+          <tr><td>Meal for two, mid range restaurant</td><td>&pound;52.50</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;0.45</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;3.05</td></tr>
+          <tr><td>Petrol, one litre</td><td>&pound;1.75</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: Numbeo's Fira, Santorini cost of living data, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Fira and Oia's clifftop restaurants charge a genuine premium for the view, which is fair enough, but I always point clients towards Kamari, Perissa or the inland villages like Pyrgos for the same quality of food at a noticeably lower price.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro, cards widely accepted, some cash useful for buses and smaller tavernas</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, the same as most of mainland Europe, voltage 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Greek, with English widely spoken in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Direct, seasonal flights from several UK airports, around three and a half to four hours</td></tr>
+          <tr><td>Time difference</td><td>Two hours ahead of the UK all year round, since both follow the same seasonal clock changes</td></tr>
+          <tr><td>Entry requirements</td><td>Greece is part of the Schengen area, so UK passport holders do not need a visa for stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure from the Schengen area. Border checks now include fingerprint and photo registration under the EU's Entry/Exit System, and the EU's ETIAS travel authorisation is expected to become mandatory from 2027, not yet at the time of writing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Requirements change from time to time, I always check the current rules with clients before they travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Mushvig Niftaliyev, Wojciech Wyszkowski, Edwin Petrus, Brad Switzer, Anastase Maragos, Mary Karletsoy, A Perry, Derek Nielsen, Hooman R., Jo&atilde;o Matos, Sleepy Zhao, Alexandra Torro, Julian, Constantinos Kollias and Qingqing Cai via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Santorini for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around the caldera on its own, a quieter family base in Kamari, or a proper multi centre with Mykonos, Athens or Crete, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+santorini_guide_body = santorini_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+SANTORINI_GUIDE_SCHEMA = article_and_faq_schema(
+    "Santorini, Greece",
+    "Jake's honest guide to Santorini: how to actually get there, weather by month, the hotels he books around the caldera, the best things to do, multi centre options with Mykonos, Athens and Crete, and what it actually costs.",
+    "santorini.html",
+    "https://images.unsplash.com/photo-1719607526486-96f27a995fcc?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Santorini for me?", "Yes. I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is a caldera view hotel in Oia or Imerovigli, a quieter family base in Kamari, or a longer multi centre trip."),
+        ("Do I need a visa for Greece?", "Greece is part of the Schengen area, so UK passport holders do not need a visa for tourist stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure."),
+        ("Which airport do I fly into for Santorini, and do flights run all year?", "Santorini (Thira) Airport, code JTR. Direct UK flights are seasonal rather than year round, generally running from around April or May through to October, which matches the island's own tourist season."),
+        ("When is the best time to visit Santorini?", "Late May, June and September give the best balance of warm, swimmable sea and thinner crowds. July and August are the hottest, busiest and most expensive months, and a genuine number of hotels and restaurants close completely over winter."),
+        ("Can Santorini be combined with other Greek islands?", "Yes. Santorini sits within easy ferry reach of Mykonos and Crete, and a short flight or overnight ferry from Athens, which makes it a straightforward base for a longer multi centre trip."),
+    ]
+)
+with open(os.path.join(SITE, "santorini.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Santorini, Greece | Travel Agent Jake",
+        "Jake's honest guide to Santorini: how to actually get there, weather by month, the hotels he books around the caldera, the best things to do, multi centre options with Mykonos, Athens and Crete, and what it actually costs.",
+        "destinations.html",
+        santorini_guide_body,
+        extra_schema=SANTORINI_GUIDE_SCHEMA,
+        canonical_path="santorini.html"
+    ))
+print("santorini.html written")
+
+
+
 apd_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
   <div class="wrap">
@@ -26357,6 +26644,7 @@ SITEMAP_PAGES = [
     ("croatia-dubrovnik.html", "0.6"),
     ("rhodes.html", "0.6"),
     ("costa-del-sol.html", "0.6"),
+    ("santorini.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
