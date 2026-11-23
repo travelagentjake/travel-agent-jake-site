@@ -2329,6 +2329,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, the hotels I can price up for you around the caldera, things to do, multi centre options with Mykonos, Athens and Crete, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1719607526486-96f27a995fcc?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "ibiza.html",
+        "meta": "Ibiza, Spain",
+        "title": "Ibiza, Spain",
+        "excerpt": "How to actually get there, weather by month, the hotels I can price up for you away from and around the clubs, things to do, multi centre options with Formentera, Mallorca and Barcelona, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1602212356541-b9b31ea96a42?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -26400,6 +26407,289 @@ print("santorini.html written")
 
 
 
+ibiza_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>IBIZA, SPAIN</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Ibiza gets reduced to one word more than almost any destination I book, clubbing, but the island behind that reputation is a genuinely varied one. There is the famous side, San Antonio's sunset strip and the superclubs around Playa d'en Bossa, and there is the quieter side too, a UNESCO listed old town, pine backed coves on the north and east coast, and family resorts that have nothing to do with nightlife at all. Here is exactly how I put together a trip to Ibiza, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Ibiza</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1591963029450-70f6387386aa?auto=format&amp;fit=crop&w=1200&q=80" alt="People walking through the cobbled streets of Dalt Vila, Ibiza's old town" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Ibiza's reputation was built on its nightlife, and for a lot of clients that is still exactly why they are booking it, San Antonio and Playa d'en Bossa are home to some of the biggest clubs in the world and that scene is not going anywhere. What surprises most people I speak to is how different the rest of the island feels. Dalt Vila, Ibiza Town's walled old quarter, is one of the best preserved old towns in the Mediterranean, the north and east coasts around Portinatx and Santa Eulalia are genuinely calm and family friendly, and Cala Llonga and Es Vedra give the island a proper luxury, scenic side as well.</p>
+    <p style="margin-top:14px;">I compare prices across the suppliers I work with for flights, hotels and transfers to find the best fit for your dates and budget, whether that is a lively base near the clubs, a family resort on a quiet bay, or a longer multi centre trip taking in Formentera, Mallorca or Barcelona as well.</p>
+    {jake_tip("The single biggest question I ask every Ibiza client is which part of the island they actually want to be based in. San Antonio and Playa d'en Bossa and somewhere like Santa Eulalia or Portinatx are a world apart from each other, and getting that choice right matters more here than on almost any other island I book.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Four to seven nights is the classic Ibiza trip, long enough for a few club nights or a few lazy beach days, a trip to Dalt Vila, and a boat trip or Formentera day out, without feeling rushed. Clients combining Ibiza with Formentera, Mallorca or Barcelona, which I cover further down, tend to book nine nights or more.</p>
+    <p style="margin-top:14px;">It is genuinely one of the widest ranging islands I book. Groups of friends in their twenties head for San Antonio or Playa d'en Bossa for the clubs and beach clubs. Families do very well around Santa Eulalia, Portinatx or San Antonio Bay, where the pace is slower and a good number of hotels are built with kids in mind. Couples looking for something smarter tend to end up around Cala Llonga or the quieter coves near Ibiza Town. I would never describe Ibiza as a single type of holiday, it genuinely depends which part of the island you choose.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1593182440709-4b7b56482c55?auto=format&amp;fit=crop&w=1200&q=80" alt="An aeroplane wing above the clouds" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Ibiza Airport, code IBZ, sits around seven kilometres from Ibiza Town and roughly fifteen to twenty minutes from San Antonio or Playa d'en Bossa, and thirty five to forty five minutes from Santa Eulalia or Portinatx on the other side of the island. Flight time from the UK runs at around two hours twenty to two hours forty, depending on which airport you fly from.</p>
+    <p style="margin-top:14px;">Like a number of the Mediterranean islands I book, direct UK routes to Ibiza are mostly seasonal rather than year round, generally running from around April through to October to match the island's own busiest months. A handful of airlines do add or drop routes from season to season, so I always check what is actually flying for your specific dates before we go any further.</p>
+    {jake_tip("If nightlife is the whole point of your trip, I always ask whether you want to be a short stagger from the clubs in San Antonio or Playa d'en Bossa, or whether you would rather have a quieter base and taxi or bus in for the big nights. Both work, it just changes which hotels I look at first.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Ibiza has a classic Mediterranean climate, hot and dry in summer, mild and breezy in winter. These are long term monthly averages for the island.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Sea temp</th><th>Daily sunshine</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>15&deg;C</td><td>15&deg;C</td><td>5 hrs</td></tr>
+          <tr><td>February</td><td>15&deg;C</td><td>14&deg;C</td><td>6 hrs</td></tr>
+          <tr><td>March</td><td>16&deg;C</td><td>15&deg;C</td><td>7 hrs</td></tr>
+          <tr><td>April</td><td>18&deg;C</td><td>16&deg;C</td><td>8 hrs</td></tr>
+          <tr><td>May</td><td>22&deg;C</td><td>18&deg;C</td><td>9 hrs</td></tr>
+          <tr><td>June</td><td>26&deg;C</td><td>22&deg;C</td><td>10 hrs</td></tr>
+          <tr><td>July</td><td>29&deg;C</td><td>25&deg;C</td><td>11 hrs</td></tr>
+          <tr><td>August</td><td>29&deg;C</td><td>26&deg;C</td><td>10 hrs</td></tr>
+          <tr><td>September</td><td>27&deg;C</td><td>25&deg;C</td><td>8 hrs</td></tr>
+          <tr><td>October</td><td>23&deg;C</td><td>22&deg;C</td><td>7 hrs</td></tr>
+          <tr><td>November</td><td>19&deg;C</td><td>19&deg;C</td><td>6 hrs</td></tr>
+          <tr><td>December</td><td>16&deg;C</td><td>16&deg;C</td><td>5 hrs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Ibiza, compiled from published climate guides. Actual conditions vary year to year.</p>
+    {jake_tip("October brings the heaviest rainfall of the year on Ibiza, so if you are chasing guaranteed sunshine I would steer you towards June through September instead and leave October for a quieter, cheaper trip where a shower or two is a fair trade off.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1660924822512-d5aa38c7cd13?auto=format&amp;fit=crop&w=1200&q=80" alt="A pool at a beach club in Ibiza" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>June, July, August and September are Ibiza in full swing, the clubs, beach clubs and sunset bars are all open and the sea is at its warmest, though it is also when the island is busiest and most expensive. Late May and early June, plus late September into October, give you most of that same warmth and atmosphere with noticeably thinner crowds and lower prices, and this is genuinely my favourite window to book for clients who want sunshine without the peak season price tag. Winter, from November through to around April, is a different island altogether, a real number of hotels, clubs and restaurants close completely, so I would not suggest Ibiza as a winter sun destination, it is very much a spring through autumn trip.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1439130490301-25e322d88054?auto=format&amp;fit=crop&w=1200&q=80" alt="A swimming pool at a resort in Ibiza" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Four real, bookable picks across the island, from a lively resort near the clubs to a quieter family base and a boutique coastal escape.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best large resort, Playa d'en Bossa</div>
+        <img src="https://images.unsplash.com/photo-1439130490301-25e322d88054?auto=format&amp;fit=crop&w=1200&q=80" alt="A large hotel swimming pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Grand Palladium White Island Resort &amp; Spa</h3>
+        <p>A big, polished resort right on Playa d'en Bossa, Ibiza's longest beach and the stretch that holds several of the island's biggest clubs. Marble topped lobbies, palm lined gardens, a large tiled pool and a proper spa, with easy access to the superclubs when you want them and a genuine resort to retreat to when you do not. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best family base, San Antonio Bay</div>
+        <img src="https://images.unsplash.com/photo-1661887561503-cd2a45fb0923?auto=format&amp;fit=crop&w=1200&q=80" alt="A beach in Ibiza with calm, clear water" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Alua Hawaii Ibiza</h3>
+        <p>A four star hotel right on Es Puet beach in San Antonio Bay, built around a seaside pool with a dedicated mini club and kids' pool for families, plus a separate adult only terrace and chill out bar for the grown ups to escape to. A sensible, well located family pick on the same side of the island as San Antonio's nightlife, without being in the thick of it. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best quieter escape, Santa Eulalia</div>
+        <img src="https://images.unsplash.com/photo-1578348079636-fc170200acc0?auto=format&amp;fit=crop&w=1200&q=80" alt="A rocky headland on Ibiza's coastline near Santa Eulalia" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Iberostar Santa Eulalia</h3>
+        <p>Set in its own pine grove overlooking s'Argamassa beach on the calmer east coast, with sea view rooms, a Mediterranean restaurant and a genuinely relaxed pace a world away from San Antonio. One of my go to picks for couples or families who want Ibiza's beaches and food without any of its nightlife reputation. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best boutique luxury, Cala Llonga</div>
+        <img src="https://images.unsplash.com/photo-1705009448405-8151a45339d4?auto=format&amp;fit=crop&w=1200&q=80" alt="Sun loungers beside a swimming pool at a luxury hotel in Ibiza" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Mondrian Ibiza</h3>
+        <p>A chic five star beach hotel on Cala Llonga, on the quieter coastline between Ibiza Town and Santa Eulalia, with a striking design led look, a beachfront pool and a genuinely sophisticated feel. The pick for clients who want Ibiza's design credentials and a proper beach setting, without basing themselves anywhere near the clubs. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities as published at the time of writing. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1656081531767-a8d25cc06335?auto=format&amp;fit=crop&w=1200&q=80" alt="A narrow street in Eivissa, Ibiza's old town" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A regular bus network connects Ibiza Town, San Antonio, Santa Eulalia and most of the resorts in between, and is a cheap, straightforward way to get around if you are not driving yourself. Taxis are easy enough to find in the main resorts, though they get busier and pricier on the biggest club nights. Hiring a car for a few days is popular and genuinely worth it if you want to explore the quieter north of the island, the beaches around Es Vedra, or the inland villages, since a lot of Ibiza's best spots are not close to any bus route. In Ibiza Town itself, the old port and Dalt Vila are easy enough to explore entirely on foot.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1559064879-9c50eb483ae8?auto=format&amp;fit=crop&w=1200&q=80" alt="Boats moored off the coast of Ibiza" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A few of the bookable tours and tickets worth having on your radar, from sunset sailing to a full day trip across to Formentera.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="1320729,705519,434098,940128"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/ibiza-l276/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/ibiza-l276/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Ibiza &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1574516886768-cba7fe38ef97?auto=format&amp;fit=crop&w=1200&q=80" alt="A road through the whitewashed buildings of Dalt Vila, Ibiza" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Dalt Vila</h3>
+        <p>Ibiza Town's walled, UNESCO listed old quarter, built up the hillside above the harbour, with a cathedral at the top and genuinely beautiful views back over the port. A world away from the island's nightlife reputation, and one of the best preserved old towns anywhere on the Mediterranean.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1631444195070-225ba8898160?auto=format&amp;fit=crop&w=1200&q=80" alt="Es Vedra, a rocky islet off the coast of Ibiza" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Es Vedra</h3>
+        <p>A dramatic, almost four hundred metre rocky islet rising out of the sea off Ibiza's southwest coast, wrapped in local legend and genuinely one of the most photographed views on the island, especially at sunset from the clifftop viewpoints or Cala d'Hort beach below.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1657747464095-8032b60915f2?auto=format&amp;fit=crop&w=1200&q=80" alt="A wooden walkway leading to a white sand beach" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">A day trip to Formentera</h3>
+        <p>A fast ferry of around twenty five to thirty minutes from Ibiza Town brings you to Formentera, a smaller, quieter island with some of the whitest sand and clearest water in the Mediterranean. I book this as a full day trip for a huge number of clients who want to see both islands.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1696026401252-9b04ee70e9a6?auto=format&amp;fit=crop&w=1200&q=80" alt="A sunset view from a beach bar in Ibiza" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">San Antonio's Sunset Strip</h3>
+        <p>A string of beach bars along San Antonio's west facing bay, Cafe del Mar and Cafe Mambo among the best known, built almost entirely around watching the sun go down with a drink in hand. Busy and a little pricey in peak season, but a proper Ibiza institution all the same.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Ibiza with somewhere else</h2>
+    <p style="margin-top:14px;">Ibiza sits close to the other Balearic Islands and within easy flying distance of mainland Spain, which makes it a genuinely easy base to extend into a longer multi centre trip. Here are three real ways I would put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1663145492026-da93fb19a5f7?auto=format&amp;fit=crop&w=1200&q=80" alt="A white sand beach on Formentera near Ibiza" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Ibiza &amp; Formentera</h3>
+        <p>A short ferry of around twenty five to thirty minutes links the two islands, swapping Ibiza's energy for Formentera's much quieter pace and some of the best beaches in the Mediterranean. I would base you somewhere on Formentera's own coast for a few nights either side of your Ibiza stay, rather than treating it purely as a day trip.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1692698746104-7f1465fbad9b?auto=format&amp;fit=crop&w=1200&q=80" alt="The cathedral of Palma de Mallorca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Ibiza &amp; Mallorca</h3>
+        <p>A short flight of around thirty five minutes, or a longer ferry crossing, reaches Mallorca, the largest of the Balearic Islands, with Palma's old town, cathedral and far more varied countryside to explore. I would base you in Palma itself for the Mallorca leg, giving you a proper city and beach contrast to Ibiza.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1786780410540-6a2ef442f192?auto=format&amp;fit=crop&w=1200&q=80" alt="The Sagrada Familia in Barcelona" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Ibiza &amp; Barcelona</h3>
+        <p>A short flight of around an hour brings you to mainland Spain, where the Sagrada Familia, Park Guell and Barcelona's tapas bars make for a proper city break to pair with the island leg. I would base you centrally in Barcelona for easy access to the main sights on foot or by metro.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I will put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Spain's official currency is the Euro, and prices below are shown in pounds, converted at an exchange rate of around 1.19 Euros to the pound, correct at the time of writing. Ibiza is not separately tracked by the cost of living data I use, so these figures come from nearby Palma de Mallorca as the closest available benchmark for the Balearic Islands, and I would expect Ibiza itself to run a little higher in the busiest resorts over summer.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Coffee in a cafe</td><td>&pound;2.25</td></tr>
+          <tr><td>Draught beer, a pint</td><td>&pound;3.35</td></tr>
+          <tr><td>Meal for two, mid range restaurant</td><td>&pound;50.40</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;2.00</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;2.30</td></tr>
+          <tr><td>Petrol, one litre</td><td>&pound;1.40</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: Numbeo's Palma de Mallorca cost of living data, used as the nearest available Balearic Islands benchmark, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("San Antonio and Playa d'en Bossa carry a genuine premium on food and drink once the sun goes down, which is fair enough given what you are paying for. I always point family clients towards Santa Eulalia or Portinatx for noticeably better value on the same meal.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro, cards widely accepted, some cash useful for buses and smaller bars</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, the same as most of mainland Europe, voltage 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Spanish and Catalan, with English widely spoken in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Mostly seasonal, direct flights running around two hours twenty to two hours forty</td></tr>
+          <tr><td>Time difference</td><td>One hour ahead of the UK all year round, since both follow the same seasonal clock changes</td></tr>
+          <tr><td>Tourist tax</td><td>The Balearic sustainable tourism tax applies, typically one to four euros per person per night depending on accommodation type, higher from May to October, under 16s exempt</td></tr>
+          <tr><td>Entry requirements</td><td>Spain is part of the Schengen area, so UK passport holders do not need a visa for stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure from the Schengen area. Border checks now include fingerprint and photo registration under the EU's Entry or Exit System, and the EU's ETIAS travel authorisation is expected to become mandatory from 2027, not yet at the time of writing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Requirements change from time to time, I always check the current rules with clients before they travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Ana Paula Franzoti, Belinda Fewings, Johny Goerend, Brecht Denil, Brad Starkey, MP, Karol Chomka, Rawness Grow, Pilar Camacho Alvarez, Bjorn Agerbeek, Jordi Vich Navarro, Nick Fewings, Rodrigo Kugnharski, Marcio Azevedo, Dre Nieto, Mauro Merino, Felix and Filipe Nobre via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Ibiza for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around the clubs, a quieter family base away from them entirely, or a proper multi centre with Formentera, Mallorca or Barcelona, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+ibiza_guide_body = ibiza_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+IBIZA_GUIDE_SCHEMA = article_and_faq_schema(
+    "Ibiza, Spain",
+    "Jake's honest guide to Ibiza: how to actually get there, weather by month, the hotels he books away from and around the clubs, the best things to do, multi centre options with Formentera, Mallorca and Barcelona, and what it actually costs.",
+    "ibiza.html",
+    "https://images.unsplash.com/photo-1602212356541-b9b31ea96a42?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Ibiza for me?", "Yes. I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is a lively base near the clubs, a quieter family resort, or a longer multi centre trip."),
+        ("Do I need a visa for Spain?", "Spain is part of the Schengen area, so UK passport holders do not need a visa for tourist stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure."),
+        ("Which airport do I fly into for Ibiza, and do flights run all year?", "Ibiza Airport, code IBZ. Direct UK flights are mostly seasonal rather than year round, generally running from around April through to October to match the island's own busiest months."),
+        ("When is the best time to visit Ibiza?", "June through September gives you Ibiza in full swing, clubs and beach clubs included, though late May, early June and late September into October give a quieter, cheaper trip with most of the same sunshine. Winter sees a real number of hotels and clubs close completely."),
+        ("Can Ibiza be combined with other islands or cities?", "Yes. Ibiza sits a short ferry from Formentera, a short flight from Mallorca, and a short flight from Barcelona on the Spanish mainland, which makes it a straightforward base for a longer multi centre trip."),
+    ]
+)
+with open(os.path.join(SITE, "ibiza.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Ibiza, Spain | Travel Agent Jake",
+        "Jake's honest guide to Ibiza: how to actually get there, weather by month, the hotels he books away from and around the clubs, the best things to do, multi centre options with Formentera, Mallorca and Barcelona, and what it actually costs.",
+        "destinations.html",
+        ibiza_guide_body,
+        extra_schema=IBIZA_GUIDE_SCHEMA,
+        canonical_path="ibiza.html"
+    ))
+print("ibiza.html written")
+
+
+
+
+
 apd_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
   <div class="wrap">
@@ -26645,6 +26935,7 @@ SITEMAP_PAGES = [
     ("rhodes.html", "0.6"),
     ("costa-del-sol.html", "0.6"),
     ("santorini.html", "0.6"),
+    ("ibiza.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
