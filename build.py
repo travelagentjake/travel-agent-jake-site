@@ -13612,6 +13612,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1609521417028-9f338be70f90?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "A passenger plane on the tarmac at an airport",
     },
+    {
+        "slug": "vapes-power-banks-christmas-gifts-flight-packing-rules.html",
+        "meta": "Flying safely",
+        "title": "Vapes, power banks and Christmas gifts: the battery packing rules that could cost you your holiday",
+        "excerpt": "E-cigarettes can't go in the hold at all, power banks are capped at two per person, and gov.uk reconfirmed the current rules again this November. Here's what actually has to stay in your hand luggage this winter, presents included.",
+        "image": "https://images.unsplash.com/photo-1675958876665-bbec537b5af2?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Vape devices lined up on a wall",
+    },
 ]
 
 
@@ -26868,6 +26876,130 @@ with open(os.path.join(SITE, "air-passenger-duty-rising-april-2027.html"), "w", 
     ))
 print("air-passenger-duty-rising-april-2027.html written")
 
+# ---------------- TIP: Vapes, power banks and Christmas gifts, flight packing rules ----------------
+vapebattery_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>VAPES, POWER BANKS AND CHRISTMAS GIFTS: THE BATTERY PACKING RULES THAT COULD COST YOU YOUR HOLIDAY</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Winter sun season and the Christmas shopping rush land at exactly the same time of year, so most of my clients end up packing more battery powered things than usual without really thinking about it. A vape, a couple of power banks, a new pair of headphones bought as a present. The rules on where these actually have to go in your luggage haven't changed much, but they catch people out every single year, and gov.uk reconfirmed the current position again just this month. Here's what actually has to stay in your hand luggage, and what's worth knowing before you fly with a vape at all.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Vapes and e-cigarettes: hand luggage only, no exceptions</h2>
+    <img src="https://images.unsplash.com/photo-1675958876665-bbec537b5af2?auto=format&fit=crop&w=1600&h=700&q=80" alt="Vape devices lined up on a wall" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">This is the one I see catch people out most, because it feels like a small thing right up until it isn't. Gov.uk's own hand luggage restrictions page, updated again on 2 November 2026, is explicit: e-cigarettes are allowed in hand luggage, and not allowed in hold luggage, full stop. There's no watt hour threshold or quantity limit written into that particular rule the way there is for power banks, it's a straightforward yes in the cabin, no in the hold.</p>
+    <p style="margin-top:14px;">The Civil Aviation Authority's own current packing guidance is just as direct, telling passengers to always carry vapes inside the cabin with them but never vape onboard an aircraft. If a vape ends up in a bag that gets checked in, whether that's because you forgot it was in there or your cabin bag gets gate checked at a busy boarding gate, you're not just risking it being confiscated. A battery powered device like that overheating in the hold, unsupervised and completely out of reach, is exactly the fire risk these rules exist to prevent.</p>
+    {jake_tip("If your hand luggage ever gets gate checked because the overhead lockers are full, which happens more than people expect on busy charter flights, take anything with a battery out of it first and keep it on you. That takes ten seconds and avoids the whole problem.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Power banks and spare batteries, the short version</h2>
+    <p style="margin-top:14px;">I've written a full guide to power bank rules separately, with the airline by airline breakdown of who bans using them onboard and how to actually buy a safe one, so I won't repeat all of it here. But the core packing rule is worth having fresh in your mind alongside the vape rule above, since the two are easy to mix up.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Where they go</td><td>Hand luggage only, never in hold or checked baggage, for both power banks and loose spare batteries</td></tr>
+          <tr><td>Capacity up to 100Wh</td><td>No airline approval needed, this covers almost every power bank people actually buy</td></tr>
+          <tr><td>Capacity 100 to 160Wh</td><td>Needs your airline's approval in advance, check before you fly</td></tr>
+          <tr><td>Capacity over 160Wh</td><td>Not allowed in passenger baggage at all, it has to travel as separate dangerous goods cargo</td></tr>
+          <tr><td>How many power banks</td><td>Two per person, unless your airline states otherwise</td></tr>
+          <tr><td>Charging onboard</td><td>You can't recharge a power bank from the seat power supply, and several airlines now ban using one onboard altogether</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: CAA Pack Right packing guidance and gov.uk's hand luggage restrictions page, both checked at time of writing. See my <a class="body-copy" href="power-bank-flight-safety.html">full power bank flight safety guide</a> for the airline specific onboard use bans and how to buy one that won't let you down.</p>
+    {jake_tip("Any battery that's damaged, swollen or has been getting unusually hot shouldn't be packed at all, hand luggage or otherwise. That applies equally to vapes and power banks.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Buying someone a gadget as a Christmas present?</h2>
+    <img src="https://images.unsplash.com/photo-1545608444-f045a6db6133?auto=format&fit=crop&w=1600&h=700&q=80" alt="Wrapped Christmas presents with red baubles" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">If you're flying out over Christmas or New Year with presents in your case, the same rules apply to whatever's inside the wrapping paper. Headphones, electric toothbrushes, handheld games consoles, battery powered toys, anything with a lithium battery built in needs to be treated the same way as your own phone or power bank. Most of it is genuinely fine as a finished device in either the cabin or the hold, check the specific item if you're ever unsure, but any loose spare battery, any power bank and any vape bought as a stocking filler has to go in hand luggage, wrapped or not.</p>
+    <p style="margin-top:14px;">It's also worth not wrapping anything with a battery in it until you've actually arrived, or at least keeping the receipt and box handy. Airport security can and does ask to unwrap a gift if an item in your bag needs a closer look on the scanner, and that's a far less stressful conversation to have with the box still intact than trying to explain what's inside once it's already under a few layers of paper.</p>
+    {jake_tip("If you're buying a present for someone else to fly with, perhaps you're meeting family at the airport, let them know what's inside before they pack. A surprise power bank in someone else's case can end up left behind at security with no warning if they didn't know it had to stay in hand luggage.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>It isn't just about the flight either</h2>
+    <img src="https://images.unsplash.com/photo-1586273202219-b748ea4db9b4?auto=format&fit=crop&w=1600&h=700&q=80" alt="Tourist boat on the water in Thailand" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Packing a vape correctly for the flight only solves half the problem if you're travelling somewhere that doesn't allow them at all once you land. Thailand is the one most of my clients ask me about, and it genuinely does ban e-cigarettes outright, a prohibition that's been in place since 2014 covering importing, possessing and using one, not just buying one locally. It isn't a grey area or an old law that's quietly ignored either. Thai authorities have visibly stepped up enforcement against tourists in recent years, and that's resulted in real fines and, in some cases, arrest.</p>
+    <p style="margin-top:14px;">I'd always check a destination's current position before you fly rather than assume the UK's own rules travel with you, especially somewhere like Thailand where the gap between the two is genuinely wide. The <a class="body-copy" href="https://www.gov.uk/foreign-travel-advice" target="_blank" rel="noopener">gov.uk foreign travel advice page</a> for your destination is the right place to start, and it's worth a second check closer to your travel date too, since both the rules and how strictly they're enforced can shift.</p>
+    {jake_tip("If you vape and you're considering somewhere I haven't mentioned here, message me before you book rather than after. It's a five minute check for me, and a much better conversation to have before you've paid a deposit than after you've landed.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Can I pack a vape in my suitcase that goes in the hold?</h3>
+      <p>No. Gov.uk's hand luggage restrictions page explicitly lists e-cigarettes as allowed in hand luggage and not allowed in hold luggage. It needs to stay in your cabin bag.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How many power banks can I take on a flight?</h3>
+      <p>Two per person is the standard CAA limit unless your specific airline states otherwise, and each one needs to be under 160Wh, with anything over 100Wh needing the airline's approval in advance.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Are the rules different for a vape I'm giving as a Christmas present?</h3>
+      <p>No, the same packing rules apply whether it's yours or a gift. It needs to travel in hand luggage, not in a case that's going in the hold.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is it true some countries ban vapes completely?</h3>
+      <p>Yes. Thailand is the clearest example, with a full ban on importing, possessing and using e-cigarettes that's been actively enforced against tourists. Always check a destination's current gov.uk foreign travel advice before flying with one.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <h2>Got more to pack than just the essentials?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Message me before you fly if you're ever unsure what needs to go where, especially if you're travelling somewhere I haven't covered here.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+vapebattery_body = vapebattery_body.replace("::NEWSLETTER::", newsletter_section())
+
+VAPEBATTERY_SCHEMA = article_and_faq_schema(
+    "Vapes, Power Banks and Christmas Gifts: The Battery Packing Rules That Could Cost You Your Holiday",
+    "E-cigarettes can't go in the hold at all, power banks are capped at two per person, and gov.uk reconfirmed the current rules again this November. Here's what actually has to stay in your hand luggage this winter, presents included.",
+    "vapes-power-banks-christmas-gifts-flight-packing-rules.html",
+    "https://images.unsplash.com/photo-1675958876665-bbec537b5af2?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("Can I pack a vape in my suitcase that goes in the hold?", "No. Gov.uk's hand luggage restrictions page explicitly lists e-cigarettes as allowed in hand luggage and not allowed in hold luggage. It needs to stay in your cabin bag."),
+        ("How many power banks can I take on a flight?", "Two per person is the standard CAA limit unless your specific airline states otherwise, and each one needs to be under 160Wh, with anything over 100Wh needing the airline's approval in advance."),
+        ("Are the rules different for a vape I'm giving as a Christmas present?", "No, the same packing rules apply whether it's yours or a gift. It needs to travel in hand luggage, not in a case that's going in the hold."),
+        ("Is it true some countries ban vapes completely?", "Yes. Thailand is the clearest example, with a full ban on importing, possessing and using e-cigarettes that's been actively enforced against tourists. Always check a destination's current gov.uk foreign travel advice before flying with one."),
+    ]
+)
+
+with open(os.path.join(SITE, "vapes-power-banks-christmas-gifts-flight-packing-rules.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Vapes, Power Banks and Christmas Gifts: The Battery Packing Rules That Could Cost You Your Holiday | Travel Agent Jake",
+        "E-cigarettes can't go in the hold at all, power banks are capped at two per person, and gov.uk reconfirmed the current rules again this November. Here's what actually has to stay in your hand luggage this winter, presents included.",
+        "travel-tips.html",
+        vapebattery_body,
+        extra_schema=VAPEBATTERY_SCHEMA,
+        canonical_path="vapes-power-banks-christmas-gifts-flight-packing-rules.html"
+    ))
+print("vapes-power-banks-christmas-gifts-flight-packing-rules.html written")
+
 
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
@@ -26975,6 +27107,7 @@ SITEMAP_PAGES = [
     ("eu-free-cabin-bag-rules-2027.html", "0.7"),
     ("duty-free-allowance-changes-2026.html", "0.7"),
     ("air-passenger-duty-rising-april-2027.html", "0.7"),
+    ("vapes-power-banks-christmas-gifts-flight-packing-rules.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
