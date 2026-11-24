@@ -1439,6 +1439,17 @@
    "created": "2026-11-14",
    "departs": "2027-01-11",
    "fromPrice": 2331.05
+  },
+  {
+   "slug": "dannymexico",
+   "url": "https://quotes.travelagentjake.co.uk/dannymexico",
+   "customer": "Danny Yeomans",
+   "enquiryId": "mwton6ta3gxj",
+   "quoteRequestId": "mwui0jhornos",
+   "title": "Christmas beach holiday, three quieter all inclusive Riviera Maya options for 2 adults and son (17, autism), from Gatwick, 14 nights Thu 23 Dec 2027: Viva Azteca by Wyndham, Hilton Tulum Riviera Maya, Akumal Bay Beach and Wellness Resort (TUI)",
+   "created": "2026-11-24",
+   "departs": "2027-12-23",
+   "fromPrice": 8440
   }
  ]
 }
