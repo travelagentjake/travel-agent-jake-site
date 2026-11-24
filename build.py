@@ -2336,6 +2336,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, the hotels I can price up for you away from and around the clubs, things to do, multi centre options with Formentera, Mallorca and Barcelona, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1602212356541-b9b31ea96a42?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "benidorm.html",
+        "meta": "Benidorm, Spain",
+        "title": "Benidorm, Spain",
+        "excerpt": "How to actually get there, weather by month, the hotels I can price up for you from a famous high rise to an adults only escape, things to do, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1722191847760-8426e74d4b3d?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -26696,6 +26703,268 @@ print("ibiza.html written")
 
 
 
+benidorm_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>BENIDORM, SPAIN</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Benidorm gets written off by people who have never actually been, and every time a client lands there for the first time they tell me the same thing, it is so much better than they expected. Two long sandy beaches, a genuinely pretty old town on a headland between them, some of the shortest flight and transfer times of any package destination I book, and a choice of hotels that runs from lively high rise towers to quiet adults only escapes. Here is exactly how I put together a trip to Benidorm, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Benidorm</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1722191847760-8426e74d4b3d?auto=format&amp;fit=crop&w=1200&q=80" alt="An aerial view of Benidorm's beach and high rise skyline on the Costa Blanca" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Benidorm's reputation was built decades ago and a lot of people still picture it as nothing but high rises and English breakfasts. The skyline is real, and I will not pretend otherwise, but the old town on the headland between Levante and Poniente beaches is full of narrow lanes, tapas bars and sea view terraces, and the clifftop Balcon del Mediterraneo viewpoint is one of the prettiest spots on this whole stretch of coast. It is also, genuinely, one of the most flexible destinations I book, a short flight, a short transfer, and hotels and nightlife to suit almost anyone, from stag and hen groups to young families to couples who just want a quiet pool and a decent dinner.</p>
+    <p style="margin-top:14px;">I compare prices across the suppliers I work with for flights, hotels and transfers to find the best fit for your dates and budget, whether that is a big lively resort near the Rincon de Loix nightlife strip, a quieter family hotel on Poniente beach, or an adults only base right in the centre.</p>
+    {jake_tip("Benidorm splits fairly cleanly into Levante beach, livelier and busier with the famous high rises, and Poniente beach, a little quieter and more residential with a longer promenade. I always ask which kind of trip a client wants before I start looking at hotels, since it changes my shortlist completely.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the most commonly booked length, long enough for plenty of beach time, a day in the old town and a trip out to Guadalest or Altea, without feeling rushed. Because flights and transfers are both so short, Benidorm is also one of the destinations I book most often as a three or four night city break, for a hen or stag weekend or just a quick dose of sunshine, and at the other end a good number of clients book ten nights, two weeks or longer, including a fair few retired clients who take three or four week winter sun breaks over the quieter months.</p>
+    <p style="margin-top:14px;">It genuinely suits a wide range of clients. Groups of friends book the livelier hotels around Rincon de Loix and the Levante strip for the nightlife. Families do well on Poniente beach or in the many hotels built with kids' pools and clubs in mind. Couples looking for a quieter, adults only trip have more choice here than in most Spanish resorts, with several dedicated adults only hotels right in the town centre. I would not point a client who wants total isolation and empty beaches towards Benidorm, it is a busy, built up resort by design, but almost everyone else finds a version of it that suits them.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1437846972679-9e6e537be46e?auto=format&amp;fit=crop&w=1200&q=80" alt="A view of an aeroplane wing from a window seat above the clouds" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Alicante Airport, code ALC, is the gateway for Benidorm and one of the most convenient airports I book anywhere, with direct flights from a huge range of UK airports all year round rather than only in summer. Flight time runs at around two to two and a half hours depending on which UK airport you fly from. The transfer from Alicante Airport to Benidorm itself is short too, usually somewhere around forty five minutes to an hour by road, which is noticeably quicker than most of the other Spanish and Balearic resorts I book.</p>
+    <p style="margin-top:14px;">Because Alicante Airport runs flights year round rather than seasonally, Benidorm is also one of the easier destinations to book as a genuine winter sun trip, not just a summer one.</p>
+    {jake_tip("That short, year round flight and transfer combination is exactly why I book so many last minute and short break trips to Benidorm. If a client wants sunshine with as little travel hassle as possible, this is usually one of the first places I suggest.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Benidorm has one of the driest, sunniest climates on mainland Spain, hot in summer and genuinely mild over winter. These are long term monthly averages for the town.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>15&deg;C</td><td>6&deg;C</td><td>14&deg;C</td></tr>
+          <tr><td>February</td><td>16&deg;C</td><td>6&deg;C</td><td>14&deg;C</td></tr>
+          <tr><td>March</td><td>18&deg;C</td><td>7&deg;C</td><td>14&deg;C</td></tr>
+          <tr><td>April</td><td>19&deg;C</td><td>9&deg;C</td><td>16&deg;C</td></tr>
+          <tr><td>May</td><td>22&deg;C</td><td>12&deg;C</td><td>18&deg;C</td></tr>
+          <tr><td>June</td><td>26&deg;C</td><td>16&deg;C</td><td>22&deg;C</td></tr>
+          <tr><td>July</td><td>29&deg;C</td><td>19&deg;C</td><td>25&deg;C</td></tr>
+          <tr><td>August</td><td>30&deg;C</td><td>20&deg;C</td><td>26&deg;C</td></tr>
+          <tr><td>September</td><td>28&deg;C</td><td>17&deg;C</td><td>25&deg;C</td></tr>
+          <tr><td>October</td><td>23&deg;C</td><td>14&deg;C</td><td>22&deg;C</td></tr>
+          <tr><td>November</td><td>19&deg;C</td><td>9&deg;C</td><td>19&deg;C</td></tr>
+          <tr><td>December</td><td>16&deg;C</td><td>7&deg;C</td><td>16&deg;C</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Benidorm, compiled from published climate guides. Actual conditions vary year to year.</p>
+    {jake_tip("September tends to bring the wettest spell of the year to this stretch of coast, usually as short, heavy downpours rather than days of grey skies, so I would not let it put anyone off booking that month, the sea is still at its warmest and the crowds have thinned out from August.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1775383239847-4690a83c8b2d?auto=format&amp;fit=crop&w=1200&q=80" alt="A sunny beach in Benidorm with the city skyline behind" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>July and August are the hottest and busiest months, with daytime highs regularly hitting thirty degrees and the beaches, pools and old town all at their liveliest, so I book those dates well ahead for clients who want them. June and September give you almost the same warmth and a properly warm sea with noticeably thinner crowds and better prices, and this is the window I point most clients towards if they are flexible. Benidorm's year round flights also make it a genuine option for winter sun, with mild mid to high teens by day through autumn and into spring, which is exactly why I book so many short winter breaks and longer stays here for clients who just want some sunshine without a long haul flight.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1722162243462-85513d7e0d79?auto=format&amp;fit=crop&w=1200&q=80" alt="A city of high rise buildings next to the sea in Benidorm" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Five real, bookable picks around Benidorm, from a landmark high rise to a quiet adults only base and a luxury resort just inland.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Benidorm landmark, Poniente Beach</div>
+        <img src="https://images.unsplash.com/photo-1708528557915-429a9ed5aae8?auto=format&amp;fit=crop&w=1200&q=80" alt="A view down over a beach from a high rise hotel balcony" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Gran Hotel Bali</h3>
+        <p>Benidorm's famous high rise, often described as one of the tallest hotels in Europe, set around 400 metres back from Poniente beach with three outdoor pools, a spa, five bars and a 43rd floor viewing platform. Full board, half board, bed and breakfast and room only options are all available, and it is genuinely popular with both couples and families. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best beachfront, Poniente Beach</div>
+        <img src="https://images.unsplash.com/photo-1722191847867-377336c5b163?auto=format&amp;fit=crop&w=1200&q=80" alt="A beach in Benidorm with the town in the background" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">H10 Porto Poniente</h3>
+        <p>A smart four star superior hotel right on Poniente beach, with an outdoor pool, a wellness area and the longer, quieter promenade on this side of town on your doorstep. A good pick for couples and families who want a genuine beachfront stay without being in the busiest part of the resort. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best adults only, town centre</div>
+        <img src="https://images.unsplash.com/photo-1722162243426-5f364babaff8?auto=format&amp;fit=crop&w=1200&q=80" alt="Tall buildings next to the water in a Spanish resort town" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Benidorm Centre</h3>
+        <p>A four star adults only hotel right in the centre of town, an easy walk from both Levante beach and the old town, with a rooftop pool and sun terrace. The pick for couples who want to be in the middle of everything without any of the family resort noise. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best all inclusive family suites, Rincon de Loix</div>
+        <img src="https://images.unsplash.com/photo-1722162243458-bb281b885381?auto=format&amp;fit=crop&w=1200&q=80" alt="An aerial view of a resort town with tall buildings near the sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Sandos Benidorm Suites</h3>
+        <p>An all inclusive suites resort in the Rincon de Loix area, a short walk or bus ride from Levante beach, built around family friendly suites with separate living areas, several pools and regular daytime and evening entertainment. A dependable, well liked choice for families who want everything included. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury escape, a short drive from Benidorm</div>
+        <img src="https://images.unsplash.com/photo-1706474253662-650fc33ad695?auto=format&amp;fit=crop&w=1200&q=80" alt="An aerial view of a resort swimming pool surrounded by palm trees" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Asia Gardens Hotel &amp; Thai Spa, a Royal Hideaway Hotel</h3>
+        <p>A five star Thai themed resort set in its own tropical gardens a short drive inland from Benidorm, with an adults recommended wing, an extensive spa and several pools among the palms. For clients who want Benidorm's convenience with a genuinely five star, resort style stay rather than a beachfront tower, this is my go to suggestion. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities and board basis as published at the time of writing and based on previous seasons. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1637528124845-a517179c5fb8?auto=format&amp;fit=crop&w=1200&q=80" alt="A palm tree in front of a high rise building in Benidorm" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Benidorm itself is compact and very walkable, with both Levante and Poniente promenades easy to stroll end to end and the old town sitting right between them. A cheap, regular local bus network covers the whole resort and runs out to nearby towns like Altea and Villajoyosa, and taxis are plentiful if you would rather not wait. Hiring a car for a day or two is a popular way to see Guadalest, Altea and the Algar Waterfalls at your own pace, and a direct bus service also runs between Alicante Airport and Benidorm for anyone who does not want a private transfer.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1713426225330-014fbfd04aa0?auto=format&amp;fit=crop&w=1200&q=80" alt="A roller coaster at a theme park" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A few of the bookable tours and tickets worth having on your radar, from theme park days out to a boat trip over to Tabarca Island.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="288025,286115,680663,1427073"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/benidorm-l2317/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/benidorm-l2317/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Benidorm &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1723156357491-29d591f726e7?auto=format&amp;fit=crop&w=1200&q=80" alt="The Balcon del Mediterraneo viewpoint on the edge of Benidorm's old town" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Old Town &amp; the Balcon del Mediterraneo</h3>
+        <p>Benidorm's original fishing village, now a warren of narrow lanes, tapas bars and small shops on the headland between Levante and Poniente beaches. At its tip sits the Balcon del Mediterraneo, a clifftop viewpoint with sweeping views along both beaches, especially lovely at sunset.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1784296088815-646c261b311d?auto=format&amp;fit=crop&w=1200&q=80" alt="The whitewashed coastal town of Altea on the Costa Blanca" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Altea</h3>
+        <p>A whitewashed old town around twenty minutes up the coast from Benidorm, built up a hillside to a blue domed church with genuinely lovely sea views. A favourite for a quieter half day out, with plenty of small galleries, cafes and restaurants to wander between.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1696966056387-e808c0600fd1?auto=format&amp;fit=crop&w=1200&q=80" alt="A natural lake and waterfall in the hills inland from Benidorm" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Guadalest &amp; the Algar Waterfalls</h3>
+        <p>Guadalest is a dramatic clifftop village built around a ruined castle around forty minutes inland, one of the most photographed spots in the whole region. Many day trips combine it with the Algar Waterfalls nearby, a series of natural pools and falls where you can swim in cool mountain water on a hot day.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1570276747611-be780fc99109?auto=format&amp;fit=crop&w=1200&q=80" alt="Boats moored off Tabarca Island near Benidorm" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">A day trip to Tabarca Island</h3>
+        <p>Spain's only inhabited island in the Mediterranean sits a boat ride from the coast near Alicante, with a tiny walled old town, a handful of seafood restaurants and some of the clearest water on this stretch of coastline. I book this as a full day out for clients who want a change of pace partway through their stay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Spain's official currency is the Euro, and prices below are shown in pounds, converted at an exchange rate of around 1.19 Euros to the pound, correct at the time of writing. These figures are specific to Benidorm itself.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Coffee in a cafe</td><td>&pound;1.90</td></tr>
+          <tr><td>Draught beer, a pint equivalent</td><td>&pound;2.70</td></tr>
+          <tr><td>Three course meal for two, mid range restaurant</td><td>&pound;40.55</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;0.99</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;3.60</td></tr>
+          <tr><td>Petrol, one litre</td><td>&pound;1.35</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: Numbeo data for Benidorm, via Expatica, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Benidorm is genuinely one of the better value resorts I book on this coastline, food and drink prices in the old town and away from the main beachfront strips are noticeably lower than you would pay in somewhere like Marbella or Ibiza for a very similar meal.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro, cards widely accepted, some cash useful for buses and smaller bars</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, the same as most of mainland Europe, voltage 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Spanish and Valencian, with English widely spoken in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Direct flights from a wide range of UK airports all year round, around two to two and a half hours</td></tr>
+          <tr><td>Time difference</td><td>One hour ahead of the UK all year round, since both follow the same seasonal clock changes</td></tr>
+          <tr><td>Entry requirements</td><td>Spain is part of the Schengen area, so UK passport holders do not need a visa for stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure from the Schengen area. Border checks now include fingerprint and photo registration under the EU's Entry or Exit System, and the EU's ETIAS travel authorisation is expected to become mandatory from 2027, not yet at the time of writing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Requirements change from time to time, I always check the current rules with clients before they travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Maksim Shutov, Shell Chapman, Manuel Bechis, louis magnotti, Tania Arrigoni, Sebastien LE DEROUT, Hannes Knutsson, Thimo van Leeuwen, Mateo Krossler, Anastasiia Shyrokykh and Will Myers via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Benidorm for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around a lively high rise near the nightlife, a quiet adults only base in the centre, or a family resort on the beach, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+benidorm_guide_body = benidorm_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+BENIDORM_GUIDE_SCHEMA = article_and_faq_schema(
+    "Benidorm, Spain",
+    "Jake's honest guide to Benidorm: how to actually get there, weather by month, the hotels he books from a famous high rise to an adults only escape, the best things to do, and what it actually costs.",
+    "benidorm.html",
+    "https://images.unsplash.com/photo-1722191847760-8426e74d4b3d?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Benidorm for me?", "Yes. I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is a lively high rise near the nightlife, a family resort on the beach, or a quiet adults only base."),
+        ("Do I need a visa for Spain?", "Spain is part of the Schengen area, so UK passport holders do not need a visa for tourist stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure."),
+        ("Which airport do I fly into for Benidorm, and do flights run all year?", "Alicante Airport, code ALC. Direct flights run from a wide range of UK airports all year round, not just in summer, with a transfer to Benidorm of around forty five minutes to an hour."),
+        ("When is the best time to visit Benidorm?", "July and August are the hottest and busiest months. June and September give similar warmth with thinner crowds, and I point a lot of flexible clients towards those. Benidorm's year round flights also make it a genuine winter sun option."),
+        ("Is Benidorm good for a short city break as well as a longer holiday?", "Yes. Its short flight time and quick transfer make it one of the easiest destinations to book as a three or four night break, as well as a classic seven night holiday or a longer winter sun stay."),
+    ]
+)
+with open(os.path.join(SITE, "benidorm.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Benidorm, Spain | Travel Agent Jake",
+        "Jake's honest guide to Benidorm: how to actually get there, weather by month, the hotels he books from a famous high rise to an adults only escape, the best things to do, and what it actually costs.",
+        "destinations.html",
+        benidorm_guide_body,
+        extra_schema=BENIDORM_GUIDE_SCHEMA,
+        canonical_path="benidorm.html"
+    ))
+print("benidorm.html written")
+
+
+
+
 
 
 apd_body = f"""
@@ -27068,6 +27337,7 @@ SITEMAP_PAGES = [
     ("costa-del-sol.html", "0.6"),
     ("santorini.html", "0.6"),
     ("ibiza.html", "0.6"),
+    ("benidorm.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
