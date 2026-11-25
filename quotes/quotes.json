@@ -1473,6 +1473,17 @@
    "created": "2026-11-25",
    "departs": "2027-03-12",
    "fromPrice": 3179.68
+  },
+  {
+   "slug": "jacqueline",
+   "url": "https://quotes.travelagentjake.co.uk/jacqueline",
+   "customer": "Jacqueline Hammett",
+   "enquiryId": "mww9m76cyeb3",
+   "quoteRequestId": "mwwcw689mncl",
+   "title": "Caribbean party holiday, four all inclusive options for 3 adults in 2 rooms, 10 nights January 2027: Royalton CHIC Punta Cana, Riu Republica, Royalton Negril Jamaica, Royalton Splash Punta Cana (TUI)",
+   "created": "2026-11-25",
+   "departs": "2027-01-11",
+   "fromPrice": 5094.8
   }
  ]
 }
