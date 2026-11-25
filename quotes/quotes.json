@@ -1462,6 +1462,17 @@
    "updated": "2026-11-25",
    "departs": "2027-07-19",
    "fromPrice": 3345.32
+  },
+  {
+   "slug": "jonathansnowboard",
+   "url": "https://quotes.travelagentjake.co.uk/jonathansnowboard",
+   "customer": "Jonathan",
+   "enquiryId": "mww39q5vetwm",
+   "quoteRequestId": "mww39q7qt09h",
+   "title": "First time snowboarding long weekend for 4 adults from Manchester, March 2027, lift passes and board hire included: RockyPop Chamonix (Les Houches), Hotel des Deux Gares (St Gervais), Das Alpenhaus Katschberg (Crystal Ski)",
+   "created": "2026-11-25",
+   "departs": "2027-03-07",
+   "fromPrice": 2634.56
   }
  ]
 }

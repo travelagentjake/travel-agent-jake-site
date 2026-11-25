@@ -1243,8 +1243,24 @@
       if (d.fcdo) { var fb = 'https://www.gov.uk/foreign-travel-advice/' + encodeURIComponent(d.fcdo); h += '<div class="gkbtns"><a class="btn btn-y gkbtn" href="' + fb + '/entry-requirements" target="_blank" rel="noopener">Entry requirements on GOV.UK</a><a class="btn btn-y gkbtn" href="' + fb + '" target="_blank" rel="noopener">Current travel advice on GOV.UK</a></div>'; }
       return h + '</div>';
     }
+    /* ski quotes: hotels[].ski = { resort, altitude, area, pistes, lifts, beginners, slopes, liftPass: {name, days, included}, hire: {items, days, included}, tuition, snow }
+       shown at the top of About this holiday. Quotes without ski are unchanged. */
+    function skiHtml(x) {
+      var k = x.ski; if (!k) return '';
+      var inc = function (o) { return o && o.included === false ? 'Optional' : 'Included in your price'; };
+      var h = '<div class="agb skib"><h3>Your snowboard package</h3>'
+        + czTiles([['🏔️', 'Resort', k.resort], ['⛰️', 'Altitude', k.altitude], ['🗺️', 'Ski area', k.area], ['🎿', 'Pistes', k.pistes], ['🚡', 'Lifts', k.lifts], ['🏂', 'Getting to the slopes', k.slopes]]);
+      var items = [];
+      if (k.liftPass) items.push('<li><b>Lift pass:</b> ' + esc(k.liftPass.name) + (k.liftPass.days ? ', ' + esc(k.liftPass.days) : '') + '. ' + inc(k.liftPass) + '</li>');
+      if (k.hire) items.push('<li><b>Equipment hire:</b> ' + esc(k.hire.items) + (k.hire.days ? ', ' + esc(k.hire.days) : '') + '. ' + inc(k.hire) + '</li>');
+      if (k.tuition) items.push('<li><b>Lessons:</b> ' + esc(k.tuition) + '</li>');
+      if (items.length) h += '<ul class="skil">' + items.join('') + '</ul>';
+      if (k.beginners) h += '<p>' + esc(k.beginners) + '</p>';
+      if (k.snow) h += '<p class="czs">' + esc(k.snow) + '</p>';
+      return h + '</div>';
+    }
     function aboutHtml(x) {
-      var bs = x.variantOf ? hotel(x.variantOf) : null, r = x.resort || (bs && bs.resort) || {}, h = '<div class="abt"><h3>About ' + esc(String(x.name).replace(/,\s*\d+ nights from.*$/, '')) + '</h3><p>' + esc(x.about || (bs && bs.about) || x.why || '') + '</p>';
+      var bs = x.variantOf ? hotel(x.variantOf) : null, r = x.resort || (bs && bs.resort) || {}, h = skiHtml(x) + '<div class="abt"><h3>About ' + esc(String(x.name).replace(/,\s*\d+ nights from.*$/, '')) + '</h3><p>' + esc(x.about || (bs && bs.about) || x.why || '') + '</p>';
       if (x.feats && x.feats.length) h += '<div class="feat">' + x.feats.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>';
       if (x.rooms) h += '<div class="pkgr"><b>Your room</b><span>' + esc(x.rooms) + (x.board ? ', ' + esc(x.board) : '') + '</span></div>';
       return h + '</div>';

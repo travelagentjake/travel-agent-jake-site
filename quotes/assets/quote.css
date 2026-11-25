@@ -823,3 +823,6 @@ html.a11y-hc .btn-y,html.a11y-hc .btn{border:2px solid #000}
 #skiP,#skiP .czb{min-width:0;max-width:100%;box-sizing:border-box}#skiP .czt{min-width:0}#skiP .czt b{overflow-wrap:anywhere}
 @media(max-width:560px){.skbar{flex-wrap:wrap}.skbar span{flex:1 1 40%!important}}
 .skbar .skb{background:#2563EB}.skbar .skr{background:#DC2626}.skbar .skk{background:#10142B}.skbar .sko{background:#F59E0B;color:#10142B}
+
+/* ski quotes: snowboard package panel at the top of About */
+.skib{margin:0 0 18px}.skib h3{margin:0 0 10px}.skib .skil{margin:12px 0 8px;padding-left:18px}.skib .skil li{margin:4px 0}
