@@ -13634,6 +13634,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1675958876665-bbec537b5af2?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Vape devices lined up on a wall",
     },
+    {
+        "slug": "international-driving-permit-idp-car-hire-explained.html",
+        "meta": "Driving abroad",
+        "title": "Do you actually need an International Driving Permit for your hire car?",
+        "excerpt": "Spain, France, Portugal and Greece all confirm in writing that a UK licence is enough on its own. Turkey's official position is different, and so is the USA. Here's exactly where you do and don't need one, what a genuine permit actually costs, and the scam worth knowing about.",
+        "image": "https://images.unsplash.com/photo-1557598628-bdd7d0767917?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Car key being handed over for a hire car",
+    },
 ]
 
 
@@ -27537,6 +27545,145 @@ with open(os.path.join(SITE, "vapes-power-banks-christmas-gifts-flight-packing-r
 print("vapes-power-banks-christmas-gifts-flight-packing-rules.html written")
 
 
+idp_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>DO YOU ACTUALLY NEED AN INTERNATIONAL DRIVING PERMIT FOR YOUR HIRE CAR?</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">This is one of the questions I get asked most by clients booking a car for their holiday, and it's also one of the most confused topics online, mostly because of a wave of websites that exist purely to sell you one you probably don't need. Gov.uk is actually very clear about this country by country. Here's exactly what it says for the destinations I book most, what's different about Turkey and the USA, and how to get a genuine permit for &pound;5.50 rather than paying a lot more somewhere you shouldn't.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1557598628-bdd7d0767917?auto=format&fit=crop&w=1600&h=700&q=80" alt="Car key being handed over for a hire car" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;"><b>An International Driving Permit (IDP)</b> is a paper translation of your UK driving licence, recognised in countries that don't accept a UK photocard on its own. Gov.uk keeps an official country by country list, and for most of the destinations I book for clients, Spain, France, Italy, Portugal, Greece and Cyprus included, it says plainly that a UK photocard licence is enough and you do not need one.</p>
+      <p style="margin-top:14px; margin-bottom:0;">Turkey is the clear exception among the places I sell most, where gov.uk's own list gives no such exemption. The USA depends on the individual state, and several popular long haul destinations are different again. I've set out exactly what gov.uk says for each below, plus how to get a genuine IDP if you do need one.</p>
+    </div>
+    {jake_tip("Don't take a hire company's own website as the final word on whether you legally need one. Several ask for an IDP as their own extra condition of hiring the car, even in a country where gov.uk says a UK licence is legally enough on its own, so it's worth getting one anyway if your hire company asks for it.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Spain, France, Portugal, Italy, Greece and Cyprus: you do not need one</h2>
+    <img src="https://images.unsplash.com/photo-1521136095380-08fbd7be93c8?auto=format&fit=crop&w=1600&h=700&q=80" alt="Car driving along a road at golden hour" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">These cover the large majority of the package holidays I book, and gov.uk's position on all of them is the same. A full UK photocard driving licence is accepted on its own, no IDP required.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Spain</td><td>No IDP needed with a UK photocard licence</td></tr>
+          <tr><td>France</td><td>No IDP needed with a UK photocard licence</td></tr>
+          <tr><td>Italy</td><td>No IDP needed with a UK photocard licence (an Isle of Man licence is treated differently, so check separately if that applies to you)</td></tr>
+          <tr><td>Portugal</td><td>No IDP needed with a UK photocard licence, valid for stays of up to 185 days</td></tr>
+          <tr><td>Greece</td><td>No IDP needed with a UK photocard licence</td></tr>
+          <tr><td>Cyprus</td><td>No IDP needed with a UK photocard licence, for stays of up to 30 days</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: gov.uk's international driving permit country list, checked at time of writing. A paper UK licence, rather than the photocard, is treated differently in several of these countries, so swap it for a photocard before you travel if you still have the old paper version.</p>
+    {jake_tip("If you're hiring through one of my suppliers for any of these six, you genuinely don't need to spend anything on an IDP. Keep your actual photocard licence on you, that's what the hire desk will ask to see.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Turkey, Egypt and further afield: where it's different</h2>
+    <img src="https://images.unsplash.com/photo-1597678211363-f42957c47399?auto=format&fit=crop&w=1600&h=700&q=80" alt="Person driving a car during the daytime" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">Turkey is the one that catches people out most, because it's such a popular hire car destination and the rule there is genuinely different. Gov.uk's own country list gives Turkey no exemption at all, unlike Spain or Greece, which means the official position is that you do need an IDP to drive there on a UK licence.</p>
+    <p style="margin-top:14px;">Egypt is listed in the same way, no stated exemption, so I'd treat an IDP as required there too rather than assume otherwise.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Turkey</td><td>Gov.uk gives no exemption, treat an IDP as required</td></tr>
+          <tr><td>Egypt</td><td>Gov.uk gives no exemption, treat an IDP as required</td></tr>
+          <tr><td>USA</td><td>Gov.uk says to check the individual state's own rules, and hire companies often ask for one regardless of the legal position, so check with your specific hire company before you fly</td></tr>
+          <tr><td>Canada, Australia, New Zealand</td><td>No blanket exemption from gov.uk, and hire companies commonly ask for one, so check directly with the hire company before you travel</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: gov.uk's international driving permit country list. For the USA specifically, Florida's own highway patrol previously said it wouldn't enforce a now repealed state law requiring one, but that's a separate question from what an individual hire company will ask you for at the counter, so always check with the actual company you're booked with.</p>
+    {jake_tip("If you're hiring a car as part of a holiday I've booked to Turkey, Egypt, the USA, Canada, Australia or New Zealand, message me and I'll check exactly what your specific hire company needs before you travel. It genuinely varies by company as well as by country.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>How to actually get a genuine one, and the scam worth knowing about</h2>
+    <img src="https://images.unsplash.com/photo-1623795457671-600b1223c2db?auto=format&fit=crop&w=1600&h=700&q=80" alt="Person holding a plastic ID card" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">A genuine UK IDP costs &pound;5.50, full stop. It's issued in person at a PayPoint retailer that offers the service, not by post and not through an online application, and not at the Post Office either, which stopped issuing them back on 31 March 2024. You need to be 18 or over with a full UK driving licence, and you can only apply once you're within three months of travelling. An IDP can't be backdated or issued early.</p>
+    <p style="margin-top:14px;">There are two types still in use for most destinations. The older 1949 convention permit lasts 12 months. The newer 1968 convention permit, the one used for most of Europe where one is needed, lasts up to 3 years or until your UK licence expires, whichever comes first.</p>
+    <p style="margin-top:14px;">The US Federal Trade Commission has had to put out its own public warning about fake IDP websites, describing permits sold this way as worthless and capable of causing real problems if you're stopped and asked to produce one. The same pattern turns up aimed at UK travellers too. Since the only genuine route is in person at a PayPoint for &pound;5.50, treat any website offering to post you one, email you one, or process one online for a bigger fee as exactly the kind of site to avoid.</p>
+    {jake_tip("Search &quot;IDP PayPoint&quot; rather than just &quot;international driving permit&quot; when you're looking for where to actually get one. It cuts out a lot of the paid search results from sites that aren't the genuine issuing route.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Do I need an International Driving Permit to drive in Spain, France, Portugal, Italy or Greece?</h3>
+      <p>No. Gov.uk's own country list says a UK photocard driving licence is accepted on its own in all of these, no IDP needed.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do I need one for Turkey?</h3>
+      <p>Gov.uk's country list gives Turkey no exemption, unlike several European destinations, so the official position is that you do need one there.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">How much does a genuine IDP cost, and where do I get one?</h3>
+      <p>&pound;5.50, in person at a PayPoint retailer that offers the service. It's no longer available at the Post Office, which stopped issuing them on 31 March 2024, and it can't be bought online or sent by post.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is it true some websites sell fake or overpriced IDPs?</h3>
+      <p>Yes. The US Federal Trade Commission has issued its own public warning about fake permit websites, and the same pattern of unofficial sites charging well over the official &pound;5.50 shows up aimed at UK travellers too. The only genuine route is in person at a PayPoint.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <h2>Hiring a car on your next holiday?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Message me what you're driving and where, and I'll check exactly what your hire company needs before you travel.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+idp_body = idp_body.replace("::NEWSLETTER::", newsletter_section())
+
+IDP_SCHEMA = article_and_faq_schema(
+    "Do You Actually Need an International Driving Permit for Your Hire Car?",
+    "Spain, France, Portugal and Greece all confirm in writing that a UK licence is enough on its own. Turkey's official position is different, and so is the USA. Here's exactly where you do and don't need one, what a genuine permit actually costs, and the scam worth knowing about.",
+    "international-driving-permit-idp-car-hire-explained.html",
+    "https://images.unsplash.com/photo-1557598628-bdd7d0767917?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("Do I need an International Driving Permit to drive in Spain, France, Portugal, Italy or Greece?", "No. Gov.uk's own country list says a UK photocard driving licence is accepted on its own in all of these, no IDP needed."),
+        ("Do I need one for Turkey?", "Gov.uk's country list gives Turkey no exemption, unlike several European destinations, so the official position is that you do need one there."),
+        ("How much does a genuine IDP cost, and where do I get one?", "£5.50, in person at a PayPoint retailer that offers the service. It's no longer available at the Post Office, which stopped issuing them on 31 March 2024, and it can't be bought online or sent by post."),
+        ("Is it true some websites sell fake or overpriced IDPs?", "Yes. The US Federal Trade Commission has issued its own public warning about fake permit websites, and the same pattern of unofficial sites charging well over the official £5.50 shows up aimed at UK travellers too. The only genuine route is in person at a PayPoint."),
+    ]
+)
+
+with open(os.path.join(SITE, "international-driving-permit-idp-car-hire-explained.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Do You Actually Need an International Driving Permit for Your Hire Car? | Travel Agent Jake",
+        "Spain, France, Portugal and Greece all confirm in writing that a UK licence is enough on its own. Turkey's official position is different, and so is the USA. Here's exactly where you do and don't need one, what a genuine permit actually costs, and the scam worth knowing about.",
+        "travel-tips.html",
+        idp_body,
+        extra_schema=IDP_SCHEMA,
+        canonical_path="international-driving-permit-idp-car-hire-explained.html"
+    ))
+print("international-driving-permit-idp-car-hire-explained.html written")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -27646,6 +27793,7 @@ SITEMAP_PAGES = [
     ("duty-free-allowance-changes-2026.html", "0.7"),
     ("air-passenger-duty-rising-april-2027.html", "0.7"),
     ("vapes-power-banks-christmas-gifts-flight-packing-rules.html", "0.7"),
+    ("international-driving-permit-idp-car-hire-explained.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
