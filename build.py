@@ -2343,6 +2343,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, the hotels I can price up for you from a famous high rise to an adults only escape, things to do, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1722191847760-8426e74d4b3d?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "madeira.html",
+        "meta": "Madeira, Portugal",
+        "title": "Madeira, Portugal",
+        "excerpt": "How to actually get there, weather by month, the hotels I can price up for you from a legendary clifftop icon to a modern adults only escape, levada walks and the Monte cable car, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1674333362725-84e9996aa6fb?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -26963,6 +26970,266 @@ with open(os.path.join(SITE, "benidorm.html"), "w", encoding="utf-8") as f:
 print("benidorm.html written")
 
 
+madeira_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>MADEIRA, PORTUGAL</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Madeira gets overlooked by a lot of people booking a short haul trip, and every client I send there comes back surprised by how dramatic it actually is. Jagged green mountains, a coastline of cliffs and natural swimming pools rather than long sandy beaches, levada paths cut centuries ago to carry water across the island, and a mild climate that barely changes from January to December. Here is exactly how I put together a trip to Madeira, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Madeira</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1674333362725-84e9996aa6fb?auto=format&amp;fit=crop&w=1200&q=80" alt="A scenic view of Funchal, Madeira's capital, and the Atlantic Ocean beyond" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Madeira is sometimes called the island of eternal spring, and once you have been there it makes complete sense. The volcanic coastline means proper sandy beaches are thin on the ground, so swimming here usually means a natural lava pool, a purpose built lido complex, or one of the handful of imported sand beaches at Calheta and Machico, not rows of sun loungers on golden sand. What you get instead is genuinely spectacular scenery, some of the best walking in Europe along the old levada water channels, Funchal's historic old town and markets, and a climate so mild and stable that it barely shifts between summer and winter.</p>
+    <p style="margin-top:14px;">I compare prices across the suppliers I work with for flights, hotels and transfers to find the best fit for your dates and budget, whether that is a famous clifftop icon, a modern seafront resort on the Lido promenade, or a quiet adults only escape.</p>
+    {jake_tip("I always ask a client why they fancy Madeira before I start looking at hotels. If it is walking, gardens and scenery they are after, almost anywhere works. If they are picturing a classic beach holiday with a long stretch of sand, I am honest that Madeira is not that, and I point them towards somewhere like Tenerife or the Algarve instead, or towards Calheta on Madeira's own south west coast, which has the island's best imported sand beach.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the most commonly booked length, long enough to base yourself in or near Funchal, fit in a couple of levada walks or organised tours, and still have time to just relax by a pool. Because the flight is short for what you get, I also book plenty of four and five night breaks here, particularly for walkers and couples wanting a long weekend of proper scenery rather than a city break. At the other end, Madeira's genuinely mild winters mean a good number of my older clients book two, three or even four week stays between November and March purely for the climate, without ever touching a beach.</p>
+    <p style="margin-top:14px;">It suits walkers, garden and nature lovers, and couples wanting somewhere a bit different from the usual Spanish or Greek resort, down to the ground. It is also one of my go to suggestions for clients who want guaranteed mild weather over winter without a long haul flight. Families do visit, especially around the Lido lido complexes and purpose built sea water pools in Funchal, and Calheta's sand beach in particular is popular with parents, but I am always upfront that this is not a destination to book if a long sandy beach with sun loungers is the main thing on the wish list.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1603277103691-756354934c2d?auto=format&amp;fit=crop&w=1200&q=80" alt="A view of an aeroplane wing from a window seat above the clouds" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Madeira Airport, officially Cristiano Ronaldo Madeira International Airport and still usually written as Funchal Airport, code FNC, is famous in its own right. The runway is partly built out over the sea on huge concrete stilts, since there was never enough flat land on the island to extend it any other way. Direct flights run from a good range of UK airports, among them London Gatwick, Luton and Stansted, Manchester, Edinburgh, Belfast, Liverpool and Bristol, with flight time of around three hours forty five minutes to four hours depending on where you fly from. The transfer from the airport into Funchal itself is short, usually twenty to twenty five minutes by road.</p>
+    {jake_tip("A good number of UK airports run flights to Madeira right through the winter as well as summer, not just as a seasonal sun route. That is exactly why I book so many client trips here for a mild winter break when the rest of mainland Europe has turned cold and grey.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Madeira's great party trick is how little its climate changes across the year. These are long term monthly averages for Funchal.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>15&deg;C</td><td>10&deg;C</td><td>18&deg;C</td></tr>
+          <tr><td>February</td><td>15&deg;C</td><td>10&deg;C</td><td>18&deg;C</td></tr>
+          <tr><td>March</td><td>16&deg;C</td><td>10&deg;C</td><td>18&deg;C</td></tr>
+          <tr><td>April</td><td>16&deg;C</td><td>11&deg;C</td><td>18&deg;C</td></tr>
+          <tr><td>May</td><td>18&deg;C</td><td>12&deg;C</td><td>19&deg;C</td></tr>
+          <tr><td>June</td><td>20&deg;C</td><td>14&deg;C</td><td>21&deg;C</td></tr>
+          <tr><td>July</td><td>22&deg;C</td><td>16&deg;C</td><td>22&deg;C</td></tr>
+          <tr><td>August</td><td>23&deg;C</td><td>17&deg;C</td><td>23&deg;C</td></tr>
+          <tr><td>September</td><td>23&deg;C</td><td>16&deg;C</td><td>24&deg;C</td></tr>
+          <tr><td>October</td><td>21&deg;C</td><td>15&deg;C</td><td>23&deg;C</td></tr>
+          <tr><td>November</td><td>18&deg;C</td><td>13&deg;C</td><td>21&deg;C</td></tr>
+          <tr><td>December</td><td>16&deg;C</td><td>11&deg;C</td><td>20&deg;C</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Funchal, compiled from published climate guides. Actual conditions vary year to year, and the island's mountainous interior is noticeably cooler and cloudier than the coast at any time of year.</p>
+    {jake_tip("Funchal sits in a natural suntrap on the south coast, while the north coast and the mountains in the middle of the island catch far more cloud and rain. Whichever hotel area I book for a client, I always point out that a short drive can mean a completely different sky.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1634812274926-0fa6aa941b27?auto=format&amp;fit=crop&w=1200&q=80" alt="Funchal harbour and coastline on a bright autumn day" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Because the climate barely swings across the year, Madeira does not really have an off season in the way a lot of Mediterranean resorts do. April through October is warmest and driest and the better window for walking and swimming in the natural pools. Spring brings the island's flower festival in Funchal, usually around April or May, with parades of flower covered floats through the city. New Year's Eve is another huge draw, with Funchal's fireworks display over the harbour once recognised by Guinness World Records as the largest in the world, and hotels book up well ahead for it. For a genuinely mild winter break with none of the long haul flight time, I point a lot of clients towards Madeira between November and March, when daytime temperatures are still comfortably in the mid teens.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1758192838598-a1de4da5dcaf?auto=format&amp;fit=crop&w=1200&q=80" alt="A hotel pool deck surrounded by lush gardens at sunset" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Five real, bookable picks around Funchal, from a legendary clifftop icon to a modern adults only escape.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Funchal icon, clifftop gardens</div>
+        <img src="https://images.unsplash.com/photo-1769149255670-aa0ad6428dd6?auto=format&amp;fit=crop&w=1200&q=80" alt="A resort swimming pool overlooking the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Reid's Palace, A Belmond Hotel</h3>
+        <p>Madeira's most famous hotel, open since 1891 on its own clifftop just outside Funchal's centre, with terraced subtropical gardens, several pools, a private sea bathing platform reached by its own lift and cable car, and the island's best known afternoon tea. A genuine occasion stay for clients wanting a slice of old world glamour. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best seafront, Lido area</div>
+        <img src="https://images.unsplash.com/photo-1776761731098-86f6b57da863?auto=format&amp;fit=crop&w=1200&q=80" alt="A coastal resort with a pool overlooking the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Melia Madeira Mare Resort &amp; Spa</h3>
+        <p>A smart five star resort right on the Lido seafront, with sea water pools, sun terraces and a spa, a short walk from Funchal's Lido lido complex and a regular bus ride from the old town. A reliable choice for couples and families who want a genuine resort feel. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best adults only, Lido area</div>
+        <img src="https://images.unsplash.com/photo-1789693488867-7af8fbac1649?auto=format&amp;fit=crop&w=1200&q=80" alt="A couple relaxing in a hotel infinity pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">TUI Blue Gardens, Adults Only, Savoy Signature</h3>
+        <p>A smaller, quieter adults only hotel set in subtropical gardens near the Lido, part of the Savoy group, with an outdoor pool and an easy stroll to Funchal's seafront promenade. The pick for couples who want calm over entertainment. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best boutique, Old Town</div>
+        <img src="https://images.unsplash.com/photo-1776763255566-f4a1615bb443?auto=format&amp;fit=crop&w=1200&q=80" alt="Rooftops of Funchal's old town with the hills behind" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Castanheiro Boutique Hotel</h3>
+        <p>A stylish boutique hotel tucked into Funchal's Old Town, with a rooftop pool and sun terrace above the city's rooftops, and the painted door lanes and the Mercado dos Lavradores farmers market right on the doorstep. My pick for couples who want to be in the thick of it on foot. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best modern adults only, Lido promenade</div>
+        <img src="https://images.unsplash.com/photo-1735770517146-e95c872226fc?auto=format&amp;fit=crop&w=1200&q=80" alt="A large swimming pool next to the ocean" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Allegro Madeira, Adults Only</h3>
+        <p>A modern adults only hotel directly on the Lido promenade, part of the Barcelo group, with sea view pools and easy access to Funchal's sea water lido complex next door. A dependable, well located choice for couples who want a simple, modern base. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities and board basis as published at the time of writing and based on previous seasons. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1690051062033-0d0c214e4d6a?auto=format&amp;fit=crop&w=1200&q=80" alt="A sea of clouds seen from the road to Pico do Arieiro in Madeira's mountains" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Funchal itself is walkable, with the Old Town, the seafront promenade and the Lido all reachable on foot from most central hotels, and a cable car links the centre up to Monte. Horarios do Funchal buses cover the city and reach out to villages across the island cheaply, and taxis are easy to find. A hire car is the easiest way to see the west coast, Porto Moniz and the mountain viewpoints at your own pace, though the roads are steep and winding, with a fair few tunnels. Many of the best levada walks start well outside Funchal, so I book organised minibus tours with transfers and guides included for clients who would rather not navigate remote trailheads and parking themselves.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1770018896184-a2a613bc5508?auto=format&amp;fit=crop&w=1200&q=80" alt="Cable cars rising above a coastal city towards the hills" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A few of the bookable tours and tickets worth having on your radar, from the Monte cable car and toboggan to a guided levada walk.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="942234,418009,426409,1096541"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/madeira-l67/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/madeira-l67/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Madeira &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1563041853-66cf297d468e?auto=format&amp;fit=crop&w=1200&q=80" alt="The fishing village of Camara de Lobos with Cabo Girao in the background" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Cabo Girao &amp; Camara de Lobos</h3>
+        <p>One of Europe's highest sea cliffs, with a glass floored skywalk jutting out nearly 600 metres above the ocean. Just along the coast sits Camara de Lobos, a small fishing village that reportedly once inspired Winston Churchill to take up painting on a visit, still full of brightly painted fishing boats.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1583149090851-2b5e18615649?auto=format&amp;fit=crop&w=1200&q=80" alt="The natural volcanic swimming pools at Porto Moniz" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Porto Moniz's natural pools</h3>
+        <p>On the island's wild north west tip, volcanic rock pools filled by the Atlantic have been shaped into a series of natural swimming pools, with a modern complex of walkways and sun terraces built around them. One of the best examples of how Madeira does a swim without a sandy beach.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1759846244428-f0b3bc03a565?auto=format&amp;fit=crop&w=1200&q=80" alt="Traditional houses on a lush green hillside in Madeira's countryside" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Santana's traditional houses</h3>
+        <p>A hillside village on the north coast known for its palheiros, small triangular thatched houses with brightly painted doors that once housed farming families and now mostly survive as a local curiosity and photo stop on a round the island day out.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1611261867850-4fc95500cc44?auto=format&amp;fit=crop&w=1200&q=80" alt="Pico Ruivo, Madeira's highest mountain peak" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Pico Ruivo &amp; the levada network</h3>
+        <p>Madeira's highest peak at over 1,800 metres, usually reached on a half day walk above the clouds, and just one entry point into the island's famous levada network, old irrigation channels with paths alongside them that now rank among the best walking routes in Europe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Portugal's official currency is the Euro, and prices below are shown in pounds, converted at an exchange rate of around 1.19 Euros to the pound, correct at the time of writing. These figures are specific to Funchal.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Coffee in a cafe</td><td>&pound;1.51</td></tr>
+          <tr><td>Draught beer, a pint</td><td>&pound;2.10</td></tr>
+          <tr><td>Three course meal for two, mid range restaurant</td><td>&pound;48.32</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;0.94</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;3.36</td></tr>
+          <tr><td>Petrol, one litre</td><td>&pound;1.61</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: Numbeo data for Funchal, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Funchal is noticeably cheaper to eat and drink in than most of mainland Spain's big resort towns, which comes as a pleasant surprise to a lot of my clients who have not been before.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro, cards widely accepted, some cash useful for buses and smaller cafes</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, the same as most of mainland Europe, voltage 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Portuguese, with English widely spoken in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Direct flights from a good range of UK airports all year round, around three hours forty five minutes to four hours</td></tr>
+          <tr><td>Time difference</td><td>None. Madeira keeps the same time as the UK all year round, since both follow the same clock changes</td></tr>
+          <tr><td>Entry requirements</td><td>Madeira is part of Portugal and the Schengen area, so UK passport holders do not need a visa for stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure from the Schengen area. Border checks now include fingerprint and photo registration under the EU's Entry or Exit System, and the EU's ETIAS travel authorisation is expected to become mandatory from 2027, not yet at the time of writing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Requirements change from time to time, I always check the current rules with clients before they travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Sofia Vila Flor, Mick Kirchman, Shaun Alam, Kirill Khripunov, Aalo Lens, Long Chung, Antonio Araujo, Karsten Winegeart, Meg von Haartman, Benjamin Begin, Balazs Gabor, Daniela Turcanu, Reiseuhu, Barbellay and Monika Guzikowska via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Madeira for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around a legendary clifftop stay, a modern Lido resort, a quiet adults only hotel, or a boutique base in the Old Town, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+madeira_guide_body = madeira_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+MADEIRA_GUIDE_SCHEMA = article_and_faq_schema(
+    "Madeira, Portugal",
+    "Jake's honest guide to Madeira: how to actually get there, weather by month, the hotels he books from a legendary clifftop icon to a modern adults only escape, levada walks and the Monte cable car, and what it actually costs.",
+    "madeira.html",
+    "https://images.unsplash.com/photo-1674333362725-84e9996aa6fb?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Madeira for me?", "Yes. I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is a legendary clifftop icon, a modern Lido resort, or a quiet adults only hotel."),
+        ("Do I need a visa for Madeira?", "Madeira is part of Portugal and the Schengen area, so UK passport holders do not need a visa for tourist stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure."),
+        ("Which airport do I fly into for Madeira, and how long is the flight?", "Madeira Airport, code FNC, built famously with its runway extended out over the sea. Direct flights run from a good range of UK airports all year round, with flight time of around three hours forty five minutes to four hours depending on where you fly from."),
+        ("Is Madeira a beach holiday destination?", "Not in the classic sense. Madeira's coastline is volcanic, so most swimming happens in natural lava pools or purpose built lido complexes rather than on long sandy beaches, with a couple of imported sand beaches at Calheta and Machico. I am always upfront with clients about this before booking."),
+        ("When is the best time to visit Madeira?", "Madeira barely changes temperature across the year, so there is no real off season. April through October is warmest and driest for walking and swimming in the natural pools, while November to March still offers mild daytime temperatures in the mid teens, which is why I book so many winter sun trips here."),
+        ("Is Madeira only for hikers, or does it suit a relaxing holiday too?", "Both. It is genuinely one of the best walking destinations I book, thanks to the levada network, but it works just as well as a relaxed hotel based break around Funchal's pools, gardens and Old Town, with walks and tours added in for however much or little a client wants."),
+    ]
+)
+with open(os.path.join(SITE, "madeira.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Madeira, Portugal | Travel Agent Jake",
+        "Jake's honest guide to Madeira: how to actually get there, weather by month, the hotels he books from a legendary clifftop icon to a modern adults only escape, levada walks and the Monte cable car, and what it actually costs.",
+        "destinations.html",
+        madeira_guide_body,
+        extra_schema=MADEIRA_GUIDE_SCHEMA,
+        canonical_path="madeira.html"
+    ))
+print("madeira.html written")
+
+
 
 
 
@@ -27338,6 +27605,7 @@ SITEMAP_PAGES = [
     ("santorini.html", "0.6"),
     ("ibiza.html", "0.6"),
     ("benidorm.html", "0.6"),
+    ("madeira.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
