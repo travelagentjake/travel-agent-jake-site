@@ -1495,6 +1495,17 @@
    "created": "2026-11-26",
    "departs": "2026-12-20",
    "fromPrice": 2496
+  },
+  {
+   "slug": "ellen",
+   "url": "https://quotes.travelagentjake.co.uk/ellen",
+   "customer": "Ellen Bannigan",
+   "enquiryId": "mwx7rlvtm8sz",
+   "quoteRequestId": "mwxcw5o0sp9i",
+   "title": "Tenerife beach holiday, 7 nights bed and breakfast for 2 adults from Edinburgh, Spring Hotel Vulcano and Cleopatra Palace Hotel, Playa de las Americas, Wed 24 or Thu 25 March 2027 (Jet2holidays)",
+   "created": "2026-11-26",
+   "departs": "2027-03-24",
+   "fromPrice": 1782
   }
  ]
 }
