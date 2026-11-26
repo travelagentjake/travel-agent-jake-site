@@ -1506,6 +1506,17 @@
    "created": "2026-11-26",
    "departs": "2027-03-24",
    "fromPrice": 1782
+  },
+  {
+   "slug": "anthony",
+   "url": "https://quotes.travelagentjake.co.uk/anthony",
+   "customer": "Anthony Hayes",
+   "enquiryId": "mwxkkkfyxkce",
+   "quoteRequestId": "mwxnmpx54vvq",
+   "title": "Skiathos beach holiday, Thanos Studios & Apartments, Troulos, 11 nights self catering for 2 adults from East Midlands, Sun 8 Aug 2027 (Jet2holidays)",
+   "created": "2026-11-26",
+   "departs": "2027-08-08",
+   "fromPrice": 2106
   }
  ]
 }
