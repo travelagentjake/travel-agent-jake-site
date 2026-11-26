@@ -8,3 +8,14 @@
 
 [functions]
   directory = "netlify/functions"
+
+# Secret contact card page (QR code). Not indexed, vCard served as a contact file.
+[[headers]]
+  for = "/jake/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/jake/*.vcf"
+  [headers.values]
+    Content-Type = "text/vcard; charset=utf-8"
