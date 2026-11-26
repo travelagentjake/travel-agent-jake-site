@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travel Agent Jake Media Kit</title>
+<meta name="description" content="Media kit for Travel Agent Jake. Audience, analytics, top videos, brand partners and rates across TikTok, Instagram and Facebook.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: one dark blue world, yellow reserved for numbers and actions, phone shaped video tiles as the recurring motif */
+  --blue:#0B4CC4;
+  --blue-deep:#07318A;
+  --ink:#10142B;
+  --yellow:#FFD520;
+  --soft:#99ACFF;
+  --paper:#F4F6FF;
+  --white:#FFFFFF;
+  --line:rgba(255,255,255,.16);
+  --display:"Archivo","Arial Black","Helvetica Neue",Arial,sans-serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--white);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.02em}
+h2{font-size:clamp(34px,7vw,58px);text-transform:uppercase}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.lede{font-size:clamp(18px,2.4vw,21px);max-width:62ch;margin-top:18px;color:rgba(255,255,255,.86)}
+.on-paper .lede{color:rgba(16,20,43,.8)}
+.hl{background:var(--yellow);color:var(--ink);padding:0 .18em;border-radius:6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(16,20,43,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
+.mark{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;font-size:17px;text-decoration:none;white-space:nowrap}
+.mark span{color:var(--yellow)}
+.bar nav{display:flex;gap:22px;font-weight:600;font-size:15px}
+.bar nav a{text-decoration:none;opacity:.85}
+.bar nav a:hover{opacity:1;color:var(--yellow)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--yellow);color:var(--ink);font-weight:800;text-decoration:none;border:0;border-radius:999px;padding:13px 22px;font-family:var(--body);font-size:16px;cursor:pointer;white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn.small{padding:9px 16px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--white);box-shadow:inset 0 0 0 2px var(--line)}
+@media(max-width:760px){.bar nav{display:none}}
+
+/* hero */
+.hero{background:linear-gradient(160deg,var(--blue) 0%,var(--blue-deep) 70%,var(--ink) 100%);padding:56px 0 0;overflow:hidden}
+.hero h1{font-size:clamp(46px,11vw,112px);text-transform:uppercase}
+.hero .kicker{display:inline-block;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--yellow);padding:7px 14px;border-radius:999px;margin-bottom:22px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.totals{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-top:44px}
+.totals div{background:rgba(16,20,43,.55);padding:22px 18px}
+.totals b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(30px,5vw,50px);line-height:1;color:var(--yellow);font-variant-numeric:tabular-nums}
+.totals span{display:block;margin-top:8px;font-size:14px;font-weight:600;color:rgba(255,255,255,.82);line-height:1.3}
+@media(max-width:760px){.totals{grid-template-columns:repeat(2,1fr)}}
+.reel{margin-top:48px;display:flex;gap:14px;width:max-content;animation:slide 48s linear infinite;padding-bottom:0}
+.reel img{width:150px;aspect-ratio:9/15;object-fit:cover;object-position:top;border-radius:18px 18px 0 0;border:3px solid var(--ink);border-bottom:0}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.reel{animation:none}html{scroll-behavior:auto}}
+
+/* paper sections */
+.on-paper{background:var(--paper);color:var(--ink)}
+.on-blue{background:var(--blue)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+.facts{display:grid;gap:12px}
+.fact{background:var(--white);border-radius:18px;padding:18px 20px;display:flex;gap:16px;align-items:baseline;box-shadow:0 1px 0 rgba(16,20,43,.08)}
+.fact b{font-family:var(--display);font-weight:900;font-size:30px;color:var(--blue);min-width:92px;line-height:1;font-variant-numeric:tabular-nums}
+.fact span{font-weight:600;line-height:1.35}
+.about p+p{margin-top:14px}
+.pillars{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pill{font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;background:var(--ink);color:var(--white)}
+
+/* platform tabs */
+.tabs{display:flex;gap:8px;margin-top:30px;flex-wrap:wrap}
+.tab{font-family:var(--body);font-weight:800;font-size:16px;border:0;cursor:pointer;padding:12px 20px;border-radius:999px;background:rgba(255,255,255,.1);color:var(--white)}
+.tab[aria-selected="true"]{background:var(--yellow);color:var(--ink)}
+.on-paper .tab{background:rgba(16,20,43,.08);color:var(--ink)}
+.on-paper .tab[aria-selected="true"]{background:var(--blue);color:var(--white)}
+.panel{margin-top:22px}
+.panel[hidden]{display:none}
+.panel-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:16px}
+.panel-head h3{font-size:28px;text-transform:uppercase}
+.panel-head a{font-weight:700;color:var(--yellow)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+.stat{background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:18px;padding:18px}
+.stat b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(26px,4.4vw,38px);line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:8px;font-size:14px;color:rgba(255,255,255,.8);line-height:1.35}
+.stat.big{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.stat.big span{color:rgba(16,20,43,.8);font-weight:600}
+.note{margin-top:14px;font-size:14px;color:rgba(255,255,255,.66)}
+.on-paper .note{color:rgba(16,20,43,.62)}
+
+/* audience */
+.aud{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+@media(max-width:860px){.aud{grid-template-columns:1fr}}
+.card{background:var(--white);border-radius:22px;padding:24px}
+.card h3{font-size:20px;text-transform:uppercase;margin-bottom:16px}
+.bars{display:grid;gap:10px}
+.row{display:grid;grid-template-columns:74px 1fr 56px;gap:10px;align-items:center;font-weight:700;font-size:15px}
+.track{height:22px;background:rgba(11,76,196,.12);border-radius:8px;overflow:hidden}
+.fill{height:100%;background:var(--blue);border-radius:8px}
+.fill.y{background:var(--yellow)}
+.row em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
+.split{display:flex;height:54px;border-radius:14px;overflow:hidden;font-weight:800}
+.split div{display:flex;align-items:center;padding:0 14px;white-space:nowrap}
+.split .f{background:var(--blue);color:var(--white);flex:76}
+.split .m{background:var(--yellow);color:var(--ink);flex:24}
+.takeaway{grid-column:1/-1;background:var(--ink);color:var(--white)}
+.takeaway p{font-family:var(--display);font-weight:800;font-size:clamp(22px,3.6vw,34px);line-height:1.15;text-wrap:balance}
+.takeaway p b{color:var(--yellow)}
+
+/* videos */
+.videos{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:22px}
+@media(max-width:1000px){.videos{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.videos{grid-template-columns:repeat(2,1fr)}}
+.vid{position:relative;display:block;border-radius:18px;overflow:hidden;text-decoration:none;background:#000;aspect-ratio:9/15;transition:transform .2s}
+.vid:hover{transform:translateY(-4px)}
+.vid img{width:100%;height:100%;object-fit:cover;object-position:top}
+.vid .meta{position:absolute;left:0;right:0;bottom:0;padding:44px 12px 12px;background:linear-gradient(transparent,rgba(16,20,43,.94) 55%)}
+.vid .views{font-family:var(--display);font-weight:900;font-size:26px;line-height:1;color:var(--yellow)}
+.vid .views small{font-size:12px;font-weight:700;color:var(--white);letter-spacing:.04em;text-transform:uppercase;margin-left:4px}
+.vid .t{display:block;font-size:13px;font-weight:600;line-height:1.25;margin-top:5px}
+.vid .watch{position:absolute;top:10px;right:10px;background:var(--ink);color:var(--white);font-size:11px;font-weight:800;padding:5px 9px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+.vid[hidden]{display:none}
+
+/* partners */
+.partners{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+@media(max-width:860px){.partners{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.partners{grid-template-columns:1fr}}
+.partner{background:var(--white);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:10px;min-height:190px}
+.partner h3{font-size:30px}
+.partner p{font-size:15px;line-height:1.4;color:rgba(16,20,43,.8)}
+.status{align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.status.live{background:#12804A;color:var(--white)}
+.status.pending{background:rgba(16,20,43,.1);color:var(--ink)}
+.status.live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--white);margin-right:6px;vertical-align:1px}
+
+/* offer */
+.offer{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
+@media(max-width:860px){.offer{grid-template-columns:1fr}}
+.offer .stat h3{font-size:21px;text-transform:uppercase;margin-bottom:8px}
+.offer .stat p{font-size:15px;color:rgba(255,255,255,.82);line-height:1.45}
+
+/* rates */
+.rates{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px;align-items:start}
+@media(max-width:860px){.rates{grid-template-columns:1fr}}
+.price{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:18px 0;border-bottom:2px solid rgba(16,20,43,.1)}
+.price:last-of-type{border-bottom:0}
+.price div b{display:block;font-size:19px}
+.price div span{font-size:14px;color:rgba(16,20,43,.7)}
+.price strong{font-family:var(--display);font-weight:900;font-size:36px;color:var(--blue);white-space:nowrap}
+.calc{background:var(--blue);color:var(--white)}
+.calc h3{color:var(--white)}
+.step{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.step label{font-weight:700}
+.stepper{display:flex;align-items:center;gap:6px}
+.stepper button{width:42px;height:42px;border-radius:50%;border:0;background:var(--white);color:var(--ink);font-size:22px;font-weight:800;cursor:pointer;font-family:var(--body);line-height:1}
+.stepper output{min-width:38px;text-align:center;font-family:var(--display);font-weight:900;font-size:24px;font-variant-numeric:tabular-nums}
+.total{margin-top:14px;background:var(--ink);border-radius:16px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.total span{font-weight:700}
+.total b{font-family:var(--display);font-weight:900;font-size:40px;color:var(--yellow);font-variant-numeric:tabular-nums}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.presets button{font-family:var(--body);font-weight:700;font-size:14px;border:0;border-radius:999px;padding:9px 14px;background:rgba(255,255,255,.16);color:var(--white);cursor:pointer}
+.presets button:hover{background:rgba(255,255,255,.28)}
+
+/* steps */
+.how{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px;counter-reset:s}
+@media(max-width:860px){.how{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.how{grid-template-columns:1fr}}
+.how li{list-style:none;counter-increment:s;background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:18px;padding:20px}
+.how li::before{content:counter(s);display:block;font-family:var(--display);font-weight:900;font-size:44px;line-height:1;color:var(--yellow);margin-bottom:10px}
+.how b{display:block;font-size:18px;margin-bottom:4px}
+.how span{font-size:15px;color:rgba(255,255,255,.8);line-height:1.4;display:block}
+ol.how{padding:0;margin-bottom:0}
+
+/* contact */
+.contact{background:var(--yellow);color:var(--ink);text-align:left}
+.contact h2{font-size:clamp(40px,9vw,88px)}
+.contact .lede{color:rgba(16,20,43,.85)}
+.mail{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:28px}
+.mail .addr{font-family:var(--display);font-weight:800;font-size:clamp(18px,3.6vw,28px);word-break:break-all}
+.contact .btn{background:var(--ink);color:var(--white)}
+.contact .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+footer{background:var(--ink);padding:26px 0;font-size:14px;color:rgba(255,255,255,.6)}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">Travel Agent <span>Jake</span></a>
+    <nav aria-label="Media kit sections">
+      <a href="#numbers">Numbers</a>
+      <a href="#audience">Audience</a>
+      <a href="#videos">Top videos</a>
+      <a href="#partners">Partners</a>
+      <a href="#rates">Rates</a>
+    </nav>
+    <a class="btn small" href="#contact">Work with me</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker">Media kit 2026/27</span>
+    <h1>The travel expert <span class="hl">169K</span> people trust before they book.</h1>
+    <p class="lede">I'm Jake, a UK travel expert with 15 years in the industry. I make straight talking travel news, tips and reviews for a UK audience that is actively planning its next holiday, and they trust what I recommend.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#rates">See rates</a>
+      <a class="btn ghost" href="#videos">Watch top videos</a>
+    </div>
+    <div class="totals">
+      <div><b>169.7K</b><span>followers across TikTok, Instagram and Facebook</span></div>
+      <div><b>30.9M</b><span>TikTok video views in the last 12 months</span></div>
+      <div><b>3.3M</b><span>video views a month across all three platforms</span></div>
+      <div><b>82%</b><span>of Instagram and Facebook views come from non followers</span></div>
+    </div>
+  </div>
+  <div class="reel" aria-hidden="true" id="reel"></div>
+</section>
+
+<section class="on-paper" id="about">
+  <div class="wrap about">
+    <div>
+      <h2>A trusted expert, <span class="hl">not just</span> a creator.</h2>
+      <p class="lede">I have worked in travel since I was 16. Fifteen years on, I share what I know with my audience every day: the news that affects their trip, the rules they need to know and the places that are worth their money.</p>
+      <p class="lede">That is why people trust the content. When I recommend a hotel, a destination or a travel product, it comes from real industry experience, and my audience acts on it.</p>
+      <div class="pillars">
+        <span class="pill">Travel news</span>
+        <span class="pill">Travel tips</span>
+        <span class="pill">Consumer rights</span>
+        <span class="pill">Honest reviews</span>
+        <span class="pill">Destination guides</span>
+        <span class="pill">Podcast</span>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>15</b><span>years of travel industry experience behind every video</span></div>
+      <div class="fact"><b>35</b><span>countries visited and counting</span></div>
+      <div class="fact"><b>308K</b><span>shares on TikTok in the last 12 months, because people pass on advice they trust</span></div>
+      <div class="fact"><b>3</b><span>more channels: travelagentjake.co.uk guides, my email list and the Tales of a Travel Agent podcast</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="numbers">
+  <div class="wrap">
+    <h2>The numbers, <span class="hl">by platform</span></h2>
+    <p class="lede">Taken straight from each platform's own analytics on 26 November 2026. Happy to share live screenshots on request.</p>
+
+    <div class="tabs" role="tablist" aria-label="Platform">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-tiktok" id="t-tiktok">TikTok</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-instagram" id="t-instagram">Instagram</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-facebook" id="t-facebook">Facebook</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-tiktok" aria-labelledby="t-tiktok">
+      <div class="panel-head"><h3>TikTok</h3><a href="https://www.tiktok.com/@travelagentjake">@travelagentjake</a></div>
+      <div class="grid">
+        <div class="stat big"><b>78.3K</b><span>followers</span></div>
+        <div class="stat"><b>30.9M</b><span>video views, last 12 months</span></div>
+        <div class="stat"><b>1.8M</b><span>video views, last 28 days (up 108%)</span></div>
+        <div class="stat"><b>640.6K</b><span>total likes</span></div>
+        <div class="stat"><b>308.6K</b><span>shares, last 12 months</span></div>
+        <div class="stat"><b>34.8K</b><span>comments, last 12 months</span></div>
+        <div class="stat"><b>230.4K</b><span>profile views, last 12 months</span></div>
+        <div class="stat"><b>88.7%</b><span>of views come from the For You page, with a further 9.6% from search</span></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-instagram" aria-labelledby="t-instagram" hidden>
+      <div class="panel-head"><h3>Instagram</h3><a href="https://www.instagram.com/travelagentjake/">@travelagentjake</a></div>
+      <div class="grid">
+        <div class="stat big"><b>73.8K</b><span>followers</span></div>
+        <div class="stat"><b>973.8K</b><span>views, last 30 days</span></div>
+        <div class="stat"><b>545.8K</b><span>unique viewers, last 30 days (Instagram and Facebook)</span></div>
+        <div class="stat"><b>49.4K</b><span>interactions, last 30 days</span></div>
+        <div class="stat"><b>23.7K</b><span>accounts engaged, last 30 days</span></div>
+        <div class="stat"><b>4,875</b><span>profile visits, last 30 days</span></div>
+        <div class="stat"><b>574</b><span>link in bio taps, last 30 days</span></div>
+        <div class="stat"><b>94.7%</b><span>of views come from Reels</span></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-facebook" aria-labelledby="t-facebook" hidden>
+      <div class="panel-head"><h3>Facebook</h3><a href="https://www.facebook.com/JakeCullumHollins/">Travel Agent Jake</a></div>
+      <div class="grid">
+        <div class="stat big"><b>17.6K</b><span>followers</span></div>
+        <div class="stat"><b>530.7K</b><span>views, last 30 days</span></div>
+        <div class="stat"><b>+802</b><span>net new followers, last 28 days (up 5%)</span></div>
+        <div class="stat"><b>88.4%</b><span>of followers are in the United Kingdom</span></div>
+        <div class="stat"><b>85%</b><span>of followers are aged 45 and over</span></div>
+        <div class="stat"><b>74.3%</b><span>of views come from the Feed</span></div>
+        <div class="stat"><b>2,261</b><span>page visits, last 28 days</span></div>
+        <div class="stat"><b>Top 5</b><span>cities: London, Liverpool, Birmingham, Glasgow, Leeds</span></div>
+      </div>
+      <p class="note">Every Reel I post on Instagram also goes out to my Facebook audience.</p>
+    </div>
+  </div>
+</section>
+
+<section class="on-paper" id="audience">
+  <div class="wrap">
+    <h2>Who is <span class="hl">watching</span></h2>
+    <p class="lede">A grown up UK audience with the time, the budget and the intent to travel.</p>
+    <div class="aud">
+      <div class="card">
+        <h3>Age (TikTok followers)</h3>
+        <div class="bars">
+          <div class="row"><span>18 to 24</span><div class="track"><div class="fill" style="width:5.9%"></div></div><em>5.9%</em></div>
+          <div class="row"><span>25 to 34</span><div class="track"><div class="fill" style="width:16.8%"></div></div><em>16.8%</em></div>
+          <div class="row"><span>35 to 44</span><div class="track"><div class="fill" style="width:23.4%"></div></div><em>23.4%</em></div>
+          <div class="row"><span>45 to 54</span><div class="track"><div class="fill" style="width:25.7%"></div></div><em>25.7%</em></div>
+          <div class="row"><span>55 plus</span><div class="track"><div class="fill" style="width:28.2%"></div></div><em>28.2%</em></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Gender (TikTok followers)</h3>
+        <div class="split" role="img" aria-label="76 percent female, 24 percent male">
+          <div class="f">76% female</div><div class="m">24% male</div>
+        </div>
+        <h3 style="margin-top:26px">Top locations (TikTok followers)</h3>
+        <div class="bars">
+          <div class="row"><span>UK</span><div class="track"><div class="fill" style="width:76.5%"></div></div><em>76.5%</em></div>
+          <div class="row"><span>Ireland</span><div class="track"><div class="fill" style="width:3.7%"></div></div><em>3.7%</em></div>
+          <div class="row"><span>USA</span><div class="track"><div class="fill" style="width:2.3%"></div></div><em>2.3%</em></div>
+        </div>
+      </div>
+      <div class="card takeaway">
+        <p><b>77% are aged 35 and over</b> and three in four are women in the UK. These are the people who research, choose and pay for the family holiday.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="wrap">
+    <h2>Top <span class="hl">videos</span></h2>
+    <p class="lede">Tap any tile to watch. View counts are as shown on each platform on 26 November 2026.</p>
+    <div class="tabs" role="group" aria-label="Filter videos">
+      <button class="tab" data-filter="all" aria-selected="true">All</button>
+      <button class="tab" data-filter="tiktok" aria-selected="false">TikTok</button>
+      <button class="tab" data-filter="instagram" aria-selected="false">Instagram</button>
+    </div>
+    <div class="videos" id="videoGrid"></div>
+  </div>
+</section>
+
+<section class="on-paper" id="partners">
+  <div class="wrap">
+    <h2>Brands I'm <span class="hl">working with</span></h2>
+    <p class="lede">I only take on partners I would recommend to my own audience. That keeps the audience's trust, and it is why sponsored content performs.</p>
+    <div class="partners">
+      <div class="partner"><span class="status live">Live</span><h3>Airalo</h3><p>Travel eSIMs. Filmed on location in Budapest, showing how to buy and install an eSIM before you land, with supporting Stories.</p></div>
+      <div class="partner"><span class="status pending">In progress</span><h3>Sundeals</h3><p>Partnership currently being finalised.</p></div>
+      <div class="partner"><span class="status pending">In progress</span><h3>Temu</h3><p>Partnership currently being finalised.</p></div>
+      <div class="partner"><span class="status pending">In progress</span><h3>Level8</h3><p>Luggage. Partnership currently being finalised.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="on-blue" id="offer">
+  <div class="wrap">
+    <h2>What I can <span class="hl">do for you</span></h2>
+    <div class="offer">
+      <div class="stat"><h3>Hotel and resort features</h3><p>Stay, film and review. Room tours, food, pools, kids' clubs and the honest detail holidaymakers want before they book.</p></div>
+      <div class="stat"><h3>Sponsored Reels and TikToks</h3><p>Talking to camera content in my usual style, scripted by me, with your key messages built in naturally.</p></div>
+      <div class="stat"><h3>Story sets</h3><p>Behind the scenes Stories with link stickers and discount codes that drive direct clicks.</p></div>
+      <div class="stat"><h3>Destination campaigns</h3><p>Multi video series for tourist boards and operators, covering what to do, where to stay and what it costs.</p></div>
+      <div class="stat"><h3>Recommendations that land</h3><p>My audience comes to me for advice before they book, so a recommendation from me carries real weight with people who are ready to travel.</p></div>
+      <div class="stat"><h3>Beyond social</h3><p>Destination guides on travelagentjake.co.uk, a link in bio placement, and features on the Tales of a Travel Agent podcast.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="on-paper" id="rates">
+  <div class="wrap">
+    <h2>Example <span class="hl">rates</span></h2>
+    <p class="lede">A guide to get the conversation started. Every brief is different, so tell me what you need and I will put together a package.</p>
+    <div class="rates">
+      <div class="card">
+        <div class="price"><div><b>Reel or TikTok</b><span>One sponsored short form video</span></div><strong>£250</strong></div>
+        <div class="price"><div><b>Instagram Story</b><span>Per story frame, with link sticker</span></div><strong>£50</strong></div>
+        <div class="price"><div><b>Hosted stays and campaigns</b><span>Hotel visits, press trips, multi video series, usage rights</span></div><strong style="font-size:22px">On request</strong></div>
+        <p class="note">Rates are per deliverable and exclude travel costs for on location filming.</p>
+      </div>
+      <div class="card calc">
+        <h3>Build a package</h3>
+        <div class="step"><label for="nReels">Reels or TikToks</label>
+          <div class="stepper"><button type="button" data-t="nReels" data-d="-1" aria-label="Fewer videos">−</button><output id="nReels">1</output><button type="button" data-t="nReels" data-d="1" aria-label="More videos">+</button></div></div>
+        <div class="step"><label for="nStories">Stories</label>
+          <div class="stepper"><button type="button" data-t="nStories" data-d="-1" aria-label="Fewer stories">−</button><output id="nStories">3</output><button type="button" data-t="nStories" data-d="1" aria-label="More stories">+</button></div></div>
+        <div class="total"><span>Guide price</span><b id="total">£400</b></div>
+        <div class="presets">
+          <button type="button" data-r="1" data-s="3">1 video and 3 stories</button>
+          <button type="button" data-r="2" data-s="5">2 videos and 5 stories</button>
+          <button type="button" data-r="3" data-s="10">3 videos and 10 stories</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>How it <span class="hl">works</span></h2>
+    <ol class="how">
+      <li><b>Brief</b><span>Send me your goals, key messages, dates and budget.</span></li>
+      <li><b>Plan</b><span>I come back with content ideas, deliverables and a quote.</span></li>
+      <li><b>Create</b><span>I film and edit everything myself and share it for approval.</span></li>
+      <li><b>Report</b><span>After posting you get the real numbers for every piece of content.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's make something people actually watch.</h2>
+    <p class="lede">Tell me about your hotel, destination or product and I will reply with ideas and availability.</p>
+    <div class="mail">
+      <span class="addr" id="addr">enquiries@travelagentjake.co.uk</span>
+      <a class="btn" href="mailto:enquiries@travelagentjake.co.uk?subject=Brand%20partnership%20enquiry">Email Jake</a>
+      <button class="btn ghost" type="button" id="copy">Copy email</button>
+    </div>
+    <div class="socials">
+      <a class="btn ghost small" href="https://www.tiktok.com/@travelagentjake">TikTok</a>
+      <a class="btn ghost small" href="https://www.instagram.com/travelagentjake/">Instagram</a>
+      <a class="btn ghost small" href="https://www.facebook.com/JakeCullumHollins/">Facebook</a>
+      <a class="btn ghost small" href="https://travelagentjake.co.uk">Website</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">Travel Agent Jake. All figures from TikTok Studio, Instagram Insights and Facebook Insights, correct on 26 November 2026.</div></footer>
+
+<script>
+var IMG="images/media-kit/";
+var videos=[
+ {p:"tiktok",v:"1.6M",t:"Your EHIC is now invalid",img:"tt-ehic",url:"https://www.tiktok.com/@travelagentjake/video/7669356296067419414"},
+ {p:"tiktok",v:"1.5M",t:"Travelling to Europe after 10 April",img:"tt-europe",url:"https://www.tiktok.com/@travelagentjake/video/7622989463098068246"},
+ {p:"tiktok",v:"962.9K",t:"Jump the EES queues",img:"tt-ees",url:"https://www.tiktok.com/@travelagentjake/video/7625879380979354902"},
+ {p:"tiktok",v:"905.4K",t:"Sunflower lanyards in Spain",img:"tt-sunflower",url:"https://www.tiktok.com/@travelagentjake/video/7646030336698109206"},
+ {p:"tiktok",v:"898.5K",t:"New USA entry requirements",img:"tt-usa",url:"https://www.tiktok.com/@travelagentjake/video/7703544044420336918"},
+ {p:"tiktok",v:"734.9K",t:"Palma EES process update",img:"tt-palma",url:"https://www.tiktok.com/@travelagentjake/video/7636705334777613590"},
+ {p:"instagram",v:"492K",t:"New USA entry requirements",img:"ig-usa",url:"https://www.instagram.com/reel/DfPRWE0g5xr/"},
+ {p:"instagram",v:"163K",t:"Booking.com under investigation",img:"ig-booking",url:"https://www.instagram.com/reel/DeyXtengaLw/"},
+ {p:"instagram",v:"113K",t:"Global blackout rumours",img:"ig-blackout",url:"https://www.instagram.com/reel/Dfr2GmDgUGd/"},
+ {p:"instagram",v:"103K",t:"Jet2holidays discount website",img:"ig-jet2",url:"https://www.instagram.com/reel/DezX0BAAXv8/"},
+ {p:"instagram",v:"95.5K",t:"Cyprus passport control in 2027",img:"ig-cyprus",url:"https://www.instagram.com/reel/Df-Fhmzg8-9/"},
+ {p:"instagram",v:"69.1K",t:"Is it safe to travel to Dubai?",img:"ig-dubai",url:"https://www.instagram.com/reel/DfhhrwDgtD0/"}
+];
+var grid=document.getElementById("videoGrid");
+grid.innerHTML=videos.map(function(x){
+  return '<a class="vid" data-p="'+x.p+'" href="'+x.url+'" target="_blank" rel="noopener"><img loading="lazy" src="'+IMG+x.img+'.jpg" alt="'+x.t+'"><span class="watch">'+(x.p==="tiktok"?"TikTok":"Instagram")+'</span><span class="meta"><span class="views">'+x.v+'<small>views</small></span><span class="t">'+x.t+'</span></span></a>';
+}).join("");
+var strip=videos.concat(videos).map(function(x){return '<img src="'+IMG+x.img+'.jpg" alt="">';}).join("");
+document.getElementById("reel").innerHTML=strip;
+
+document.querySelectorAll('[role="tab"]').forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll('[role="tab"]').forEach(function(o){
+      var on=o===b;o.setAttribute("aria-selected",on);
+      document.getElementById(o.getAttribute("aria-controls")).hidden=!on;
+    });
+  });
+});
+document.querySelectorAll("[data-filter]").forEach(function(b){
+  b.addEventListener("click",function(){
+    var f=b.dataset.filter;
+    document.querySelectorAll("[data-filter]").forEach(function(o){o.setAttribute("aria-selected",o===b);});
+    grid.querySelectorAll(".vid").forEach(function(v){v.hidden=!(f==="all"||v.dataset.p===f);});
+  });
+});
+var R=document.getElementById("nReels"),S=document.getElementById("nStories"),T=document.getElementById("total");
+function calc(){T.textContent="£"+(R.value*250+S.value*50).toLocaleString("en-GB");}
+document.querySelectorAll(".stepper button").forEach(function(b){
+  b.addEventListener("click",function(){var o=document.getElementById(b.dataset.t);o.value=Math.max(0,Math.min(20,(+o.value)+(+b.dataset.d)));calc();});
+});
+document.querySelectorAll(".presets button").forEach(function(b){
+  b.addEventListener("click",function(){R.value=b.dataset.r;S.value=b.dataset.s;calc();});
+});
+document.getElementById("copy").addEventListener("click",function(){
+  var btn=this;
+  try{navigator.clipboard.writeText(document.getElementById("addr").textContent).then(function(){btn.textContent="Copied";setTimeout(function(){btn.textContent="Copy email";},1800);},function(){});}catch(e){}
+});
+</script>
+</body>
+</html>
