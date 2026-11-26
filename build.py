@@ -27979,6 +27979,7 @@ SITEMAP_PAGES = [
     ("", "1.0"),
     ("my-booking.html", "0.8"),
     ("about.html", "0.8"),
+    ("media-kit.html", "0.7"),
     ("book.html", "0.9"),
     ("enquiry.html", "0.8"),
     ("ski-quiz.html", "0.8"),
@@ -28120,6 +28121,7 @@ LLMS_TXT = """# Travel Agent Jake
 ## Pages
 - [Home](https://travelagentjake.co.uk/): overview, how to book, financial protection info
 - [About](https://travelagentjake.co.uk/about.html): Jake's background and 15 years in travel
+- [Media Kit](https://travelagentjake.co.uk/media-kit.html): Jake's media kit as a UK travel content creator, with follower counts and analytics for TikTok, Instagram and Facebook, audience demographics, top videos, brand partnerships and sponsored content rates
 - [Links](https://bio.travelagentjake.co.uk/): recommended travel products and useful official links (eSIMs, passport/ETIAS checkers, GHIC, FCDO travel advice)
 - [How to Book](https://travelagentjake.co.uk/book.html): the three ways to start booking a holiday with Jake
 - [Ski Resort Quiz](https://travelagentjake.co.uk/ski-quiz.html): a short quiz matching users to a ski resort persona (piste mileage, off-piste/powder, apres-ski/nightlife, relaxed/luxury, or food-focused) and a budget tier, with a full reference guide covering 25 named ski resorts including piste km, run counts by difficulty colour, lift counts, altitude, budget tier and things to do off the slopes
