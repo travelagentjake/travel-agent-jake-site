@@ -1486,17 +1486,6 @@
    "fromPrice": 5094.8
   },
   {
-   "slug": "teri",
-   "url": "https://quotes.travelagentjake.co.uk/teri",
-   "customer": "Teri O brien",
-   "enquiryId": "mwx9nwx3w4aj",
-   "quoteRequestId": "mwx9pi3nmbia",
-   "title": "Christmas beach holiday, three all inclusive options for 2 adults and 2 children (14 and 17) from Manchester, 7 nights from 20 or 21 Dec 2026: Aska Lara Resort & Spa and Limak Atlantis Deluxe in Antalya, Alua Village Fuerteventura (Jet2holidays)",
-   "created": "2026-11-26",
-   "departs": "2026-12-20",
-   "fromPrice": 2496
-  },
-  {
    "slug": "ellen",
    "url": "https://quotes.travelagentjake.co.uk/ellen",
    "customer": "Ellen Bannigan",
@@ -1517,6 +1506,17 @@
    "created": "2026-11-26",
    "departs": "2027-08-08",
    "fromPrice": 2106
+  },
+  {
+   "slug": "teri",
+   "url": "https://quotes.travelagentjake.co.uk/teri",
+   "customer": "Teri O brien",
+   "enquiryId": "mwx9nwx3w4aj",
+   "quoteRequestId": "mwx9pi3nmbia",
+   "title": "After Christmas beach holiday, three all inclusive Antalya options for 2 adults and 2 children (14 and 17) from Manchester, home by 2 Jan 2027: Aska Lara 5 nights from 28 Dec, Side Star Resort and Swandor Topkapi Palace 6 nights from 26 Dec (Jet2holidays)",
+   "created": "2026-11-26",
+   "departs": "2026-12-26",
+   "fromPrice": 2517
   }
  ]
 }
