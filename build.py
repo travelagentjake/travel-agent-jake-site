@@ -2350,6 +2350,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, the hotels I can price up for you from a legendary clifftop icon to a modern adults only escape, levada walks and the Monte cable car, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1674333362725-84e9996aa6fb?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "kos.html",
+        "meta": "Kos, Greece",
+        "title": "Kos, Greece",
+        "excerpt": "How to actually get there, weather by month, the hotels I can price up for you from a Kos Town boutique to a Kardamena family resort, multi centre options with Kalymnos, Bodrum and Patmos, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1496566084516-c5b96fcbd5c8?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -27242,6 +27249,288 @@ print("madeira.html written")
 
 
 
+
+kos_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>KOS, GREECE</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Kos is one of those Greek islands clients ask for by name without always knowing why, and the reason usually becomes obvious the moment they land. It is one of the flattest islands in Greece, so easy to cycle across, scattered with genuine ancient history going back to Hippocrates himself, ringed with long sandy beaches, and only a short ferry hop from two completely different multi centre options. Here is exactly how I put together a trip to Kos, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Kos</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1496566084516-c5b96fcbd5c8?auto=format&amp;fit=crop&w=1200&q=80" alt="Swimmers enjoying a golden sand beach on a sunny day" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Kos sits in the Dodecanese, the most easterly of Greece's main island groups, and it mixes its holiday crowd rather well across the island. Kardamena on the south coast is the lively, younger end of things, with its strip of bars and a long sandy beach. Tigaki and Marmari on the north coast are shallow, calm and sandy, which is exactly why I book so many families in there. Kos Town itself has the harbour, the castle, the famous plane tree and a proper old town feel without ever losing its holiday buzz, and the quieter Kefalos peninsula at the far south west end suits couples and windsurfers who want a bit of distance from it all. Hippocrates, generally regarded as the father of modern medicine, was born on Kos, and the ancient healing sanctuary he trained at is still standing and open to visit.</p>
+    <p style="margin-top:14px;">I compare prices across the suppliers I work with for flights, hotels and transfers to find the best fit for your dates and budget, whether that is a lively family resort in Kardamena, a boutique stay in Kos Town, or a longer multi centre trip taking in Kalymnos, Bodrum or Patmos as well.</p>
+    {jake_tip("The first question I ask a Kos client is simply who is coming. Kardamena for a lively group of friends, Tigaki or Marmari for families with young kids and a shallow entry into the sea, Kos Town for couples who want history and restaurants on the doorstep, and Kefalos for anyone who wants the island's quietest corner.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is by far the most common length I book for Kos, long enough for a proper mix of beach time, a couple of tours and a night or two out, and I book plenty of ten and fourteen night stays for families making the most of the flight. Because Kos runs on seasonal flights roughly from spring through to autumn rather than all year round, it is not really a short break or winter sun destination in the way some of the Spanish islands are, so I steer clients towards a full week or longer rather than three or four nights.</p>
+    <p style="margin-top:14px;">It suits an unusually wide spread of travellers. Families love the shallow, sandy north coast beaches at Tigaki and Marmari. Groups of friends and younger couples gravitate towards Kardamena's nightlife. History minded couples get real value out of Kos Town, with the Asklepion, the castle and the old town all within easy reach. Because the island is so flat, I also book a fair number of keen cyclists and walkers here, and Kos works brilliantly as the start of a longer trip for anyone wanting to add Kalymnos, Bodrum or Patmos on as well.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1507812984078-917a274065be?auto=format&amp;fit=crop&w=1200&q=80" alt="A window view from an aeroplane during golden hour" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Kos International Airport, known locally as Hippokratis Airport, code KGS, sits roughly in the middle of the island. Direct flights run from a wide range of UK airports, seasonally from around April through to October, with flight time of around three hours forty five minutes to four hours fifteen minutes depending on where you fly from. Transfer times from the airport vary by resort, roughly ten minutes to Kos Town, fifteen to twenty minutes to Tigaki or Marmari, twenty to twenty five minutes to Kardamena, and up to thirty five to forty minutes down to Kefalos.</p>
+    {jake_tip("Because Kos is a seasonal flight destination rather than a year round one, the best priced seats and hotel rooms for the popular July and August weeks get booked up early. If a client already knows their dates, I always say to get it booked as soon as the season's flights go on sale rather than waiting.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Kos is one of the hottest and driest of the main Greek islands over summer. These are long term monthly averages.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>14&deg;C</td><td>7&deg;C</td><td>17&deg;C</td></tr>
+          <tr><td>February</td><td>14&deg;C</td><td>7&deg;C</td><td>16&deg;C</td></tr>
+          <tr><td>March</td><td>16&deg;C</td><td>9&deg;C</td><td>16&deg;C</td></tr>
+          <tr><td>April</td><td>20&deg;C</td><td>12&deg;C</td><td>17&deg;C</td></tr>
+          <tr><td>May</td><td>24&deg;C</td><td>15&deg;C</td><td>19&deg;C</td></tr>
+          <tr><td>June</td><td>29&deg;C</td><td>19&deg;C</td><td>22&deg;C</td></tr>
+          <tr><td>July</td><td>32&deg;C</td><td>22&deg;C</td><td>23&deg;C</td></tr>
+          <tr><td>August</td><td>32&deg;C</td><td>21&deg;C</td><td>25&deg;C</td></tr>
+          <tr><td>September</td><td>28&deg;C</td><td>19&deg;C</td><td>24&deg;C</td></tr>
+          <tr><td>October</td><td>24&deg;C</td><td>15&deg;C</td><td>23&deg;C</td></tr>
+          <tr><td>November</td><td>19&deg;C</td><td>12&deg;C</td><td>20&deg;C</td></tr>
+          <tr><td>December</td><td>16&deg;C</td><td>9&deg;C</td><td>19&deg;C</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Kos, compiled from published climate guides. Actual conditions vary year to year.</p>
+    {jake_tip("July and August touch the low thirties most afternoons and Kardamena in particular is at its busiest and loudest, so for clients who want the heat without quite so much crowd, I point a lot of them towards June or September instead, when the sea is just as warm.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1788949943080-928a48e1f0fa?auto=format&amp;fit=crop&w=1200&q=80" alt="Rolling countryside hills at golden hour" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>May, June and September give the best balance of reliable heat, a warm sea and thinner crowds, and these are the months I steer most of my flexible clients towards. July and August are hottest and busiest, especially around Kardamena's nightlife strip, and are the obvious choice for families tied to the school holidays. April and October are noticeably quieter and cooler, but still pleasant enough for walking, cycling and sightseeing around the Asklepion and Kos Town, with the sea still carrying some warmth from summer into October thanks to its thermal lag. Because Kos runs on seasonal flights, there is no real winter season here at all, so clients looking for a winter sun trip need to look elsewhere.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&w=1200&q=80" alt="A whitewashed hotel beside a swimming pool" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Four real, bookable picks across Kos, from a boutique base in Kos Town to a big family all inclusive resort.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best boutique, Kos Town</div>
+        <img src="https://images.unsplash.com/photo-1649053679570-4e0f268002af?auto=format&amp;fit=crop&w=1200&q=80" alt="A whitewashed seafront building with tables and chairs by the water" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">KoSea Boutique Hotel</h3>
+        <p>A smart four star boutique hotel right in Kos Town, a short walk from the harbour, the castle and the old town's restaurants and bars. My pick for couples who want to be in the thick of it on foot without a big resort feel. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best modern city hotel, Kos Town</div>
+        <img src="https://images.unsplash.com/photo-1604601600542-c751186db4a3?auto=format&amp;fit=crop&w=1200&q=80" alt="A modern hotel swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Blue Lagoon City Hotel</h3>
+        <p>A reliable four star hotel a short walk from Kos Town's harbour and old town, with a pool and sun terrace of its own. A dependable choice for couples and families who want an easy, central base without being right on top of the nightlife. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best family all inclusive, Kardamena</div>
+        <img src="https://images.unsplash.com/photo-1532909825484-d59b5ced9ac0?auto=format&amp;fit=crop&w=1200&q=80" alt="A resort pool area with sun loungers" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Mitsis Selection Blue Domes</h3>
+        <p>A large all inclusive resort and spa on the south coast at Kardamena, part of Mitsis Hotels' premium Selection tier, with several pools, a kids' club and direct beach access. A strong pick for families who want everything on site. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best luxury spa, Psalidi</div>
+        <img src="https://images.unsplash.com/photo-1769149255670-aa0ad6428dd6?auto=format&amp;fit=crop&w=1200&q=80" alt="A luxury resort pool overlooking the sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Grecotel LUXME Kos Imperial Thalasso</h3>
+        <p>A beachfront thalassotherapy spa resort just outside Kos Town at Psalidi, part of Grecotel's LUXME luxury collection, with sea water pools and treatment rooms built around its own thalasso programme. My pick for a proper spa focused break. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities and board basis as published at the time of writing and based on previous seasons. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1786374352306-bf1cf5a76105?auto=format&amp;fit=crop&w=1200&q=80" alt="Boats moored in a small Greek island harbour" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Kos is one of the flattest islands in Greece, which makes it genuinely popular for cycling, and bike hire is cheap and easy to find in every resort. Local buses connect Kos Town with the main resorts along both coasts, and taxis are easy to find, though worth booking ahead in peak season. A hire car is the easiest way to reach the Kefalos peninsula, Zia village up on Mount Dikeos, and the Asklepion at your own pace. Kos Town's own port is also the departure point for day trips and ferries across to Kalymnos, Nisyros, Pserimos and Bodrum in Turkey.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1603566541830-972ff1b4b2cd?auto=format&amp;fit=crop&w=1200&q=80" alt="Ancient Greek temple ruins under a clear blue sky" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A few of the bookable tours worth having on your radar, from a volcano day trip to a jeep safari across the island's interior.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="55537,674094,444327,723940"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/kos-l410/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/kos-l410/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Kos &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Multi centre: combining Kos with somewhere else</h2>
+    <p style="margin-top:14px;">Kos sits right at the edge of the Dodecanese chain and within easy ferry reach of Turkey's Aegean coast, which makes it a genuinely easy base to extend into a longer multi centre trip. Here are three real ways I would put it together.</p>
+    <div class="grid-3 equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1634942062514-6e00d236759d?auto=format&amp;fit=crop&w=1200&q=80" alt="A small rocky Greek island surrounded by clear blue water" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Kos &amp; Kalymnos</h3>
+        <p>A short local ferry of around thirty to forty five minutes reaches Kalymnos, known across Europe as a rock climbing destination and for its sponge diving history, and a much quieter, more traditional island than Kos. I would base you at MasouriBlu Boutique Hotel on the west coast at Masouri, close to the climbing crags and the beach, for the Kalymnos leg of the trip.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1760197045829-221c11482607?auto=format&amp;fit=crop&w=1200&q=80" alt="An old stone castle beside a harbour" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Kos &amp; Bodrum, Turkey</h3>
+        <p>A fast catamaran ferry of around forty five minutes to an hour from Kos Town's port crosses into Turkey at Bodrum, swapping whitewashed Greek island lanes for Bodrum Castle, a buzzing marina and the bazaar. I would base you at Doria Hotel Bodrum, in the quieter bay of Bitez just outside the town, for the Bodrum leg of the trip.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1730562934913-17f443692079?auto=format&amp;fit=crop&w=1200&q=80" alt="The Monastery of Saint John the Theologian in Patmos, Greece" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Kos &amp; Patmos</h3>
+        <p>A longer ferry of around two and a half to three hours, often calling at Kalymnos or Leros on the way, reaches Patmos, the island where Saint John the Theologian is said to have written the Book of Revelation, home to the UNESCO listed Monastery of Saint John and the Cave of the Apocalypse. A total change of pace from Kos's resorts. I would base you at Patmos Aktis, A Luxury Collection Resort &amp; Spa, near Skala, for the Patmos leg of the trip.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">These are built as separate bookings combined into one trip rather than a single packaged product, message me and I will put the whole itinerary and transfers together for you.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1598417642835-f05aa7bd7702?auto=format&amp;fit=crop&w=1200&q=80" alt="Ancient ruins beneath a partly cloudy sky" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">The Asklepion</h3>
+        <p>An ancient healing sanctuary set across terraced hillside just outside Kos Town, linked to Hippocrates himself and regarded as one of the birthplaces of modern medicine. The ruins of the temples and treatment halls are still standing, with views back down over Kos Town and across to the Turkish coast.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1675849324506-b64b8b2a92b2?auto=format&amp;fit=crop&w=1200&q=80" alt="The sun setting over a hillside village" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Zia Village &amp; Mount Dikeos</h3>
+        <p>A traditional mountain village known across the island for its sunset views, with tavernas, honey and herb shops lining the main lane. It also sits at the foot of Mount Dikeos, Kos's highest point, where a path leads up through forest to the summit for anyone wanting a proper walk.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1649053679570-4e0f268002af?auto=format&amp;fit=crop&w=1200&q=80" alt="A whitewashed seafront building with tables and chairs by the water" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Kos Town's Castle &amp; the Hippocrates Plane Tree</h3>
+        <p>The Castle of the Knights guards the harbour entrance, built by the Knights of St John, while in the square just below it stands the vast, centuries old Hippocrates Plane Tree, long claimed locally as the spot where Hippocrates once taught his students, now one of the oldest trees in Europe.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1471085507142-12355181f804?auto=format&amp;fit=crop&w=1200&q=80" alt="Sunbeds facing a calm turquoise sea" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Tigaki &amp; the north coast beaches</h3>
+        <p>A long, shallow, sandy beach on the north coast, backed by a salt lake that draws flamingos at certain times of year, and one of the most reliable spots on the island for families with young children thanks to how gently the sea shelves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Greece's official currency is the Euro, and prices below are shown in pounds, converted at an exchange rate of around 1.19 Euros to the pound, correct at the time of writing. These figures are general Greece wide data rather than specific to Kos.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Coffee in a cafe</td><td>&pound;2.87</td></tr>
+          <tr><td>Draught beer, a pint</td><td>&pound;3.99</td></tr>
+          <tr><td>Meal for two, mid range restaurant</td><td>&pound;42.02</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;0.59</td></tr>
+          <tr><td>Taxi, starting fare</td><td>&pound;3.36</td></tr>
+          <tr><td>Petrol, one litre</td><td>&pound;1.55</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: Numbeo's Greece wide cost of living data, checked at time of writing. Euro to pound conversion is approximate and will move around.</p>
+    {jake_tip("Kardamena's bar strip charges a holiday premium like any resort nightlife area, so I always point clients towards Kos Town's backstreets or the tavernas in Zia and the smaller villages for a noticeably better value meal.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Euro, cards widely accepted, some cash useful for buses and smaller tavernas</td></tr>
+          <tr><td>Plug type</td><td>Type C and F, the same as most of mainland Europe, voltage 230V, a UK adaptor is needed</td></tr>
+          <tr><td>Language</td><td>Greek, with English widely spoken in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Direct, seasonal flights from a wide range of UK airports, roughly April to October, around three hours forty five minutes to four hours fifteen minutes</td></tr>
+          <tr><td>Time difference</td><td>Two hours ahead of the UK all year round, since both follow the same seasonal clock changes</td></tr>
+          <tr><td>Entry requirements</td><td>Greece is part of the Schengen area, so UK passport holders do not need a visa for stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure from the Schengen area. Border checks now include fingerprint and photo registration under the EU's Entry/Exit System, and the EU's ETIAS travel authorisation is expected to become mandatory from 2027, not yet at the time of writing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Requirements change from time to time, I always check the current rules with clients before they travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Nikos Zacharoulis, Leonardo Yip, Marcin Szmigiel, Theo Maroulis, Petros Kaltsis, yeswanth M, Vitalii Khodzinskyi, Nick Karvounis, Andrew V, Constantinos Kollias, Miltiadis Fragkidis, W&#322;odzimierz Jaworski and Robert Koorenny via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Kos for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around a lively family resort in Kardamena, a boutique stay in Kos Town, a spa escape in Psalidi, or a proper multi centre with Kalymnos, Bodrum or Patmos, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+kos_guide_body = kos_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+KOS_GUIDE_SCHEMA = article_and_faq_schema(
+    "Kos, Greece",
+    "Jake's honest guide to Kos: how to actually get there, weather by month, the hotels he can price up for you from a Kos Town boutique to a Kardamena family resort, multi centre options with Kalymnos, Bodrum and Patmos, and what it actually costs.",
+    "kos.html",
+    "https://images.unsplash.com/photo-1496566084516-c5b96fcbd5c8?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Kos for me?", "Yes. I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is a lively family resort in Kardamena, a boutique stay in Kos Town, or a spa escape in Psalidi."),
+        ("Do I need a visa for Kos?", "Kos is part of Greece and the Schengen area, so UK passport holders do not need a visa for tourist stays of up to 90 days in any 180 day period. Your passport should be less than 10 years old and valid for at least 3 months beyond your planned departure."),
+        ("Which airport do I fly into for Kos, and how long is the flight?", "Kos International Airport, known locally as Hippokratis Airport, code KGS. Direct, seasonal flights run from a wide range of UK airports roughly from April to October, with flight time of around three hours forty five minutes to four hours fifteen minutes depending on where you fly from."),
+        ("When is the best time to visit Kos?", "May, June and September give the best balance of warm weather and thinner crowds. July and August are hottest and busiest, especially around Kardamena, while Kos runs on seasonal flights so there is no real winter season here."),
+        ("Can Kos be combined with other islands or with Turkey?", "Yes. Kos sits within a short ferry of Kalymnos for rock climbing and a quieter island feel, and of Bodrum on Turkey's Aegean coast, with Patmos a longer ferry away for a quieter, more spiritual final leg."),
+        ("Is Kos good for a family holiday?", "Yes. Tigaki and Marmari on the north coast have long, shallow, sandy beaches that are ideal for younger children, and Kos's handful of large all inclusive resorts around Kardamena work well for families wanting everything on site."),
+    ]
+)
+with open(os.path.join(SITE, "kos.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Kos, Greece | Travel Agent Jake",
+        "Jake's honest guide to Kos: how to actually get there, weather by month, the hotels he can price up for you from a Kos Town boutique to a Kardamena family resort, multi centre options with Kalymnos, Bodrum and Patmos, and what it actually costs.",
+        "destinations.html",
+        kos_guide_body,
+        extra_schema=KOS_GUIDE_SCHEMA,
+        canonical_path="kos.html"
+    ))
+print("kos.html written")
+
+
+
+
 apd_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
   <div class="wrap">
@@ -27753,6 +28042,7 @@ SITEMAP_PAGES = [
     ("ibiza.html", "0.6"),
     ("benidorm.html", "0.6"),
     ("madeira.html", "0.6"),
+    ("kos.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
