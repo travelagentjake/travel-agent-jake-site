@@ -13657,6 +13657,14 @@ TIPS_POSTS = [
         "image": "https://images.unsplash.com/photo-1557598628-bdd7d0767917?auto=format&fit=crop&w=800&h=500&q=80",
         "image_alt": "Car key being handed over for a hire car",
     },
+    {
+        "slug": "ghic-ehic-health-card-renew-what-it-covers.html",
+        "meta": "Health abroad",
+        "title": "Is your GHIC or EHIC still valid? What the free health card actually covers abroad",
+        "excerpt": "Many of the first GHICs and old EHICs are reaching their expiry date. Here's where the free card works, what it does and doesn't cover, how to renew it for free and the copycat sites charging for something that costs nothing.",
+        "image": "https://images.unsplash.com/photo-1777269749032-d8d458ae594d?auto=format&fit=crop&w=800&h=500&q=80",
+        "image_alt": "Empty hospital corridor with benches and doors",
+    },
 ]
 
 
@@ -28241,6 +28249,154 @@ with open(os.path.join(SITE, "international-driving-permit-idp-car-hire-explaine
 print("international-driving-permit-idp-car-hire-explained.html written")
 
 
+ghic_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="travel-tips.html" style="color:inherit;">&larr; Travel tips</a></div>
+    <h1>IS YOUR GHIC OR EHIC STILL VALID? WHAT THE FREE HEALTH CARD ACTUALLY COVERS ABROAD</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">The UK Global Health Insurance Card replaced the old EHIC at the start of 2021, and each card lasts up to five years. That means a lot of the very first GHICs, and plenty of old EHICs, are reaching their expiry date right now, just as people are booking ski trips and Christmas city breaks. Renewing is free and takes a few minutes, but there are copycat websites that will happily charge you for it. Here's exactly what the card covers, where it works, what it doesn't do, and how to renew it properly.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <img src="https://images.unsplash.com/photo-1777269749032-d8d458ae594d?auto=format&fit=crop&w=1600&h=700&q=80" alt="Empty hospital corridor with benches and doors" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <div class="jake-card">
+      <p style="margin:0;"><b>A UK GHIC is free</b> and lets you get state healthcare that becomes medically necessary while you're away, at the same cost as a local resident, and sometimes for free. It works across the EU, and also in Switzerland, Norway, Iceland and Liechtenstein. It lasts up to five years, and you can renew it up to nine months before it runs out.</p>
+      <p style="margin-top:14px; margin-bottom:0;">It is not travel insurance. It won't pay for private hospitals, mountain rescue, treatment on a cruise ship or a flight home if you're seriously ill. The NHS and gov.uk both say plainly that you need proper travel insurance as well.</p>
+    </div>
+    {jake_tip("Get every card in the house out of the drawer tonight and check the expiry date on the front. It's printed on every card, and if yours runs out before or during your next trip, renew it now rather than the week before you fly.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where it works, and where it doesn't</h2>
+    <img src="https://images.unsplash.com/photo-1635330409706-7fd68a8608b9?auto=format&fit=crop&w=1600&h=700&q=80" alt="Brick buildings with cafe tables in a European old town" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The card is designed for the EU, so Spain, Portugal, France, Italy, Greece, Cyprus, Malta, Croatia and the rest are all covered. A few others have been added since Brexit, and it's worth knowing exactly which.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>All EU countries</td><td>Covered, including the Canary Islands, the Balearics, Madeira and the Greek islands</td></tr>
+          <tr><td>Switzerland</td><td>Covered if you're a UK national (or a Swiss or EU citizen, refugee or stateless person, or their family member)</td></tr>
+          <tr><td>Norway, Iceland and Liechtenstein</td><td>Covered since 1 January 2024 under a newer UK agreement, except for student cards</td></tr>
+          <tr><td>Turkey, Egypt, Tunisia, Morocco, Dubai, the USA and the Caribbean</td><td>Not covered at all. These aren't in the EU, so travel insurance is your only cover</td></tr>
+          <tr><td>Australia</td><td>A separate UK agreement gives some necessary care, and your GHIC or EHIC is one way to prove you live in the UK</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: gov.uk healthcare guidance for UK nationals visiting the EU, Iceland, Liechtenstein, Norway or Switzerland, the NHS Business Services Authority, and gov.uk's guidance on reciprocal healthcare agreements with non-EU countries, checked at time of writing. Some older gov.uk pages still say the card can't be used in Norway, Iceland or Liechtenstein, but those predate the 2024 arrangement.</p>
+    {jake_tip("Turkey and Egypt are two of the most popular places I book, and neither one accepts the GHIC. Plenty of people assume it works anywhere in Europe or the Med. It doesn't, so for those two your travel insurance is doing all the work.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>What it covers, and what it definitely doesn't</h2>
+    <img src="https://images.unsplash.com/photo-1770065468294-584de6c1f907?auto=format&fit=crop&w=1600&h=700&q=80" alt="Skiers on a snowy mountain slope with trees" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The card gets you state provided healthcare that becomes medically necessary during your trip and can't reasonably wait until you're home. That includes emergency treatment, visits to a state doctor or hospital, and treatment for a pre-existing or long term condition. You pay whatever a local resident would pay, which in some countries is nothing and in others is a contribution towards the bill.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Emergency and medically necessary state treatment</td><td>Covered, at the same cost as a local resident</td></tr>
+          <tr><td>Treatment for pre-existing and long term conditions</td><td>Covered, as long as the treatment becomes necessary during your trip</td></tr>
+          <tr><td>Private hospitals and private clinics</td><td>Not covered</td></tr>
+          <tr><td>Mountain rescue on the slopes</td><td>Not covered</td></tr>
+          <tr><td>Treatment on board a cruise ship, even in port</td><td>Not covered</td></tr>
+          <tr><td>Medical repatriation, a flight home if you're ill</td><td>Not covered</td></tr>
+          <tr><td>Travelling abroad specifically to get treatment</td><td>Not covered under the GHIC</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;">The ski point matters at this time of year. Being brought down the mountain by a rescue team or helicopter is exactly the kind of cost the GHIC doesn't touch, and some resort clinics are private, which means the card won't help there either. That's why winter sports cover on your travel insurance is so important. I've written a separate guide on <a href="ski-travel-insurance-what-to-check-before-you-go.html">what to check on ski travel insurance</a>.</p>
+    {jake_tip("If you're taken somewhere for treatment, ask straight away whether it's a state or private facility. If it's private, call your travel insurer's emergency line before you agree to anything, because the GHIC won't help you there.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>How to renew it for free, and the copycat sites to avoid</h2>
+    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1600&h=700&q=80" alt="Person using a laptop computer" loading="lazy" style="border-radius:6px; margin-top:18px; margin-bottom:18px; width:100%; aspect-ratio:16/7; object-fit:cover;">
+    <p style="margin-top:14px;">The only official place to apply is the NHS website, and it costs nothing. You can apply for a new card up to nine months before your current one expires, and the NHS recommends applying at least two weeks before you travel so the card has time to arrive. You can add your partner and children to the same application, but each person gets their own card, so check every one.</p>
+    <p style="margin-top:14px;">If you still have an old EHIC, it keeps working until the expiry date printed on it. Once it runs out, you replace it with a GHIC rather than another EHIC.</p>
+    <p style="margin-top:14px;">The catch is the search results. Which? found unofficial sites paying for ads at the top of Google for the new card, and MoneySavingExpert has seen sites charging from around &pound;35 to process an application that's free on the NHS site. Some have taken the money and never sent a card at all. The NHS Business Services Authority says plainly that sites charging a fee have nothing to do with it.</p>
+    <div class="jake-card" style="margin-top:22px;">
+      <p style="margin:0;"><b>Forgotten or lost your card while you're away?</b> You can apply for a Provisional Replacement Certificate, which gives you the same cover as the card itself. You can only do this once you actually need treatment during your trip, not in advance, and you can apply online or by calling the NHS Overseas Healthcare Services helpline on +44 (0)191 218 1999.</p>
+    </div>
+    {jake_tip("Type the NHS address in yourself, or go through nhs.uk, rather than clicking the first search result. If any site asks for a card payment at any point, you're in the wrong place, close it and start again.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <div class="jake-card" style="margin-top:18px;">
+      <h3 style="font-size:16px;">Do I have to pay for a GHIC?</h3>
+      <p>No. A UK GHIC is completely free from the official NHS website. Any site charging you a fee is unofficial and not connected to the NHS.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Is my old EHIC still valid?</h3>
+      <p>Yes, until the expiry date printed on the front. Once it expires, you apply for a free GHIC to replace it.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">When can I renew my GHIC?</h3>
+      <p>Up to nine months before your current card expires. The NHS recommends applying at least two weeks before you travel so the new card arrives in time.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Does the GHIC work in Turkey or Egypt?</h3>
+      <p>No. It covers the EU, plus Switzerland, Norway, Iceland and Liechtenstein. Turkey and Egypt aren't covered, so you rely entirely on your travel insurance there.</p>
+    </div>
+    <div class="jake-card" style="margin-top:14px;">
+      <h3 style="font-size:16px;">Do I still need travel insurance if I have a GHIC?</h3>
+      <p>Yes. The GHIC only covers state healthcare. It won't pay for private treatment, mountain rescue, treatment on a cruise ship or getting you home if you're seriously ill, which is exactly what travel insurance is for.</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    <h2>Booking a trip to Europe this winter?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">Message me where you're heading and I'll help you get the whole holiday sorted, from flights and hotels to the checks worth doing before you go.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="travel-tips.html">More travel tips</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+ghic_body = ghic_body.replace("::NEWSLETTER::", newsletter_section())
+
+GHIC_SCHEMA = article_and_faq_schema(
+    "Is Your GHIC or EHIC Still Valid? What the Free Health Card Actually Covers Abroad",
+    "Many of the first GHICs and old EHICs are reaching their expiry date. Here's where the free card works, what it does and doesn't cover, how to renew it for free and the copycat sites to avoid.",
+    "ghic-ehic-health-card-renew-what-it-covers.html",
+    "https://images.unsplash.com/photo-1777269749032-d8d458ae594d?auto=format&fit=crop&w=800&h=500&q=80",
+    faqs=[
+        ("Do I have to pay for a GHIC?", "No. A UK GHIC is completely free from the official NHS website. Any site charging you a fee is unofficial and not connected to the NHS."),
+        ("Is my old EHIC still valid?", "Yes, until the expiry date printed on the front. Once it expires, you apply for a free GHIC to replace it."),
+        ("When can I renew my GHIC?", "Up to nine months before your current card expires. The NHS recommends applying at least two weeks before you travel so the new card arrives in time."),
+        ("Does the GHIC work in Turkey or Egypt?", "No. It covers the EU, plus Switzerland, Norway, Iceland and Liechtenstein. Turkey and Egypt aren't covered, so you rely entirely on your travel insurance there."),
+        ("Do I still need travel insurance if I have a GHIC?", "Yes. The GHIC only covers state healthcare. It won't pay for private treatment, mountain rescue, treatment on a cruise ship or getting you home if you're seriously ill, which is exactly what travel insurance is for."),
+    ]
+)
+
+with open(os.path.join(SITE, "ghic-ehic-health-card-renew-what-it-covers.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Is Your GHIC or EHIC Still Valid? What the Free Health Card Actually Covers Abroad | Travel Agent Jake",
+        "Many of the first GHICs and old EHICs are reaching their expiry date. Here's where the free card works, what it does and doesn't cover, how to renew it for free and the copycat sites to avoid.",
+        "travel-tips.html",
+        ghic_body,
+        extra_schema=GHIC_SCHEMA,
+        canonical_path="ghic-ehic-health-card-renew-what-it-covers.html"
+    ))
+print("ghic-ehic-health-card-renew-what-it-covers.html written")
+
+
 # ---------------- sitemap.xml ----------------
 SITEMAP_PAGES = [
     ("", "1.0"),
@@ -28354,6 +28510,7 @@ SITEMAP_PAGES = [
     ("air-passenger-duty-rising-april-2027.html", "0.7"),
     ("vapes-power-banks-christmas-gifts-flight-packing-rules.html", "0.7"),
     ("international-driving-permit-idp-car-hire-explained.html", "0.7"),
+    ("ghic-ehic-health-card-renew-what-it-covers.html", "0.7"),
     ("privacy-policy.html", "0.3"),
     ("booking-conditions.html", "0.3"),
     ("club-voyages-privacy-notice.html", "0.3"),
