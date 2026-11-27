@@ -2358,6 +2358,13 @@ DESTINATION_POSTS = [
         "excerpt": "How to actually get there, weather by month, the hotels I can price up for you from a Kos Town boutique to a Kardamena family resort, multi centre options with Kalymnos, Bodrum and Patmos, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1496566084516-c5b96fcbd5c8?auto=format&fit=crop&w=1200&q=80",
     },
+    {
+        "slug": "dominican-republic-punta-cana.html",
+        "meta": "Punta Cana, Dominican Republic",
+        "title": "Punta Cana, Dominican Republic",
+        "excerpt": "How to actually get there, weather by month, the hotels I can price up for you from a quiet adults only escape to a family resort with its own waterpark, real Saona Island and Santo Domingo excursions, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1705507972578-78537a2dda73?auto=format&fit=crop&w=1200&q=80",
+    },
 ]
 
 def destination_card(post):
@@ -27532,6 +27539,266 @@ print("kos.html written")
 
 
 
+puntacana_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>PUNTA CANA, DOMINICAN REPUBLIC</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Punta Cana is the single most requested Caribbean holiday I book for UK clients, and it is easy to see why once you are there. Miles of soft white sand along the eastern tip of the Dominican Republic, warm turquoise water calmed by an offshore reef, and an enormous choice of all inclusive resorts built around a genuinely effortless beach holiday. Here is exactly how I put together a trip to Punta Cana, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Punta Cana</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1705507972578-78537a2dda73?auto=format&amp;fit=crop&w=1200&q=80" alt="A sandy beach lined with palm trees and thatched sunshades in Punta Cana" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Almost every resort in Punta Cana sits along Bavaro Beach, a long stretch of pale sand protected by an offshore reef that keeps the sea calm enough for swimming most of the year. Nearly everything here is sold as all inclusive, often to a genuinely high standard, with several restaurants, swim up bars and nightly entertainment built into the price, which is exactly why so many of my clients choose it for a honeymoon, a milestone celebration, or simply a proper switch off in the sun.</p>
+    <p style="margin-top:14px;">I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is a quiet adults only escape or a family resort with its own waterpark.</p>
+    {jake_tip("A lot of clients ask me whether Punta Cana is safe. The resort strip along Bavaro Beach is well patrolled and extremely geared up for tourism, and most of a stay here happens inside the resort itself anyway. For anything off site, like a Santo Domingo day trip or a Saona Island excursion, I always book through a reputable, established operator rather than arranging anything independently.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is by far the most commonly booked length for Punta Cana, long enough to properly settle into resort life once the long flight is out of the way. Ten and fourteen night stays are also popular, especially for a big family celebration or a milestone trip, and the consistent warmth all year round means there is no genuinely bad time to add on extra nights.</p>
+    <p style="margin-top:14px;">It suits honeymooners and couples wanting a complete all inclusive switch off down to the ground, and it is one of my most booked destinations for large family groups and multi generation celebrations, thanks to the sheer number of resorts with kids clubs, waterparks and family sized rooms. It works just as well for a milestone birthday or anniversary group who want a shared pool and a beach on the doorstep rather than a busy city centre.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1504897264915-7a1d030ccd00?auto=format&amp;fit=crop&w=1200&q=80" alt="Silhouette of a palm tree on the beach in Punta Cana at sunset" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Punta Cana International Airport, code PUJ, sits just a few minutes from the main resort strip along Bavaro Beach, so transfers are refreshingly short for a long haul destination, usually fifteen to thirty minutes depending on which hotel you are booked into. Direct flights run from UK airports including London Gatwick and Manchester, seasonally, mainly through the winter and into spring, with flight time of around nine hours.</p>
+    {jake_tip("Because it is such a long flight, I always point clients travelling with young children, or anyone who struggles to sit still, towards an evening departure where one is available, so a good chunk of the journey is spent asleep rather than watching the clock.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Punta Cana sits close enough to the equator that the temperature barely changes across the year. What changes far more is the rainfall, which is why timing a trip here is really about dodging showers and hurricane season rather than chasing warmth.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>28&deg;C</td><td>21&deg;C</td><td>26&deg;C</td></tr>
+          <tr><td>February</td><td>28&deg;C</td><td>21&deg;C</td><td>26&deg;C</td></tr>
+          <tr><td>March</td><td>29&deg;C</td><td>21&deg;C</td><td>26&deg;C</td></tr>
+          <tr><td>April</td><td>30&deg;C</td><td>22&deg;C</td><td>26&deg;C</td></tr>
+          <tr><td>May</td><td>30&deg;C</td><td>23&deg;C</td><td>27&deg;C</td></tr>
+          <tr><td>June</td><td>31&deg;C</td><td>23&deg;C</td><td>28&deg;C</td></tr>
+          <tr><td>July</td><td>32&deg;C</td><td>24&deg;C</td><td>28&deg;C</td></tr>
+          <tr><td>August</td><td>32&deg;C</td><td>24&deg;C</td><td>28&deg;C</td></tr>
+          <tr><td>September</td><td>32&deg;C</td><td>24&deg;C</td><td>29&deg;C</td></tr>
+          <tr><td>October</td><td>31&deg;C</td><td>23&deg;C</td><td>29&deg;C</td></tr>
+          <tr><td>November</td><td>30&deg;C</td><td>22&deg;C</td><td>28&deg;C</td></tr>
+          <tr><td>December</td><td>29&deg;C</td><td>22&deg;C</td><td>27&deg;C</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for the Punta Cana area, compiled from published climate data. Actual conditions vary year to year, and short, heavy downpours are common even in the drier months, usually clearing within an hour.</p>
+    {jake_tip("The Atlantic hurricane season officially runs from June to the end of November, with the real risk concentrated in August, September and October. A direct hit on Punta Cana itself is rare, but I always make sure clients travelling in that window have solid travel insurance in place well before departure.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">December through April is the classic dry season, with the least rain and the busiest, priciest resorts, especially around Christmas, New Year and February half term. May and June still bring plenty of sunshine with noticeably thinner crowds and better value, before the wetter, more humid summer months and the peak of hurricane season from August to October. November is a bit of a sweet spot I point a lot of flexible clients towards, as the rain starts easing off, prices soften, and the worst of the hurricane risk has usually passed.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1792418599644-38170b22f27f?auto=format&amp;fit=crop&w=1200&q=80" alt="Sun loungers beneath a thatched roof beside a resort pool in Punta Cana" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Five real, bookable picks along Bavaro Beach, from a quiet adults only escape to a full scale family resort with its own waterpark.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best adults only, Bavaro</div>
+        <img src="https://images.unsplash.com/photo-1638297184082-bd7fe6081c82?auto=format&amp;fit=crop&w=1200&q=80" alt="A large swimming pool surrounded by palm trees at a resort" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Bahia Principe Grand Aquamarine</h3>
+        <p>An adults only resort set on its own stretch of white sand beach, with a large pool, a swim up bar, a big international buffet and two speciality restaurants covering French and Japanese Peruvian fusion food. Guests can also use the facilities at two sister hotels next door. My pick for a couples only switch off. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families, Bavaro</div>
+        <img src="https://images.unsplash.com/photo-1559956144-6358aa6ba82e?auto=format&amp;fit=crop&w=1200&q=80" alt="A large resort swimming pool under a bright sky" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Riu Palace Bavaro</h3>
+        <p>A round the clock all inclusive resort practically on the beach, with ten different restaurants and bars, six pools including two with swim up bars, its own waterpark open most days, and two separate kids only swimming areas. A genuine all rounder for families wanting everything on site. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best beachfront, Bavaro</div>
+        <img src="https://images.unsplash.com/photo-1507187632231-5beb21a654a2?auto=format&amp;fit=crop&w=1200&q=80" alt="Palm trees reflected in calm water on a Caribbean beach" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Bahia Principe Luxury Esmeralda</h3>
+        <p>Right on a white sand beach, with loungers, bars and a watersports centre set up on the sand itself, plus free kayaks and snorkelling gear for guests. Inside there is a large buffet, several speciality restaurants and a lagoon style pool with its own swim up bar. A reliable, well located choice for couples and families alike. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best overall, Bavaro</div>
+        <img src="https://images.unsplash.com/photo-1790271975495-441d22f6af56?auto=format&amp;fit=crop&w=1200&q=80" alt="A white wooden bridge over a resort swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Dreams Flora Resort &amp; Spa</h3>
+        <p>A stylish, beachfront resort with two pools including a sea facing infinity pool, eight restaurants, thirteen bars, its own waterpark with a kids pool, and kids and teens clubs with activities like intro scuba sessions in the pool. My pick for a family wanting a bit more polish without losing any of the entertainment. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for a waterpark holiday, Bavaro</div>
+        <img src="https://images.unsplash.com/photo-1790271975808-c3cd4a7c2bf2?auto=format&amp;fit=crop&w=1200&q=80" alt="A wooden bridge crossing a blue tiled resort swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Royalton Splash Punta Cana, An Autograph Collection All Inclusive Resort</h3>
+        <p>Built around a large waterpark with slides, splash zones and a lazy river that works just as well for adults as it does for children. The beach is about ten minutes on foot, reached through the sister property Royalton Punta Cana, and guests can also use some of that hotel's restaurants, including a pub. My pick for a group who want the waterpark to be the main event. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities and board basis as published at the time of writing and based on previous seasons. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">Almost every stay in Punta Cana revolves entirely around the resort itself, and most of my clients never need to arrange their own transport at all. Taxis are easy to find outside any hotel for an evening out or a specific trip, though fares are not metered, so it is worth agreeing a price before you set off. For anything further afield, like Santo Domingo or Saona Island, I always book an organised tour with transfers included rather than arranging a hire car, since distances are long, signage away from the main tourist routes is inconsistent, and a guided trip is simply a more relaxing way to do a one off visit.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1778679412083-f9d45f909441?auto=format&amp;fit=crop&w=1200&q=80" alt="Small boats anchored near a tropical island" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A few of the bookable tours and excursions worth having on your radar, from a catamaran day out at Saona Island to a half day with Punta Cana's rescued monkeys.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="255497,1164879,45557,493521"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/punta-cana-l411/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/punta-cana-l411/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Punta Cana &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1615305182074-29b3a07b9954?auto=format&amp;fit=crop&w=1200&q=80" alt="A street in Santo Domingo's historic Colonial Zone" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Santo Domingo's Colonial Zone</h3>
+        <p>The Dominican Republic's capital, around two to two and a half hours from Punta Cana by road, has the oldest European settlement in the Americas at its heart. Its Colonial Zone is a UNESCO World Heritage Site, with the Americas' first cathedral, first paved street and first fortress all within easy walking distance of each other. Usually visited as a full day tour with transfers included.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1635450695849-bde4bea19b5f?auto=format&amp;fit=crop&w=1200&q=80" alt="An aerial view of a Caribbean beach with a boat in the water" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Saona Island &amp; Bavaro Beach</h3>
+        <p>A protected island off the south east coast, reached by catamaran or speedboat through mangroves and a shallow natural pool where the boats usually stop for a swim. Most trips include a beach lunch on Saona itself. Back on the mainland, Bavaro Beach and neighbouring Macao Beach are worth a walk beyond your own resort's stretch of sand for a change of scenery.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1762360100428-ab39cdd068b1?auto=format&amp;fit=crop&w=1200&q=80" alt="A turquoise natural pool surrounded by lush green forest" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Hoyo Azul &amp; Scape Park</h3>
+        <p>A striking turquoise cenote tucked into the jungle within the Scape Park nature reserve, reached by a short buggy or hiking trail through the forest. The wider park also has zip lines, underground caves and a network of lagoons, and makes for a good half day out away from the resort.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1793618191874-29e23848aea7?auto=format&amp;fit=crop&w=1200&q=80" alt="A cobblestone lane through a stone archway" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Altos de Chavon</h3>
+        <p>A recreated sixteenth century style artists' village above the La Romana coast, with cobbled lanes, workshops, galleries and a church, built from scratch in the 1970s and now a popular stop on tours heading towards La Romana or Saona Island.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">The Dominican Republic's official currency is the Dominican Peso (DOP), though US Dollars are also widely accepted in resorts and tourist areas. Most stays here are all inclusive, so there is relatively little call to spend much beyond tips, excursions and souvenirs. Prices below are shown in pounds, converted at a rate of around 73 pesos to the pound, correct at the time of writing.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;5.49 (about RD$400)</td></tr>
+          <tr><td>Meal for two at a mid range restaurant</td><td>&pound;41.18 (about RD$3,000)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.73 (about RD$126)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;2.06 (about RD$150)</td></tr>
+          <tr><td>Bottled water, small</td><td>&pound;0.65 (about RD$47)</td></tr>
+          <tr><td>Bottle of wine, mid range</td><td>&pound;8.24 (about RD$600)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd sourced averages via Numbeo, checked at time of writing. Dominican Peso to pound conversion is approximate and will move around.</p>
+    {jake_tip("On an all inclusive stay, the only real extra spending most of my clients do is tips, a few off site excursions and souvenirs. US Dollars in small denominations are handy for tipping and accepted everywhere, so there is rarely any need to change a large amount of cash before you travel.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Dominican Peso (DOP), with US Dollars also widely accepted in resorts and tourist areas</td></tr>
+          <tr><td>Plug type</td><td>Type A/B, the same as the US. A UK to US style adapter is needed, and the voltage is 110V rather than the UK's 230V, so check appliances before plugging in directly</td></tr>
+          <tr><td>Language</td><td>Spanish is the official language, with English widely spoken in hotels, restaurants and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 9 hours direct, though routes are seasonal, mainly running through the winter and into spring</td></tr>
+          <tr><td>Time difference</td><td>The Dominican Republic stays on the same time year round and does not change its clocks, so it is 4 hours behind the UK in winter and 5 hours behind during British Summer Time</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders do not need a visa for tourism stays of up to 30 days, extendable to up to 120 days. Everyone must also complete a free online entry and exit form before travelling, available up to 7 days ahead, which issues a QR code to show at check in or on arrival. You may be asked for proof of onward or return travel, and a passport valid for the length of your stay is all that is needed, though the rules are due to be reviewed after 31 December 2026, so I always check the current requirements with clients before they travel</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Requirements change from time to time, I always check the current rules with clients before they travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Kalyan Mukherjee, Joe deSousa, Rosemary Media, Michael Navarro, Conny Schneider, Fernando Jorge, Dan Freeman, Antoine Pouligny, Ruddy Corporan, Sergio Aguirre, Rodrigo Castro and Abraham Hughes via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Punta Cana for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around a quiet adults only escape, a full scale family resort with its own waterpark, or somewhere else entirely, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+puntacana_guide_body = puntacana_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+PUNTACANA_GUIDE_SCHEMA = article_and_faq_schema(
+    "Punta Cana, Dominican Republic",
+    "Jake's honest guide to Punta Cana: how to actually get there, weather by month, the hotels he can price up for you from a quiet adults only escape to a family resort with its own waterpark, real Saona Island and Santo Domingo excursions, and what it actually costs.",
+    "dominican-republic-punta-cana.html",
+    "https://images.unsplash.com/photo-1705507972578-78537a2dda73?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Punta Cana for me?", "Yes. I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is a quiet adults only escape, a full scale family resort with its own waterpark, or something else entirely."),
+        ("Do I need a visa for the Dominican Republic?", "UK passport holders do not need a visa for tourism stays of up to 30 days, extendable up to 120 days. You will also need to complete a free online entry and exit form before travelling, which issues a QR code to show at check in or on arrival. I always check the current requirements with clients before they travel."),
+        ("Which airport do I fly into for Punta Cana, and how long is the flight?", "Punta Cana International Airport, code PUJ, just a few minutes from the main resort strip along Bavaro Beach. Direct, seasonal flights run from UK airports including London Gatwick and Manchester, mainly through the winter and into spring, with flight time of around 9 hours."),
+        ("Is Punta Cana good for families as well as couples?", "Both. Punta Cana has some of the Caribbean's biggest family resorts, with waterparks, kids clubs and family sized rooms, as well as plenty of quieter adults only properties for couples and honeymooners wanting a calmer stay."),
+        ("When is the best time to visit Punta Cana?", "December through April is the driest and busiest, especially around Christmas, New Year and February half term. May and June offer good value with thinner crowds, while August to October is the peak of hurricane season. November is a sweet spot I point a lot of flexible clients towards, with easing rain, softer prices and the worst of the hurricane risk usually past."),
+        ("Is a Punta Cana holiday always all inclusive?", "The vast majority of stays here are sold as all inclusive, often to a genuinely high standard with multiple restaurants and entertainment built in, which is a big part of why I book so many client trips here. I can also look at other board options where they exist, but all inclusive is by far the norm."),
+    ]
+)
+with open(os.path.join(SITE, "dominican-republic-punta-cana.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Punta Cana, Dominican Republic | Travel Agent Jake",
+        "Jake's honest guide to Punta Cana: how to actually get there, weather by month, the hotels he can price up for you from a quiet adults only escape to a family resort with its own waterpark, real Saona Island and Santo Domingo excursions, and what it actually costs.",
+        "destinations.html",
+        puntacana_guide_body,
+        extra_schema=PUNTACANA_GUIDE_SCHEMA,
+        canonical_path="dominican-republic-punta-cana.html"
+    ))
+print("dominican-republic-punta-cana.html written")
+
+
+
+
 apd_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
   <div class="wrap">
@@ -28045,6 +28312,7 @@ SITEMAP_PAGES = [
     ("benidorm.html", "0.6"),
     ("madeira.html", "0.6"),
     ("kos.html", "0.6"),
+    ("dominican-republic-punta-cana.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
