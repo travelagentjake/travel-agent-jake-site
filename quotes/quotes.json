@@ -1517,6 +1517,15 @@
    "created": "2026-11-26",
    "departs": "2026-12-26",
    "fromPrice": 2517
+  },
+  {
+   "slug": "lucykrakow",
+   "url": "https://quotes.travelagentjake.co.uk/lucykrakow",
+   "customer": "Lucy",
+   "title": "Krakow city break, 2 adults 4 nights B&B from Manchester, late Jan or early Feb 2027: Golden Tulip City Center (Fri 29 Jan), Passage Kazimierz (Thu 28 Jan), Polski Pod Bialym Orlem (Thu 4 Feb), Art and Garden Residence (Fri 5 Feb), Hotel Saski (Thu 4 Feb) (TUI and easyJet holidays)",
+   "created": "2026-11-28",
+   "departs": "2027-01-28",
+   "fromPrice": 673
   }
  ]
 }
