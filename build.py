@@ -2364,6 +2364,12 @@ DESTINATION_POSTS = [
         "title": "Punta Cana, Dominican Republic",
         "excerpt": "How to actually get there, weather by month, the hotels I can price up for you from a quiet adults only escape to a family resort with its own waterpark, real Saona Island and Santo Domingo excursions, and what it actually costs.",
         "image": "https://images.unsplash.com/photo-1705507972578-78537a2dda73?auto=format&fit=crop&w=1200&q=80",
+    },    {
+        "slug": "cape-verde-sal-boa-vista.html",
+        "meta": "Cape Verde, Sal & Boa Vista",
+        "title": "Cape Verde: Sal & Boa Vista",
+        "excerpt": "Sal or Boa Vista, how to get there, weather by month, the hotels I can price up for you from an adults only escape to a family resort with a waterpark, real Shark Bay and Viana Desert excursions, and what it actually costs.",
+        "image": "https://images.unsplash.com/photo-1678285305865-283831bdb544?auto=format&fit=crop&w=1200&q=80",
     },
 ]
 
@@ -27806,6 +27812,266 @@ print("dominican-republic-punta-cana.html written")
 
 
 
+capeverde_guide_body = f"""
+<section class="theme-dark" style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="eyebrow"><a href="destinations.html" style="color:inherit;">&larr; Destinations</a></div>
+    <h1>CAPE VERDE: SAL &amp; BOA VISTA</h1>
+    <p class="lead" style="margin-top:18px; margin-bottom:0;">Cape Verde is the winter sun destination I point people towards when they want proper warmth in December, January or February without a long haul flight. Around six hours from the UK, only an hour or two behind UK time, and built around wide sandy beaches and all inclusive resorts on two islands, Sal and Boa Vista. Here is exactly how I put together a trip to Cape Verde, the hotels I can price up for you, and what it actually costs.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>What Jake says about Cape Verde</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1678285305865-283831bdb544?auto=format&amp;fit=crop&w=1200&q=80" alt="Colourful fishing boats lined up on a white sand beach in Cape Verde" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Cape Verde is a group of volcanic islands in the Atlantic, off the coast of West Africa, and almost every UK holiday here goes to one of two islands. Sal is the busier of the two, with the lively little town of Santa Maria sitting right on a long, pale beach and plenty of bars and restaurants within walking distance of the hotels. Boa Vista is quieter and wilder, with huge empty beaches, sand dunes and resorts that tend to feel more self contained. Both are flat, dry and sunny, and the landscape is more desert island than tropical, so do not expect palm fringed jungle.</p>
+    <p style="margin-top:14px;">I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is an adults only escape on Sal or a big family resort with a waterpark on Boa Vista.</p>
+    {jake_tip("The one thing I warn every client about is the wind. Cape Verde is breezy for much of the year, especially from roughly November to May, which is exactly why Sal is so popular for kitesurfing. It keeps the heat comfortable, but it can kick up sand on the beach, so a sheltered pool area and a decent spot on the beach make more difference here than almost anywhere else I book.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Trip length &amp; who it suits</h2>
+    <p style="margin-top:14px;">Seven nights is the most common length for Cape Verde, and with a flight of around six hours it works well for a week of guaranteed warmth in the middle of a UK winter. Ten and fourteen night stays are popular too, especially over Christmas, New Year and February half term, when a lot of my clients want a proper break from the cold.</p>
+    <p style="margin-top:14px;">It suits couples and families who want an easy all inclusive beach holiday with reliable sunshine, and it is one of the best value winter sun options that does not involve a long haul flight. It also suits anyone into watersports, as Sal has a strong reputation for kitesurfing and windsurfing. It is less suited to anyone who wants lush scenery, lots of sightseeing or a big nightlife scene, as the islands are mostly about the beach, the resort and a handful of excursions.</p>
+    <p style="margin-top:14px;"><b>Sal or Boa Vista?</b> Sal suits clients who like to walk into a town in the evening, with Santa Maria's bars, restaurants and pier all close to the main hotel strip. Boa Vista suits clients who want to switch off completely, with longer and emptier beaches, sand dunes and resorts that are mostly further from town. Flights from the UK go direct to both, so the choice really comes down to the feel of holiday you are after.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting there</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1672856181212-b5b5a0065a08?auto=format&amp;fit=crop&w=1200&q=80" alt="The rugged coastline and ocean of Boa Vista, Cape Verde" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Direct flights from the UK run to both main holiday islands. Sal's Amilcar Cabral International Airport, code SID, is roughly fifteen to twenty minutes by road from the hotels around Santa Maria. Boa Vista's Aristides Pereira International Airport, code BVC, is close to the island's main town of Sal Rei, with most resort transfers taking around ten to thirty minutes. TUI Airways and easyJet fly direct from a range of UK airports, with flight times of around five and a half to six and a quarter hours depending on where you fly from and which island you are heading to.</p>
+    {jake_tip("Everyone flying into Cape Verde needs to register online through the government's EASE system before travelling and pay the airport security fee, currently 3,400 Cape Verdean Escudos per person, roughly &pound;27, with children under two exempt. It can be paid online ahead of time or on arrival, but doing it before you fly saves queuing at the airport, so I always remind clients to sort it a few days before departure.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    {ad_slot()}
+    <h2>Weather by month</h2>
+    <p style="margin-top:14px;">Cape Verde's big selling point is how little the weather changes. It stays warm all year, rain is rare outside a short wetter spell in late summer and early autumn, and the sea is at its warmest from August to November.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Month</th><th>Avg high</th><th>Avg low</th><th>Sea temp</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>25&deg;C</td><td>19&deg;C</td><td>23&deg;C</td></tr>
+          <tr><td>February</td><td>25&deg;C</td><td>19&deg;C</td><td>22&deg;C</td></tr>
+          <tr><td>March</td><td>25&deg;C</td><td>19&deg;C</td><td>22&deg;C</td></tr>
+          <tr><td>April</td><td>26&deg;C</td><td>20&deg;C</td><td>22&deg;C</td></tr>
+          <tr><td>May</td><td>26&deg;C</td><td>21&deg;C</td><td>22&deg;C</td></tr>
+          <tr><td>June</td><td>27&deg;C</td><td>22&deg;C</td><td>23&deg;C</td></tr>
+          <tr><td>July</td><td>28&deg;C</td><td>23&deg;C</td><td>24&deg;C</td></tr>
+          <tr><td>August</td><td>30&deg;C</td><td>24&deg;C</td><td>26&deg;C</td></tr>
+          <tr><td>September</td><td>30&deg;C</td><td>25&deg;C</td><td>27&deg;C</td></tr>
+          <tr><td>October</td><td>30&deg;C</td><td>24&deg;C</td><td>27&deg;C</td></tr>
+          <tr><td>November</td><td>28&deg;C</td><td>23&deg;C</td><td>26&deg;C</td></tr>
+          <tr><td>December</td><td>26&deg;C</td><td>21&deg;C</td><td>24&deg;C</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Long term monthly averages for Sal, compiled from published climate data. Boa Vista is very similar. Actual conditions vary year to year, and different sources give slightly different figures.</p>
+    {jake_tip("Twenty five degrees in January sounds modest on paper, but with strong sunshine and a breeze that hides how hot it really is, it is very easy to burn here. I always tell clients to pack high factor suncream and a light layer for the evenings, which can feel cool in the winter months once the sun goes down.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Best time to visit</h2>
+    <p style="margin-top:14px;">November to May is the classic Cape Verde season for UK holidaymakers, dry, sunny and comfortably warm, and it is when the islands really come into their own as winter sun. Christmas, New Year and February half term are the busiest and priciest weeks, so they are worth booking early. This is also the windiest stretch of the year, which is perfect for kitesurfers and keeps the heat pleasant, though it can make some beach days breezy. June and July bring calmer winds and warmer temperatures, while August to October is the hottest and most humid time, with the occasional short downpour and the warmest sea. July to October is also loggerhead turtle nesting season, when guided turtle watching trips run on both Sal and Boa Vista.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Where to stay</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1545403842-6b8149e2759e?auto=format&amp;fit=crop&w=1200&q=80" alt="A large resort swimming pool on Boa Vista, Cape Verde" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>Five real, bookable picks across both islands, from an adults only escape on Sal to a big beachfront family resort on Boa Vista.</p>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <div class="accom-category">Best adults only, Sal</div>
+        <img src="https://images.unsplash.com/photo-1746333578342-3e661512a14d?auto=format&amp;fit=crop&w=1200&q=80" alt="Sun loungers beside a resort pool on a sunny day" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Meli&aacute; Llana Beach Resort &amp; Spa</h3>
+        <p>An adults only, all inclusive resort right on the beach at Ponta Preta, just outside Santa Maria. Expect pools with a swim up bar, buffet and a la carte dining including an Asian bistro, and a full spa with a sauna, steam room and hot tub. My pick for couples wanting a calm, grown up week in the sun. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for families, Sal</div>
+        <img src="https://images.unsplash.com/photo-1687834618283-1b9e12de54a7?auto=format&amp;fit=crop&w=1200&q=80" alt="A row of sun loungers lined up beside a resort swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Riu Palace Santa Maria</h3>
+        <p>A large, 24 hour all inclusive resort on the beach near Santa Maria, with several outdoor pools including one with a swim up bar, a children's pool with slides, the Splash Water World waterpark and the RiuLand kids club. Themed restaurants, a spa and a gym round it off. A genuine all rounder for families who want everything on site. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best for walking into town, Sal</div>
+        <img src="https://images.unsplash.com/photo-1615280238397-0011ad88a682?auto=format&amp;fit=crop&w=1200&q=80" alt="A wooden sun lounger beside a swimming pool" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hilton Cabo Verde Sal Resort</h3>
+        <p>A stylish beachfront hotel on Santa Maria Beach, a short stroll from the town's bars and restaurants. Two outdoor pools plus a children's pool, a handful of restaurants and bars including a beach club, and the Eforea spa. My pick for clients who want a polished hotel without being locked into an all inclusive bubble. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best premium all inclusive, Boa Vista</div>
+        <img src="https://images.unsplash.com/photo-1602593978192-ca57c62746a6?auto=format&amp;fit=crop&w=1200&q=80" alt="A wooden beach hut on a white sand beach" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Riu Palace Boavista</h3>
+        <p>A 24 hour all inclusive resort set beside a long sandy beach, with three outdoor pools and a children's pool, a main restaurant plus themed restaurants including a steakhouse, the Renova spa, and access to the Splash Water World waterpark. Every room has a balcony or terrace. My pick for a more upmarket stay on Boa Vista. I can price this one up for you.</p>
+      </div>
+      <div class="jake-card">
+        <div class="accom-category">Best value beachfront, Boa Vista</div>
+        <img src="https://images.unsplash.com/photo-1741293067173-5ea0cf474cd9?auto=format&amp;fit=crop&w=1200&q=80" alt="A sandy beach with sunshades and boats" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:18px;">Hotel Riu Touareg</h3>
+        <p>A big all inclusive resort directly on the beachfront at Santa Monica in the south of the island, one of Boa Vista's most beautiful and empty beaches. It also has adults only rooms with their own adults only pool, which makes it a handy fit for groups mixing families and couples. It is a long way from Sal Rei, so it suits clients happy to stay put. I can price this one up for you.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Facilities and board basis as published at the time of writing and based on previous seasons. I always check current pricing, board basis and availability before booking.</p>
+  </div>
+</section>
+
+{SUPPLIER_SECTION}
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Getting around</h2>
+    <p style="margin-top:14px;">On Sal, most hotels sit within walking distance of Santa Maria or a short, cheap taxi ride away, so many of my clients never need any transport beyond their transfer. Taxis are easy to find and usually work on agreed fares rather than meters, so settle the price before you set off. On Boa Vista the resorts are more spread out and many are a fair distance from Sal Rei, so a taxi into town for an evening is worth planning ahead. For seeing either island, the roads beyond the main towns are often rough tracks, which is why I always point clients towards an organised 4x4, buggy or quad tour rather than a hire car. Sal and Boa Vista are linked by short domestic flights, but schedules can change, so I would not plan a two island holiday without checking the current timetable first.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Things to do</h2>
+    <p style="margin-top:14px;"><img src="https://images.unsplash.com/photo-1643004868439-64c7c8696187?auto=format&amp;fit=crop&w=1200&q=80" alt="A kitesurfer riding across the water" style="border-radius:6px; margin-bottom:14px; width:100%; aspect-ratio:16/9; object-fit:cover;"></p>
+    <p>A few of the bookable tours and excursions worth having on your radar, from lemon sharks and salt lakes on Sal to dune and shipwreck tours on Boa Vista.</p>
+    <div style="margin-top:22px;">
+      <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="en-GB" data-gyg-widget="activities" data-gyg-number-of-items="4" data-gyg-partner-id="EFDILG1" data-gyg-tour-ids="419597,577761,369771,514169"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/sal-l32380/">GetYourGuide</a></span></div>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/sal-l32380/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Sal &rarr;</a>
+        <a class="btn btn-secondary" href="https://www.getyourguide.com/boa-vista-island-l143216/?partner_id=EFDILG1&amp;utm_medium=online_publisher" target="_blank" rel="sponsored noopener">See more things to do in Boa Vista &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Places to visit</h2>
+    <div class="grid-2-eq equal-cards" style="margin-top:22px;">
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1545245028-59e909149b65?auto=format&amp;fit=crop&w=1200&q=80" alt="Bare volcanic hills under a cloudy sky in Cape Verde" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Pedra de Lume salt lake, Sal</h3>
+        <p>Old salt pans set inside the crater of an extinct volcano on Sal's east coast, where the water is so salty you float effortlessly, a bit like the Dead Sea. It is the stop almost every island tour includes, and it is usually paired with the Buracona natural pool and its Blue Eye, a cave where sunlight lights up the water a vivid blue around midday.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1672855603501-64421fe6b4a8?auto=format&amp;fit=crop&w=1200&q=80" alt="A painted mural on a seafront building in Cape Verde" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Shark Bay &amp; Santa Maria, Sal</h3>
+        <p>At Shark Bay, a short drive north of Santa Maria, you wade into shallow water to watch young lemon sharks swimming around your feet, with water shoes recommended. Back in Santa Maria itself, the old pier is where local fishermen land their catch, and the little town has a relaxed mix of cafes, bars and craft stalls that is easy to wander in an evening.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1591870408955-9f5f749d396c?auto=format&amp;fit=crop&w=1200&q=80" alt="Desert sand dunes with volcanic hills behind on Boa Vista" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Viana Desert &amp; the Cabo Santa Maria wreck, Boa Vista</h3>
+        <p>The Viana Desert is a sweep of pale sand dunes inland from Sal Rei, and the classic Boa Vista 4x4 or buggy tour combines it with the rusting wreck of the Cabo Santa Maria, a cargo ship that ran aground off Atalanta Beach in 1968. Many tours also stop in the village of Rabil, known for its pottery and handicrafts.</p>
+      </div>
+      <div class="jake-card">
+        <img src="https://images.unsplash.com/photo-1570036624162-7b7faade33da?auto=format&amp;fit=crop&w=1200&q=80" alt="A baby sea turtle on the sand" style="border-radius:6px; margin-bottom:14px; aspect-ratio:4/3; object-fit:cover;">
+        <h3 style="font-size:17px;">Turtle nesting season, both islands</h3>
+        <p>From roughly July to October, loggerhead turtles come ashore on the beaches of Sal and Boa Vista to lay their eggs, and local conservation groups run small, guided night walks to watch them without disturbing the nests. It is one of the most memorable things you can do on a late summer or autumn trip, and numbers on each walk are limited, so it is worth booking early.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Cost of living: what things actually cost</h2>
+    <p style="margin-top:14px;">Cape Verde's currency is the Cape Verdean Escudo (CVE), which is pegged to the euro, and euros are widely accepted in the tourist areas of Sal and Boa Vista. Most stays here are all inclusive, so day to day spending tends to be limited to excursions, drinks in town and souvenirs. Prices below are shown in pounds, converted at a rate of around 127 escudos to the pound, correct at the time of writing.</p>
+    <div class="weather-table-wrap">
+      <table class="weather-table">
+        <thead>
+          <tr><th>Item</th><th>Typical price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Meal for one at an inexpensive restaurant</td><td>&pound;6.89 (about 875 CVE)</td></tr>
+          <tr><td>Meal for two at a mid range restaurant</td><td>&pound;43.31 (about 5,500 CVE)</td></tr>
+          <tr><td>Cappuccino</td><td>&pound;1.32 (about 168 CVE)</td></tr>
+          <tr><td>Local draught beer, a pint</td><td>&pound;2.01 (about 255 CVE)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Source: crowd sourced averages via Numbeo for Cape Verde, checked at time of writing. Prices in the tourist hotspots of Santa Maria and Sal Rei can run higher. Escudo to pound conversion is approximate and will move around.</p>
+    {jake_tip("Euros go a long way here, as most bars, taxis and excursion sellers in the tourist areas will take them, though change is often given in escudos. Bring some smaller euro notes for tips and taxis, and remember the airport security fee if you have not already paid it online.")}
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <h2>Quick practical info</h2>
+    <p style="margin-top:14px;">The essentials, at a glance.</p>
+    <div class="weather-table-wrap" style="margin-top:22px;">
+      <table class="weather-table">
+        <tbody>
+          <tr><td>Currency</td><td>Cape Verdean Escudo (CVE), pegged to the euro, with euros widely accepted in tourist areas</td></tr>
+          <tr><td>Plug type</td><td>Type C/F, the two pin European style plug, at 220V. A standard UK to European adapter is all you need</td></tr>
+          <tr><td>Language</td><td>Portuguese is the official language and Cape Verdean Creole (Kriolu) is widely spoken, with English common in hotels and tourist areas</td></tr>
+          <tr><td>Flight time from the UK</td><td>Around 5.5 to 6.25 hours direct to Sal or Boa Vista</td></tr>
+          <tr><td>Time difference</td><td>Cape Verde does not change its clocks, so it is 1 hour behind the UK in winter and 2 hours behind during British Summer Time</td></tr>
+          <tr><td>Entry requirements</td><td>UK passport holders can visit for up to 30 days without a visa. Everyone must register online through the EASE system before arrival and pay the airport security fee of 3,400 CVE, roughly &pound;27, online or on arrival, with children under two exempt. Anyone travelling with a child who is not their own needs a legally certified letter of authorisation from the parent or guardian. I always check the current requirements with clients before they travel</td></tr>
+          <tr><td>Health</td><td>UK health officials have flagged stomach bugs in travellers returning from Cape Verde, so good hand hygiene, sticking to bottled water and avoiding anything undercooked are all sensible. Check TravelHealthPro for current vaccine advice, and make sure you have proper travel insurance, as there is no British Embassy on the islands</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:13px; opacity:0.7;">Requirements change from time to time, I always check the current rules with clients before they travel.</p>
+  </div>
+</section>
+
+<section class="theme-light" style="padding-top:0;">
+  <div class="wrap">
+    <p style="font-size:12px; opacity:0.6;">Photos: Florian K., Dominique Josse, Nick Fewings, Andres Siimon, Nathan Mullet, Thomas Couillard, Nic Berti, Jeffrey Eisen, Timur Garifov, Krisztian Tabori and David Lev&ecirc;que via Unsplash.</p>
+  </div>
+</section>
+
+<section class="theme-dark">
+  <div class="wrap" style="text-align:center;">
+    {ad_slot()}
+    <h2>Fancy Cape Verde for yourself?</h2>
+    <p class="lead" style="max-width:56ch; margin:16px auto 28px;">I can build a trip around an adults only escape on Sal, a big family resort on Boa Vista, or somewhere else entirely, around what you are after.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="book.html">How to Book with Jake</a>
+      <a class="btn btn-secondary" href="destinations.html">More destination guides</a>
+    </div>
+  </div>
+</section>
+
+::NEWSLETTER::
+"""
+capeverde_guide_body = capeverde_guide_body.replace("::NEWSLETTER::", newsletter_section())
+
+CAPEVERDE_GUIDE_SCHEMA = article_and_faq_schema(
+    "Cape Verde: Sal & Boa Vista",
+    "Jake's honest guide to Cape Verde: Sal or Boa Vista, how to get there, weather by month, the hotels he can price up for you from an adults only escape to a family resort with a waterpark, real Shark Bay and Viana Desert excursions, and what it actually costs.",
+    "cape-verde-sal-boa-vista.html",
+    "https://images.unsplash.com/photo-1678285305865-283831bdb544?auto=format&fit=crop&w=1200&q=80",
+    faqs=[
+        ("Can you book a trip to Cape Verde for me?", "Yes. I compare prices across the flights, hotels and transfers I have access to across the suppliers I work with, to find the best fit for your dates and budget, whether that is an adults only escape on Sal, a big family resort on Boa Vista, or something else entirely."),
+        ("Do I need a visa for Cape Verde?", "UK passport holders can visit for up to 30 days without a visa. Everyone must register online through the EASE system before arrival and pay an airport security fee of 3,400 Cape Verdean Escudos, roughly 27 pounds, which can be paid online or on arrival. I always check the current requirements with clients before they travel."),
+        ("How long is the flight to Cape Verde from the UK?", "Around five and a half to six and a quarter hours direct, depending on your departure airport and whether you fly to Sal or Boa Vista. Cape Verde is only one hour behind the UK in winter and two hours behind in British Summer Time, so there is no real jet lag."),
+        ("Should I choose Sal or Boa Vista?", "Sal suits clients who like to walk into a town in the evening, with Santa Maria's bars and restaurants close to the main hotels. Boa Vista suits clients who want to switch off completely, with longer, emptier beaches, sand dunes and resorts that are mostly further from town."),
+        ("When is the best time to visit Cape Verde?", "November to May is the main season, dry, sunny and comfortably warm, which makes Cape Verde one of the best winter sun options within six hours of the UK. It is also the windiest time of year. August to October is the hottest and most humid, with the warmest sea, and July to October is loggerhead turtle nesting season."),
+        ("Is Cape Verde windy?", "Yes, Cape Verde is breezy for much of the year, especially from roughly November to May, which is why Sal is so popular for kitesurfing. The wind keeps the heat comfortable but can make some beach days breezy, so a resort with sheltered pool areas is worth considering."),
+    ]
+)
+with open(os.path.join(SITE, "cape-verde-sal-boa-vista.html"), "w", encoding="utf-8") as f:
+    f.write(page(
+        "Cape Verde: Sal & Boa Vista | Travel Agent Jake",
+        "Jake's honest guide to Cape Verde: Sal or Boa Vista, how to get there, weather by month, the hotels he can price up for you from an adults only escape to a family resort with a waterpark, real Shark Bay and Viana Desert excursions, and what it actually costs.",
+        "destinations.html",
+        capeverde_guide_body,
+        extra_schema=CAPEVERDE_GUIDE_SCHEMA,
+        canonical_path="cape-verde-sal-boa-vista.html"
+    ))
+print("cape-verde-sal-boa-vista.html written")
+
+
+
 
 apd_body = f"""
 <section class="theme-dark" style="padding-bottom:36px;">
@@ -28469,6 +28735,7 @@ SITEMAP_PAGES = [
     ("madeira.html", "0.6"),
     ("kos.html", "0.6"),
     ("dominican-republic-punta-cana.html", "0.6"),
+    ("cape-verde-sal-boa-vista.html", "0.6"),
     ("travel-tips.html", "0.7"),
     ("breeze-vs-airalo-esim.html", "0.6"),
     ("christmas-markets-budapest-vienna-prague.html", "0.6"),
